@@ -1,0 +1,36 @@
+Cathedral Network — UNDP Crisis Mapping Challenge
+Architecture Overview
+May 27, 2026
+
+1. System Overview
+
+The Cathedral Network Spotter is a Progressive Web App (PWA) that enables crisis-affected communities to report infrastructure damage within 48 hours of a disaster. It is built on the existing Cathedral Network — an operational open-source intelligence system with a verified prediction accuracy of 96.2% and a live PWA that loads on $40 smartphones with a single bar of signal.
+
+2. Workflow
+
+Step 1: Capture — The user opens the Spotter app on any smartphone. No app store download is required; the PWA installs from the browser. The user takes a photo of damaged infrastructure using the device camera.
+
+Step 2: Classify — The user selects a damage level from three categories: Minimal, Partial, or Completely Destroyed. An optional AI-assisted classification runs in the browser using a lightweight TensorFlow.js model (no server required).
+
+Step 3: Locate — The app captures the device's GPS coordinates using the browser Geolocation API. If GPS is unavailable, the user can manually drop a pin on the map.
+
+Step 4: Submit — The report (photo, damage level, description, coordinates, timestamp) is stored locally in the browser using localStorage. If the device is offline, the report is queued and synced automatically when connectivity returns via the service worker.
+
+Step 5: Verify — Submitted reports flow through the Cathedral's Quarry Credibility Module (S × H × 1/(1+E)) for automated vetting. Human Wardens confirm or reject reports per Law II.
+
+Step 6: Export — Verified reports are exported as structured JSON, compatible with UNDP crisis response workflows. An interactive map overlay displays all submitted reports.
+
+3. Technical Architecture
+
+- Frontend: HTML/CSS/JavaScript, Leaflet.js for mapping, TensorFlow.js for optional AI classification.
+- Offline: Service worker caches the app and queued reports. All data stays local until connectivity returns.
+- Privacy: No user accounts required. No personal data collected. Geolocation is opt-in. Reports are anonymized before export.
+- License: CC BY-NC-SA 4.0, in perpetuity. All code is open-source and hosted on GitHub.
+
+4. Integration with Cathedral Network
+
+The damage-reporting module is a feature of the broader Cathedral Network — a global resilience intelligence system with 49 Sentinels, a 79-rule cascade engine, and a public, falsifiable prediction log. Reports submitted through this module can be correlated with the Cathedral's existing threat matrix, enabling cross-domain early warning (e.g., infrastructure damage + food price spikes + displacement = compound humanitarian crisis).
+
+5. Why This Matters
+
+Most crisis-reporting tools are built by teams in the Global North and deployed to the Global South. The Cathedral is built for the vulnerable, on the cheapest hardware, by a founder who learned to code on a Chromebook. The Justice Filter mandates that the vulnerable are always warned first. The perpetual open-source license ensures no corporation or state can capture the tool. This is not a hackathon prototype. It is an operational intelligence network adapting its existing Spotter intake pipeline for UNDP's specific use case.
