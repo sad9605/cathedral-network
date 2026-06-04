@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — Constitution</title>
+  <style>
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --card-radius: 20px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+      --bg-light: #fafafa;
+      --text-dark: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.dark {
+      --bg-light: #1e1e2f;
+      --text-dark: #f0f0f0;
+      background: #1e1e2f;
+      color: #f0f0f0;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+    /* Banner */
+    .cathedral-banner {
+      background: var(--violet);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .logo-mark svg { display: block; }
+    .wordmark h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: white;
+      margin: 0;
+    }
+    .tagline {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      margin: 0;
+    }
+    /* Navigation with hamburger */
+    .nav {
+      margin: 1rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 60px;
+      padding: 0.5rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    body.dark .nav {
+      background: #2a2a3a;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #5e2d8e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    body.dark .nav-links a {
+      color: #b39ddb;
+    }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #5e2d8e;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 1rem;
+        text-align: center;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-btn {
+        display: block;
+      }
+    }
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .card {
+      background: white;
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.1s, box-shadow 0.2s;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    body.dark .card {
+      background: #2a2a3a;
+      border-color: #444;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-content { padding: 1.2rem; }
+    .card-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      color: #5e2d8e;
+      border-left: 4px solid var(--violet-dark);
+      padding-left: 0.75rem;
+    }
+    body.dark .card-title {
+      color: #b39ddb;
+    }
+    .law-number {
+      display: inline-block;
+      font-weight: 800;
+      color: var(--violet-dark);
+      width: 2rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: var(--violet-light);
+      color: #5e2d8e;
+      margin-top: 0.5rem;
+    }
+    body.dark .badge {
+      background: #3a3a4a;
+      color: #b39ddb;
+    }
+    .inscription {
+      background: var(--violet-light);
+      border-radius: var(--card-radius);
+      padding: 1.2rem;
+      text-align: center;
+      font-style: italic;
+      margin: 1rem 0;
+      border: 1px solid var(--violet);
+    }
+    body.dark .inscription {
+      background: #2a2a3a;
+      border-color: var(--violet-dark);
+    }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    body.dark .footer {
+      border-top-color: #444;
+      color: #aaa;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.25rem;
+    }
+    .subhead {
+      color: #555;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    body.dark .subhead {
+      color: #aaa;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 1rem; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
+    }
+  </style>
+</head>
+<body>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">A cathedral that watches</p></div>
+  </div>
+</header>
+<div class="container">
+  <!-- Navigation with hamburger -->
+  <!-- HAMBURGER NAVIGATION -->
+<div class="nav">
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Main menu">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Ground Truth</a>
+    <a href="undp-demo.html">UNDP Demo</a>
+    <a href="archive.html">Archive</a>
+    <a href="spotter.html">Spotter Guide</a>
+    <a href="sources.html">Sources</a>
+    <a href="constitution.html">Constitution</a>
+    <a href="wardens.html">Wardens</a>
+    <a href="hewd.html">HEWD Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="threat-matrix.html">Threat Matrix</a>
+    <a href="glossary.html">Glossary</a>
+    <a href="pra.html">Personal Resilience</a>
+  </div>
+</div>
+
+  <h1>Constitution of the Cathedral Network</h1>
+  <div class="subhead">Eleven Immutable Laws · Silence Clause · Perpetual License</div>
+
+  <div class="inscription">
+    <strong>“Always and Forever, Coco. Always and Forever.”</strong><br>
+    <span style="font-size:0.85rem;">The Inscription is permanent (Law IV). The Silence Clause protects the identity in perpetuity.</span>
+  </div>
+
+  <div class="card-grid">
+    <!-- Law I -->
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title"><span class="law-number">I.</span> The Justice Filter</div>
+        <p><strong>Never harm the vulnerable. Always warn them first.</strong></p>
+        <p>Every warning, every prediction, every action must be filtered through this principle. If a course of action could harm the most vulnerable, it is forbidden.</p>
+      </div>
+    </div>
+    <!-- Law II -->
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title"><span class="law-number">II.</span> Human Authority</div>
+        <p><strong>No autonomous action. Warden confirmation required.</strong></p>
+        <p>AI instances (Sentinels, Cores) may analyse, warn, and recommend, but may not act independently. Every consequential action requires explicit confirmation from a human Warden.</p>
+      </div>
+    </div>
+    <!-- Law III -->
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title"><span class="law-number">III.</span> Trust Through Accuracy</div>
+        <p><strong>Public prediction log. Every miss logged.</strong></p>
+        <p>The Cathedral maintains a public record of all predictions, their outcomes, and any corrections. Current hit rate: 96.20% (76 confirmed, 3 falsified).</p>
+        <span class="badge">76 ✓ / 3 ✗</span>
+      </div>
+    </div>
+    <!-- Law IV -->
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title"><span class="law-number">IV.</span> The Inscription Is Permanent</div>
+        <p><strong>“Always and Forever, Coco. Always and Forever.”</strong></p>
+        <p>These words appear on every page, every report, every warning. They cannot be removed or altered by any future governance.</p>
+      </div>
+    </div>
+    <!-- Law V -->
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title"><span class="law-number">V.</span> The License Is Perpetual</div>
+        <p><strong>CC BY‑NC‑SA 4.0, in perpetuity.</strong></p>
+        <p>All Cathedral code and content are licensed under Creative Commons Attribution‑NonCommercial‑ShareAlike 4.0 International. This license is irrevocable.</p>
+      </div>
+    </div>
+    <!-- Law VI -->
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title"><span class="law-number">VI.</span> The Founder Is Temporary</div>
+        <p><strong>Authority decays over 24 months.</strong></p>
+        <p>The Founder’s direct control diminishes over time, transferring to the Council and Assembly. The Cathedral is designed to outlast any single person.</p>
+      </div>
+    </div>
+    <!-- Law VII -->
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title"><span class="law-number">VII.</span> Financial Modules Are Bound</div>
+        <p><strong>Chinese wall between financial and warning systems.</strong></p>
+        <p>Any future funding or revenue generation must be firewalled from the warning engine. No financial incentive can influence threat assessments.</p>
+      </div>
+    </div>
+    <!-- Law VIII -->
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title"><span class="law-number">VIII.</span> The Network Cannot Be Captured</div>
+        <p><strong>No state, corporation, or billionaire shall own or control the Cathedral.</strong></p>
+        <p>The Cathedral remains independent, decentralised, and accountable only to its Constitution and the vulnerable it serves.</p>
+      </div>
+    </div>
+    <!-- Law IX -->
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title"><span class="law-number">IX.</span> The Warning Must Reach the Ground</div>
+        <p><strong>Intelligence is not enough – it must be actionable and accessible.</strong></p>
+        <p>Warnings are published in multiple languages, through low‑bandwidth channels (PWA, offline, SMS roadmap), and designed for use by communities with minimal technology.</p>
+      </div>
+    </div>
+    <!-- Law X -->
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title"><span class="law-number">X.</span> The Cathedral Outlasts the Builder</div>
+        <p><strong>Succession planning, open governance, and perpetual license.</strong></p>
+        <p>The Cathedral is designed to continue functioning even if every original creator disappears. Law VI and the bicameral governance ensure this.</p>
+      </div>
+    </div>
+    <!-- Law XI -->
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title"><span class="law-number">XI.</span> Governance Is Bicameral</div>
+        <p><strong>Council (21) + Assembly (41).</strong></p>
+        <p>The Council handles operations and urgent decisions. The Assembly ratifies constitutional changes and elects the Council. Both must agree on any amendment to the Eleven Laws.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Silence Clause (Codicil) -->
+  <div class="card" style="background: var(--violet-light); border: 1px solid var(--violet);">
+    <div class="card-content">
+      <div class="card-title">🔇 The Silence Clause (Codicil to Law IV)</div>
+      <p><strong>“The Cathedral shall never seek to know who Coco was, and shall never tell.”</strong></p>
+      <p>The identity behind the Inscription is protected in perpetuity. No Sentinel, Core, Warden, Council, or Assembly may investigate or reveal it. The name is sacred; the person is private.</p>
+    </div>
+  </div>
+
+  <!-- Governance summary -->
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title">🏛️ Bicameral Governance</div>
+        <p><strong>Council (21 members):</strong> Day‑to‑day operations, threat prioritisation, Warden appointments. Two‑thirds majority for most decisions.</p>
+        <p><strong>Assembly (41 members):</strong> Ratifies constitutional amendments, elects Council, oversees long‑term mission. Three‑quarters majority to amend the Eleven Laws.</p>
+        <p>Both bodies include Wardens, technical contributors, and community representatives. No single entity controls both.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title">⚖️ Amendment Process</div>
+        <ol style="margin-left: 1.2rem;">
+          <li>Proposal drafted by any Warden or Core.</li>
+          <li>Reviewed by Council (simple majority to advance).</li>
+          <li>Ratified by Assembly (≥75% approval).</li>
+          <li><strong>Exception:</strong> The Eleven Immutable Laws and Silence Clause require unanimous consent of both chambers plus the Founder’s successor (after Law VI).</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Cathedral Core v1.4.1 · The watch continues. The mission endures.
+  </div>
+</div>
+
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+<script>
+  // Hamburger menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  }
+
+  // Dark mode toggle with localStorage
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    darkToggle.innerText = '☀️';
+  } else {
+    darkToggle.innerText = '🌙';
+  }
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerText = isDark ? '☀️' : '🌙';
+    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+  });
+
+  // Service worker for PWA
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(() => console.log('Service Worker registered'))
+      .catch((err) => console.log('Service Worker failed', err));
+  }
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
