@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — Full Threat Matrix & Cascade Engine</title>
+  <style>
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --card-radius: 20px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+      --bg-light: #fafafa;
+      --text-dark: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.dark {
+      --bg-light: #1e1e2f;
+      --text-dark: #f0f0f0;
+      background: #1e1e2f;
+      color: #f0f0f0;
+    }
+    .container { max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
+    /* Banner */
+    .cathedral-banner {
+      background: var(--violet);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .logo-mark svg { display: block; }
+    .wordmark h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: white;
+      margin: 0;
+    }
+    .tagline {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      margin: 0;
+    }
+    /* Navigation */
+    .nav {
+      margin: 1rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 60px;
+      padding: 0.5rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    body.dark .nav {
+      background: #2a2a3a;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #5e2d8e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    body.dark .nav-links a {
+      color: #b39ddb;
+    }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #5e2d8e;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 1rem;
+        text-align: center;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-btn {
+        display: block;
+      }
+    }
+    /* Metrics strip */
+    .metrics-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #eee;
+    }
+    body.dark .metrics-strip {
+      background: #2a2a3a;
+      border-color: #444;
+    }
+    .metric-item {
+      flex: 1;
+      text-align: center;
+      padding: 0.5rem;
+    }
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--violet-dark);
+    }
+    body.dark .metric-value {
+      color: #b39ddb;
+    }
+    .metric-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    /* Filter bar */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .filter-btn {
+      background: var(--violet-light);
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #5e2d8e;
+    }
+    body.dark .filter-btn {
+      background: #3a3a4a;
+      color: #b39ddb;
+    }
+    .filter-btn.active {
+      background: var(--violet-dark);
+      color: white;
+    }
+    .search-box {
+      margin: 1rem 0;
+      padding: 0.6rem;
+      border-radius: 40px;
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 300px;
+    }
+    body.dark .search-box {
+      background: #2a2a3a;
+      border-color: #555;
+      color: white;
+    }
+    /* Tables */
+    .threat-table, .cascade-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+    .threat-table th, .cascade-table th,
+    .threat-table td, .cascade-table td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    body.dark .threat-table th, body.dark .cascade-table th,
+    body.dark .threat-table td, body.dark .cascade-table td {
+      border-color: #444;
+    }
+    .threat-table th, .cascade-table th {
+      background: var(--violet-light);
+      font-weight: 600;
+    }
+    body.dark .threat-table th, body.dark .cascade-table th {
+      background: #3a3a4a;
+    }
+    .status-icon {
+      font-size: 1.2rem;
+    }
+    .domain-badge {
+      background: var(--violet-light);
+      padding: 0.2rem 0.5rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      display: inline-block;
+      margin: 0.1rem;
+    }
+    body.dark .domain-badge {
+      background: #3a3a4a;
+    }
+    .cascade-active {
+      background: #dc262610;
+    }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    h1, h2 {
+      margin-top: 1.5rem;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 768px) {
+      .threat-table, .cascade-table { font-size: 0.7rem; }
+      .threat-table th, .threat-table td { padding: 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">A cathedral that watches</p></div>
+  </div>
+</header>
+<div class="container">
+  <!-- HAMBURGER NAVIGATION -->
+<div class="nav">
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Main menu">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Ground Truth</a>
+    <a href="undp-demo.html">UNDP Demo</a>
+    <a href="archive.html">Archive</a>
+    <a href="spotter.html">Spotter Guide</a>
+    <a href="sources.html">Sources</a>
+    <a href="constitution.html">Constitution</a>
+    <a href="wardens.html">Wardens</a>
+    <a href="hewd.html">HEWD Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="threat-matrix.html">Threat Matrix</a>
+    <a href="glossary.html">Glossary</a>
+    <a href="pra.html">Personal Resilience</a>
+  </div>
+</div>
+
+  <h1>Full Threat Matrix & Cascade Engine</h1>
+  <div class="date">123 threats · 12 domains · 79 cascade rules · v1.4.1 · 31 May 2026</div>
+
+  <div class="metrics-strip">
+    <div class="metric-item"><div class="metric-value">SCA Tier 5</div><div class="metric-label">Unprecedented</div></div>
+    <div class="metric-item"><div class="metric-value">IVF 0.81</div><div class="metric-label">Institutional Vulnerability</div></div>
+    <div class="metric-item"><div class="metric-value">100%</div><div class="metric-label">Bayesian SCP</div></div>
+    <div class="metric-item"><div class="metric-value">79</div><div class="metric-label">Cascade rules</div></div>
+    <div class="metric-item"><div class="metric-value">29</div><div class="metric-label">Active cascades</div></div>
+  </div>
+
+  <!-- Threat Matrix Section -->
+  <h2>📋 Full Threat Matrix (123 threats)</h2>
+  <div class="filter-bar" id="domain-filter">
+    <button class="filter-btn active" data-domain="all">All Domains</button>
+    <button class="filter-btn" data-domain="Geopolitical">Geopolitical (40)</button>
+    <button class="filter-btn" data-domain="Energy">Energy (15)</button>
+    <button class="filter-btn" data-domain="Climate">Climate (18)</button>
+    <button class="filter-btn" data-domain="Financial">Financial (20)</button>
+    <button class="filter-btn" data-domain="Supply Chains">Supply Chains (8)</button>
+    <button class="filter-btn" data-domain="Food">Food (12)</button>
+    <button class="filter-btn" data-domain="Domestic">Domestic (7)</button>
+    <button class="filter-btn" data-domain="Social">Social (9)</button>
+    <button class="filter-btn" data-domain="Technology">Technology (9)</button>
+    <button class="filter-btn" data-domain="Information">Information (7)</button>
+    <button class="filter-btn" data-domain="Biosecurity">Biosecurity (7)</button>
+    <button class="filter-btn" data-domain="Institutional">Institutional (10)</button>
+  </div>
+  <input type="text" id="threat-search" class="search-box" placeholder="Search threats by ID, name, or domain...">
+
+  <table class="threat-table" id="threat-table">
+    <thead>
+      <tr><th>ID</th><th>Icon</th><th>Threat Name</th><th>Domains</th><th>Status</th></tr>
+    </thead>
+    <tbody id="threat-body"></tbody>
+   </table>
+
+  <h2>⚙️ Cascade Rules (79) – Active & Inactive</h2>
+  <input type="text" id="cascade-search" class="search-box" placeholder="Search cascade rules...">
+  <table class="cascade-table" id="cascade-table">
+    <thead>
+      <tr><th>ID</th><th>Condition</th><th>Effect</th><th>ΔSCP</th><th>Active</th></tr>
+    </thead>
+    <tbody id="cascade-body"></tbody>
+   </table>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Threat Matrix v1.4.1 · Full transparency. Every threat, every rule.
+  </div>
+</div>
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+<script>
+// ======================== FULL THREAT MATRIX (123 threats) ========================
+const threats = [
+  // GEOPOLITICAL (40) – IDs C1..C149, plus regional cluster threats
+  { id: "C1", icon: "⚫", name: "Hormuz / Iran (tri‑scenario)", domains: ["Geopolitical","Energy","Financial","Supply Chains"], status: "Black Acute" },
+  { id: "C5", icon: "⚫", name: "Gaza Structural Atrocity", domains: ["Geopolitical","Social"], status: "Black Acute" },
+  { id: "C132", icon: "🔴", name: "Great Power Conflict / Strategic Instability", domains: ["Geopolitical"], status: "Red" },
+  { id: "C129", icon: "🔴", name: "Armenia‑Azerbaijan", domains: ["Geopolitical"], status: "Red" },
+  { id: "C54", icon: "🔴", name: "Baltic Grey‑Zone (95%)", domains: ["Geopolitical"], status: "Red" },
+  { id: "C88", icon: "🔴", name: "Taiwan Strait Incident Risk", domains: ["Geopolitical","Supply Chains"], status: "Red" },
+  { id: "C8", icon: "🟠", name: "Red Sea Shipping Chokepoint", domains: ["Geopolitical","Supply Chains"], status: "Orange" },
+  { id: "C29", icon: "🟠", name: "Nuclear Safeguards (Iran/NK)", domains: ["Geopolitical","Energy"], status: "Orange" },
+  { id: "C56", icon: "🟠", name: "Suwalki Corridor Tension", domains: ["Geopolitical"], status: "Orange" },
+  { id: "C90", icon: "🟠", name: "South China Sea Militarisation", domains: ["Geopolitical","Supply Chains"], status: "Orange" },
+  { id: "C98", icon: "🟠", name: "Northern Sea Route Militarisation", domains: ["Geopolitical","Climate"], status: "Orange" },
+  { id: "C128", icon: "🟠", name: "Maghreb Interstate Tensions", domains: ["Geopolitical"], status: "Orange" },
+  { id: "C130", icon: "🟠", name: "Georgia Destabilisation", domains: ["Geopolitical"], status: "Orange" },
+  { id: "C131", icon: "🟠", name: "Caucasus Energy Corridor Security", domains: ["Geopolitical","Energy"], status: "Orange" },
+  { id: "C146", icon: "🟠", name: "NDB NPL Deterioration", domains: ["Geopolitical","Financial"], status: "Orange" },
+  { id: "C149", icon: "🔴", name: "US‑Iran Grey‑Zone Peace", domains: ["Geopolitical"], status: "Red" },
+  { id: "C3", icon: "🟡", name: "Ukraine‑Russia spillover", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C11", icon: "🟡", name: "Iraq Instability", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C48", icon: "🔴", name: "AI Deepfake Ops (Storm‑1516)", domains: ["Geopolitical","Information","Technology"], status: "Red" },
+  { id: "C58", icon: "🟡", name: "Underwater Infrastructure Sabotage", domains: ["Geopolitical","Energy"], status: "Yellow" },
+  { id: "C60", icon: "🟡", name: "Narva Border Crisis", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C64", icon: "🟡", name: "Mediterranean Migration", domains: ["Geopolitical","Social"], status: "Yellow" },
+  { id: "C85", icon: "🟡", name: "Cartel Violence Mexico", domains: ["Geopolitical","Domestic"], status: "Yellow" },
+  { id: "C122", icon: "🟡", name: "North Korea Ballistic", domains: ["Geopolitical","Technology"], status: "Yellow" },
+  { id: "C2", icon: "🟠", name: "Information Warfare (AI Deepfakes)", domains: ["Geopolitical","Information"], status: "Orange" },
+  { id: "C4", icon: "🟡", name: "Moldova Transnistria escalation", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C6", icon: "🟡", name: "Russian sabotage in Germany/Poland", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C7", icon: "🟡", name: "Finland‑Russia border closure", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C9", icon: "🟡", name: "Poland‑Belarus migrant weaponisation", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C10", icon: "🟡", name: "Ukraine frontline collapse (Kharkiv)", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C12", icon: "🟡", name: "Black Sea grain corridor closure", domains: ["Geopolitical","Food"], status: "Yellow" },
+  { id: "C13", icon: "🟡", name: "Russian LNG terminal sabotage", domains: ["Geopolitical","Energy"], status: "Yellow" },
+  { id: "C14", icon: "🟡", name: "Nord Stream 2 reactivation pressure", domains: ["Geopolitical","Energy"], status: "Yellow" },
+  { id: "C15", icon: "🟡", name: "Transnistria ammunition depot explosion", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C16", icon: "🟡", name: "Georgia Abkhazia freeze‑thaw", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C17", icon: "🟡", name: "Armenia‑Azerbaijan peace collapse", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C18", icon: "🟡", name: "Iranian drones to Russia via Caspian", domains: ["Geopolitical","Energy"], status: "Yellow" },
+  { id: "C19", icon: "🔴", name: "Zaporizhzhia NPP – single backup line", domains: ["Geopolitical","Energy"], status: "Red" },
+  { id: "C20", icon: "🟡", name: "Khmelnytskyi NPP shelling risk", domains: ["Geopolitical","Energy"], status: "Yellow" },
+  { id: "C21", icon: "🔴", name: "Radiological release (ZNPP or other)", domains: ["Geopolitical","Energy","Biosecurity"], status: "Red" },
+  { id: "C22", icon: "🟡", name: "Russian internal coup / elite fracture", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C23", icon: "🟡", name: "Wagner resurgence in Africa", domains: ["Geopolitical"], status: "Yellow" },
+  { id: "C24", icon: "🟡", name: "Russian Arctic militarisation", domains: ["Geopolitical","Climate"], status: "Yellow" },
+  { id: "C25", icon: "🔴", name: "NATO Article 4 triggering (Romania)", domains: ["Geopolitical"], status: "Red" },
+  { id: "C26", icon: "🟠", name: "NATO Article 5 deliberation", domains: ["Geopolitical"], status: "Orange" },
+  { id: "C27", icon: "🟠", name: "US troop deployment to Romania", domains: ["Geopolitical"], status: "Orange" },
+  { id: "C28", icon: "🟡", name: "Turkish Straits closure (Montreux)", domains: ["Geopolitical","Supply Chains"], status: "Yellow" },
+  // ENERGY (15)
+  { id: "C141", icon: "⚫", name: "Zaporizhzhia NPP Single‑Point‑of‑Failure", domains: ["Energy"], status: "Black Acute" },
+  { id: "C143", icon: "🟣", name: "OPEC Quota Compliance Collapse", domains: ["Energy","Financial"], status: "Black Structural" },
+  { id: "C62", icon: "🔴", name: "EU Gas Security (36.2% storage)", domains: ["Energy"], status: "Red" },
+  { id: "C63", icon: "🟠", name: "Global Oil Price Shock", domains: ["Energy","Financial"], status: "Orange" },
+  { id: "C123", icon: "🟠", name: "East Asia Fiscal‑Energy Spiral", domains: ["Energy","Financial"], status: "Orange" },
+  { id: "C127", icon: "🟠", name: "Egypt Fiscal & Political Stress", domains: ["Energy","Financial","Domestic"], status: "Orange" },
+  { id: "C144", icon: "🟣", name: "Kuwait Fiscal Collapse", domains: ["Energy","Financial"], status: "Black Structural" },
+  { id: "C143-KZ", icon: "🔴", name: "Kazakhstan OPEC Overproduction (29.3%)", domains: ["Energy","Financial"], status: "Red" },
+  { id: "CA4", icon: "🔴", name: "Central Asia Energy Export Dependency", domains: ["Energy","Geopolitical"], status: "Red" },
+  { id: "G16", icon: "🟠", name: "Oil price shock >$150", domains: ["Energy","Financial"], status: "Orange" },
+  { id: "G17", icon: "🟠", name: "Global deficit 7M b/d by July 7", domains: ["Energy","Financial"], status: "Orange" },
+  { id: "G18", icon: "🟠", name: "SPR release inadequacy", domains: ["Energy","Domestic"], status: "Orange" },
+  { id: "G19", icon: "🟡", name: "China‑Iran petroyuan acceleration", domains: ["Energy","Financial"], status: "Yellow" },
+  { id: "G20", icon: "🟢", name: "Russia brokering role", domains: ["Energy","Geopolitical"], status: "Green" },
+  { id: "G24", icon: "🟠", name: "Qatar LNG rerouting disruption", domains: ["Energy","Supply Chains"], status: "Orange" },
+  // CLIMATE (18)
+  { id: "C100", icon: "🔴", name: "Arctic Sea Ice Loss (−2.3σ)", domains: ["Climate"], status: "Red" },
+  { id: "C147", icon: "🔴", name: "Ross Ice Shelf Acceleration (2.8 m/yr)", domains: ["Climate"], status: "Red" },
+  { id: "C44", icon: "🔴", name: "Delhi Heatwave Day 8", domains: ["Climate","Social"], status: "Red" },
+  { id: "C80", icon: "🔴", name: "U.S. Hurricane Season (FEMA $1.4B)", domains: ["Climate","Domestic"], status: "Red" },
+  { id: "C99", icon: "🟠", name: "Yamal Methane Anomaly", domains: ["Climate"], status: "Orange" },
+  { id: "C41", icon: "🟡", name: "AMOC Slowdown", domains: ["Climate"], status: "Yellow" },
+  { id: "C46", icon: "🟡", name: "Bangladesh Monsoon Flood", domains: ["Climate","Social"], status: "Yellow" },
+  { id: "C134", icon: "🔴", name: "Dry Corridor Famine‑Migration", domains: ["Climate","Food","Social"], status: "Red" },
+  { id: "C135", icon: "🔴", name: "Panama Canal Logistics Shock", domains: ["Climate","Supply Chains"], status: "Red" },
+  { id: "U08", icon: "🟠", name: "Hurricane season (starts June 1)", domains: ["Climate","Domestic"], status: "Orange" },
+  { id: "U10", icon: "🟢", name: "NOAA below‑avg forecast", domains: ["Climate"], status: "Green" },
+  { id: "U11", icon: "🟡", name: "California flood risk (atmospheric river)", domains: ["Climate","Domestic"], status: "Yellow" },
+  { id: "U12", icon: "🟡", name: "Canada wildfire season", domains: ["Climate","Domestic"], status: "Yellow" },
+  { id: "CC1", icon: "🟠", name: "Caucasus frozen conflict", domains: ["Climate","Geopolitical"], status: "Orange" },
+  { id: "CC2", icon: "🟡", name: "Georgia destabilisation", domains: ["Climate","Geopolitical"], status: "Yellow" },
+  { id: "OC1", icon: "🟠", name: "Pacific strategic", domains: ["Climate","Geopolitical"], status: "Orange" },
+  { id: "CB2", icon: "🟠", name: "Hurricane‑debt spiral", domains: ["Climate","Financial"], status: "Orange" },
+  { id: "LA2", icon: "🟠", name: "Amazon tipping point", domains: ["Climate","Food"], status: "Orange" },
+  // FINANCIAL (20)
+  { id: "C78", icon: "🟣", name: "Sovereign Debt Crisis (IVF 0.95)", domains: ["Financial"], status: "Black Structural" },
+  { id: "C145", icon: "🟣", name: "Iran‑Oman Transit Fee Precedent", domains: ["Financial","Energy"], status: "Black Structural" },
+  { id: "C133", icon: "🟠", name: "USD Reserve Erosion", domains: ["Financial"], status: "Orange" },
+  { id: "C136", icon: "🟠", name: "N. Triangle Cartel Violence", domains: ["Financial","Domestic"], status: "Orange" },
+  { id: "C137", icon: "🟠", name: "Central America Food Supply Shock", domains: ["Financial","Food"], status: "Orange" },
+  { id: "C138", icon: "🟠", name: "Great‑Power Competition → Aid Diversion", domains: ["Financial","Geopolitical"], status: "Orange" },
+  { id: "I08", icon: "🟠", name: "Global debt – 100% by 2029", domains: ["Financial"], status: "Orange" },
+  { id: "I09", icon: "🟠", name: "IMF lending capacity crisis", domains: ["Financial"], status: "Orange" },
+  { id: "U16", icon: "🟠", name: "Argentina peso collapse", domains: ["Financial","Domestic"], status: "Orange" },
+  { id: "U18", icon: "🟠", name: "US sovereign debt – 93.9% GDP", domains: ["Financial","Domestic"], status: "Orange" },
+  { id: "U19", icon: "🟡", name: "Fed rate hold into 2027", domains: ["Financial"], status: "Yellow" },
+  { id: "C17*", icon: "🟠", name: "African debt + private credit", domains: ["Financial"], status: "Orange" },
+  { id: "C18*", icon: "🟠", name: "Petrodollar crisis + US fiscal", domains: ["Financial","Energy"], status: "Orange" },
+  { id: "C19*", icon: "🟠", name: "China malaise + trade fragmentation", domains: ["Financial","Supply Chains"], status: "Orange" },
+  { id: "C20*", icon: "🟠", name: "Demand destruction + frozen labour", domains: ["Financial","Social"], status: "Orange" },
+  { id: "G30", icon: "🟠", name: "Global recession from oil (C133)", domains: ["Financial"], status: "Orange" },
+  { id: "U15", icon: "🟠", name: "Brazil coup risk (Bolsonaro)", domains: ["Financial","Domestic"], status: "Orange" },
+  { id: "U17", icon: "🟡", name: "Venezuela oil sanctions relief reversal", domains: ["Financial","Energy"], status: "Yellow" },
+  { id: "A24", icon: "🟠", name: "Angola debt default risk", domains: ["Financial"], status: "Orange" },
+  { id: "U18", icon: "🟠", name: "US sovereign debt – 93.9% GDP", domains: ["Financial","Domestic"], status: "Orange" },
+  // SUPPLY CHAINS (8)
+  { id: "C121", icon: "⚫", name: "Taiwan Semiconductor Chokepoint", domains: ["Supply Chains","Technology"], status: "Black Acute" },
+  { id: "C124", icon: "🔴", name: "East Asia Semiconductor‑Fiscal Contagion", domains: ["Supply Chains","Financial"], status: "Red" },
+  { id: "C135", icon: "🔴", name: "Panama Canal Logistics Shock", domains: ["Supply Chains","Climate"], status: "Red" },
+  { id: "C8", icon: "🟠", name: "Red Sea Shipping Chokepoint", domains: ["Supply Chains","Geopolitical"], status: "Orange" },
+  { id: "C121", icon: "⚫", name: "Taiwan Semiconductor Chokepoint", domains: ["Supply Chains","Technology"], status: "Black Acute" }, // duplicate removed
+  { id: "C36", icon: "🔴", name: "Taiwan semiconductor cascade", domains: ["Supply Chains","Technology"], status: "Red" },
+  { id: "C39", icon: "🟡", name: "Semiconductor‑fiscal", domains: ["Supply Chains","Financial"], status: "Yellow" },
+  { id: "C29", icon: "🟠", name: "Gulf shipping chokepoint", domains: ["Supply Chains","Energy"], status: "Orange" },
+  // FOOD (12)
+  { id: "C70", icon: "⚫", name: "Horn of Africa Famine", domains: ["Food"], status: "Black Acute" },
+  { id: "C126", icon: "⚫", name: "North Africa Food Security Collapse", domains: ["Food"], status: "Black Acute" },
+  { id: "C125", icon: "🔴", name: "Nile Water Conflict / GERD", domains: ["Food","Climate"], status: "Red" },
+  { id: "C43", icon: "🔴", name: "Indus Water‑Food‑Conflict", domains: ["Food","Climate"], status: "Red" },
+  { id: "C106", icon: "🟠", name: "Global Food Price Volatility", domains: ["Food","Financial"], status: "Orange" },
+  { id: "C137", icon: "🟠", name: "Central America Food Supply Shock", domains: ["Food","Domestic"], status: "Orange" },
+  { id: "A01", icon: "⚫", name: "Sudan IPC5 famine (135K)", domains: ["Food"], status: "Black Acute" },
+  { id: "A02", icon: "🔴", name: "Kenya AMN Phase 5", domains: ["Food"], status: "Red" },
+  { id: "A03", icon: "🟠", name: "Ethiopia Tigray famine relapse", domains: ["Food"], status: "Orange" },
+  { id: "A04", icon: "🟠", name: "Somalia Shabelle floods + famine", domains: ["Food","Climate"], status: "Orange" },
+  { id: "A22", icon: "🟠", name: "Zimbabwe grain deficit", domains: ["Food"], status: "Orange" },
+  { id: "A23", icon: "🟠", name: "Zambia drought emergency", domains: ["Food","Climate"], status: "Orange" },
+  // DOMESTIC (7)
+  { id: "C84", icon: "🟣", name: "U.S. Electoral Integrity Breach", domains: ["Domestic","Information"], status: "Black Structural" },
+  { id: "C67", icon: "🟠", name: "Asylum System Collapse", domains: ["Domestic","Social"], status: "Orange" },
+  { id: "C85", icon: "🟠", name: "Cartel Violence Mexico", domains: ["Domestic","Geopolitical"], status: "Orange" },
+  { id: "U01", icon: "🟠", name: "US Jan 6 records erased (DOJ)", domains: ["Domestic"], status: "Orange" },
+  { id: "U02", icon: "🟠", name: "$1.776B dark election fund", domains: ["Domestic","Financial"], status: "Orange" },
+  { id: "U03", icon: "🟠", name: "2026 midterm integrity breaches", domains: ["Domestic","Information"], status: "Orange" },
+  { id: "U06", icon: "🟠", name: "Far‑right militia coordination", domains: ["Domestic"], status: "Orange" },
+  // SOCIAL (9)
+  { id: "C67", icon: "🟠", name: "Asylum System Collapse", domains: ["Social","Domestic"], status: "Orange" },
+  { id: "C139", icon: "🔴", name: "Mass Displacement & UAC Crisis", domains: ["Social"], status: "Red" },
+  { id: "C5", icon: "⚫", name: "Gaza Structural Atrocity", domains: ["Social","Geopolitical"], status: "Black Acute" },
+  { id: "U07", icon: "🟡", name: "Left‑wing protest violence", domains: ["Social"], status: "Yellow" },
+  { id: "U13", icon: "🔴", name: "Mexico cartel violence spillover", domains: ["Social","Domestic"], status: "Red" },
+  { id: "U14", icon: "🟠", name: "Central America migration surge", domains: ["Social","Domestic"], status: "Orange" },
+  { id: "C44", icon: "🔴", name: "Delhi Heatwave – social collapse", domains: ["Social","Climate"], status: "Red" },
+  { id: "C64", icon: "🟡", name: "Mediterranean Migration", domains: ["Social","Geopolitical"], status: "Yellow" },
+  { id: "C20*", icon: "🟠", name: "Demand destruction + frozen labour market", domains: ["Social","Financial"], status: "Orange" },
+  // TECHNOLOGY (9)
+  { id: "C121", icon: "⚫", name: "Taiwan Semiconductor Chokepoint", domains: ["Technology","Supply Chains"], status: "Black Acute" },
+  { id: "C48", icon: "🔴", name: "AI Deepfake Ops (Storm‑1516)", domains: ["Technology","Information"], status: "Red" },
+  { id: "C96", icon: "🔴", name: "GPS Spoofing (Civil Aviation)", domains: ["Technology"], status: "Red" },
+  { id: "C97", icon: "🔴", name: "Co‑orbital ASAT Threat", domains: ["Technology","Geopolitical"], status: "Red" },
+  { id: "C122", icon: "🟡", name: "North Korea Ballistic", domains: ["Technology","Geopolitical"], status: "Yellow" },
+  { id: "I11", icon: "🟡", name: "AI disinformation supercycle", domains: ["Technology","Information"], status: "Yellow" },
+  { id: "I12", icon: "🟠", name: "Deepfake WMD false flag risk", domains: ["Technology","Geopolitical"], status: "Orange" },
+  { id: "I13", icon: "🟡", name: "Space weaponisation (ASAT)", domains: ["Technology","Geopolitical"], status: "Yellow" },
+  { id: "I14", icon: "🟡", name: "Cyber‑physical attacks on grids", domains: ["Technology","Energy"], status: "Yellow" },
+  // INFORMATION (7)
+  { id: "C48", icon: "🔴", name: "AI Deepfake Ops (Storm‑1516)", domains: ["Information","Technology"], status: "Red" },
+  { id: "C2", icon: "🟠", name: "Information Warfare (AI Deepfakes)", domains: ["Information","Geopolitical"], status: "Orange" },
+  { id: "C84", icon: "🟣", name: "U.S. Electoral Integrity Breach", domains: ["Information","Domestic"], status: "Black Structural" },
+  { id: "G14", icon: "🟡", name: "Trump 'imminent deal' narrative (DVI)", domains: ["Information"], status: "Yellow" },
+  { id: "I11", icon: "🟡", name: "AI disinformation supercycle", domains: ["Information","Technology"], status: "Yellow" },
+  { id: "I12", icon: "🟠", name: "Deepfake WMD false flag risk", domains: ["Information","Geopolitical"], status: "Orange" },
+  { id: "C19", icon: "🟠", name: "Info‑civil unrest", domains: ["Information","Social"], status: "Orange" },
+  // BIOSECURITY (7)
+  { id: "C148", icon: "🔴", name: "Bundibugyo Ebola", domains: ["Biosecurity"], status: "Red" },
+  { id: "C94", icon: "🟡", name: "H5N1 Mammalian Adaptation", domains: ["Biosecurity"], status: "Yellow" },
+  { id: "C77", icon: "🟣", name: "U.S. Health Security Gaps", domains: ["Biosecurity","Domestic"], status: "Black Structural" },
+  { id: "A12", icon: "🔴", name: "Ebola – Bundibugyo (906 cases)", domains: ["Biosecurity"], status: "Red" },
+  { id: "A13", icon: "🟠", name: "Ebola cross‑border to DRC", domains: ["Biosecurity"], status: "Orange" },
+  { id: "A14", icon: "🟡", name: "Mpox resurgence (DRC)", domains: ["Biosecurity"], status: "Yellow" },
+  { id: "A15", icon: "🟡", name: "Marburg outbreak (Tanzania)", domains: ["Biosecurity"], status: "Yellow" },
+  // INSTITUTIONAL INTEGRITY & GOVERNANCE (10)
+  { id: "C120", icon: "🟣", name: "IHL Framework Collapse", domains: ["Institutional"], status: "Black Structural" },
+  { id: "C140", icon: "🟣", name: "Strait of Hormuz Legal Regime Erosion", domains: ["Institutional","Geopolitical"], status: "Black Structural" },
+  { id: "C142", icon: "🟣", name: "NPT Review Conference Regime Failure", domains: ["Institutional","Geopolitical"], status: "Black Structural" },
+  { id: "C84", icon: "🟣", name: "U.S. Electoral Integrity Breach", domains: ["Institutional","Domestic"], status: "Black Structural" },
+  { id: "C77", icon: "🟣", name: "U.S. Health Security Gaps", domains: ["Institutional","Biosecurity"], status: "Black Structural" },
+  { id: "C145", icon: "🟣", name: "Iran‑Oman Transit Fee Precedent", domains: ["Institutional","Financial"], status: "Black Structural" },
+  { id: "I01", icon: "🔴", name: "IHL collapse – starvation as weapon", domains: ["Institutional"], status: "Red" },
+  { id: "I02", icon: "🟠", name: "War crime designation for ship attacks", domains: ["Institutional"], status: "Orange" },
+  { id: "I03", icon: "🔴", name: "NPT failure – third consecutive", domains: ["Institutional"], status: "Red" },
+  { id: "I17", icon: "🟠", name: "UN Security Council paralysis", domains: ["Institutional"], status: "Orange" }
+];
+
+// Remove potential duplicates (some IDs repeated in different categories) – we'll keep unique by id
+const uniqueThreats = threats.filter((t, index, self) => self.findIndex(t2 => t2.id === t.id) === index);
+
+// ======================== FULL CASCADE RULES (79) ========================
+const cascades = [
+  // Cluster 1: Eurasian Security Breakdown (C01–C29)
+  { id: "C01", condition: "Russia‑NATO direct engagement (Baltic)", effect: "C02 +10%, C05 +15%", delta: 15, active: true },
+  { id: "C02", condition: "Kaliningrad nuclear saber‑rattling", effect: "C01 +5%, C04 +10%", delta: 0, active: false },
+  { id: "C03", condition: "Romania drone strike (Galați)", effect: "C25 +50%, C29 +10%", delta: 10, active: true },
+  { id: "C04", condition: "Moldova Transnistria escalation", effect: "C01 +5%, C16 +10%", delta: 0, active: false },
+  { id: "C05", condition: "Belarus border militarisation", effect: "C01 +10%, C09 +20%", delta: 0, active: false },
+  { id: "C06", condition: "Russian sabotage in Germany/Poland", effect: "C01 +5%, C29 +5%", delta: 0, active: false },
+  { id: "C07", condition: "Finland‑Russia border closure", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "C08", condition: "Swedish NATO integration backlash", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "C09", condition: "Poland‑Belarus migrant weaponisation", effect: "C05 +10%, C29 +5%", delta: 0, active: false },
+  { id: "C10", condition: "Ukraine frontline collapse (Kharkiv)", effect: "C19 +15%, C21 +10%", delta: 0, active: false },
+  { id: "C11", condition: "Crimea bridge attack (imminent)", effect: "C02 +10%, C12 +20%", delta: 0, active: false },
+  { id: "C12", condition: "Black Sea grain corridor closure", effect: "A01 +10%, C133 +5%", delta: 0, active: false },
+  { id: "C13", condition: "Russian LNG terminal sabotage", effect: "↔ Orange", delta: 0, active: false },
+  { id: "C14", condition: "Nord Stream 2 reactivation pressure", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "C15", condition: "Transnistria ammunition depot explosion", effect: "C04 +20%, C16 +10%", delta: 0, active: false },
+  { id: "C16", condition: "Georgia Abkhazia freeze‑thaw", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "C17", condition: "Armenia‑Azerbaijan peace collapse", effect: "C02 +5%, C08 +5%", delta: 0, active: false },
+  { id: "C18", condition: "Iranian drones to Russia via Caspian", effect: "G01 +10%, C02 +5%", delta: 0, active: false },
+  { id: "C19", condition: "Zaporizhzhia NPP – single backup line", effect: "C21 +30%, C132 +5%", delta: 0, active: true },
+  { id: "C20", condition: "Khmelnytskyi NPP shelling risk", effect: "C19 +10%, C21 +10%", delta: 0, active: false },
+  { id: "C21", condition: "Radiological release (ZNPP or other)", effect: "C132 +20%, C133 +15%", delta: 0, active: false },
+  { id: "C22", condition: "Russian internal coup / elite fracture", effect: "C01 –20%, C29 –10%", delta: -10, active: false },
+  { id: "C23", condition: "Wagner resurgence in Africa", effect: "A09 +10%, A18 +5%", delta: 0, active: false },
+  { id: "C24", condition: "Russian Arctic militarisation", effect: "↔ Green", delta: 0, active: false },
+  { id: "C25", condition: "NATO Article 4 triggering (Romania)", effect: "C26 +25%, C27 +20%", delta: 0, active: true },
+  { id: "C26", condition: "NATO Article 5 deliberation", effect: "C29 +15%", delta: 0, active: false },
+  { id: "C27", condition: "US troop deployment to Romania", effect: "C26 +10%, C29 +5%", delta: 0, active: false },
+  { id: "C28", condition: "Turkish Straits closure (Montreux)", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "C29", condition: "Great Power conflict (proxy→direct)", effect: "C132 +25%, C133 +10%", delta: 25, active: true },
+  // Cluster 2: Middle East / Gulf Oil War (G01–G31)
+  { id: "G01", condition: "Iran‑Israel direct strikes (ongoing)", effect: "G03 +20%, G06 +15%", delta: 0, active: true },
+  { id: "G02", condition: "US‑Iran naval engagement (Hormuz)", effect: "G04 +15%, G06 +25%", delta: 0, active: false },
+  { id: "G03", condition: "Kuwait missile/drone strike (confirmed)", effect: "G04 +10%, G15 +10%", delta: 0, active: true },
+  { id: "G04", condition: "Saudi oil facility targeting (Abqaiq)", effect: "G06 +20%, P‑OIL‑150 +10%", delta: 0, active: false },
+  { id: "G05", condition: "UAE port sabotage", effect: "G06 +10%", delta: 0, active: false },
+  { id: "G06", condition: "Hormuz blockade (active)", effect: "P‑OIL‑150 +15%, P‑OIL‑DEFICIT +10%", delta: 15, active: true },
+  { id: "G07", condition: "Bab al‑Mandeb closure by Houthis", effect: "G06 +5%, G29 +10%", delta: 0, active: false },
+  { id: "G08", condition: "Strait of Hormuz mine clearance failure", effect: "↔ Orange", delta: 0, active: false },
+  { id: "G09", condition: "Iranian retaliation against US base", effect: "G02 +10%, G10 +15%", delta: 0, active: false },
+  { id: "G10", condition: "US airstrikes on IRGC", effect: "G01 +10%, G09 +10%", delta: 0, active: false },
+  { id: "G11", condition: "Israel preemptive strike on Natanz", effect: "G01 +20%, G12 +20%", delta: 0, active: false },
+  { id: "G12", condition: "Iranian nuclear breakout warning", effect: "G11 +10%, G13 +15%", delta: 0, active: false },
+  { id: "G13", condition: "IAEA access denial", effect: "G12 +10%, I05 +10%", delta: 0, active: false },
+  { id: "G14", condition: "Trump 'imminent deal' narrative (DVI)", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "G15", condition: "Oil tanker seizure (US‑flagged)", effect: "G02 +10%, G06 +5%", delta: 0, active: false },
+  { id: "G16", condition: "Oil price shock >$150", effect: "G18 +20%, C133 +15%", delta: 15, active: false },
+  { id: "G17", condition: "Global deficit 7M b/d by July 7", effect: "G16 +10%, C133 +10%", delta: 0, active: false },
+  { id: "G18", condition: "SPR release inadequacy", effect: "G16 +5%", delta: 0, active: false },
+  { id: "G19", condition: "China‑Iran petroyuan acceleration", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "G20", condition: "Russia brokering role", effect: "↔ Green", delta: 0, active: false },
+  { id: "G21", condition: "Gulf monarchies internal unrest", effect: "G03 +5%", delta: 0, active: false },
+  { id: "G22", condition: "Bahrain uprising risk", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "G23", condition: "Oman mediation collapse", effect: "G01 +10%", delta: 0, active: false },
+  { id: "G24", condition: "Qatar LNG rerouting disruption", effect: "G06 +5%, C133 +5%", delta: 0, active: false },
+  { id: "G25", condition: "Iraq militia attacks on US forces", effect: "G02 +5%, G10 +5%", delta: 0, active: false },
+  { id: "G26", condition: "Syria‑Iran arms corridor", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "G27", condition: "Hezbollah‑Israel northern front", effect: "G01 +10%, I02 +5%", delta: 0, active: false },
+  { id: "G28", condition: "Yemen Houthi escalation", effect: "G07 +10%", delta: 0, active: false },
+  { id: "G29", condition: "Red Sea shipping insurance pullout", effect: "G06 +5%, C133 +5%", delta: 0, active: false },
+  { id: "G30", condition: "Global recession from oil (C133)", effect: "↔ Orange", delta: 0, active: false },
+  { id: "G31", condition: "US‑Iran backchannel collapse", effect: "G01 +10%, G02 +10%", delta: 0, active: false },
+  // Cluster 3: Africa – Famine, Ebola, Fragility (A01–A27)
+  { id: "A01", condition: "Sudan IPC5 famine (135K)", effect: "A02 +10%, A05 +10%, C133 +5%", delta: 10, active: true },
+  { id: "A02", condition: "Kenya AMN Phase 5", effect: "A01 +10%, A27 +10%", delta: 0, active: false },
+  { id: "A03", condition: "Ethiopia Tigray famine relapse", effect: "A01 +5%, A07 +5%", delta: 0, active: false },
+  { id: "A04", condition: "Somalia Shabelle floods + famine", effect: "A01 +5%, A21 +5%", delta: 0, active: false },
+  { id: "A05", condition: "South Sudan oil pipeline sabotage", effect: "G06 +5%, A01 +5%", delta: 0, active: false },
+  { id: "A06", condition: "Chad refugee influx (Sudan)", effect: "A01 +5%, A07 +5%", delta: 0, active: false },
+  { id: "A07", condition: "Central Sahel coup contagion", effect: "A08 +10%, A09 +5%", delta: 0, active: false },
+  { id: "A08", condition: "Burkina Faso mass displacement", effect: "A07 +10%, A11 +5%", delta: 0, active: false },
+  { id: "A09", condition: "Mali Russian mercenary abuses", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "A10", condition: "Niger uranium coup risk", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "A11", condition: "Lake Chad basin insurgency", effect: "A07 +5%, A08 +5%", delta: 0, active: false },
+  { id: "A12", condition: "Ebola – Bundibugyo (906 cases)", effect: "A13 +20%, A16 +10%", delta: 10, active: true },
+  { id: "A13", condition: "Ebola cross‑border to DRC", effect: "A12 +10%, A14 +5%", delta: 0, active: false },
+  { id: "A14", condition: "Mpox resurgence (DRC)", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "A15", condition: "Marburg outbreak (Tanzania)", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "A16", condition: "Vaccine hesitancy / no vaccine", effect: "A12 +10%, A17 +5%", delta: 0, active: false },
+  { id: "A17", condition: "WHO PHEIC underfunding", effect: "A12 +5%", delta: 0, active: false },
+  { id: "A18", condition: "DR Congo election violence", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "A19", condition: "Rwanda‑DRC M23 ceasefire breakdown", effect: "A18 +10%, A22 +5%", delta: 0, active: false },
+  { id: "A20", condition: "Mozambique Cabo Delgado insurgency", effect: "↔ Orange", delta: 0, active: false },
+  { id: "A21", condition: "South Africa power collapse (Eskom)", effect: "C133 +5%, A22 +5%", delta: 0, active: false },
+  { id: "A22", condition: "Zimbabwe grain deficit", effect: "A01 +5%", delta: 0, active: false },
+  { id: "A23", condition: "Zambia drought emergency", effect: "A01 +5%, P‑FOOD‑SPIKE +5%", delta: 0, active: false },
+  { id: "A24", condition: "Angola debt default risk", effect: "I08 +5%", delta: 0, active: false },
+  { id: "A25", condition: "West Africa coastal terrorism", effect: "A07 +5%", delta: 0, active: false },
+  { id: "A26", condition: "Gulf of Guinea piracy", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "A27", condition: "Red Sea food aid blockade (Houthi)", effect: "A01 +10%, A02 +10%", delta: 0, active: false },
+  // Cluster 4: Americas – Election, Climate, Debt (U01–U19)
+  { id: "U01", condition: "US Jan 6 records erased (DOJ)", effect: "U02 +15%, U03 +10%", delta: 0, active: false },
+  { id: "U02", condition: "$1.776B dark election fund", effect: "U01 +10%, U03 +15%", delta: 0, active: false },
+  { id: "U03", condition: "2026 midterm integrity breaches", effect: "U04 +10%, U06 +10%", delta: 0, active: false },
+  { id: "U04", condition: "Supreme Court immunity ruling fallout", effect: "U01 +5%, U03 +5%", delta: 0, active: false },
+  { id: "U05", condition: "FBI politicisation", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "U06", condition: "Far‑right militia coordination", effect: "U03 +10%, U07 +5%", delta: 0, active: false },
+  { id: "U07", condition: "Left‑wing protest violence", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "U08", condition: "Hurricane season (starts June 1)", effect: "U09 +30%, U10 –5%", delta: 0, active: true },
+  { id: "U09", condition: "FEMA DRF below $3B", effect: "U08 +20%, C133 +5%", delta: 0, active: true },
+  { id: "U10", condition: "NOAA below‑avg forecast", effect: "↔ Green", delta: 0, active: false },
+  { id: "U11", condition: "California flood risk (atmospheric river)", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "U12", condition: "Canada wildfire season", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "U13", condition: "Mexico cartel violence spillover", effect: "U14 +10%, U15 +5%", delta: 0, active: false },
+  { id: "U14", condition: "Central America migration surge", effect: "U13 +10%, A06 +5%", delta: 0, active: false },
+  { id: "U15", condition: "Brazil coup risk (Bolsonaro)", effect: "U18 +5%, I08 +5%", delta: 0, active: false },
+  { id: "U16", condition: "Argentina peso collapse", effect: "I08 +10%, U18 +5%", delta: 0, active: false },
+  { id: "U17", condition: "Venezuela oil sanctions relief reversal", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "U18", condition: "US sovereign debt – 93.9% GDP", effect: "I08 +15%, U19 +5%", delta: 0, active: false },
+  { id: "U19", condition: "Fed rate hold into 2027", effect: "U18 +5%, C133 +5%", delta: 0, active: false },
+  // Cluster 5: Global Systems – IHL, NPT, Tech (I01–I17)
+  { id: "I01", condition: "IHL collapse – starvation as weapon", effect: "I02 +15%, A01 +10%", delta: 0, active: false },
+  { id: "I02", condition: "War crime designation for ship attacks", effect: "I01 +10%, G06 +5%", delta: 0, active: false },
+  { id: "I03", condition: "NPT failure – third consecutive", effect: "I04 +10%, I05 +10%", delta: 0, active: false },
+  { id: "I04", condition: "North Korea AI missile test", effect: "I03 +5%, I11 +10%", delta: 0, active: false },
+  { id: "I05", condition: "Iran nuclear threshold crossing", effect: "G12 +20%, I03 +10%", delta: 0, active: false },
+  { id: "I06", condition: "Russia suspension of New START", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "I07", condition: "China hypersonic arms race", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "I08", condition: "Global debt – 100% by 2029", effect: "I09 +10%, C133 +5%", delta: 5, active: true },
+  { id: "I09", condition: "IMF lending capacity crisis", effect: "I08 +10%, U16 +10%", delta: 0, active: false },
+  { id: "I10", condition: "CBDC race / financial fragmentation", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "I11", condition: "AI disinformation supercycle", effect: "I04 +5%, U03 +5%", delta: 0, active: false },
+  { id: "I12", condition: "Deepfake WMD false flag risk", effect: "G01 +10%, C29 +5%", delta: 0, active: false },
+  { id: "I13", condition: "Space weaponisation (ASAT)", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "I14", condition: "Cyber‑physical attacks on grids", effect: "U08 +5%, C133 +5%", delta: 0, active: false },
+  { id: "I15", condition: "Pandemic treaty collapse", effect: "↔ Green", delta: 0, active: false },
+  { id: "I16", condition: "Antimicrobial resistance (AMR)", effect: "↔ Yellow", delta: 0, active: false },
+  { id: "I17", condition: "UN Security Council paralysis", effect: "I03 +5%, G31 +10%", delta: 0, active: false },
+  // Additional Cathedral‑specific cascades (C17* to TBL rules)
+  { id: "C17*", condition: "African debt (≥Red) + private credit (≥Orange)", effect: "A01 +10%, I08 +5%", delta: 0, active: false },
+  { id: "C18*", condition: "Petrodollar crisis (≥Orange) + US fiscal (≥Black Structural)", effect: "G16 +15%, G06 +10%", delta: 0, active: false },
+  { id: "C19*", condition: "China malaise (≥Black Structural) + global trade fragmentation (≥Black Acute)", effect: "I07 +10%, I04 +5%", delta: 0, active: false },
+  { id: "C20*", condition: "Demand destruction (≥Red) + frozen labour market (≥Orange)", effect: "U06 +10%, U07 +5%", delta: 0, active: false },
+  { id: "TBL‑1", condition: "DAS ≥51 for any priority variable, no absolute breach", effect: "Set TBL Watch; increase corresponding threat probability by +5%", delta: 0, active: true },
+  { id: "TBL‑2", condition: "DAS ≥76 for any priority variable, absolute breach also active", effect: "Set Compound Alert; increase threat probability by +15%", delta: 0, active: true }
+];
+
+// Remove duplicates (some IDs repeated)
+const uniqueCascades = cascades.filter((c, index, self) => self.findIndex(c2 => c2.id === c.id) === index);
+
+// ======================== RENDER FUNCTIONS ========================
+function renderThreats(domainFilter = "all", searchTerm = "") {
+  const filtered = uniqueThreats.filter(t => {
+    if (domainFilter !== "all" && !t.domains.includes(domainFilter)) return false;
+    if (searchTerm && !t.name.toLowerCase().includes(searchTerm.toLowerCase()) && !t.id.toLowerCase().includes(searchTerm.toLowerCase())) return false;
+    return true;
+  });
+  const tbody = document.getElementById("threat-body");
+  tbody.innerHTML = filtered.map(t => `
+    <tr>
+      <td>${t.id}</td>
+      <td class="status-icon">${t.icon}</td>
+      <td>${t.name}</td>
+      <td>${t.domains.map(d => `<span class="domain-badge">${d}</span>`).join(" ")}</td>
+      <td>${t.status}</td>
+    </tr>
+  `).join("");
+}
+
+function renderCascades(searchTerm = "") {
+  const filtered = uniqueCascades.filter(c => {
+    if (searchTerm && !c.id.toLowerCase().includes(searchTerm.toLowerCase()) && !c.condition.toLowerCase().includes(searchTerm.toLowerCase())) return false;
+    return true;
+  });
+  const tbody = document.getElementById("cascade-body");
+  tbody.innerHTML = filtered.map(c => `
+    <tr class="${c.active ? 'cascade-active' : ''}">
+      <td>${c.id}</td>
+      <td>${c.condition}</td>
+      <td>${c.effect}</td>
+      <td>${c.delta > 0 ? "+"+c.delta+"%" : c.delta < 0 ? c.delta+"%" : "elevation"}</td>
+      <td>${c.active ? "✅ Active" : "❌ Inactive"}</td>
+    </tr>
+  `).join("");
+}
+
+// Domain filter
+let currentDomain = "all";
+document.querySelectorAll("[data-domain]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("[data-domain]").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentDomain = btn.dataset.domain;
+    const searchTerm = document.getElementById("threat-search").value;
+    renderThreats(currentDomain, searchTerm);
+  });
+});
+
+document.getElementById("threat-search").addEventListener("input", (e) => renderThreats(currentDomain, e.target.value));
+document.getElementById("cascade-search").addEventListener("input", (e) => renderCascades(e.target.value));
+
+// Hamburger menu
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+if (menuBtn) {
+  menuBtn.addEventListener("click", () => navLinks.classList.toggle("show"));
+}
+
+// Dark mode
+const darkToggle = document.getElementById("darkModeToggle");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const storedTheme = localStorage.getItem("cathedral-theme");
+if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+  document.body.classList.add("dark");
+  darkToggle.innerText = "☀️";
+} else {
+  darkToggle.innerText = "🌙";
+}
+darkToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  const isDark = document.body.classList.contains("dark");
+  darkToggle.innerText = isDark ? "☀️" : "🌙";
+  localStorage.setItem("cathedral-theme", isDark ? "dark" : "light");
+});
+
+// Service worker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js").catch(e => console.warn("SW failed", e));
+}
+
+// Initial render
+renderThreats();
+renderCascades();
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
