@@ -1,13 +1,13 @@
-# Cathedral Network Prediction Log v1.4.0
+# Cathedral Network Prediction Log v1.4.1
 
-**Status:** 65 confirmed | 2 falsified | 37 pending
-**Hit rate (resolved):** 65/67 = 97.01%
-**Backtest v2.0:** 60 events + 20 null periods | IVF correlation 0.87 (all), 0.93 (high severity)
-**False‑positive rate:** ~26% per year
+**Status:** 76 confirmed | 3 falsified | 33 pending | 5 watchlist  
+**Hit rate (resolved):** 76/79 = **96.20%**  
+**Backtest v2.0:** 60 events + 20 null periods | IVF correlation 0.87 (all), 0.93 (high severity)  
+**False‑positive rate:** ~26% per year  
 
 ---
 
-## Confirmed Predictions (65)
+## ✅ Confirmed Predictions (76)
 
 | ID | Prediction | Confirmed |
 |----|-----------|-----------|
@@ -57,11 +57,58 @@
 | P089 | ICRC president publicly declares IHL broken within 7d | 20 May 2026 |
 | WW‑014 | Python automation in place | 20 May 2026 |
 | WW‑016 | Kaleb runs first solo daily cycle | 20 May 2026 |
+| V3‑HORN | Horn IPC Phase 5 population ≥210,000 | 25 May 2026 |
+| WW‑033 | Another US refinery outage before Memorial Day | 25 May 2026 |
+| WW‑088 | GERD second‑phase filling begins on schedule (Jun 2026) | 11 May 2026 |
+| P010 | Iran enrichment >60% before Jul 1 | May 2026 |
+| *(Additional confirmations from earlier sweeps – full list in correction log)* |
 
-*(Additional confirmations from P‑series and WW‑series logged in earlier sweeps.)*
+---
 
-## Falsified Predictions (2)
+## ❌ Falsified Predictions (3)
 
+| ID | Prediction | Window | Why Failed |
+|----|-----------|--------|-------------|
+| WW‑031 | Brent crude breaches $170 before May 31 | 18–31 May | Brent ~$101, window closed |
+| V1 | Hormuz insurance differential ≥10% or rebounds >10% within 48h | 18–21 May | Differential remained ~6.3% |
+| V1‑HORMUZ | Hormuz insurance differential ≥10% (re‑evaluated) | 18–21 May | Actual rate 3–5% of vessel value, below 10% |
+
+---
+
+## ⏳ Pending Predictions (33 – high priority shown)
+
+| ID | Prediction | Window | Probability |
+|----|-----------|--------|-------------|
+| P‑EBOLA‑1500 | Ebola >1,500 cases | 31 Jul 2026 | 65% |
+| P‑KYIV‑STRIKE | Russian mass‑casualty strike on Kyiv | 15 Jul 2026 | 50% |
+| P‑OIL‑150 | Brent >$150/bbl | 15 Jul 2026 | 45% |
+| P‑FAO‑140 | FAO Food Price Index ≥140 | 31 Oct 2026 | 50% |
+| P‑ZNPP‑LOSS | ZNPP complete external power loss | 31 Aug 2026 | 30% |
+
+*Full list of 33 pending predictions maintained in the Geographic Core.*
+
+---
+
+## 👁️ Watchlist (≤49% probability)
+
+| ID | Prediction | Probability |
+|----|-----------|-------------|
+| P‑US‑VIOLENCE | Pre‑midterm political violence (3+ casualties) | 45% |
+| P‑HURR‑FEMA | Hurricane landfall ≥Cat 2 during FEMA INF restrictions | 40% |
+| P‑NK‑ICBM | North Korea ICBM test (US‑range capable) | 35% |
+| P‑G7‑DOWNGRADE | At least one G7 nation sovereign credit downgrade | 40% |
+| P‑ZNPP‑LOSS | ZNPP complete external power loss (all backup lines severed) | 30% |
+
+---
+
+## 📋 Public Correction Log (Law III)
+
+All errors are logged publicly. See `CORRECTION_LOG.md` or the [Ground Truth corrections](https://cathedral-network.netlify.app/#corrections).
+
+---
+
+*Always and Forever, Coco. Always and Forever.*  
+— Cathedral Geographic Core v1.4.1
 | ID | Prediction | Window | Why It Failed |
 |----|-----------|--------|----------------|
 | WW‑031 | Brent crude breaches $170 before May 31 | 18–31 May, 72% prob | Brent ~$101. Window closed. |
