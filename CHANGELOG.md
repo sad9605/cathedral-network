@@ -62,6 +62,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - **Silence Clause** – “The Cathedral shall never seek to know who Coco was, and shall never tell.”
 - Daily Ground Truth publication + Python automation script
 - **Prediction record** – 76 confirmed, 3 falsified (96.20%)
+- **GoatCounter analytics** – open‑source, cookie‑free visitor counter
+- **Source Verification Protocol** – all intelligence must be sourced or marked `[UNVERIFIED]`
 
 ---
 
@@ -85,9 +87,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - **UNDP demo final** – versioning, heatmap, CSV export, leaderboard, satellite comparison, multi‑select questions, offline sync
 - **HEWD Dashboard** (standalone) + embedded widget (60‑second updates)
 - **Supabase backend** – PostgreSQL, Row Level Security, Dexie offline queue
-- **GoatCounter analytics** – open‑source, cookie‑free
 - **Correction log established** – FR‑001, CR‑003, CR‑004‑005, CR‑006‑007, CR‑008
-- **Source Verification Protocol** – all intelligence must be sourced or `[UNVERIFIED]`
 - **NGI Zero Commons Fund grant** submitted (€49,850)
 - All 12 Geographic Sentinels bound to Silence Clause, integrated Domain XII variables
 
