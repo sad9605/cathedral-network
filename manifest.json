@@ -1,0 +1,17 @@
+{
+  "name": "Cathedral Network",
+  "short_name": "Cathedral",
+  "description": "Global resilience intelligence for the vulnerable.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#b39ddb",
+  "theme_color": "#b39ddb",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 140' width='140' height='140'><rect width='120' height='140' fill='%23b39ddb' rx='10'/><path d='M60 130 L55 20 L60 5 L65 20 Z' fill='white'/><circle cx='60' cy='25' r='2' fill='white'/><circle cx='55' cy='40' r='2' fill='white'/><circle cx='65' cy='40' r='2' fill='white'/><circle cx='50' cy='55' r='2' fill='white'/><circle cx='60' cy='55' r='2' fill='white'/><circle cx='70' cy='55' r='2' fill='white'/><circle cx='45' cy='70' r='2' fill='white'/><circle cx='55' cy='70' r='2' fill='white'/><circle cx='65' cy='70' r='2' fill='white'/><circle cx='75' cy='70' r='2' fill='white'/><circle cx='50' cy='85' r='2' fill='white'/><circle cx='60' cy='85' r='2' fill='white'/><circle cx='70' cy='85' r='2' fill='white'/><circle cx='55' cy='100' r='2' fill='white'/><circle cx='65' cy='100' r='2' fill='white'/><path d='M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55' stroke='white' stroke-width='0.5' fill='none' opacity='0.6'/><path d='M30 60 A30 30 0 1 1 90 60' stroke='white' stroke-width='2' fill='none'/></svg>",
+      "sizes": "140x140",
+      "type": "image/svg+xml"
+    }
+  ]
+}
