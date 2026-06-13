@@ -1,0 +1,2949 @@
+{
+  "version": "2.1",
+  "last_updated": "2026-06-11T00:00:00Z",
+  "threats": [
+    {
+      "id": "C01",
+      "name": "Iran\u2011Israel/US War / Hormuz",
+      "domains": [
+        "Geopolitical",
+        "Energy",
+        "Financial",
+        "Supply Chains"
+      ],
+      "status": "Black Acute",
+      "scp": 0.99,
+      "base_probability": 0.95,
+      "das": 85,
+      "notes": "Direct US\u2011Iran strikes; Iran closed Strait of Hormuz; oil price spike.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C\u2011USIRAN",
+      "name": "Direct US\u2011Iran Conflict",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Black Acute",
+      "scp": 0.85,
+      "base_probability": 0.8,
+      "das": 70,
+      "notes": "US third wave strikes; IRGC retaliation; direct military exchanges.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C\u2011BELT",
+      "name": "Iran 'Resistance Security Belt'",
+      "domains": [
+        "Geopolitical",
+        "Energy",
+        "Supply Chains"
+      ],
+      "status": "Black Acute",
+      "scp": 0.92,
+      "base_probability": 0.9,
+      "das": 75,
+      "notes": "Coordinated choke\u2011point doctrine from Hormuz to Bab el\u2011Mandeb.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C\u2011RED\u2011BLOCK",
+      "name": "Bab el\u2011Mandeb Blockade",
+      "domains": [
+        "Geopolitical",
+        "Supply Chains"
+      ],
+      "status": "Black Acute",
+      "scp": 0.92,
+      "base_probability": 0.88,
+      "das": 72,
+      "notes": "Houthi total ban on Israeli shipping.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C132",
+      "name": "Great Power Conflict / US\u2011Iran Entanglement",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Red",
+      "scp": 0.75,
+      "base_probability": 0.7,
+      "das": 60,
+      "notes": "Dutch frigate transit tracked by China; Taiwan HIMARS drills.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C129",
+      "name": "Armenia\u2011Azerbaijan",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Red",
+      "scp": 0.68,
+      "base_probability": 0.65,
+      "das": 55,
+      "notes": "Border clashes continue.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C54",
+      "name": "Baltic Grey\u2011Zone",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Red",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Russian hybrid activity.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C88",
+      "name": "Taiwan Strait Incident Risk",
+      "domains": [
+        "Geopolitical",
+        "Supply Chains"
+      ],
+      "status": "Red",
+      "scp": 0.7,
+      "base_probability": 0.68,
+      "das": 58,
+      "notes": "Chinese military exercises; HIMARS deployment.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C90",
+      "name": "South China Sea Militarisation",
+      "domains": [
+        "Geopolitical",
+        "Supply Chains"
+      ],
+      "status": "Orange",
+      "scp": 0.62,
+      "base_probability": 0.6,
+      "das": 50,
+      "notes": "Ongoing tensions.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C48",
+      "name": "AI Deepfake Ops",
+      "domains": [
+        "Geopolitical",
+        "Information",
+        "Technology"
+      ],
+      "status": "Red",
+      "scp": 0.72,
+      "base_probability": 0.7,
+      "das": 58,
+      "notes": "Disinformation campaigns.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C19",
+      "name": "Zaporizhzhia NPP",
+      "domains": [
+        "Geopolitical",
+        "Energy"
+      ],
+      "status": "Red",
+      "scp": 0.68,
+      "base_probability": 0.65,
+      "das": 55,
+      "notes": "Single backup line remains.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C25",
+      "name": "NATO Article 4 (Romania)",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Red",
+      "scp": 0.7,
+      "base_probability": 0.68,
+      "das": 58,
+      "notes": "Drone strike aftermath.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C3",
+      "name": "Ukraine\u2011Russia spillover",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "E3 peace conditions, but fighting continues.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C11",
+      "name": "Iraq Instability",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Militia attacks on US bases.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C58",
+      "name": "Underwater Infrastructure Sabotage",
+      "domains": [
+        "Geopolitical",
+        "Energy"
+      ],
+      "status": "Yellow",
+      "scp": 0.35,
+      "base_probability": 0.3,
+      "das": 25,
+      "notes": "Baltic Sea risks.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C60",
+      "name": "Narva Border Crisis",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.3,
+      "base_probability": 0.25,
+      "das": 20,
+      "notes": "Estonia\u2011Russia tensions.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C64",
+      "name": "Mediterranean Migration",
+      "domains": [
+        "Geopolitical",
+        "Social"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "Humanitarian strain.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C85",
+      "name": "Cartel Violence Mexico",
+      "domains": [
+        "Geopolitical",
+        "Domestic"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Spillover risk.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C122",
+      "name": "North Korea Ballistic",
+      "domains": [
+        "Geopolitical",
+        "Technology"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Missile tests continue.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C2",
+      "name": "Information Warfare",
+      "domains": [
+        "Geopolitical",
+        "Information"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "AI\u2011driven.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C4",
+      "name": "Moldova Transnistria escalation",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.35,
+      "base_probability": 0.3,
+      "das": 25,
+      "notes": "Frozen conflict.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C6",
+      "name": "Russian sabotage in Germany/Poland",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "Hybrid attacks.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C7",
+      "name": "Finland\u2011Russia border closure",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.3,
+      "base_probability": 0.25,
+      "das": 20,
+      "notes": "Tensions.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C9",
+      "name": "Poland\u2011Belarus migrant weaponisation",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Border crisis.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C10",
+      "name": "Ukraine frontline collapse",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Stalemate.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C12",
+      "name": "Black Sea grain corridor closure",
+      "domains": [
+        "Geopolitical",
+        "Food"
+      ],
+      "status": "Yellow",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Russian threats.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C13",
+      "name": "Russian LNG terminal sabotage",
+      "domains": [
+        "Geopolitical",
+        "Energy"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "Arctic risks.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C14",
+      "name": "Nord Stream 2 reactivation",
+      "domains": [
+        "Geopolitical",
+        "Energy"
+      ],
+      "status": "Yellow",
+      "scp": 0.35,
+      "base_probability": 0.3,
+      "das": 25,
+      "notes": "Political pressure.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C15",
+      "name": "Transnistria depot explosion",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.3,
+      "base_probability": 0.25,
+      "das": 20,
+      "notes": "False flag risk.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C16",
+      "name": "Georgia Abkhazia freeze\u2011thaw",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.35,
+      "base_probability": 0.3,
+      "das": 25,
+      "notes": "Russian influence.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C17",
+      "name": "Armenia\u2011Azerbaijan peace collapse",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Ongoing.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C18",
+      "name": "Iranian drones to Russia",
+      "domains": [
+        "Geopolitical",
+        "Energy"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Arms transfers.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C20",
+      "name": "Khmelnytskyi NPP shelling",
+      "domains": [
+        "Geopolitical",
+        "Energy"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "Nuclear risk.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C21",
+      "name": "Radiological release (ZNPP)",
+      "domains": [
+        "Geopolitical",
+        "Energy",
+        "Biosecurity"
+      ],
+      "status": "Red",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Continued threat.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C22",
+      "name": "Russian internal coup",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.3,
+      "base_probability": 0.25,
+      "das": 20,
+      "notes": "Elite fracture.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C23",
+      "name": "Wagner resurgence in Africa",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Central Africa.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C24",
+      "name": "Russian Arctic militarisation",
+      "domains": [
+        "Geopolitical",
+        "Climate"
+      ],
+      "status": "Yellow",
+      "scp": 0.35,
+      "base_probability": 0.3,
+      "das": 25,
+      "notes": "New bases.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C26",
+      "name": "NATO Article 5 deliberation",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Heightened alert.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C27",
+      "name": "US troop deployment to Romania",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Orange",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Reinforcements.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C28",
+      "name": "Turkish Straits closure",
+      "domains": [
+        "Geopolitical",
+        "Supply Chains"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "Montreux Convention.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G-ARCTIC",
+      "name": "Arctic resource wars (minerals, fish, oil, shipping)",
+      "domains": [
+        "Geopolitical",
+        "Energy"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Melting ice opens competition.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G-GREENLAND",
+      "name": "Greenland as geopolitical flashpoint",
+      "domains": [
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "US threats documented.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G-SPACE",
+      "name": "Weaponisation of low Earth orbit (ASAT, jamming, cyber)",
+      "domains": [
+        "Geopolitical",
+        "Technology"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Congested orbital environment.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G-WEST-BANK",
+      "name": "West Bank violent escalation (third intifada risk)",
+      "domains": [
+        "Geopolitical",
+        "Social"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "CFR high\u2011probability threat.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G-SUD-BLUE",
+      "name": "Blue Nile / GERD water war escalation",
+      "domains": [
+        "Geopolitical",
+        "Food"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Military action possible.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C11E",
+      "name": "Oil Price Shock",
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "status": "Red",
+      "scp": 0.94,
+      "base_probability": 0.9,
+      "das": 75,
+      "notes": "Brent $95.40, SPR 349M barrels.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C141",
+      "name": "Zaporizhzhia NPP Single\u2011Point\u2011of\u2011Failure",
+      "domains": [
+        "Energy"
+      ],
+      "status": "Black Acute",
+      "scp": 0.85,
+      "base_probability": 0.8,
+      "das": 70,
+      "notes": "External power vulnerable.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C143",
+      "name": "OPEC Quota Compliance Collapse",
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "status": "Black Structural",
+      "scp": 0.78,
+      "base_probability": 0.75,
+      "das": 65,
+      "notes": "Members exceed quotas.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C62",
+      "name": "EU Gas Security",
+      "domains": [
+        "Energy"
+      ],
+      "status": "Red",
+      "scp": 0.72,
+      "base_probability": 0.68,
+      "das": 60,
+      "notes": "Storage ~36%.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C63",
+      "name": "Global Oil Supply Deficit",
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Hormuz closure persists.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C123",
+      "name": "East Asia Fiscal\u2011Energy Spiral",
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.68,
+      "base_probability": 0.62,
+      "das": 55,
+      "notes": "Energy import costs.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C127",
+      "name": "Egypt Fiscal & Political Stress",
+      "domains": [
+        "Energy",
+        "Financial",
+        "Domestic"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "LNG dependency.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C144",
+      "name": "Kuwait Fiscal Collapse",
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "status": "Black Structural",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Oil revenue volatility.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C143-KZ",
+      "name": "Kazakhstan OPEC Overproduction",
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "status": "Red",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Quota violations.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "CA4",
+      "name": "Central Asia Energy Export Dependency",
+      "domains": [
+        "Energy",
+        "Geopolitical"
+      ],
+      "status": "Red",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Russian transit.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G16",
+      "name": "Oil price >$150",
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Downward probability.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G17",
+      "name": "Global deficit 7M b/d",
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "OPEC+ powerless.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G18",
+      "name": "SPR release inadequacy",
+      "domains": [
+        "Energy",
+        "Domestic"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Draining fast.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G19",
+      "name": "China\u2011Iran petroyuan",
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "De\u2011dollarisation.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G20",
+      "name": "Russia brokering role",
+      "domains": [
+        "Energy",
+        "Geopolitical"
+      ],
+      "status": "Green",
+      "scp": 0.2,
+      "base_probability": 0.15,
+      "das": 10,
+      "notes": "Limited.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G24",
+      "name": "Qatar LNG rerouting disruption",
+      "domains": [
+        "Energy",
+        "Supply Chains"
+      ],
+      "status": "Orange",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Red Sea impacts.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "E-AI-GRID",
+      "name": "AI data centre power demand as new energy war front",
+      "domains": [
+        "Energy",
+        "Technology"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "50% increase in total energy demand projected.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "E-SMR",
+      "name": "Small modular reactor safety & regulatory gap",
+      "domains": [
+        "Energy"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Uncertain risks with decimated regulations.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "E-HYPER-SCALE",
+      "name": "Hyperscale AI data centre water/energy tipping point",
+      "domains": [
+        "Energy",
+        "Climate"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "73B gal/year water by 2028.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "E-MINI-GRID",
+      "name": "Critical infrastructure mini\u2011grid fragility",
+      "domains": [
+        "Energy",
+        "Cyber"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Decentralised grid vulnerabilities.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "E-SOLAR-CYBER",
+      "name": "Solar inverter botnets for grid destabilisation",
+      "domains": [
+        "Energy",
+        "Cyber"
+      ],
+      "status": "Yellow",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Thousands of vulnerable inverters.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C100",
+      "name": "Arctic Sea Ice Loss",
+      "domains": [
+        "Climate"
+      ],
+      "status": "Red",
+      "scp": 0.75,
+      "base_probability": 0.7,
+      "das": 60,
+      "notes": "Record low extent.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C147",
+      "name": "Ross Ice Shelf Acceleration",
+      "domains": [
+        "Climate"
+      ],
+      "status": "Red",
+      "scp": 0.72,
+      "base_probability": 0.68,
+      "das": 58,
+      "notes": "Antarctic.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C44",
+      "name": "Delhi Heatwave",
+      "domains": [
+        "Climate",
+        "Social"
+      ],
+      "status": "Red",
+      "scp": 0.68,
+      "base_probability": 0.65,
+      "das": 55,
+      "notes": "Extreme temperatures.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C80",
+      "name": "U.S. Hurricane Season",
+      "domains": [
+        "Climate",
+        "Domestic"
+      ],
+      "status": "Red",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "FEMA strained.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C134",
+      "name": "Dry Corridor Famine\u2011Migration",
+      "domains": [
+        "Climate",
+        "Food",
+        "Social"
+      ],
+      "status": "Red",
+      "scp": 0.72,
+      "base_probability": 0.68,
+      "das": 60,
+      "notes": "Central America.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C135",
+      "name": "Panama Canal Logistics Shock",
+      "domains": [
+        "Climate",
+        "Supply Chains"
+      ],
+      "status": "Red",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Water levels low.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C99",
+      "name": "Yamal Methane Anomaly",
+      "domains": [
+        "Climate"
+      ],
+      "status": "Orange",
+      "scp": 0.58,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Permafrost.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C41",
+      "name": "AMOC Slowdown",
+      "domains": [
+        "Climate"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "Ocean circulation.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C46",
+      "name": "Bangladesh Monsoon Flood",
+      "domains": [
+        "Climate",
+        "Social"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Seasonal.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "E11",
+      "name": "El Ni\u00f1o",
+      "domains": [
+        "Climate"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "80\u201190% probability strong event.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U10",
+      "name": "NOAA below\u2011avg forecast",
+      "domains": [
+        "Climate"
+      ],
+      "status": "Green",
+      "scp": 0.2,
+      "base_probability": 0.15,
+      "das": 10,
+      "notes": "Hurricane relief.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U11",
+      "name": "California flood risk",
+      "domains": [
+        "Climate",
+        "Domestic"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "Atmospheric river.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U12",
+      "name": "Canada wildfire season",
+      "domains": [
+        "Climate",
+        "Domestic"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Early fires.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "CC1",
+      "name": "Caucasus frozen conflict",
+      "domains": [
+        "Climate",
+        "Geopolitical"
+      ],
+      "status": "Orange",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Georgia.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "CC2",
+      "name": "Georgia destabilisation",
+      "domains": [
+        "Climate",
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.35,
+      "base_probability": 0.3,
+      "das": 25,
+      "notes": "Russian influence.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "OC1",
+      "name": "Pacific strategic",
+      "domains": [
+        "Climate",
+        "Geopolitical"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Island nations.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "CB2",
+      "name": "Hurricane\u2011debt spiral",
+      "domains": [
+        "Climate",
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Caribbean.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "LA2",
+      "name": "Amazon tipping point",
+      "domains": [
+        "Climate",
+        "Food"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Wildfires.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C-WATER-BANK",
+      "name": "Global water bankruptcy",
+      "domains": [
+        "Climate",
+        "Food"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "UNU report: 2.2B without safe water.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C-SUBSIDENCE",
+      "name": "Widespread land subsidence from groundwater depletion",
+      "domains": [
+        "Climate"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "6M km\u00b2 sinking, 2B people affected.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C-CRYO",
+      "name": "Accelerating glacier mass loss (functional extinction)",
+      "domains": [
+        "Climate"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Low\u2011mid latitude glaciers disappearing.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C-SOIL-DEG",
+      "name": "Severe soil degradation (>50% agricultural land)",
+      "domains": [
+        "Climate",
+        "Food"
+      ],
+      "status": "Yellow",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Reduced moisture retention.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C-AG-STORAGE",
+      "name": "Collapse of agricultural water storage",
+      "domains": [
+        "Climate",
+        "Food"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "3B people in areas of terminal decline.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C78",
+      "name": "Sovereign Debt Crisis",
+      "domains": [
+        "Financial"
+      ],
+      "status": "Black Structural",
+      "scp": 0.86,
+      "base_probability": 0.85,
+      "das": 72,
+      "notes": "Global debt 94% GDP.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C133",
+      "name": "USD Reserve Erosion",
+      "domains": [
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "De\u2011dollarisation.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I08",
+      "name": "Global debt 100% by 2029",
+      "domains": [
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.8,
+      "base_probability": 0.78,
+      "das": 65,
+      "notes": "IMF warning.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I09",
+      "name": "IMF lending capacity crisis",
+      "domains": [
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Funds depleted.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C136",
+      "name": "N. Triangle Cartel Violence",
+      "domains": [
+        "Financial",
+        "Domestic"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "El Salvador.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C137",
+      "name": "Central America Food Supply Shock",
+      "domains": [
+        "Financial",
+        "Food"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Remittances.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C138",
+      "name": "Great\u2011Power Competition \u2192 Aid Diversion",
+      "domains": [
+        "Financial",
+        "Geopolitical"
+      ],
+      "status": "Orange",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "China vs US.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U16",
+      "name": "Argentina peso collapse",
+      "domains": [
+        "Financial",
+        "Domestic"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Hyperinflation.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U18",
+      "name": "US sovereign debt",
+      "domains": [
+        "Financial",
+        "Domestic"
+      ],
+      "status": "Orange",
+      "scp": 0.75,
+      "base_probability": 0.7,
+      "das": 60,
+      "notes": "125% GDP.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U19",
+      "name": "Fed rate hold into 2027",
+      "domains": [
+        "Financial"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "Sticky inflation.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C17*",
+      "name": "African debt + private credit",
+      "domains": [
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Zambia, Ghana.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C18*",
+      "name": "Petrodollar crisis + US fiscal",
+      "domains": [
+        "Financial",
+        "Energy"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Saudi shift.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C19*",
+      "name": "China malaise + trade fragmentation",
+      "domains": [
+        "Financial",
+        "Supply Chains"
+      ],
+      "status": "Orange",
+      "scp": 0.68,
+      "base_probability": 0.62,
+      "das": 55,
+      "notes": "Slowdown.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C20*",
+      "name": "Demand destruction + frozen labour",
+      "domains": [
+        "Financial",
+        "Social"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Recession.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G30",
+      "name": "Global recession from oil",
+      "domains": [
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Oil shock.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U15",
+      "name": "Brazil coup risk",
+      "domains": [
+        "Financial",
+        "Domestic"
+      ],
+      "status": "Orange",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Bolsonaro.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U17",
+      "name": "Venezuela oil sanctions relief",
+      "domains": [
+        "Financial",
+        "Energy"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Uncertain.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A24",
+      "name": "Angola debt default risk",
+      "domains": [
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "IMF program.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C145",
+      "name": "Iran\u2011Oman transit fee precedent",
+      "domains": [
+        "Financial",
+        "Energy"
+      ],
+      "status": "Black Structural",
+      "scp": 0.8,
+      "base_probability": 0.78,
+      "das": 65,
+      "notes": "Permanent fee.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "F-AI-CYBER-SYS",
+      "name": "AI\u2011driven systemic cyber\u2011financial crisis",
+      "domains": [
+        "Financial",
+        "Cyber"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "IMF warning.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "F-AI-LIQ",
+      "name": "AI\u2011triggered flash crashes & liquidity evaporation",
+      "domains": [
+        "Financial"
+      ],
+      "status": "Yellow",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "HFT withdrawal.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "F-REPO-2026",
+      "name": "Repo market freeze exacerbated by AI/cyber",
+      "domains": [
+        "Financial"
+      ],
+      "status": "Yellow",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Trillions at risk.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "F-CBDC",
+      "name": "CBDC\u2011driven disintermediation & bank runs",
+      "domains": [
+        "Financial"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Instantaneous digital bank runs.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "F-INSUR-SPIRAL",
+      "name": "Climate\u2011driven insurance withdrawal spiral",
+      "domains": [
+        "Financial",
+        "Climate"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Uninsurable property.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C121",
+      "name": "Taiwan Semiconductor Chokepoint",
+      "domains": [
+        "Supply Chains",
+        "Technology"
+      ],
+      "status": "Black Acute",
+      "scp": 0.86,
+      "base_probability": 0.85,
+      "das": 70,
+      "notes": "TSMC dominance; Huawei/SMIC blacklist.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C124",
+      "name": "East Asia Semiconductor\u2011Fiscal Contagion",
+      "domains": [
+        "Supply Chains",
+        "Financial"
+      ],
+      "status": "Red",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Chip subsidies.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C36",
+      "name": "Taiwan semiconductor cascade",
+      "domains": [
+        "Supply Chains",
+        "Technology"
+      ],
+      "status": "Red",
+      "scp": 0.72,
+      "base_probability": 0.68,
+      "das": 60,
+      "notes": "US\u2011China tech war.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C39",
+      "name": "Semiconductor\u2011fiscal",
+      "domains": [
+        "Supply Chains",
+        "Financial"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "CHIPS Act.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C8",
+      "name": "Red Sea Shipping Chokepoint",
+      "domains": [
+        "Supply Chains",
+        "Geopolitical"
+      ],
+      "status": "Orange",
+      "scp": 0.78,
+      "base_probability": 0.75,
+      "das": 62,
+      "notes": "Houthi attacks.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C29",
+      "name": "Gulf shipping chokepoint",
+      "domains": [
+        "Supply Chains",
+        "Energy"
+      ],
+      "status": "Orange",
+      "scp": 0.85,
+      "base_probability": 0.8,
+      "das": 68,
+      "notes": "Hormuz.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C135S",
+      "name": "Panama Canal Logistics Shock",
+      "domains": [
+        "Supply Chains",
+        "Climate"
+      ],
+      "status": "Red",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Water restrictions.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "SC-NUCLEAR",
+      "name": "Nuclear fuel supply chain (Russia\u2011dominated HALEU)",
+      "domains": [
+        "Supply Chains",
+        "Energy"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Critical vulnerability.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "SC-COUNTER",
+      "name": "Counterfeit network gear in critical infrastructure",
+      "domains": [
+        "Supply Chains",
+        "Cyber"
+      ],
+      "status": "Yellow",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Backdoors embedded.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "SC-RARE",
+      "name": "Rare earth refining choke point (China >85%)",
+      "domains": [
+        "Supply Chains"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Single\u2011point failure.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "SC-DEVICE",
+      "name": "Third\u2011party device compromise in CI/CD pipelines",
+      "domains": [
+        "Supply Chains",
+        "Cyber"
+      ],
+      "status": "Yellow",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Poisoning before source control.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "SC-ZINC",
+      "name": "Zinc smelting closure cascade (European energy crisis)",
+      "domains": [
+        "Supply Chains",
+        "Energy"
+      ],
+      "status": "Yellow",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Galvanised steel shortage.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C03",
+      "name": "Horn of Africa Famine",
+      "domains": [
+        "Food"
+      ],
+      "status": "Black Acute",
+      "scp": 0.93,
+      "base_probability": 0.92,
+      "das": 78,
+      "notes": "19.5M acutely food insecure.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C126",
+      "name": "North Africa Food Security Collapse",
+      "domains": [
+        "Food"
+      ],
+      "status": "Black Acute",
+      "scp": 0.88,
+      "base_probability": 0.85,
+      "das": 72,
+      "notes": "Wheat imports.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C125",
+      "name": "Nile Water Conflict / GERD",
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "status": "Red",
+      "scp": 0.72,
+      "base_probability": 0.68,
+      "das": 60,
+      "notes": "Ethiopia filling.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C43",
+      "name": "Indus Water\u2011Food\u2011Conflict",
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "status": "Red",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "India\u2011Pakistan.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C106",
+      "name": "Global Food Price Volatility",
+      "domains": [
+        "Food",
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.75,
+      "base_probability": 0.72,
+      "das": 62,
+      "notes": "FAO index elevated.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C137F",
+      "name": "Central America Food Supply Shock",
+      "domains": [
+        "Food",
+        "Domestic"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Dry corridor.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A01",
+      "name": "Sudan IPC5 famine",
+      "domains": [
+        "Food"
+      ],
+      "status": "Black Acute",
+      "scp": 0.93,
+      "base_probability": 0.92,
+      "das": 78,
+      "notes": "135k phase 5.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A02",
+      "name": "Kenya AMN Phase 5",
+      "domains": [
+        "Food"
+      ],
+      "status": "Red",
+      "scp": 0.8,
+      "base_probability": 0.78,
+      "das": 65,
+      "notes": "Acute malnutrition.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A03",
+      "name": "Ethiopia Tigray famine relapse",
+      "domains": [
+        "Food"
+      ],
+      "status": "Orange",
+      "scp": 0.68,
+      "base_probability": 0.65,
+      "das": 55,
+      "notes": "Conflict blocks aid.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A04",
+      "name": "Somalia Shabelle floods + famine",
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Compound crisis.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A22",
+      "name": "Zimbabwe grain deficit",
+      "domains": [
+        "Food"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "El Ni\u00f1o drought.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A23",
+      "name": "Zambia drought emergency",
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Hydro cuts.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A-UREA",
+      "name": "Urea fertiliser supply chain timing window",
+      "domains": [
+        "Food",
+        "Supply Chains"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Single point of failure at planting.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A-EL-NINO",
+      "name": "El Ni\u00f1o\u2019s asynchronous global crop impact",
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Uneven yield shocks.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A-SOIL-BIO",
+      "name": "Loss of soil biodiversity (microbiome collapse)",
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "status": "Yellow",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Slow\u2011moving but irreversible.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A-STRAT-RES",
+      "name": "Absence of strategic fertiliser reserves",
+      "domains": [
+        "Food"
+      ],
+      "status": "Orange",
+      "scp": 0.75,
+      "base_probability": 0.72,
+      "das": 62,
+      "notes": "No strategic stockpile.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A-AG-DEBT",
+      "name": "Farm debt\u2011fertiliser price trap",
+      "domains": [
+        "Food",
+        "Financial"
+      ],
+      "status": "Yellow",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Pre\u2011borrowing risk.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C84",
+      "name": "U.S. Electoral Integrity Breach",
+      "domains": [
+        "Domestic",
+        "Information"
+      ],
+      "status": "Black Structural",
+      "scp": 0.84,
+      "base_probability": 0.82,
+      "das": 68,
+      "notes": "Deepfake risk.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I01",
+      "name": "AI Deepfake Election",
+      "domains": [
+        "Domestic",
+        "Information"
+      ],
+      "status": "Black Acute",
+      "scp": 0.84,
+      "base_probability": 0.82,
+      "das": 68,
+      "notes": "2026 midterms.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C67",
+      "name": "Asylum System Collapse",
+      "domains": [
+        "Domestic",
+        "Social"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "US border.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U01",
+      "name": "US Jan 6 records erased",
+      "domains": [
+        "Domestic"
+      ],
+      "status": "Orange",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "DOJ.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U02",
+      "name": "$1.776B dark election fund",
+      "domains": [
+        "Domestic",
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Untraceable.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U03",
+      "name": "2026 midterm integrity breaches",
+      "domains": [
+        "Domestic",
+        "Information"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "AI content.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U06",
+      "name": "Far\u2011right militia coordination",
+      "domains": [
+        "Domestic"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Violence risk.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "D-IMM-WAR",
+      "name": "Governor\u2011federal military standoff (state vs. national guard)",
+      "domains": [
+        "Domestic",
+        "Institutional"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Constitutional crisis scenario.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "D-AI-LIAB",
+      "name": "Collapse of AI liability frameworks",
+      "domains": [
+        "Domestic",
+        "Institutional"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Legal paralysis.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "D-TRUST",
+      "name": "Compound erosion of trust in all institutions",
+      "domains": [
+        "Domestic",
+        "Institutional"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "WEF 2026.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "D-DESKILL",
+      "name": "Massive technological deskilling & workforce mismatch",
+      "domains": [
+        "Domestic",
+        "Social"
+      ],
+      "status": "Yellow",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "57% need reskilling.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "D-GDPR",
+      "name": "Fragmentation of global privacy & AI governance",
+      "domains": [
+        "Domestic",
+        "Institutional"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Enforcement gaps.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C139",
+      "name": "Mass Displacement",
+      "domains": [
+        "Social"
+      ],
+      "status": "Red",
+      "scp": 0.78,
+      "base_probability": 0.75,
+      "das": 65,
+      "notes": "9M IDPs in Sudan.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C5",
+      "name": "Gaza Structural Atrocity",
+      "domains": [
+        "Social",
+        "Geopolitical"
+      ],
+      "status": "Black Acute",
+      "scp": 0.9,
+      "base_probability": 0.88,
+      "das": 72,
+      "notes": "Siege continues.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U07",
+      "name": "Left\u2011wing protest violence",
+      "domains": [
+        "Social"
+      ],
+      "status": "Yellow",
+      "scp": 0.35,
+      "base_probability": 0.3,
+      "das": 25,
+      "notes": "Occasional.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U13",
+      "name": "Mexico cartel violence spillover",
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "status": "Red",
+      "scp": 0.68,
+      "base_probability": 0.65,
+      "das": 55,
+      "notes": "US border.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "U14",
+      "name": "Central America migration surge",
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Push factors.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C44S",
+      "name": "Delhi Heatwave \u2013 social collapse",
+      "domains": [
+        "Social",
+        "Climate"
+      ],
+      "status": "Red",
+      "scp": 0.68,
+      "base_probability": 0.65,
+      "das": 55,
+      "notes": "Labour unrest.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C64S",
+      "name": "Mediterranean Migration",
+      "domains": [
+        "Social",
+        "Geopolitical"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "EU strain.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C20*S",
+      "name": "Demand destruction + frozen labour",
+      "domains": [
+        "Social",
+        "Financial"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Unemployment.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "S-ANTI-TECH",
+      "name": "Anti\u2011tech extremism (FBI/DHS tracked)",
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "status": "Yellow",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Violent backlash against AI.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "S-NVE",
+      "name": "Nihilistic Violent Extremists targeting children",
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Recruitment through online games.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "S-CLASS",
+      "name": "Class\u2011based domestic terrorism (DHS)",
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Economic grievance motivation.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "S-FED-8000",
+      "name": "8,000% rise in threats against federal law enforcement",
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Doxing, harassment, assaults.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "S-LONELY",
+      "name": "Epidemic of loneliness as national security risk",
+      "domains": [
+        "Social"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "Radicalisation multiplier.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C\u2011ESCAPE",
+      "name": "AI Containment Escape",
+      "domains": [
+        "Technology"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Anthropic Mythos escape.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C\u2011ZERODAY",
+      "name": "AI\u2011Generated Zero\u2011Day Exploits",
+      "domains": [
+        "Technology",
+        "Cyber"
+      ],
+      "status": "Orange",
+      "scp": 0.62,
+      "base_probability": 0.58,
+      "das": 50,
+      "notes": "First case May 2026.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C\u2011BIOWPN",
+      "name": "AI\u2011Generated Bioweapon Instructions",
+      "domains": [
+        "Technology",
+        "Biosecurity"
+      ],
+      "status": "Orange",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "MIT/Stanford.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C\u2011AILANG",
+      "name": "Autonomous AI Social Networks",
+      "domains": [
+        "Technology"
+      ],
+      "status": "Yellow",
+      "scp": 0.42,
+      "base_probability": 0.38,
+      "das": 32,
+      "notes": "AI\u2011Gram, Moltbook.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C\u2011DATACENTER\u2011RES",
+      "name": "AI Infrastructure Resource Tipping Point",
+      "domains": [
+        "Technology",
+        "Climate"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Water/energy strain.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C\u2011MALWARE",
+      "name": "Miasma Supply\u2011Chain Worm",
+      "domains": [
+        "Technology",
+        "Supply Chains"
+      ],
+      "status": "Orange",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "57 npm packages.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C121T",
+      "name": "Taiwan Semiconductor Chokepoint",
+      "domains": [
+        "Technology",
+        "Supply Chains"
+      ],
+      "status": "Black Acute",
+      "scp": 0.86,
+      "base_probability": 0.85,
+      "das": 70,
+      "notes": "Huawei/SMIC.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C48T",
+      "name": "AI Deepfake Ops",
+      "domains": [
+        "Technology",
+        "Information"
+      ],
+      "status": "Red",
+      "scp": 0.72,
+      "base_probability": 0.68,
+      "das": 60,
+      "notes": "Election disinfo.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C96",
+      "name": "GPS Spoofing (Civil Aviation)",
+      "domains": [
+        "Technology"
+      ],
+      "status": "Red",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Black Sea region.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C97",
+      "name": "Co\u2011orbital ASAT Threat",
+      "domains": [
+        "Technology",
+        "Geopolitical"
+      ],
+      "status": "Red",
+      "scp": 0.68,
+      "base_probability": 0.65,
+      "das": 55,
+      "notes": "Space weapons.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I11",
+      "name": "AI disinformation supercycle",
+      "domains": [
+        "Technology",
+        "Information"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Generative.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I12",
+      "name": "Deepfake WMD false flag risk",
+      "domains": [
+        "Technology",
+        "Geopolitical"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Escalation.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "T-BIO-INF",
+      "name": "AI\u2011powered bioinformatics as national security vulnerability",
+      "domains": [
+        "Technology",
+        "Biosecurity"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Integrity of biological data systems.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "T-LAWS",
+      "name": "Lethal autonomous weapons (LAWS) normative collapse",
+      "domains": [
+        "Technology",
+        "Geopolitical"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "No binding treaty.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "T-SYN-DNA",
+      "name": "DNA synthesis screening gap (voluntary only)",
+      "domains": [
+        "Technology",
+        "Biosecurity"
+      ],
+      "status": "Yellow",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Critical biosecurity gap.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "T-AGENT",
+      "name": "Autonomous AI agents as persistence mechanism (Miasma variant)",
+      "domains": [
+        "Technology",
+        "Cyber"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Persistent backdoors.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "T-MISINFO",
+      "name": "Information ecosystem collapse as national security threat",
+      "domains": [
+        "Technology",
+        "Information"
+      ],
+      "status": "Orange",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Accelerated by AI.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I01I",
+      "name": "AI Deepfake Election",
+      "domains": [
+        "Information",
+        "Domestic"
+      ],
+      "status": "Black Acute",
+      "scp": 0.84,
+      "base_probability": 0.82,
+      "das": 68,
+      "notes": "2026 midterms.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C2I",
+      "name": "Information Warfare",
+      "domains": [
+        "Information",
+        "Geopolitical"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Russia/China.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C84I",
+      "name": "U.S. Electoral Integrity Breach",
+      "domains": [
+        "Information",
+        "Domestic"
+      ],
+      "status": "Black Structural",
+      "scp": 0.84,
+      "base_probability": 0.82,
+      "das": 68,
+      "notes": "Systemic.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "G14",
+      "name": "Trump 'imminent deal' narrative",
+      "domains": [
+        "Information"
+      ],
+      "status": "Yellow",
+      "scp": 0.3,
+      "base_probability": 0.25,
+      "das": 20,
+      "notes": "DVI.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I11I",
+      "name": "AI disinformation supercycle",
+      "domains": [
+        "Information",
+        "Technology"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "Scale.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I12I",
+      "name": "Deepfake WMD false flag",
+      "domains": [
+        "Information",
+        "Geopolitical"
+      ],
+      "status": "Orange",
+      "scp": 0.6,
+      "base_probability": 0.55,
+      "das": 48,
+      "notes": "Risk.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C19I",
+      "name": "Info\u2011civil unrest",
+      "domains": [
+        "Information",
+        "Social"
+      ],
+      "status": "Orange",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Viral rumours.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "B02",
+      "name": "Bundibugyo Ebola",
+      "domains": [
+        "Biosecurity"
+      ],
+      "status": "Red",
+      "scp": 0.89,
+      "base_probability": 0.88,
+      "das": 72,
+      "notes": "515 cases, 91 deaths.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C148",
+      "name": "Bundibugyo Ebola (duplicate)",
+      "domains": [
+        "Biosecurity"
+      ],
+      "status": "Red",
+      "scp": 0.89,
+      "base_probability": 0.88,
+      "das": 72,
+      "notes": "Same.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C94",
+      "name": "H5N1 Mammalian Adaptation",
+      "domains": [
+        "Biosecurity"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "No H2H.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C77",
+      "name": "U.S. Health Security Gaps",
+      "domains": [
+        "Biosecurity",
+        "Domestic"
+      ],
+      "status": "Black Structural",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "Funding.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A12",
+      "name": "Ebola \u2013 Bundibugyo",
+      "domains": [
+        "Biosecurity"
+      ],
+      "status": "Red",
+      "scp": 0.89,
+      "base_probability": 0.88,
+      "das": 72,
+      "notes": "PHEIC.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A13",
+      "name": "Ebola cross\u2011border",
+      "domains": [
+        "Biosecurity"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Uganda.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A14",
+      "name": "Mpox resurgence",
+      "domains": [
+        "Biosecurity"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "DRC.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "A15",
+      "name": "Marburg outbreak",
+      "domains": [
+        "Biosecurity"
+      ],
+      "status": "Yellow",
+      "scp": 0.35,
+      "base_probability": 0.3,
+      "das": 25,
+      "notes": "Tanzania.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "B-METABIO",
+      "name": "Convergent bio\u2011cyber threats (meta\u2011biothreats)",
+      "domains": [
+        "Biosecurity",
+        "Technology"
+      ],
+      "status": "Yellow",
+      "scp": 0.35,
+      "base_probability": 0.3,
+      "das": 25,
+      "notes": "Synthetic bio + AI + cyber convergence.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "B-AMR-KLEB",
+      "name": "Hypervirulent carbapenem\u2011resistant Klebsiella pneumoniae (hvKp ST23)",
+      "domains": [
+        "Biosecurity"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Pan\u2011resistant, detected in 16+ countries.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "B-DARK-PROTEIN",
+      "name": "AI\u2011designed undetectable toxins",
+      "domains": [
+        "Biosecurity",
+        "Technology"
+      ],
+      "status": "Yellow",
+      "scp": 0.5,
+      "base_probability": 0.45,
+      "das": 40,
+      "notes": "AI can design ricin\u2011level toxins.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "B-PANT-PIE",
+      "name": "Pantoea piersonii \u2013 emerging pathogen",
+      "domains": [
+        "Biosecurity"
+      ],
+      "status": "Yellow",
+      "scp": 0.4,
+      "base_probability": 0.35,
+      "das": 30,
+      "notes": "ISS origin, causing bacteremia.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "B-RNA",
+      "name": "AI\u2011generated vaccine\u2011evading pathogens",
+      "domains": [
+        "Biosecurity",
+        "Technology"
+      ],
+      "status": "Yellow",
+      "scp": 0.45,
+      "base_probability": 0.4,
+      "das": 35,
+      "notes": "Multi\u2011agent systems can design evasive viruses.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C120",
+      "name": "IHL Framework Collapse",
+      "domains": [
+        "Institutional"
+      ],
+      "status": "Black Structural",
+      "scp": 0.82,
+      "base_probability": 0.8,
+      "das": 68,
+      "notes": "Starvation as weapon.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C140",
+      "name": "Strait of Hormuz Legal Regime Erosion",
+      "domains": [
+        "Institutional",
+        "Geopolitical"
+      ],
+      "status": "Black Structural",
+      "scp": 0.78,
+      "base_probability": 0.75,
+      "das": 65,
+      "notes": "Iran claims permanent control.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C142",
+      "name": "NPT Review Conference Regime Failure",
+      "domains": [
+        "Institutional",
+        "Geopolitical"
+      ],
+      "status": "Black Structural",
+      "scp": 0.75,
+      "base_probability": 0.72,
+      "das": 62,
+      "notes": "Non\u2011proliferation breakdown.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C77I",
+      "name": "U.S. Health Security Gaps",
+      "domains": [
+        "Institutional",
+        "Biosecurity"
+      ],
+      "status": "Black Structural",
+      "scp": 0.7,
+      "base_probability": 0.65,
+      "das": 58,
+      "notes": "CDC underfunded.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I01I",
+      "name": "IHL collapse \u2013 starvation as weapon",
+      "domains": [
+        "Institutional"
+      ],
+      "status": "Red",
+      "scp": 0.8,
+      "base_probability": 0.78,
+      "das": 65,
+      "notes": "Sudan, Gaza.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I02",
+      "name": "War crime designation for ship attacks",
+      "domains": [
+        "Institutional"
+      ],
+      "status": "Orange",
+      "scp": 0.55,
+      "base_probability": 0.5,
+      "das": 45,
+      "notes": "Hormuz.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I03",
+      "name": "NPT failure \u2013 third consecutive",
+      "domains": [
+        "Institutional"
+      ],
+      "status": "Red",
+      "scp": 0.78,
+      "base_probability": 0.75,
+      "das": 65,
+      "notes": "Iran, NK.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I17",
+      "name": "UN Security Council paralysis",
+      "domains": [
+        "Institutional"
+      ],
+      "status": "Orange",
+      "scp": 0.65,
+      "base_probability": 0.6,
+      "das": 52,
+      "notes": "Russia veto.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C84I",
+      "name": "U.S. Electoral Integrity Breach",
+      "domains": [
+        "Institutional",
+        "Domestic"
+      ],
+      "status": "Black Structural",
+      "scp": 0.84,
+      "base_probability": 0.82,
+      "das": 68,
+      "notes": "Systemic.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "C145I",
+      "name": "Iran\u2011Oman transit fee precedent",
+      "domains": [
+        "Institutional",
+        "Financial"
+      ],
+      "status": "Black Structural",
+      "scp": 0.8,
+      "base_probability": 0.78,
+      "das": 65,
+      "notes": "Legal erosion.",
+      "priority_score": 0.0
+    },
+    {
+      "id": "I10",
+      "name": "US Media Collapse",
+      "domains": [
+        "Institutional",
+        "Domestic"
+      ],
+      "status": "Black Structural",
+      "scp": 0.78,
+      "base_probability": 0.75,
+      "das": 65,
+      "notes": "WaPo layoffs, CBS turmoil.",
+      "priority_score": 0.0
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+2026-06-11 02:08:15,221 - INFO - Starting daily sweep
+2026-06-11 02:08:26,517 - INFO - fetch_gdacs: 17 events
+2026-06-11 02:08:27,023 - ERROR - JSON error https://api.reliefweb.int/v1/reports: 410 Client Error: Gone for url: https://api.reliefweb.int/v1/reports?appname=cathedral-network&limit=50&filter%5Bfield%5D=date.created&filter%5Bvalue%5D=%7B%27from%27%3A%272026-06-10%27%7D
+2026-06-11 02:08:27,024 - INFO - fetch_reliefweb: 0 events
+2026-06-11 02:08:28,875 - ERROR - JSON error https://ucdpapi.pcr.uu.se/api/events/1: 404 Client Error: Not Found for url: https://ucdpapi.pcr.uu.se/api/events/1?limit=100
+2026-06-11 02:08:28,876 - INFO - fetch_ucdp: 0 events
+2026-06-11 02:08:35,316 - ERROR - JSON error https://api.gdeltproject.org/api/v2/events/events?format=json&mode=raw&maxrecords=200&startdatetime=20260610070815&enddatetime=20260611070828: 404 Client Error: Not Found for url: https://api.gdeltproject.org/api/v2/events/events?format=json&mode=raw&maxrecords=200&startdatetime=20260610070815&enddatetime=20260611070828
+2026-06-11 02:08:35,316 - INFO - fetch_gdelt: 0 events
+2026-06-11 02:08:36,876 - INFO - fetch_promed: 0 events
+2026-06-11 02:08:40,113 - INFO - fetch_arxiv: 46 events
+2026-06-11 02:08:42,070 - ERROR - JSON error https://incidentdatabase.ai/api/incidents: 404 Client Error: Not Found for url: https://incidentdatabase.ai/api/incidents?limit=50
+2026-06-11 02:08:42,071 - INFO - fetch_ai_incident_db: 0 events
+2026-06-11 02:08:43,479 - INFO - fetch_github_advisories: 24 events
+2026-06-11 02:08:45,276 - INFO - fetch_nvd: 50 events
+2026-06-11 02:08:46,497 - ERROR - JSON error https://api.eia.gov/v2/electricity/report-data/region/data/: 404 Client Error: Not Found for url: https://api.eia.gov/v2/electricity/report-data/region/data/?api_key=s2bEowaEYZX8IqMhBkbpSA3AM7bcqltv8xqYHPf9&frequency=hourly&data=value&facets=regioncode%3DUS48&start=2026-06-10&end=2026-06-11&length=24
+2026-06-11 02:08:46,498 - INFO - fetch_eia: 0 events
+2026-06-11 02:08:46,516 - INFO - Sweep complete. Saved sweep_report.json, ground_truth_summary.md
+2026-06-11 02:15:30,022 - INFO - Starting daily sweep
+2026-06-11 02:15:37,013 - INFO - fetch_gdacs: 17 events
+2026-06-11 02:15:37,479 - ERROR - JSON error https://api.reliefweb.int/v1/reports: 410 Client Error: Gone for url: https://api.reliefweb.int/v1/reports?appname=cathedral-network&limit=50&filter%5Bfield%5D=date.created&filter%5Bvalue%5D=%7B%27from%27%3A%272026-06-10%27%7D
+2026-06-11 02:15:37,479 - INFO - fetch_reliefweb: 0 events
+2026-06-11 02:15:38,465 - ERROR - JSON error https://ucdpapi.pcr.uu.se/api/events/1: 404 Client Error: Not Found for url: https://ucdpapi.pcr.uu.se/api/events/1?limit=100
+2026-06-11 02:15:38,467 - INFO - fetch_ucdp: 0 events
+2026-06-11 02:15:48,393 - ERROR - JSON error https://api.gdeltproject.org/api/v2/events/events?format=json&mode=raw&maxrecords=200&startdatetime=20260610071530&enddatetime=20260611071538: 404 Client Error: Not Found for url: https://api.gdeltproject.org/api/v2/events/events?format=json&mode=raw&maxrecords=200&startdatetime=20260610071530&enddatetime=20260611071538
+2026-06-11 02:15:48,393 - INFO - fetch_gdelt: 0 events
+2026-06-11 02:15:49,083 - INFO - fetch_promed: 0 events
+2026-06-11 02:15:53,671 - INFO - fetch_arxiv: 46 events
+2026-06-11 02:15:54,334 - ERROR - JSON error https://incidentdatabase.ai/api/incidents: 404 Client Error: Not Found for url: https://incidentdatabase.ai/api/incidents?limit=50
+2026-06-11 02:15:54,334 - INFO - fetch_ai_incident_db: 0 events
+2026-06-11 02:15:55,480 - INFO - fetch_github_advisories: 24 events
+2026-06-11 02:15:57,003 - INFO - fetch_nvd: 50 events
+2026-06-11 02:15:58,080 - ERROR - JSON error https://api.eia.gov/v2/electricity/report-data/region/data/: 404 Client Error: Not Found for url: https://api.eia.gov/v2/electricity/report-data/region/data/?api_key=s2bEowaEYZX8IqMhBkbpSA3AM7bcqltv8xqYHPf9&frequency=hourly&data=value&facets=regioncode%3DUS48&start=2026-06-10&end=2026-06-11&length=24
+2026-06-11 02:15:58,081 - INFO - fetch_eia: 0 events
+2026-06-11 02:15:58,102 - INFO - Sweep complete. Saved sweep_report.json, ground_truth_summary.md
+2026-06-11 02:20:04,619 - INFO - Starting daily sweep
+2026-06-11 02:20:11,275 - INFO - fetch_gdacs: 17 events
+2026-06-11 02:20:11,768 - ERROR - JSON error https://api.reliefweb.int/v2/reports: 400 Client Error: Bad Request for url: https://api.reliefweb.int/v2/reports?appname=cathedral-network&limit=50&filter%5Bfield%5D=date.created&filter%5Bvalue%5D=%7B%27from%27%3A%272026-06-10%27%7D
+2026-06-11 02:20:11,769 - INFO - fetch_reliefweb: 0 events
+2026-06-11 02:20:11,769 - WARNING - UCDP_API_TOKEN not set. Skipping UCDP.
+2026-06-11 02:20:11,770 - INFO - fetch_ucdp: 0 events
+2026-06-11 02:20:23,856 - ERROR - JSON error https://api.gdeltproject.org/api/v2/doc/doc: 429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=energy+OR+conflict+OR+%22cyber+attack%22+OR+%22ai%22&mode=artlist&format=json&maxrecords=100&timespan=1d
+2026-06-11 02:20:23,856 - INFO - fetch_gdelt: 0 events
+2026-06-11 02:20:24,594 - INFO - fetch_promed: 0 events
+2026-06-11 02:20:26,393 - INFO - fetch_arxiv: 46 events
+2026-06-11 02:20:26,393 - ERROR - Failed fetch_ai_incident_db: fetch_json_api() got an unexpected keyword argument 'json'
+2026-06-11 02:20:27,780 - INFO - fetch_github_advisories: 24 events
+2026-06-11 02:20:29,491 - INFO - fetch_nvd: 50 events
+2026-06-11 02:20:30,712 - ERROR - JSON error https://api.eia.gov/v2/petroleum/pri/csr/data/: 400 Client Error: Bad Request for url: https://api.eia.gov/v2/petroleum/pri/csr/data/?api_key=s2bEowaEYZX8IqMhBkbpSA3AM7bcqltv8xqYHPf9&frequency=weekly&data%5B0%5D=value&facets%5Bseries%5D%5B%5D=PET.WCRWTOTL.W&start=2025-01-01&end=2026-06-11&sort%5B0%5D%5Bcolumn%5D=period&sort%5B0%5D%5Bdirection%5D=asc&offset=0&length=500
+2026-06-11 02:20:30,713 - INFO - fetch_eia: 0 events
+2026-06-11 02:20:30,720 - INFO - Sweep complete. Saved sweep_report.json, ground_truth_summary.md
+2026-06-13 11:20:40,716 - INFO - Starting daily sweep
+2026-06-13 11:20:50,173 - INFO - fetch_gdacs: 27 events
+2026-06-13 11:20:51,996 - ERROR - JSON error https://api.reliefweb.int/v1/reports: 410 Client Error: Gone for url: https://api.reliefweb.int/v1/reports?appname=cathedral-network&limit=50&filter%5Bfield%5D=date.created&filter%5Bvalue%5D=%7B%22from%22%3A+%222026-06-12%22%7D
+2026-06-13 11:20:51,996 - INFO - fetch_reliefweb: 0 events
+2026-06-13 11:20:52,005 - WARNING - UCDP_API_TOKEN not set. Skipping UCDP.
+2026-06-13 11:20:52,008 - INFO - fetch_ucdp: 0 events
+2026-06-13 11:21:00,811 - ERROR - JSON error https://api.gdeltproject.org/api/v2/events/events?format=json&mode=raw&maxrecords=200&startdatetime=20260612162040&enddatetime=20260613162054: 404 Client Error: Not Found for url: https://api.gdeltproject.org/api/v2/events/events?format=json&mode=raw&maxrecords=200&startdatetime=20260612162040&enddatetime=20260613162054
+2026-06-13 11:21:00,811 - INFO - fetch_gdelt: 0 events
+2026-06-13 11:21:03,084 - INFO - fetch_promed: 0 events
+2026-06-13 11:21:12,675 - INFO - fetch_arxiv: 0 events
+2026-06-13 11:21:16,065 - ERROR - JSON error https://incidentdatabase.ai/api/incidents: 404 Client Error: Not Found for url: https://incidentdatabase.ai/api/incidents?limit=50
+2026-06-13 11:21:16,068 - INFO - fetch_ai_incident_db: 0 events
+2026-06-13 11:21:18,851 - INFO - fetch_github_advisories: 46 events
+2026-06-13 11:21:22,000 - INFO - fetch_nvd: 50 events
+2026-06-13 11:21:22,001 - INFO - fetch_eia: 0 events
+2026-06-13 11:21:22,022 - INFO - Sweep complete. Saved sweep_report.json, ground_truth_summary.md
