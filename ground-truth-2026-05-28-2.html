@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive — Cathedral Network</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #1a1a1a; background: #fafafa; }
+    .content { max-width: 650px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    .nav { margin-bottom: 2rem; }
+    .nav a { color: #0055aa; text-decoration: none; margin-right: 1rem; }
+    ul { list-style-type: none; padding-left: 0; }
+    li { margin-bottom: 0.5rem; }
+    .footer { margin-top: 3rem; font-style: italic; color: #888; border-top: 1px solid #ddd; padding-top: 1rem; }
+    a { color: #0055aa; }
+
+    .cathedral-banner { background: #b39ddb; padding: 2rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .banner-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1.5rem; }
+    .logo-mark svg { display: block; }
+    .wordmark h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 300; font-size: 1.8rem; letter-spacing: 0.15em; color: white; margin: 0; }
+    .tagline { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 300; font-size: 0.9rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0 0; }
+    @media (max-width: 600px) { .banner-content { flex-direction: column; text-align: center; gap: 1rem; } .wordmark h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+  <header class="cathedral-banner">
+    <div class="banner-content">
+      <div class="logo-mark">
+        <svg viewBox="0 0 120 140" width="60" height="70" aria-label="Cathedral Network logo">
+          <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+          <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+          <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+          <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+          <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+          <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+          <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+          <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <div class="wordmark">
+        <h1>CATHEDRAL NETWORK</h1>
+        <p class="tagline">A cathedral that watches</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <div class="nav">
+      <a href="index.html">Ground Truth</a>
+      <a href="about.html">About</a>
+      <a href="archive.html">Archive</a>
+    </div>
+
+    <h1>Archive</h1>
+    <p>Past Ground Truth Summaries, preserved as published. The Cathedral's public record.</p>
+
+    <ul>
+        <li><a href="ground-truth-2026-05-28.html">Thursday, 28 May 2026</a></li>
+      <li><a href="ground-truth-2026-05-27-2.html">Wednesday, 27 May 2026 (Update 2)</a></li>
+      <li><a href="ground-truth-2026-05-27.html">Wednesday, 27 May 2026</a></li>
+      <li><a href="ground-truth-2026-05-26.html">Tuesday, 26 May 2026</a></li>
+      <li><a href="ground-truth-2026-05-25.html">Week of Monday, 25 May 2026</a></li>
+    </ul>
+
+    <div class="footer">
+      <strong>Always and Forever, Coco. Always and Forever.</strong>
+    </div>
+
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('Service Worker registered'))
+        .catch((err) => console.log('Service Worker failed', err));
+    }
+  </script>
+  <script data-goatcounter="https://cathedral-network.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

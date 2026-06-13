@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cathedral Network — Ground Truth</title>
+  <style>
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --violet-bg: #e9e0f5;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #fafafa;
+    }
+    .content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.25rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      border-bottom: 2px solid var(--violet);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .nav {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.75rem;
+    }
+    .nav a {
+      color: #5e2d8e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav a:hover {
+      text-decoration: underline;
+    }
+    .date {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .threat-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.1s, box-shadow 0.2s;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .threat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+    .card-content {
+      padding: 1.2rem;
+    }
+    .threat-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-red {
+      background: #c0392b;
+      color: white;
+    }
+    .badge-black {
+      background: #1a1a1a;
+      color: white;
+    }
+    .badge-violet {
+      background: #5e2d8e;
+      color: white;
+    }
+    .prediction-banner {
+      background: linear-gradient(135deg, #f5f0fa, #e9e0f5);
+      border-radius: 24px;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--violet);
+    }
+    .stat {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #5e2d8e;
+    }
+    .drawdown {
+      background: #f8f4ff;
+      border-left: 6px solid var(--violet-dark);
+      border-radius: 20px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    .footer {
+      margin-top: 3rem;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+      text-align: center;
+    }
+    .hewd-widget {
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      padding: 1.2rem;
+      margin-top: 1.5rem;
+      border: 1px solid var(--violet);
+    }
+    .hewd-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .hewd-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #5e2d8e;
+    }
+    .hewd-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .hewd-card {
+      background: var(--violet-light);
+      border-radius: 1rem;
+      padding: 0.8rem;
+      border-left: 4px solid var(--violet-dark);
+    }
+    .hewd-card-title {
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .hewd-status {
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      font-size: 0.6rem;
+      font-weight: bold;
+    }
+    .status-red {
+      background: #dc2626;
+      color: white;
+    }
+    .status-orange {
+      background: #f97316;
+      color: white;
+    }
+    .hewd-recommendation {
+      font-size: 0.7rem;
+      margin-top: 0.5rem;
+      border-left: 2px solid #5e2d8e;
+      padding-left: 0.5rem;
+    }
+    .cathedral-banner {
+      background: var(--violet);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .logo-mark svg {
+      display: block;
+    }
+    .wordmark h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: white;
+      margin: 0;
+    }
+    .tagline {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      margin: 0;
+    }
+    @media (max-width: 600px) {
+      .banner-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .content {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60" aria-label="Cathedral Network logo">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark">
+      <h1>CATHEDRAL NETWORK</h1>
+      <p class="tagline">A cathedral that watches</p>
+    </div>
+  </div>
+</header>
+<div class="content">
+  <div class="nav">
+    <a href="index.html">Ground Truth</a>
+    <a href="about.html">About</a>
+    <a href="archive.html">Archive</a>
+    <a href="spotter.html">Spotter Guide</a>
+    <a href="sources.html">Sources</a>
+    <a href="constitution.html">Constitution</a>
+    <a href="wardens.html">Wardens</a>
+    <a href="hewd.html">HEWD Dashboard</a>
+    <a href="undp-demo.html">UNDP Demo</a>
+  </div>
+
+  <h1>Cathedral Network — Ground Truth</h1>
+  <div class="date">Friday, 29 May 2026 · 10:30 CST</div>
+
+  <!-- Oil Shock & Predictions Banner -->
+  <div class="prediction-banner">
+    <div><span class="stat">P‑OIL‑150</span><br>Brent $150/bbl<br><strong>45% probability</strong><br><span style="font-size:0.8rem;">Exxon warns of “unheard of” lows</span></div>
+    <div><span class="stat">P‑OIL‑DEFICIT</span><br>7M b/d deficit by July 7<br><strong>40% probability</strong><br><span style="font-size:0.8rem;">IEA “red zone” Jul‑Aug</span></div>
+    <div><span class="stat">Brent spot</span><br>$92.55/bbl (29 May)<br>Volatile after ceasefire headlines</div>
+  </div>
+
+  <!-- Oil Drawdown Index (Proposal 024) -->
+  <div class="drawdown">
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+      <strong>📊 WEEKLY OIL INVENTORY DRAWDOWN INDEX (Proposal 024)</strong>
+      <span class="badge" style="background:#5e2d8e; color:white;">Approved 28 May</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; align-items: baseline; margin-top: 0.5rem;">
+      <span class="stat">1.8 mb/d</span>
+      <span>Global drawdown rate (4‑wk avg)</span>
+      <span class="badge" style="background:#e67e22;">⚠️ Elevated (threshold 2 mb/d)</span>
+    </div>
+    <div style="font-size:0.8rem; margin-top: 0.5rem;">Next EIA report: 29 May · IEA monthly: 15 June</div>
+  </div>
+
+  <h2>Top 10 Most Pressing Threats</h2>
+  <div class="card-grid">
+    <div class="threat-card"><div class="card-content"><div class="threat-title"><span>🔴 Romania drone strike</span><span class="badge badge-red">C03 RED</span></div>Russian attack drone hits Galați residential building. NATO Article 4 expected. Great power conflict prob 25%.</div></div>
+    <div class="threat-card"><div class="card-content"><div class="threat-title"><span>⚫ Iran / Gulf war risk</span><span class="badge badge-black">40% war prob</span></div>US‑Iran strikes, Kuwait targeted. Hormuz blockade. Oil volatile. DVI 100/100.</div></div>
+    <div class="threat-card"><div class="card-content"><div class="threat-title"><span>⚫ Horn Famine</span><span class="badge badge-black">IPC5</span></div>Sudan 135K IPC5, Kenya AMN Phase 5. Famine spreading.</div></div>
+    <div class="threat-card"><div class="card-content"><div class="threat-title"><span>⚫ Bundibugyo Ebola</span><span class="badge badge-black">PHEIC</span></div>906 cases, 223 deaths. No vaccine. Outbreak accelerating.</div></div>
+    <div class="threat-card"><div class="card-content"><div class="threat-title"><span>🔴 Zaporizhzhia NPP</span><span class="badge badge-red">Single backup line</span></div>Plant lost all external power for 16th time overnight. Diesel generators running.</div></div>
+    <div class="threat-card"><div class="card-content"><div class="threat-title"><span>🟣 US Electoral Integrity</span><span class="badge badge-violet">DOJ erasure</span></div>Jan 6 records destroyed. $1.776B dark fund.</div></div>
+    <div class="threat-card"><div class="card-content"><div class="threat-title"><span>🟣 Global Sovereign Debt</span><span class="badge badge-violet">93.9% GDP</span></div>Projected 100% by 2029. Oil spike compounds risk.</div></div>
+    <div class="threat-card"><div class="card-content"><div class="threat-title"><span>🔴 Hurricane Season</span><span class="badge badge-red">Starts 1 June</span></div>FEMA DRF below $3B. Only life‑saving ops funded.</div></div>
+    <div class="threat-card"><div class="card-content"><div class="threat-title"><span>🟣 IHL Collapse</span><span class="badge badge-violet">War crimes</span></div>Starvation weaponized. Gaza: 922 killed since October ceasefire.</div></div>
+    <div class="threat-card"><div class="card-content"><div class="threat-title"><span>🟣 NPT Failure + NK AI missiles</span><span class="badge badge-violet">Third failure</span></div>North Korea tested AI‑guided cruise missiles 27 May.</div></div>
+  </div>
+
+  <h2>Additional Threats at Elevated Status</h2>
+  <div class="card-grid">
+    <div class="threat-card"><div class="card-content"><strong>🔴 Great Power Conflict (C132)</strong><br>Probability 25%. Romania strike + Hormuz escalation.</div></div>
+    <div class="threat-card"><div class="card-content"><strong>⚫ Kuwait Fiscal Collapse</strong><br>97 missiles, 283 drones intercepted. Airport hit. SWF at risk.</div></div>
+    <div class="threat-card"><div class="card-content"><strong>🔴 Disinformation Alert</strong><br>DVI 100/100 in Gulf. Trump's “imminent deal” narrative unsupported.</div></div>
+    <div class="threat-card"><div class="card-content"><strong>🔴 Gaza Escalation</strong><br>Netanyahu orders seizure of 70% of Strip. 922 killed since October.</div></div>
+    <div class="threat-card"><div class="card-content"><strong>🟠 North Korea AI Missiles</strong><br>Eighth test of 2026. AI guidance increases evasion.</div></div>
+    <div class="threat-card"><div class="card-content"><strong>🟠 H5N1 Avian Influenza</strong><br>Human death in Bangladesh. Monitoring for human‑to‑human transmission.</div></div>
+  </div>
+
+  <!-- HEWD Widget (embedded) -->
+  <h2>Live Humanitarian Dashboard (Cathedral HEWD)</h2>
+  <div id="hewd-root" class="hewd-widget">Loading...</div>
+
+  <h2>Corrections Log</h2>
+  <div style="background:#f8f4ff; border-radius: 20px; padding: 1rem; margin: 1rem 0; font-size:0.9rem;">
+    <ul style="margin-left: 1rem;">
+      <li><strong>FR‑001</strong> — Fabricated UFO report · Retracted.</li>
+      <li><strong>CR‑003</strong> — Hurricane season “active” corrected to NOAA below‑avg forecast.</li>
+      <li><strong>CR‑005</strong> — ZNPP downgraded/corrected: single backup line remains.</li>
+      <li><strong>CR‑006</strong> — Previous sweep overestimated deal probability before Kuwait strike.</li>
+      <li><strong>CR‑007</strong> — Oil price revised to $112 after ship sinking (currently $92–$96 volatile).</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Cathedral Core v1.4.0 · 76 confirmed, 3 falsified · 96.20% hit rate · 123 threats tracked
+  </div>
+</div>
+
+<script>
+  // HEWD Widget data (same as demo, localised)
+  const threatData = {
+    threats: [
+      { id: 'kuwait', name: '🇰🇼 Kuwait Crisis', value: 'active', unit: 'conflict', status: 'red', recommendation: '🚨 Take shelter. Avoid oil infrastructure.', mortality_weight: 10 },
+      { id: 'famine_horn', name: '🇸🇩 Horn Famine', value: 210000, unit: 'people', status: 'red', recommendation: '🚨 Pre‑position food & water.', mortality_weight: 10 },
+      { id: 'ebola', name: '🦠 Bundibugyo Ebola', value: 906, unit: 'cases', status: 'red', recommendation: '🚑 Isolate suspected cases.', mortality_weight: 9 },
+      { id: 'znpp', name: '☢️ Zaporizhzhia NPP', value: 1, unit: 'backup line', status: 'orange', recommendation: '🛡️ Prepare iodine.', mortality_weight: 8 },
+      { id: 'oil', name: '🛢️ Oil Price Shock', value: 92.55, unit: 'USD/bbl', status: 'orange', recommendation: '📦 Expect fuel shortages. Stockpile essentials.', mortality_weight: 8 },
+      { id: 'conflict', name: '⚔️ Conflict Intensity', value: 3200, unit: 'deaths/month', status: 'orange', recommendation: '🛡️ Heightened violence.', mortality_weight: 7 }
+    ],
+    compound_crisis: true,
+    last_updated: new Date().toISOString()
+  };
+  function priorityScore(t) {
+    const severity = t.status === 'red' ? 3 : (t.status === 'orange' ? 2 : 1);
+    return (t.mortality_weight || 0) * severity;
+  }
+  function renderHEWD() {
+    const root = document.getElementById('hewd-root');
+    if (!root) return;
+    const sorted = [...threatData.threats].sort((a,b) => priorityScore(b) - priorityScore(a));
+    const compoundHtml = threatData.compound_crisis ? '<div class="hewd-compound" style="background:#5e2d8e20; border-radius:12px; padding:0.5rem; text-align:center; margin-bottom:1rem;">⚠️ MULTI‑CRISIS: Integrated response required.</div>' : '';
+    const cardsHtml = sorted.map(t => {
+      const statusText = t.status === 'red' ? 'CRITICAL' : (t.status === 'orange' ? 'ELEVATED' : 'STABLE');
+      return `<div class="hewd-card">
+        <div class="hewd-card-title"><span>${t.name}</span><span class="hewd-status status-${t.status}">${statusText}</span></div>
+        <div class="hewd-value">${typeof t.value === 'number' ? t.value.toLocaleString() : t.value} <span style="font-size:0.7rem;">${t.unit}</span></div>
+        <div class="hewd-recommendation">${t.recommendation}</div>
+      </div>`;
+    }).join('');
+    const dateStr = new Date(threatData.last_updated).toLocaleString();
+    root.innerHTML = `<div class="hewd-header"><div class="hewd-title">🚨 HEWD – Humanitarian Early Warning</div><div class="hewd-last-updated" style="font-size:0.7rem;">📅 ${dateStr}</div></div>${compoundHtml}<div class="hewd-grid">${cardsHtml}</div><div style="font-size:0.6rem; text-align:center; margin-top:1rem;">Cathedral Network — HEWD • Free for humanitarian use</div>`;
+  }
+  renderHEWD();
+  setInterval(renderHEWD, 60000);
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(() => console.log('Service Worker registered'))
+      .catch((err) => console.log('Service Worker failed', err));
+  }
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

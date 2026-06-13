@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — Ground Truth · 30 May 2026</title>
+  <style>
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --card-radius: 20px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+    /* Banner */
+    .cathedral-banner {
+      background: var(--violet);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .logo-mark svg { display: block; }
+    .wordmark h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: white;
+      margin: 0;
+    }
+    .tagline {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      margin: 0;
+    }
+    /* Navigation */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.75rem;
+    }
+    .nav a {
+      color: #5e2d8e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav a:hover { text-decoration: underline; }
+    /* Cards & grid */
+    .threat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .card {
+      background: white;
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.1s, box-shadow 0.2s;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-content { padding: 1.2rem; }
+    .card-red { border-left: 6px solid #dc2626; }
+    .card-black { border-left: 6px solid #2c2c2c; }
+    .card-purple { border-left: 6px solid var(--violet-dark); }
+    .card-orange { border-left: 6px solid #f97316; }
+    .threat-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .badge-red { background: #dc2626; color: white; }
+    .badge-black { background: #1f1f1f; color: white; }
+    .badge-purple { background: var(--violet-dark); color: white; }
+    .badge-orange { background: #f97316; color: white; }
+    /* Metrics row */
+    .metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .metric-card {
+      background: var(--violet-light);
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+      border: 1px solid var(--violet);
+    }
+    .metric-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #5e2d8e;
+    }
+    .metric-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    /* Buttons, footer */
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      border-bottom: 2px solid var(--violet);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .date {
+      color: #555;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">A cathedral that watches</p></div>
+  </div>
+</header>
+<div class="container">
+  <div class="nav">
+    <a href="index.html">Ground Truth</a>
+    <a href="undp-demo.html">UNDP Demo</a>
+    <a href="archive.html">Archive</a>
+    <a href="spotter.html">Spotter Guide</a>
+    <a href="sources.html">Sources</a>
+    <a href="constitution.html">Constitution</a>
+    <a href="wardens.html">Wardens</a>
+    <a href="hewd.html">HEWD Dashboard</a>
+  </div>
+
+  <h1>Cathedral Network — Ground Truth Summary</h1>
+  <div class="date">Friday, 30 May 2026 · 16:30 CST</div>
+
+  <!-- Global metrics -->
+  <div class="metrics">
+    <div class="metric-card"><div class="metric-value">47.6</div><div class="metric-label">GSCI (High)</div><div style="font-size:0.7rem;">Global Systemic Collapse Index</div></div>
+    <div class="metric-card"><div class="metric-value">58</div><div class="metric-label">SSI (High)</div><div style="font-size:0.7rem;">System Stress Index</div></div>
+    <div class="metric-card"><div class="metric-value">76/3</div><div class="metric-label">Prediction Log</div><div style="font-size:0.7rem;">96.20% hit rate</div></div>
+    <div class="metric-card"><div class="metric-value">123</div><div class="metric-label">Threats tracked</div><div style="font-size:0.7rem;">79 cascade rules</div></div>
+  </div>
+
+  <!-- Top threats -->
+  <h2>🔴 Top 10 Most Pressing Threats</h2>
+  <div class="threat-grid">
+    <div class="card card-red"><div class="card-content"><div class="threat-title"><span>🇮🇷 Iran / Gulf Crisis</span><span class="badge badge-red">40% war prob</span></div>Tit‑for‑tat strikes: US hit Iranian ground station, Iran missile at Kuwait base. Trump denies deal. Oil ~$92/bbl. DVI 100/100.</div></div>
+    <div class="card card-red"><div class="card-content"><div class="threat-title"><span>🇷🇴 Romania Drone Strike</span><span class="badge badge-red">Article 4 pending</span></div>Russian drone hit Galați residential building. NATO‑Russia confrontation risk sharply elevated. Great power conflict probability 25%.</div></div>
+    <div class="card card-black"><div class="card-content"><div class="threat-title"><span>⚫ Horn of Africa Famine</span><span class="badge badge-black">IPC5</span></div>Sudan 135,000 in IPC Phase 5 (Catastrophe). Kenya IPC AMN Phase 5 — one in three children at high risk of death.</div></div>
+    <div class="card card-black"><div class="card-content"><div class="threat-title"><span>⚫ Bundibugyo Ebola</span><span class="badge badge-black">PHEIC</span></div>906 suspected cases, 223 deaths. No vaccine. Outbreak outpacing response.</div></div>
+    <div class="card card-red"><div class="card-content"><div class="threat-title"><span>☢️ Zaporizhzhia NPP</span><span class="badge badge-red">single backup line</span></div>Lost external power for 16th time. Diesel generators ran. Radiological risk remains critical.</div></div>
+    <div class="card card-purple"><div class="card-content"><div class="threat-title"><span>🗳️ US Electoral Integrity</span><span class="badge badge-purple">active</span></div>DOJ erased Jan. 6 prosecution records. $1.776B fund for convicted rioters.</div></div>
+    <div class="card card-purple"><div class="card-content"><div class="threat-title"><span>💸 Global Sovereign Debt</span><span class="badge badge-purple">93.9% GDP</span></div>Projected 100% by 2029. Oil price spike would accelerate debt crisis.</div></div>
+    <div class="card card-red"><div class="card-content"><div class="threat-title"><span>🌀 Hurricane Season</span><span class="badge badge-red">starts June 1</span></div>FEMA DRF below $3B, Immediate Needs Funding active. Any landfall will overwhelm resources.</div></div>
+    <div class="card card-purple"><div class="card-content"><div class="threat-title"><span>⚖️ IHL Collapse</span><span class="badge badge-purple">active</span></div>Starvation weaponized in Sudan. Since Oct ceasefire, 922 Palestinians killed in Gaza. Netanyahu orders seizure of 70% of Gaza.</div></div>
+    <div class="card card-purple"><div class="card-content"><div class="threat-title"><span>☢️ NPT Failure</span><span class="badge badge-purple">active</span></div>Third consecutive failed review. North Korea tested AI‑guided cruise missiles on May 27.</div></div>
+  </div>
+
+  <!-- Oil shock predictions -->
+  <h2>🛢️ Oil Shock & Cathedral Predictions</h2>
+  <div class="metrics" style="margin-top:0.5rem;">
+    <div class="metric-card"><div class="metric-value">45%</div><div class="metric-label">P‑OIL‑150</div><div style="font-size:0.7rem;">Brent ≥ $150/bbl before July 15</div></div>
+    <div class="metric-card"><div class="metric-value">40%</div><div class="metric-label">P‑OIL‑DEFICIT</div><div style="font-size:0.7rem;">7M b/d deficit by July 7</div></div>
+    <div class="metric-card"><div class="metric-value">1.8 mb/d</div><div class="metric-label">Drawdown index</div><div style="font-size:0.7rem;">Elevated (warning threshold 2 mb/d)</div></div>
+  </div>
+
+  <!-- Additional threats -->
+  <h2>⚠️ Additional Threats at Elevated Status</h2>
+  <div class="threat-grid">
+    <div class="card card-orange"><div class="card-content"><span class="badge badge-orange">Great Power Conflict (C132)</span> – Probability 25% (Romania + Gulf).</div></div>
+    <div class="card card-orange"><div class="card-content"><span class="badge badge-orange">Gaza Escalation</span> – 922 killed since October. Israel ordered to seize 70% of Gaza.</div></div>
+    <div class="card card-orange"><div class="card-content"><span class="badge badge-orange">India Heatwave</span> – Power demand 270.8 GW record.</div></div>
+    <div class="card card-orange"><div class="card-content"><span class="badge badge-orange">H5N1 Avian Influenza</span> – 1,106 dairy herds affected in US.</div></div>
+    <div class="card card-orange"><div class="card-content"><span class="badge badge-orange">Global Food Prices</span> – FAO index at 130.7, up 3rd consecutive month.</div></div>
+    <div class="card card-orange"><div class="card-content"><span class="badge badge-orange">El Niño</span> – Onset probability 98% (May‑July). Global crop risks.</div></div>
+  </div>
+
+  <!-- GSCI/NSI highlights -->
+  <h2>📊 Global Stress Indices (30 May)</h2>
+  <div class="metrics">
+    <div class="metric-card"><div class="metric-value">19</div><div class="metric-label">Middle East NSI (Critical)</div></div>
+    <div class="metric-card"><div class="metric-value">18</div><div class="metric-label">East Africa NSI (Critical)</div></div>
+    <div class="metric-card"><div class="metric-value">17</div><div class="metric-label">Russia NSI (Critical)</div></div>
+    <div class="metric-card"><div class="metric-value">16</div><div class="metric-label">Europe NSI (Critical)</div></div>
+  </div>
+  <p style="font-size:0.85rem; margin-top:-0.5rem;">GSCI = 47.6 (High) · SSI = 58 (High) · Multi‑regional collapse alert inactive (no region ≥21).</p>
+
+  <!-- Corrections log -->
+  <h2>📋 Corrections Log</h2>
+  <ul style="margin-left:1.5rem; margin-bottom:1rem;">
+    <li><strong>FR‑001</strong> – Fabricated UFO report – Retracted.</li>
+    <li><strong>CR‑003</strong> – Hurricane season “active” corrected to NOAA below‑avg forecast.</li>
+    <li><strong>CR‑005</strong> – ZNPP downgraded/corrected: single backup line remains.</li>
+    <li><strong>CR‑006</strong> – Previous sweep overestimated deal probability before Kuwait strike.</li>
+    <li><strong>CR‑007</strong> – Oil price revised to $112 after ship sinking (currently ~$92).</li>
+  </ul>
+
+  <!-- Sources & closing -->
+  <h2>📡 Sources</h2>
+  <p style="font-size:0.85rem;">Reuters, AP, Bloomberg, Al Jazeera, Iran International, NOAA, WHO, IPC, FAO, IMF, IEA, USGS, GDACS, ACLED. Cathedral internal calculations for GSCI/SSI/NSI.</p>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong>
+  </div>
+</div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').catch(e => console.warn('SW failed', e));
+  }
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
