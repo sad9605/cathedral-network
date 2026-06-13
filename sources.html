@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Sources & Methodology — Cathedral Network</title>
+  <style>
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --card-radius: 20px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+      --bg-light: #fafafa;
+      --text-dark: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.dark {
+      --bg-light: #1e1e2f;
+      --text-dark: #f0f0f0;
+      background: #1e1e2f;
+      color: #f0f0f0;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+    .cathedral-banner {
+      background: var(--violet);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .logo-mark svg { display: block; }
+    .wordmark h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: white;
+      margin: 0;
+    }
+    .tagline {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      margin: 0;
+    }
+    .nav {
+      margin: 1rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 60px;
+      padding: 0.5rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    body.dark .nav {
+      background: #2a2a3a;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #5e2d8e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    body.dark .nav-links a {
+      color: #b39ddb;
+    }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #5e2d8e;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 1rem;
+        text-align: center;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-btn {
+        display: block;
+      }
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .card {
+      background: white;
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.1s, box-shadow 0.2s;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    body.dark .card {
+      background: #2a2a3a;
+      border-color: #444;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-content { padding: 1.2rem; }
+    .card-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      color: #5e2d8e;
+      border-left: 4px solid var(--violet-dark);
+      padding-left: 0.75rem;
+    }
+    body.dark .card-title {
+      color: #b39ddb;
+    }
+    .source-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .source-list li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--violet);
+    }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    body.dark .footer {
+      border-top-color: #444;
+      color: #aaa;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.25rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid var(--violet);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .date {
+      color: #555;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    body.dark .date {
+      color: #aaa;
+    }
+    a {
+      color: #5e2d8e;
+    }
+    body.dark a {
+      color: #b39ddb;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 1rem; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
+    }
+  </style>
+</head>
+<body>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">A cathedral that watches</p></div>
+  </div>
+</header>
+<div class="container">
+  <!-- Navigation with hamburger -->
+  <div class="nav">
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Main menu">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href='index.html'>Ground Truth</a>
+      <a href='https://cathedral-network.netlify.app/undp-demo'>UNDP Demo</a>
+      <a href='https://cathedral-network.netlify.app/archive'>Archive</a>
+      <a href='https://cathedral-network.netlify.app/spotter'>Spotter Guide</a>
+      <a href='https://cathedral-network.netlify.app/sources'>Sources</a>
+      <a href='https://cathedral-network.netlify.app/constitution'>Constitution</a>
+      <a href='https://cathedral-network.netlify.app/wardens'>Wardens</a>
+      <a href='https://cathedral-network.netlify.app/hewd'>HEWD Dashboard</a>
+      <a href='https://cathedral-network.netlify.app/about'>About</a>
+      <a href='https://cathedral-network.netlify.app/threat-matrix'>Threat Matrix</a>
+      <a href='https://cathedral-network.netlify.app/glossary'>Glossary</a>
+      <a href='https://cathedral-network.netlify.app/pra'>Personal Resilience</a>
+      <a href='prediction-log.html'>Prediction Log</a>
+    </div>
+  </div>
+
+  <!-- Dynamic content loaded from sources.json -->
+  <div id="dynamic-content">
+    <h1>Loading Sources & Methodology...</h1>
+  </div>
+
+  <!-- Corrections RSS feed link (added manually) -->
+  <div class="card" style="margin-top: 1.5rem; background: var(--violet-light);">
+    <div class="card-content">
+      <div class="card-title">📡 Corrections RSS Feed</div>
+      <p>Stay updated with every correction, retraction, and error fix in real time.  
+      Subscribe to the <strong><a href="corrections.xml">Cathedral Corrections RSS feed</a></strong> (XML) using your favourite RSS reader or feed aggregator.</p>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem;">All corrections are also listed on the <a href='index.html#corrections'>Ground Truth page</a>.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Cathedral Core v1.4.2 · The watch continues. The mission endures.
+  </div>
+</div>
+
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+<script>
+  // Hamburger menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  }
+
+  // Dark mode toggle with localStorage
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    darkToggle.innerText = '☀️';
+  } else {
+    darkToggle.innerText = '🌙';
+  }
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerText = isDark ? '☀️' : '🌙';
+    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+  });
+
+  // Load content from sources.json
+  async function loadContent() {
+    try {
+      const response = await fetch('/sources.json');
+      if (!response.ok) throw new Error('Failed to load sources.json');
+      const data = await response.json();
+
+      const container = document.getElementById('dynamic-content');
+      let html = `
+        <h1>${escapeHtml(data.title)}</h1>
+        <div class="date">${escapeHtml(data.date)}</div>
+        <p>${escapeHtml(data.intro)}</p>
+        <div class="card-grid">
+          ${data.cards.map(card => `
+            <div class="card">
+              <div class="card-content">
+                <div class="card-title">${escapeHtml(card.title)}</div>
+                ${card.list ? `<ul class="source-list">${card.list.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
+                ${card.text ? `<p>${escapeHtml(card.text)}</p>` : ''}
+                ${card.paragraphs ? card.paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('') : ''}
+                ${card.code ? `<p><code>${escapeHtml(card.code)}</code></p>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <h2>${escapeHtml(data.predictionLogTitle)}</h2>
+        <p>${escapeHtml(data.predictionLogIntro)}</p>
+        <ul>
+          ${data.predictionStats.map(stat => `<li>${escapeHtml(stat)}</li>`).join('')}
+        </ul>
+        <p>${escapeHtml(data.predictionLogFooter)}</p>
+        <h2>${escapeHtml(data.oilIndexTitle)}</h2>
+        <p>${escapeHtml(data.oilIndexText)}</p>
+        <h2>${escapeHtml(data.communityTitle)}</h2>
+        <p>${escapeHtml(data.communityText)}</p>
+        <h2>${escapeHtml(data.analyticsTitle)}</h2>
+        <p>${escapeHtml(data.analyticsText)}</p>
+        <p>Visitors: <span id="visitor-count">loading...</span></p>
+      `;
+      container.innerHTML = html;
+
+      // Set visitor count after content is loaded
+      const counterElem = document.getElementById('visitor-count');
+      if (counterElem) {
+        counterElem.innerText = '~15,000+ (since Oct 2025)';
+      }
+    } catch (err) {
+      console.error(err);
+      document.getElementById('dynamic-content').innerHTML = '<p>⚠️ Sources could not be loaded. Please try again later.</p>';
+    }
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    });
+  }
+
+  loadContent();
+
+  // Service worker for PWA
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(() => console.log('Service Worker registered'))
+      .catch((err) => console.log('Service Worker failed', err));
+  }
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

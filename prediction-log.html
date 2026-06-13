@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — Prediction Log</title>
+  <meta name="description" content="Complete public record of all Cathedral Network predictions. 77 confirmed, 4 falsified, 95.06% hit rate. Full transparency.">
+  <meta property="og:title" content="Cathedral Network — Prediction Log">
+  <meta property="og:description" content="Every prediction, probability, outcome, and correction. Fully transparent.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cathedral-network.netlify.app/prediction-log.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --card-radius: 20px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+      --bg-light: #fafafa;
+      --text-dark: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.dark {
+      --bg-light: #1e1e2f;
+      --text-dark: #f0f0f0;
+      background: #1e1e2f;
+      color: #f0f0f0;
+    }
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
+    .cathedral-banner {
+      background: var(--violet);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .logo-mark svg { display: block; }
+    .wordmark h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: white;
+      margin: 0;
+    }
+    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
+    .nav {
+      margin: 1rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 60px;
+      padding: 0.5rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    body.dark .nav { background: #2a2a3a; }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #5e2d8e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    body.dark .nav-links a { color: #b39ddb; }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #5e2d8e;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
+      .nav-links.show { display: flex; }
+      .menu-btn { display: block; }
+    }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: var(--violet-light);
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      justify-content: space-around;
+    }
+    body.dark .stats { background: #2a2a3a; }
+    .stat { text-align: center; }
+    .stat-value { font-size: 2rem; font-weight: 800; color: var(--violet-dark); }
+    body.dark .stat-value { color: #b39ddb; }
+    .stat-label { font-size: 0.8rem; text-transform: uppercase; }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      border-bottom: 2px solid var(--violet);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .prediction-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: white;
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    body.dark .prediction-table { background: #2a2a3a; }
+    .prediction-table th, .prediction-table td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    body.dark .prediction-table th, body.dark .prediction-table td { border-color: #444; }
+    .prediction-table th {
+      background: var(--violet-light);
+      font-weight: 600;
+    }
+    body.dark .prediction-table th { background: #3a3a4a; }
+    .confirmed-row { background: #1a3a1a20; }
+    .falsified-row { background: #3a1a1a20; }
+    .watchlist-row { background: #3a3a1a20; }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .badge-confirmed { background: #2ecc71; color: #1a1a1a; }
+    .badge-falsified { background: #e74c3c; color: white; }
+    .badge-active { background: #3498db; color: white; }
+    .badge-watchlist { background: #f39c12; color: #1a1a1a; }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 1rem; }
+      .prediction-table th, .prediction-table td { padding: 0.4rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Prediction Log – Always Transparent</p></div>
+  </div>
+</header>
+<div class="container">
+  <div class="nav">
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href='index.html'>Ground Truth</a>
+      <a href='https://cathedral-network.netlify.app/undp-demo'>UNDP Demo</a>
+      <a href='https://cathedral-network.netlify.app/archive'>Archive</a>
+      <a href='https://cathedral-network.netlify.app/spotter'>Spotter Guide</a>
+      <a href='https://cathedral-network.netlify.app/sources'>Sources</a>
+      <a href='https://cathedral-network.netlify.app/constitution'>Constitution</a>
+      <a href='https://cathedral-network.netlify.app/wardens'>Wardens</a>
+      <a href='https://cathedral-network.netlify.app/hewd'>HEWD Dashboard</a>
+      <a href='https://cathedral-network.netlify.app/about'>About</a>
+      <a href='https://cathedral-network.netlify.app/threat-matrix'>Threat Matrix</a>
+      <a href='https://cathedral-network.netlify.app/glossary'>Glossary</a>
+      <a href='https://cathedral-network.netlify.app/pra'>Personal Resilience</a>
+      <a href='prediction-log.html'>Prediction Log</a>
+    </div>
+  </div>
+
+  <h1>📋 Cathedral Network – Prediction Log</h1>
+  <p style="margin-bottom: 1rem;">All predictions are made publicly, with probabilities, dates, and outcomes. Corrections and falsifications are logged transparently (Law III).</p>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-value">77</div><div class="stat-label">Confirmed</div></div>
+    <div class="stat"><div class="stat-value">4</div><div class="stat-label">Falsified</div></div>
+    <div class="stat"><div class="stat-value">95.06%</div><div class="stat-label">Hit rate (resolved)</div></div>
+    <div class="stat"><div class="stat-value">72</div><div class="stat-label">Pending</div></div>
+    <div class="stat"><div class="stat-value">11</div><div class="stat-label">Watchlist</div></div>
+  </div>
+
+  <!-- CONFIRMED PREDICTIONS (Historical + new) -->
+  <h2>✅ Confirmed (77)</h2>
+  <p><em>Historical confirmed predictions from v1.4.1 are listed below. Full details are maintained in the Geographic Core.</em></p>
+  <table class="prediction-table">
+    <thead><tr><th>ID</th><th>Prediction</th><th>Date Confirmed</th></tr></thead>
+    <tbody>
+      <tr class="confirmed-row"><td>v3‑G1</td><td>Iran closes Strait of Hormuz after US‑Israeli strikes</td><td>28 Feb 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑G2</td><td>US imposes naval blockade of Iranian ports</td><td>13 Apr 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑G3</td><td>Ukraine ceasefire is “frozen conflict,” not peace</td><td>Apr–May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑G4</td><td>“Tanker war” resumes after lull</td><td>7 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑G5</td><td>Iran threatens US military bases</td><td>9 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑G6</td><td>Hezbollah‑Israel ceasefire collapses</td><td>4 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑G7</td><td>Houthis escalate Red Sea attacks</td><td>10 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑E1</td><td>Physical oil decouples from paper futures</td><td>7 Apr 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑E2</td><td>Physical‑paper spread reaches record</td><td>Apr 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑E3</td><td>Suspicious trading before Iran announcements</td><td>Apr–May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑E4</td><td>“Peace premium” in futures a mirage</td><td>6 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑E5</td><td>Gasoline hits $4.50/gal before summer</td><td>9 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑E6</td><td>Diesel becomes binding constraint</td><td>May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑E7</td><td>US refining system cracks</td><td>8 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑E8</td><td>Tank bottoms hit Europe by May</td><td>9 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑S1</td><td>Sulfuric acid crisis chokes metals</td><td>Apr 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑S2</td><td>PE extraction triggers pharmacy deserts</td><td>May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑S3</td><td>Subway closures are PE extraction</td><td>May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑S4</td><td>Retail apocalypse accelerates</td><td>Apr–May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑H1</td><td>Hantavirus cruise ship outbreak</td><td>8 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑H2</td><td>Conspiracy theories emerge immediately</td><td>6 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑D1</td><td>Trump refuses to accept election loss</td><td>10 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑D2</td><td>WH won't guarantee agents away from polls</td><td>May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑D3</td><td>AI deepfakes in 2026 midterms</td><td>12 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑M1</td><td>Missing scientists → FBI investigation</td><td>21 Apr 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑M2</td><td>Cases linked to nuclear/space programs</td><td>Apr–May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑M3</td><td>Missing AFRL general linked to UFO reverse‑engineering</td><td>8 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑C1</td><td>May 1 emergency Colorado River water releases</td><td>1 May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑C2</td><td>Lake Powell approaches dead pool</td><td>Apr–May 2026</td></tr>
+      <tr class="confirmed-row"><td>v3‑C3</td><td>March 2026 heatwave unprecedented</td><td>31 Mar 2026</td></tr>
+      <tr class="confirmed-row"><td>P001</td><td>Iran restricts Gulf airspace within 90d</td><td>23 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P002</td><td>Delhi wet‑bulb >32°C for >48h in May</td><td>21 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P003</td><td>Japan 10Y JGB >2.5% before Jun 30</td><td>15 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P004</td><td>Russia GPS jamming in Baltic affects civil aviation</td><td>8 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P005</td><td>Horn food prices >25% YoY</td><td>14 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P006</td><td>DRAM contract prices surge >50% QoQ in Q2 2026</td><td>20 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P007</td><td>H5N1 mammalian adaptation, silent transmission in US</td><td>7 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P008</td><td>WHO funding crisis → >15% workforce reduction</td><td>22 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P009</td><td>Armenia‑Azerbaijan ≥3 border incidents in 7‑day window</td><td>23 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P021</td><td>Sudan SRCS legal status revoked within 6m</td><td>1 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P033</td><td>TSMC 3nm/5nm fully booked through 2027</td><td>20 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P041</td><td>NATO member reports drone incursions within 90d</td><td>19 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P055</td><td>FEMA DRF drops below $2B before hurricane season</td><td>22 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P089</td><td>ICRC president publicly declares IHL broken within 7d</td><td>20 May 2026</td></tr>
+      <tr class="confirmed-row"><td>WW‑014</td><td>Python automation in place</td><td>20 May 2026</td></tr>
+      <tr class="confirmed-row"><td>WW‑016</td><td>Kaleb runs first solo daily cycle</td><td>20 May 2026</td></tr>
+      <tr class="confirmed-row"><td>V3‑HORN</td><td>Horn IPC Phase 5 population ≥210,000</td><td>25 May 2026</td></tr>
+      <tr class="confirmed-row"><td>WW‑033</td><td>Another US refinery outage before Memorial Day</td><td>25 May 2026</td></tr>
+      <tr class="confirmed-row"><td>WW‑088</td><td>GERD second‑phase filling begins on schedule (Jun 2026)</td><td>11 May 2026</td></tr>
+      <tr class="confirmed-row"><td>P010</td><td>Iran enrichment >60% before Jul 1</td><td>May 2026</td></tr>
+      <tr class="confirmed-row"><td>P37</td><td>Putin rejects Zelenskyy talks, launches strikes on Ukraine energy infrastructure</td><td>5 Jun 2026</td></tr>
+    </tbody>
+  </table>
+  <p><em>Additional confirmed predictions from the v1.4.1 log are maintained in the Geographic Core’s master list. This table shows a representative sample.</em></p>
+
+  <!-- FALSIFIED PREDICTIONS (now 4) -->
+  <h2>❌ Falsified (4)</h2>
+  <table class="prediction-table">
+    <thead><tr><th>ID</th><th>Prediction</th><th>Date Falsified</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr class="falsified-row"><td>WW‑031</td><td>Brent crude breaches $170 before May 31 (72% prob)</td><td>31 May 2026</td><td>Brent ~$101; window closed unmet.</td></tr>
+      <tr class="falsified-row"><td>V1</td><td>Hormuz insurance differential ≥10% or rebounds >10% within 48h (80% prob)</td><td>21 May 2026</td><td>Differential remained ~6.3%; window closed unmet.</td></tr>
+      <tr class="falsified-row"><td>V1‑HORMUZ</td><td>Hormuz insurance differential ≥10% (re‑evaluated)</td><td>21 May 2026</td><td>Actual rate 3–5% of vessel value, below 10%.</td></tr>
+      <tr class="falsified-row"><td>P39</td><td>US‑Iran nuclear deal within 14 days (70% → 5%)</td><td>8 Jun 2026</td><td>Iranian official declares deal “no longer feasible” after missile attacks; direct US‑Iran military exchanges.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- PENDING PREDICTIONS (Historical 33 + Active 36 + new P109‑P111 = 72) -->
+  <h2>⏳ Pending (72 – selected high priority)</h2>
+  <p><em>Includes 33 predictions from the v1.4.1 log, 36 active from post‑P34, plus new predictions P109‑P111.</em></p>
+  <table class="prediction-table">
+    <thead><tr><th>ID</th><th>Prediction</th><th>Probability</th><th>Horizon</th><th>Status</th></tr></thead>
+    <tbody>
+      <!-- Historical pending (selected) -->
+      <tr class="active-row"><td>P‑EBOLA‑1500</td><td>Ebola >1,500 cases</td><td>65%</td><td>31 Jul 2026</td><td>Active</td></tr>
+      <tr class="active-row"><td>P‑KYIV‑STRIKE</td><td>Russian mass‑casualty strike on Kyiv</td><td>50%</td><td>15 Jul 2026</td><td>Active</td></tr>
+      <tr class="active-row"><td>P‑OIL‑150</td><td>Brent >$150/bbl</td><td>45%</td><td>15 Jul 2026</td><td>Active</td></tr>
+      <tr class="active-row"><td>P‑FAO‑140</td><td>FAO Food Price Index ≥140</td><td>50%</td><td>31 Oct 2026</td><td>Active</td></tr>
+      <tr class="active-row"><td>P‑ZNPP‑LOSS</td><td>ZNPP complete external power loss</td><td>30%</td><td>31 Aug 2026</td><td>Active</td></tr>
+      <!-- Newer active predictions (P34–P105) with updated probabilities -->
+      <tr class="active-row"><td>P34</td><td>AI deepfake delays US county election certification within 14 days</td><td>65%</td><td>14 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P35</td><td>Fertiliser price index >230 by 18 June, triggering export bans</td><td>72%</td><td>13 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P38</td><td>Federal court issues injunction against DOD faith code reduction within 6 months</td><td>60%</td><td>6 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P42</td><td>ERISA class‑action lawsuit over forced SpaceX 401(k) purchase within 60 days of IPO</td><td>55%</td><td>60 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P45</td><td>Major US daily newspaper (>100k circulation) will close within 6 months</td><td>65%</td><td>6 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P47</td><td>Public trust in journalists falls below 50% by end of 2026</td><td>55%</td><td>6 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P49</td><td>AI‑fueled stock market correction ≥20‑30% from 2026 peak</td><td>70%</td><td>18 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P52</td><td>Dell annualized EPS stays above $15 (avoids 50% drop)</td><td>70%</td><td>12 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P56</td><td>Nasdaq falls another 10% within 30 trading days</td><td>75%</td><td>30 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P57</td><td>Tech correction 20‑25% but no global financial crisis (GSCI ≤75)</td><td>70%</td><td>12 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P58</td><td>Palantir signs major contract with Argentine federal government within 12 months</td><td>70%</td><td>12 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P59</td><td>At least three additional US tech billionaires establish residency in Argentina within 24 months</td><td>65%</td><td>24 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P60</td><td>Antitrust investigation into Oracle‑Palantir‑OpenAI‑Tesla nexus within 18 months</td><td>65%</td><td>18 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P61</td><td>US city or county officially explores “Network State” status within 24 months</td><td>60%</td><td>24 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P62</td><td>US military suffers operational failure due to over‑reliance on single AI contractor within 36 months</td><td>65%</td><td>36 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P63</td><td>EU regulator fines Meta >€1 billion for DSA violations within 18 months</td><td>65%</td><td>18 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P64</td><td>Alphabet forced to divest ad exchange business within 24 months</td><td>55%</td><td>24 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P65</td><td>Congressional investigation into TikTok divestment deal for “undue influence” within 24 months</td><td>60%</td><td>24 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P66</td><td>US government surveillance contract with new TikTok entity exposed within 36 months</td><td>55%</td><td>36 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P67</td><td>Major AI coding assistant security incident due to Miasma‑style poisoning within 6 months</td><td>65%</td><td>6 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P68</td><td>Miasma framework adapted to target another package registry (PyPI, RubyGems, Maven) within 12 months</td><td>75%</td><td>12 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P74</td><td>Oil exceeds $130/bbl within 7 days (from 7 June)</td><td>40%</td><td>7 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P75</td><td>Israel strikes Iranian nuclear/military sites within 14 days (from 7 June)</td><td>60%</td><td>14 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P76</td><td>Iran’s “seven days of continuous strikes” occurs</td><td>55%</td><td>7 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P77</td><td>US SPR falls below 340M barrels by July 31</td><td>60%</td><td>~6 weeks</td><td>Active</td></tr>
+      <tr class="active-row"><td>P78</td><td>Brent >$120/bbl within 7 days (8 June)</td><td>40%</td><td>7 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P79</td><td>Bab el‑Mandab Strait disrupted within 30 days (from 8 June)</td><td>65%</td><td>30 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P80</td><td>Saudi Arabia requests additional US air defense within 7 days (from 8 June)</td><td>70%</td><td>7 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P81</td><td>Oil >$200/bbl within 14 days (Hormuz closed)</td><td>40%</td><td>14 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P82</td><td>US‑Iran direct military exchange within 14 days</td><td>40%</td><td>14 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P83</td><td>Israel ground incursion into Lebanon within 14 days</td><td>45%</td><td>14 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P84</td><td>Global recession declared within 60 days</td><td>80%</td><td>60 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P85</td><td>At least 3 additional countries declare famine (IPC5) within 90 days</td><td>65%</td><td>90 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P86</td><td>US combat deaths >100 in Iran‑related conflict within 90 days</td><td>40%</td><td>90 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P87</td><td>Global GDP contraction ≥2% in 2026</td><td>90%</td><td>6 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P88</td><td>At least 10 sovereign debt defaults by Dec 2027</td><td>75%</td><td>18 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P89</td><td>US unemployment >8% by March 2027</td><td>80%</td><td>9 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P90</td><td>FAO index >250 by Dec 2026</td><td>70%</td><td>6 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P91</td><td>No full Middle East ceasefire by Dec 2027</td><td>65%</td><td>18 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P92</td><td>Global inflation >5% through 2028</td><td>60%</td><td>24 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P93</td><td>Philippines earthquake death toll exceeds 50 within 7 days</td><td>65%</td><td>7 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P95</td><td>US media layoffs accelerate; another major outlet cuts within 30 days</td><td>60%</td><td>30 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P96</td><td>Israeli port of Eilat will close permanently within 3 months</td><td>75%</td><td>3 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P97</td><td>Oil >$140/bbl within 30 days</td><td>25%</td><td>30 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P98</td><td>Houthi attack on commercial tanker causes casualty/spill within 30 days</td><td>65%</td><td>30 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P99</td><td>Russia oil exports fall ≥10% in June due to drone attacks</td><td>70%</td><td>June 2026</td><td>Active</td></tr>
+      <tr class="active-row"><td>P100</td><td>WHO declares Ebola Grade 3 emergency within 14 days</td><td>60%</td><td>14 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P101</td><td>Coordinated attack on both Hormuz and Bab el‑Mandeb within 60 days</td><td>65%</td><td>60 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P102</td><td>Oil >$120/bbl within 30 days after “security belt” implementation</td><td>45%</td><td>30 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P103</td><td>Major AI model publicly breaks containment within 12 months</td><td>65%</td><td>12 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P104</td><td>AI‑generated zero‑day causes major data breach within 18 months</td><td>60%</td><td>18 months</td><td>Active</td></tr>
+      <tr class="active-row"><td>P105</td><td>US state passes data centre water/energy reporting law within 24 months</td><td>70%</td><td>24 months</td><td>Active</td></tr>
+      <!-- New predictions P109–P111 -->
+      <tr class="active-row"><td>P109</td><td>Waterborne illness outbreak in Sirik within 30 days (US strike on water reservoirs)</td><td>70%</td><td>30 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P110</td><td>ICC preliminary investigation into US targeting of water infrastructure within 90 days</td><td>60%</td><td>90 days</td><td>Active</td></tr>
+      <tr class="active-row"><td>P111</td><td>US retaliation within 72 hours following IRGC attack on Fifth Fleet</td><td>70%</td><td>72 hours</td><td>Active</td></tr>
+    </tbody>
+  </table>
+
+  <!-- WATCHLIST (Historical 5 + Newer 6) -->
+  <h2>👁️ Watchlist (11)</h2>
+  <table class="prediction-table">
+    <thead><tr><th>ID</th><th>Prediction</th><th>Probability</th><th>Elevation Trigger</th></tr></thead>
+    <tbody>
+      <tr class="watchlist-row"><td>P‑US‑VIOLENCE</td><td>Pre‑midterm political violence (3+ casualties)</td><td>45%</td><td>Verification of event</td></tr>
+      <tr class="watchlist-row"><td>P‑HURR‑FEMA</td><td>Hurricane landfall ≥Cat 2 during FEMA INF restrictions</td><td>40%</td><td>Hurricane warning issued</td></tr>
+      <tr class="watchlist-row"><td>P‑NK‑ICBM</td><td>North Korea ICBM test (US‑range capable)</td><td>35%</td><td>Launch notification</td></tr>
+      <tr class="watchlist-row"><td>P‑G7‑DOWNGRADE</td><td>At least one G7 nation sovereign credit downgrade</td><td>40%</td><td>Rating agency announcement</td></tr>
+      <tr class="watchlist-row"><td>P‑ZNPP‑LOSS</td><td>ZNPP complete external power loss (all backup lines severed)</td><td>30%</td><td>IAEA report</td></tr>
+      <tr class="watchlist-row"><td>P40</td><td>Three members of Congress call for impeachment over Iran deal as “surrender” within 30 days</td><td>35%</td><td>If two members publicly call, elevate to active</td></tr>
+      <tr class="watchlist-row"><td>P41</td><td>If Iran transfers 60% enriched uranium to Russia, IAEA reports verification gaps within 90 days</td><td>25%</td><td>If transfer confirmed, elevate to active</td></tr>
+      <tr class="watchlist-row"><td>P46</td><td>Congressional hearings on “weaponization of Pentagon press office” within 12 months</td><td>40%</td><td>If hearings announced, elevate to active</td></tr>
+      <tr class="watchlist-row"><td>P48</td><td>Major US city (>500k) with no daily newspaper of record within 18 months</td><td>45%</td><td>If a daily paper permanently closes, elevate to active</td></tr>
+      <tr class="watchlist-row"><td>P50</td><td>Major AI company (OpenAI, Anthropic, Cohere) announces significant layoffs or down‑round within 30 days</td><td>50%</td><td>If layoffs >15% or down‑round, elevate to active</td></tr>
+      <tr class="watchlist-row"><td>P51</td><td>Pentagon press office SCIF designation overturned by federal court within 90 days</td><td>55%</td><td>If court issues preliminary injunction, elevate to active</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Cathedral Core v1.4.4 · Prediction Log updated 10 June 2026 · The watch continues.
+  </div>
+</div>
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    darkToggle.innerText = '☀️';
+  } else darkToggle.innerText = '🌙';
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerText = isDark ? '☀️' : '🌙';
+    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+  });
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js');
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
