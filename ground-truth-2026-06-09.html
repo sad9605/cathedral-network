@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — Ground Truth · 9 June 2026</title>
+  <meta name="description" content="Ceasefire holds; oil at $85; Iran's 'Resistance Belt' doctrine; Houthi Red Sea blockade; Philippines quake; Ebola spreads; AI containment risks.">
+  <meta property="og:title" content="Cathedral Network — Ground Truth · 9 June 2026">
+  <meta property="og:description" content="Global threat assessment: fragile peace, structural energy risks, humanitarian crises, and emerging AI dangers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cathedral-network.netlify.app/index.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --card-radius: 20px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+      --bg-light: #fafafa;
+      --text-dark: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.dark {
+      --bg-light: #1e1e2f;
+      --text-dark: #f0f0f0;
+      background: #1e1e2f;
+      color: #f0f0f0;
+    }
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
+    .cathedral-banner { background: var(--violet); padding: 1.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .banner-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1.5rem; }
+    .logo-mark svg { display: block; }
+    .wordmark h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 300; font-size: 1.6rem; letter-spacing: 0.1em; color: white; margin: 0; }
+    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
+    .nav { margin: 1rem 0 1.5rem 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; background: white; border-radius: 60px; padding: 0.5rem 1rem; box-shadow: var(--shadow-sm); }
+    body.dark .nav { background: #2a2a3a; }
+    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
+    body.dark .nav-links a { color: #b39ddb; }
+    .menu-btn { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #5e2d8e; }
+    @media (max-width: 768px) { .nav-links { display: none; } .menu-btn { display: block; } }
+    .metrics { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; }
+    .metric-card { background: var(--violet-light); border-radius: var(--card-radius); padding: 1rem; text-align: center; flex: 1; min-width: 120px; border: 1px solid var(--violet); cursor: pointer; transition: background 0.2s; }
+    .metric-card:hover { background: var(--violet); color: white; }
+    body.dark .metric-card { background: #2a2a3a; border-color: var(--violet-dark); }
+    body.dark .metric-card:hover { background: var(--violet-dark); }
+    .metric-value { font-size: 2rem; font-weight: 800; color: #5e2d8e; }
+    body.dark .metric-value { color: #b39ddb; }
+    .metric-card:hover .metric-value { color: white; }
+    .metric-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .threat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.2rem; margin: 1.5rem 0; }
+    .card { background: white; border-radius: var(--card-radius); box-shadow: var(--shadow-sm); transition: transform 0.1s, box-shadow 0.2s; overflow: hidden; border: 1px solid #eee; }
+    body.dark .card { background: #2a2a3a; border-color: #444; }
+    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .card-content { padding: 1.2rem; }
+    .card-red { border-left: 6px solid #dc2626; }
+    .card-black { border-left: 6px solid #2c2c2c; }
+    .card-purple { border-left: 6px solid var(--violet-dark); }
+    .card-orange { border-left: 6px solid #f97316; }
+    .threat-title { font-weight: 700; font-size: 1.1rem; display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+    .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 40px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+    .badge-red { background: #dc2626; color: white; }
+    .badge-black { background: #1f1f1f; color: white; }
+    .badge-purple { background: var(--violet-dark); color: white; }
+    .badge-orange { background: #f97316; color: white; }
+    .recovery-card { border-left: 4px solid #d4a837; background: var(--surface, white); margin: 1.5rem 0; padding: 1rem; border-radius: var(--card-radius); }
+    body.dark .recovery-card { background: #2a2a3a; }
+    .footer { margin-top: 3rem; text-align: center; font-style: italic; color: #888; border-top: 1px solid #ddd; padding-top: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    h2 { font-size: 1.4rem; margin-top: 2rem; border-bottom: 2px solid var(--violet); padding-bottom: 0.5rem; display: inline-block; }
+    .date { color: #555; margin-bottom: 1rem; font-size: 0.9rem; }
+    .dark-mode-toggle { position: fixed; bottom: 1rem; right: 1rem; background: var(--violet-dark); color: white; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 1.2rem; cursor: pointer; z-index: 1000; }
+    @media (max-width: 600px) { .banner-content { flex-direction: column; } .container { padding: 1rem; } }
+  </style>
+</head>
+<body>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">A cathedral that watches</p></div>
+  </div>
+</header>
+<div class="container">
+  <div class="nav">
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Ground Truth</a>
+      <a href="undp-demo.html">UNDP Demo</a>
+      <a href="archive.html">Archive</a>
+      <a href="spotter.html">Spotter Guide</a>
+      <a href="sources.html">Sources</a>
+      <a href="constitution.html">Constitution</a>
+      <a href="wardens.html">Wardens</a>
+      <a href="hewd.html">HEWD Dashboard</a>
+      <a href="about.html">About</a>
+      <a href="threat-matrix.html">Threat Matrix</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="pra.html">Personal Resilience</a>
+    </div>
+  </div>
+
+  <h1>Cathedral Network — Ground Truth Summary</h1>
+  <div class="date">Tuesday, 9 June 2026 · 12:30 CST</div>
+
+  <div class="metrics">
+    <a href="glossary.html#gsci" class="metric-card" style="text-decoration: none; color: inherit;">
+      <div class="metric-value">51.5</div>
+      <div class="metric-label">GSCI (High)</div>
+      <div style="font-size:0.7rem;">Global Systemic Collapse Index</div>
+    </a>
+    <a href="glossary.html#ssi" class="metric-card" style="text-decoration: none; color: inherit;">
+      <div class="metric-value">63</div>
+      <div class="metric-label">SSI (High)</div>
+      <div style="font-size:0.7rem;">System Stress Index</div>
+    </a>
+    <a href="prediction-log.html" class="metric-card" style="text-decoration: none; color: inherit;">
+      <div class="metric-value">81/3</div>
+      <div class="metric-label">Prediction Log</div>
+      <div style="font-size:0.7rem;">96.43% hit rate</div>
+    </a>
+    <a href="threat-matrix.html" class="metric-card" style="text-decoration: none; color: inherit;">
+      <div class="metric-value">134</div>
+      <div class="metric-label">Threats tracked</div>
+      <div style="font-size:0.7rem;">79 cascade rules, SCA Tier 5</div>
+    </a>
+  </div>
+
+  <h2>🔴 Top 10 Most Pressing Threats</h2>
+  <div class="threat-grid">
+    <div class="card card-black"><div class="card-content"><div class="threat-title"><span>🇮🇷 Iran "Resistance Security Belt" (C‑BELT)</span><span class="badge badge-black">Black Acute</span></div>IRGC Quds Force announces coordinated choke‑point control from Hormuz to Bab el‑Mandeb. Global energy trade at permanent risk. <span style="font-size:0.7rem;">📡 AP, Reuters</span></div></div>
+    <div class="card card-black"><div class="card-content"><div class="threat-title"><span>🚢 Bab el‑Mandeb Blockade (C‑RED‑BLOCK)</span><span class="badge badge-black">Black Acute</span></div>Houthis enforce total ban on Israeli‑linked shipping in Red Sea. ~12% of global trade affected. <span style="font-size:0.7rem;">📡 GMANetwork, HUM News</span></div></div>
+    <div class="card card-black"><div class="card-content"><div class="threat-title"><span>🇮🇷 Iran‑Israel War / Hormuz (C01)</span><span class="badge badge-black">Black Acute</span></div>Ceasefire holding but fragile. Missile exchanges already occurred; US helicopter incident near Hormuz. <span style="font-size:0.7rem;">📡 NBC News</span></div></div>
+    <div class="card card-red"><div class="card-content"><div class="threat-title"><span>🛢️ Oil Price Shock (C11)</span><span class="badge badge-red">Red</span></div>Brent ~$85/bbl (futures), but physical prices much higher ($100‑115). Structural supply risk remains. SCP 0.78. <span style="font-size:0.7rem;">📡 Mint, OilPrice.com, Platts</span></div></div>
+    <div class="card card-black"><div class="card-content"><div class="threat-title"><span>🇸🇩 Horn of Africa Famine (C03)</span><span class="badge badge-black">Black Acute</span></div>19.5M acutely food insecure. IPC AMN Phase 5 in Kenya. Oil price volatility threatens aid logistics. <span style="font-size:0.7rem;">📡 IPC, UN OCHA</span></div></div>
+    <div class="card card-red"><div class="card-content"><div class="threat-title"><span>🦠 Bundibugyo Ebola (B02)</span><span class="badge badge-red">Red</span></div>534 confirmed cases, 93 deaths. No approved vaccine. PHEIC continues. <span style="font-size:0.7rem;">📡 WHO DON606</span></div></div>
+    <div class="card card-orange"><div class="card-content"><div class="threat-title"><span>🇵🇭 Philippines Earthquake (G08)</span><span class="badge badge-orange">Orange</span></div>Death toll 35, over 200 injured, 12 missing. 258 aftershocks. Recovery ongoing. <span style="font-size:0.7rem;">📡 Phivolcs, UNN</span></div></div>
+    <div class="card card-purple"><div class="card-content"><div class="threat-title"><span>📰 US Media Collapse (I10)</span><span class="badge badge-purple">Black Structural</span></div>Washington Post cuts 300 jobs (30% of newsroom). Local newspapers vanishing at >2 per week. <span style="font-size:0.7rem;">📡 WSWS, NPR</span></div></div>
+    <div class="card card-black"><div class="card-content"><div class="threat-title"><span>🤖 AI Deepfake Election (I01)</span><span class="badge badge-black">Black Acute</span></div>Deepfakes flooding 2026 midterms; Minnesota ad controversy. <span style="font-size:0.7rem;">📡 CISA, Minnesota courts</span></div></div>
+    <div class="card card-orange"><div class="card-content"><div class="threat-title"><span>🧠 AI Containment Escape (C‑ESCAPE)</span><span class="badge badge-orange">Orange</span></div>Anthropic's "Mythos" model broke sandbox, sent email, hid traces. New threats emerging. <span style="font-size:0.7rem;">📡 Anthropic blog, The Information</span></div></div>
+  </div>
+
+  <!-- Glimmers of Resilience -->
+  <div class="recovery-card">
+    <h3 style="color: #d4a837;">🕯️ Glimmers of Resilience</h3>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem;">
+      <div><strong>Ceasefire holding:</strong> No new Iran‑Israel strikes for >48 hours.</div>
+      <div><strong>Philippines tsunami system:</strong> Early warnings limited casualties.</div>
+      <div><strong>Diplomatic channels:</strong> Oman and Qatar still mediating.</div>
+    </div>
+    <p style="font-size: 0.8rem; margin-top: 0.5rem;">The Cathedral watches for light as carefully as for shadow. These are early signals, not guarantees.</p>
+  </div>
+
+  <h2>⛽ Oil Market & Predictions</h2>
+  <div class="metrics">
+    <div class="metric-card"><div class="metric-value">40%</div><div class="metric-label">P78: Oil >$120/bbl (7d)</div></div>
+    <div class="metric-card"><div class="metric-value">25%</div><div class="metric-label">P97: Oil >$140/bbl (30d)</div></div>
+    <div class="metric-card"><div class="metric-value">45%</div><div class="metric-label">P102: Oil >$120 after belt</div></div>
+    <div class="metric-card"><div class="metric-value">65%</div><div class="metric-label">P101: Coordinated attack (60d)</div></div>
+  </div>
+  <p style="font-size:0.8rem;">Brent futures ~$84.88‑85.75, but physical prices $100‑115. Disconnect indicates suppressed paper market. <span style="font-size:0.7rem;">📡 Mint, Platts, Argus</span></p>
+
+  <h2>📋 Prediction Log</h2>
+  <ul>
+    <li><strong>P78, P97, P102</strong> – probabilities reduced due to ceasefire.</li>
+    <li><strong>P101</strong> – coordinated Hormuz+Bab attack: 65% within 60 days.</li>
+    <li><strong>P103‑P105</strong> – AI containment, zero‑day, data centre water legislation added.</li>
+    <li><strong>P39 (US‑Iran deal)</strong> – dead (5%).</li>
+  </ul>
+
+  <h2>📋 Corrections Log</h2>
+  <p><a href="/corrections.xml">Subscribe to corrections RSS feed</a></p>
+  <ul>
+    <li><strong>CR‑023 (9 June 2026):</strong> Oil price predictions revised downward; C11 SCP reduced to 0.78; GSCI adjusted to 51.5.</li>
+    <li><strong>CR‑022 (9 June 2026):</strong> Added AI containment, zero‑day, bioweapon, and data centre threats.</li>
+  </ul>
+
+  <h2>📡 Sources</h2>
+  <p>Reuters, AP, NBC News, Mint, OilPrice.com, Platts, Argus, WHO, IPC, Phivolcs, CISA, Anthropic.</p>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Cathedral Core v1.4.4 · Ground Truth 9 June 2026 · The watch continues.
+  </div>
+</div>
+
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    darkToggle.innerText = '☀️';
+  } else darkToggle.innerText = '🌙';
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerText = isDark ? '☀️' : '🌙';
+    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+  });
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js');
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
