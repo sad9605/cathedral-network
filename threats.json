@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "last_updated": "2026-06-13T16:55:15.765462+00:00",
+  "last_updated": "2026-06-14T15:52:45.850393+00:00",
   "threats": [
     {
       "id": "C01",
@@ -189,7 +189,7 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.7,
+      "scp": 0.99,
       "base_probability": 0.4,
       "das": 35,
       "notes": "Militia attacks on US bases.",
@@ -664,7 +664,7 @@
         "Energy"
       ],
       "status": "Red",
-      "scp": 0.87,
+      "scp": 0.99,
       "base_probability": 0.68,
       "das": 60,
       "notes": "Storage ~36%.",
@@ -1243,7 +1243,7 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.75,
+      "scp": 0.99,
       "base_probability": 0.6,
       "das": 52,
       "notes": "De\u2011dollarisation.",
@@ -1256,7 +1256,7 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.9500000000000001,
+      "scp": 0.99,
       "base_probability": 0.78,
       "das": 65,
       "notes": "IMF warning.",
@@ -2036,7 +2036,7 @@
         "Domestic"
       ],
       "status": "Orange",
-      "scp": 0.8,
+      "scp": 0.99,
       "base_probability": 0.6,
       "das": 52,
       "notes": "Violence risk.",
@@ -2367,7 +2367,7 @@
         "Supply Chains"
       ],
       "status": "Orange",
-      "scp": 0.8,
+      "scp": 0.99,
       "base_probability": 0.5,
       "das": 45,
       "notes": "57 npm packages.",
@@ -2669,7 +2669,7 @@
         "Domestic"
       ],
       "status": "Black Structural",
-      "scp": 0.7999999999999999,
+      "scp": 0.99,
       "base_probability": 0.65,
       "das": 58,
       "notes": "Funding.",
@@ -2911,7 +2911,7 @@
         "Domestic"
       ],
       "status": "Black Structural",
-      "scp": 0.93,
+      "scp": 0.99,
       "base_probability": 0.75,
       "das": 65,
       "notes": "WaPo layoffs, CBS turmoil.",
