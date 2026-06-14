@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="manifest" href="/manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Constitution</title>
+  <title>Cathedral Network — Glossary</title>
   <style>
     :root {
       --violet: #b39ddb;
@@ -53,11 +53,7 @@
       color: white;
       margin: 0;
     }
-    .tagline {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.8);
-      margin: 0;
-    }
+    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
     /* Navigation with hamburger */
     .nav {
       margin: 1rem 0 1.5rem 0;
@@ -70,9 +66,7 @@
       padding: 0.5rem 1rem;
       box-shadow: var(--shadow-sm);
     }
-    body.dark .nav {
-      background: #2a2a3a;
-    }
+    body.dark .nav { background: #2a2a3a; }
     .nav-links {
       display: flex;
       gap: 1.2rem;
@@ -83,9 +77,7 @@
       text-decoration: none;
       font-weight: 500;
     }
-    body.dark .nav-links a {
-      color: #b39ddb;
-    }
+    body.dark .nav-links a { color: #b39ddb; }
     .menu-btn {
       display: none;
       background: none;
@@ -95,29 +87,18 @@
       color: #5e2d8e;
     }
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        gap: 0.8rem;
-        margin-top: 1rem;
-        text-align: center;
-      }
-      .nav-links.show {
-        display: flex;
-      }
-      .menu-btn {
-        display: block;
-      }
+      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
+      .nav-links.show { display: flex; }
+      .menu-btn { display: block; }
     }
-    /* Cards */
-    .card-grid {
+    /* Glossary grid */
+    .glossary-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 1.2rem;
       margin: 1.5rem 0;
     }
-    .card {
+    .glossary-card {
       background: white;
       border-radius: var(--card-radius);
       box-shadow: var(--shadow-sm);
@@ -125,59 +106,36 @@
       overflow: hidden;
       border: 1px solid #eee;
     }
-    body.dark .card {
-      background: #2a2a3a;
-      border-color: #444;
-    }
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-    }
+    body.dark .glossary-card { background: #2a2a3a; border-color: #444; }
+    .glossary-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
     .card-content { padding: 1.2rem; }
-    .card-title {
+    .term {
       font-weight: 700;
       font-size: 1.2rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       color: #5e2d8e;
       border-left: 4px solid var(--violet-dark);
       padding-left: 0.75rem;
     }
-    body.dark .card-title {
-      color: #b39ddb;
-    }
-    .law-number {
-      display: inline-block;
-      font-weight: 800;
-      color: var(--violet-dark);
-      width: 2rem;
-    }
-    .badge {
-      display: inline-block;
-      padding: 0.2rem 0.6rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 600;
+    body.dark .term { color: #b39ddb; }
+    .definition { margin-bottom: 0.75rem; }
+    .formula {
+      font-family: monospace;
       background: var(--violet-light);
-      color: #5e2d8e;
+      padding: 0.2rem 0.4rem;
+      border-radius: 8px;
+      display: inline-block;
+      font-size: 0.85rem;
+    }
+    body.dark .formula { background: #3a3a4a; }
+    .derivation {
+      font-size: 0.85rem;
+      color: #555;
+      border-top: 1px solid #eee;
       margin-top: 0.5rem;
+      padding-top: 0.5rem;
     }
-    body.dark .badge {
-      background: #3a3a4a;
-      color: #b39ddb;
-    }
-    .inscription {
-      background: var(--violet-light);
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      text-align: center;
-      font-style: italic;
-      margin: 1rem 0;
-      border: 1px solid var(--violet);
-    }
-    body.dark .inscription {
-      background: #2a2a3a;
-      border-color: var(--violet-dark);
-    }
+    body.dark .derivation { color: #aaa; border-top-color: #444; }
     .footer {
       margin-top: 3rem;
       text-align: center;
@@ -186,22 +144,8 @@
       border-top: 1px solid #ddd;
       padding-top: 1rem;
     }
-    body.dark .footer {
-      border-top-color: #444;
-      color: #aaa;
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.25rem;
-    }
-    .subhead {
-      color: #555;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-    body.dark .subhead {
-      color: #aaa;
-    }
+    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    .date { color: #555; margin-bottom: 1rem; font-size: 0.9rem; }
     .dark-mode-toggle {
       position: fixed;
       bottom: 1rem;
@@ -228,7 +172,7 @@
 <header class="cathedral-banner">
   <div class="banner-content">
     <div class="logo-mark">
-      <svg viewBox="0 0 120 140" width="50" height="60">
+      <svg viewBox="0 0 120 140" width="50" height="60" aria-label="Cathedral Network logo">
         <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
         <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
         <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
@@ -243,7 +187,7 @@
   </div>
 </header>
 <div class="container">
-  <!-- Navigation with hamburger -->
+  <!-- Hamburger navigation -->
   <div class="nav">
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Main menu">☰</button>
     <div class="nav-links" id="navLinks">
@@ -259,42 +203,35 @@
       <a href="threat-matrix.html">Threat Matrix</a>
       <a href="glossary.html">Glossary</a>
       <a href="pra.html">Personal Resilience</a>
+      <a href="prediction-log.html">Prediction Log</a>
     </div>
   </div>
 
   <!-- Dynamic content injected here -->
   <div id="dynamic-content">
-    <h1>Loading Constitution...</h1>
+    <h1>Loading Glossary...</h1>
   </div>
 
   <div class="footer">
     <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Cathedral Core v1.4.2 · The watch continues. The mission endures.
+    Cathedral Core v1.4.3 · The watch continues.
   </div>
 </div>
 
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
 <script>
-  // Hamburger menu toggle
+  // Hamburger menu
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
-  if (menuBtn) {
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-  }
+  if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
 
-  // Dark mode toggle with localStorage
+  // Dark mode
   const darkToggle = document.getElementById('darkModeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const storedTheme = localStorage.getItem('cathedral-theme');
-  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-    document.body.classList.add('dark');
-    darkToggle.innerText = '☀️';
-  } else {
-    darkToggle.innerText = '🌙';
-  }
+  const stored = localStorage.getItem('cathedral-theme');
+  if (stored === 'dark' || (!stored && prefersDark)) { document.body.classList.add('dark'); darkToggle.innerText = '☀️'; }
+  else { darkToggle.innerText = '🌙'; }
   darkToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark');
     const isDark = document.body.classList.contains('dark');
@@ -302,63 +239,34 @@
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
 
-  // Load content from constitution.json
+  // Load content from glossary.json
   async function loadContent() {
     try {
-      const response = await fetch('/constitution.json');
-      if (!response.ok) throw new Error('Failed to load constitution.json');
+      const response = await fetch('/glossary.json');
+      if (!response.ok) throw new Error('Failed to load glossary.json');
       const data = await response.json();
 
       const container = document.getElementById('dynamic-content');
       let html = `
         <h1>${escapeHtml(data.title)}</h1>
-        <div class="subhead">${escapeHtml(data.subhead)}</div>
-        <div class="inscription">
-          <strong>${escapeHtml(data.inscriptionLine)}</strong><br>
-          <span style="font-size:0.85rem;">${escapeHtml(data.inscriptionNote)}</span>
-        </div>
-        <div class="card-grid">
-          ${data.laws.map(law => `
-            <div class="card">
+        <div class="date">${escapeHtml(data.date)}</div>
+        <div class="glossary-grid">
+          ${data.terms.map(term => `
+            <div class="glossary-card">
               <div class="card-content">
-                <div class="card-title"><span class="law-number">${escapeHtml(law.number)}</span> ${escapeHtml(law.title)}</div>
-                <p><strong>${escapeHtml(law.tagline)}</strong></p>
-                <p>${escapeHtml(law.description)}</p>
-                ${law.badge ? `<span class="badge">${escapeHtml(law.badge)}</span>` : ''}
+                <div class="term">${escapeHtml(term.term)}</div>
+                <div class="definition">${escapeHtml(term.definition)}</div>
+                ${term.formula ? `<div class="formula">${escapeHtml(term.formula)}</div>` : ''}
+                ${term.derivation ? `<div class="derivation">${escapeHtml(term.derivation)}</div>` : ''}
               </div>
             </div>
           `).join('')}
-        </div>
-        <div class="card" style="background: var(--violet-light); border: 1px solid var(--violet);">
-          <div class="card-content">
-            <div class="card-title">🔇 ${escapeHtml(data.silenceClause.title)}</div>
-            <p><strong>${escapeHtml(data.silenceClause.quote)}</strong></p>
-            <p>${escapeHtml(data.silenceClause.description)}</p>
-          </div>
-        </div>
-        <div class="card-grid">
-          <div class="card">
-            <div class="card-content">
-              <div class="card-title">🏛️ ${escapeHtml(data.governance.title)}</div>
-              <p><strong>${escapeHtml(data.governance.council)}</strong></p>
-              <p><strong>${escapeHtml(data.governance.assembly)}</strong></p>
-              <p>${escapeHtml(data.governance.footer)}</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-content">
-              <div class="card-title">⚖️ ${escapeHtml(data.amendment.title)}</div>
-              <ol style="margin-left: 1.2rem;">
-                ${data.amendment.steps.map(step => `<li>${escapeHtml(step)}</li>`).join('')}
-              </ol>
-            </div>
-          </div>
         </div>
       `;
       container.innerHTML = html;
     } catch (err) {
       console.error(err);
-      document.getElementById('dynamic-content').innerHTML = '<p>⚠️ Constitution could not be loaded. Please try again later.</p>';
+      document.getElementById('dynamic-content').innerHTML = '<p>⚠️ Glossary could not be loaded. Please try again later.</p>';
     }
   }
 
@@ -374,12 +282,8 @@
 
   loadContent();
 
-  // Service worker for PWA
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(() => console.log('Service Worker registered'))
-      .catch((err) => console.log('Service Worker failed', err));
-  }
+  // Service worker
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js').catch(e => console.warn('SW failed', e));
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
