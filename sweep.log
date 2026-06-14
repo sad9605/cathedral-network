@@ -64,3 +64,19 @@
 2026-06-13 11:21:22,000 - INFO - fetch_nvd: 50 events
 2026-06-13 11:21:22,001 - INFO - fetch_eia: 0 events
 2026-06-13 11:21:22,022 - INFO - Sweep complete. Saved sweep_report.json, ground_truth_summary.md
+2026-06-14 15:06:18,797 - INFO - Starting daily sweep
+2026-06-14 15:06:22,616 - INFO - fetch_gdacs: 25 events
+2026-06-14 15:06:22,975 - ERROR - JSON error https://api.reliefweb.int/v1/reports: 410 Client Error: Gone for url: https://api.reliefweb.int/v1/reports?appname=cathedral-network&limit=50&filter%5Bfield%5D=date.created&filter%5Bvalue%5D=%7B%22from%22%3A+%222026-06-13%22%7D
+2026-06-14 15:06:22,975 - INFO - fetch_reliefweb: 0 events
+2026-06-14 15:06:22,976 - WARNING - UCDP_API_TOKEN not set. Skipping UCDP.
+2026-06-14 15:06:22,976 - INFO - fetch_ucdp: 0 events
+2026-06-14 15:06:33,647 - ERROR - JSON error https://api.gdeltproject.org/api/v2/events/events?format=json&mode=raw&maxrecords=200&startdatetime=20260613200618&enddatetime=20260614200624: 404 Client Error: Not Found for url: https://api.gdeltproject.org/api/v2/events/events?format=json&mode=raw&maxrecords=200&startdatetime=20260613200618&enddatetime=20260614200624
+2026-06-14 15:06:33,648 - INFO - fetch_gdelt: 0 events
+2026-06-14 15:06:34,312 - INFO - fetch_promed: 0 events
+2026-06-14 15:06:37,152 - INFO - fetch_arxiv: 0 events
+2026-06-14 15:06:37,712 - ERROR - JSON error https://incidentdatabase.ai/api/incidents: 404 Client Error: Not Found for url: https://incidentdatabase.ai/api/incidents?limit=50
+2026-06-14 15:06:37,712 - INFO - fetch_ai_incident_db: 0 events
+2026-06-14 15:06:39,531 - INFO - fetch_github_advisories: 0 events
+2026-06-14 15:06:41,596 - INFO - fetch_nvd: 12 events
+2026-06-14 15:06:41,596 - INFO - fetch_eia: 0 events
+2026-06-14 15:06:41,601 - INFO - Sweep complete. Saved sweep_report.json, ground_truth_summary.md
