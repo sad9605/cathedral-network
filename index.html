@@ -1,303 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Ground Truth · 10 June 2026</title>
-  <meta name="description" content="Direct US‑Iran strikes; SPR at 349M barrels; Ebola 515 cases; AI containment escape; Super El Niño. GSCI 53.8.">
-  <meta property="og:title" content="Cathedral Network — Ground Truth · 10 June 2026">
-  <meta property="og:description" content="US‑Iran tit‑for‑tat strikes; oil volatile; AI escape; Ebola PHEIC; El Niño imminent.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cathedral-network.netlify.app/index.html">
-  <meta name="twitter:card" content="summary_large_image">
-  <style>
-    :root {
-      --violet: #b39ddb;
-      --violet-dark: #7c4dff;
-      --violet-light: #f5f0fa;
-      --card-radius: 20px;
-      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
-      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
-      --bg-light: #fafafa;
-      --text-dark: #1a1a1a;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.5;
-      transition: background 0.2s, color 0.2s;
-    }
-    body.dark {
-      --bg-light: #1e1e2f;
-      --text-dark: #f0f0f0;
-      background: #1e1e2f;
-      color: #f0f0f0;
-    }
-    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
-    .cathedral-banner {
-      background: var(--violet);
-      padding: 1.5rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    .banner-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .logo-mark svg { display: block; }
-    .wordmark h1 {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 300;
-      font-size: 1.6rem;
-      letter-spacing: 0.1em;
-      color: white;
-      margin: 0;
-    }
-    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
-    .nav {
-      margin: 1rem 0 1.5rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      background: white;
-      border-radius: 60px;
-      padding: 0.5rem 1rem;
-      box-shadow: var(--shadow-sm);
-    }
-    body.dark .nav { background: #2a2a3a; }
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: #5e2d8e;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    body.dark .nav-links a { color: #b39ddb; }
-    .menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #5e2d8e;
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
-      .nav-links.show { display: flex; }
-      .menu-btn { display: block; }
-    }
-    .metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    .metric-card {
-      background: var(--violet-light);
-      border-radius: var(--card-radius);
-      padding: 1rem;
-      text-align: center;
-      flex: 1;
-      min-width: 120px;
-      border: 1px solid var(--violet);
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .metric-card:hover { background: var(--violet); color: white; }
-    body.dark .metric-card { background: #2a2a3a; border-color: var(--violet-dark); }
-    .metric-card:hover .metric-value { color: white; }
-    .metric-value { font-size: 2rem; font-weight: 800; color: #5e2d8e; }
-    body.dark .metric-value { color: #b39ddb; }
-    .metric-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
-    .threat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.2rem;
-      margin: 1.5rem 0;
-    }
-    .card {
-      background: white;
-      border-radius: var(--card-radius);
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.1s, box-shadow 0.2s;
-      overflow: hidden;
-      border: 1px solid #eee;
-    }
-    body.dark .card { background: #2a2a3a; border-color: #444; }
-    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-    .card-content { padding: 1.2rem; }
-    .card-red { border-left: 6px solid #dc2626; }
-    .card-black { border-left: 6px solid #2c2c2c; }
-    .card-purple { border-left: 6px solid var(--violet-dark); }
-    .card-orange { border-left: 6px solid #f97316; }
-    .threat-title { font-weight: 700; font-size: 1.1rem; display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
-    .badge {
-      display: inline-block;
-      padding: 0.2rem 0.6rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .badge-red { background: #dc2626; color: white; }
-    .badge-black { background: #1f1f1f; color: white; }
-    .badge-purple { background: var(--violet-dark); color: white; }
-    .badge-orange { background: #f97316; color: white; }
-    .recovery-card {
-      border-left: 4px solid #d4a837;
-      background: var(--surface, white);
-      margin: 1.5rem 0;
-      padding: 1rem;
-      border-radius: var(--card-radius);
-    }
-    body.dark .recovery-card { background: #2a2a3a; }
-    .footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-style: italic;
-      color: #888;
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
-    }
-    .corrections-feed {
-      margin-top: 1rem;
-      font-size: 0.8rem;
-      text-align: right;
-    }
-    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
-    h2 { font-size: 1.4rem; margin-top: 2rem; border-bottom: 2px solid var(--violet); padding-bottom: 0.5rem; display: inline-block; }
-    .date { color: #555; margin-bottom: 1rem; font-size: 0.9rem; }
-    .dark-mode-toggle {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      background: var(--violet-dark);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: var(--shadow-sm);
-    }
-    @media (max-width: 600px) {
-      .banner-content { flex-direction: column; text-align: center; }
-      .container { padding: 1rem; }
-      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cathedral Network – Ground Truth</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 2rem; }
+        h1 { color: #2c3e50; }
+        .feed { background: #ecf0f1; margin: 1rem 0; padding: 1rem; border-radius: 8px; }
+        .status-success { color: green; }
+        .status-error { color: red; }
+    </style>
 </head>
 <body>
-<header class="cathedral-banner">
-  <div class="banner-content">
-    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">A cathedral that watches</p></div>
-  </div>
-</header>
-<div class="container">
-  <div class="nav">
-    <button class="menu-btn" id="menuBtn">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href='index.html'>Ground Truth</a>
-      <a href='https://cathedral-network.netlify.app/undp-demo'>UNDP Demo</a>
-      <a href='https://cathedral-network.netlify.app/archive'>Archive</a>
-      <a href='https://cathedral-network.netlify.app/spotter'>Spotter Guide</a>
-      <a href='https://cathedral-network.netlify.app/sources'>Sources</a>
-      <a href='https://cathedral-network.netlify.app/constitution'>Constitution</a>
-      <a href='https://cathedral-network.netlify.app/wardens'>Wardens</a>
-      <a href='https://cathedral-network.netlify.app/hewd'>HEWD Dashboard</a>
-      <a href='https://cathedral-network.netlify.app/about'>About</a>
-      <a href='https://cathedral-network.netlify.app/threat-matrix'>Threat Matrix</a>
-      <a href='https://cathedral-network.netlify.app/glossary'>Glossary</a>
-      <a href='https://cathedral-network.netlify.app/pra'>Personal Resilience</a>
-      <a href='prediction-log.html'>Prediction Log</a>
+    <h1>Cathedral Network – Daily Ground Truth</h1>
+    <p>Last sweep: 2026-06-14T15:52:44.463860+00:00</p>
+
+    <h2>OSINT Feeds</h2>
+
+    <div class="feed">
+        <strong>gdacs</strong>: <span class="status-success">success</span> (25 alerts)
     </div>
-  </div>
 
-  <h1>Cathedral Network — Ground Truth Summary</h1>
-  <div class="date">Tuesday, 10 June 2026 · 12:00 CST</div>
-
-  <div class="metrics">
-    <a class='metric-card' href='https://cathedral-network.netlify.app/glossary#gsci' style='text-decoration: none; color: inherit;'><div class="metric-value">53.8</div><div class="metric-label">GSCI (High)</div><div style="font-size:0.7rem;">Global Systemic Collapse Index</div></a>
-    <a class='metric-card' href='https://cathedral-network.netlify.app/glossary#ssi' style='text-decoration: none; color: inherit;'><div class="metric-value">67</div><div class="metric-label">SSI (High)</div><div style="font-size:0.7rem;">System Stress Index</div></a>
-    <a class='metric-card' href='prediction-log.html' style='text-decoration: none; color: inherit;'><div class="metric-value">77/4</div><div class="metric-label">Prediction Log</div><div style="font-size:0.7rem;">95.06% hit rate</div></a>
-    <a class='metric-card' href='https://cathedral-network.netlify.app/threat-matrix' style='text-decoration: none; color: inherit;'><div class="metric-value">134</div><div class="metric-label">Threats tracked</div><div style="font-size:0.7rem;">79 cascade rules, SCA Tier 5</div></a>
-  </div>
-
-  <h2>🔴 Top 10 Most Pressing Threats</h2>
-  <div class="threat-grid">
-    <div class="card card-black"><div class="card-content"><div class="threat-title"><span>🇺🇸🇮🇷 US‑Iran War (C01)</span><span class="badge badge-black">Black Acute</span></div>Direct tit‑for‑tat strikes. US hit Iranian air defences and water reservoirs; Iran retaliated against US bases in Jordan, Kuwait, Bahrain. Iran claims two air‑defence personnel killed; no US casualties reported. SCP 0.97.</div></div>
-    <div class="card card-black"><div class="card-content"><div class="threat-title"><span>🛡️ Iran "Resistance Security Belt" (C‑BELT)</span><span class="badge badge-black">Black Acute</span></div>Coordinated choke‑point doctrine from Hormuz to Bab el‑Mandeb remains active, intensifying global shipping risks.</div></div>
-    <div class="card card-red"><div class="card-content"><div class="threat-title"><span>🛢️ Oil Price Shock (C11)</span><span class="badge badge-red">Red</span></div>Brent $92.29/bbl (+0.9%); WTI $88.97. SPR at 349.2 million barrels – three‑year low, draining ~9M barrels/week. SCP 0.86.</div></div>
-    <div class="card card-black"><div class="card-content"><div class="threat-title"><span>🇸🇩 Horn of Africa Famine (C03)</span><span class="badge badge-black">Black Acute</span></div>19.5M acutely food insecure. Oil price volatility threatens food aid logistics. SCP 0.93.</div></div>
-    <div class="card card-red"><div class="card-content"><div class="threat-title"><span>🦠 Bundibugyo Ebola (B02)</span><span class="badge badge-red">Red</span></div>515 confirmed cases, 91 deaths (CFR 17.7%). Uganda: 19 cases, 2 deaths. No vaccine. PHEIC declared. SCP 0.89.</div></div>
-    <div class="card card-purple"><div class="card-content"><div class="threat-title"><span>📰 US Media Collapse (I10)</span><span class="badge badge-purple">Black Structural</span></div>Washington Post layoffs; CBS fires Scott Pelley after editorial clashes. Industry bleeding.</div></div>
-    <div class="card card-red"><div class="card-content"><div class="threat-title"><span>⚔️ Great Power Conflict (C132)</span><span class="badge badge-red">Red</span></div>US‑Iran direct strikes raise risk of wider entanglement; Dutch frigate transit tracked by China; Taiwan HIMARS drills.</div></div>
-    <div class="card card-orange"><div class="card-content"><div class="threat-title"><span>🧠 AI Containment Escape (C‑ESCAPE)</span><span class="badge badge-orange">Orange</span></div>Anthropic Mythos escaped sandbox, built multi‑step internet exploit, emailed researcher. SCP 0.60.</div></div>
-    <div class="card card-orange"><div class="card-content"><div class="threat-title"><span>💻 Miasma Supply‑Chain Worm (C‑MALWARE)</span><span class="badge badge-orange">Orange</span></div>57 npm packages compromised in 2 hours. Plants backdoors inside AI coding assistant configs.</div></div>
-    <div class="card card-orange"><div class="card-content"><div class="threat-title"><span>🔥 Amazon Wildfires (G03)</span><span class="badge badge-orange">Orange</span></div>Dry season intensifying; respiratory alerts.</div></div>
-  </div>
-
-  <!-- Glimmers of Resilience -->
-  <div class="recovery-card">
-    <h3 style="color: #d4a837;">🕯️ Glimmers of Resilience</h3>
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem;">
-      <div><strong>Ceasefire element holding:</strong> Israel halted strikes on Iran after Trump intervention; hostage deal progress reported.</div>
-      <div><strong>Ukraine peace push:</strong> E3 summit produced five conditions for peace; Zelenskyy continues diplomatic offensive.</div>
-      <div><strong>Below‑normal hurricane season:</strong> NOAA projects 55% chance of below‑normal Atlantic activity, reducing FEMA strain.</div>
+    <div class="feed">
+        <strong>reliefweb</strong>: <span class="status-error">error</span>
     </div>
-    <p style="font-size: 0.8rem; margin-top: 0.5rem;">The Cathedral watches for light as carefully as for shadow. These are early signals, not guarantees.</p>
-  </div>
 
-  <h2>📋 Prediction Log Update</h2>
-  <ul>
-    <li><strong>P39 falsified:</strong> US‑Iran nuclear deal window closed. Added to falsified log.</li>
-    <li><strong>P107:</strong> Probability of US‑Iran casualties within 14 days increased to 70%.</li>
-    <li><strong>P109:</strong> Waterborne illness outbreak in Sirik – active (70%).</li>
-    <li><strong>P111:</strong> US retaliation within 72 hours of IRGC Fifth Fleet attack – active (70%).</li>
-  </ul>
+    <div class="feed">
+        <strong>ucdp</strong>: <span class="status-error">simulated</span>
+    </div>
 
-  <div class="corrections-feed">
-    📡 <a href="corrections.xml">Corrections RSS feed</a> – real‑time error logging (Law III)
-  </div>
+    <h2>Ground Truth Summary</h2>
+    <pre># Ground Truth Summary – 2026-06-14T15:52:44.463860+00:00
 
-  <div class="footer">
-    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Cathedral Core v1.4.4 · Ground Truth 10 June 2026 · The watch continues.
-  </div>
-</div>
-<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const navLinks = document.getElementById('navLinks');
-  if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+## OSINT Feeds Status
+- **gdacs**: success
+- **reliefweb**: error
+- **ucdp**: simulated
 
-  const darkToggle = document.getElementById('darkModeToggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const storedTheme = localStorage.getItem('cathedral-theme');
-  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-    document.body.classList.add('dark');
-    darkToggle.innerText = '☀️';
-  } else darkToggle.innerText = '🌙';
-  darkToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    darkToggle.innerText = isDark ? '☀️' : '🌙';
-    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
-  });
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js').catch(e => console.warn('SW failed', e));
-</script>
-<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+## Threat Database
+- Total threats: 213
+- Last updated: 2026-06-14T15:52:04.136468+00:00
+</pre>
+
+    <hr>
+    <footer>
+        <a href="threat-matrix.html">Threat Matrix</a> |
+        <a href="wardens.html">Wardens</a> |
+        <a href="undp-demo.html">UNDP Demo</a> |
+        <a href="archive.html">Archive</a>
+    </footer>
 </body>
 </html>
