@@ -1,0 +1,17 @@
+{
+  "brent": {
+    "error": "Forecast failed",
+    "timestamp": "2026-06-14T17:28:35.224644"
+  },
+  "fao": {
+    "error": "Forecast failed",
+    "timestamp": "2026-06-14T17:28:35.618013"
+  },
+  "fema": {
+    "point_forecast": 125000000,
+    "probability_exceed": 0.4,
+    "likelihood_ratio": 2.2,
+    "timestamp": "2026-06-14T17:28:35.618540",
+    "note": "Simulated \u2013 real FEMA data requires API key or scraping"
+  }
+}
