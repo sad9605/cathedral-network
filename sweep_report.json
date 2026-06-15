@@ -1,21 +1,21 @@
 {
-  "timestamp": "2026-06-15T17:56:12.178671+00:00",
+  "timestamp": "2026-06-15T19:36:31.152608+00:00",
   "feeds": {
     "news_rss": {
       "BBC News": [
         "Russia was behind arson attacks targeting PM, BBC reveals",
+        "Under-16s to be banned from TikTok, YouTube and other social media by next spring, Starmer says",
         "Social media ban - bold and blunt, but no silver bullet",
         "Teacher guilty of sexually abusing and murdering adopted baby",
-        "Henry Nowak killer's sentence referred to Court of Appeal under unduly lenient scheme",
-        "Palestine Action ban is lawful, Court of Appeal rules"
+        "Captain of Russian shadow fleet tanker intercepted in Channel charged"
       ],
       "Reuters": [],
       "Al Jazeera": [
-        "Bus crash in Ethiopian mountains kills at least 31",
-        "Mass return to southern Lebanon following US-Iran agreement",
-        "Iran vs New Zealand: World Cup team news, start, lineups and where to watch",
-        "Trump says Iran deal \u2018all signed\u2019",
-        "UK court convicts two over PM-targeting plot run by mysterious Russian"
+        "US judge dismisses Musk\u2019s xAI trade secret lawsuit against OpenAI",
+        "EU fails to agree on sanctions for far-right Israeli minister Ben-Gvir",
+        "France vs Senegal: World Cup 2026 \u2013 Mbappe, teams, lineups, start, Dembele",
+        "Tunisia sack boss Sabri Lamouchi after World Cup thrashing by Sweden",
+        "Zelenskyy visits historic Kyiv cathedral after deadly Russian strike"
       ],
       "The Guardian": [
         "South African jazz pianist Abdullah Ibrahim dies aged 91",
@@ -27,24 +27,24 @@
       "France 24": [],
       "Deutsche Welle": [],
       "Sky News": [
+        "Trump's Iran deal is an admission of defeat",
+        "Captain of Russian shadow fleet tanker detained by UK has been charged",
         "Two guilty over Keir Starmer arson attacks ordered by 'Russian speaking' handler",
-        "Boy accused of murdering girl, 9, 'googled what would happen if he killed someone'",
-        "'Unduly lenient' sentence for Henry Nowak's murderer referred to Court of Appeal",
         "Homes in illegal Israeli settlements promoted at London property show",
-        "Man, 44, arrested nine years after woman pushed in front of bus on Putney Bridge"
+        "'Unduly lenient' sentence for Henry Nowak's murderer referred to Court of Appeal"
       ],
       "NHK World": [
         "\u7c73\u653f\u5e9c\u9ad8\u5b98 \u201c\u4e21\u56fd\u306f\u3059\u3067\u306b\u6226\u95d8\u7d42\u7d50\u306b\u5411\u3051\u305f\u899a\u66f8\u306b\u7f72\u540d\u201d",
         "NY\u30c0\u30a6 \u4e00\u6642600\u30c9\u30eb\u8d85\u5024\u4e0a\u304c\u308a \u539f\u6cb9\u4f9b\u7d66\u518d\u958b\u306b\u671f\u5f85\u611f",
         "\u9ad8\u5e02\u9996\u76f8 \u30d5\u30e9\u30f3\u30b9 \u30a8\u30d3\u30a2\u30f3\u306b\u5230\u7740 G7\u30b5\u30df\u30c3\u30c8\u8b70\u8ad6\u958b\u59cb\u3078",
-        "W\u676f \u65e5\u672c \u521d\u6226\u306f\u30aa\u30e9\u30f3\u30c0\u3068\u5f15\u304d\u5206\u3051 2\u5ea6\u8ffd\u3044\u3064\u304f\u3010\u8a73\u3057\u304f\u3011",
-        "\u5225\u5e9c\u5e02\u3072\u304d\u9003\u3052\u4e8b\u4ef6 \u516b\u7530\u8207\u4e00\u5bb9\u7591\u8005\u306e\u65b0\u305f\u306a\u624b\u914d\u30dd\u30b9\u30bf\u30fc\u516c\u958b"
+        "\u30b5\u30c3\u30ab\u30fcW\u676f \u5f37\u8c6a\u30b9\u30da\u30a4\u30f3\u3068\u521d\u51fa\u5834\u30ab\u30dc\u30d9\u30eb\u30c7\u304c\u5f15\u304d\u5206\u3051",
+        "W\u676f \u65e5\u672c \u521d\u6226\u306f\u30aa\u30e9\u30f3\u30c0\u3068\u5f15\u304d\u5206\u3051 2\u5ea6\u8ffd\u3044\u3064\u304f\u3010\u8a73\u3057\u304f\u3011"
       ],
       "Times of India": [
         "Qatar gave Iran billions to keep its ships safe under secret deal backed by US: Report",
-        "12 cases of sexual assault on children, women in 24 hours shock Chennai",
+        "Govt hikes export duty on diesel to Rs 14/litre, ATF to Rs 12.5/litre",
         "150 kph and rising: Ashok Sharma gets India A call-up",
-        "'Orchestrated by BJP': CJP's big claim after attack on Abhijeet Dipke; 5 arrested",
+        "Fifth unit of Kudankulam nuclear power project likely to be operational by year-end",
         "US senator says Tesla benefited from govt support, Elon Musk replies"
       ],
       "South China Morning Post": [
@@ -55,11 +55,11 @@
         "Hong Kong eyes secure storage of ride-hailing data for national security"
       ],
       "Africa News": [
+        "Grief and questions: Adichie accuses Hospital of obstructing inquest",
+        "Cameroon opposition figure files complaint in France against President Paul Biya",
         "DR Congo opposition turns up pressure as referendum battle intensifies",
         "Mauritania crackdown slows migrant departures but not dreams of Europe",
-        "IMF returns to Dakar as Senegal seeks path out of debt crisis",
-        "World leaders arrive for G7 summit in France",
-        "FIFA WORLD CUP: Tunisia fans remain defiant despite 5-1 defeat"
+        "IMF returns to Dakar as Senegal seeks path out of debt crisis"
       ]
     },
     "gdacs": {
@@ -70,7 +70,7 @@
     "usgs": {
       "source": "USGS",
       "status": "success",
-      "earthquakes": 231
+      "earthquakes": 250
     },
     "reliefweb": {
       "source": "ReliefWeb",
@@ -100,7 +100,7 @@
     "opensky": {
       "source": "OpenSky",
       "status": "success",
-      "aircraft": 12361
+      "aircraft": 11762
     },
     "kalshi": {
       "source": "Kalshi",
@@ -161,6 +161,6 @@
   },
   "threats_summary": {
     "threat_count": 213,
-    "last_updated": "2026-06-15T17:54:09.359768+00:00"
+    "last_updated": "2026-06-15T17:57:39.027888+00:00"
   }
 }
