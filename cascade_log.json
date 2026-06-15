@@ -1,299 +1,299 @@
 [
   {
-    "timestamp": "2026-06-14T22:28:40.057436+00:00",
+    "timestamp": "2026-06-15T17:57:39.023663+00:00",
     "source": "C11",
     "target": "C03",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.8979374810507114
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057471+00:00",
+    "timestamp": "2026-06-15T17:57:39.023697+00:00",
     "source": "C11",
     "target": "C106",
     "delta": 0.2,
-    "confidence": 0.25,
-    "adjusted_delta": 0.05,
-    "new_scp": 0.9104374810507114
+    "confidence": 1.0,
+    "adjusted_delta": 0.2,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057479+00:00",
+    "timestamp": "2026-06-15T17:57:39.023706+00:00",
     "source": "C11",
     "target": "C133",
     "delta": 0.1,
-    "confidence": 0.25,
-    "adjusted_delta": 0.025,
-    "new_scp": 0.7739987628468393
+    "confidence": 1.0,
+    "adjusted_delta": 0.1,
+    "new_scp": 0.825510917095824
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057486+00:00",
+    "timestamp": "2026-06-15T17:57:39.023712+00:00",
     "source": "C01",
     "target": "C11",
     "delta": 0.25,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0625,
-    "new_scp": 0.8762259761070222
+    "confidence": 1.0,
+    "adjusted_delta": 0.25,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057492+00:00",
+    "timestamp": "2026-06-15T17:57:39.023719+00:00",
     "source": "C01",
     "target": "C132",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.8979374810507114
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057498+00:00",
+    "timestamp": "2026-06-15T17:57:39.023725+00:00",
     "source": "C\u2011USIRAN",
     "target": "C01",
     "delta": 0.1,
-    "confidence": 0.25,
-    "adjusted_delta": 0.025,
-    "new_scp": 0.817150238353628
+    "confidence": 1.0,
+    "adjusted_delta": 0.1,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057503+00:00",
+    "timestamp": "2026-06-15T17:57:39.023730+00:00",
     "source": "C\u2011USIRAN",
     "target": "C132",
     "delta": 0.2,
-    "confidence": 0.25,
-    "adjusted_delta": 0.05,
-    "new_scp": 0.9479374810507114
+    "confidence": 1.0,
+    "adjusted_delta": 0.2,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057509+00:00",
+    "timestamp": "2026-06-15T17:57:39.023737+00:00",
     "source": "C03",
     "target": "C139",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.8728017138604164
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057515+00:00",
+    "timestamp": "2026-06-15T17:57:39.023742+00:00",
     "source": "C106",
     "target": "C03",
     "delta": 0.1,
-    "confidence": 0.25,
-    "adjusted_delta": 0.025,
-    "new_scp": 0.9229374810507114
-  },
-  {
-    "timestamp": "2026-06-14T22:28:40.057520+00:00",
-    "source": "A-UREA",
-    "target": "C03",
-    "delta": 0.2,
-    "confidence": 0.25,
-    "adjusted_delta": 0.05,
+    "confidence": 1.0,
+    "adjusted_delta": 0.1,
     "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057576+00:00",
+    "timestamp": "2026-06-15T17:57:39.023747+00:00",
+    "source": "A-UREA",
+    "target": "C03",
+    "delta": 0.2,
+    "confidence": 1.0,
+    "adjusted_delta": 0.2,
+    "new_scp": 0.95
+  },
+  {
+    "timestamp": "2026-06-15T17:57:39.023751+00:00",
     "source": "A-UREA",
     "target": "C106",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.9479374810507114
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057588+00:00",
+    "timestamp": "2026-06-15T17:57:39.023799+00:00",
     "source": "B02",
     "target": "C77",
     "delta": 0.1,
-    "confidence": 0.25,
-    "adjusted_delta": 0.025,
-    "new_scp": 0.7739987628468393
+    "confidence": 1.0,
+    "adjusted_delta": 0.1,
+    "new_scp": 0.825510917095824
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057594+00:00",
+    "timestamp": "2026-06-15T17:57:39.023808+00:00",
     "source": "B-AMR-KLEB",
     "target": "B02",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.8512259761070222
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057599+00:00",
+    "timestamp": "2026-06-15T17:57:39.023813+00:00",
     "source": "B-DARK-PROTEIN",
     "target": "B02",
     "delta": 0.1,
-    "confidence": 0.25,
-    "adjusted_delta": 0.025,
-    "new_scp": 0.8762259761070222
+    "confidence": 1.0,
+    "adjusted_delta": 0.1,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057605+00:00",
+    "timestamp": "2026-06-15T17:57:39.023819+00:00",
     "source": "G-ARCTIC",
     "target": "C132",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
     "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057609+00:00",
+    "timestamp": "2026-06-15T17:57:39.023823+00:00",
     "source": "G-SPACE",
     "target": "C132",
     "delta": 0.2,
-    "confidence": 0.25,
-    "adjusted_delta": 0.05,
+    "confidence": 1.0,
+    "adjusted_delta": 0.2,
     "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057614+00:00",
+    "timestamp": "2026-06-15T17:57:39.023828+00:00",
     "source": "G-WEST-BANK",
     "target": "C01",
     "delta": 0.1,
-    "confidence": 0.25,
-    "adjusted_delta": 0.025,
-    "new_scp": 0.842150238353628
+    "confidence": 1.0,
+    "adjusted_delta": 0.1,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057619+00:00",
+    "timestamp": "2026-06-15T17:57:39.023833+00:00",
     "source": "G-SUD-BLUE",
     "target": "C03",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
     "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057625+00:00",
+    "timestamp": "2026-06-15T17:57:39.023838+00:00",
     "source": "C\u2011ESCAPE",
     "target": "C\u2011MALWARE",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.8512259761070222
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057629+00:00",
+    "timestamp": "2026-06-15T17:57:39.023843+00:00",
     "source": "C\u2011ZERODAY",
     "target": "C\u2011MALWARE",
     "delta": 0.1,
-    "confidence": 0.25,
-    "adjusted_delta": 0.025,
-    "new_scp": 0.8762259761070222
+    "confidence": 1.0,
+    "adjusted_delta": 0.1,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057635+00:00",
+    "timestamp": "2026-06-15T17:57:39.023848+00:00",
     "source": "T-LAWS",
     "target": "C132",
     "delta": 0.2,
-    "confidence": 0.25,
-    "adjusted_delta": 0.05,
+    "confidence": 1.0,
+    "adjusted_delta": 0.2,
     "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057812+00:00",
+    "timestamp": "2026-06-15T17:57:39.024387+00:00",
     "source": "F-AI-CYBER-SYS",
     "target": "C78",
     "delta": 0.2,
-    "confidence": 0.25,
-    "adjusted_delta": 0.05,
-    "new_scp": 0.8853017138604166
+    "confidence": 1.0,
+    "adjusted_delta": 0.2,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057819+00:00",
+    "timestamp": "2026-06-15T17:57:39.024410+00:00",
     "source": "F-CBDC",
     "target": "I08",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.8080745006002334
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.9487506327701729
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057824+00:00",
+    "timestamp": "2026-06-15T17:57:39.024416+00:00",
     "source": "F-INSUR-SPIRAL",
     "target": "C78",
     "delta": 0.1,
-    "confidence": 0.25,
-    "adjusted_delta": 0.025,
-    "new_scp": 0.9103017138604166
-  },
-  {
-    "timestamp": "2026-06-14T22:28:40.057829+00:00",
-    "source": "C-WATER-BANK",
-    "target": "C03",
-    "delta": 0.2,
-    "confidence": 0.25,
-    "adjusted_delta": 0.05,
+    "confidence": 1.0,
+    "adjusted_delta": 0.1,
     "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057834+00:00",
+    "timestamp": "2026-06-15T17:57:39.024423+00:00",
+    "source": "C-WATER-BANK",
+    "target": "C03",
+    "delta": 0.2,
+    "confidence": 1.0,
+    "adjusted_delta": 0.2,
+    "new_scp": 0.95
+  },
+  {
+    "timestamp": "2026-06-15T17:57:39.024429+00:00",
     "source": "C-WATER-BANK",
     "target": "C139",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.9103017138604164
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057839+00:00",
+    "timestamp": "2026-06-15T17:57:39.024434+00:00",
     "source": "E11",
     "target": "C03",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
     "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057843+00:00",
+    "timestamp": "2026-06-15T17:57:39.024439+00:00",
     "source": "E11",
     "target": "C106",
     "delta": 0.1,
-    "confidence": 0.25,
-    "adjusted_delta": 0.025,
+    "confidence": 1.0,
+    "adjusted_delta": 0.1,
     "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057848+00:00",
+    "timestamp": "2026-06-15T17:57:39.024559+00:00",
     "source": "S-FED-8000",
     "target": "U06",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.8080745006002334
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.9487506327701729
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057853+00:00",
+    "timestamp": "2026-06-15T17:57:39.024568+00:00",
     "source": "D-TRUST",
     "target": "I01",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.8080745006002334
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.9487506327701729
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057878+00:00",
+    "timestamp": "2026-06-15T17:57:39.024574+00:00",
     "source": "D-TRUST",
     "target": "I10",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.8080745006002334
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.9487506327701729
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057887+00:00",
+    "timestamp": "2026-06-15T17:57:39.024579+00:00",
     "source": "SC-RARE",
     "target": "C121",
     "delta": 0.2,
-    "confidence": 0.25,
-    "adjusted_delta": 0.05,
-    "new_scp": 0.842150238353628
+    "confidence": 1.0,
+    "adjusted_delta": 0.2,
+    "new_scp": 0.95
   },
   {
-    "timestamp": "2026-06-14T22:28:40.057892+00:00",
+    "timestamp": "2026-06-15T17:57:39.024585+00:00",
     "source": "SC-NUCLEAR",
     "target": "C62",
     "delta": 0.15,
-    "confidence": 0.25,
-    "adjusted_delta": 0.0375,
-    "new_scp": 0.8080745006002334
+    "confidence": 1.0,
+    "adjusted_delta": 0.15,
+    "new_scp": 0.9487506327701729
   }
 ]
