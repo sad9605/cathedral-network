@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — Data Sources</title>
   <style>
-    /* Same CSS as about.html – copy it from above to save space, but for brevity I'll assume you have it */
+    /* --- COPY THE EXACT CSS FROM YOUR index.html HERE --- */
     :root {
       --violet: #b39ddb;
       --violet-dark: #7c4dff;
@@ -94,25 +94,34 @@
       .nav-links.show { display: flex; }
       .menu-btn { display: block; }
     }
-    .card {
+    .source-category { margin-bottom: 2.5rem; }
+    .source-category h2 {
+      font-size: 1.6rem;
+      border-bottom: 2px solid var(--violet);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.2rem;
+    }
+    .source-card {
       background: white;
       border-radius: var(--card-radius);
       box-shadow: var(--shadow-sm);
-      transition: transform 0.1s, box-shadow 0.2s;
-      overflow: hidden;
+      padding: 1.2rem;
       border: 1px solid #eee;
-      margin: 1rem 0;
+      transition: transform 0.1s, box-shadow 0.2s;
     }
-    body.dark .card { background: #2a2a3a; border-color: #444; }
-    .card-content { padding: 1.2rem; }
-    .card-title {
-      font-weight: 700;
-      font-size: 1.2rem;
-      margin-bottom: 0.75rem;
-      color: #5e2d8e;
-      border-left: 4px solid var(--violet-dark);
-      padding-left: 0.75rem;
-    }
+    body.dark .source-card { background: #2a2a3a; border-color: #444; }
+    .source-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .source-name { font-weight: 700; font-size: 1.1rem; color: var(--violet-dark); }
+    body.dark .source-name { color: #b39ddb; }
+    .source-type { font-size: 0.7rem; background: var(--violet-light); padding: 0.2rem 0.6rem; border-radius: 40px; display: inline-block; margin-left: 0.5rem; }
+    body.dark .source-type { background: #3a3a4a; }
+    .source-desc { font-size: 0.9rem; margin: 0.5rem 0; }
+    .source-link { font-size: 0.8rem; word-break: break-all; color: var(--violet-dark); }
     .footer {
       margin-top: 3rem;
       text-align: center;
@@ -121,7 +130,6 @@
       border-top: 1px solid #ddd;
       padding-top: 1rem;
     }
-    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
     .dark-mode-toggle {
       position: fixed;
       bottom: 1rem;
@@ -171,25 +179,56 @@
     </div>
   </div>
 
-  <h1>Data Sources</h1>
-  <div class="card"><div class="card-content"><div class="card-title">GDACS</div><p>Global Disaster Alert and Coordination System – real-time alerts for floods, earthquakes, cyclones. (RSS feed)</p></div></div>
-  <div class="card"><div class="card-content"><div class="card-title">USGS</div><p>United States Geological Survey – real-time earthquake data (GeoJSON).</p></div></div>
-  <div class="card"><div class="card-content"><div class="card-title">ProMED</div><p>Program for Monitoring Emerging Diseases – outbreak reports (RSS).</p></div></div>
-  <div class="card"><div class="card-content"><div class="card-title">ReliefWeb</div><p>Humanitarian updates from UN OCHA (RSS).</p></div></div>
-  <div class="card"><div class="card-content"><div class="card-title">UCDP</div><p>Uppsala Conflict Data Program – conflict events (API pending).</p></div></div>
-  <div class="card"><div class="card-content"><div class="card-title">GDELT</div><p>Global Database of Events, Language, and Tone – planned.</p></div></div>
-  <div class="card"><div class="card-content"><div class="card-title">EIA</div><p>Energy Information Administration – oil, gas, electricity data – planned.</p></div></div>
+  <h1>📡 Cathedral Data & Technology Sources</h1>
+  <p style="margin-bottom: 1rem;">Every feed, every API, every library, and every custom module that powers the Cathedral Network. Fully transparent, always updated.</p>
+
+  <div id="sourcesContainer">
+    <p style="text-align:center; color:#888;">Loading sources...</p>
+  </div>
 
   <div class="footer">
     <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Every feed is public and auditable.
+    Sources v2.0 · Fully dynamic · Updated daily.
   </div>
 </div>
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
 <script>
+  async function loadSources() {
+    try {
+      const resp = await fetch('sources.json');
+      const data = await resp.json();
+      const container = document.getElementById('sourcesContainer');
+      if (!data.data_sources || data.data_sources.length === 0) {
+        container.innerHTML = '<p>No sources found.</p>';
+        return;
+      }
+      let html = '';
+      data.data_sources.forEach(category => {
+        html += `<div class="source-category"><h2>${category.category}</h2><div class="source-grid">`;
+        category.sources.forEach(source => {
+          html += `
+            <div class="source-card">
+              <div class="source-name">${source.name}<span class="source-type">${source.type}</span></div>
+              <div class="source-desc">${source.description}</div>
+              ${source.link && source.link !== 'N/A' ? `<div class="source-link">🔗 <a href="${source.link}" target="_blank">${source.link}</a></div>` : ''}
+            </div>
+          `;
+        });
+        html += `</div></div>`;
+      });
+      container.innerHTML = html;
+    } catch(e) {
+      console.error('Error loading sources:', e);
+      document.getElementById('sourcesContainer').innerHTML = '<p style="color:#dc2626;">Error loading sources. Please try again later.</p>';
+    }
+  }
+
+  // Navigation and dark mode (standard)
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+
   const darkToggle = document.getElementById('darkModeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const storedTheme = localStorage.getItem('cathedral-theme');
@@ -203,7 +242,8 @@
     darkToggle.innerText = isDark ? '☀️' : '🌙';
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js').catch(e => console.warn('SW failed', e));
+
+  loadSources();
 </script>
 </body>
 </html>

@@ -1,0 +1,61 @@
+{
+  "data_sources": [
+    {
+      "category": "Official Disasters & Climate",
+      "sources": [
+        {"name": "GDACS", "description": "Global Disaster Alert and Coordination System – real-time alerts for floods, earthquakes, cyclones.", "link": "https://www.gdacs.org/", "type": "RSS/API"},
+        {"name": "USGS Earthquakes", "description": "United States Geological Survey – real-time earthquake data.", "link": "https://earthquake.usgs.gov/", "type": "GeoJSON API"},
+        {"name": "NASA FIRMS", "description": "Satellite detection of active fire hotspots.", "link": "https://firms.modaps.eosdis.nasa.gov/", "type": "API"},
+        {"name": "ReliefWeb (UN OCHA)", "description": "Comprehensive humanitarian information portal.", "link": "https://reliefweb.int/", "type": "RSS/API"},
+        {"name": "Floodlist", "description": "Monitors significant flood events globally.", "link": "https://floodlist.com/", "type": "RSS/Web"},
+        {"name": "ElectricityMap", "description": "Real-time electricity mix and carbon intensity.", "link": "https://www.electricitymap.org/", "type": "API"}
+      ]
+    },
+    {
+      "category": "Conflict & Military",
+      "sources": [
+        {"name": "GDELT", "description": "Monitors world's broadcast, print, and web news, tracking global tone and event data.", "link": "https://www.gdeltproject.org/", "type": "API"},
+        {"name": "ACLED", "description": "Real-time data on political violence and protest events.", "link": "https://acleddata.com/", "type": "API (Pending)"},
+        {"name": "OpenSky Network", "description": "Real-time tracking of military and civilian aircraft.", "link": "https://opensky-network.org/", "type": "API"},
+        {"name": "Kalshi", "description": "Prediction markets providing 'wisdom of the crowd' probabilities.", "link": "https://kalshi.com/", "type": "API"},
+        {"name": "MagenYehudaBot", "description": "Aggregates 85+ sources for Iran-Israel conflict OSINT.", "link": "N/A", "type": "Open-Source Tool"}
+      ]
+    },
+    {
+      "category": "Disease Outbreaks",
+      "sources": [
+        {"name": "WHO DON", "description": "Official WHO Disease Outbreak News.", "link": "https://www.who.int/emergencies/disease-outbreak-news", "type": "RSS/API"},
+        {"name": "ProMED-Mail", "description": "Early, unofficial reports of emerging disease outbreaks.", "link": "https://www.promedmail.org/", "type": "RSS"}
+      ]
+    },
+    {
+      "category": "AI & Cybersecurity",
+      "sources": [
+        {"name": "AI Incident Database (AIID)", "description": "Tracks real-world failures and safety incidents related to AI systems.", "link": "https://incidentdatabase.ai/", "type": "API"},
+        {"name": "GitHub Security Advisories", "description": "Official database for open-source vulnerabilities.", "link": "https://github.com/advisories", "type": "API"},
+        {"name": "CVELogic", "description": "Daily prioritized list of dangerous CVEs.", "link": "https://cvelogic.com/", "type": "API"},
+        {"name": "Krebs on Security", "description": "Cybersecurity news.", "link": "https://krebsonsecurity.com/", "type": "RSS"},
+        {"name": "Bleeping Computer", "description": "Cybersecurity news.", "link": "https://www.bleepingcomputer.com/", "type": "RSS"}
+      ]
+    },
+    {
+      "category": "Alternative Data & Early Signals",
+      "sources": [
+        {"name": "Cloudflare Radar", "description": "Monitors global internet outages.", "link": "https://radar.cloudflare.com/", "type": "API/Web"},
+        {"name": "Wikipedia Pageview API", "description": "Tracks sudden spikes in article views, correlating with major news events.", "link": "https://wikimedia.org/api/rest_v1/metrics/pageviews/", "type": "API"}
+      ]
+    },
+    {
+      "category": "Borrowed & Implemented Software",
+      "sources": [
+        {"name": "Cytoscape.js", "description": "Graph visualization library for cascade mapping.", "link": "https://js.cytoscape.org/", "type": "Library"},
+        {"name": "Leaflet", "description": "Interactive mapping library for the situational dashboard.", "link": "https://leafletjs.com/", "type": "Library"},
+        {"name": "Prophet", "description": "Time-series forecasting for Brent, FAO, and FEMA data.", "link": "https://facebook.github.io/prophet/", "type": "Library"},
+        {"name": "pgmpy", "description": "Probabilistic graphical models for cascade discovery.", "link": "https://pgmpy.org/", "type": "Library"},
+        {"name": "AgentOps", "description": "Observability and control for the Agentic Warden.", "link": "https://www.agentops.ai/", "type": "Platform"},
+        {"name": "GovAgent", "description": "Governance and security module for privacy, intent, and fiscal controls.", "link": "N/A", "type": "Custom Module"},
+        {"name": "Steganographic Layer", "description": "Covert Warden communications via LSB steganography.", "link": "N/A", "type": "Custom Module"}
+      ]
+    }
+  ]
+}
