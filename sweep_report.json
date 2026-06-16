@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-16T17:39:34.453066+00:00",
+  "timestamp": "2026-06-16T17:47:14.516676+00:00",
   "feeds": {
     "news_rss": {
       "BBC News": [
@@ -29,8 +29,8 @@
       "Sky News": [
         "Boy accused of murdering girl, 9, said he had to get away from police, court told",
         "Social media ban would have stopped me quitting, says Jess Phillips",
+        "Russian artist who criticised Putin is shot dead",
         "Pictured: Woman charged over Wimbledon school crash that left two girls dead",
-        "Russian artist who criticised Putin shot dead near home in Poland",
         "First batch of grooming gang cases returned to police to reinvestigate"
       ],
       "NHK World": [
@@ -41,7 +41,7 @@
         "\u5357\u7c73\u3068\u306eEPA\u4ea4\u6e09\u958b\u59cb\u3067\u5408\u610f \u539f\u6cb9\u30fb\u91cd\u8981\u9271\u7269\u306e\u78ba\u4fdd\u76ee\u6307\u3059"
       ],
       "Times of India": [
-        "How Qatar, not Pakistan, became the real power broker in US-Iran deal",
+        "To Tehran with love? Trump's Iran MoU meets MAGA mutiny",
         "US used Iran-style covert transfers to move 90 million barrels of oil out of Gulf: Report",
         "'If everyone in this country ... ': CJP founder Abhijeet Dipke clears stance on fighting polls",
         "'Very important': India coach reveals how Rohit remains crucial to Gill",
@@ -70,7 +70,7 @@
     "usgs": {
       "source": "USGS",
       "status": "success",
-      "earthquakes": 255
+      "earthquakes": 257
     },
     "reliefweb": {
       "source": "ReliefWeb",
@@ -100,7 +100,7 @@
     "opensky": {
       "source": "OpenSky",
       "status": "success",
-      "aircraft": 12229
+      "aircraft": 12311
     },
     "kalshi": {
       "source": "Kalshi",
@@ -130,7 +130,7 @@
       "status": "success",
       "feeds": {
         "KrebsOnSecurity": {
-          "entries": 0
+          "entries": 10
         },
         "BleepingComputer": {
           "entries": 15
@@ -161,6 +161,6 @@
   },
   "threats_summary": {
     "threat_count": 213,
-    "last_updated": "2026-06-16T09:32:36.839808+00:00"
+    "last_updated": "2026-06-16T17:40:35.237165+00:00"
   }
 }
