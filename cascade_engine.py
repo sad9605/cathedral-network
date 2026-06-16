@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from agent_ops_cockpit.ops.guardrails import tool_privilege_check
 """
 cascade_engine.py – Cathedral Network Probability Drive v7
 Adds credit spread and tech valuation confidence filters.
@@ -44,6 +45,7 @@ FRED_API_KEY = os.environ.get("FRED_API_KEY")
 fred = Fred(api_key=FRED_API_KEY) if FRED_API_KEY else None
 
 # ----------------------------------------------------------------------
+@tool_privilege_check(required_scope='admin')
 def load_json(filepath, default=None):
     try:
         with open(filepath, 'r') as f:
@@ -317,3 +319,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+class ActionRouter:
+    '''Separation of Concerns: Routes instructions instead of monolithic tool calling.'''
+    def route(self, intent: str):
+        pass

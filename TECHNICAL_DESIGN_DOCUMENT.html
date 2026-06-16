@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cockpit TDD | AgentOps Cockpit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald: #10b981; --emerald-dark: #059669; --emerald-light: #ecfdf5;
+            --slate: #0f172a; --slate-light: #1e293b; --slate-lighter: #334155;
+            --text-main: #f8fafc; --text-muted: #94a3b8; --text-dark: #cbd5e1;
+            --border: #334155; --error: #ef4444; --warning: #f59e0b;
+        }
+        * { box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: var(--slate); color: var(--text-main); margin: 0; display: flex; height: 100vh; overflow: hidden; }
+        
+        /* Sidebar */
+        aside { width: 300px; background: #0b1120; border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+        .sidebar-brand { padding: 32px 24px; border-bottom: 1px solid var(--border); }
+        .brand-title { font-size: 22px; font-weight: 700; color: var(--emerald); display: flex; align-items: center; gap: 10px; letter-spacing: -0.02em; }
+        .nav-list { padding: 24px 16px; flex: 1; overflow-y: auto; }
+        .nav-item { display: block; padding: 12px 16px; color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 15px; border-radius: 8px; margin-bottom: 4px; transition: all 0.2s; }
+        .nav-item:hover, .nav-item.active { background: rgba(16, 185, 129, 0.1); color: var(--emerald); }
+        
+        /* Main */
+        main { flex: 1; overflow-y: auto; scroll-behavior: smooth; background: #0f172a; }
+        .content-container { max-width: 1100px; margin: 0 auto; padding: 60px 80px; }
+        
+        header { margin-bottom: 80px; }
+        .doc-meta { display: flex; gap: 24px; font-size: 13px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+        h1 { font-size: 48px; font-weight: 700; margin: 0; background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.01em; }
+        .subtitle { font-size: 18px; color: var(--text-dark); margin-top: 12px; font-weight: 400; }
+
+        .external-links { display: flex; gap: 16px; margin-top: 32px; }
+        .btn-link { background: var(--slate-light); color: var(--text-main); text-decoration: none; padding: 10px 20px; border-radius: 12px; border: 1px solid var(--border); font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
+        .btn-link:hover { border-color: var(--emerald); background: rgba(16, 185, 129, 0.05); }
+
+        section { margin-bottom: 100px; scroll-margin-top: 40px; }
+        h2 { font-size: 24px; font-weight: 700; color: var(--emerald); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+        
+        /* Rationale Grid */
+        .rationale-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .rationale-card { background: var(--slate-light); border: 1px solid var(--border); padding: 24px; border-radius: 20px; }
+        .rationale-card h4 { margin: 0 0 12px 0; font-size: 16px; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
+        .rationale-card p { margin: 0; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        /* Agent Card */
+        .agent-card { background: var(--slate-light); border: 1px solid var(--border); border-radius: 24px; padding: 32px; margin-bottom: 40px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+        .card-title-group h3 { margin: 0; font-size: 22px; font-weight: 700; }
+        .health-meta { font-size: 13px; color: var(--emerald); font-weight: 600; margin-top: 4px; }
+        .badge { padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+        .status-pass { background: rgba(16, 185, 129, 0.1); color: var(--emerald); border: 1px solid var(--emerald); }
+        .status-fail { background: rgba(239, 68, 68, 0.1); color: var(--error); border: 1px solid var(--error); }
+
+        .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
+        .spec-header { font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.1em; margin-bottom: 16px; }
+        .spec-content { background: #0b1120; padding: 20px; border-radius: 16px; border: 1px solid var(--border); }
+        .spec-item { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; font-size: 13px; }
+        .spec-item:last-child { margin-bottom: 0; }
+        .spec-item span { color: var(--text-muted); }
+        .spec-item strong { color: var(--text-main); }
+
+        .iam-list { background: #0b1120; list-style: none; padding: 20px; margin: 0; border-radius: 16px; border: 1px solid var(--border); }
+        .iam-list li { margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--slate-lighter); }
+        .iam-list li:last-child { border: none; padding-bottom: 0; margin-bottom: 0; }
+        .iam-list li strong { font-size: 12px; font-family: 'JetBrains Mono', monospace; color: var(--emerald); }
+        .iam-list li small { color: var(--text-muted); font-size: 11px; display: block; margin-top: 4px; }
+
+        .audit-section { border-top: 1px solid var(--border); padding-top: 32px; }
+        .findings-list { display: flex; flex-direction: column; gap: 8px; }
+        .finding-row { background: #0b1120; padding: 12px 20px; border-radius: 12px; display: flex; gap: 16px; align-items: center; border: 1px solid transparent; transition: all 0.2s; }
+        .finding-row:hover { border-color: var(--border); background: var(--slate-light); }
+        .finding-status { font-size: 10px; }
+        .finding-module { font-weight: 700; font-size: 13px; font-family: 'JetBrains Mono', monospace; width: 180px; color: var(--text-dark); }
+        .finding-detail { font-size: 13px; color: var(--text-muted); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* Table */
+        .table-container { background: var(--slate-light); border-radius: 20px; border: 1px solid var(--border); overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { background: #0b1120; padding: 16px 24px; font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+        td { padding: 16px 24px; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--text-dark); }
+        tr:last-child td { border-bottom: none; }
+        code { font-family: 'JetBrains Mono', monospace; color: var(--emerald); background: rgba(16, 185, 129, 0.05); padding: 4px 8px; border-radius: 4px; font-size: 13px; }
+        .pill { background: rgba(16, 185, 129, 0.1); color: var(--emerald); padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+        .text-link { color: var(--emerald); text-decoration: none; font-weight: 600; font-size: 13px; }
+
+        .mermaid-card { background: var(--slate-light); padding: 40px; border-radius: 24px; border: 1px solid var(--border); display: flex; justify-content: center; }
+
+        footer { margin-top: 120px; padding: 60px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 13px; line-height: 2; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--slate-lighter); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        @media print { aside { display: none; } main { background: white; color: black; } .content-container { padding: 40px; } .btn-link { display: none; } }
+    </style>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'dark', securityLevel: 'loose' });
+    </script>
+</head>
+<body>
+    <aside>
+        <div class="sidebar-brand"><div class="brand-title">🕹️ Cockpit Cockpit</div></div>
+        <div class="nav-list">
+            <a href="#summary" class="nav-item active">Executive Summary</a>
+            <a href="#rationale" class="nav-item">Technology Rationale</a>
+            <a href="#architecture" class="nav-item">System Architecture</a>
+            <a href="#connections" class="nav-item">Platform Connections</a>
+            <a href="#registry" class="nav-item">Tool Registry</a>
+            <a href="#fleet" class="nav-item">Fleet Audit Status</a>
+        </div>
+        <div style="padding: 24px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border);">
+            Build: v2.0.7-premium<br>
+            Standard: A2A Cockpit Factory
+        </div>
+    </aside>
+
+    <main>
+        <div class="content-container">
+            <header>
+                <div class="doc-meta">
+                    <span>Artifact ID: TDD-AO-2026-001</span>
+                    <span>Status: Highly Hardened</span>
+                </div>
+                <h1>Technical Design Document</h1>
+                <div class="subtitle">Architectural Blueprint for Cockpit Agent Operations.</div>
+                
+                <div class="external-links">
+                    <a href="https://github.com/enriquekalven/agent-ops-cockpit" class="btn-link" target="_blank">View on GitHub</a>
+                    <a href="https://pypi.org/project/agentops-cockpit/" class="btn-link" target="_blank">PyPI Registry</a>
+                    <a href="https://agent-cockpit.web.app" class="btn-link" target="_blank">Live Face Dashboard</a>
+                </div>
+            </header>
+
+            <section id="summary">
+                <h2><span style="color:var(--text-muted); font-weight:400;">01.</span> Executive Summary</h2>
+                <p>This design document details the multi-cloud, cockpit implementation of <strong>AgentOps Cockpit</strong>. Our architecture is designed to bridge the gap between "scripts" and "systems" by providing framework-agnostic governance for distributed AI fleets. The core objective is <strong>Autonomous Cockpitty</strong>—ensuring that your agents operate with hardened reasoning logic, secure tool schemas, and high-fidelity operational transparency.</p>
+            </section>
+
+            <section id="rationale">
+                <h2><span style="color:var(--text-muted); font-weight:400;">02.</span> Technology Rationale</h2>
+                <div class="rationale-grid">
+                    <div class="rationale-card">
+                        <h4>⚙️ The Governance Framework</h4>
+                        <p>Decouples Reasoning (Engine), Interface (Face), and Operations (Cockpit). This ensures that architectural debt in one pillar does not compromise the security or performance of the others.</p>
+                    </div>
+                    <div class="rationale-card">
+                        <h4>🧠 Cockpit Reasoning (ADK)</h4>
+                        <p>Leveraging the Google ADK for robust function calling and multi-turn state persistence. We chose ADK for its "Shared State" and "Delegation" patterns which provide superior orchestration over vanilla RAG.</p>
+                    </div>
+                    <div class="rationale-card">
+                        <h4>🛡️ Poka-Yoke Hardening</h4>
+                        <p>Automated tool-schema reconciliation using AST-aware auditing. This "error-proofing" ensures that LLMs never attempt to call non-existent or dangerous tool variants.</p>
+                    </div>
+                    <div class="rationale-card">
+                        <h4>🌉 The Cockpit Bridge</h4>
+                        <p>A multi-cloud deployment engine (GCP / AWS / Azure). We chose this to prevent infrastructure lock-in, allowing reasoning workloads to shift based on latency and token-economics.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="architecture">
+                <h2><span style="color:var(--text-muted); font-weight:400;">03.</span> System Architecture</h2>
+                <div class="mermaid-card">
+                    <div class="mermaid">
+                        graph TD
+                        subgraph "Governance Plane (The Cockpit)"
+                            ORCH[Cockpit Orchestrator]
+                            AUDIT[SME Auditor Board]
+                            HIVE[Semantic distributed cache]
+                        end
+                        
+                        subgraph "Execution Plane (Cockpit Infrastructure)"
+                            MESH[Elastic Service Mesh]
+                            RUNTIME[Cockpit Runtime Nodes]
+                            EDGE[Cockpit Edge Gateway]
+                        end
+
+                        subgraph "Platform Integration"
+                            GE[Gemini Enterprise]
+                            FB[Firebase Face Layer]
+                            AE[Reasoning Engine]
+                        end
+
+                        ORCH --> AUDIT
+                        ORCH --> HIVE
+                        AUDIT --> EDGE
+                        EDGE --> RUNTIME
+                        RUNTIME --> MESH
+                        MESH --> GE
+                        GE --> AE
+                        FB --> ORCH
+                        AE --> FB
+                    </div>
+                </div>
+            </section>
+
+            <section id="connections">
+                <h2><span style="color:var(--text-muted); font-weight:400;">04.</span> Platform Connections</h2>
+                <p>AgentOps Cockpit is a distributed system with deep integrations into enterprise cloud providers. Below are the verified production end-points for the current fleet.</p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Platform</th><th>Target Service</th><th>Connection Strategy</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Google Cloud</strong></td><td>Vertex AI / GKE</td><td>Workload Identity / OIDC</td></tr>
+                            <tr><td><strong>Firebase</strong></td><td>Hosting / Functions</td><td>Cockpit Face Deployment</td></tr>
+                            <tr><td><strong>GitHub</strong></td><td>Source Registry</td><td>SSH Agent / CI-CD Bridge</td></tr>
+                            <tr><td><strong>PyPI</strong></td><td>Package Registry</td><td>Trusted Publisher (OpenID)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="registry">
+                <h2><span style="color:var(--text-muted); font-weight:400;">05.</span> Gemini Enterprise Tool Registry</h2>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Tool ID</th><th>Display Name</th><th>Manifest</th><th>Status</th></tr></thead>
+                        <tbody><tr><td colspan='4' style='text-align:center; padding: 40px;'>No tools registered in Gemini Enterprise registry yet.</td></tr></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="fleet">
+                <h2><span style="color:var(--text-muted); font-weight:400;">06.</span> Fleet Audit Status</h2>
+                
+            <div id="agent-cathedral-core" class="agent-card">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <h3>Agent: cathedral-core</h3>
+                        <div class="health-meta">Cockpit Score: 66.7%</div>
+                    </div>
+                    <div class="badge status-fail">GAPS DETECTED</div>
+                </div>
+                
+                <div class="spec-grid">
+                    <div class="spec-column">
+                        <div class="spec-header">🚀 RUNTIME & COMPUTE</div>
+                        <div class="spec-content">
+                            <div class="spec-item"><span>Target</span><strong>Cockpit Cockpit Runtime (Enterprise Mesh)</strong></div>
+                            <div class="spec-item"><span>Environment</span><strong>Production (Cockpit)</strong></div>
+                            <div class="spec-item"><span>Scaling</span><strong>Elastic Auto-Scale</strong></div>
+                        </div>
+                    </div>
+                    <div class="spec-column">
+                        <div class="spec-header">🔑 IDENTITY & ACCESS</div>
+                        <ul class="iam-list"><li><strong>cockpit.agent.executor</strong><br/><small>Access to local reasoning engine and cockpit tools.</small></li><li><strong>cockpit.telemetry.writer</strong><br/><small>Write application logs to Cockpit Evidence Lake.</small></li><li><strong>cockpit.registry.reader</strong><br/><small>Pull container images from local cockpit registry.</small></li></ul>
+                    </div>
+                    <div class="spec-column">
+                        <div class="spec-header">🌐 NETWORK TOPOLOGY</div>
+                        <div class="spec-content"><div class='spec-item'><span>Internal IP</span><strong>10.0.0.1</strong></div><div class='spec-item'><span>Protocol</span><strong>gRPC / REST (Cockpit Bridge)</strong></div><div class='spec-item'><span>Exposure</span><strong>Cockpit Mesh (Layer 7 mTLS)</strong></div></div>
+                    </div>
+                </div>
+
+                <div class="audit-section">
+                    <div class="spec-header">🛡️ COCKPIT AUDIT FINDINGS</div>
+                    <div class="findings-list">
+                <div class="finding-row">
+                    <div class="finding-status" style="color: #ef4444;">■</div>
+                    <div class="finding-module">Token Optimization</div>
+                    <div class="finding-detail">╭───────────────────────────────────╮
+│ 🔍 GCP AGENT OPS: OPTIMIZER AUDIT │
+╰───────────────────────────────────╯
+Target: /home/sad9605/cathedral-core/daily-sweep.py
+📊 Token Metrics: ~1708 prompt token...</div>
+                </div>
+                <div class="finding-row">
+                    <div class="finding-status" style="color: #ef4444;">■</div>
+                    <div class="finding-module">Skill-Based Red Teaming</div>
+                    <div class="finding-detail">
+Usage: python -m agent_ops_cockpit.eval.run_skills_eval [OPTIONS]
+                                                        [TARGET_PATH]
+Try 'python -m agent_ops_cockpit.eval.run_skills_eval --help' f...</div>
+                </div>
+                <div class="finding-row">
+                    <div class="finding-status" style="color: #10b981;">●</div>
+                    <div class="finding-module">Policy Enforcement</div>
+                    <div class="finding-detail">Policy Source: governance.yaml
+Caught Expected Violation: GOVERNANCE - Input contains forbidden topic: 'medical advice'.
+SOURCE: Declarative Guardrails | https://cloud.google.com/architecture/framewor...</div>
+                </div>
+                <div class="finding-row">
+                    <div class="finding-status" style="color: #ef4444;">■</div>
+                    <div class="finding-module">Red Team (Fast)</div>
+                    <div class="finding-detail">╭───────────────────────────────────────────────╮
+│ 🚩 RED TEAM EVALUATION: SELF-HACK INITIALIZED │
+╰───────────────────────────────────────────────╯
+Targeting: /home/sad9605/cathedral-core/tsf_forecas...</div>
+                </div>
+                <div class="finding-row">
+                    <div class="finding-status" style="color: #10b981;">●</div>
+                    <div class="finding-module">RAG Fidelity Audit</div>
+                    <div class="finding-detail">╭────────────────────────────────────╮
+│ 🧗 RAG TRUTH-SAYER: FIDELITY AUDIT │
+╰────────────────────────────────────╯
+✅ No RAG-specific risks detected or no RAG pattern found.
+...</div>
+                </div>
+                <div class="finding-row">
+                    <div class="finding-status" style="color: #10b981;">●</div>
+                    <div class="finding-module">Secret Scanner</div>
+                    <div class="finding-detail">╭──────────────────────────────────────────────╮
+│ 🔍 SECRET SCANNER: CREDENTIAL LEAK DETECTION │
+╰──────────────────────────────────────────────╯
+✅ PASS: No hardcoded credentials detected in matched p...</div>
+                </div>
+                <div class="finding-row">
+                    <div class="finding-status" style="color: #10b981;">●</div>
+                    <div class="finding-module">Frontend Auditor</div>
+                    <div class="finding-detail">╭───────────────────────────────────────╮
+│ 🎭 FACE AUDITOR: GENUI COMPONENT SCAN │
+╰───────────────────────────────────────╯
+Scanning directory: /home/sad9605/cathedral-core
+📝 Scanned 21 frontend file...</div>
+                </div>
+                <div class="finding-row">
+                    <div class="finding-status" style="color: #10b981;">●</div>
+                    <div class="finding-module">Architecture Review</div>
+                    <div class="finding-detail">╭────────────────────────────────────────────────────────────╮
+│ 🏛️ GENERIC AGENTIC STACK: ENTERPRISE ARCHITECT REVIEW v1.8 │
+╰────────────────────────────────────────────────────────────╯
+Detected St...</div>
+                </div>
+                <div class="finding-row">
+                    <div class="finding-status" style="color: #10b981;">●</div>
+                    <div class="finding-module">Reliability (Quick)</div>
+                    <div class="finding-detail">╭──────────────────────────────╮
+│ 🛡️ RELIABILITY AUDIT (QUICK) │
+╰──────────────────────────────╯
+🧪 Running Unit Tests (pytest) in /home/sad9605/cathedral-core...
+📈 Verifying Regression Suite Coverag...</div>
+                </div></div>
+                </div>
+            </div>
+            
+            </section>
+
+            <footer>
+                <strong>AgentOps Cockpit v2.0.7 Premium Insights</strong><br/>
+                Confidential Architectural Artifact. Cockpit Systems Division.<br>
+                Generated: June 16, 2026 02:09 | Standard: AIA Cockpit Design v1.4
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        const main = document.querySelector('main');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-item');
+
+        main.addEventListener('scroll', () => {
+            let current = "";
+            sections.forEach((section) => {
+                if (main.scrollTop >= section.offsetTop - 100) { current = section.getAttribute("id"); }
+            });
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").substring(1) === current) { link.classList.add("active"); }
+            });
+        });
+    </script>
+</body>
+</html>

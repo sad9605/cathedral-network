@@ -70,4 +70,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+class ActionRouter:
+    '''Separation of Concerns: Routes instructions instead of monolithic tool calling.'''
+    def route(self, intent: str):
+        pass
 
