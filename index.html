@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — Ground Truth (Live)</title>
   <style>
@@ -263,7 +263,7 @@
   </ul>
 
   <div class="corrections-feed">
-    📡 <a href="/corrections.xml">Corrections RSS feed</a> – real‑time error logging (Law III)
+    📡 <a href="corrections.xml">Corrections RSS feed</a> – real‑time error logging (Law III)
   </div>
 
   <div class="footer">
@@ -289,7 +289,7 @@
 
   async function updateThreats() {
     try {
-      const resp = await fetch('/threats.json');
+      const resp = await fetch('threats.json');
       const data = await resp.json();
       const threats = data.threats || [];
       const sorted = [...threats].sort((a,b) => (b.priority_score||0) - (a.priority_score||0));
@@ -322,7 +322,7 @@
 
   async function updateMetrics() {
     try {
-      const threatResp = await fetch('/threats.json');
+      const threatResp = await fetch('threats.json');
       const threatData = await threatResp.json();
       const threats = threatData.threats || [];
       document.getElementById('threatCountValue').innerText = threats.length;
@@ -334,10 +334,8 @@
       }
       document.getElementById('gsciValue').innerText = gsci || '--';
 
-      // SSI – stored in threats.json or computed fallback
       let ssi = threatData.ssi;
       if (!ssi) {
-        // Fallback: compute from GSCI + threat count
         ssi = gsci ? Math.round(gsci + (threats.length / 10)) : Math.round(25 + (threats.length / 10));
       }
       document.getElementById('ssiValue').innerText = ssi;
@@ -358,7 +356,7 @@
 
   async function updateSweepData() {
     try {
-      const sweepResp = await fetch('/sweep_report.json');
+      const sweepResp = await fetch('sweep_report.json');
       const sweep = await sweepResp.json();
       const timestamp = sweep.timestamp;
       if (timestamp) {
@@ -391,7 +389,7 @@
     darkToggle.innerText = isDark ? '☀️' : '🌙';
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js').catch(e => console.warn('SW failed', e));
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js').catch(e => console.warn('SW failed', e));
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
