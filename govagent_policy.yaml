@@ -1,0 +1,23 @@
+version: "1.0"
+name: "Cathedral Network GovAgent Policy"
+tools:
+  - name: "send_signal_alert"
+    required_scope: "warden"
+  - name: "flag_duplicate_report"
+    required_scope: "spotter"
+  - name: "update_threats_json"
+    required_scope: "core"
+  - name: "generate_daily_summary"
+    required_scope: "core"
+  - name: "git_commit_push"
+    required_scope: "admin"
+fiscal:
+  monthly_budget: 100.00
+  per_action_cap: 5.00
+circuit_breakers:
+  privacy:
+    enabled: true
+  intent:
+    enabled: true
+  fiscal:
+    enabled: true

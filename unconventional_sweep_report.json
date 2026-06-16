@@ -1,0 +1,608 @@
+{
+  "hypotheses": {
+    "total_seeds": 100,
+    "high_confidence_seeds": 86,
+    "ranked_seeds": [
+      {
+        "seed_id": "SPA_20260616_0021",
+        "source": "threat_01",
+        "delta": 0.9920494090299772,
+        "confidence": 0.2609764013388997,
+        "domain": "social",
+        "timestamp": "2026-06-16T03:54:01.104118",
+        "context_overlap": 0.9594286753881408,
+        "generated_at": "2026-06-16T03:54:01.104122",
+        "validation_score": 0.9636219913634534,
+        "priority_rank": 1
+      },
+      {
+        "seed_id": "SPA_20260616_0072",
+        "source": "threat_02",
+        "delta": -0.7531506469138133,
+        "confidence": 0.4998944696109051,
+        "domain": "environmental",
+        "timestamp": "2026-06-16T03:54:01.105598",
+        "context_overlap": 0.7639786163458285,
+        "generated_at": "2026-06-16T03:54:01.105602",
+        "validation_score": 0.9530700543246953,
+        "priority_rank": 2
+      },
+      {
+        "seed_id": "SPA_20260616_0034",
+        "source": "threat_02",
+        "delta": 0.6131340487258188,
+        "confidence": 0.30071157895852385,
+        "domain": "economic",
+        "timestamp": "2026-06-16T03:54:01.104633",
+        "context_overlap": 0.2045223111341229,
+        "generated_at": "2026-06-16T03:54:01.104637",
+        "validation_score": 0.9200459392750129,
+        "priority_rank": 3
+      },
+      {
+        "seed_id": "SPA_20260616_0074",
+        "source": "threat_02",
+        "delta": 1.1444389308497622,
+        "confidence": 0.2012985960816637,
+        "domain": "social",
+        "timestamp": "2026-06-16T03:54:01.105632",
+        "context_overlap": 0.17272738875152804,
+        "generated_at": "2026-06-16T03:54:01.105635",
+        "validation_score": 0.9063806268692107,
+        "priority_rank": 4
+      },
+      {
+        "seed_id": "SPA_20260616_0011",
+        "source": "threat_01",
+        "delta": -0.532000907462718,
+        "confidence": 0.09401047901290503,
+        "domain": "political",
+        "timestamp": "2026-06-16T03:54:01.103901",
+        "context_overlap": 0.8941896255396814,
+        "generated_at": "2026-06-16T03:54:01.103905",
+        "validation_score": 0.8757361031163072,
+        "priority_rank": 5
+      },
+      {
+        "seed_id": "SPA_20260616_0013",
+        "source": "threat_01",
+        "delta": -0.48549580552196614,
+        "confidence": 0.08764864108948932,
+        "domain": "political",
+        "timestamp": "2026-06-16T03:54:01.103937",
+        "context_overlap": 0.7227298554789523,
+        "generated_at": "2026-06-16T03:54:01.103941",
+        "validation_score": 0.8658551685174687,
+        "priority_rank": 6
+      },
+      {
+        "seed_id": "SPA_20260616_0063",
+        "source": "threat_02",
+        "delta": 0.030805983239159965,
+        "confidence": 0.3324407983154401,
+        "domain": "social",
+        "timestamp": "2026-06-16T03:54:01.105284",
+        "context_overlap": 0.4180936036817342,
+        "generated_at": "2026-06-16T03:54:01.105287",
+        "validation_score": 0.8567712061281736,
+        "priority_rank": 7
+      },
+      {
+        "seed_id": "SPA_20260616_0009",
+        "source": "threat_02",
+        "delta": 0.21983615410141708,
+        "confidence": 0.38363147988181373,
+        "domain": "political",
+        "timestamp": "2026-06-16T03:54:01.103863",
+        "context_overlap": 0.8222852479474199,
+        "generated_at": "2026-06-16T03:54:01.103866",
+        "validation_score": 0.8493605648149622,
+        "priority_rank": 8
+      },
+      {
+        "seed_id": "SPA_20260616_0014",
+        "source": "threat_02",
+        "delta": 0.07917523125115752,
+        "confidence": 0.17585095504618653,
+        "domain": "social",
+        "timestamp": "2026-06-16T03:54:01.103955",
+        "context_overlap": 0.5024205791917301,
+        "generated_at": "2026-06-16T03:54:01.103958",
+        "validation_score": 0.8285839021547853,
+        "priority_rank": 9
+      },
+      {
+        "seed_id": "SPA_20260616_0075",
+        "source": "threat_01",
+        "delta": -0.15218450364745637,
+        "confidence": 0.48545177417052154,
+        "domain": "military",
+        "timestamp": "2026-06-16T03:54:01.105648",
+        "context_overlap": 0.5206453852098407,
+        "generated_at": "2026-06-16T03:54:01.105651",
+        "validation_score": 0.824571579011594,
+        "priority_rank": 10
+      },
+      {
+        "seed_id": "SPA_20260616_0031",
+        "source": "threat_02",
+        "delta": 0.256140400453972,
+        "confidence": 0.3731371689688273,
+        "domain": "political",
+        "timestamp": "2026-06-16T03:54:01.104580",
+        "context_overlap": 0.5362885416128281,
+        "generated_at": "2026-06-16T03:54:01.104583",
+        "validation_score": 0.8024319651103144,
+        "priority_rank": 11
+      },
+      {
+        "seed_id": "SPA_20260616_0035",
+        "source": "threat_01",
+        "delta": -0.08114235419423763,
+        "confidence": 0.2807269543019361,
+        "domain": "environmental",
+        "timestamp": "2026-06-16T03:54:01.104651",
+        "context_overlap": 0.8740636419860932,
+        "generated_at": "2026-06-16T03:54:01.104655",
+        "validation_score": 0.7953568039690112,
+        "priority_rank": 12
+      },
+      {
+        "seed_id": "SPA_20260616_0038",
+        "source": "threat_02",
+        "delta": 0.17849550386442306,
+        "confidence": 0.564003915457447,
+        "domain": "political",
+        "timestamp": "2026-06-16T03:54:01.104724",
+        "context_overlap": 0.4353833432358225,
+        "generated_at": "2026-06-16T03:54:01.104727",
+        "validation_score": 0.7762946973685925,
+        "priority_rank": 13
+      },
+      {
+        "seed_id": "SPA_20260616_0069",
+        "source": "threat_02",
+        "delta": 0.38563084485886395,
+        "confidence": 0.3262985648542499,
+        "domain": "environmental",
+        "timestamp": "2026-06-16T03:54:01.105540",
+        "context_overlap": 0.4089618909934639,
+        "generated_at": "2026-06-16T03:54:01.105547",
+        "validation_score": 0.7573156313598061,
+        "priority_rank": 14
+      },
+      {
+        "seed_id": "SPA_20260616_0051",
+        "source": "threat_01",
+        "delta": -0.24802022009033073,
+        "confidence": 0.11297568881877378,
+        "domain": "social",
+        "timestamp": "2026-06-16T03:54:01.105049",
+        "context_overlap": 0.04900017204967266,
+        "generated_at": "2026-06-16T03:54:01.105053",
+        "validation_score": 0.7564815318054312,
+        "priority_rank": 15
+      },
+      {
+        "seed_id": "SPA_20260616_0089",
+        "source": "threat_01",
+        "delta": -0.8769903934220423,
+        "confidence": 0.17202713833178682,
+        "domain": "political",
+        "timestamp": "2026-06-16T03:54:01.105955",
+        "context_overlap": 0.22856323412025137,
+        "generated_at": "2026-06-16T03:54:01.105959",
+        "validation_score": 0.7339284289026329,
+        "priority_rank": 16
+      },
+      {
+        "seed_id": "SPA_20260616_0076",
+        "source": "threat_02",
+        "delta": 0.9569300910645323,
+        "confidence": 0.04861672683708809,
+        "domain": "social",
+        "timestamp": "2026-06-16T03:54:01.105665",
+        "context_overlap": 0.843511247428684,
+        "generated_at": "2026-06-16T03:54:01.105668",
+        "validation_score": 0.7320004070952404,
+        "priority_rank": 17
+      },
+      {
+        "seed_id": "SPA_20260616_0085",
+        "source": "threat_02",
+        "delta": 0.45251901265927325,
+        "confidence": 0.17968674062447856,
+        "domain": "political",
+        "timestamp": "2026-06-16T03:54:01.105888",
+        "context_overlap": 0.8827761281529293,
+        "generated_at": "2026-06-16T03:54:01.105891",
+        "validation_score": 0.7253748885884437,
+        "priority_rank": 18
+      },
+      {
+        "seed_id": "SPA_20260616_0059",
+        "source": "threat_01",
+        "delta": 0.5237422920967535,
+        "confidence": 0.10741394048659643,
+        "domain": "environmental",
+        "timestamp": "2026-06-16T03:54:01.105214",
+        "context_overlap": 0.03420782701618974,
+        "generated_at": "2026-06-16T03:54:01.105217",
+        "validation_score": 0.7052160470436619,
+        "priority_rank": 19
+      },
+      {
+        "seed_id": "SPA_20260616_0007",
+        "source": "threat_02",
+        "delta": 0.5930706647505871,
+        "confidence": 0.2906367563193816,
+        "domain": "social",
+        "timestamp": "2026-06-16T03:54:01.103818",
+        "context_overlap": 0.4654278763768379,
+        "generated_at": "2026-06-16T03:54:01.103824",
+        "validation_score": 0.6966710202884643,
+        "priority_rank": 20
+      }
+    ],
+    "top_hypotheses": [
+      {
+        "seed_id": "SPA_20260616_0021",
+        "source": "threat_01",
+        "delta": 0.9920494090299772,
+        "confidence": 0.2609764013388997,
+        "domain": "social",
+        "timestamp": "2026-06-16T03:54:01.104118",
+        "context_overlap": 0.9594286753881408,
+        "generated_at": "2026-06-16T03:54:01.104122",
+        "validation_score": 0.9636219913634534,
+        "priority_rank": 1
+      },
+      {
+        "seed_id": "SPA_20260616_0072",
+        "source": "threat_02",
+        "delta": -0.7531506469138133,
+        "confidence": 0.4998944696109051,
+        "domain": "environmental",
+        "timestamp": "2026-06-16T03:54:01.105598",
+        "context_overlap": 0.7639786163458285,
+        "generated_at": "2026-06-16T03:54:01.105602",
+        "validation_score": 0.9530700543246953,
+        "priority_rank": 2
+      },
+      {
+        "seed_id": "SPA_20260616_0034",
+        "source": "threat_02",
+        "delta": 0.6131340487258188,
+        "confidence": 0.30071157895852385,
+        "domain": "economic",
+        "timestamp": "2026-06-16T03:54:01.104633",
+        "context_overlap": 0.2045223111341229,
+        "generated_at": "2026-06-16T03:54:01.104637",
+        "validation_score": 0.9200459392750129,
+        "priority_rank": 3
+      },
+      {
+        "seed_id": "SPA_20260616_0074",
+        "source": "threat_02",
+        "delta": 1.1444389308497622,
+        "confidence": 0.2012985960816637,
+        "domain": "social",
+        "timestamp": "2026-06-16T03:54:01.105632",
+        "context_overlap": 0.17272738875152804,
+        "generated_at": "2026-06-16T03:54:01.105635",
+        "validation_score": 0.9063806268692107,
+        "priority_rank": 4
+      },
+      {
+        "seed_id": "SPA_20260616_0011",
+        "source": "threat_01",
+        "delta": -0.532000907462718,
+        "confidence": 0.09401047901290503,
+        "domain": "political",
+        "timestamp": "2026-06-16T03:54:01.103901",
+        "context_overlap": 0.8941896255396814,
+        "generated_at": "2026-06-16T03:54:01.103905",
+        "validation_score": 0.8757361031163072,
+        "priority_rank": 5
+      }
+    ],
+    "timestamp": "2026-06-16T03:54:01.106386",
+    "threshold_used": 0.3
+  },
+  "sensor_data": {
+    "readings": [
+      {
+        "sensor_id": "SENSOR_WATER_001",
+        "type": "water_level",
+        "location": "Houston, TX",
+        "timestamp": "2026-06-16T03:54:01.107076",
+        "data": {
+          "water_level_cm": 152.76692858745884,
+          "flow_rate_lps": 51.579422210240175,
+          "battery_voltage": 4.183274978809265
+        },
+        "signal_strength": 5
+      },
+      {
+        "sensor_id": "SENSOR_SEISMIC_001",
+        "type": "seismic",
+        "location": "San Francisco, CA",
+        "timestamp": "2026-06-16T03:54:01.107110",
+        "data": {
+          "vibration_mm_s2": 42.9979057347399,
+          "frequency_hz": 2.6885721559757845,
+          "peak_accel_g": 0.287786383213672
+        },
+        "signal_strength": 4
+      },
+      {
+        "sensor_id": "SENSOR_TEMP_001",
+        "type": "temperature",
+        "location": "Phoenix, AZ",
+        "timestamp": "2026-06-16T03:54:01.107122",
+        "data": {
+          "temperature_c": -9.534386906755826,
+          "humidity_percent": 20.60571808258243,
+          "pressure_hpa": 996.7835268620762
+        },
+        "signal_strength": 5
+      }
+    ],
+    "status": {
+      "total_sensors": 3,
+      "active_sensors": 3,
+      "last_update": "2026-06-16T03:54:01.107138",
+      "history_length": 3
+    }
+  },
+  "infrastructure": {
+    "assets_monitored": 4,
+    "timestamp": "2026-06-16T03:54:01.114353",
+    "results": {
+      "BRIDGE_001": {
+        "asset_id": "BRIDGE_001",
+        "asset_name": "Golden Gate Bridge",
+        "location": {
+          "lat": 37.8199,
+          "lon": -122.4783
+        },
+        "satellite": "Sentinel-1",
+        "days_monitored": 30,
+        "displacement_data": [
+          {
+            "timestamp": "2026-06-09T03:54:01.107248",
+            "displacement_mm": 0.6880802632510284,
+            "baseline": -0.07086246583796285
+          },
+          {
+            "timestamp": "2026-06-10T03:54:01.107248",
+            "displacement_mm": 0.7225194163453923,
+            "baseline": 0.05584038649114015
+          },
+          {
+            "timestamp": "2026-06-11T03:54:01.107248",
+            "displacement_mm": 0.352669567960237,
+            "baseline": -0.21444148769663612
+          },
+          {
+            "timestamp": "2026-06-12T03:54:01.107248",
+            "displacement_mm": 0.11191978179493178,
+            "baseline": -0.34940991226316787
+          },
+          {
+            "timestamp": "2026-06-13T03:54:01.107248",
+            "displacement_mm": -0.00421833931601151,
+            "baseline": -0.3547122471077926
+          },
+          {
+            "timestamp": "2026-06-14T03:54:01.107248",
+            "displacement_mm": -0.23813221689832037,
+            "baseline": -0.4739502538244502
+          },
+          {
+            "timestamp": "2026-06-15T03:54:01.107248",
+            "displacement_mm": -0.398599230705524,
+            "baseline": -0.5171577250053436
+          }
+        ],
+        "risk": {
+          "level": "LOW",
+          "score": 0.2,
+          "trend_mm_per_day": -0.030477410016876524,
+          "volatility_mm": 0.7350595690677384,
+          "last_displacement": -0.398599230705524
+        },
+        "timestamp": "2026-06-16T03:54:01.111271"
+      },
+      "BRIDGE_002": {
+        "asset_id": "BRIDGE_002",
+        "asset_name": "Brooklyn Bridge",
+        "location": {
+          "lat": 40.7057,
+          "lon": -73.9964
+        },
+        "satellite": "Sentinel-1",
+        "days_monitored": 30,
+        "displacement_data": [
+          {
+            "timestamp": "2026-06-09T03:54:01.111313",
+            "displacement_mm": 1.4712695208666526,
+            "baseline": 0.580525060501293
+          },
+          {
+            "timestamp": "2026-06-10T03:54:01.111313",
+            "displacement_mm": 1.2211599290908617,
+            "baseline": 0.4387021362647111
+          },
+          {
+            "timestamp": "2026-06-11T03:54:01.111313",
+            "displacement_mm": 1.1576408374947036,
+            "baseline": 0.49204248352578583
+          },
+          {
+            "timestamp": "2026-06-12T03:54:01.111313",
+            "displacement_mm": 1.2887318569857578,
+            "baseline": 0.7472853767255663
+          },
+          {
+            "timestamp": "2026-06-13T03:54:01.111313",
+            "displacement_mm": 1.4244513737435742,
+            "baseline": 1.0130889681347994
+          },
+          {
+            "timestamp": "2026-06-14T03:54:01.111313",
+            "displacement_mm": 1.2786160304988872,
+            "baseline": 1.0018446721404968
+          },
+          {
+            "timestamp": "2026-06-15T03:54:01.111313",
+            "displacement_mm": 0.8615791516846565,
+            "baseline": 0.7224312054969548
+          }
+        ],
+        "risk": {
+          "level": "LOW",
+          "score": 0.2,
+          "trend_mm_per_day": 0.04015267562207483,
+          "volatility_mm": 0.4907488859481539,
+          "last_displacement": 0.8615791516846565
+        },
+        "timestamp": "2026-06-16T03:54:01.112155"
+      },
+      "DAM_001": {
+        "asset_id": "DAM_001",
+        "asset_name": "Hoover Dam",
+        "location": {
+          "lat": 36.0162,
+          "lon": -114.7373
+        },
+        "satellite": "Sentinel-1",
+        "days_monitored": 30,
+        "displacement_data": [
+          {
+            "timestamp": "2026-06-09T03:54:01.112178",
+            "displacement_mm": 3.571377520564792,
+            "baseline": 2.3094709587324176
+          },
+          {
+            "timestamp": "2026-06-10T03:54:01.112178",
+            "displacement_mm": 3.1118438029079676,
+            "baseline": 2.0033456117216923
+          },
+          {
+            "timestamp": "2026-06-11T03:54:01.112178",
+            "displacement_mm": 2.858404600042652,
+            "baseline": 1.9154597176532735
+          },
+          {
+            "timestamp": "2026-06-12T03:54:01.112178",
+            "displacement_mm": 2.7718843839180685,
+            "baseline": 2.0048239117809463
+          },
+          {
+            "timestamp": "2026-06-13T03:54:01.112178",
+            "displacement_mm": 2.431801521119189,
+            "baseline": 1.8490295342847802
+          },
+          {
+            "timestamp": "2026-06-14T03:54:01.112178",
+            "displacement_mm": 2.3546979372301173,
+            "baseline": 1.9625994075390594
+          },
+          {
+            "timestamp": "2026-06-15T03:54:01.112178",
+            "displacement_mm": 2.1299027336135565,
+            "baseline": 1.932773574609036
+          }
+        ],
+        "risk": {
+          "level": "LOW",
+          "score": 0.2,
+          "trend_mm_per_day": 0.02475243071500617,
+          "volatility_mm": 0.7678560991789811,
+          "last_displacement": 2.1299027336135565
+        },
+        "timestamp": "2026-06-16T03:54:01.113378"
+      },
+      "DATACENTER_001": {
+        "asset_id": "DATACENTER_001",
+        "asset_name": "AWS Virginia",
+        "location": {
+          "lat": 38.9072,
+          "lon": -77.0369
+        },
+        "satellite": "Sentinel-1",
+        "days_monitored": 30,
+        "displacement_data": [
+          {
+            "timestamp": "2026-06-09T03:54:01.113403",
+            "displacement_mm": 3.106101759165879,
+            "baseline": 1.7923986772969092
+          },
+          {
+            "timestamp": "2026-06-10T03:54:01.113403",
+            "displacement_mm": 3.0457728236675057,
+            "baseline": 1.8917749492979232
+          },
+          {
+            "timestamp": "2026-06-11T03:54:01.113403",
+            "displacement_mm": 3.057749298122014,
+            "baseline": 2.0761000734529933
+          },
+          {
+            "timestamp": "2026-06-12T03:54:01.113403",
+            "displacement_mm": 3.204722118916335,
+            "baseline": 2.406176698276656
+          },
+          {
+            "timestamp": "2026-06-13T03:54:01.113403",
+            "displacement_mm": 3.220372620863231,
+            "baseline": 2.613680034987794
+          },
+          {
+            "timestamp": "2026-06-14T03:54:01.113403",
+            "displacement_mm": 3.2949615534126413,
+            "baseline": 2.886768853230884
+          },
+          {
+            "timestamp": "2026-06-15T03:54:01.113403",
+            "displacement_mm": 2.986899356613534,
+            "baseline": 2.781678786768461
+          }
+        ],
+        "risk": {
+          "level": "LOW",
+          "score": 0.2,
+          "trend_mm_per_day": 0.06770289044058965,
+          "volatility_mm": 0.7822093495404417,
+          "last_displacement": 2.986899356613534
+        },
+        "timestamp": "2026-06-16T03:54:01.114331"
+      }
+    }
+  },
+  "formal_proofs": {
+    "certificate_id": "23522c84eaceefec",
+    "consistent": true,
+    "proof": "No rules to verify",
+    "rules_verified": 0,
+    "timestamp": "2026-06-16T03:54:01.114781",
+    "verification_method": "Linear_Programming_Simulation",
+    "signature": "CATHEDRAL_FORMAL_V1"
+  },
+  "provenance": [],
+  "unified_report": {
+    "timestamp": "2026-06-16T03:54:01.114970",
+    "execution_time_seconds": 0.05076885223388672,
+    "modules_executed": [
+      "spa",
+      "sensors",
+      "insar",
+      "formal",
+      "provenance"
+    ],
+    "module_count": 5,
+    "status": "COMPLETE"
+  },
+  "summary": "\n\ud83c\udfaf CATHEDRAL UNCONVENTIONAL INTELLIGENCE SUMMARY\n===============================================\nTimestamp: 2026-06-16T03:54:01.114970\nExecution Time: 0.05s\n\n\ud83d\udcca MODULE OUTPUTS:\n\n\ud83e\udde0 Stochastic Pattern Analysis:\n   - Seeds Generated: 100\n   - High Confidence: 86\n   - Top Hypothesis: SPA_20260616_0021\n\n\ud83d\udce1 Community Sensors:\n   - Sensors Active: 3\n   - Total Sensors: 3\n\n\ud83d\udef0\ufe0f Infrastructure Monitoring:\n   - Assets Monitored: 4\n   - Critical Assets: 0\n   - High Risk Assets: 0\n\n\ud83c\udfd7\ufe0f Formal Verification:\n   - Status: \u2705 CONSISTENT\n   - Rules Verified: 0\n\n===============================================\n\u2705 Unconventional Intelligence Sweep COMPLETE\n"
+}

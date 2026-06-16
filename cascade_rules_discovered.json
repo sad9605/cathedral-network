@@ -1,0 +1,332 @@
+[
+  {
+    "source": "C11",
+    "target": "C03",
+    "delta": 0.05,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C11 \u2192 C03 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C11",
+    "target": "C106",
+    "delta": 0.05,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C11 \u2192 C106 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C11",
+    "target": "C133",
+    "delta": 0.089,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C11 \u2192 C133 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C01",
+    "target": "C11",
+    "delta": 0.05,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C01 \u2192 C11 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C01",
+    "target": "C132",
+    "delta": 0.05,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C01 \u2192 C132 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C\u2011USIRAN",
+    "target": "C01",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C\u2011USIRAN \u2192 C01 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C\u2011USIRAN",
+    "target": "C132",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C\u2011USIRAN \u2192 C132 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C03",
+    "target": "C139",
+    "delta": 0.05,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C03 \u2192 C139 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C106",
+    "target": "C03",
+    "delta": 0.05,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C106 \u2192 C03 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "A-UREA",
+    "target": "C03",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: A-UREA \u2192 C03 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "A-UREA",
+    "target": "C106",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: A-UREA \u2192 C106 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "B02",
+    "target": "C77",
+    "delta": 0.089,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: B02 \u2192 C77 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "B-AMR-KLEB",
+    "target": "B02",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: B-AMR-KLEB \u2192 B02 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "B-DARK-PROTEIN",
+    "target": "B02",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: B-DARK-PROTEIN \u2192 B02 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "G-ARCTIC",
+    "target": "C132",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: G-ARCTIC \u2192 C132 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "G-SPACE",
+    "target": "C132",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: G-SPACE \u2192 C132 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "G-WEST-BANK",
+    "target": "C01",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: G-WEST-BANK \u2192 C01 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "G-SUD-BLUE",
+    "target": "C03",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: G-SUD-BLUE \u2192 C03 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C\u2011ESCAPE",
+    "target": "C\u2011MALWARE",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C\u2011ESCAPE \u2192 C\u2011MALWARE (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C\u2011ZERODAY",
+    "target": "C\u2011MALWARE",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C\u2011ZERODAY \u2192 C\u2011MALWARE (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "T-LAWS",
+    "target": "C132",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: T-LAWS \u2192 C132 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "F-AI-CYBER-SYS",
+    "target": "C78",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: F-AI-CYBER-SYS \u2192 C78 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "F-CBDC",
+    "target": "I08",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: F-CBDC \u2192 I08 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "F-INSUR-SPIRAL",
+    "target": "C78",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: F-INSUR-SPIRAL \u2192 C78 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C-WATER-BANK",
+    "target": "C03",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C-WATER-BANK \u2192 C03 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "C-WATER-BANK",
+    "target": "C139",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: C-WATER-BANK \u2192 C139 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "E11",
+    "target": "C03",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: E11 \u2192 C03 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "E11",
+    "target": "C106",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: E11 \u2192 C106 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "S-FED-8000",
+    "target": "U06",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: S-FED-8000 \u2192 U06 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "D-TRUST",
+    "target": "I01",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: D-TRUST \u2192 I01 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "D-TRUST",
+    "target": "I10",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: D-TRUST \u2192 I10 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "SC-RARE",
+    "target": "C121",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: SC-RARE \u2192 C121 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  },
+  {
+    "source": "SC-NUCLEAR",
+    "target": "C62",
+    "delta": 0.3,
+    "condition": "scp_above",
+    "threshold": 0.5,
+    "description": "Co-occurrence discovery: SC-NUCLEAR \u2192 C62 (appeared 1 times)",
+    "confidence": 0.4,
+    "occurrence_count": 1
+  }
+]

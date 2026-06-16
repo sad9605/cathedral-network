@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from agent_ops_cockpit.ops.guardrails import tool_privilege_check
 """
 cascade_engine.py – Cathedral Network Probability Drive v7
 Adds credit spread and tech valuation confidence filters.
@@ -45,10 +44,6 @@ FRED_API_KEY = os.environ.get("FRED_API_KEY")
 fred = Fred(api_key=FRED_API_KEY) if FRED_API_KEY else None
 
 # ----------------------------------------------------------------------
-@tool_privilege_check(required_scope='admin')
-@tool_privilege_check(required_scope='admin')
-@tool_privilege_check(required_scope='admin')
-@tool_privilege_check(required_scope='admin')
 def load_json(filepath, default=None):
     try:
         with open(filepath, 'r') as f:
@@ -319,6 +314,27 @@ def main():
     threats['last_updated'] = datetime.now(timezone.utc).isoformat()
     save_json(threats, OUTPUT_FILE)
     logging.info(f"Updated {len(threats['threats'])} threats saved")
+
+def compute_ssi(fao_score, acled_events, unemployment, trust_score, pmi):
+    """
+    Compute System Stress Index from component scores.
+    All inputs should be normalised 0-100.
+    """
+    weights = {
+        'v10': 0.25,   # Food Price Index
+        'v12': 0.25,   # Political Violence
+        'v13': 0.20,   # Unemployment / Displacement
+        'v03': 0.20,   # Institutional Trust
+        'v26': 0.10    # Demand Destruction
+    }
+    ssi = (
+        weights['v10'] * fao_score +
+        weights['v12'] * acled_events +
+        weights['v13'] * unemployment +
+        weights['v03'] * trust_score +
+        weights['v26'] * pmi
+    )
+    return round(ssi, 2)
 
 if __name__ == "__main__":
     main()

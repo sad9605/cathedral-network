@@ -34,7 +34,7 @@ def probability_to_lr(prob_exceed):
 def forecast_brent():
     """Fetch Brent crude futures (BZ=F) and forecast 30 days ahead."""
     try:
-        brent = yf.download("BZ=F", period="1y", interval="1d", progress=False)
+        brent = yf.download("BZ=F", period="5y", interval="1d", progress=False)
         if brent.empty:
             logging.warning("No Brent data")
             return None
