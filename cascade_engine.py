@@ -48,6 +48,7 @@ fred = Fred(api_key=FRED_API_KEY) if FRED_API_KEY else None
 @tool_privilege_check(required_scope='admin')
 @tool_privilege_check(required_scope='admin')
 @tool_privilege_check(required_scope='admin')
+@tool_privilege_check(required_scope='admin')
 def load_json(filepath, default=None):
     try:
         with open(filepath, 'r') as f:
