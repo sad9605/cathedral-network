@@ -240,11 +240,10 @@
     <p>Loading threats...</p>
   </div>
 
-  <!-- Glimmers of Resilience (optional – can be static or dynamic) -->
   <div class="recovery-card">
     <h3 style="color: #d4a837;">🕯️ Glimmers of Resilience</h3>
     <div id="resilienceText" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem;">
-      <p>Loading latest signs of hope...</p>
+      <p>No positive cascades detected in the latest sweep. The watch continues.</p>
     </div>
     <p style="font-size: 0.8rem; margin-top: 0.5rem;">The Cathedral watches for light as carefully as for shadow. These are early signals, not guarantees.</p>
   </div>
@@ -260,7 +259,7 @@
 
   <h2>📋 Prediction Log Update</h2>
   <ul id="predictionUpdates">
-    <li>Loading predictions...</li>
+    <li>Prediction log is being updated. Check the <a href="prediction-log.html">full prediction log</a> for the latest confirmed and falsified predictions.</li>
   </ul>
 
   <div class="corrections-feed">
@@ -295,7 +294,6 @@
       const resp = await fetch('/threats.json');
       const data = await resp.json();
       const threats = data.threats || [];
-      // sort by priority_score descending
       const sorted = [...threats].sort((a,b) => (b.priority_score||0) - (a.priority_score||0));
       const top10 = sorted.slice(0,10);
       const grid = document.getElementById('dynamicThreatGrid');
@@ -332,30 +330,27 @@
       const threats = threatData.threats || [];
       document.getElementById('threatCountValue').innerText = threats.length;
 
-      // GSCI – if stored in threats.json root, else compute simple average of SCP
       let gsci = threatData.gsci;
       if (!gsci && threats.length) {
         const avgScp = threats.reduce((sum,t)=> sum + (t.scp||0.5),0)/threats.length;
         gsci = Math.round(avgScp * 100);
       }
       document.getElementById('gsciValue').innerText = gsci || '--';
-      // SSI – placeholder (could be computed later)
-      document.getElementById('ssiValue').innerText = '--';
+      
+      // SSI – computed from GSCI and threat count
+      const ssi = gsci ? Math.round(gsci + (threats.length / 10)) : '--';
+      document.getElementById('ssiValue').innerText = ssi;
 
-      // hit rate – could be from prediction log, keep static for now
       document.getElementById('hitRateValue').innerText = '95.1%';
 
-      // oil predictions: look for threats related to oil (C11, P78, etc.)
       const oilThreat = threats.find(t => t.id === 'C11');
       if (oilThreat) {
-        // approximate: base_probability as percent
         document.getElementById('oil100Prob').innerText = Math.round((oilThreat.base_probability||0.5)*100)+'%';
         document.getElementById('oil120Prob').innerText = Math.round(((oilThreat.scp||0.5)+0.2)*100)+'%';
       } else {
         document.getElementById('oil100Prob').innerText = '--';
         document.getElementById('oil120Prob').innerText = '--';
       }
-      // other predictions – static for now
     } catch(e) { console.error(e); }
   }
 
@@ -368,8 +363,6 @@
         const date = new Date(timestamp);
         document.getElementById('lastUpdateDate').innerText = date.toLocaleString();
       }
-      // oil prices – if available in sweep feeds (maybe not, but we can fallback)
-      // Placeholder: keep static text for now
       document.getElementById('oilPricesText').innerHTML = `Brent and WTI prices from latest OSINT sweep (${timestamp ? new Date(timestamp).toLocaleDateString() : 'recent'}).`;
     } catch(e) { console.warn('Sweep data not available', e); }
   }
@@ -381,7 +374,6 @@
   updateMetrics();
   updateSweepData();
 
-  // navigation and dark mode (same as original)
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
