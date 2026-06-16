@@ -17,22 +17,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py"
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "optimization:_implement",
-          "message": {
-            "text": ""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py"
+                  "uri": "/home/sad9605/cathedral-core/cascade_engine.py"
                 }
               }
             }
@@ -47,7 +32,52 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py"
+                  "uri": "/home/sad9605/cathedral-core/cascade_engine.py"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "optimization:_tool_schema",
+          "message": {
+            "text": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/cascade_engine.py"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "token_burning:_llm_for_deterministic_ops",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/cascade_engine.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "token_burning:_llm_for_deterministic_ops",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py:1"
                 }
               }
             }
@@ -56,13 +86,28 @@
         {
           "ruleId": "policy_blindness:_implicit_governance",
           "message": {
-            "text": "Generic best practice upgrade recommended for 5 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/monte_carlo.py...)"
+            "text": "Generic best practice upgrade recommended for 4 files (/home/sad9605/cathedral-core/monte_carlo.py, /home/sad9605/cathedral-core/crisis_simulation_engine.py...)"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "Core Enhancements"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "legacy_shadowing:_http_instead_of_mcp",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py:1"
                 }
               }
             }
@@ -144,15 +189,30 @@
           ]
         },
         {
-          "ruleId": "policy_blindness:",
+          "ruleId": "token_burning:_llm_for",
           "message": {
-            "text": "Generic best practice upgrade recommended for 3 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/agentic/policy.py...)"
+            "text": "Structural Enhancement."
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "Core Enhancements"
+                  "uri": "/home/sad9605/cathedral-core/cascade_engine.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "token_burning:_llm_for",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py:1"
                 }
               }
             }
@@ -249,6 +309,21 @@
           ]
         },
         {
+          "ruleId": "legacy_shadowing:_http",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
           "ruleId": "policy",
           "message": {
             "text": "Structural Enhancement."
@@ -303,6 +378,36 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "/home/sad9605/cathedral-core/tsf_prototype.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "policy_blindness:",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/agentic/policy.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "policy_blindness:",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/agentic/warden.py:1"
                 }
               }
             }

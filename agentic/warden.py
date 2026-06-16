@@ -66,3 +66,7 @@ class AgenticWarden:
         self.active = False
         self.audit.log_event("revocation", {})
         self.escalation.broadcast_revocation()
+class ActionRouter:
+    '''Separation of Concerns: Routes instructions instead of monolithic tool calling.'''
+    def route(self, intent: str):
+        pass
