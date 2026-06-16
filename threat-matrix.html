@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — Full Threat Matrix</title>
   <meta name="description" content="Complete threat matrix across 12 domains with 92+ cascade rules. Updated daily.">
@@ -216,7 +216,6 @@
   let currentDomain = "all";
   let currentSearch = "";
 
-  // Metric IDs mapping
   function getStatusIcon(status) {
     const s = status || 'Yellow';
     if (s.includes('Black')) return '⚫';
@@ -230,11 +229,10 @@
   function renderMetrics(threats) {
     const total = threats.length;
     document.getElementById('threatCount').innerText = total;
-    document.getElementById('ruleCount').innerText = '92+'; // Hardcoded from your cascade_rules.json
-    // SCA Tier estimate from GSCI (if available)
-    document.getElementById('scaValue').innerText = 'Tier 5'; // Placeholder
-    document.getElementById('ivfValue').innerText = '0.81'; // Placeholder
-    document.getElementById('scpCount').innerText = '100%'; // Placeholder
+    document.getElementById('ruleCount').innerText = '92+';
+    document.getElementById('scaValue').innerText = 'Tier 5';
+    document.getElementById('ivfValue').innerText = '0.81';
+    document.getElementById('scpCount').innerText = '100%';
   }
 
   function renderThreats() {
@@ -264,7 +262,7 @@
 
   async function loadThreatMatrix() {
     try {
-      const resp = await fetch('/threats.json');
+      const resp = await fetch('threats.json');
       const data = await resp.json();
       allThreats = data.threats || [];
       const updated = data.last_updated || 'unknown';
@@ -276,7 +274,6 @@
     }
   }
 
-  // Filters
   document.querySelectorAll("[data-domain]").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll("[data-domain]").forEach(b => b.classList.remove("active"));
@@ -290,7 +287,6 @@
     renderThreats();
   });
 
-  // Hamburger and dark mode
   const menuBtn = document.getElementById("menuBtn");
   const navLinks = document.getElementById("navLinks");
   if (menuBtn) menuBtn.addEventListener("click", () => navLinks.classList.toggle("show"));
@@ -308,7 +304,7 @@
     darkToggle.innerText = isDark ? "☀️" : "🌙";
     localStorage.setItem("cathedral-theme", isDark ? "dark" : "light");
   });
-  if ("serviceWorker" in navigator) navigator.serviceWorker.register("/service-worker.js");
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("service-worker.js");
 
   loadThreatMatrix();
 </script>
