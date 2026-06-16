@@ -1,5 +1,5 @@
 # 🏛️ Cockpit Technical Design Document (TDD)
-**Generated**: June 16, 2026 02:09
+**Generated**: June 16, 2026 02:31
 **Standard**: Google Well-Architected for Agents (v2.0.7)
 **GitHub**: [enriquekalven/agent-ops-cockpit](https://github.com/enriquekalven/agent-ops-cockpit)
 **PyPI**: [agentops-cockpit](https://pypi.org/project/agentops-cockpit/)
@@ -28,15 +28,6 @@ The system follows the **Governance Framework** framework: Engine (Reasoning), F
 - **Status**: ⚠️ GAPS DETECTED
 
 #### 🛠️ SME Findings:
-- ❌ **Token Optimization**: ╭───────────────────────────────────╮
-│ 🔍 GCP AGENT OPS: OPTIMIZER AUDIT │
-╰───────────────────────────────────╯
-Target: /home/sad9605/cathedral-core/daily-sweep.py
-📊 Token Metrics: ~1708 prompt token...
-- ❌ **Skill-Based Red Teaming**: 
-Usage: python -m agent_ops_cockpit.eval.run_skills_eval [OPTIONS]
-                                                        [TARGET_PATH]
-Try 'python -m agent_ops_cockpit.eval.run_skills_eval --help' f...
 - ✅ **Policy Enforcement**: Policy Source: governance.yaml
 Caught Expected Violation: GOVERNANCE - Input contains forbidden topic: 'medical advice'.
 SOURCE: Declarative Guardrails | https://cloud.google.com/architecture/framewor...
@@ -44,6 +35,15 @@ SOURCE: Declarative Guardrails | https://cloud.google.com/architecture/framewor.
 │ 🚩 RED TEAM EVALUATION: SELF-HACK INITIALIZED │
 ╰───────────────────────────────────────────────╯
 Targeting: /home/sad9605/cathedral-core/tsf_forecas...
+- ❌ **Skill-Based Red Teaming**: 
+Usage: python -m agent_ops_cockpit.eval.run_skills_eval [OPTIONS]
+                                                        [TARGET_PATH]
+Try 'python -m agent_ops_cockpit.eval.run_skills_eval --help' f...
+- ❌ **Token Optimization**: ╭───────────────────────────────────╮
+│ 🔍 GCP AGENT OPS: OPTIMIZER AUDIT │
+╰───────────────────────────────────╯
+Target: /home/sad9605/cathedral-core/cascade_engine.py
+📊 Token Metrics: ~1713 prompt to...
 - ✅ **RAG Fidelity Audit**: ╭────────────────────────────────────╮
 │ 🧗 RAG TRUTH-SAYER: FIDELITY AUDIT │
 ╰────────────────────────────────────╯
@@ -53,15 +53,15 @@ Targeting: /home/sad9605/cathedral-core/tsf_forecas...
 │ 🔍 SECRET SCANNER: CREDENTIAL LEAK DETECTION │
 ╰──────────────────────────────────────────────╯
 ✅ PASS: No hardcoded credentials detected in matched p...
-- ✅ **Frontend Auditor**: ╭───────────────────────────────────────╮
-│ 🎭 FACE AUDITOR: GENUI COMPONENT SCAN │
-╰───────────────────────────────────────╯
-Scanning directory: /home/sad9605/cathedral-core
-📝 Scanned 21 frontend file...
 - ✅ **Architecture Review**: ╭────────────────────────────────────────────────────────────╮
 │ 🏛️ GENERIC AGENTIC STACK: ENTERPRISE ARCHITECT REVIEW v1.8 │
 ╰────────────────────────────────────────────────────────────╯
 Detected St...
+- ✅ **Frontend Auditor**: ╭───────────────────────────────────────╮
+│ 🎭 FACE AUDITOR: GENUI COMPONENT SCAN │
+╰───────────────────────────────────────╯
+Scanning directory: /home/sad9605/cathedral-core
+📝 Scanned 23 frontend file...
 - ✅ **Reliability (Quick)**: ╭──────────────────────────────╮
 │ 🛡️ RELIABILITY AUDIT (QUICK) │
 ╰──────────────────────────────╯

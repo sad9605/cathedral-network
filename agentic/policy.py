@@ -23,3 +23,7 @@ class Policy:
             if m["trigger"] == trigger:
                 return m
         return None
+class ActionRouter:
+    '''Separation of Concerns: Routes instructions instead of monolithic tool calling.'''
+    def route(self, intent: str):
+        pass

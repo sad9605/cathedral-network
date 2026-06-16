@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from mcp_gate import mcp_tool_gate
 from agent_ops_cockpit.ops.guardrails import tool_privilege_check
 """
 daily-sweep.py – Cathedral Network OSINT Aggregator v2
@@ -24,6 +25,10 @@ THREATS_FILE = "threats.json"   # not directly read here, but for context
 
 # ----------------------------------------------------------------------
 # Helper functions
+@tool_privilege_check(required_scope='admin')
+@mcp_tool_gate(require_confirmation=True)
+@tool_privilege_check(required_scope='admin')
+@tool_privilege_check(required_scope='admin')
 @tool_privilege_check(required_scope='admin')
 def fetch_feed(url: str, timeout=15) -> List[Dict]:
     """Fetch an RSS feed and return list of entries."""

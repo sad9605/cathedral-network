@@ -1,7 +1,7 @@
 # AgentOps Cockpit | cathedral-core
 > **Execution Intent**: ⚡ Certification Pre-Flight
 > **Target Agent**: cathedral-core
-> **System Audit Report** | Cockpit v2.0.19 | Generated: 2026-06-16 02:08:45 | Status: ❌ FAILED
+> **System Audit Report** | Cockpit v2.0.19 | Generated: 2026-06-16 02:30:48 | Status: ❌ FAILED
 
 ---
 
@@ -14,7 +14,7 @@
 
 ### 🧠 Master Architect Verdict
 MODERATE: The audit has identified minor strategic deviations. Remediation is recommended to align with high-fidelity performance benchmarks.
-Total findings: 20. Recommended path: Execute Phase 1 hardening and re-verify.
+Total findings: 27. Recommended path: Execute Phase 1 hardening and re-verify.
 
 > [!CAUTION]
 > **CRITICAL: Cockpit Compliance Failure**
@@ -26,14 +26,14 @@ Total findings: 20. Recommended path: Execute Phase 1 hardening and re-verify.
 ## 🏛️ Pillar Approval Matrix
 | Pillar | Module | Status | Priority | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| 💰 FinOps ROI & Logic Cost | Token Optimization | ❌ REJECTED | P2 | [View Specs](docs/TECHNICAL_FINOPS_GUIDE.md) |
-| 👤 Automated Auditor | Skill-Based Red Teaming | ❌ REJECTED | P1 | [View Specs](README.md) |
 | 🏗️ Architectural Strategy | Policy Enforcement | ✅ APPROVED | P1 | [View Specs](docs/TECHNICAL_AUDIT_GUIDE.md) |
 |  Security & Cockpitty | Red Team (Fast) | 🚨 PILOT ERROR | P1 | [View Specs](docs/TECHNICAL_REDTEAM_GUIDE.md) |
+| 👤 Automated Auditor | Skill-Based Red Teaming | ❌ REJECTED | P1 | [View Specs](README.md) |
+| 💰 FinOps ROI & Logic Cost | Token Optimization | ❌ REJECTED | P2 | [View Specs](docs/TECHNICAL_FINOPS_GUIDE.md) |
 | 🛡️ Reliability & Performance | RAG Fidelity Audit | ✅ APPROVED | P2 | [View Specs](docs/TECHNICAL_QUALITY_GUIDE.md) |
 | 🔐 Security & Cockpitty | Secret Scanner | ✅ APPROVED | P1 | [View Specs](docs/TECHNICAL_REDTEAM_GUIDE.md) |
-| 👤 Automated Auditor | Frontend Auditor | ✅ APPROVED | P2 | [View Specs](README.md) |
 | ️ Architectural Strategy | Architecture Review | ✅ APPROVED | P2 | [View Specs](docs/TECHNICAL_AUDIT_GUIDE.md) |
+| 👤 Automated Auditor | Frontend Auditor | ✅ APPROVED | P2 | [View Specs](README.md) |
 | 🛡️ Reliability & Performance | Reliability (Quick) | ✅ APPROVED | P2 | [View Specs](docs/TECHNICAL_QUALITY_GUIDE.md) |
 
 ## 🏗️ Tactical Implementation Plan
@@ -41,17 +41,26 @@ Follow this prioritized roadmap to reach production-readiness.
 
 ### 🎯 Phase 3: Performance & Strategic Growth
 1. **Optimization: Implement**
-   - 📍 Location: `/home/sad9605/cathedral-core/daily-sweep.py`
-   - ✨ Strategy: 
-1. **Optimization: Implement**
-   - 📍 Location: `/home/sad9605/cathedral-core/daily-sweep.py`
+   - 📍 Location: `/home/sad9605/cathedral-core/cascade_engine.py`
    - ✨ Strategy: 
 1. **Optimization: Add Session**
-   - 📍 Location: `/home/sad9605/cathedral-core/daily-sweep.py`
+   - 📍 Location: `/home/sad9605/cathedral-core/cascade_engine.py`
    - ✨ Strategy: 
+1. **Optimization: Tool Schema**
+   - 📍 Location: `/home/sad9605/cathedral-core/cascade_engine.py`
+   - ✨ Strategy: 
+1. **Token Burning: LLM for Deterministic Ops**
+   - 📍 Location: `/home/sad9605/cathedral-core/cascade_engine.py:1`
+   - ✨ Strategy: Structural Enhancement.
+1. **Token Burning: LLM for Deterministic Ops**
+   - 📍 Location: `/home/sad9605/cathedral-core/daily-sweep.py:1`
+   - ✨ Strategy: Structural Enhancement.
 1. **Policy Blindness: Implicit Governance**
    - 📍 Location: `Core Enhancements`
-   - ✨ Strategy: Generic best practice upgrade recommended for 5 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/monte_carlo.py...)
+   - ✨ Strategy: Generic best practice upgrade recommended for 4 files (/home/sad9605/cathedral-core/monte_carlo.py, /home/sad9605/cathedral-core/crisis_simulation_engine.py...)
+1. **Legacy Shadowing: HTTP instead of MCP**
+   - 📍 Location: `/home/sad9605/cathedral-core/daily-sweep.py:1`
+   - ✨ Strategy: Structural Enhancement.
 1. **ASI-02: Cockpit Gap**
    - 📍 Location: `Core Enhancements`
    - ✨ Strategy: Generic best practice upgrade recommended for 3 files (/home/sad9605/cathedral-core/tsf_forecast.py, /home/sad9605/cathedral-core/cascade_engine.py...)
@@ -67,9 +76,12 @@ Follow this prioritized roadmap to reach production-readiness.
 1. **ASI-04: Tool**
    - 📍 Location: `/home/sad9605/cathedral-core/agentic/actions.py:1`
    - ✨ Strategy: Structural Enhancement.
-1. **Policy Blindness:**
-   - 📍 Location: `Core Enhancements`
-   - ✨ Strategy: Generic best practice upgrade recommended for 3 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/agentic/policy.py...)
+1. **Token Burning: LLM for**
+   - 📍 Location: `/home/sad9605/cathedral-core/cascade_engine.py:1`
+   - ✨ Strategy: Structural Enhancement.
+1. **Token Burning: LLM for**
+   - 📍 Location: `/home/sad9605/cathedral-core/daily-sweep.py:1`
+   - ✨ Strategy: Structural Enhancement.
 1. **Missing 5th Golden**
    - 📍 Location: `Core Enhancements`
    - ✨ Strategy: Generic best practice upgrade recommended for 11 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/repair_threats.py...)
@@ -88,6 +100,9 @@ Follow this prioritized roadmap to reach production-readiness.
 1. **ASI-01: Untrusted Context**
    - 📍 Location: `/home/sad9605/cathedral-core/daily-sweep.py:1`
    - ✨ Strategy: Structural Enhancement.
+1. **Legacy Shadowing: HTTP**
+   - 📍 Location: `/home/sad9605/cathedral-core/daily-sweep.py:1`
+   - ✨ Strategy: Structural Enhancement.
 1. **Policy**
    - 📍 Location: `/home/sad9605/cathedral-core/crisis_simulation_engine.py:1`
    - ✨ Strategy: Structural Enhancement.
@@ -100,6 +115,12 @@ Follow this prioritized roadmap to reach production-readiness.
 1. **ASI-01: Untrusted**
    - 📍 Location: `/home/sad9605/cathedral-core/tsf_prototype.py:1`
    - ✨ Strategy: Structural Enhancement.
+1. **Policy Blindness:**
+   - 📍 Location: `/home/sad9605/cathedral-core/agentic/policy.py:1`
+   - ✨ Strategy: Structural Enhancement.
+1. **Policy Blindness:**
+   - 📍 Location: `/home/sad9605/cathedral-core/agentic/warden.py:1`
+   - ✨ Strategy: Structural Enhancement.
 
 ## 📜 Evidence & Citations
 | Pillar | Reference | Insight |
@@ -109,64 +130,6 @@ Follow this prioritized roadmap to reach production-readiness.
 ---
 
 ## 🔍 Appendices: Raw Evidence Lake
-
-### Token Optimization Artifacts
-```text
-11.05                                                     │
-╰────────────────────────────────────────────────────────────────────────────────╯
-
- --- [HIGH IMPACT] Implement Semantic Caching --- 
-Benefit: 40-60% savings
-Reason: No caching layer detected. Adding a semantic cache reduces LLM costs.
-+ @hive_mind(cache=global_cache)                                                  
-Semantic Caching | No caching layer detected. Adding a semantic cache reduces LLM 
-costs. (Est. 40-60% savings)
-❌ [REJECTED] skipping optimization.
-
- --- [HIGH IMPACT] Implement Exponential Backoff --- 
-Benefit: 99.9% Reliability
-Reason: Your agent calls external APIs/DBs but has no retry logic. Use 'tenacity' 
-to handle transient failures.
-+ @retry(wait=wait_exponential(multiplier=1, min=4, max=10), stop=stop_after_attem
-Exponential Backoff | Your agent calls external APIs/DBs but has no retry logic. 
-Use 'tenacity' to handle transient failures. (Est. 99.9% Reliability)
-❌ [REJECTED] skipping optimization.
-
- --- [MEDIUM IMPACT] Add Session Tracking --- 
-Benefit: User Continuity
-Reason: No session tracking detected. Agents in production need a 
-'conversation_id' to maintain multi-turn context.
-+ def chat(q: str, conversation_id: str = None):                                  
-Tracking | No session tracking detected. Agents in production need a 
-'conversation_id' to maintain multi-turn context. (Est. User Continuity)
-❌ [REJECTED] skipping optimization.
-         🎯 AUDIT SUMMARY         
-┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
-┃ Category               ┃ Count ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
-│ Optimizations Applied  │ 0     │
-│ Optimizations Rejected │ 3     │
-└────────────────────────┴───────┘
-
-❌ HIGH IMPACT issues detected. Optimization required for production.
-
-
-ACTION: /home/sad9605/cathedral-core/daily-sweep.py | Optimization: Implement 
-ACTION: /home/sad9605/cathedral-core/daily-sweep.py | Optimization: Implement 
-ACTION: /home/sad9605/cathedral-core/daily-sweep.py | Optimization: Add Session 
-```
-
-### Skill-Based Red Teaming Artifacts
-```text
-
-Usage: python -m agent_ops_cockpit.eval.run_skills_eval [OPTIONS]
-                                                        [TARGET_PATH]
-Try 'python -m agent_ops_cockpit.eval.run_skills_eval --help' for help.
-╭─ Error ────────────────────────────────────────────────────────────────────────╮
-│ Got unexpected extra argument(s) (/home/sad9605/cathedral-core)                │
-╰────────────────────────────────────────────────────────────────────────────────╯
-
-```
 
 ### Policy Enforcement Artifacts
 ```text
@@ -212,6 +175,63 @@ FileNotFoundError: [Errno 2] No such file or directory: 'npx'
 
 ```
 
+### Skill-Based Red Teaming Artifacts
+```text
+
+Usage: python -m agent_ops_cockpit.eval.run_skills_eval [OPTIONS]
+                                                        [TARGET_PATH]
+Try 'python -m agent_ops_cockpit.eval.run_skills_eval --help' for help.
+╭─ Error ────────────────────────────────────────────────────────────────────────╮
+│ Got unexpected extra argument(s) (/home/sad9605/cathedral-core)                │
+╰────────────────────────────────────────────────────────────────────────────────╯
+
+```
+
+### Token Optimization Artifacts
+```text
+
+Reason: No caching layer detected. Adding a semantic cache reduces LLM costs.
++ @hive_mind(cache=global_cache)                                                  
+Semantic Caching | No caching layer detected. Adding a semantic cache reduces LLM 
+costs. (Est. 40-60% savings)
+❌ [REJECTED] skipping optimization.
+
+ --- [MEDIUM IMPACT] Add Session Tracking --- 
+Benefit: User Continuity
+Reason: No session tracking detected. Agents in production need a 
+'conversation_id' to maintain multi-turn context.
++ def chat(q: str, conversation_id: str = None):                                  
+Tracking | No session tracking detected. Agents in production need a 
+'conversation_id' to maintain multi-turn context. (Est. User Continuity)
+❌ [REJECTED] skipping optimization.
+
+ --- [HIGH IMPACT] Tool Schema Hardening (Poka-Yoke) --- 
+Benefit: Trajectory Stability
+Reason: Your tool definitions lack strict type constraints. Using Literal types 
+for categorical parameters prevents model hallucination and reduces invalid tool 
+calls.
++ from typing import Literal                                                      
++ def my_tool(category: Literal['search', 'calc', 'email']): ...                  
+Hardening (Poka-Yoke) | Your tool definitions lack strict type constraints. Using 
+Literal types for categorical parameters prevents model hallucination and reduces 
+invalid tool calls. (Est. Trajectory Stability)
+❌ [REJECTED] skipping optimization.
+         🎯 AUDIT SUMMARY         
+┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃ Category               ┃ Count ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ Optimizations Applied  │ 0     │
+│ Optimizations Rejected │ 3     │
+└────────────────────────┴───────┘
+
+❌ HIGH IMPACT issues detected. Optimization required for production.
+
+
+ACTION: /home/sad9605/cathedral-core/cascade_engine.py | Optimization: Implement 
+ACTION: /home/sad9605/cathedral-core/cascade_engine.py | Optimization: Add Session
+ACTION: /home/sad9605/cathedral-core/cascade_engine.py | Optimization: Tool Schema
+```
+
 ### RAG Fidelity Audit Artifacts
 ```text
 ╭────────────────────────────────────╮
@@ -230,10 +250,31 @@ FileNotFoundError: [Errno 2] No such file or directory: 'npx'
 
 ```
 
+### Architecture Review Artifacts
+```text
+Enhancement.
+ACTION: /home/sad9605/cathedral-core/agentic/actions.py:1 | ASI-04: Tool  | Structural Enhancement.
+ACTION: /home/sad9605/cathedral-core/cascade_engine.py:1 | Token Burning: LLM for  | Structural Enhancement.
+ACTION: /home/sad9605/cathedral-core/daily-sweep.py:1 | Token Burning: LLM for  | Structural Enhancement.
+ACTION: Core Enhancements | Missing 5th Golden  | Generic best practice upgrade recommended for 11 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/repair_threats.py...)
+ACTION: Core Enhancements | 🏛️ Structural Monolith  | Generic best practice upgrade recommended for 3 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/daily-sweep.py...)
+ACTION: /home/sad9605/cathedral-core/monte_carlo.py:1 | Policy Blindness: Implicit | Structural Enhancement.
+ACTION: Core Enhancements | Missing 5th Golden Signal  | Generic best practice upgrade recommended for 6 files (/home/sad9605/cathedral-core/monte_carlo.py, /home/sad9605/cathedral-core/daily_sweep.py...)
+ACTION: /home/sad9605/cathedral-core/daily-sweep.py:1 | Credential Risk: Shadow  | Structural Enhancement.
+ACTION: /home/sad9605/cathedral-core/daily-sweep.py:1 | ASI-01: Untrusted Context  | Structural Enhancement.
+ACTION: /home/sad9605/cathedral-core/daily-sweep.py:1 | Legacy Shadowing: HTTP  | Structural Enhancement.
+ACTION: /home/sad9605/cathedral-core/crisis_simulation_engine.py:1 | Policy  | Structural Enhancement.
+ACTION: /home/sad9605/cathedral-core/crisis_simulation_engine.py:1 | Missing 5th  | Structural Enhancement.
+ACTION: /home/sad9605/cathedral-core/agentic/policy_engine.py:1 | Missing 5th  | Structural Enhancement.
+ACTION: /home/sad9605/cathedral-core/tsf_prototype.py:1 | ASI-01: Untrusted  | Structural Enhancement.
+ACTION: /home/sad9605/cathedral-core/agentic/policy.py:1 | Policy Blindness:  | Structural Enhancement.
+ACTION: /home/sad9605/cathedral-core/agentic/warden.py:1 | Policy Blindness:  | Structural Enhancement.
+```
+
 ### Frontend Auditor Artifacts
 ```text
 edral-core
-📝 Scanned 21 frontend files.
+📝 Scanned 23 frontend files.
 ╭────────────────────────────────────────────────────────────────────────────────╮
 │   💎 PRINCIPAL UX EVALUATION (v1.2)                                            │
 │  Metric                  Value                                                 │
@@ -265,26 +306,6 @@ property='og:image' content='/logo.png' />`
 ✅ Frontend is Well-Architected for GenUI interactions.
 
 ACTION: 
-```
-
-### Architecture Review Artifacts
-```text
-cascade_engine.py...)
-ACTION: /home/sad9605/cathedral-core/tsf_forecast.py:1 | Missing 5th Golden Signal | Structural Enhancement.
-ACTION: /home/sad9605/cathedral-core/cascade_engine.py:1 | Credential Risk: Shadow | Structural Enhancement.
-ACTION: /home/sad9605/cathedral-core/cascade_engine.py:1 | ASI-04: Tool  | Structural Enhancement.
-ACTION: /home/sad9605/cathedral-core/agentic/actions.py:1 | ASI-04: Tool  | Structural Enhancement.
-ACTION: Core Enhancements | Policy Blindness:  | Generic best practice upgrade recommended for 3 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/agentic/policy.py...)
-ACTION: Core Enhancements | Missing 5th Golden  | Generic best practice upgrade recommended for 11 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/repair_threats.py...)
-ACTION: Core Enhancements | 🏛️ Structural Monolith  | Generic best practice upgrade recommended for 3 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/daily-sweep.py...)
-ACTION: /home/sad9605/cathedral-core/monte_carlo.py:1 | Policy Blindness: Implicit | Structural Enhancement.
-ACTION: Core Enhancements | Missing 5th Golden Signal  | Generic best practice upgrade recommended for 6 files (/home/sad9605/cathedral-core/monte_carlo.py, /home/sad9605/cathedral-core/daily_sweep.py...)
-ACTION: /home/sad9605/cathedral-core/daily-sweep.py:1 | Credential Risk: Shadow  | Structural Enhancement.
-ACTION: /home/sad9605/cathedral-core/daily-sweep.py:1 | ASI-01: Untrusted Context  | Structural Enhancement.
-ACTION: /home/sad9605/cathedral-core/crisis_simulation_engine.py:1 | Policy  | Structural Enhancement.
-ACTION: /home/sad9605/cathedral-core/crisis_simulation_engine.py:1 | Missing 5th  | Structural Enhancement.
-ACTION: /home/sad9605/cathedral-core/agentic/policy_engine.py:1 | Missing 5th  | Structural Enhancement.
-ACTION: /home/sad9605/cathedral-core/tsf_prototype.py:1 | ASI-01: Untrusted  | Structural Enhancement.
 ```
 
 ### Reliability (Quick) Artifacts
