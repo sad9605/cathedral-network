@@ -1,17 +1,17 @@
-# Ground Truth Summary – 2026-06-15T19:36:31.152608+00:00
+# Ground Truth Summary – 2026-06-16T17:39:34.453066+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
-- Russia was behind arson attacks targeting PM, BBC reveals
-- Under-16s to be banned from TikTok, YouTube and other social media by next spring, Starmer says
-- Social media ban - bold and blunt, but no silver bullet
+- Russian warship fires warning shots near UK-registered yacht in Channel
+- UK forces face operational cuts without more cash, defence chief warns
+- Three reasons ships are not going through the Strait of Hormuz yet
 
 **Reuters**:
 
 **Al Jazeera**:
-- US judge dismisses Musk’s xAI trade secret lawsuit against OpenAI
-- EU fails to agree on sanctions for far-right Israeli minister Ben-Gvir
-- France vs Senegal: World Cup 2026 – Mbappe, teams, lineups, start, Dembele
+- Israel seizes power over occupied West Bank mosque from Palestinians
+- Ronaldo’s last dance as Portugal face DR Congo in World Cup: All to know
+- Trump slams Israeli attacks on Lebanon at G7 summit
 
 **The Guardian**:
 - South African jazz pianist Abdullah Ibrahim dies aged 91
@@ -23,29 +23,29 @@
 **Deutsche Welle**:
 
 **Sky News**:
-- Trump's Iran deal is an admission of defeat
-- Captain of Russian shadow fleet tanker detained by UK has been charged
-- Two guilty over Keir Starmer arson attacks ordered by 'Russian speaking' handler
+- Boy accused of murdering girl, 9, said he had to get away from police, court told
+- Social media ban would have stopped me quitting, says Jess Phillips
+- Pictured: Woman charged over Wimbledon school crash that left two girls dead
 
 **NHK World**:
-- 米政府高官 “両国はすでに戦闘終結に向けた覚書に署名”
-- NYダウ 一時600ドル超値上がり 原油供給再開に期待感
-- 高市首相 フランス エビアンに到着 G7サミット議論開始へ
+- 高市首相 トランプ氏と懇談 中東情勢で意見交わす 仏G7会場で
+- 【地震情報】群馬県南部 埼玉県北部で震度5弱 津波なし
+- 日銀 利上げ決定 政策金利1％程度に “物価上昇リスクに対応”
 
 **Times of India**:
-- Qatar gave Iran billions to keep its ships safe under secret deal backed by US: Report
-- Govt hikes export duty on diesel to Rs 14/litre, ATF to Rs 12.5/litre
-- 150 kph and rising: Ashok Sharma gets India A call-up
+- How Qatar, not Pakistan, became the real power broker in US-Iran deal
+- US used Iran-style covert transfers to move 90 million barrels of oil out of Gulf: Report
+- 'If everyone in this country ... ': CJP founder Abhijeet Dipke clears stance on fighting polls
 
 **South China Morning Post**:
-- HKMU holds Groundbreaking Ceremony for new campus, marking a new milestone towards “A Hub for Community Health and Wellness”
-- Hong Kong market sample tests positive for H9 bird flu after boy infected
-- Mirror dancer left with ‘catastrophic disabilities’ awarded HK$6.29m in damages
+- 2 passengers killed as truck collides with taxi on Hong Kong road
+- Corporate leaders turn to new doctorate to strategise AI adoption
+- Man ‘mistakenly beat girlfriend to death while trying to help her lose weight’
 
 **Africa News**:
-- Grief and questions: Adichie accuses Hospital of obstructing inquest
-- Cameroon opposition figure files complaint in France against President Paul Biya
-- DR Congo opposition turns up pressure as referendum battle intensifies
+- Kinshasa priest engages DR Congo youth with rap music
+- Central African Republic army denies coup rumours
+- MSF warns of 'dangerous gaps' in Ebola response in DR Congo
 
 ## Disaster and Conflict Alerts
 - gdacs: error
