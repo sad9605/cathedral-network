@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "warden_id": "Sentinel-01",
+  "delegated_by": ["Founder"],
+  "effective_date": "2026-06-16T00:00:00Z",
+  "expiry": "2026-12-16T00:00:00Z",
+  "risk_tiers": [
+    {
+      "tier": "Green",
+      "description": "Informational only",
+      "allowed_actions": ["generate_daily_summary_markdown", "send_signal_message_to_watchlist_channel"],
+      "requires_human": false,
+      "logging": "summary",
+      "max_per_hour": 100
+    },
+    {
+      "tier": "Yellow",
+      "description": "Low impact, needs logging",
+      "allowed_actions": ["flag_duplicate_report"],
+      "requires_human": false,
+      "logging": "full",
+      "max_per_hour": 50
+    },
+    {
+      "tier": "Orange",
+      "description": "Needs human review",
+      "allowed_actions": [],
+      "requires_human": true,
+      "timeout_minutes": 30,
+      "logging": "full"
+    },
+    {
+      "tier": "Red",
+      "description": "Human only",
+      "allowed_actions": [],
+      "requires_human": true,
+      "timeout_minutes": 10,
+      "logging": "full"
+    }
+  ],
+  "trigger_mapping": [
+    {
+      "trigger": "daily_sweep_complete",
+      "action": "generate_daily_summary_markdown",
+      "risk_tier": "Green",
+      "condition": "always"
+    },
+    {
+      "trigger": "new_watchlist_hit",
+      "action": "send_signal_message_to_watchlist_channel",
+      "risk_tier": "Green",
+      "condition": "always"
+    },
+    {
+      "trigger": "duplicate_report_detected",
+      "action": "flag_duplicate_report",
+      "risk_tier": "Yellow",
+      "condition": "always"
+    }
+  ]
+}

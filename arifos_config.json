@@ -1,0 +1,12 @@
+{
+  "cpu_threshold_high": 80,
+  "cpu_threshold_low": 30,
+  "memory_threshold_high": 85,
+  "gsci_high": 60,
+  "gsci_critical": 75,
+  "confidence_floor_normal": 0.3,
+  "confidence_floor_high_load": 0.6,
+  "confidence_floor_critical": 0.9,
+  "escalation_timeout_seconds": 300,
+  "min_actors_required": 2
+}
