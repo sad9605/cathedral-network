@@ -305,7 +305,7 @@
   // Load content from constitution.json
   async function loadContent() {
     try {
-      const response = await fetch('/constitution.json');
+      const response = await fetch('constitution.json');
       if (!response.ok) throw new Error('Failed to load constitution.json');
       const data = await response.json();
 
