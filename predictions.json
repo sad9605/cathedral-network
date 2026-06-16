@@ -1,155 +1,1881 @@
 {
-  "confirmed": [],
-  "falsified": [],
-  "pending": [
+  "confirmed": [
     {
       "id": "C01",
       "description": "Iran\u2011Israel/US War / Hormuz",
       "probability": 95,
       "horizon": "30 days",
-      "status": "Active"
-    },
+      "status": "Active",
+      "scp": 0.95,
+      "updated": "2026-06-16T13:15:51.702902",
+      "confirmed_date": "2026-06-16T13:16:11.698901",
+      "outcome": true
+    }
+  ],
+  "falsified": [],
+  "pending": [
     {
       "id": "C\u2011USIRAN",
       "description": "Direct US\u2011Iran Conflict",
       "probability": 80,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.23,
+      "updated": "2026-06-16T13:15:51.702921"
     },
     {
       "id": "C\u2011BELT",
       "description": "Iran 'Resistance Security Belt'",
       "probability": 90,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.25,
+      "updated": "2026-06-16T13:15:51.702941"
     },
     {
       "id": "C\u2011RED\u2011BLOCK",
       "description": "Bab el\u2011Mandeb Blockade",
       "probability": 88,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.25,
+      "updated": "2026-06-16T13:15:51.702953"
     },
     {
       "id": "C132",
       "description": "Great Power Conflict / US\u2011Iran Entanglement",
       "probability": 70,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.95,
+      "updated": "2026-06-16T13:15:51.702964"
     },
     {
       "id": "C129",
       "description": "Armenia\u2011Azerbaijan",
       "probability": 65,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.19,
+      "updated": "2026-06-16T13:15:51.702973"
     },
     {
       "id": "C54",
       "description": "Baltic Grey\u2011Zone",
       "probability": 60,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.18,
+      "updated": "2026-06-16T13:15:51.702983"
     },
     {
       "id": "C88",
       "description": "Taiwan Strait Incident Risk",
       "probability": 68,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.19,
+      "updated": "2026-06-16T13:15:51.702992"
     },
     {
       "id": "C90",
       "description": "South China Sea Militarisation",
       "probability": 60,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.17,
+      "updated": "2026-06-16T13:15:51.703001"
     },
     {
       "id": "C48",
       "description": "AI Deepfake Ops",
       "probability": 70,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.2,
+      "updated": "2026-06-16T13:15:51.703011"
     },
     {
       "id": "C19",
       "description": "Zaporizhzhia NPP",
       "probability": 65,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.19,
+      "updated": "2026-06-16T13:15:51.703020"
     },
     {
       "id": "C25",
       "description": "NATO Article 4 (Romania)",
       "probability": 68,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.19,
+      "updated": "2026-06-16T13:15:51.703030"
     },
     {
       "id": "C3",
       "description": "Ukraine\u2011Russia spillover",
       "probability": 35,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.11,
+      "updated": "2026-06-16T13:15:51.703040"
     },
     {
       "id": "C11",
       "description": "Iraq Instability",
       "probability": 40,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.95,
+      "updated": "2026-06-16T13:15:51.703049"
     },
     {
       "id": "C58",
       "description": "Underwater Infrastructure Sabotage",
       "probability": 30,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.1,
+      "updated": "2026-06-16T13:15:51.703058"
     },
     {
       "id": "C64",
       "description": "Mediterranean Migration",
       "probability": 35,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.11,
+      "updated": "2026-06-16T13:15:51.703068"
     },
     {
       "id": "C85",
       "description": "Cartel Violence Mexico",
       "probability": 45,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.14,
+      "updated": "2026-06-16T13:15:51.703077"
     },
     {
       "id": "C122",
       "description": "North Korea Ballistic",
       "probability": 40,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.12,
+      "updated": "2026-06-16T13:15:51.703087"
     },
     {
       "id": "C2",
       "description": "Information Warfare",
       "probability": 60,
       "horizon": "30 days",
-      "status": "Active"
+      "status": "Active",
+      "scp": 0.18,
+      "updated": "2026-06-16T13:15:51.703096"
     },
     {
       "id": "C4",
       "description": "Moldova Transnistria escalation",
       "probability": 30,
       "horizon": "30 days",
+      "status": "Active",
+      "scp": 0.1,
+      "updated": "2026-06-16T13:15:51.703105"
+    },
+    {
+      "id": "C6",
+      "description": "Russian sabotage in Germany/Poland",
+      "probability": 35,
+      "scp": 0.11,
+      "created": "2026-06-16T13:15:51.703109",
+      "deadline": "2026-07-16T13:15:51.703110",
+      "status": "Active"
+    },
+    {
+      "id": "C9",
+      "description": "Poland\u2011Belarus migrant weaponisation",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.703117",
+      "deadline": "2026-07-16T13:15:51.703119",
+      "status": "Active"
+    },
+    {
+      "id": "C10",
+      "description": "Ukraine frontline collapse",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.703125",
+      "deadline": "2026-07-16T13:15:51.703134",
+      "status": "Active"
+    },
+    {
+      "id": "C12",
+      "description": "Black Sea grain corridor closure",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703152",
+      "deadline": "2026-07-16T13:15:51.703155",
+      "status": "Active"
+    },
+    {
+      "id": "C13",
+      "description": "Russian LNG terminal sabotage",
+      "probability": 35,
+      "scp": 0.11,
+      "created": "2026-06-16T13:15:51.703172",
+      "deadline": "2026-07-16T13:15:51.703174",
+      "status": "Active"
+    },
+    {
+      "id": "C14",
+      "description": "Nord Stream 2 reactivation",
+      "probability": 30,
+      "scp": 0.1,
+      "created": "2026-06-16T13:15:51.703179",
+      "deadline": "2026-07-16T13:15:51.703181",
+      "status": "Active"
+    },
+    {
+      "id": "C16",
+      "description": "Georgia Abkhazia freeze\u2011thaw",
+      "probability": 30,
+      "scp": 0.1,
+      "created": "2026-06-16T13:15:51.703188",
+      "deadline": "2026-07-16T13:15:51.703189",
+      "status": "Active"
+    },
+    {
+      "id": "C17",
+      "description": "Armenia\u2011Azerbaijan peace collapse",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.703195",
+      "deadline": "2026-07-16T13:15:51.703196",
+      "status": "Active"
+    },
+    {
+      "id": "C18",
+      "description": "Iranian drones to Russia",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.703202",
+      "deadline": "2026-07-16T13:15:51.703203",
+      "status": "Active"
+    },
+    {
+      "id": "C20",
+      "description": "Khmelnytskyi NPP shelling",
+      "probability": 35,
+      "scp": 0.11,
+      "created": "2026-06-16T13:15:51.703209",
+      "deadline": "2026-07-16T13:15:51.703210",
+      "status": "Active"
+    },
+    {
+      "id": "C21",
+      "description": "Radiological release (ZNPP)",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703215",
+      "deadline": "2026-07-16T13:15:51.703217",
+      "status": "Active"
+    },
+    {
+      "id": "C23",
+      "description": "Wagner resurgence in Africa",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.703223",
+      "deadline": "2026-07-16T13:15:51.703225",
+      "status": "Active"
+    },
+    {
+      "id": "C24",
+      "description": "Russian Arctic militarisation",
+      "probability": 30,
+      "scp": 0.1,
+      "created": "2026-06-16T13:15:51.703229",
+      "deadline": "2026-07-16T13:15:51.703231",
+      "status": "Active"
+    },
+    {
+      "id": "C26",
+      "description": "NATO Article 5 deliberation",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703236",
+      "deadline": "2026-07-16T13:15:51.703238",
+      "status": "Active"
+    },
+    {
+      "id": "C27",
+      "description": "US troop deployment to Romania",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703243",
+      "deadline": "2026-07-16T13:15:51.703245",
+      "status": "Active"
+    },
+    {
+      "id": "C28",
+      "description": "Turkish Straits closure",
+      "probability": 35,
+      "scp": 0.11,
+      "created": "2026-06-16T13:15:51.703250",
+      "deadline": "2026-07-16T13:15:51.703252",
+      "status": "Active"
+    },
+    {
+      "id": "G-ARCTIC",
+      "description": "Arctic resource wars (minerals, fish, oil, shipping)",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703257",
+      "deadline": "2026-07-16T13:15:51.703259",
+      "status": "Active"
+    },
+    {
+      "id": "G-GREENLAND",
+      "description": "Greenland as geopolitical flashpoint",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.703265",
+      "deadline": "2026-07-16T13:15:51.703266",
+      "status": "Active"
+    },
+    {
+      "id": "G-SPACE",
+      "description": "Weaponisation of low Earth orbit (ASAT, jamming, cyber)",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703272",
+      "deadline": "2026-07-16T13:15:51.703273",
+      "status": "Active"
+    },
+    {
+      "id": "G-WEST-BANK",
+      "description": "West Bank violent escalation (third intifada risk)",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703278",
+      "deadline": "2026-07-16T13:15:51.703280",
+      "status": "Active"
+    },
+    {
+      "id": "G-SUD-BLUE",
+      "description": "Blue Nile / GERD water war escalation",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703285",
+      "deadline": "2026-07-16T13:15:51.703287",
+      "status": "Active"
+    },
+    {
+      "id": "C11E",
+      "description": "Oil Price Shock",
+      "probability": 90,
+      "scp": 0.26,
+      "created": "2026-06-16T13:15:51.703292",
+      "deadline": "2026-07-16T13:15:51.703293",
+      "status": "Active"
+    },
+    {
+      "id": "C141",
+      "description": "Zaporizhzhia NPP Single\u2011Point\u2011of\u2011Failure",
+      "probability": 80,
+      "scp": 0.23,
+      "created": "2026-06-16T13:15:51.703298",
+      "deadline": "2026-07-16T13:15:51.703300",
+      "status": "Active"
+    },
+    {
+      "id": "C143",
+      "description": "OPEC Quota Compliance Collapse",
+      "probability": 75,
+      "scp": 0.22,
+      "created": "2026-06-16T13:15:51.703316",
+      "deadline": "2026-07-16T13:15:51.703319",
+      "status": "Active"
+    },
+    {
+      "id": "C62",
+      "description": "EU Gas Security",
+      "probability": 68,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.703326",
+      "deadline": "2026-07-16T13:15:51.703327",
+      "status": "Active"
+    },
+    {
+      "id": "C63",
+      "description": "Global Oil Supply Deficit",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703333",
+      "deadline": "2026-07-16T13:15:51.703334",
+      "status": "Active"
+    },
+    {
+      "id": "C123",
+      "description": "East Asia Fiscal\u2011Energy Spiral",
+      "probability": 62,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703339",
+      "deadline": "2026-07-16T13:15:51.703341",
+      "status": "Active"
+    },
+    {
+      "id": "C127",
+      "description": "Egypt Fiscal & Political Stress",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703346",
+      "deadline": "2026-07-16T13:15:51.703348",
+      "status": "Active"
+    },
+    {
+      "id": "C144",
+      "description": "Kuwait Fiscal Collapse",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703361",
+      "deadline": "2026-07-16T13:15:51.703364",
+      "status": "Active"
+    },
+    {
+      "id": "C143-KZ",
+      "description": "Kazakhstan OPEC Overproduction",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703371",
+      "deadline": "2026-07-16T13:15:51.703373",
+      "status": "Active"
+    },
+    {
+      "id": "CA4",
+      "description": "Central Asia Energy Export Dependency",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703378",
+      "deadline": "2026-07-16T13:15:51.703379",
+      "status": "Active"
+    },
+    {
+      "id": "G16",
+      "description": "Oil price >$150",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.703384",
+      "deadline": "2026-07-16T13:15:51.703386",
+      "status": "Active"
+    },
+    {
+      "id": "G17",
+      "description": "Global deficit 7M b/d",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703391",
+      "deadline": "2026-07-16T13:15:51.703393",
+      "status": "Active"
+    },
+    {
+      "id": "G18",
+      "description": "SPR release inadequacy",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703398",
+      "deadline": "2026-07-16T13:15:51.703400",
+      "status": "Active"
+    },
+    {
+      "id": "G19",
+      "description": "China\u2011Iran petroyuan",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.703405",
+      "deadline": "2026-07-16T13:15:51.703407",
+      "status": "Active"
+    },
+    {
+      "id": "G24",
+      "description": "Qatar LNG rerouting disruption",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703413",
+      "deadline": "2026-07-16T13:15:51.703415",
+      "status": "Active"
+    },
+    {
+      "id": "E-AI-GRID",
+      "description": "AI data centre power demand as new energy war front",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703420",
+      "deadline": "2026-07-16T13:15:51.703421",
+      "status": "Active"
+    },
+    {
+      "id": "E-SMR",
+      "description": "Small modular reactor safety & regulatory gap",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.703427",
+      "deadline": "2026-07-16T13:15:51.703429",
+      "status": "Active"
+    },
+    {
+      "id": "E-HYPER-SCALE",
+      "description": "Hyperscale AI data centre water/energy tipping point",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703434",
+      "deadline": "2026-07-16T13:15:51.703435",
+      "status": "Active"
+    },
+    {
+      "id": "E-MINI-GRID",
+      "description": "Critical infrastructure mini\u2011grid fragility",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.703440",
+      "deadline": "2026-07-16T13:15:51.703442",
+      "status": "Active"
+    },
+    {
+      "id": "E-SOLAR-CYBER",
+      "description": "Solar inverter botnets for grid destabilisation",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703447",
+      "deadline": "2026-07-16T13:15:51.703448",
+      "status": "Active"
+    },
+    {
+      "id": "C100",
+      "description": "Arctic Sea Ice Loss",
+      "probability": 70,
+      "scp": 0.21,
+      "created": "2026-06-16T13:15:51.703454",
+      "deadline": "2026-07-16T13:15:51.703456",
+      "status": "Active"
+    },
+    {
+      "id": "C147",
+      "description": "Ross Ice Shelf Acceleration",
+      "probability": 68,
+      "scp": 0.2,
+      "created": "2026-06-16T13:15:51.703471",
+      "deadline": "2026-07-16T13:15:51.703474",
+      "status": "Active"
+    },
+    {
+      "id": "C44",
+      "description": "Delhi Heatwave",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703481",
+      "deadline": "2026-07-16T13:15:51.703483",
+      "status": "Active"
+    },
+    {
+      "id": "C80",
+      "description": "U.S. Hurricane Season",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703488",
+      "deadline": "2026-07-16T13:15:51.703489",
+      "status": "Active"
+    },
+    {
+      "id": "C134",
+      "description": "Dry Corridor Famine\u2011Migration",
+      "probability": 68,
+      "scp": 0.2,
+      "created": "2026-06-16T13:15:51.703495",
+      "deadline": "2026-07-16T13:15:51.703496",
+      "status": "Active"
+    },
+    {
+      "id": "C135",
+      "description": "Panama Canal Logistics Shock",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703502",
+      "deadline": "2026-07-16T13:15:51.703503",
+      "status": "Active"
+    },
+    {
+      "id": "C99",
+      "description": "Yamal Methane Anomaly",
+      "probability": 55,
+      "scp": 0.16,
+      "created": "2026-06-16T13:15:51.703508",
+      "deadline": "2026-07-16T13:15:51.703510",
+      "status": "Active"
+    },
+    {
+      "id": "C41",
+      "description": "AMOC Slowdown",
+      "probability": 35,
+      "scp": 0.11,
+      "created": "2026-06-16T13:15:51.703515",
+      "deadline": "2026-07-16T13:15:51.703517",
+      "status": "Active"
+    },
+    {
+      "id": "C46",
+      "description": "Bangladesh Monsoon Flood",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.703522",
+      "deadline": "2026-07-16T13:15:51.703523",
+      "status": "Active"
+    },
+    {
+      "id": "E11",
+      "description": "El Ni\u00f1o",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703528",
+      "deadline": "2026-07-16T13:15:51.703530",
+      "status": "Active"
+    },
+    {
+      "id": "U11",
+      "description": "California flood risk",
+      "probability": 35,
+      "scp": 0.11,
+      "created": "2026-06-16T13:15:51.703536",
+      "deadline": "2026-07-16T13:15:51.703537",
+      "status": "Active"
+    },
+    {
+      "id": "U12",
+      "description": "Canada wildfire season",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.703543",
+      "deadline": "2026-07-16T13:15:51.703545",
+      "status": "Active"
+    },
+    {
+      "id": "CC1",
+      "description": "Caucasus frozen conflict",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703550",
+      "deadline": "2026-07-16T13:15:51.703559",
+      "status": "Active"
+    },
+    {
+      "id": "CC2",
+      "description": "Georgia destabilisation",
+      "probability": 30,
+      "scp": 0.1,
+      "created": "2026-06-16T13:15:51.703571",
+      "deadline": "2026-07-16T13:15:51.703572",
+      "status": "Active"
+    },
+    {
+      "id": "OC1",
+      "description": "Pacific strategic",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703578",
+      "deadline": "2026-07-16T13:15:51.703580",
+      "status": "Active"
+    },
+    {
+      "id": "CB2",
+      "description": "Hurricane\u2011debt spiral",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703585",
+      "deadline": "2026-07-16T13:15:51.703586",
+      "status": "Active"
+    },
+    {
+      "id": "LA2",
+      "description": "Amazon tipping point",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703591",
+      "deadline": "2026-07-16T13:15:51.703593",
+      "status": "Active"
+    },
+    {
+      "id": "C-WATER-BANK",
+      "description": "Global water bankruptcy",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703598",
+      "deadline": "2026-07-16T13:15:51.703599",
+      "status": "Active"
+    },
+    {
+      "id": "C-SUBSIDENCE",
+      "description": "Widespread land subsidence from groundwater depletion",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.703605",
+      "deadline": "2026-07-16T13:15:51.703607",
+      "status": "Active"
+    },
+    {
+      "id": "C-CRYO",
+      "description": "Accelerating glacier mass loss (functional extinction)",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703612",
+      "deadline": "2026-07-16T13:15:51.703614",
+      "status": "Active"
+    },
+    {
+      "id": "C-SOIL-DEG",
+      "description": "Severe soil degradation (>50% agricultural land)",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703619",
+      "deadline": "2026-07-16T13:15:51.703621",
+      "status": "Active"
+    },
+    {
+      "id": "C-AG-STORAGE",
+      "description": "Collapse of agricultural water storage",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703649",
+      "deadline": "2026-07-16T13:15:51.703653",
+      "status": "Active"
+    },
+    {
+      "id": "C78",
+      "description": "Sovereign Debt Crisis",
+      "probability": 85,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.703660",
+      "deadline": "2026-07-16T13:15:51.703661",
+      "status": "Active"
+    },
+    {
+      "id": "C133",
+      "description": "USD Reserve Erosion",
+      "probability": 60,
+      "scp": 0.82,
+      "created": "2026-06-16T13:15:51.703667",
+      "deadline": "2026-07-16T13:15:51.703668",
+      "status": "Active"
+    },
+    {
+      "id": "I08",
+      "description": "Global debt 100% by 2029",
+      "probability": 78,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.703699",
+      "deadline": "2026-07-16T13:15:51.703701",
+      "status": "Active"
+    },
+    {
+      "id": "I09",
+      "description": "IMF lending capacity crisis",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703706",
+      "deadline": "2026-07-16T13:15:51.703708",
+      "status": "Active"
+    },
+    {
+      "id": "C136",
+      "description": "N. Triangle Cartel Violence",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703713",
+      "deadline": "2026-07-16T13:15:51.703715",
+      "status": "Active"
+    },
+    {
+      "id": "C137",
+      "description": "Central America Food Supply Shock",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703720",
+      "deadline": "2026-07-16T13:15:51.703722",
+      "status": "Active"
+    },
+    {
+      "id": "C138",
+      "description": "Great\u2011Power Competition \u2192 Aid Diversion",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703727",
+      "deadline": "2026-07-16T13:15:51.703729",
+      "status": "Active"
+    },
+    {
+      "id": "U16",
+      "description": "Argentina peso collapse",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703755",
+      "deadline": "2026-07-16T13:15:51.703757",
+      "status": "Active"
+    },
+    {
+      "id": "U18",
+      "description": "US sovereign debt",
+      "probability": 70,
+      "scp": 0.21,
+      "created": "2026-06-16T13:15:51.703764",
+      "deadline": "2026-07-16T13:15:51.703765",
+      "status": "Active"
+    },
+    {
+      "id": "U19",
+      "description": "Fed rate hold into 2027",
+      "probability": 35,
+      "scp": 0.11,
+      "created": "2026-06-16T13:15:51.703771",
+      "deadline": "2026-07-16T13:15:51.703772",
+      "status": "Active"
+    },
+    {
+      "id": "C17*",
+      "description": "African debt + private credit",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703778",
+      "deadline": "2026-07-16T13:15:51.703779",
+      "status": "Active"
+    },
+    {
+      "id": "C18*",
+      "description": "Petrodollar crisis + US fiscal",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703785",
+      "deadline": "2026-07-16T13:15:51.703786",
+      "status": "Active"
+    },
+    {
+      "id": "C19*",
+      "description": "China malaise + trade fragmentation",
+      "probability": 62,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703791",
+      "deadline": "2026-07-16T13:15:51.703793",
+      "status": "Active"
+    },
+    {
+      "id": "C20*",
+      "description": "Demand destruction + frozen labour",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703798",
+      "deadline": "2026-07-16T13:15:51.703800",
+      "status": "Active"
+    },
+    {
+      "id": "G30",
+      "description": "Global recession from oil",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703807",
+      "deadline": "2026-07-16T13:15:51.703808",
+      "status": "Active"
+    },
+    {
+      "id": "U15",
+      "description": "Brazil coup risk",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703814",
+      "deadline": "2026-07-16T13:15:51.703815",
+      "status": "Active"
+    },
+    {
+      "id": "U17",
+      "description": "Venezuela oil sanctions relief",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.703821",
+      "deadline": "2026-07-16T13:15:51.703831",
+      "status": "Active"
+    },
+    {
+      "id": "A24",
+      "description": "Angola debt default risk",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703843",
+      "deadline": "2026-07-16T13:15:51.703845",
+      "status": "Active"
+    },
+    {
+      "id": "C145",
+      "description": "Iran\u2011Oman transit fee precedent",
+      "probability": 78,
+      "scp": 0.22,
+      "created": "2026-06-16T13:15:51.703862",
+      "deadline": "2026-07-16T13:15:51.703865",
+      "status": "Active"
+    },
+    {
+      "id": "F-AI-CYBER-SYS",
+      "description": "AI\u2011driven systemic cyber\u2011financial crisis",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703872",
+      "deadline": "2026-07-16T13:15:51.703873",
+      "status": "Active"
+    },
+    {
+      "id": "F-AI-LIQ",
+      "description": "AI\u2011triggered flash crashes & liquidity evaporation",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703878",
+      "deadline": "2026-07-16T13:15:51.703880",
+      "status": "Active"
+    },
+    {
+      "id": "F-REPO-2026",
+      "description": "Repo market freeze exacerbated by AI/cyber",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703885",
+      "deadline": "2026-07-16T13:15:51.703886",
+      "status": "Active"
+    },
+    {
+      "id": "F-CBDC",
+      "description": "CBDC\u2011driven disintermediation & bank runs",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.703891",
+      "deadline": "2026-07-16T13:15:51.703893",
+      "status": "Active"
+    },
+    {
+      "id": "F-INSUR-SPIRAL",
+      "description": "Climate\u2011driven insurance withdrawal spiral",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703898",
+      "deadline": "2026-07-16T13:15:51.703900",
+      "status": "Active"
+    },
+    {
+      "id": "C121",
+      "description": "Taiwan Semiconductor Chokepoint",
+      "probability": 85,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.703905",
+      "deadline": "2026-07-16T13:15:51.703906",
+      "status": "Active"
+    },
+    {
+      "id": "C124",
+      "description": "East Asia Semiconductor\u2011Fiscal Contagion",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703912",
+      "deadline": "2026-07-16T13:15:51.703914",
+      "status": "Active"
+    },
+    {
+      "id": "C36",
+      "description": "Taiwan semiconductor cascade",
+      "probability": 68,
+      "scp": 0.2,
+      "created": "2026-06-16T13:15:51.703919",
+      "deadline": "2026-07-16T13:15:51.703921",
+      "status": "Active"
+    },
+    {
+      "id": "C39",
+      "description": "Semiconductor\u2011fiscal",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.703926",
+      "deadline": "2026-07-16T13:15:51.703928",
+      "status": "Active"
+    },
+    {
+      "id": "C8",
+      "description": "Red Sea Shipping Chokepoint",
+      "probability": 75,
+      "scp": 0.22,
+      "created": "2026-06-16T13:15:51.703933",
+      "deadline": "2026-07-16T13:15:51.703934",
+      "status": "Active"
+    },
+    {
+      "id": "C29",
+      "description": "Gulf shipping chokepoint",
+      "probability": 80,
+      "scp": 0.23,
+      "created": "2026-06-16T13:15:51.703939",
+      "deadline": "2026-07-16T13:15:51.703941",
+      "status": "Active"
+    },
+    {
+      "id": "C135S",
+      "description": "Panama Canal Logistics Shock",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703947",
+      "deadline": "2026-07-16T13:15:51.703949",
+      "status": "Active"
+    },
+    {
+      "id": "SC-NUCLEAR",
+      "description": "Nuclear fuel supply chain (Russia\u2011dominated HALEU)",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.703954",
+      "deadline": "2026-07-16T13:15:51.703956",
+      "status": "Active"
+    },
+    {
+      "id": "SC-COUNTER",
+      "description": "Counterfeit network gear in critical infrastructure",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703961",
+      "deadline": "2026-07-16T13:15:51.703963",
+      "status": "Active"
+    },
+    {
+      "id": "SC-RARE",
+      "description": "Rare earth refining choke point (China >85%)",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.703968",
+      "deadline": "2026-07-16T13:15:51.703969",
+      "status": "Active"
+    },
+    {
+      "id": "SC-DEVICE",
+      "description": "Third\u2011party device compromise in CI/CD pipelines",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.703974",
+      "deadline": "2026-07-16T13:15:51.703976",
+      "status": "Active"
+    },
+    {
+      "id": "SC-ZINC",
+      "description": "Zinc smelting closure cascade (European energy crisis)",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.703981",
+      "deadline": "2026-07-16T13:15:51.703983",
+      "status": "Active"
+    },
+    {
+      "id": "C03",
+      "description": "Horn of Africa Famine",
+      "probability": 92,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.703988",
+      "deadline": "2026-07-16T13:15:51.703990",
+      "status": "Active"
+    },
+    {
+      "id": "C126",
+      "description": "North Africa Food Security Collapse",
+      "probability": 85,
+      "scp": 0.24,
+      "created": "2026-06-16T13:15:51.703995",
+      "deadline": "2026-07-16T13:15:51.703997",
+      "status": "Active"
+    },
+    {
+      "id": "C125",
+      "description": "Nile Water Conflict / GERD",
+      "probability": 68,
+      "scp": 0.2,
+      "created": "2026-06-16T13:15:51.704013",
+      "deadline": "2026-07-16T13:15:51.704016",
+      "status": "Active"
+    },
+    {
+      "id": "C43",
+      "description": "Indus Water\u2011Food\u2011Conflict",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704023",
+      "deadline": "2026-07-16T13:15:51.704025",
+      "status": "Active"
+    },
+    {
+      "id": "C106",
+      "description": "Global Food Price Volatility",
+      "probability": 72,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.704031",
+      "deadline": "2026-07-16T13:15:51.704032",
+      "status": "Active"
+    },
+    {
+      "id": "C137F",
+      "description": "Central America Food Supply Shock",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.704037",
+      "deadline": "2026-07-16T13:15:51.704045",
+      "status": "Active"
+    },
+    {
+      "id": "A01",
+      "description": "Sudan IPC5 famine",
+      "probability": 92,
+      "scp": 0.26,
+      "created": "2026-06-16T13:15:51.704055",
+      "deadline": "2026-07-16T13:15:51.704057",
+      "status": "Active"
+    },
+    {
+      "id": "A02",
+      "description": "Kenya AMN Phase 5",
+      "probability": 78,
+      "scp": 0.22,
+      "created": "2026-06-16T13:15:51.704062",
+      "deadline": "2026-07-16T13:15:51.704064",
+      "status": "Active"
+    },
+    {
+      "id": "A03",
+      "description": "Ethiopia Tigray famine relapse",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704069",
+      "deadline": "2026-07-16T13:15:51.704070",
+      "status": "Active"
+    },
+    {
+      "id": "A04",
+      "description": "Somalia Shabelle floods + famine",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704075",
+      "deadline": "2026-07-16T13:15:51.704077",
+      "status": "Active"
+    },
+    {
+      "id": "A22",
+      "description": "Zimbabwe grain deficit",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.704083",
+      "deadline": "2026-07-16T13:15:51.704084",
+      "status": "Active"
+    },
+    {
+      "id": "A23",
+      "description": "Zambia drought emergency",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.704090",
+      "deadline": "2026-07-16T13:15:51.704091",
+      "status": "Active"
+    },
+    {
+      "id": "A-UREA",
+      "description": "Urea fertiliser supply chain timing window",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704097",
+      "deadline": "2026-07-16T13:15:51.704098",
+      "status": "Active"
+    },
+    {
+      "id": "A-EL-NINO",
+      "description": "El Ni\u00f1o\u2019s asynchronous global crop impact",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.704103",
+      "deadline": "2026-07-16T13:15:51.704105",
+      "status": "Active"
+    },
+    {
+      "id": "A-SOIL-BIO",
+      "description": "Loss of soil biodiversity (microbiome collapse)",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.704110",
+      "deadline": "2026-07-16T13:15:51.704112",
+      "status": "Active"
+    },
+    {
+      "id": "A-STRAT-RES",
+      "description": "Absence of strategic fertiliser reserves",
+      "probability": 72,
+      "scp": 0.21,
+      "created": "2026-06-16T13:15:51.704116",
+      "deadline": "2026-07-16T13:15:51.704118",
+      "status": "Active"
+    },
+    {
+      "id": "A-AG-DEBT",
+      "description": "Farm debt\u2011fertiliser price trap",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.704123",
+      "deadline": "2026-07-16T13:15:51.704125",
+      "status": "Active"
+    },
+    {
+      "id": "C84",
+      "description": "U.S. Electoral Integrity Breach",
+      "probability": 82,
+      "scp": 0.23,
+      "created": "2026-06-16T13:15:51.704130",
+      "deadline": "2026-07-16T13:15:51.704132",
+      "status": "Active"
+    },
+    {
+      "id": "I01",
+      "description": "AI Deepfake Election",
+      "probability": 82,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.704137",
+      "deadline": "2026-07-16T13:15:51.704138",
+      "status": "Active"
+    },
+    {
+      "id": "C67",
+      "description": "Asylum System Collapse",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.704143",
+      "deadline": "2026-07-16T13:15:51.704145",
+      "status": "Active"
+    },
+    {
+      "id": "U01",
+      "description": "US Jan 6 records erased",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.704150",
+      "deadline": "2026-07-16T13:15:51.704151",
+      "status": "Active"
+    },
+    {
+      "id": "U02",
+      "description": "$1.776B dark election fund",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.704167",
+      "deadline": "2026-07-16T13:15:51.704170",
+      "status": "Active"
+    },
+    {
+      "id": "U03",
+      "description": "2026 midterm integrity breaches",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704177",
+      "deadline": "2026-07-16T13:15:51.704178",
+      "status": "Active"
+    },
+    {
+      "id": "U06",
+      "description": "Far\u2011right militia coordination",
+      "probability": 60,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.704184",
+      "deadline": "2026-07-16T13:15:51.704186",
+      "status": "Active"
+    },
+    {
+      "id": "D-IMM-WAR",
+      "description": "Governor\u2011federal military standoff (state vs. national guard)",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.704192",
+      "deadline": "2026-07-16T13:15:51.704194",
+      "status": "Active"
+    },
+    {
+      "id": "D-AI-LIAB",
+      "description": "Collapse of AI liability frameworks",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.704199",
+      "deadline": "2026-07-16T13:15:51.704200",
+      "status": "Active"
+    },
+    {
+      "id": "D-TRUST",
+      "description": "Compound erosion of trust in all institutions",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.704205",
+      "deadline": "2026-07-16T13:15:51.704207",
+      "status": "Active"
+    },
+    {
+      "id": "D-DESKILL",
+      "description": "Massive technological deskilling & workforce mismatch",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.704212",
+      "deadline": "2026-07-16T13:15:51.704213",
+      "status": "Active"
+    },
+    {
+      "id": "D-GDPR",
+      "description": "Fragmentation of global privacy & AI governance",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.704218",
+      "deadline": "2026-07-16T13:15:51.704220",
+      "status": "Active"
+    },
+    {
+      "id": "C139",
+      "description": "Mass Displacement",
+      "probability": 75,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.704224",
+      "deadline": "2026-07-16T13:15:51.704226",
+      "status": "Active"
+    },
+    {
+      "id": "C5",
+      "description": "Gaza Structural Atrocity",
+      "probability": 88,
+      "scp": 0.25,
+      "created": "2026-06-16T13:15:51.704231",
+      "deadline": "2026-07-16T13:15:51.704233",
+      "status": "Active"
+    },
+    {
+      "id": "U07",
+      "description": "Left\u2011wing protest violence",
+      "probability": 30,
+      "scp": 0.1,
+      "created": "2026-06-16T13:15:51.704247",
+      "deadline": "2026-07-16T13:15:51.704250",
+      "status": "Active"
+    },
+    {
+      "id": "U13",
+      "description": "Mexico cartel violence spillover",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704257",
+      "deadline": "2026-07-16T13:15:51.704258",
+      "status": "Active"
+    },
+    {
+      "id": "U14",
+      "description": "Central America migration surge",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.704263",
+      "deadline": "2026-07-16T13:15:51.704265",
+      "status": "Active"
+    },
+    {
+      "id": "C44S",
+      "description": "Delhi Heatwave \u2013 social collapse",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704280",
+      "deadline": "2026-07-16T13:15:51.704282",
+      "status": "Active"
+    },
+    {
+      "id": "C64S",
+      "description": "Mediterranean Migration",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.704297",
+      "deadline": "2026-07-16T13:15:51.704299",
+      "status": "Active"
+    },
+    {
+      "id": "C20*S",
+      "description": "Demand destruction + frozen labour",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.704304",
+      "deadline": "2026-07-16T13:15:51.704305",
+      "status": "Active"
+    },
+    {
+      "id": "S-ANTI-TECH",
+      "description": "Anti\u2011tech extremism (FBI/DHS tracked)",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.704310",
+      "deadline": "2026-07-16T13:15:51.704311",
+      "status": "Active"
+    },
+    {
+      "id": "S-NVE",
+      "description": "Nihilistic Violent Extremists targeting children",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.704316",
+      "deadline": "2026-07-16T13:15:51.704318",
+      "status": "Active"
+    },
+    {
+      "id": "S-CLASS",
+      "description": "Class\u2011based domestic terrorism (DHS)",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.704323",
+      "deadline": "2026-07-16T13:15:51.704324",
+      "status": "Active"
+    },
+    {
+      "id": "S-FED-8000",
+      "description": "8,000% rise in threats against federal law enforcement",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704329",
+      "deadline": "2026-07-16T13:15:51.704331",
+      "status": "Active"
+    },
+    {
+      "id": "S-LONELY",
+      "description": "Epidemic of loneliness as national security risk",
+      "probability": 35,
+      "scp": 0.11,
+      "created": "2026-06-16T13:15:51.704345",
+      "deadline": "2026-07-16T13:15:51.704348",
+      "status": "Active"
+    },
+    {
+      "id": "C\u2011ESCAPE",
+      "description": "AI Containment Escape",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.704353",
+      "deadline": "2026-07-16T13:15:51.704355",
+      "status": "Active"
+    },
+    {
+      "id": "C\u2011ZERODAY",
+      "description": "AI\u2011Generated Zero\u2011Day Exploits",
+      "probability": 58,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.704360",
+      "deadline": "2026-07-16T13:15:51.704361",
+      "status": "Active"
+    },
+    {
+      "id": "C\u2011BIOWPN",
+      "description": "AI\u2011Generated Bioweapon Instructions",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.704366",
+      "deadline": "2026-07-16T13:15:51.704368",
+      "status": "Active"
+    },
+    {
+      "id": "C\u2011AILANG",
+      "description": "Autonomous AI Social Networks",
+      "probability": 38,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.704373",
+      "deadline": "2026-07-16T13:15:51.704374",
+      "status": "Active"
+    },
+    {
+      "id": "C\u2011DATACENTER\u2011RES",
+      "description": "AI Infrastructure Resource Tipping Point",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.704380",
+      "deadline": "2026-07-16T13:15:51.704381",
+      "status": "Active"
+    },
+    {
+      "id": "C\u2011MALWARE",
+      "description": "Miasma Supply\u2011Chain Worm",
+      "probability": 50,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.704386",
+      "deadline": "2026-07-16T13:15:51.704388",
+      "status": "Active"
+    },
+    {
+      "id": "C121T",
+      "description": "Taiwan Semiconductor Chokepoint",
+      "probability": 85,
+      "scp": 0.24,
+      "created": "2026-06-16T13:15:51.704392",
+      "deadline": "2026-07-16T13:15:51.704394",
+      "status": "Active"
+    },
+    {
+      "id": "C48T",
+      "description": "AI Deepfake Ops",
+      "probability": 68,
+      "scp": 0.2,
+      "created": "2026-06-16T13:15:51.704399",
+      "deadline": "2026-07-16T13:15:51.704400",
+      "status": "Active"
+    },
+    {
+      "id": "C96",
+      "description": "GPS Spoofing (Civil Aviation)",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.704405",
+      "deadline": "2026-07-16T13:15:51.704407",
+      "status": "Active"
+    },
+    {
+      "id": "C97",
+      "description": "Co\u2011orbital ASAT Threat",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704412",
+      "deadline": "2026-07-16T13:15:51.704413",
+      "status": "Active"
+    },
+    {
+      "id": "I11",
+      "description": "AI disinformation supercycle",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.704418",
+      "deadline": "2026-07-16T13:15:51.704419",
+      "status": "Active"
+    },
+    {
+      "id": "I12",
+      "description": "Deepfake WMD false flag risk",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.704424",
+      "deadline": "2026-07-16T13:15:51.704426",
+      "status": "Active"
+    },
+    {
+      "id": "T-BIO-INF",
+      "description": "AI\u2011powered bioinformatics as national security vulnerability",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.704431",
+      "deadline": "2026-07-16T13:15:51.704432",
+      "status": "Active"
+    },
+    {
+      "id": "T-LAWS",
+      "description": "Lethal autonomous weapons (LAWS) normative collapse",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704437",
+      "deadline": "2026-07-16T13:15:51.704439",
+      "status": "Active"
+    },
+    {
+      "id": "T-SYN-DNA",
+      "description": "DNA synthesis screening gap (voluntary only)",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.704443",
+      "deadline": "2026-07-16T13:15:51.704451",
+      "status": "Active"
+    },
+    {
+      "id": "T-AGENT",
+      "description": "Autonomous AI agents as persistence mechanism (Miasma variant)",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.704461",
+      "deadline": "2026-07-16T13:15:51.704463",
+      "status": "Active"
+    },
+    {
+      "id": "T-MISINFO",
+      "description": "Information ecosystem collapse as national security threat",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704468",
+      "deadline": "2026-07-16T13:15:51.704469",
+      "status": "Active"
+    },
+    {
+      "id": "I01I",
+      "description": "IHL collapse \u2013 starvation as weapon",
+      "probability": 78,
+      "scp": 0.22,
+      "created": "2026-06-16T13:15:51.704474",
+      "deadline": "2026-07-16T13:15:51.704475",
+      "status": "Active"
+    },
+    {
+      "id": "C2I",
+      "description": "Information Warfare",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.704489",
+      "deadline": "2026-07-16T13:15:51.704491",
+      "status": "Active"
+    },
+    {
+      "id": "C84I",
+      "description": "U.S. Electoral Integrity Breach",
+      "probability": 82,
+      "scp": 0.23,
+      "created": "2026-06-16T13:15:51.704497",
+      "deadline": "2026-07-16T13:15:51.704499",
+      "status": "Active"
+    },
+    {
+      "id": "I11I",
+      "description": "AI disinformation supercycle",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.704504",
+      "deadline": "2026-07-16T13:15:51.704506",
+      "status": "Active"
+    },
+    {
+      "id": "I12I",
+      "description": "Deepfake WMD false flag",
+      "probability": 55,
+      "scp": 0.17,
+      "created": "2026-06-16T13:15:51.704510",
+      "deadline": "2026-07-16T13:15:51.704512",
+      "status": "Active"
+    },
+    {
+      "id": "C19I",
+      "description": "Info\u2011civil unrest",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.704517",
+      "deadline": "2026-07-16T13:15:51.704518",
+      "status": "Active"
+    },
+    {
+      "id": "B02",
+      "description": "Bundibugyo Ebola",
+      "probability": 88,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.704523",
+      "deadline": "2026-07-16T13:15:51.704525",
+      "status": "Active"
+    },
+    {
+      "id": "C148",
+      "description": "Bundibugyo Ebola (duplicate)",
+      "probability": 88,
+      "scp": 0.25,
+      "created": "2026-06-16T13:15:51.704530",
+      "deadline": "2026-07-16T13:15:51.704531",
+      "status": "Active"
+    },
+    {
+      "id": "C94",
+      "description": "H5N1 Mammalian Adaptation",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.704536",
+      "deadline": "2026-07-16T13:15:51.704537",
+      "status": "Active"
+    },
+    {
+      "id": "C77",
+      "description": "U.S. Health Security Gaps",
+      "probability": 65,
+      "scp": 0.82,
+      "created": "2026-06-16T13:15:51.704542",
+      "deadline": "2026-07-16T13:15:51.704544",
+      "status": "Active"
+    },
+    {
+      "id": "A12",
+      "description": "Ebola \u2013 Bundibugyo",
+      "probability": 88,
+      "scp": 0.25,
+      "created": "2026-06-16T13:15:51.704549",
+      "deadline": "2026-07-16T13:15:51.704550",
+      "status": "Active"
+    },
+    {
+      "id": "A13",
+      "description": "Ebola cross\u2011border",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.704555",
+      "deadline": "2026-07-16T13:15:51.704556",
+      "status": "Active"
+    },
+    {
+      "id": "A14",
+      "description": "Mpox resurgence",
+      "probability": 35,
+      "scp": 0.11,
+      "created": "2026-06-16T13:15:51.704561",
+      "deadline": "2026-07-16T13:15:51.704563",
+      "status": "Active"
+    },
+    {
+      "id": "A15",
+      "description": "Marburg outbreak",
+      "probability": 30,
+      "scp": 0.1,
+      "created": "2026-06-16T13:15:51.704568",
+      "deadline": "2026-07-16T13:15:51.704570",
+      "status": "Active"
+    },
+    {
+      "id": "B-METABIO",
+      "description": "Convergent bio\u2011cyber threats (meta\u2011biothreats)",
+      "probability": 30,
+      "scp": 0.1,
+      "created": "2026-06-16T13:15:51.704575",
+      "deadline": "2026-07-16T13:15:51.704576",
+      "status": "Active"
+    },
+    {
+      "id": "B-AMR-KLEB",
+      "description": "Hypervirulent carbapenem\u2011resistant Klebsiella pneumoniae (hvKp ST23)",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.704582",
+      "deadline": "2026-07-16T13:15:51.704583",
+      "status": "Active"
+    },
+    {
+      "id": "B-DARK-PROTEIN",
+      "description": "AI\u2011designed undetectable toxins",
+      "probability": 45,
+      "scp": 0.14,
+      "created": "2026-06-16T13:15:51.704588",
+      "deadline": "2026-07-16T13:15:51.704590",
+      "status": "Active"
+    },
+    {
+      "id": "B-PANT-PIE",
+      "description": "Pantoea piersonii \u2013 emerging pathogen",
+      "probability": 35,
+      "scp": 0.11,
+      "created": "2026-06-16T13:15:51.704594",
+      "deadline": "2026-07-16T13:15:51.704596",
+      "status": "Active"
+    },
+    {
+      "id": "B-RNA",
+      "description": "AI\u2011generated vaccine\u2011evading pathogens",
+      "probability": 40,
+      "scp": 0.12,
+      "created": "2026-06-16T13:15:51.704601",
+      "deadline": "2026-07-16T13:15:51.704602",
+      "status": "Active"
+    },
+    {
+      "id": "C120",
+      "description": "IHL Framework Collapse",
+      "probability": 80,
+      "scp": 0.23,
+      "created": "2026-06-16T13:15:51.704607",
+      "deadline": "2026-07-16T13:15:51.704609",
+      "status": "Active"
+    },
+    {
+      "id": "C140",
+      "description": "Strait of Hormuz Legal Regime Erosion",
+      "probability": 75,
+      "scp": 0.22,
+      "created": "2026-06-16T13:15:51.704613",
+      "deadline": "2026-07-16T13:15:51.704615",
+      "status": "Active"
+    },
+    {
+      "id": "C142",
+      "description": "NPT Review Conference Regime Failure",
+      "probability": 72,
+      "scp": 0.21,
+      "created": "2026-06-16T13:15:51.704629",
+      "deadline": "2026-07-16T13:15:51.704631",
+      "status": "Active"
+    },
+    {
+      "id": "C77I",
+      "description": "U.S. Health Security Gaps",
+      "probability": 65,
+      "scp": 0.19,
+      "created": "2026-06-16T13:15:51.704637",
+      "deadline": "2026-07-16T13:15:51.704639",
+      "status": "Active"
+    },
+    {
+      "id": "I02",
+      "description": "War crime designation for ship attacks",
+      "probability": 50,
+      "scp": 0.15,
+      "created": "2026-06-16T13:15:51.704644",
+      "deadline": "2026-07-16T13:15:51.704651",
+      "status": "Active"
+    },
+    {
+      "id": "I03",
+      "description": "NPT failure \u2013 third consecutive",
+      "probability": 75,
+      "scp": 0.22,
+      "created": "2026-06-16T13:15:51.704661",
+      "deadline": "2026-07-16T13:15:51.704663",
+      "status": "Active"
+    },
+    {
+      "id": "I17",
+      "description": "UN Security Council paralysis",
+      "probability": 60,
+      "scp": 0.18,
+      "created": "2026-06-16T13:15:51.704668",
+      "deadline": "2026-07-16T13:15:51.704669",
+      "status": "Active"
+    },
+    {
+      "id": "C145I",
+      "description": "Iran\u2011Oman transit fee precedent",
+      "probability": 78,
+      "scp": 0.22,
+      "created": "2026-06-16T13:15:51.704694",
+      "deadline": "2026-07-16T13:15:51.704696",
+      "status": "Active"
+    },
+    {
+      "id": "I10",
+      "description": "US Media Collapse",
+      "probability": 75,
+      "scp": 0.95,
+      "created": "2026-06-16T13:15:51.704701",
+      "deadline": "2026-07-16T13:15:51.704702",
       "status": "Active"
     }
   ],
   "watchlist": [],
   "stats": {
-    "confirmed": 0,
+    "confirmed": 1,
     "falsified": 0,
-    "hit_rate": 95.0,
-    "pending": 206,
+    "hit_rate": 100.0,
+    "pending": 205,
     "watchlist": 0
   },
-  "last_updated": "2026-06-16T12:48:04.025720"
+  "last_updated": "2026-06-16T13:16:11.760493",
+  "history": [
+    {
+      "timestamp": "2026-06-16T13:15:51.704720",
+      "action": "auto_generate",
+      "new_predictions": 186,
+      "pending_count": 206,
+      "hit_rate": 0
+    }
+  ]
 }
