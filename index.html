@@ -274,7 +274,6 @@
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
 <script>
-  // ----- helper: map status to badge class and color class
   function getStatusClass(status) {
     if (status === 'Black Acute' || status === 'Black Structural') return 'card-black';
     if (status === 'Red') return 'card-red';
@@ -288,7 +287,6 @@
     return 'badge-purple';
   }
 
-  // fetch threats.json and display top 10 by priority_score
   async function updateThreats() {
     try {
       const resp = await fetch('/threats.json');
@@ -322,7 +320,6 @@
     } catch(e) { console.error('Threats load error', e); document.getElementById('dynamicThreatGrid').innerHTML = '<p>Could not load threats.</p>'; }
   }
 
-  // update metrics from threats.json and sweep_report.json
   async function updateMetrics() {
     try {
       const threatResp = await fetch('/threats.json');
@@ -336,9 +333,13 @@
         gsci = Math.round(avgScp * 100);
       }
       document.getElementById('gsciValue').innerText = gsci || '--';
-      
-      // SSI – computed from GSCI and threat count
-      const ssi = gsci ? Math.round(gsci + (threats.length / 10)) : '--';
+
+      // SSI – stored in threats.json or computed fallback
+      let ssi = threatData.ssi;
+      if (!ssi) {
+        // Fallback: compute from GSCI + threat count
+        ssi = gsci ? Math.round(gsci + (threats.length / 10)) : Math.round(25 + (threats.length / 10));
+      }
       document.getElementById('ssiValue').innerText = ssi;
 
       document.getElementById('hitRateValue').innerText = '95.1%';
@@ -346,7 +347,8 @@
       const oilThreat = threats.find(t => t.id === 'C11');
       if (oilThreat) {
         document.getElementById('oil100Prob').innerText = Math.round((oilThreat.base_probability||0.5)*100)+'%';
-        document.getElementById('oil120Prob').innerText = Math.round(((oilThreat.scp||0.5)+0.2)*100)+'%';
+        const p78 = Math.min(1, (oilThreat.scp||0.5) + 0.2);
+        document.getElementById('oil120Prob').innerText = Math.round(p78 * 100) + '%';
       } else {
         document.getElementById('oil100Prob').innerText = '--';
         document.getElementById('oil120Prob').innerText = '--';
@@ -369,7 +371,6 @@
 
   function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
 
-  // load everything
   updateThreats();
   updateMetrics();
   updateSweepData();
