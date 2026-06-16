@@ -1,4 +1,4 @@
-# Ground Truth Summary – 2026-06-16T17:39:34.453066+00:00
+# Ground Truth Summary – 2026-06-16T17:47:14.516676+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
@@ -25,7 +25,7 @@
 **Sky News**:
 - Boy accused of murdering girl, 9, said he had to get away from police, court told
 - Social media ban would have stopped me quitting, says Jess Phillips
-- Pictured: Woman charged over Wimbledon school crash that left two girls dead
+- Russian artist who criticised Putin is shot dead
 
 **NHK World**:
 - 高市首相 トランプ氏と懇談 中東情勢で意見交わす 仏G7会場で
@@ -33,7 +33,7 @@
 - 日銀 利上げ決定 政策金利1％程度に “物価上昇リスクに対応”
 
 **Times of India**:
-- How Qatar, not Pakistan, became the real power broker in US-Iran deal
+- To Tehran with love? Trump's Iran MoU meets MAGA mutiny
 - US used Iran-style covert transfers to move 90 million barrels of oil out of Gulf: Report
 - 'If everyone in this country ... ': CJP founder Abhijeet Dipke clears stance on fighting polls
 
