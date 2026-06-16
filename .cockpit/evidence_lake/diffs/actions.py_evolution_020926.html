@@ -1,0 +1,85 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+    body { font-family: "Courier New", monospace; background-color: #0f172a; color: #f8fafc; }
+    table.diff { width: 100%; border-collapse: collapse; }
+    table.diff th { background-color: #1e293b; padding: 10px; border: 1px solid #334155; }
+    table.diff td { padding: 4px 8px; border: 1px solid #334155; }
+    .diff_add { background-color: #064e3b; }
+    .diff_chg { background-color: #422006; }
+    .diff_sub { background-color: #7f1d1d; }
+
+        table.diff {font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace; border:medium}
+        .diff_header {background-color:#e0e0e0}
+        td.diff_header {text-align:right}
+        .diff_next {background-color:#c0c0c0}
+        .diff_add {background-color:#aaffaa}
+        .diff_chg {background-color:#ffff77}
+        .diff_sub {background-color:#ffaaaa}
+    </style>
+</head>
+
+<body>
+    
+    <table class="diff" id="difflib_chg_to3__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">Original: actions.py</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">Evolved: actions.py</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next"><a href="#difflib_chg_to3__0">f</a></td><td class="diff_header" id="from3_1">1</td><td nowrap="nowrap">#!/usr/bin/env&nbsp;python3</td><td class="diff_next"><a href="#difflib_chg_to3__0">f</a></td><td class="diff_header" id="to3_1">1</td><td nowrap="nowrap">#!/usr/bin/env&nbsp;python3</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_2">2</td><td nowrap="nowrap">import&nbsp;subprocess</td><td class="diff_next"></td><td class="diff_header" id="to3_2">2</td><td nowrap="nowrap">import&nbsp;subprocess</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_3">3</td><td nowrap="nowrap">import&nbsp;logging</td><td class="diff_next"></td><td class="diff_header" id="to3_3">3</td><td nowrap="nowrap">import&nbsp;logging</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_4">4</td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to3_4">4</td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_5">5</td><td nowrap="nowrap">class&nbsp;ActionExecutor:</td><td class="diff_next"></td><td class="diff_header" id="to3_5">5</td><td nowrap="nowrap">class&nbsp;ActionExecutor:</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_6">6</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;execute(self,&nbsp;action_name:&nbsp;str,&nbsp;context:&nbsp;dict):</td><td class="diff_next"></td><td class="diff_header" id="to3_6">6</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;execute(self,&nbsp;action_name:&nbsp;str,&nbsp;context:&nbsp;dict):</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_7">7</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method&nbsp;=&nbsp;getattr(self,&nbsp;action_name,&nbsp;None)</td><td class="diff_next"></td><td class="diff_header" id="to3_7">7</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method&nbsp;=&nbsp;getattr(self,&nbsp;action_name,&nbsp;None)</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_8">8</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;method:</td><td class="diff_next"></td><td class="diff_header" id="to3_8">8</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;method:</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_9">9</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;ValueError(f"Unknown&nbsp;action:&nbsp;{action_name}")</td><td class="diff_next"></td><td class="diff_header" id="to3_9">9</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;ValueError(f"Unknown&nbsp;action:&nbsp;{action_name}")</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_10">10</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logging.info(f"Executing:&nbsp;{action_name}")</td><td class="diff_next"></td><td class="diff_header" id="to3_10">10</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logging.info(f"Executing:&nbsp;{action_name}")</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_11">11</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;method(context)</td><td class="diff_next"></td><td class="diff_header" id="to3_11">11</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;method(context)</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_12">12</td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to3_12">12</td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_13">13</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;generate_daily_summary_markdown(self,&nbsp;context):</td><td class="diff_next"></td><td class="diff_header" id="to3_13">13</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;generate_daily_summary_markdown(self,&nbsp;context):</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_14">14</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;subprocess.run(</td><td class="diff_next"></td><td class="diff_header" id="to3_14">14</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;subprocess.run(</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_15">15</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;["python3",&nbsp;"daily_sweep.py"],</td><td class="diff_next"></td><td class="diff_header" id="to3_15">15</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;["python3",&nbsp;"daily_sweep.py"],</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_16">16</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;capture_output=True,</td><td class="diff_next"></td><td class="diff_header" id="to3_16">16</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;capture_output=True,</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_17">17</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text=True,</td><td class="diff_next"></td><td class="diff_header" id="to3_17">17</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text=True,</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_18">18</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cwd=".."</td><td class="diff_next"></td><td class="diff_header" id="to3_18">18</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cwd=".."</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_19">19</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</td><td class="diff_next"></td><td class="diff_header" id="to3_19">19</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_20">20</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;{"success":&nbsp;result.returncode&nbsp;==&nbsp;0}</td><td class="diff_next"></td><td class="diff_header" id="to3_20">20</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;{"success":&nbsp;result.returncode&nbsp;==&nbsp;0}</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_21">21</td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to3_21">21</td><td nowrap="nowrap"></td></tr>
+            <tr><td class="diff_next" id="difflib_chg_to3__0"></td><td class="diff_header" id="from3_22">22</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;flag_duplicate_report(self,&nbsp;context):</td><td class="diff_next"></td><td class="diff_header" id="to3_22">22</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;flag_duplicate_report(self,&nbsp;context):</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_23">23</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logging.info(f"Flagging&nbsp;duplicate&nbsp;report:&nbsp;{context.get('report_id')}")</td><td class="diff_next"></td><td class="diff_header" id="to3_23">23</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logging.info(f"Flagging&nbsp;duplicate&nbsp;report:&nbsp;{context.get('report_id')}")</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from3_24">24</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;{"flagged":&nbsp;True}</td><td class="diff_next"></td><td class="diff_header" id="to3_24">24</td><td nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;{"flagged":&nbsp;True}</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to3__top">t</a></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"><a href="#difflib_chg_to3__top">t</a></td><td class="diff_header" id="to3_25">25</td><td nowrap="nowrap"><span class="diff_add">class&nbsp;ActionRouter:</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to3_26">26</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;&nbsp;&nbsp;'''Separation&nbsp;of&nbsp;Concerns:&nbsp;Routes&nbsp;instructions&nbsp;instead&nbsp;of&nbsp;monolithic&nbsp;tool&nbsp;calling.'''</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to3_27">27</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;route(self,&nbsp;intent:&nbsp;str):</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to3_28">28</td><td nowrap="nowrap"><span class="diff_add">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass</span></td></tr>
+        </tbody>
+    </table>
+    <table class="diff" summary="Legends">
+        <tr> <th colspan="2"> Legends </th> </tr>
+        <tr> <td> <table border="" summary="Colors">
+                      <tr><th> Colors </th> </tr>
+                      <tr><td class="diff_add">&nbsp;Added&nbsp;</td></tr>
+                      <tr><td class="diff_chg">Changed</td> </tr>
+                      <tr><td class="diff_sub">Deleted</td> </tr>
+                  </table></td>
+             <td> <table border="" summary="Links">
+                      <tr><th colspan="2"> Links </th> </tr>
+                      <tr><td>(f)irst change</td> </tr>
+                      <tr><td>(n)ext change</td> </tr>
+                      <tr><td>(t)op</td> </tr>
+                  </table></td> </tr>
+    </table>
+</body>
+
+</html>

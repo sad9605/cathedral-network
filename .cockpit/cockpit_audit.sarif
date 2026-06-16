@@ -1,0 +1,314 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "AgentOps Cockpit"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "optimization:_implement",
+          "message": {
+            "text": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "optimization:_implement",
+          "message": {
+            "text": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "optimization:_add_session",
+          "message": {
+            "text": ""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "policy_blindness:_implicit_governance",
+          "message": {
+            "text": "Generic best practice upgrade recommended for 5 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/monte_carlo.py...)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Core Enhancements"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "asi-02:_cockpit_gap",
+          "message": {
+            "text": "Generic best practice upgrade recommended for 3 files (/home/sad9605/cathedral-core/tsf_forecast.py, /home/sad9605/cathedral-core/cascade_engine.py...)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Core Enhancements"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "missing_5th_golden_signal",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/tsf_forecast.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "credential_risk:_shadow",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/cascade_engine.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "asi-04:_tool",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/cascade_engine.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "asi-04:_tool",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/agentic/actions.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "policy_blindness:",
+          "message": {
+            "text": "Generic best practice upgrade recommended for 3 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/agentic/policy.py...)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Core Enhancements"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "missing_5th_golden",
+          "message": {
+            "text": "Generic best practice upgrade recommended for 11 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/repair_threats.py...)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Core Enhancements"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "\ud83c\udfdb\ufe0f_structural_monolith",
+          "message": {
+            "text": "Generic best practice upgrade recommended for 3 files (/home/sad9605/cathedral-core/cascade_engine.py, /home/sad9605/cathedral-core/daily-sweep.py...)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Core Enhancements"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "policy_blindness:_implicit",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/monte_carlo.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "missing_5th_golden_signal",
+          "message": {
+            "text": "Generic best practice upgrade recommended for 6 files (/home/sad9605/cathedral-core/monte_carlo.py, /home/sad9605/cathedral-core/daily_sweep.py...)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Core Enhancements"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "credential_risk:_shadow",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "asi-01:_untrusted_context",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/daily-sweep.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "policy",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/crisis_simulation_engine.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "missing_5th",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/crisis_simulation_engine.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "missing_5th",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/agentic/policy_engine.py:1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "asi-01:_untrusted",
+          "message": {
+            "text": "Structural Enhancement."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/home/sad9605/cathedral-core/tsf_prototype.py:1"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

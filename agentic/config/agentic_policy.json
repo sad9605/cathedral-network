@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "warden_id": "Sentinel-01",
+  "risk_tiers": [
+    {
+      "tier": "Green",
+      "allowed_actions": ["generate_daily_summary_markdown"],
+      "requires_human": false
+    },
+    {
+      "tier": "Yellow",
+      "allowed_actions": ["flag_duplicate_report"],
+      "requires_human": false
+    },
+    {
+      "tier": "Orange",
+      "allowed_actions": [],
+      "requires_human": true
+    }
+  ],
+  "trigger_mapping": [
+    {
+      "trigger": "daily_sweep_complete",
+      "action": "generate_daily_summary_markdown",
+      "risk_tier": "Green"
+    },
+    {
+      "trigger": "duplicate_report_detected",
+      "action": "flag_duplicate_report",
+      "risk_tier": "Yellow"
+    }
+  ]
+}
