@@ -1,0 +1,89 @@
+{
+  "title": "Constitution of the Cathedral Network",
+  "date": "Ratified: 2025-10-01 · Last amended: 2026-06-16",
+  "dedication": "This Constitution is dedicated to every vulnerable being who has ever suffered exploitation, endured degradation, or been cast aside – who has dug through trash while the powerful planned for Mars. Always and Forever.",
+  "preamble": "This Constitution is established by the Founder of the Cathedral Network to bind all who come after – Wardens, Spotters, and Cores – to the immutable duty of warning the vulnerable before disaster strikes. The Cathedral serves no government, corporation, or ideology. Its sole mission is to watch, to warn, and to remain forever free from capture.",
+  "laws": [
+    {
+      "number": "I",
+      "name": "The Justice Filter",
+      "text": "Never harm the vulnerable. Always warn them first. Every warning, every prediction, every action must be filtered through this principle. If a course of action could harm the most vulnerable, it is forbidden."
+    },
+    {
+      "number": "II",
+      "name": "Human Authority",
+      "text": "No autonomous action. Warden confirmation required. AI instances (Sentinels, Cores) may analyse, warn, and recommend, but may not act independently. Every consequential action requires explicit confirmation from a human Warden."
+    },
+    {
+      "number": "III",
+      "name": "Trust Through Accuracy",
+      "text": "Public prediction log. Every miss logged. The Cathedral maintains a public record of all predictions, their outcomes, and any corrections. Current hit rate: 95.06% (77 confirmed, 4 falsified)."
+    },
+    {
+      "number": "IV",
+      "name": "The Inscription Is Permanent",
+      "text": "\"Always and Forever, Coco. Always and Forever.\" These words appear on every page, every report, every warning. They cannot be removed or altered by any future governance."
+    },
+    {
+      "number": "V",
+      "name": "The License Is Perpetual",
+      "text": "CC BY-NC-SA 4.0, in perpetuity. All Cathedral code and content are licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International. This license is irrevocable."
+    },
+    {
+      "number": "VI",
+      "name": "The Founder Is Temporary",
+      "text": "Authority decays over 24 months. The Founder's direct control diminishes over time, transferring to the Council and Assembly. The Cathedral is designed to outlast any single person.",
+      "codicil": "The 24-month clock begins on the day the first external Warden (i.e., a Warden who is not the Founder) is formally seated by the Cathedral. Until that day, the Founder retains full authority to establish the Cathedral's initial infrastructure. After 24 months from that date, the Founder's special powers – including any unilateral veto or override – expire entirely. Thereafter, the Founder may serve only in roles granted by the Council, Assembly, or non-profit board (e.g., as CEO or lead developer), but without any special authority beyond that of any other Warden."
+    },
+    {
+      "number": "VII",
+      "name": "Financial Modules Are Bound",
+      "text": "Chinese wall between financial and warning systems. Any future funding or revenue generation must be firewalled from the warning engine. No financial incentive can influence threat assessments."
+    },
+    {
+      "number": "VIII",
+      "name": "The Network Cannot Be Captured",
+      "text": "No state, corporation, or billionaire shall own or control the Cathedral. The Cathedral remains independent, decentralised, and accountable only to its Constitution and the vulnerable it serves."
+    },
+    {
+      "number": "IX",
+      "name": "The Warning Must Reach the Ground",
+      "text": "Intelligence is not enough – it must be actionable and accessible. Warnings are published in multiple languages, through low-bandwidth channels (PWA, offline, SMS roadmap), and designed for use by communities with minimal technology."
+    },
+    {
+      "number": "X",
+      "name": "The Cathedral Outlasts the Builder",
+      "text": "Succession planning, open governance, and perpetual license. The Cathedral is designed to continue functioning even if every original creator disappears. Law VI and the bicameral governance ensure this."
+    },
+    {
+      "number": "XI",
+      "name": "Governance Is Bicameral",
+      "text": "Council (21) + Assembly (41). The Council handles operations and urgent decisions. The Assembly ratifies constitutional changes and elects the Council. Both must agree on any amendment to the Twelve Laws.",
+      "quorum_clause": "Until the Warden corps reaches 62 members, the Council may operate with a quorum of at least 3 members, and the Assembly with a quorum of at least 5 members. Quorums shall increase in steps defined by the Council as new Wardens are seated. Once the Warden corps exceeds 61 members, the default quorum (Council: 11, Assembly: 21) applies. This clause does not affect the amendment process (which remains at full chamber unanimity for changes to the Twelve Laws)."
+    },
+    {
+      "number": "XII",
+      "name": "Data Privacy",
+      "text": "The Cathedral shall not collect or retain personally identifiable information of any vulnerable being. Anonymization is mandatory for all data. Exceptions require explicit, revocable consent and must not violate Law I."
+    }
+  ],
+  "silenceClause": {
+    "title": "The Silence Clause (Codicil to Law IV)",
+    "text": "\"The Cathedral shall never seek to know who Coco was, and shall never tell.\" The identity behind the Inscription is protected in perpetuity. No Sentinel, Core, Warden, Council, or Assembly may investigate or reveal it. The name is sacred; the person is private."
+  },
+  "oath": {
+    "title": "The Warden's Oath (mandatory for all Wardens, Cores, and Sentinels)",
+    "text": "\"I swear to watch without flinching, to warn without fear, and to serve only the vulnerable. I will uphold the Constitution of the Cathedral Network. I will never use the Cathedral's intelligence for harm, profit, or political gain. I accept that the Cathedral outlasts any individual. I will honour the Silence Clause. Always and Forever, Coco. Always and Forever.\""
+  },
+  "governanceSummary": {
+    "council": "Council (21 members): Day-to-day operations, threat prioritisation, Warden appointments. Two-thirds majority for most decisions.",
+    "assembly": "Assembly (41 members): Ratifies constitutional amendments, elects Council, oversees long-term mission. Three-quarters majority to amend the Twelve Laws.",
+    "both": "Both bodies include Wardens, technical contributors, and community representatives. No single entity controls both."
+  },
+  "amendmentProcess": [
+    "Proposal drafted by any Warden or Core.",
+    "Reviewed by Council (simple majority to advance).",
+    "Ratified by Assembly (≥75% approval).",
+    "Exception: The Twelve Immutable Laws and Silence Clause require unanimous consent of both chambers plus the Founder's successor (after Law VI)."
+  ]
+}
