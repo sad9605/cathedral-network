@@ -66,16 +66,8 @@
       box-shadow: var(--shadow-sm);
     }
     body.dark .nav { background: #2a2a3a; }
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: #5e2d8e;
-      text-decoration: none;
-      font-weight: 500;
-    }
+    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
     body.dark .nav-links a { color: #b39ddb; }
     .menu-btn {
       display: none;
@@ -189,19 +181,19 @@
   <div class="nav">
     <button class="menu-btn" id="menuBtn">☰</button>
     <div class="nav-links" id="navLinks">
-      <a href='index.html'>Ground Truth</a>
-      <a href='undp-demo.html'>UNDP Demo</a>
-      <a href='archive.html'>Archive</a>
-      <a href='spotter.html'>Spotter Guide</a>
-      <a href='sources.html'>Sources</a>
-      <a href='constitution.html'>Constitution</a>
-      <a href='wardens.html'>Wardens</a>
-      <a href='hewd.html'>HEWD Dashboard</a>
-      <a href='about.html'>About</a>
-      <a href='threat-matrix.html'>Threat Matrix</a>
-      <a href='glossary.html'>Glossary</a>
-      <a href='pra.html'>Personal Resilience</a>
-      <a href='prediction-log.html'>Prediction Log</a>
+      <a href="index.html">Ground Truth</a>
+      <a href="undp-demo.html">UNDP Demo</a>
+      <a href="archive.html">Archive</a>
+      <a href="spotter.html">Spotter Guide</a>
+      <a href="sources.html">Sources</a>
+      <a href="constitution.html">Constitution</a>
+      <a href="wardens.html">Wardens</a>
+      <a href="hewd.html">HEWD Dashboard</a>
+      <a href="about.html">About</a>
+      <a href="threat-matrix.html">Threat Matrix</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="pra.html">Personal Resilience</a>
+      <a href="prediction-log.html">Prediction Log</a>
     </div>
   </div>
 
@@ -250,38 +242,32 @@
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
 <script>
-  // --- Load predictions from JSON ---
   async function loadPredictions() {
     try {
-      const resp = await fetch('/predictions.json');
+      const resp = await fetch('predictions.json');
       const data = await resp.json();
 
-      // Update stats
       document.getElementById('confirmedCount').textContent = data.stats.confirmed;
       document.getElementById('falsifiedCount').textContent = data.stats.falsified;
       document.getElementById('hitRate').textContent = data.stats.hit_rate + '%';
       document.getElementById('pendingCount').textContent = data.stats.pending;
       document.getElementById('watchlistCount').textContent = data.stats.watchlist;
 
-      // Confirmed
       const confirmedBody = document.getElementById('confirmedBody');
       confirmedBody.innerHTML = data.confirmed.map(p => `
         <tr class="confirmed-row"><td>${p.id}</td><td>${p.description}</td><td>${p.date}</td></tr>
       `).join('');
 
-      // Falsified
       const falsifiedBody = document.getElementById('falsifiedBody');
       falsifiedBody.innerHTML = data.falsified.map(p => `
         <tr class="falsified-row"><td>${p.id}</td><td>${p.description}</td><td>${p.date}</td><td>${p.reason}</td></tr>
       `).join('');
 
-      // Pending
       const pendingBody = document.getElementById('pendingBody');
       pendingBody.innerHTML = data.pending.map(p => `
         <tr class="active-row"><td>${p.id}</td><td>${p.description}</td><td>${p.probability}%</td><td>${p.horizon}</td><td><span class="badge badge-active">${p.status}</span></td></tr>
       `).join('');
 
-      // Watchlist
       const watchlistBody = document.getElementById('watchlistBody');
       watchlistBody.innerHTML = data.watchlist.map(p => `
         <tr class="watchlist-row"><td>${p.id}</td><td>${p.description}</td><td>${p.probability}%</td><td>${p.trigger}</td></tr>
@@ -298,7 +284,6 @@
 
   loadPredictions();
 
-  // --- Navigation and dark mode (unchanged) ---
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
@@ -316,8 +301,8 @@
     darkToggle.innerText = isDark ? '☀️' : '🌙';
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js').catch(e => console.warn('SW failed', e));
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js').catch(e => console.warn('SW failed', e));
 </script>
-<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
