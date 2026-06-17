@@ -1,4 +1,4 @@
-# Ground Truth Summary – 2026-06-17T18:32:21.488290+00:00
+# Ground Truth Summary – 2026-06-17T18:44:38.278444+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
@@ -28,7 +28,7 @@
 - Serial killer who murdered eight women in US sentenced
 
 **NHK World**:
-- 【ライブ予定】米FRB 政策金利据え置き 新議長が記者会見へ
+- 【ライブ配信】米FRB 政策金利据え置き 新議長が記者会見
 - G7サミット最終日 経済・AIなど議論し閉幕
 - 食料品の消費税 来年4月から1％ 所得連動給付で“実質ゼロ”案
 

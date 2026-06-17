@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-cathedral_system.py – Cathedral Network Orchestrator
-Runs the full mathematical pipeline with all integrated modules.
+cathedral_system.py – Cathedral Network Full Orchestrator
+Runs the complete mathematical pipeline with all modules activated.
 """
 
 import json
@@ -18,7 +18,9 @@ from cathedral_math import (
     compute_sca_tier,
     bayesian_log_odds,
     compute_scp_linear,
-    temporal_baseline_anomaly
+    temporal_baseline_anomaly,
+    nts_band,
+    das_band
 )
 
 # Indices
@@ -30,14 +32,21 @@ from early_warning import generate_early_warning_report
 # AI thermoregulation
 from arifos_floors import arifOS
 
-# Financial module (optional – for future use)
+# Financial module
 from keem import kelly_fraction, implied_volatility_filter, adaptive_slippage
 
 # Archive generation
 from generate_archive import generate_archive
 
-# ----------------------------------------------------------------------
-# Utility functions
+# Prediction generation
+from generate_predictions import generate_predictions
+
+# Sources update
+from update_sources import update_sources
+
+# Git commit/push
+from git_commit_push import git_commit_push
+
 def load_json(filepath):
     if Path(filepath).exists():
         with open(filepath, 'r') as f:
@@ -57,7 +66,7 @@ def run_module(module_name):
             text=True
         )
         if result.returncode != 0:
-            print(f"⚠️ {module_name} failed: {result.stderr}")
+            print(f"⚠️ {module_name} failed: {result.stderr[:200]}")
             return False
         print(f"✅ {module_name} completed")
         return True
@@ -65,89 +74,115 @@ def run_module(module_name):
         print(f"⚠️ {module_name} error: {e}")
         return False
 
-# ----------------------------------------------------------------------
 def main():
-    print("🏛️ Cathedral System – Full Pipeline\n")
+    print("🏛️ Cathedral System – Full Pipeline (All Modules Active)\n")
     
-    # 1. Run daily sweep
+    # ------------------------------------------------------------------
+    # 1. Daily OSINT Sweep
     print("📡 Running OSINT sweep...")
     run_module("daily-sweep.py")
     
-    # 2. Run TSF
+    # ------------------------------------------------------------------
+    # 2. TSF Forecasting
     print("📈 Running TSF forecast...")
     run_module("tsf_prototype.py")
     
-    # 3. AI thermoregulation (arifOS)
-    print("🌡️ Running arifOS floors...")
+    # ------------------------------------------------------------------
+    # 3. AI Thermoregulation (arifOS)
+    print("🌡️ Running arifOS floors (AI thermoregulation)...")
     try:
         arifos = arifOS()
         adjustment = arifos.adjust_policy()
-        print(f"✅ arifOS applied: {adjustment.get('load_level', 'unknown')} load")
+        print(f"✅ arifOS applied: {adjustment['load_level']} load, confidence floor: {adjustment['confidence_floor']}")
     except Exception as e:
         print(f"⚠️ arifOS failed: {e}")
     
-    # 4. Run cascade engine
+    # ------------------------------------------------------------------
+    # 4. Cascade Engine
     print("⚙️ Running cascade engine...")
     run_module("cascade_engine.py")
     
-    # 5. Compute additional math metrics
+    # ------------------------------------------------------------------
+    # 5. Load threats for math processing
     print("🧮 Computing mathematical indices...")
     threats_data = load_json("threats.json")
     threats = threats_data.get('threats', [])
     
-    if threats:
-        # Compute SSI
-        ssi = compute_ssi(threats)
-        ds = compute_ds(threats)
-        
-        # Compute SCA tier
-        cascade_log = load_json("cascade_log.json")
-        sca_tier = compute_sca_tier(len(cascade_log))
-        
-        # Update threats.json with new metrics
-        threats_data['ssi'] = ssi
-        threats_data['ds'] = ds
-        threats_data['sca_tier'] = sca_tier['tier']
-        threats_data['sca_label'] = sca_tier['label']
-        threats_data['sca_count'] = sca_tier['count']
-        threats_data['last_updated'] = datetime.now().isoformat()
-        
-        save_json(threats_data, "threats.json")
-        print(f"✅ SSI: {ssi:.2f}, DS: {ds}, SCA Tier: {sca_tier['tier']} ({sca_tier['label']})")
-    else:
-        print("⚠️ No threats found in threats.json")
+    # Compute core metrics
+    ssi = compute_ssi(threats)
+    ds = compute_ds(threats)
+    gsci = compute_gsci([t.get('scp', 0) * 100 for t in threats])
     
-    # 6. Generate regional indices
+    # SCA tier
+    cascade_log = load_json("cascade_log.json")
+    sca_tier = compute_sca_tier(len(cascade_log))
+    
+    # Update threats.json with new metrics
+    threats_data['ssi'] = round(ssi, 2)
+    threats_data['ds'] = ds
+    threats_data['gsci'] = round(gsci, 2)
+    threats_data['sca_tier'] = sca_tier['tier']
+    threats_data['sca_label'] = sca_tier['label']
+    threats_data['sca_count'] = sca_tier['count']
+    threats_data['last_updated'] = datetime.now().isoformat()
+    
+    save_json(threats_data, "threats.json")
+    print(f"✅ SSI: {ssi:.2f}, DS: {ds}, GSCI: {gsci:.2f}")
+    print(f"✅ SCA Tier: {sca_tier['tier']} ({sca_tier['label']})")
+    
+    # ------------------------------------------------------------------
+    # 6. Regional Indices
     print("🌍 Generating regional indices...")
     generate_regional_indices()
     
-    # 7. Generate early warning report
+    # ------------------------------------------------------------------
+    # 7. Early Warning Report
     print("🚨 Generating early warning report...")
     early_report = generate_early_warning_report(threats)
     save_json(early_report, "early_warning_report.json")
+    print(f"✅ Anomalies detected: {early_report.get('anomaly_count', 0)}")
     
-    # 8. Generate archive
+    # ------------------------------------------------------------------
+    # 8. Archive Generation
     print("📁 Generating archive...")
     generate_archive()
     
-    # 9. Generate predictions
+    # ------------------------------------------------------------------
+    # 9. Prediction Log Generation
     print("📋 Generating prediction log...")
-    run_module("generate_predictions.py")
+    generate_predictions()
     
-    # 10. Update sources
+    # ------------------------------------------------------------------
+    # 10. Sources Update
     print("📡 Updating sources...")
-    run_module("update_sources.py")
+    update_sources()
     
-    # 11. Git commit and push
+    # ------------------------------------------------------------------
+    # 11. Financial Module (optional – logs only)
+    print("💹 Running financial module (KEEM)...")
+    try:
+        # Sample calculation for demonstration
+        kelly = kelly_fraction(0.65, 0.50)
+        print(f"✅ Kelly fraction: {kelly:.4f}")
+    except Exception as e:
+        print(f"⚠️ KEEM error: {e}")
+    
+    # ------------------------------------------------------------------
+    # 12. Unconventional Modules (run separately if needed)
+    print("🔄 Unconventional modules ready – run unconventional_orchestrator.py separately")
+    
+    # ------------------------------------------------------------------
+    # 13. Git Commit and Push
     print("📤 Committing and pushing updates...")
-    run_module("git_commit_push.py")
+    git_commit_push()
     
-    # 12. Final status
+    # ------------------------------------------------------------------
     print("\n✅ Cathedral system pipeline complete")
-    print(f"   SSI: {threats_data.get('ssi', 0):.2f}")
-    print(f"   DS: {threats_data.get('ds', 0)}")
-    print(f"   SCA Tier: {threats_data.get('sca_label', 'Unknown')}")
-    print(f"   GSCI: {threats_data.get('gsci', 0):.2f}")
+    print(f"   SSI: {ssi:.2f}")
+    print(f"   DS: {ds}")
+    print(f"   SCA Tier: {sca_tier['label']}")
+    print(f"   GSCI: {gsci:.2f}")
+    print(f"   Anomalies: {early_report.get('anomaly_count', 0)}")
 
 if __name__ == "__main__":
     main()

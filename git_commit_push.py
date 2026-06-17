@@ -7,20 +7,20 @@ import subprocess
 import sys
 from datetime import datetime
 
-def git_command(args):
-    """Run a git command and return output."""
-    try:
-        result = subprocess.run(
-            ['git'] + args,
-            capture_output=True,
-            text=True,
-            check=False
-        )
-        return result.returncode == 0, result.stdout, result.stderr
-    except Exception as e:
-        return False, '', str(e)
-
-def main():
+def git_commit_push():
+    """Commit and push all changes."""
+    def git_command(args):
+        try:
+            result = subprocess.run(
+                ['git'] + args,
+                capture_output=True,
+                text=True,
+                check=False
+            )
+            return result.returncode == 0, result.stdout, result.stderr
+        except Exception as e:
+            return False, '', str(e)
+    
     # Check if there are changes
     success, stdout, stderr = git_command(['status', '--porcelain'])
     if not success:
@@ -53,4 +53,4 @@ def main():
     print("✅ Changes committed and pushed")
 
 if __name__ == "__main__":
-    main()
+    git_commit_push()

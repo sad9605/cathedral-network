@@ -1,6 +1,6 @@
 {
   "version": "2.1",
-  "last_updated": "2026-06-17T18:06:34.647744+00:00",
+  "last_updated": "2026-06-17T13:33:10.208693",
   "threats": [
     {
       "id": "C01",
@@ -17,7 +17,7 @@
       "das": 56.249999999999986,
       "notes": "Direct US\u2011Iran strikes; Iran closed Strait of Hormuz; oil price spike.",
       "priority_score": 100,
-      "delta_contribution": 1.2,
+      "delta_contribution": 1.4000000000000001,
       "das_band": "Anomalous"
     },
     {
@@ -27,9 +27,9 @@
         "Geopolitical"
       ],
       "status": "Black Acute",
-      "scp": 0.12952020075922566,
+      "scp": 0.11730951082784269,
       "base_probability": 0.8,
-      "das": 46.30997490509679,
+      "das": 47.83631114651966,
       "notes": "US third wave strikes; IRGC retaliation; direct military exchanges.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -43,9 +43,9 @@
         "Supply Chains"
       ],
       "status": "Black Acute",
-      "scp": 0.14018657023351483,
+      "scp": 0.12697029407248855,
       "base_probability": 0.9,
-      "das": 44.97667872081064,
+      "das": 46.62871324093893,
       "notes": "Coordinated choke\u2011point doctrine from Hormuz to Bab el\u2011Mandeb.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -58,9 +58,9 @@
         "Supply Chains"
       ],
       "status": "Black Acute",
-      "scp": 0.14018657023351483,
+      "scp": 0.12697029407248855,
       "base_probability": 0.88,
-      "das": 44.97667872081064,
+      "das": 46.62871324093893,
       "notes": "Houthi total ban on Israeli shipping.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -77,7 +77,7 @@
       "das": 56.249999999999986,
       "notes": "Dutch frigate transit tracked by China; Taiwan HIMARS drills.",
       "priority_score": 100,
-      "delta_contribution": 5.400000000000002,
+      "delta_contribution": 6.300000000000003,
       "das_band": "Anomalous"
     },
     {
@@ -87,12 +87,12 @@
         "Geopolitical"
       ],
       "status": "Red",
-      "scp": 0.1036161606073805,
+      "scp": 0.09384760866227414,
       "base_probability": 0.65,
-      "das": 49.54797992407743,
+      "das": 50.769048917215734,
       "notes": "Border clashes continue.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C54",
@@ -101,9 +101,9 @@
         "Geopolitical"
       ],
       "status": "Red",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Russian hybrid activity.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -116,12 +116,12 @@
         "Supply Chains"
       ],
       "status": "Red",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.68,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Chinese military exercises; HIMARS deployment.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C90",
@@ -131,9 +131,9 @@
         "Supply Chains"
       ],
       "status": "Orange",
-      "scp": 0.09447355820084692,
+      "scp": 0.08556693730972052,
       "base_probability": 0.6,
-      "das": 50.690805224894135,
+      "das": 51.804132836284936,
       "notes": "Ongoing tensions.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -147,12 +147,12 @@
         "Technology"
       ],
       "status": "Red",
-      "scp": 0.10971122887840287,
+      "scp": 0.0993680562306432,
       "base_probability": 0.7,
-      "das": 48.78609639019963,
+      "das": 50.0789929711696,
       "notes": "Disinformation campaigns.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C19",
@@ -162,12 +162,12 @@
         "Energy"
       ],
       "status": "Red",
-      "scp": 0.1036161606073805,
+      "scp": 0.09384760866227414,
       "base_probability": 0.65,
-      "das": 49.54797992407743,
+      "das": 50.769048917215734,
       "notes": "Single backup line remains.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C25",
@@ -176,12 +176,12 @@
         "Geopolitical"
       ],
       "status": "Red",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.68,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Drone strike aftermath.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C3",
@@ -190,9 +190,9 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "E3 peace conditions, but fighting continues.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -209,7 +209,7 @@
       "das": 56.249999999999986,
       "notes": "Militia attacks on US bases.",
       "priority_score": 100,
-      "delta_contribution": 1.5,
+      "delta_contribution": 1.75,
       "das_band": "Anomalous"
     },
     {
@@ -220,11 +220,11 @@
         "Energy"
       ],
       "status": "Yellow",
-      "scp": 0.05333184737144585,
+      "scp": 0.04830391622322933,
       "base_probability": 0.3,
-      "das": 55.83351907856926,
+      "das": 56.46201047209634,
       "notes": "Baltic Sea risks.",
-      "priority_score": 90.4,
+      "priority_score": 90.6,
       "das_band": "Anomalous"
     },
     {
@@ -234,11 +234,11 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.04571301203266786,
+      "scp": 0.04140335676276799,
       "base_probability": 0.25,
-      "das": 56.78587349591652,
+      "das": 57.324580404654,
       "notes": "Estonia\u2011Russia tensions.",
-      "priority_score": 75.6,
+      "priority_score": 75.8,
       "das_band": "Anomalous"
     },
     {
@@ -249,9 +249,9 @@
         "Social"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "Humanitarian strain.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -264,9 +264,9 @@
         "Domestic"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Spillover risk.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -279,9 +279,9 @@
         "Technology"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "Missile tests continue.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -294,9 +294,9 @@
         "Information"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "AI\u2011driven.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -308,11 +308,11 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.05333184737144585,
+      "scp": 0.04830391622322933,
       "base_probability": 0.3,
-      "das": 55.83351907856926,
+      "das": 56.46201047209634,
       "notes": "Frozen conflict.",
-      "priority_score": 90.4,
+      "priority_score": 90.6,
       "das_band": "Anomalous"
     },
     {
@@ -322,9 +322,9 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "Hybrid attacks.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -336,11 +336,11 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.04571301203266786,
+      "scp": 0.04140335676276799,
       "base_probability": 0.25,
-      "das": 56.78587349591652,
+      "das": 57.324580404654,
       "notes": "Tensions.",
-      "priority_score": 75.6,
+      "priority_score": 75.8,
       "das_band": "Anomalous"
     },
     {
@@ -350,9 +350,9 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "Border crisis.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -364,9 +364,9 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Stalemate.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -379,9 +379,9 @@
         "Food"
       ],
       "status": "Yellow",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Russian threats.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -394,9 +394,9 @@
         "Energy"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "Arctic risks.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -409,11 +409,11 @@
         "Energy"
       ],
       "status": "Yellow",
-      "scp": 0.05333184737144585,
+      "scp": 0.04830391622322933,
       "base_probability": 0.3,
-      "das": 55.83351907856926,
+      "das": 56.46201047209634,
       "notes": "Political pressure.",
-      "priority_score": 90.4,
+      "priority_score": 90.6,
       "das_band": "Anomalous"
     },
     {
@@ -423,11 +423,11 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.04571301203266786,
+      "scp": 0.04140335676276799,
       "base_probability": 0.25,
-      "das": 56.78587349591652,
+      "das": 57.324580404654,
       "notes": "False flag risk.",
-      "priority_score": 75.6,
+      "priority_score": 75.8,
       "das_band": "Anomalous"
     },
     {
@@ -437,11 +437,11 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.05333184737144585,
+      "scp": 0.04830391622322933,
       "base_probability": 0.3,
-      "das": 55.83351907856926,
+      "das": 56.46201047209634,
       "notes": "Russian influence.",
-      "priority_score": 90.4,
+      "priority_score": 90.6,
       "das_band": "Anomalous"
     },
     {
@@ -451,9 +451,9 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "Ongoing.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -466,9 +466,9 @@
         "Energy"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Arms transfers.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -481,9 +481,9 @@
         "Energy"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "Nuclear risk.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -497,9 +497,9 @@
         "Biosecurity"
       ],
       "status": "Red",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Continued threat.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -511,11 +511,11 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.04571301203266786,
+      "scp": 0.04140335676276799,
       "base_probability": 0.25,
-      "das": 56.78587349591652,
+      "das": 57.324580404654,
       "notes": "Elite fracture.",
-      "priority_score": 75.6,
+      "priority_score": 75.8,
       "das_band": "Anomalous"
     },
     {
@@ -525,9 +525,9 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "Central Africa.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -540,11 +540,11 @@
         "Climate"
       ],
       "status": "Yellow",
-      "scp": 0.05333184737144585,
+      "scp": 0.04830391622322933,
       "base_probability": 0.3,
-      "das": 55.83351907856926,
+      "das": 56.46201047209634,
       "notes": "New bases.",
-      "priority_score": 90.4,
+      "priority_score": 90.6,
       "das_band": "Anomalous"
     },
     {
@@ -554,9 +554,9 @@
         "Geopolitical"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Heightened alert.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -568,9 +568,9 @@
         "Geopolitical"
       ],
       "status": "Orange",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Reinforcements.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -583,9 +583,9 @@
         "Supply Chains"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "Montreux Convention.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -598,9 +598,9 @@
         "Energy"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Melting ice opens competition.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -612,9 +612,9 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "US threats documented.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -627,12 +627,12 @@
         "Technology"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Congested orbital environment.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "G-WEST-BANK",
@@ -642,9 +642,9 @@
         "Social"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "CFR high\u2011probability threat.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -657,9 +657,9 @@
         "Food"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Military action possible.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -672,9 +672,9 @@
         "Financial"
       ],
       "status": "Red",
-      "scp": 0.14323410436902598,
+      "scp": 0.12973051785667306,
       "base_probability": 0.9,
-      "das": 44.59573695387176,
+      "das": 46.283685267915864,
       "notes": "Brent $95.40, SPR 349M barrels.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -686,9 +686,9 @@
         "Energy"
       ],
       "status": "Black Acute",
-      "scp": 0.12952020075922566,
+      "scp": 0.11730951082784269,
       "base_probability": 0.8,
-      "das": 46.30997490509679,
+      "das": 47.83631114651966,
       "notes": "External power vulnerable.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -701,9 +701,9 @@
         "Financial"
       ],
       "status": "Black Structural",
-      "scp": 0.11885383128493646,
+      "scp": 0.1076487275831968,
       "base_probability": 0.75,
-      "das": 47.64327108938294,
+      "das": 49.0439090521004,
       "notes": "Members exceed quotas.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -720,7 +720,7 @@
       "das": 56.249999999999986,
       "notes": "Storage ~36%.",
       "priority_score": 100,
-      "delta_contribution": 0.9,
+      "delta_contribution": 1.05,
       "das_band": "Anomalous"
     },
     {
@@ -731,12 +731,12 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Hormuz closure persists.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C123",
@@ -746,12 +746,12 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.1036161606073805,
+      "scp": 0.09384760866227414,
       "base_probability": 0.62,
-      "das": 49.54797992407743,
+      "das": 50.769048917215734,
       "notes": "Energy import costs.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C127",
@@ -762,9 +762,9 @@
         "Domestic"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "LNG dependency.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -777,12 +777,12 @@
         "Financial"
       ],
       "status": "Black Structural",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Oil revenue volatility.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C143-KZ",
@@ -792,9 +792,9 @@
         "Financial"
       ],
       "status": "Red",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Quota violations.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -807,9 +807,9 @@
         "Geopolitical"
       ],
       "status": "Red",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Russian transit.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -822,9 +822,9 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Downward probability.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -837,9 +837,9 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "OPEC+ powerless.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -852,9 +852,9 @@
         "Domestic"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Draining fast.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -867,9 +867,9 @@
         "Financial"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "De\u2011dollarisation.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -882,11 +882,11 @@
         "Geopolitical"
       ],
       "status": "Green",
-      "scp": 0.03047534135511192,
+      "scp": 0.027602237841845338,
       "base_probability": 0.15,
-      "das": 58.69058233061101,
+      "das": 59.049720269769324,
       "notes": "Limited.",
-      "priority_score": 45.7,
+      "priority_score": 45.8,
       "das_band": "Anomalous"
     },
     {
@@ -897,9 +897,9 @@
         "Supply Chains"
       ],
       "status": "Orange",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Red Sea impacts.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -912,9 +912,9 @@
         "Technology"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "50% increase in total energy demand projected.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -926,9 +926,9 @@
         "Energy"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "Uncertain risks with decimated regulations.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -941,9 +941,9 @@
         "Climate"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "73B gal/year water by 2028.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -956,9 +956,9 @@
         "Cyber"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Decentralised grid vulnerabilities.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -971,9 +971,9 @@
         "Cyber"
       ],
       "status": "Yellow",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Thousands of vulnerable inverters.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -985,9 +985,9 @@
         "Climate"
       ],
       "status": "Red",
-      "scp": 0.11428253008166969,
+      "scp": 0.10350839190692002,
       "base_probability": 0.7,
-      "das": 48.21468373979129,
+      "das": 49.56145101163499,
       "notes": "Record low extent.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -999,12 +999,12 @@
         "Climate"
       ],
       "status": "Red",
-      "scp": 0.10971122887840287,
+      "scp": 0.0993680562306432,
       "base_probability": 0.68,
-      "das": 48.78609639019963,
+      "das": 50.0789929711696,
       "notes": "Antarctic.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C44",
@@ -1014,12 +1014,12 @@
         "Social"
       ],
       "status": "Red",
-      "scp": 0.1036161606073805,
+      "scp": 0.09384760866227414,
       "base_probability": 0.65,
-      "das": 49.54797992407743,
+      "das": 50.769048917215734,
       "notes": "Extreme temperatures.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C80",
@@ -1029,12 +1029,12 @@
         "Domestic"
       ],
       "status": "Red",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "FEMA strained.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C134",
@@ -1045,12 +1045,12 @@
         "Social"
       ],
       "status": "Red",
-      "scp": 0.10971122887840287,
+      "scp": 0.0993680562306432,
       "base_probability": 0.68,
-      "das": 48.78609639019963,
+      "das": 50.0789929711696,
       "notes": "Central America.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C135",
@@ -1060,9 +1060,9 @@
         "Supply Chains"
       ],
       "status": "Red",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Water levels low.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1074,9 +1074,9 @@
         "Climate"
       ],
       "status": "Orange",
-      "scp": 0.08837848992982451,
+      "scp": 0.08004648974135144,
       "base_probability": 0.55,
-      "das": 51.452688758771934,
+      "das": 52.494188782331065,
       "notes": "Permafrost.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1088,9 +1088,9 @@
         "Climate"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "Ocean circulation.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1103,9 +1103,9 @@
         "Social"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Seasonal.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1117,9 +1117,9 @@
         "Climate"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "80\u201190% probability strong event.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1131,11 +1131,11 @@
         "Climate"
       ],
       "status": "Green",
-      "scp": 0.03047534135511192,
+      "scp": 0.027602237841845338,
       "base_probability": 0.15,
-      "das": 58.69058233061101,
+      "das": 59.049720269769324,
       "notes": "Hurricane relief.",
-      "priority_score": 45.7,
+      "priority_score": 45.8,
       "das_band": "Anomalous"
     },
     {
@@ -1146,9 +1146,9 @@
         "Domestic"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "Atmospheric river.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1161,9 +1161,9 @@
         "Domestic"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "Early fires.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1176,9 +1176,9 @@
         "Geopolitical"
       ],
       "status": "Orange",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Georgia.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1191,11 +1191,11 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.05333184737144585,
+      "scp": 0.04830391622322933,
       "base_probability": 0.3,
-      "das": 55.83351907856926,
+      "das": 56.46201047209634,
       "notes": "Russian influence.",
-      "priority_score": 90.4,
+      "priority_score": 90.6,
       "das_band": "Anomalous"
     },
     {
@@ -1206,9 +1206,9 @@
         "Geopolitical"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Island nations.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1221,9 +1221,9 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Caribbean.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1236,12 +1236,12 @@
         "Food"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Wildfires.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C-WATER-BANK",
@@ -1251,12 +1251,12 @@
         "Food"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "UNU report: 2.2B without safe water.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C-SUBSIDENCE",
@@ -1265,9 +1265,9 @@
         "Climate"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "6M km\u00b2 sinking, 2B people affected.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1279,9 +1279,9 @@
         "Climate"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Low\u2011mid latitude glaciers disappearing.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1294,9 +1294,9 @@
         "Food"
       ],
       "status": "Yellow",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Reduced moisture retention.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1309,9 +1309,9 @@
         "Food"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "3B people in areas of terminal decline.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1328,7 +1328,7 @@
       "das": 56.249999999999986,
       "notes": "Global debt 94% GDP.",
       "priority_score": 100,
-      "delta_contribution": 1.8000000000000003,
+      "delta_contribution": 2.1000000000000005,
       "das_band": "Anomalous"
     },
     {
@@ -1338,12 +1338,12 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.930408398704407,
+      "scp": 0.9426929041364693,
       "base_probability": 0.6,
-      "das": 53.801049838050865,
+      "das": 55.33661301705867,
       "notes": "De\u2011dollarisation.",
       "priority_score": 100,
-      "delta_contribution": 0.6,
+      "delta_contribution": 0.7,
       "das_band": "Anomalous"
     },
     {
@@ -1358,7 +1358,7 @@
       "das": 56.249999999999986,
       "notes": "IMF warning.",
       "priority_score": 100,
-      "delta_contribution": 0.9,
+      "delta_contribution": 1.05,
       "das_band": "Anomalous"
     },
     {
@@ -1368,12 +1368,12 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Funds depleted.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C136",
@@ -1383,9 +1383,9 @@
         "Domestic"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "El Salvador.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1398,9 +1398,9 @@
         "Food"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Remittances.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1413,9 +1413,9 @@
         "Geopolitical"
       ],
       "status": "Orange",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "China vs US.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1428,9 +1428,9 @@
         "Domestic"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Hyperinflation.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1443,9 +1443,9 @@
         "Domestic"
       ],
       "status": "Orange",
-      "scp": 0.11428253008166969,
+      "scp": 0.10350839190692002,
       "base_probability": 0.7,
-      "das": 48.21468373979129,
+      "das": 49.56145101163499,
       "notes": "125% GDP.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -1457,9 +1457,9 @@
         "Financial"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "Sticky inflation.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1471,12 +1471,12 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Zambia, Ghana.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C18*",
@@ -1486,9 +1486,9 @@
         "Energy"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Saudi shift.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1501,12 +1501,12 @@
         "Supply Chains"
       ],
       "status": "Orange",
-      "scp": 0.1036161606073805,
+      "scp": 0.09384760866227414,
       "base_probability": 0.62,
-      "das": 49.54797992407743,
+      "das": 50.769048917215734,
       "notes": "Slowdown.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C20*",
@@ -1516,9 +1516,9 @@
         "Social"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Recession.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1530,12 +1530,12 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Oil shock.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "U15",
@@ -1545,9 +1545,9 @@
         "Domestic"
       ],
       "status": "Orange",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Bolsonaro.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1560,9 +1560,9 @@
         "Energy"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "Uncertain.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1574,9 +1574,9 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "IMF program.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1589,9 +1589,9 @@
         "Energy"
       ],
       "status": "Black Structural",
-      "scp": 0.12190136542044767,
+      "scp": 0.11040895136738135,
       "base_probability": 0.78,
-      "das": 47.26232932244404,
+      "das": 48.698881079077324,
       "notes": "Permanent fee.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -1604,12 +1604,12 @@
         "Cyber"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "IMF warning.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "F-AI-LIQ",
@@ -1618,9 +1618,9 @@
         "Financial"
       ],
       "status": "Yellow",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "HFT withdrawal.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1632,9 +1632,9 @@
         "Financial"
       ],
       "status": "Yellow",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Trillions at risk.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1646,9 +1646,9 @@
         "Financial"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Instantaneous digital bank runs.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1661,9 +1661,9 @@
         "Climate"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Uninsurable property.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1681,7 +1681,7 @@
       "das": 56.249999999999986,
       "notes": "TSMC dominance; Huawei/SMIC blacklist.",
       "priority_score": 100,
-      "delta_contribution": 1.2,
+      "delta_contribution": 1.4,
       "das_band": "Anomalous"
     },
     {
@@ -1692,12 +1692,12 @@
         "Financial"
       ],
       "status": "Red",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Chip subsidies.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C36",
@@ -1707,12 +1707,12 @@
         "Technology"
       ],
       "status": "Red",
-      "scp": 0.10971122887840287,
+      "scp": 0.0993680562306432,
       "base_probability": 0.68,
-      "das": 48.78609639019963,
+      "das": 50.0789929711696,
       "notes": "US\u2011China tech war.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C39",
@@ -1722,9 +1722,9 @@
         "Financial"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "CHIPS Act.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1737,9 +1737,9 @@
         "Geopolitical"
       ],
       "status": "Orange",
-      "scp": 0.11885383128493646,
+      "scp": 0.1076487275831968,
       "base_probability": 0.75,
-      "das": 47.64327108938294,
+      "das": 49.0439090521004,
       "notes": "Houthi attacks.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -1752,9 +1752,9 @@
         "Energy"
       ],
       "status": "Orange",
-      "scp": 0.12952020075922566,
+      "scp": 0.11730951082784269,
       "base_probability": 0.8,
-      "das": 46.30997490509679,
+      "das": 47.83631114651966,
       "notes": "Hormuz.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -1767,9 +1767,9 @@
         "Climate"
       ],
       "status": "Red",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Water restrictions.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1782,9 +1782,9 @@
         "Energy"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Critical vulnerability.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1797,9 +1797,9 @@
         "Cyber"
       ],
       "status": "Yellow",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Backdoors embedded.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1811,12 +1811,12 @@
         "Supply Chains"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Single\u2011point failure.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "SC-DEVICE",
@@ -1826,9 +1826,9 @@
         "Cyber"
       ],
       "status": "Yellow",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Poisoning before source control.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1841,9 +1841,9 @@
         "Energy"
       ],
       "status": "Yellow",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Galvanised steel shortage.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1860,7 +1860,7 @@
       "das": 56.249999999999986,
       "notes": "19.5M acutely food insecure.",
       "priority_score": 100,
-      "delta_contribution": 5.700000000000002,
+      "delta_contribution": 6.650000000000003,
       "das_band": "Anomalous"
     },
     {
@@ -1870,9 +1870,9 @@
         "Food"
       ],
       "status": "Black Acute",
-      "scp": 0.13409150196249242,
+      "scp": 0.12144984650411947,
       "base_probability": 0.85,
-      "das": 45.738562254688446,
+      "das": 47.31876918698506,
       "notes": "Wheat imports.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -1885,12 +1885,12 @@
         "Climate"
       ],
       "status": "Red",
-      "scp": 0.10971122887840287,
+      "scp": 0.0993680562306432,
       "base_probability": 0.68,
-      "das": 48.78609639019963,
+      "das": 50.0789929711696,
       "notes": "Ethiopia filling.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C43",
@@ -1900,12 +1900,12 @@
         "Climate"
       ],
       "status": "Red",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "India\u2011Pakistan.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C106",
@@ -1920,7 +1920,7 @@
       "das": 56.249999999999986,
       "notes": "FAO index elevated.",
       "priority_score": 100,
-      "delta_contribution": 2.7,
+      "delta_contribution": 3.1500000000000004,
       "das_band": "Anomalous"
     },
     {
@@ -1931,9 +1931,9 @@
         "Domestic"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Dry corridor.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -1945,9 +1945,9 @@
         "Food"
       ],
       "status": "Black Acute",
-      "scp": 0.1417103373012704,
+      "scp": 0.1283504059645808,
       "base_probability": 0.92,
-      "das": 44.7862078373412,
+      "das": 46.456199254427396,
       "notes": "135k phase 5.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -1959,9 +1959,9 @@
         "Food"
       ],
       "status": "Red",
-      "scp": 0.12190136542044767,
+      "scp": 0.11040895136738135,
       "base_probability": 0.78,
-      "das": 47.26232932244404,
+      "das": 48.698881079077324,
       "notes": "Acute malnutrition.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -1973,12 +1973,12 @@
         "Food"
       ],
       "status": "Orange",
-      "scp": 0.1036161606073805,
+      "scp": 0.09384760866227414,
       "base_probability": 0.65,
-      "das": 49.54797992407743,
+      "das": 50.769048917215734,
       "notes": "Conflict blocks aid.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "A04",
@@ -1988,12 +1988,12 @@
         "Climate"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Compound crisis.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "A22",
@@ -2002,9 +2002,9 @@
         "Food"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "El Ni\u00f1o drought.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2017,9 +2017,9 @@
         "Climate"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Hydro cuts.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2032,12 +2032,12 @@
         "Supply Chains"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Single point of failure at planting.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "A-EL-NINO",
@@ -2047,9 +2047,9 @@
         "Climate"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Uneven yield shocks.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2062,9 +2062,9 @@
         "Climate"
       ],
       "status": "Yellow",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Slow\u2011moving but irreversible.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2076,9 +2076,9 @@
         "Food"
       ],
       "status": "Orange",
-      "scp": 0.11428253008166969,
+      "scp": 0.10350839190692002,
       "base_probability": 0.72,
-      "das": 48.21468373979129,
+      "das": 49.56145101163499,
       "notes": "No strategic stockpile.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -2091,9 +2091,9 @@
         "Financial"
       ],
       "status": "Yellow",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Pre\u2011borrowing risk.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2106,9 +2106,9 @@
         "Information"
       ],
       "status": "Black Structural",
-      "scp": 0.12799643369146999,
+      "scp": 0.11592939893575036,
       "base_probability": 0.82,
-      "das": 46.50044578856625,
+      "das": 48.0088251330312,
       "notes": "Deepfake risk.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -2126,7 +2126,7 @@
       "das": 56.249999999999986,
       "notes": "2026 midterms.",
       "priority_score": 100,
-      "delta_contribution": 0.9,
+      "delta_contribution": 1.05,
       "das_band": "Anomalous"
     },
     {
@@ -2137,9 +2137,9 @@
         "Social"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "US border.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2151,9 +2151,9 @@
         "Domestic"
       ],
       "status": "Orange",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "DOJ.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2166,9 +2166,9 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Untraceable.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2181,12 +2181,12 @@
         "Information"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "AI content.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "U06",
@@ -2200,7 +2200,7 @@
       "das": 56.249999999999986,
       "notes": "Violence risk.",
       "priority_score": 100,
-      "delta_contribution": 0.9,
+      "delta_contribution": 1.05,
       "das_band": "Anomalous"
     },
     {
@@ -2211,9 +2211,9 @@
         "Institutional"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "Constitutional crisis scenario.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2226,9 +2226,9 @@
         "Institutional"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Legal paralysis.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2241,9 +2241,9 @@
         "Institutional"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "WEF 2026.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2256,9 +2256,9 @@
         "Social"
       ],
       "status": "Yellow",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "57% need reskilling.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2271,9 +2271,9 @@
         "Institutional"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Enforcement gaps.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2290,7 +2290,7 @@
       "das": 56.249999999999986,
       "notes": "9M IDPs in Sudan.",
       "priority_score": 100,
-      "delta_contribution": 1.7999999999999996,
+      "delta_contribution": 2.0999999999999996,
       "das_band": "Anomalous"
     },
     {
@@ -2301,9 +2301,9 @@
         "Geopolitical"
       ],
       "status": "Black Acute",
-      "scp": 0.13713903609800365,
+      "scp": 0.12421007028830404,
       "base_probability": 0.88,
-      "das": 45.35762048774954,
+      "das": 46.973741213961986,
       "notes": "Siege continues.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -2315,11 +2315,11 @@
         "Social"
       ],
       "status": "Yellow",
-      "scp": 0.05333184737144585,
+      "scp": 0.04830391622322933,
       "base_probability": 0.3,
-      "das": 55.83351907856926,
+      "das": 56.46201047209634,
       "notes": "Occasional.",
-      "priority_score": 90.4,
+      "priority_score": 90.6,
       "das_band": "Anomalous"
     },
     {
@@ -2330,12 +2330,12 @@
         "Domestic"
       ],
       "status": "Red",
-      "scp": 0.1036161606073805,
+      "scp": 0.09384760866227414,
       "base_probability": 0.65,
-      "das": 49.54797992407743,
+      "das": 50.769048917215734,
       "notes": "US border.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "U14",
@@ -2345,9 +2345,9 @@
         "Domestic"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Push factors.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2360,12 +2360,12 @@
         "Climate"
       ],
       "status": "Red",
-      "scp": 0.1036161606073805,
+      "scp": 0.09384760866227414,
       "base_probability": 0.65,
-      "das": 49.54797992407743,
+      "das": 50.769048917215734,
       "notes": "Labour unrest.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C64S",
@@ -2375,9 +2375,9 @@
         "Geopolitical"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "EU strain.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2390,9 +2390,9 @@
         "Financial"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Unemployment.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2405,9 +2405,9 @@
         "Domestic"
       ],
       "status": "Yellow",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Violent backlash against AI.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2420,9 +2420,9 @@
         "Domestic"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Recruitment through online games.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2435,9 +2435,9 @@
         "Domestic"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "Economic grievance motivation.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2450,12 +2450,12 @@
         "Domestic"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Doxing, harassment, assaults.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "S-LONELY",
@@ -2464,9 +2464,9 @@
         "Social"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "Radicalisation multiplier.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2478,9 +2478,9 @@
         "Technology"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Anthropic Mythos escape.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2493,9 +2493,9 @@
         "Cyber"
       ],
       "status": "Orange",
-      "scp": 0.09447355820084692,
+      "scp": 0.08556693730972052,
       "base_probability": 0.58,
-      "das": 50.690805224894135,
+      "das": 51.804132836284936,
       "notes": "First case May 2026.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2508,9 +2508,9 @@
         "Biosecurity"
       ],
       "status": "Orange",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "MIT/Stanford.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2522,9 +2522,9 @@
         "Technology"
       ],
       "status": "Yellow",
-      "scp": 0.06399821684573499,
+      "scp": 0.05796469946787518,
       "base_probability": 0.38,
-      "das": 54.50022289428313,
+      "das": 55.2544125665156,
       "notes": "AI\u2011Gram, Moltbook.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2537,9 +2537,9 @@
         "Climate"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "Water/energy strain.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2557,7 +2557,7 @@
       "das": 56.249999999999986,
       "notes": "57 npm packages.",
       "priority_score": 100,
-      "delta_contribution": 1.5,
+      "delta_contribution": 1.75,
       "das_band": "Anomalous"
     },
     {
@@ -2568,9 +2568,9 @@
         "Supply Chains"
       ],
       "status": "Black Acute",
-      "scp": 0.1310439678269812,
+      "scp": 0.1186896227199349,
       "base_probability": 0.85,
-      "das": 46.11950402162735,
+      "das": 47.66379716000814,
       "notes": "Huawei/SMIC.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -2583,12 +2583,12 @@
         "Information"
       ],
       "status": "Red",
-      "scp": 0.10971122887840287,
+      "scp": 0.0993680562306432,
       "base_probability": 0.68,
-      "das": 48.78609639019963,
+      "das": 50.0789929711696,
       "notes": "Election disinfo.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "C96",
@@ -2597,9 +2597,9 @@
         "Technology"
       ],
       "status": "Red",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Black Sea region.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2612,12 +2612,12 @@
         "Geopolitical"
       ],
       "status": "Red",
-      "scp": 0.1036161606073805,
+      "scp": 0.09384760866227414,
       "base_probability": 0.65,
-      "das": 49.54797992407743,
+      "das": 50.769048917215734,
       "notes": "Space weapons.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "I11",
@@ -2627,9 +2627,9 @@
         "Information"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Generative.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2642,9 +2642,9 @@
         "Geopolitical"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Escalation.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2657,9 +2657,9 @@
         "Biosecurity"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Integrity of biological data systems.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2672,12 +2672,12 @@
         "Geopolitical"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "No binding treaty.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "T-SYN-DNA",
@@ -2687,9 +2687,9 @@
         "Biosecurity"
       ],
       "status": "Yellow",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Critical biosecurity gap.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2702,9 +2702,9 @@
         "Cyber"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Persistent backdoors.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2717,12 +2717,12 @@
         "Information"
       ],
       "status": "Orange",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "Accelerated by AI.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "I01I",
@@ -2731,9 +2731,9 @@
         "Institutional"
       ],
       "status": "Red",
-      "scp": 0.12190136542044767,
+      "scp": 0.11040895136738135,
       "base_probability": 0.78,
-      "das": 47.26232932244404,
+      "das": 48.698881079077324,
       "notes": "Sudan, Gaza.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -2746,9 +2746,9 @@
         "Geopolitical"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Russia/China.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2761,9 +2761,9 @@
         "Domestic"
       ],
       "status": "Black Structural",
-      "scp": 0.12799643369146999,
+      "scp": 0.11592939893575036,
       "base_probability": 0.82,
-      "das": 46.50044578856625,
+      "das": 48.0088251330312,
       "notes": "Systemic.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -2775,11 +2775,11 @@
         "Information"
       ],
       "status": "Yellow",
-      "scp": 0.04571301203266786,
+      "scp": 0.04140335676276799,
       "base_probability": 0.25,
-      "das": 56.78587349591652,
+      "das": 57.324580404654,
       "notes": "DVI.",
-      "priority_score": 75.6,
+      "priority_score": 75.8,
       "das_band": "Anomalous"
     },
     {
@@ -2790,9 +2790,9 @@
         "Technology"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "Scale.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2805,9 +2805,9 @@
         "Geopolitical"
       ],
       "status": "Orange",
-      "scp": 0.09142602406533572,
+      "scp": 0.08280671352553598,
       "base_probability": 0.55,
-      "das": 51.07174699183303,
+      "das": 52.149160809308,
       "notes": "Risk.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2820,9 +2820,9 @@
         "Social"
       ],
       "status": "Orange",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Viral rumours.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2839,7 +2839,7 @@
       "das": 56.249999999999986,
       "notes": "515 cases, 91 deaths.",
       "priority_score": 100,
-      "delta_contribution": 1.5,
+      "delta_contribution": 1.75,
       "das_band": "Anomalous"
     },
     {
@@ -2849,9 +2849,9 @@
         "Biosecurity"
       ],
       "status": "Red",
-      "scp": 0.135615269030248,
+      "scp": 0.12282995839621173,
       "base_probability": 0.88,
-      "das": 45.548091371218995,
+      "das": 47.14625520047353,
       "notes": "Same.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -2863,9 +2863,9 @@
         "Biosecurity"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "No H2H.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2878,12 +2878,12 @@
         "Domestic"
       ],
       "status": "Black Structural",
-      "scp": 0.930408398704407,
+      "scp": 0.9426929041364693,
       "base_probability": 0.65,
-      "das": 53.801049838050865,
+      "das": 55.33661301705867,
       "notes": "Funding.",
       "priority_score": 100,
-      "delta_contribution": 0.6,
+      "delta_contribution": 0.7,
       "das_band": "Anomalous"
     },
     {
@@ -2893,9 +2893,9 @@
         "Biosecurity"
       ],
       "status": "Red",
-      "scp": 0.135615269030248,
+      "scp": 0.12282995839621173,
       "base_probability": 0.88,
-      "das": 45.548091371218995,
+      "das": 47.14625520047353,
       "notes": "PHEIC.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -2907,9 +2907,9 @@
         "Biosecurity"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Uganda.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2921,9 +2921,9 @@
         "Biosecurity"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "DRC.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2935,11 +2935,11 @@
         "Biosecurity"
       ],
       "status": "Yellow",
-      "scp": 0.05333184737144585,
+      "scp": 0.04830391622322933,
       "base_probability": 0.3,
-      "das": 55.83351907856926,
+      "das": 56.46201047209634,
       "notes": "Tanzania.",
-      "priority_score": 90.4,
+      "priority_score": 90.6,
       "das_band": "Anomalous"
     },
     {
@@ -2950,11 +2950,11 @@
         "Technology"
       ],
       "status": "Yellow",
-      "scp": 0.05333184737144585,
+      "scp": 0.04830391622322933,
       "base_probability": 0.3,
-      "das": 55.83351907856926,
+      "das": 56.46201047209634,
       "notes": "Synthetic bio + AI + cyber convergence.",
-      "priority_score": 90.4,
+      "priority_score": 90.6,
       "das_band": "Anomalous"
     },
     {
@@ -2964,9 +2964,9 @@
         "Biosecurity"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Pan\u2011resistant, detected in 16+ countries.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2979,9 +2979,9 @@
         "Technology"
       ],
       "status": "Yellow",
-      "scp": 0.07618835338777978,
+      "scp": 0.06900559460461334,
       "base_probability": 0.45,
-      "das": 52.97645582652753,
+      "das": 53.87430067442334,
       "notes": "AI can design ricin\u2011level toxins.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -2993,9 +2993,9 @@
         "Biosecurity"
       ],
       "status": "Yellow",
-      "scp": 0.06095068271022384,
+      "scp": 0.055204475683690676,
       "base_probability": 0.35,
-      "das": 54.881164661222016,
+      "das": 55.599440539538655,
       "notes": "ISS origin, causing bacteremia.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -3008,9 +3008,9 @@
         "Technology"
       ],
       "status": "Yellow",
-      "scp": 0.06856951804900183,
+      "scp": 0.06210503514415202,
       "base_probability": 0.4,
-      "das": 53.92881024387477,
+      "das": 54.73687060698099,
       "notes": "Multi\u2011agent systems can design evasive viruses.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -3022,9 +3022,9 @@
         "Institutional"
       ],
       "status": "Black Structural",
-      "scp": 0.12494889955595885,
+      "scp": 0.11316917515156588,
       "base_probability": 0.8,
-      "das": 46.88138755550514,
+      "das": 48.35385310605426,
       "notes": "Starvation as weapon.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -3037,9 +3037,9 @@
         "Geopolitical"
       ],
       "status": "Black Structural",
-      "scp": 0.11885383128493646,
+      "scp": 0.1076487275831968,
       "base_probability": 0.75,
-      "das": 47.64327108938294,
+      "das": 49.0439090521004,
       "notes": "Iran claims permanent control.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -3052,9 +3052,9 @@
         "Geopolitical"
       ],
       "status": "Black Structural",
-      "scp": 0.11428253008166969,
+      "scp": 0.10350839190692002,
       "base_probability": 0.72,
-      "das": 48.21468373979129,
+      "das": 49.56145101163499,
       "notes": "Non\u2011proliferation breakdown.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -3067,12 +3067,12 @@
         "Biosecurity"
       ],
       "status": "Black Structural",
-      "scp": 0.1066636947428917,
+      "scp": 0.09660783244645867,
       "base_probability": 0.65,
-      "das": 49.167038157138535,
+      "das": 50.42402094419266,
       "notes": "CDC underfunded.",
       "priority_score": 100,
-      "das_band": "Unusual"
+      "das_band": "Anomalous"
     },
     {
       "id": "I02",
@@ -3081,9 +3081,9 @@
         "Institutional"
       ],
       "status": "Orange",
-      "scp": 0.08380718872655778,
+      "scp": 0.07590615406507469,
       "base_probability": 0.5,
-      "das": 52.02410140918027,
+      "das": 53.01173074186566,
       "notes": "Hormuz.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -3095,9 +3095,9 @@
         "Institutional"
       ],
       "status": "Red",
-      "scp": 0.11885383128493646,
+      "scp": 0.1076487275831968,
       "base_probability": 0.75,
-      "das": 47.64327108938294,
+      "das": 49.0439090521004,
       "notes": "Iran, NK.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -3109,9 +3109,9 @@
         "Institutional"
       ],
       "status": "Orange",
-      "scp": 0.09904485940411371,
+      "scp": 0.08970727298599733,
       "base_probability": 0.6,
-      "das": 50.11939257448578,
+      "das": 51.286590876750324,
       "notes": "Russia veto.",
       "priority_score": 100,
       "das_band": "Anomalous"
@@ -3124,9 +3124,9 @@
         "Financial"
       ],
       "status": "Black Structural",
-      "scp": 0.12190136542044767,
+      "scp": 0.11040895136738135,
       "base_probability": 0.78,
-      "das": 47.26232932244404,
+      "das": 48.698881079077324,
       "notes": "Legal erosion.",
       "priority_score": 100,
       "das_band": "Unusual"
@@ -3144,17 +3144,17 @@
       "das": 56.249999999999986,
       "notes": "WaPo layoffs, CBS turmoil.",
       "priority_score": 100,
-      "delta_contribution": 0.9,
+      "delta_contribution": 1.05,
       "das_band": "Anomalous"
     }
   ],
-  "gsci": 15.82,
+  "gsci": 15.04,
   "ssi": 42.07,
   "ds": 0,
   "sca_tier": 4,
   "sca_label": "Critical",
   "sca_count": 33,
-  "scp_linear": 30.12,
-  "scp_bayesian": 34.62,
+  "scp_linear": 35.12,
+  "scp_bayesian": 36.72,
   "scp_delta_count": 17
 }
