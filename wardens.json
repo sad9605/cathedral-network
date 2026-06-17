@@ -1,0 +1,37 @@
+{
+  "last_updated": "2026-06-17T00:00:00Z",
+  "positions": [
+    {"region": "North America", "status": "open"},
+    {"region": "Central America", "status": "open"},
+    {"region": "Latin America", "status": "open"},
+    {"region": "Europe", "status": "open"},
+    {"region": "Baltic", "status": "open"},
+    {"region": "Russia", "status": "open"},
+    {"region": "Caucasus", "status": "open"},
+    {"region": "Middle East", "status": "open"},
+    {"region": "North Africa", "status": "open"},
+    {"region": "West Africa", "status": "open"},
+    {"region": "Central Africa", "status": "open"},
+    {"region": "East Africa", "status": "open"},
+    {"region": "Southern Africa", "status": "open"},
+    {"region": "South Asia", "status": "open"},
+    {"region": "Southeast Asia", "status": "open"},
+    {"region": "East Asia", "status": "open"},
+    {"region": "Oceania", "status": "open"},
+    {"region": "Pacific Islands", "status": "open"},
+    {"region": "Arctic & Antarctic", "status": "open"},
+    {"region": "Central Asia", "status": "open"}
+  ],
+  "institutional": [
+    {"institution": "UN (general)", "status": "open"},
+    {"institution": "WHO", "status": "open"},
+    {"institution": "FAO", "status": "open"},
+    {"institution": "IMF / World Bank", "status": "open"},
+    {"institution": "IEA / OPEC", "status": "open"},
+    {"institution": "NATO", "status": "open"},
+    {"institution": "AI Safety Institutes", "status": "open"},
+    {"institution": "Global Debt Watch", "status": "open"},
+    {"institution": "Climate Action Tracker", "status": "open"}
+  ],
+  "active_wardens": []
+}

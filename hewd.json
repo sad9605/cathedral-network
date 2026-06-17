@@ -1,0 +1,17 @@
+{
+  "last_updated": "2026-06-17T00:00:00Z",
+  "metrics": {
+    "active_conflicts": 12,
+    "food_insecure": 345000000,
+    "displaced": 120000000,
+    "ebola_cases": 710,
+    "ebola_deaths": 149,
+    "oil_price_brent": 87.50,
+    "oil_price_wti": 82.30
+  },
+  "alerts": [
+    {"id": "Ebola", "region": "Uganda", "severity": "Red", "description": "710 confirmed cases, 149 deaths"},
+    {"id": "Philippines Quake", "region": "Philippines", "severity": "Orange", "description": "55 dead, 38 missing"},
+    {"id": "Horn Famine", "region": "Horn of Africa", "severity": "Black", "description": "19.5M acutely food insecure"}
+  ]
+}
