@@ -1,17 +1,17 @@
-# Ground Truth Summary – 2026-06-17T17:58:32.072635+00:00
+# Ground Truth Summary – 2026-06-17T18:32:21.488290+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
 - Iran sends tankers loaded with oil past US military blockade
 - PM warns Burnham against immediate leadership challenge if he wins by-election
-- Can Bellingham become England's superstar once more at the World Cup?
+- BBC announces 550 job cuts as first part of £500m savings plan
 
 **Reuters**:
 
 **Al Jazeera**:
-- Luigi Mangione to use psychiatric defence in healthcare CEO murder case
-- Death toll in Gaza since ‘ceasefire’ with Israel goes past 1,000
-- Young Palestinian women learn AI to tell stories of war on Gaza
+- Trump: World will ‘find out pretty soon’ if Iran MOU signing will happen
+- US Federal Reserve holds rates steady under new chair Warsh
+- Thick black smoke towers over Paris skyline after warehouse blaze
 
 **The Guardian**:
 - Seven-year-old Abdiqadir was hit in a US airstrike. Without a $750 operation, he may lose his ability to walk
@@ -24,18 +24,18 @@
 
 **Sky News**:
 - A different kind of Starmer turned up for G7 interview - armed with a message
+- Heatwave set to return to UK
 - Serial killer who murdered eight women in US sentenced
-- The TV and radio programmes being axed by BBC
 
 **NHK World**:
+- 【ライブ予定】米FRB 政策金利据え置き 新議長が記者会見へ
 - G7サミット最終日 経済・AIなど議論し閉幕
-- 【ライブ予定】FRB ウォーシュ新議長が記者会見へ 初会合後に
 - 食料品の消費税 来年4月から1％ 所得連動給付で“実質ゼロ”案
 
 **Times of India**:
 - US officials release details of US-Iran interim deal after days of secrecy: Read the 14-point MoU
-- Economics of buying versus renting a home: What makes sense?
-- Salesforce CEO Marc Benioff shares selfie with PM Modi at G7 summit: What he said
+- US Federal Reserve policy meet: Kevin Warsh-led FOMC keeps interest rates unchanged
+- Dell CEO Michael Dell makes one of largest public university donations in US history
 
 **South China Morning Post**:
 - Sexual abuse against children up 20% in 2025 as security chief vows tighter laws
