@@ -1,4 +1,4 @@
-# Ground Truth Summary – 2026-06-17T17:42:34.648275+00:00
+# Ground Truth Summary – 2026-06-17T17:58:32.072635+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
@@ -33,8 +33,8 @@
 - 食料品の消費税 来年4月から1％ 所得連動給付で“実質ゼロ”案
 
 **Times of India**:
-- 2 seats, 3 candidates: Can INDIA bloc hold its flock together for Rajya Sabha polls in Jharkhand?
-- 'Finish him today': Wife stabs husband to death after being caught talking to boyfriend on phone
+- US officials release details of US-Iran interim deal after days of secrecy: Read the 14-point MoU
+- Economics of buying versus renting a home: What makes sense?
 - Salesforce CEO Marc Benioff shares selfie with PM Modi at G7 summit: What he said
 
 **South China Morning Post**:
