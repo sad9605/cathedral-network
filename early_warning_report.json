@@ -1,0 +1,1075 @@
+{
+  "timestamp": "2026-06-17T12:44:06.619676",
+  "das_results": [
+    {
+      "threat_id": "C01",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C\u2011USIRAN",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C\u2011BELT",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C\u2011RED\u2011BLOCK",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C132",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C129",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C54",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C88",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C90",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C48",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C19",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C25",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C3",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C11",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C58",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C60",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C64",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C85",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C122",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C2",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C4",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C6",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C7",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C9",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C10",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C12",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C13",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C14",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C15",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C16",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C17",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C18",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C20",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C21",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C22",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C23",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C24",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C26",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C27",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C28",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G-ARCTIC",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G-GREENLAND",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G-SPACE",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G-WEST-BANK",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G-SUD-BLUE",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C11E",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C141",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C143",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C62",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C63",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C123",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C127",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C144",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C143-KZ",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "CA4",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G16",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G17",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G18",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G19",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G20",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G24",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "E-AI-GRID",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "E-SMR",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "E-HYPER-SCALE",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "E-MINI-GRID",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "E-SOLAR-CYBER",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C100",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C147",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C44",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C80",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C134",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C135",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C99",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C41",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C46",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "E11",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U10",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U11",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U12",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "CC1",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "CC2",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "OC1",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "CB2",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "LA2",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C-WATER-BANK",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C-SUBSIDENCE",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C-CRYO",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C-SOIL-DEG",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C-AG-STORAGE",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C78",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C133",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I08",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I09",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C136",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C137",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C138",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U16",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U18",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U19",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C17*",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C18*",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C19*",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C20*",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G30",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U15",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U17",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A24",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C145",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "F-AI-CYBER-SYS",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "F-AI-LIQ",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "F-REPO-2026",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "F-CBDC",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "F-INSUR-SPIRAL",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C121",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C124",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C36",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C39",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C8",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C29",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C135S",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "SC-NUCLEAR",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "SC-COUNTER",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "SC-RARE",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "SC-DEVICE",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "SC-ZINC",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C03",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C126",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C125",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C43",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C106",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C137F",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A01",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A02",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A03",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A04",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A22",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A23",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A-UREA",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A-EL-NINO",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A-SOIL-BIO",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A-STRAT-RES",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A-AG-DEBT",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C84",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I01",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C67",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U01",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U02",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U03",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U06",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "D-IMM-WAR",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "D-AI-LIAB",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "D-TRUST",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "D-DESKILL",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "D-GDPR",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C139",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C5",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U07",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U13",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "U14",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C44S",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C64S",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C20*S",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "S-ANTI-TECH",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "S-NVE",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "S-CLASS",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "S-FED-8000",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "S-LONELY",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C\u2011ESCAPE",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C\u2011ZERODAY",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C\u2011BIOWPN",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C\u2011AILANG",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C\u2011DATACENTER\u2011RES",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C\u2011MALWARE",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C121T",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C48T",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C96",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C97",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I11",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I12",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "T-BIO-INF",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "T-LAWS",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "T-SYN-DNA",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "T-AGENT",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "T-MISINFO",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I01I",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C2I",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C84I",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "G14",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I11I",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I12I",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C19I",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "B02",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C148",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C94",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C77",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A12",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A13",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A14",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "A15",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "B-METABIO",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "B-AMR-KLEB",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "B-DARK-PROTEIN",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "B-PANT-PIE",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "B-RNA",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C120",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C140",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C142",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C77I",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I02",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I03",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I17",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C145I",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "I10",
+      "das": 0.0,
+      "band": "Normal"
+    }
+  ],
+  "convergence_alert": {
+    "level": "Critical",
+    "weighted_score": 17
+  },
+  "anomaly_count": 0
+}

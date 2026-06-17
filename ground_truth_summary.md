@@ -1,51 +1,51 @@
-# Ground Truth Summary – 2026-06-16T17:47:14.516676+00:00
+# Ground Truth Summary – 2026-06-17T17:42:34.648275+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
-- Russian warship fires warning shots near UK-registered yacht in Channel
-- UK forces face operational cuts without more cash, defence chief warns
-- Three reasons ships are not going through the Strait of Hormuz yet
+- Iran sends tankers loaded with oil past US military blockade
+- PM warns Burnham against immediate leadership challenge if he wins by-election
+- Can Bellingham become England's superstar once more at the World Cup?
 
 **Reuters**:
 
 **Al Jazeera**:
-- Israel seizes power over occupied West Bank mosque from Palestinians
-- Ronaldo’s last dance as Portugal face DR Congo in World Cup: All to know
-- Trump slams Israeli attacks on Lebanon at G7 summit
+- Luigi Mangione to use psychiatric defence in healthcare CEO murder case
+- Death toll in Gaza since ‘ceasefire’ with Israel goes past 1,000
+- Young Palestinian women learn AI to tell stories of war on Gaza
 
 **The Guardian**:
-- South African jazz pianist Abdullah Ibrahim dies aged 91
-- Violent attacks on schools, pupils and staff around the world up by 40%, says study
-- London council seizes social housing flat rented by Sierra Leone first lady
+- Seven-year-old Abdiqadir was hit in a US airstrike. Without a $750 operation, he may lose his ability to walk
+- Sierra Leone’s first lady refuses to condemn FGM without ‘reliable data’ on harms
+- Ghana to advance reparatory justice at first major gathering since landmark UN resolution
 
 **France 24**:
 
 **Deutsche Welle**:
 
 **Sky News**:
-- Boy accused of murdering girl, 9, said he had to get away from police, court told
-- Social media ban would have stopped me quitting, says Jess Phillips
-- Russian artist who criticised Putin is shot dead
+- A different kind of Starmer turned up for G7 interview - armed with a message
+- Serial killer who murdered eight women in US sentenced
+- The TV and radio programmes being axed by BBC
 
 **NHK World**:
-- 高市首相 トランプ氏と懇談 中東情勢で意見交わす 仏G7会場で
-- 【地震情報】群馬県南部 埼玉県北部で震度5弱 津波なし
-- 日銀 利上げ決定 政策金利1％程度に “物価上昇リスクに対応”
+- G7サミット最終日 経済・AIなど議論し閉幕
+- 【ライブ予定】FRB ウォーシュ新議長が記者会見へ 初会合後に
+- 食料品の消費税 来年4月から1％ 所得連動給付で“実質ゼロ”案
 
 **Times of India**:
-- To Tehran with love? Trump's Iran MoU meets MAGA mutiny
-- US used Iran-style covert transfers to move 90 million barrels of oil out of Gulf: Report
-- 'If everyone in this country ... ': CJP founder Abhijeet Dipke clears stance on fighting polls
+- 2 seats, 3 candidates: Can INDIA bloc hold its flock together for Rajya Sabha polls in Jharkhand?
+- 'Finish him today': Wife stabs husband to death after being caught talking to boyfriend on phone
+- Salesforce CEO Marc Benioff shares selfie with PM Modi at G7 summit: What he said
 
 **South China Morning Post**:
-- 2 passengers killed as truck collides with taxi on Hong Kong road
-- Corporate leaders turn to new doctorate to strategise AI adoption
-- Man ‘mistakenly beat girlfriend to death while trying to help her lose weight’
+- Sexual abuse against children up 20% in 2025 as security chief vows tighter laws
+- Hong Kong police arrest male suspect, 36, over sexual assaults on 4 drunk men
+- Hong Kong’s John Lee pledges 10-fold expansion of new university town
 
 **Africa News**:
-- Kinshasa priest engages DR Congo youth with rap music
-- Central African Republic army denies coup rumours
-- MSF warns of 'dangerous gaps' in Ebola response in DR Congo
+- Chloe Bailey stars in psychological thriller 'Strung'
+- Government of Equatorial Guinea submits collective resignation
+- African and Commonwealth nations in Kenya urge quick execution of key treaty protecting oceans
 
 ## Disaster and Conflict Alerts
 - gdacs: error
