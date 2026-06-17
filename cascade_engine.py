@@ -142,29 +142,35 @@ def probability_to_lr(prob_exceed: float) -> float:
 
 def compute_scp_from_threats(threats: List[Dict]) -> Dict:
     """
-    Compute SCP using Bayesian log-odds fusion.
-    Returns SCP value and contribution breakdown.
+    Compute SCP using Bayesian log-odds fusion with dampened likelihood ratios.
     """
     base = SCP_BASE / 100.0
-    active_deltas = []
-    likelihood_ratios = []
     
+    # Collect likelihood ratios from active threats
+    likelihood_ratios = []
     for t in threats:
         delta = t.get('delta_contribution', 0)
         if delta > 0:
-            active_deltas.append(delta)
-            # Convert delta to likelihood ratio (simplified)
-            lr = 1.0 + delta * 1.5
+            # Convert delta to likelihood ratio (dampened)
+            lr = 1.0 + delta * 1.0  # was 1.5
             likelihood_ratios.append(lr)
     
-    # Linear SCP (capped)
-    linear_scp = compute_scp_linear(base, active_deltas)
+    # Cap the number of likelihood ratios used (max 5)
+    if len(likelihood_ratios) > 5:
+        likelihood_ratios = sorted(likelihood_ratios, reverse=True)[:5]
     
-    # Bayesian SCP (log-odds)
+    # Average the likelihood ratios instead of multiplying
     if likelihood_ratios:
-        bayesian_scp = bayesian_update(base, np.prod(likelihood_ratios))[0] * 100
+        avg_lr = sum(likelihood_ratios) / len(likelihood_ratios)
+        # Apply a dampening factor of 0.7
+        dampened_lr = 1.0 + (avg_lr - 1.0) * 0.7
+        bayesian_scp = bayesian_update(base, dampened_lr)[0] * 100
     else:
         bayesian_scp = base * 100
+    
+    # Linear SCP (capped)
+    active_deltas = [t.get('delta_contribution', 0) for t in threats if t.get('delta_contribution', 0) > 0]
+    linear_scp = compute_scp_linear(base, active_deltas)
     
     return {
         'linear_scp': linear_scp,
@@ -172,7 +178,6 @@ def compute_scp_from_threats(threats: List[Dict]) -> Dict:
         'active_deltas': active_deltas,
         'delta_count': len(active_deltas)
     }
-
 # ----------------------------------------------------------------------
 # Main engine functions
 def apply_temporal_decay(threats: Dict) -> Dict:
