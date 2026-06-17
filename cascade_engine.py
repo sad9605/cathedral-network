@@ -2,20 +2,14 @@
 """
 cascade_engine.py – Cathedral Network Probability Drive v8
 Full mathematical integration from Cathedral Math Compendium v1.2.
-
-Implements:
-- Bayesian log-odds fusion for SCP
-- SSI, DS, GSCI, SCA tiers
-- Temporal decay, confidence filters, cascade propagation
-- Priority scores with DAS integration
-- Full audit logging
+Calibrated Bayesian log-odds fusion with reduced likelihood ratios.
 """
 
 import json
 import math
 import logging
 import shutil
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 import numpy as np
@@ -27,7 +21,6 @@ from cathedral_math import (
     compute_ds,
     compute_gsci,
     compute_sca_tier,
-    bayesian_log_odds,
     temporal_baseline_anomaly,
     compute_scp_linear,
     nts_score,
@@ -104,17 +97,24 @@ def load_baselines():
 # Core engine functions
 def bayesian_update(prior: float, likelihood_ratio: float) -> Tuple[float, float, float]:
     """
-    Bayesian logit update with probability cap at 0.95.
+    Bayesian logit update with probability cap at 0.95 and dampening.
     Returns (posterior, lower_80, upper_80).
     """
     if prior <= 0:
         return 0.01, 0.001, 0.05
     if prior >= 1:
         return 0.95, 0.90, 0.98
+    
     logit_prior = math.log(prior / (1 - prior))
     logit_posterior = logit_prior + math.log(likelihood_ratio)
     posterior = 1 / (1 + math.exp(-logit_posterior))
+    
+    # Apply dampening to prevent over-confidence
+    dampening = 0.85
+    posterior = 0.5 + (posterior - 0.5) * dampening
+    
     posterior = min(0.95, max(0.01, posterior))
+    
     # 80% credible interval using Beta approximation
     alpha = max(0.1, posterior * 10)
     beta_param = max(0.1, (1 - posterior) * 10)
@@ -128,13 +128,15 @@ def decay_scp(scp: float, half_life_days: float = 7.0) -> float:
     return scp * decay_factor
 
 def probability_to_lr(prob_exceed: float) -> float:
-    """Calibrated likelihood ratios for real-world stress."""
+    """
+    Calibrated likelihood ratios – reduced to prevent over-confidence.
+    """
     if prob_exceed > 0.7:
-        return 5.0
+        return 1.8
     elif prob_exceed > 0.5:
-        return 3.5
+        return 1.4
     elif prob_exceed > 0.3:
-        return 2.2
+        return 1.1
     else:
         return 1.0
 
@@ -152,7 +154,7 @@ def compute_scp_from_threats(threats: List[Dict]) -> Dict:
         if delta > 0:
             active_deltas.append(delta)
             # Convert delta to likelihood ratio (simplified)
-            lr = 1.0 + delta * 2.0
+            lr = 1.0 + delta * 1.5
             likelihood_ratios.append(lr)
     
     # Linear SCP (capped)
@@ -160,7 +162,7 @@ def compute_scp_from_threats(threats: List[Dict]) -> Dict:
     
     # Bayesian SCP (log-odds)
     if likelihood_ratios:
-        bayesian_scp = bayesian_log_odds(base, likelihood_ratios) * 100
+        bayesian_scp = bayesian_update(base, np.prod(likelihood_ratios))[0] * 100
     else:
         bayesian_scp = base * 100
     
@@ -363,7 +365,7 @@ def main():
         logging.info("No TSF forecasts – skipping likelihood ratios")
     
     # Apply cascade rules with confidence filters
-    confidence = 1.0  # Will be computed from credit spreads in full implementation
+    confidence = 1.0
     logging.info("Applying cascade rules")
     threats = apply_cascade_rules(threats, rules, confidence)
     

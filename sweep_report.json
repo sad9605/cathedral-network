@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-17T17:42:34.648275+00:00",
+  "timestamp": "2026-06-17T17:58:32.072635+00:00",
   "feeds": {
     "news_rss": {
       "BBC News": [
@@ -41,11 +41,11 @@
         "\u30d7\u30fc\u30c1\u30f3\u6c0f\u306b\u6279\u5224\u7684\u306a\u30ed\u30b7\u30a2\u4eba\u82b8\u8853\u5bb6 \u30dd\u30fc\u30e9\u30f3\u30c9\u3067\u6bba\u5bb3"
       ],
       "Times of India": [
-        "2 seats, 3 candidates: Can INDIA bloc hold its flock together for Rajya Sabha polls in Jharkhand?",
-        "'Finish him today': Wife stabs husband to death after being caught talking to boyfriend on phone",
+        "US officials release details of US-Iran interim deal after days of secrecy: Read the 14-point MoU",
+        "Economics of buying versus renting a home: What makes sense?",
         "Salesforce CEO Marc Benioff shares selfie with PM Modi at G7 summit: What he said",
-        "New resource race: G7 joins forces to challenge China\u2019s critical minerals dominance",
-        "No victors, only losers: How Iran war left every side worse off"
+        "3 months after marriage, UP woman found dead; family accuses in-laws of murder",
+        "2 seats, 3 candidates: Can INDIA bloc hold its flock together for Rajya Sabha polls in Jharkhand?"
       ],
       "South China Morning Post": [
         "Sexual abuse against children up 20% in 2025 as security chief vows tighter laws",
@@ -70,7 +70,7 @@
     "usgs": {
       "source": "USGS",
       "status": "success",
-      "earthquakes": 278
+      "earthquakes": 279
     },
     "reliefweb": {
       "source": "ReliefWeb",
@@ -100,7 +100,7 @@
     "opensky": {
       "source": "OpenSky",
       "status": "success",
-      "aircraft": 12256
+      "aircraft": 12120
     },
     "kalshi": {
       "source": "Kalshi",
@@ -161,6 +161,6 @@
   },
   "threats_summary": {
     "threat_count": 213,
-    "last_updated": "2026-06-16T17:48:03.657487+00:00"
+    "last_updated": "2026-06-17T17:57:01.498714+00:00"
   }
 }
