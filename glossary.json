@@ -1,0 +1,100 @@
+{
+  "title": "Glossary",
+  "subhead": "Key terms used in the Cathedral's predictions, metrics, and governance",
+  "version": "v2.0",
+  "last_updated": "2026-06-17",
+  "terms": [
+    {
+      "term": "SCP",
+      "definition": "Systemic Cascading Pressure – the probability that a threat will trigger a cascade of other threats (0 to 1). Base = 12%. Computed via Bayesian log-odds fusion."
+    },
+    {
+      "term": "DAS",
+      "definition": "Deviation from Anomaly Score – how far a current value deviates from its historical baseline (0–100). Bands: Normal 0–25, Unusual 26–50, Anomalous 51–75, Extreme 76–100."
+    },
+    {
+      "term": "GSCI",
+      "definition": "Global Systemic Collapse Index – weighted average of all threat SCPs, scaled to 0–100. Derived from average NSI across all regions. Flash trigger: +10 points in 7 days."
+    },
+    {
+      "term": "SSI",
+      "definition": "System Stress Index – weighted average of threat statuses. Formula: (Σ status_points) / (N_threats × 5) × 100. Range 0–100. Green <25, Yellow 26–50, Orange 51–75, Red 76–100."
+    },
+    {
+      "term": "DS",
+      "definition": "Domestic Stability Score – count of Black Acute (2 points) and Black Structural (1 point) threats in domestic domains (VII, VIII). State Failure threshold: DS ≥ 8."
+    },
+    {
+      "term": "NSI",
+      "definition": "National Stress Index – regional composite of domestic fragility and cross-domain stress. NSI = DS_region + Σ Black points in selected domains. Threshold: NSI ≥ 21 = National Emergency."
+    },
+    {
+      "term": "SCA",
+      "definition": "Systemic Cascade Amplitude – tiered classification of active cascade count. 0: Normal (0–5), 1: Elevated (6–12), 2: High (13–20), 3: Extreme (21–28), 4: Critical (29–36), 5: Unprecedented (37+)."
+    },
+    {
+      "term": "Bayesian Log-Odds Fusion",
+      "definition": "Mathematical foundation of SCP: logit(P) = logit(P₀) + Σ w_i × ln(LR_i). Updates prior probabilities with likelihood ratios from new evidence."
+    },
+    {
+      "term": "NTS",
+      "definition": "Normalized Threat Score – universal 0–100 scale. NTS = DS × 5 + NSI × 2. Bands: Stable 0–25, Elevated 26–50, Critical Stress 51–75, Extreme 76–100."
+    },
+    {
+      "term": "CII",
+      "definition": "Conflict Intensity Index – regional conflict metric. CII = (log_fatalities + log_displacement + structural/10) / 3 × 100."
+    },
+    {
+      "term": "DVI",
+      "definition": "Disinformation Vulnerability Index – measures vulnerability to disinformation. DVI = ((100 - Trust) + Polarization + (100 - Media_Literacy) + Incidents) / 4 × (1 + Incidents/100)."
+    },
+    {
+      "term": "WMI",
+      "definition": "Wealth Mobility Index – tracks billionaire jet activity. WMI = (Current Fleet Activity / Baseline) × 50 + 20 (if convergence event)."
+    },
+    {
+      "term": "CDR",
+      "definition": "Cable Disruption Risk – monitors submarine cable chokepoints. CDR = (Latency_Score + Incident_Score + Geopolitical_Score) / 3."
+    },
+    {
+      "term": "CAP",
+      "definition": "Convergence Alert Protocol – alerting system. 2 breaches = Watch, 3–4 = Alert, ≥5 = Critical. Weighted by domains breached."
+    },
+    {
+      "term": "IVF",
+      "definition": "Institutional Vulnerability Factor – 0.0–1.0 score measuring degradation of global institutions. Backtest correlation with cascade severity: 0.91."
+    },
+    {
+      "term": "Hash Chain",
+      "definition": "Cryptographic verification for predictions: H_i = SHA-256(canonical(P_i) || H_(i-1) || t_i). Ensures immutable, auditable prediction log."
+    },
+    {
+      "term": "Quarter-Kelly",
+      "definition": "Position sizing formula: f* = (edge / odds) × 0.25. Used in financial modules to size bets."
+    },
+    {
+      "term": "Resilience Blueprint v4.0",
+      "definition": "Stochastic differential equation for resilience: dR/dt = J × Ψ(λ) × (C_eff × P - ε_ind × D) × (1 - R/R_max) + σ × dW."
+    },
+    {
+      "term": "Transmutation Equation",
+      "definition": "A = S × H × (T / (1 + E)) × R(t₀). Measures creative alchemy – the transformation of suffering into art."
+    },
+    {
+      "term": "Quarry Quality",
+      "definition": "Q = S × H × (1 / (1 + E)). Classifies raw, unshaped suffering before refinement into art."
+    },
+    {
+      "term": "Cascade Rule",
+      "definition": "A directed edge from a source threat to a target threat with a delta and condition, defined in cascade_rules.json. Propagates SCP between threats."
+    },
+    {
+      "term": "Likelihood Ratio (LR)",
+      "definition": "The strength of evidence in a Bayesian update. LR > 1 increases probability, LR < 1 decreases. Calibrated values: 1.8, 1.4, 1.1 based on evidence strength."
+    },
+    {
+      "term": "Warden",
+      "definition": "A human validator and governor of the Cathedral. Wardens confirm alerts, vote on rules, and uphold the Constitution. Bound by the Warden's Oath."
+    }
+  ]
+}
