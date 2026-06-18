@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — UNDP Crisis Mapping Demo</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -310,7 +310,7 @@
   </style>
 </head>
 <body>
-    <a class='skip-link' href='https://cathedral-network.netlify.app/undp-demo#main-content'>Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 <div aria-live="polite" id="live-status" aria-label="Status messages"></div>
 <div id="offlineBanner" class="offline-banner" role="alert">📡 You are offline. Reports will be saved locally and sync when online.</div>
 <header class="cathedral-banner">
@@ -349,19 +349,19 @@
 <div class="nav">
   <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Main menu">☰</button>
   <div class="nav-links" id="navLinks">
-    <a href='index.html'>Ground Truth</a>
-    <a href='https://cathedral-network.netlify.app/undp-demo'>UNDP Demo</a>
-    <a href='https://cathedral-network.netlify.app/archive'>Archive</a>
-    <a href='https://cathedral-network.netlify.app/spotter'>Spotter Guide</a>
-    <a href='https://cathedral-network.netlify.app/sources'>Sources</a>
-    <a href='https://cathedral-network.netlify.app/constitution'>Constitution</a>
-    <a href='https://cathedral-network.netlify.app/wardens'>Wardens</a>
-    <a href='https://cathedral-network.netlify.app/hewd'>HEWD Dashboard</a>
-    <a href='https://cathedral-network.netlify.app/about'>About</a>
-    <a href='https://cathedral-network.netlify.app/threat-matrix'>Threat Matrix</a>
-    <a href='https://cathedral-network.netlify.app/glossary'>Glossary</a>
-    <a href='https://cathedral-network.netlify.app/pra'>Personal Resilience</a>
-    <a href='prediction-log.html'>Prediction Log</a>
+    <a href="index.html">Ground Truth</a>
+    <a href="undp-demo.html">UNDP Demo</a>
+    <a href="archive.html">Archive</a>
+    <a href="spotter.html">Spotter Guide</a>
+    <a href="sources.html">Sources</a>
+    <a href="constitution.html">Constitution</a>
+    <a href="wardens.html">Wardens</a>
+    <a href="hewd.html">HEWD Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="threat-matrix.html">Threat Matrix</a>
+    <a href="glossary.html">Glossary</a>
+    <a href="pra.html">Personal Resilience</a>
+    <a href="prediction-log.html">Prediction Log</a>
   </div>
 </div>
 
@@ -384,14 +384,8 @@
   <!-- DAMAGE REPORT FORM (includes ALL mandatory UNDP questions) -->
   <h2 id="submit-heading">Submit a Damage Report</h2>
   <div style="background: white; border-radius: var(--card-radius); padding: 1.2rem; box-shadow: var(--shadow-sm); margin-bottom: 1rem;">
-<!-- Photo upload area -->
-<div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
-  <input type="file" id="photo" accept="image/*" style="display:none;">
-  <button id="camera-btn" style="padding: 0.5rem 1rem; background: #7c4dff; color: white; border: none; border-radius: 8px; font-size: 1rem;">📸 Open Camera</button>
-  <button id="gallery-btn" style="padding: 0.5rem 1rem; background: #555; color: white; border: none; border-radius: 8px; font-size: 1rem;">🖼️ Choose from Gallery</button>
-  <div id="photo-preview" style="margin-top: 0.5rem; max-width: 100%;"></div>
-</div>
-    <div class="ai-toggle"><a href='https://cathedral-network.netlify.app/undp-demo#' id='ai-toggle-link' style='color: #5e2d8e; text-decoration: none;'>📡 Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸</a></div>
+    <p><span class="step-badge">1</span> <label id="photo-label"></label><br><input type="file" id="photo" accept="image/*" capture="environment" aria-describedby="photo-help"></p>
+    <div class="ai-toggle"><a href="#" id="ai-toggle-link" style="color: #5e2d8e; text-decoration: none;">📡 Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸</a></div>
     <div class="ai-panel" id="ai-panel">
       <strong id="ai-title"></strong><br>
       <button id="analyze-btn" disabled>🔍 Analyze with AI</button>
@@ -526,7 +520,7 @@
   <div class="footer">
     <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;">
       <a href="https://github.com/sad9605/cathedral-network" target="_blank">🔗 GitHub Repo</a>
-      <a href='https://cathedral-network.netlify.app/undp-demo#' id='sharePageBtn'>📢 Share this tool</a>
+      <a href="#" id="sharePageBtn">📢 Share this tool</a>
       <a href="mailto:cathedral.network@proton.me">✉️ Proton Mail</a>
       <a href="https://signal.me/#p/@cathedral.network" target="_blank">📱 Signal</a>
     </div>
@@ -561,7 +555,7 @@
 <script src="https://cdn.jsdelivr.net/npm/dexie@3/dist/dexie.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 <script type="module">
-  import { pipeline } from 'https://unpkg.com/@xenova/transformers@2.17.2';
+  import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
 
   // FULL i18n OBJECT (10 LANGUAGES) - INCLUDING ALL NEW KEYS FOR BUTTONS, LABELS, ETC.
   const i18n = {
@@ -646,7 +640,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — UNDP Crisis Mapping Demo</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -954,7 +948,7 @@
   </style>
 </head>
 <body>
-    <a href="undp-demo.html#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 <div aria-live="polite" id="live-status" aria-label="Status messages"></div>
 <div id="offlineBanner" class="offline-banner" role="alert">📡 You are offline. Reports will be saved locally and sync when online.</div>
 <header class="cathedral-banner">
@@ -1027,14 +1021,8 @@
   <!-- DAMAGE REPORT FORM (includes ALL mandatory UNDP questions) -->
   <h2 id="submit-heading">Submit a Damage Report</h2>
   <div style="background: white; border-radius: var(--card-radius); padding: 1.2rem; box-shadow: var(--shadow-sm); margin-bottom: 1rem;">
-<!-- Photo upload area -->
-<div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
-  <input type="file" id="photo" accept="image/*" style="display:none;">
-  <button id="camera-btn" style="padding: 0.5rem 1rem; background: #7c4dff; color: white; border: none; border-radius: 8px; font-size: 1rem;">📸 Open Camera</button>
-  <button id="gallery-btn" style="padding: 0.5rem 1rem; background: #555; color: white; border: none; border-radius: 8px; font-size: 1rem;">🖼️ Choose from Gallery</button>
-  <div id="photo-preview" style="margin-top: 0.5rem; max-width: 100%;"></div>
-</div>
-    <div class="ai-toggle"><a href="undp-demo.html#" id="ai-toggle-link" style="color: #5e2d8e; text-decoration: none;">📡 Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸</a></div>
+    <p><span class="step-badge">1</span> <label id="photo-label"></label><br><input type="file" id="photo" accept="image/*" capture="environment" aria-describedby="photo-help"></p>
+    <div class="ai-toggle"><a href="#" id="ai-toggle-link" style="color: #5e2d8e; text-decoration: none;">📡 Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸</a></div>
     <div class="ai-panel" id="ai-panel">
       <strong id="ai-title"></strong><br>
       <button id="analyze-btn" disabled>🔍 Analyze with AI</button>
@@ -1169,7 +1157,7 @@
   <div class="footer">
     <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;">
       <a href="https://github.com/sad9605/cathedral-network" target="_blank">🔗 GitHub Repo</a>
-      <a href="undp-demo.html#" id="sharePageBtn">📢 Share this tool</a>
+      <a href="#" id="sharePageBtn">📢 Share this tool</a>
       <a href="mailto:cathedral.network@proton.me">✉️ Proton Mail</a>
       <a href="https://signal.me/#p/@cathedral.network" target="_blank">📱 Signal</a>
     </div>
@@ -1204,7 +1192,7 @@
 <script src="https://cdn.jsdelivr.net/npm/dexie@3/dist/dexie.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 <script type="module">
-  import { pipeline, env } from 'https://unpkg.com/@xenova/transformers@2.17.2';
+  import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
 env.allowLocalModels = false;
 
   // FULL i18n OBJECT (10 LANGUAGES) - INCLUDING ALL NEW KEYS FOR BUTTONS, LABELS, ETC.
@@ -2277,7 +2265,7 @@ async function updatePendingQueueIndicator() {
       const altText = `Damage photo showing ${damageText} damage at ${coords}`;
       const isLatest = isLatestForLocation(r);
       const latestBadge = isLatest ? `<span class="badge badge-latest">Latest</span>` : '';
-      return `<div class="report-card" id="report-${r.id}"><div class="report-card-content"><div>${needBadge}<span class="badge ${badgeClass}">${damageText}</span> ${r.aiAssisted ? '<span class="badge badge-ai">AI</span>' : ''} ${latestBadge}</div><small>${new Date(r.timestamp).toLocaleString()} | ${coords}</small>${r.desc ? `<p style="margin:0.5rem 0;">${r.desc}</p>` : ''}${r.photo ? `<img src="https://cathedral-network.netlify.app/${r.photo}" alt="${altText}" loading="lazy">` : ''}<div>${satBtnHtml} ${historyBtn}<button class="whatsapp-btn" data-id="${r.id}" style="margin-left:0.5rem;">📱 WhatsApp</button><button class="duplicate-btn" data-id="${r.id}" style="margin-left:0.5rem;">🚫 ${t('duplicate_flag')}</button></div></div></div>`;
+      return `<div class="report-card" id="report-${r.id}"><div class="report-card-content"><div>${needBadge}<span class="badge ${badgeClass}">${damageText}</span> ${r.aiAssisted ? '<span class="badge badge-ai">AI</span>' : ''} ${latestBadge}</div><small>${new Date(r.timestamp).toLocaleString()} | ${coords}</small>${r.desc ? `<p style="margin:0.5rem 0;">${r.desc}</p>` : ''}${r.photo ? `<img src="${r.photo}" alt="${altText}" loading="lazy">` : ''}<div>${satBtnHtml} ${historyBtn}<button class="whatsapp-btn" data-id="${r.id}" style="margin-left:0.5rem;">📱 WhatsApp</button><button class="duplicate-btn" data-id="${r.id}" style="margin-left:0.5rem;">🚫 ${t('duplicate_flag')}</button></div></div></div>`;
     }).join('');
     document.querySelectorAll('.whatsapp-btn').forEach(btn => {
       btn.addEventListener('click', (e) => { e.stopPropagation(); const id = btn.dataset.id; const rep = reports.find(r => r.id == id); if (rep) shareOnWhatsApp(rep); });
@@ -2306,7 +2294,7 @@ async function updatePendingQueueIndicator() {
     const key = `${Math.round(lat * 1000)}_${Math.round(lng * 1000)}`;
     const allReports = reports.filter(rep => rep.lat && rep.lng && `${Math.round(rep.lat * 1000)}_${Math.round(rep.lng * 1000)}` === key);
     allReports.sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp));
-    const modalContent = `<div style="max-height: 80vh; overflow-y: auto;"><h4>Damage history for location (${lat.toFixed(4)}, ${lng.toFixed(4)})</h4>${allReports.map(r => `<div style="border-bottom:1px solid #ccc; padding:0.5rem;"><strong>${new Date(r.timestamp).toLocaleString()}</strong> – Damage: ${r.damage}<br>${r.desc ? `Description: ${r.desc}<br>` : ''}${r.photo ? `<img src="https://cathedral-network.netlify.app/${r.photo}" alt="Historical damage photo" style="max-width:100px; max-height:100px;">` : ''}</div>`).join('')}</div>`;
+    const modalContent = `<div style="max-height: 80vh; overflow-y: auto;"><h4>Damage history for location (${lat.toFixed(4)}, ${lng.toFixed(4)})</h4>${allReports.map(r => `<div style="border-bottom:1px solid #ccc; padding:0.5rem;"><strong>${new Date(r.timestamp).toLocaleString()}</strong> – Damage: ${r.damage}<br>${r.desc ? `Description: ${r.desc}<br>` : ''}${r.photo ? `<img src="${r.photo}" alt="Historical damage photo" style="max-width:100px; max-height:100px;">` : ''}</div>`).join('')}</div>`;
     const modal = document.createElement('div'); modal.className = 'modal'; modal.style.display = 'flex';
     modal.innerHTML = `<div class="modal-content" style="max-width:500px;"><div class="modal-header"><h3>Report History</h3><button class="close-modal">&times;</button></div><div class="modal-body">${modalContent}</div></div>`;
     document.body.appendChild(modal);
@@ -2722,6 +2710,6 @@ async function updatePendingQueueIndicator() {
   window.addEventListener('online', () => { document.getElementById('offlineBanner').style.display = 'none'; syncOutbox(); });
   window.addEventListener('offline', () => { document.getElementById('offlineBanner').style.display = 'block'; });
 </script>
-<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
