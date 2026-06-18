@@ -384,7 +384,19 @@
   <!-- DAMAGE REPORT FORM (includes ALL mandatory UNDP questions) -->
   <h2 id="submit-heading">Submit a Damage Report</h2>
   <div style="background: white; border-radius: var(--card-radius); padding: 1.2rem; box-shadow: var(--shadow-sm); margin-bottom: 1rem;">
-    <p><span class="step-badge">1</span> <label id="photo-label"></label><br><input type="file" id="photo" accept="image/*" capture="user">
+    <p><span class="step-badge">1</span> <label id="photo-label"></label><br>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+  <input type="file" id="photo" accept="image/*" style="flex: 1; min-width: 120px;">
+  <button type="button" id="camera-btn" class="btn" style="padding: 0.4rem 1rem;">📸 Camera</button>
+</div>
+<div id="camera-preview" style="display: none; margin-top: 0.5rem;">
+  <video id="video" autoplay style="width: 100%; max-width: 300px; border-radius: 12px;"></video>
+  <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+    <button type="button" id="capture-btn" class="btn" style="padding: 0.2rem 1rem;">Capture</button>
+    <button type="button" id="close-camera" class="btn" style="padding: 0.2rem 1rem; background: #888;">Close</button>
+  </div>
+</div>
+<canvas id="canvas" style="display: none;"></canvas>
     <div class="ai-toggle"><a href="#" id="ai-toggle-link" style="color: #5e2d8e; text-decoration: none;">📡 Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸</a></div>
     <div class="ai-panel" id="ai-panel">
       <strong id="ai-title"></strong><br>
@@ -2711,5 +2723,60 @@ async function updatePendingQueueIndicator() {
   window.addEventListener('offline', () => { document.getElementById('offlineBanner').style.display = 'block'; });
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+// Camera using MediaDevices API
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const cameraPreview = document.getElementById('camera-preview');
+const photoInput = document.getElementById('photo');
+let stream = null;
+
+document.getElementById('camera-btn').addEventListener('click', async function() {
+  try {
+    // Try to get the back camera
+    stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'environment' }
+    });
+    video.srcObject = stream;
+    cameraPreview.style.display = 'block';
+  } catch (err) {
+    // Fallback to front camera if back is not available
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      video.srcObject = stream;
+      cameraPreview.style.display = 'block';
+    } catch (e) {
+      alert('Camera not available. Please use the file upload option.');
+    }
+  }
+});
+
+document.getElementById('capture-btn').addEventListener('click', function() {
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(video, 0, 0);
+  // Convert canvas to file and set it as the input value
+  canvas.toBlob(function(blob) {
+    const file = new File([blob], 'camera-capture.jpg', { type: 'image/jpeg' });
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(file);
+    photoInput.files = dataTransfer.files;
+    // Trigger change event so the form knows a file was selected
+    photoInput.dispatchEvent(new Event('change'));
+    // Close camera
+    closeCamera();
+  }, 'image/jpeg', 0.9);
+});
+
+function closeCamera() {
+  if (stream) {
+    stream.getTracks().forEach(track => track.stop());
+    stream = null;
+  }
+  video.srcObject = null;
+  cameraPreview.style.display = 'none';
+}
+
+document.getElementById('close-camera').addEventListener('click', closeCamera);
 </body>
 </html>
