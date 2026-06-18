@@ -555,7 +555,9 @@
 <script src="https://cdn.jsdelivr.net/npm/dexie@3/dist/dexie.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 <script type="module">
+<<<<<<< HEAD
   import { pipeline } from 'https://unpkg.com/@xenova/transformers@2.17.2';
+=======
 
   // FULL i18n OBJECT (10 LANGUAGES) - INCLUDING ALL NEW KEYS FOR BUTTONS, LABELS, ETC.
   const i18n = {
@@ -1192,7 +1194,11 @@
 <script src="https://cdn.jsdelivr.net/npm/dexie@3/dist/dexie.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 <script type="module">
+<<<<<<< HEAD
   import { pipeline, env } from 'https://unpkg.com/@xenova/transformers@2.17.2';
+=======
+  import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
+>>>>>>> 43cd62641610011765ec0c27aed0a346650e4a82
 env.allowLocalModels = false;
 
   // FULL i18n OBJECT (10 LANGUAGES) - INCLUDING ALL NEW KEYS FOR BUTTONS, LABELS, ETC.
@@ -2431,6 +2437,7 @@ async function updatePendingQueueIndicator() {
     document.getElementById('hewd-root').innerHTML = `<div class="hewd-widget"><div class="hewd-header"><div class="hewd-title">🚨 ${t('hewd_title')}</div><div class="hewd-last-updated">📅 ${dateStr}</div></div><div class="hewd-compound">⚠️ ${t('multi_crisis')}</div><div class="hewd-grid">${communityCard + cardsHtml}</div><div class="hewd-footer">${t('hewd_footer')}</div></div>`;
   }
 
+<<<<<<< HEAD
 async function saveReport(report) {
   try {
     reports.unshift(report);
@@ -2480,6 +2487,47 @@ async function saveReport(report) {
     console.error(e);
   }
 }
+=======
+  async function saveReport(report) {
+    try {
+      reports.unshift(report);
+      localStorage.setItem('cathedral-undp-reports', JSON.stringify(reports));
+      renderReports(); renderLeaderboardAndImpact(); renderMapMarkers(); renderHEWD();
+      if (supabaseReady && navigator.onLine) {
+        const { error } = await supabase.from('reports').insert({
+          damage_level: report.damage,
+          description: report.desc,
+          photo: report.photo,
+          lat: report.lat,
+          lng: report.lng,
+          ai_assisted: report.aiAssisted,
+          need_help: report.needHelp,
+          spotter_id: report.spotterId,
+          infrastructure_types: report.infrastructureTypes,
+          infrastructure_name: report.infrastructureName,
+          crisis_types: report.crisisTypes,
+          debris: report.debris,
+          electricity_condition: report.electricityCondition,
+          health_functioning: report.healthFunctioning,
+          most_pressing_needs: report.mostPressingNeeds
+        });
+        if (error) {
+          console.warn('Supabase insert error:', error);
+          await db.pendingReports.add({ report, timestamp: Date.now(), retryCount: 0 });
+        }
+      } else {
+        await db.pendingReports.add({ report, timestamp: Date.now(), retryCount: 0 });
+      }
+      syncOutbox();
+      document.getElementById('live-status').textContent = 'Report submitted successfully.';
+      setTimeout(() => { document.getElementById('live-status').textContent = ''; }, 5000);
+    } catch (e) {
+      alert('Storage full or error. Please clear some reports (use the "Clear all reports" button).');
+      console.error(e);
+    }
+  }
+
+>>>>>>> 43cd62641610011765ec0c27aed0a346650e4a82
   function validateForm() {
     const infraSelected = Array.from(document.querySelectorAll('input[name="infra"]:checked')).length > 0 || document.getElementById('infraOther').value.trim() !== '';
     const crisisSelected = Array.from(document.querySelectorAll('input[name="crisis"]:checked')).length > 0;
@@ -2575,6 +2623,7 @@ async function saveReport(report) {
     }
   };
 
+<<<<<<< HEAD
 window.analyzeImage = async function() {
   const photoInput = document.getElementById('photo');
   if (!photoInput.files?.[0]) { alert('Select a photo first.'); return; }
@@ -2624,6 +2673,37 @@ window.analyzeImage = async function() {
     document.getElementById('analyze-btn').disabled = false;
   }
 };
+=======
+  window.analyzeImage = async function() {
+    const photoInput = document.getElementById('photo');
+    if (!photoInput.files?.[0]) { alert('Select a photo first.'); return; }
+    if (!modelReady && !(await window.loadModel())) return;
+    document.getElementById('ai-status').innerHTML = 'Analyzing...';
+    const spinner = document.getElementById('ai-spinner'); spinner.style.display = 'inline-block';
+    document.getElementById('analyze-btn').disabled = true;
+    try {
+      const dataUrl = await new Promise(resolve => { const r = new FileReader(); r.onload = () => resolve(r.result); r.readAsDataURL(photoInput.files[0]); });
+      const candidateLabels = ["minimal damage", "partial damage", "completely destroyed"];
+      const result = await classifier(dataUrl, candidateLabels);
+      spinner.style.display = 'none';
+      const top = result[0];
+      let suggested = 'minimal';
+      if (top.label === "completely destroyed") suggested = 'destroyed';
+      else if (top.label === "partial damage") suggested = 'partial';
+      else suggested = 'minimal';
+      document.getElementById('ai-predictions').innerHTML = result.map(r => `${r.label} (${(r.score*100).toFixed(0)}%)`).join(', ');
+      document.getElementById('ai-suggestion').innerHTML = suggested === 'destroyed' ? t('damage_destroyed') : (suggested === 'partial' ? t('damage_partial') : t('damage_minimal'));
+      aiSuggestedDamage = suggested;
+      document.getElementById('ai-result').style.display = 'block';
+      document.getElementById('ai-status').innerHTML = 'Analysis complete.';
+    } catch(e) {
+      document.getElementById('ai-status').innerHTML = 'Analysis failed.';
+      spinner.style.display = 'none';
+    } finally {
+      document.getElementById('analyze-btn').disabled = false;
+    }
+  };
+>>>>>>> 43cd62641610011765ec0c27aed0a346650e4a82
   window.acceptAI = function() { if (aiSuggestedDamage) { document.getElementById('damage-level').value = aiSuggestedDamage; document.getElementById('ai-badge').style.display = 'inline-block'; document.getElementById('ai-result').style.display = 'none'; aiSuggestedDamage = null; } };
   async function autoSuggestInfrastructure() {
     const photoInput = document.getElementById('photo');
@@ -2742,4 +2822,8 @@ window.analyzeImage = async function() {
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 43cd62641610011765ec0c27aed0a346650e4a82
