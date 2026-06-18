@@ -384,7 +384,7 @@
   <!-- DAMAGE REPORT FORM (includes ALL mandatory UNDP questions) -->
   <h2 id="submit-heading">Submit a Damage Report</h2>
   <div style="background: white; border-radius: var(--card-radius); padding: 1.2rem; box-shadow: var(--shadow-sm); margin-bottom: 1rem;">
-    <p><span class="step-badge">1</span> <label id="photo-label"></label><br><input type="file" id="photo" accept="image/*">
+    <p><span class="step-badge">1</span> <label id="photo-label"></label><br><input type="file" id="photo" accept="image/*" capture="environment" aria-describedby="photo-help"></p>
     <div class="ai-toggle"><a href='https://cathedral-network.netlify.app/undp-demo#' id='ai-toggle-link' style='color: #5e2d8e; text-decoration: none;'>📡 Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸</a></div>
     <div class="ai-panel" id="ai-panel">
       <strong id="ai-title"></strong><br>
@@ -555,9 +555,7 @@
 <script src="https://cdn.jsdelivr.net/npm/dexie@3/dist/dexie.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 <script type="module">
-<<<<<<< HEAD
   import { pipeline } from 'https://unpkg.com/@xenova/transformers@2.17.2';
-=======
 
   // FULL i18n OBJECT (10 LANGUAGES) - INCLUDING ALL NEW KEYS FOR BUTTONS, LABELS, ETC.
   const i18n = {
@@ -1194,11 +1192,7 @@
 <script src="https://cdn.jsdelivr.net/npm/dexie@3/dist/dexie.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 <script type="module">
-<<<<<<< HEAD
   import { pipeline, env } from 'https://unpkg.com/@xenova/transformers@2.17.2';
-=======
-  import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
->>>>>>> 43cd62641610011765ec0c27aed0a346650e4a82
 env.allowLocalModels = false;
 
   // FULL i18n OBJECT (10 LANGUAGES) - INCLUDING ALL NEW KEYS FOR BUTTONS, LABELS, ETC.
@@ -2437,57 +2431,6 @@ async function updatePendingQueueIndicator() {
     document.getElementById('hewd-root').innerHTML = `<div class="hewd-widget"><div class="hewd-header"><div class="hewd-title">🚨 ${t('hewd_title')}</div><div class="hewd-last-updated">📅 ${dateStr}</div></div><div class="hewd-compound">⚠️ ${t('multi_crisis')}</div><div class="hewd-grid">${communityCard + cardsHtml}</div><div class="hewd-footer">${t('hewd_footer')}</div></div>`;
   }
 
-<<<<<<< HEAD
-async function saveReport(report) {
-  try {
-    reports.unshift(report);
-    localStorage.setItem('cathedral-undp-reports', JSON.stringify(reports));
-    renderReports(); renderLeaderboardAndImpact(); renderMapMarkers(); renderHEWD();
-
-    // Supabase sync via direct REST call (optional)
-    if (navigator.onLine) {
-      try {
-        const url = 'https://hebioqhjdjtjxjamjvka.supabase.co/rest/v1/reports';
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': 'sb_publishable_eetpDN8_aqWTHr5Bt9ML5w_87XT5ac1',
-            'Authorization': 'Bearer YOUR_HUGGINGFACE_TOKEN',
-          },
-          body: JSON.stringify({
-            damage_level: report.damage,
-            description: report.desc,
-            photo: report.photo,
-            lat: report.lat,
-            lng: report.lng,
-            ai_assisted: report.aiAssisted,
-            need_help: report.needHelp,
-            spotter_id: report.spotterId
-          })
-        });
-        if (!response.ok) {
-          const errorText = await response.text();
-          console.warn('Supabase REST error:', response.status, errorText);
-          await db.pendingReports.add({ report, timestamp: Date.now(), retryCount: 0 });
-        }
-      } catch (error) {
-        console.warn('Supabase REST error:', error);
-        await db.pendingReports.add({ report, timestamp: Date.now(), retryCount: 0 });
-      }
-    } else {
-      await db.pendingReports.add({ report, timestamp: Date.now(), retryCount: 0 });
-    }
-
-    syncOutbox();
-    document.getElementById('live-status').textContent = 'Report submitted successfully.';
-    setTimeout(() => { document.getElementById('live-status').textContent = ''; }, 5000);
-  } catch (e) {
-    alert('Storage full or error. Please clear some reports (use the "Clear all reports" button).');
-    console.error(e);
-  }
-}
-=======
   async function saveReport(report) {
     try {
       reports.unshift(report);
@@ -2527,7 +2470,6 @@ async function saveReport(report) {
     }
   }
 
->>>>>>> 43cd62641610011765ec0c27aed0a346650e4a82
   function validateForm() {
     const infraSelected = Array.from(document.querySelectorAll('input[name="infra"]:checked')).length > 0 || document.getElementById('infraOther').value.trim() !== '';
     const crisisSelected = Array.from(document.querySelectorAll('input[name="crisis"]:checked')).length > 0;
@@ -2623,56 +2565,6 @@ async function saveReport(report) {
     }
   };
 
-<<<<<<< HEAD
-window.analyzeImage = async function() {
-  const photoInput = document.getElementById('photo');
-  if (!photoInput.files?.[0]) { alert('Select a photo first.'); return; }
-
-  document.getElementById('ai-status').innerHTML = 'Analyzing...';
-  const spinner = document.getElementById('ai-spinner'); spinner.style.display = 'inline-block';
-  document.getElementById('analyze-btn').disabled = true;
-
-  try {
-    const dataUrl = await new Promise(resolve => {
-      const r = new FileReader();
-      r.onload = () => resolve(r.result);
-      r.readAsDataURL(photoInput.files[0]);
-    });
-
-    // Use Hugging Face Inference API (free, no download)
-    const response = await fetch(
-      'https://api-inference.huggingface.co/models/google/vit-base-patch16-224',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ inputs: dataUrl })
-      }
-    );
-
-    const result = await response.json();
-    spinner.style.display = 'none';
-
-    // Map the result to damage levels
-    const label = result[0]?.label || 'building';
-    let suggested = 'minimal';
-    if (label.includes('damage') || label.includes('destroyed')) suggested = 'destroyed';
-    else if (label.includes('crack') || label.includes('partial')) suggested = 'partial';
-
-    document.getElementById('ai-predictions').innerHTML = `Detected: ${label}`;
-    document.getElementById('ai-suggestion').innerHTML = suggested === 'destroyed' ? 'Completely Destroyed' : (suggested === 'partial' ? 'Partial' : 'Minimal');
-    aiSuggestedDamage = suggested;
-    document.getElementById('ai-result').style.display = 'block';
-    document.getElementById('ai-status').innerHTML = 'Analysis complete.';
-  } catch(e) {
-    document.getElementById('ai-status').innerHTML = 'Analysis failed. Please select manually.';
-    spinner.style.display = 'none';
-  } finally {
-    document.getElementById('analyze-btn').disabled = false;
-  }
-};
-=======
   window.analyzeImage = async function() {
     const photoInput = document.getElementById('photo');
     if (!photoInput.files?.[0]) { alert('Select a photo first.'); return; }
@@ -2702,7 +2594,6 @@ window.analyzeImage = async function() {
       document.getElementById('analyze-btn').disabled = false;
     }
   };
->>>>>>> 43cd62641610011765ec0c27aed0a346650e4a82
   window.acceptAI = function() { if (aiSuggestedDamage) { document.getElementById('damage-level').value = aiSuggestedDamage; document.getElementById('ai-badge').style.display = 'inline-block'; document.getElementById('ai-result').style.display = 'none'; aiSuggestedDamage = null; } };
   async function autoSuggestInfrastructure() {
     const photoInput = document.getElementById('photo');
@@ -2821,8 +2712,4 @@ window.analyzeImage = async function() {
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 43cd62641610011765ec0c27aed0a346650e4a82
