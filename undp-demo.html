@@ -384,7 +384,13 @@
   <!-- DAMAGE REPORT FORM (includes ALL mandatory UNDP questions) -->
   <h2 id="submit-heading">Submit a Damage Report</h2>
   <div style="background: white; border-radius: var(--card-radius); padding: 1.2rem; box-shadow: var(--shadow-sm); margin-bottom: 1rem;">
-    <p><span class="step-badge">1</span> <label id="photo-label"></label><br><input type="file" id="photo" accept="image/*"  aria-describedby="photo-help"></p>
+<!-- Photo upload area -->
+<div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
+  <input type="file" id="photo" accept="image/*" style="display:none;">
+  <button id="camera-btn" style="padding: 0.5rem 1rem; background: #7c4dff; color: white; border: none; border-radius: 8px; font-size: 1rem;">📸 Open Camera</button>
+  <button id="gallery-btn" style="padding: 0.5rem 1rem; background: #555; color: white; border: none; border-radius: 8px; font-size: 1rem;">🖼️ Choose from Gallery</button>
+  <div id="photo-preview" style="margin-top: 0.5rem; max-width: 100%;"></div>
+</div>
     <div class="ai-toggle"><a href='https://cathedral-network.netlify.app/undp-demo#' id='ai-toggle-link' style='color: #5e2d8e; text-decoration: none;'>📡 Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸</a></div>
     <div class="ai-panel" id="ai-panel">
       <strong id="ai-title"></strong><br>
@@ -1021,7 +1027,13 @@
   <!-- DAMAGE REPORT FORM (includes ALL mandatory UNDP questions) -->
   <h2 id="submit-heading">Submit a Damage Report</h2>
   <div style="background: white; border-radius: var(--card-radius); padding: 1.2rem; box-shadow: var(--shadow-sm); margin-bottom: 1rem;">
-    <p><span class="step-badge">1</span> <label id="photo-label"></label><br><input type="file" id="photo" accept="image/*"  aria-describedby="photo-help"></p>
+<!-- Photo upload area -->
+<div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
+  <input type="file" id="photo" accept="image/*" style="display:none;">
+  <button id="camera-btn" style="padding: 0.5rem 1rem; background: #7c4dff; color: white; border: none; border-radius: 8px; font-size: 1rem;">📸 Open Camera</button>
+  <button id="gallery-btn" style="padding: 0.5rem 1rem; background: #555; color: white; border: none; border-radius: 8px; font-size: 1rem;">🖼️ Choose from Gallery</button>
+  <div id="photo-preview" style="margin-top: 0.5rem; max-width: 100%;"></div>
+</div>
     <div class="ai-toggle"><a href="undp-demo.html#" id="ai-toggle-link" style="color: #5e2d8e; text-decoration: none;">📡 Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸</a></div>
     <div class="ai-panel" id="ai-panel">
       <strong id="ai-title"></strong><br>
