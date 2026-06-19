@@ -1,0 +1,38 @@
+===== Fri Jun 19 12:00:01 CDT 2026 =====
+🏛️ Cathedral System – Full Pipeline (All Modules Active)
+
+📡 Running OSINT sweep...
+✅ daily-sweep.py completed
+📈 Running TSF forecasts...
+✅ tsf_prototype.py completed
+⚙️ Running Cascade Engine...
+✅ cascade_engine.py completed
+🔍 Running prediction verification...
+🔍 Verifying pending predictions...
+✅ Verification complete. Confirmed: 0, Falsified: 0, Still pending: 276
+📋 Generating prediction log...
+📋 Generating prediction log (preserving history, adding date_made)...
+✅ Prediction Log Updated:
+   Updated pending: 213, Added: 0
+   Confirmed: 75
+   Falsified: 4
+   Hit rate: 94.94%
+   Pending: 276
+🧮 Computing Cathedral Math...
+Traceback (most recent call last):
+  File "/home/sad9605/cathedral-core/cathedral_system.py", line 177, in <module>
+    main()
+    ~~~~^^
+  File "/home/sad9605/cathedral-core/cathedral_system.py", line 118, in main
+    gsci = compute_gsci(threats)
+  File "/home/sad9605/cathedral-core/cathedral_math.py", line 65, in compute_gsci
+    avg_nsi = np.mean(nsi_values) if nsi_values else 0
+              ~~~~~~~^^^^^^^^^^^^
+  File "/home/sad9605/cathedral-core/venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py", line 3860, in mean
+    return _methods._mean(a, axis=axis, dtype=dtype,
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          out=out, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^
+  File "/home/sad9605/cathedral-core/venv/lib/python3.13/site-packages/numpy/_core/_methods.py", line 134, in _mean
+    ret = umr_sum(arr, axis, dtype, out, keepdims, where=where)
+TypeError: unsupported operand type(s) for +: 'dict' and 'dict'

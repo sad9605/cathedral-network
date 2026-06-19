@@ -117,7 +117,9 @@ def main():
         # Compute GSCI
         gsci = compute_gsci(threats)
         # Compute SCA tier
-        sca = compute_sca_tier(threats)
+        # Count threats that are active (non-green status) – proxy for active cascades 
+        active_count = len([t for t in threats if t.get('status') != 'Green'])
+        sca = compute_sca_tier(active_count)
         # Update threats.json with computed values
         data = load_json("threats.json")
         data["ssi"] = ssi
@@ -136,7 +138,7 @@ def main():
     # ------------------------------------------------------------------
     # 8. Early Warning Report (CAP, DAS, source credibility)
     print("⚠️ Generating early warning report...")
-    generate_early_warning_report()
+    generate_early_warning_report(threats)
     
     # ------------------------------------------------------------------
     # 9. AI Thermoregulation

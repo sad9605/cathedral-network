@@ -56,14 +56,31 @@ def compute_nsi(regional_ds: float, selected_domain_scores: List[float]) -> floa
     """
     return regional_ds + sum(selected_domain_scores)
 
-def compute_gsci(nsi_values: List[float]) -> float:
+def compute_gsci(threats: List[Dict]) -> float:
     """
     Global Systemic Collapse Index (GSCI)
-    GSCI = (avg NSI / 21) * 100
-    21 = National Emergency threshold
+    Computes NSI for each threat using compute_nsi, then averages and normalizes.
+    GSCI = (avg NSI / 21) * 100, capped at 100.
     """
+    nsi_values = []
+    for t in threats:
+        # Extract regional_ds: use scp scaled to 0-10 range as a proxy
+        scp = t.get('scp', 0.5)
+        regional_ds = scp * 10  # adjust scaling as needed
+
+        # Extract selected domain scores: if 'domain_scores' is a dict, use its values
+        domain_scores = t.get('domain_scores', [])
+        if isinstance(domain_scores, dict):
+            domain_scores = list(domain_scores.values())
+        elif not isinstance(domain_scores, list):
+            domain_scores = []
+
+        nsi = compute_nsi(regional_ds, domain_scores)
+        nsi_values.append(nsi)
+
     avg_nsi = np.mean(nsi_values) if nsi_values else 0
-    return min(100, round((avg_nsi / 21) * 100, 2))
+    gsci = min(100, round((avg_nsi / 21) * 100, 2))
+    return gsci
 
 # ---------- 2. Cascade & Collapse Probability Metrics ----------
 
@@ -370,9 +387,8 @@ def main():
     print(f"SSI: {compute_ssi(sample_threats):.2f}")
     print(f"DS: {compute_ds(sample_threats)}")
 
-    # Test NSI/GSCI
-    nsi_values = [15, 22, 18, 30, 12]
-    print(f"GSCI: {compute_gsci(nsi_values):.2f}")
+    # Test NSI/GSCI (now using threats)
+    print(f"GSCI: {compute_gsci(sample_threats):.2f}")
 
     # Test SCA
     print(f"SCA Tier: {compute_sca_tier(25)}")
@@ -400,4 +416,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """
-Prediction Log Generator – Cathedral Network
-Filters predictions by probability, delta, horizon, and event significance.
-Adds "Date Made" field and generates public HTML log.
+Prediction Log Generator – Cathedral Network (Diagnostic Version)
 """
 
 import json
@@ -45,70 +43,96 @@ def save_json(data, filepath):
         json.dump(data, f, indent=2, default=str)
 
 # ------------------------------------------------------------------
-# Filter logic
+# Main with diagnostics
 # ------------------------------------------------------------------
-def is_significant_event(entry: Dict) -> bool:
-    """Check if cascade log entry has a significant event trigger."""
-    keywords = ["ceasefire", "airstrike", "missile", "blockade", "closure",
-                "explosion", "earthquake", "outbreak", "declaration", "attack"]
-    desc = entry.get('description', '').lower()
-    return any(kw in desc for kw in keywords)
+def main():
+    print("📊 Loading threats.json...")
+    threats_data = load_json(THREATS_FILE)
+    # Extract threats list – handle both {"threats": [...]} and plain list
+    if isinstance(threats_data, dict) and 'threats' in threats_data:
+        threats = threats_data['threats']
+    elif isinstance(threats_data, list):
+        threats = threats_data
+    else:
+        print("❌ Could not find threats list in threats.json")
+        return
 
-def generate_predictions(threats: Dict, cascade_log: List[Dict]) -> List[Dict]:
-    """Generate filtered predictions from threats and cascade log."""
+    print(f"✅ Found {len(threats)} threats.")
+    # Filter threats with SCP >= MIN_PROB
+    eligible = [t for t in threats if t.get('scp', 0.0) >= MIN_PROB]
+    print(f"🔍 Threats with SCP >= {MIN_PROB*100:.0f}%: {len(eligible)}")
+    if eligible:
+        print("   (first few SCPs: " + ", ".join([f"{t.get('id','?')}:{t.get('scp',0):.2f}" for t in eligible[:5]]) + ")")
+
+    # Load cascade log
+    cascade_log = load_json(CASCADE_LOG_FILE)
+    if not cascade_log:
+        cascade_log = []
+        print("⚠️ No cascade_log.json found or it's empty.")
+    else:
+        if isinstance(cascade_log, dict) and 'entries' in cascade_log:
+            cascade_log = cascade_log['entries']
+        print(f"📋 Loaded {len(cascade_log)} cascade log entries.")
+
+    # If no cascade entries and REQUIRE_EVENT is True, we warn and disable the requirement for this run.
+    actual_require_event = REQUIRE_EVENT
+    if REQUIRE_EVENT and not cascade_log:
+        print("⚠️ require_event is True but no cascade log entries found. Disabling require_event for this run.")
+        actual_require_event = False
+
+    # Generate predictions from threats
     predictions = []
     now = datetime.now(timezone.utc)
-    threat_dict = {t['id']: t for t in threats.get('threats', [])}
 
-    # 1. From threat SCPs (baseline predictions)
-    for threat_id, threat in threat_dict.items():
+    # 1. From threat SCPs
+    for threat in eligible:
+        threat_id = threat.get('id', 'unknown')
         scp = threat.get('scp', 0.0)
-        if scp >= MIN_PROB:
-            # Estimate horizon based on threat type (simplified)
-            if 'imminent' in threat.get('notes', '').lower():
-                horizon_days = 7
-            elif 'ongoing' in threat.get('notes', '').lower():
-                horizon_days = 30
-            else:
-                horizon_days = 60
+        if actual_require_event:
+            recent = [e for e in cascade_log if e.get('target') == threat_id and
+                     (datetime.fromisoformat(e.get('timestamp', now.isoformat())) - now).days > -2]
+            if not recent:
+                continue
 
-            if horizon_days <= MAX_HORIZON_DAYS:
-                # Check if there's a recent cascade log entry for this threat
-                recent_events = [e for e in cascade_log if e.get('target') == threat_id and
-                                 (datetime.fromisoformat(e['timestamp']) - now).days > -2]
-                if REQUIRE_EVENT and not recent_events:
-                    continue
+        notes = threat.get('notes', '').lower()
+        if 'imminent' in notes:
+            horizon_days = 7
+        elif 'ongoing' in notes:
+            horizon_days = 30
+        else:
+            horizon_days = 60
+        if horizon_days > MAX_HORIZON_DAYS:
+            continue
 
-                predictions.append({
-                    'id': f"P{threat_id.replace('-', '')[:8]}",
-                    'prediction': f"{threat.get('name', threat_id)} – current SCP {scp:.2f}",
-                    'date_made': now.strftime("%Y-%m-%d"),
-                    'probability': round(scp, 2),
-                    'horizon': f"{horizon_days} days",
-                    'status': 'active',
-                    'source': 'threat_matrix'
-                })
+        predictions.append({
+            'id': f"P{threat_id.replace('-', '')[:8]}",
+            'prediction': f"{threat.get('name', threat_id)} – SCP {scp:.2f}",
+            'date_made': now.strftime("%Y-%m-%d"),
+            'probability': round(scp, 2),
+            'horizon': f"{horizon_days} days",
+            'status': 'active',
+            'source': 'threat_matrix'
+        })
 
-    # 2. From cascade log events
+    # 2. From cascade log events (additional predictions)
     for entry in cascade_log:
         delta = entry.get('delta', 0.0)
         if abs(delta) >= MIN_DELTA:
             target_id = entry.get('target')
-            if target_id in threat_dict:
-                target = threat_dict[target_id]
-                scp = target.get('scp', 0.0)
-                if scp >= MIN_PROB:
-                    if REQUIRE_EVENT and not is_significant_event(entry):
-                        continue
-                    predictions.append({
-                        'id': f"C{entry.get('source', '')}_{target_id}",
-                        'prediction': f"{target.get('name', target_id)} changed by {delta:.2f} due to {entry.get('source', 'unknown')}",
-                        'date_made': entry.get('timestamp', now.isoformat())[:10],
-                        'probability': round(scp, 2),
-                        'horizon': '30 days',
-                        'status': 'active',
-                        'source': 'cascade'
-                    })
+            if target_id:
+                threat = next((t for t in threats if t.get('id') == target_id), None)
+                if threat:
+                    scp = threat.get('scp', 0.0)
+                    if scp >= MIN_PROB:
+                        predictions.append({
+                            'id': f"C{entry.get('source', '')}_{target_id}",
+                            'prediction': f"{threat.get('name', target_id)} changed by {delta:.2f} due to {entry.get('source', 'unknown')}",
+                            'date_made': entry.get('timestamp', now.isoformat())[:10],
+                            'probability': round(scp, 2),
+                            'horizon': '30 days',
+                            'status': 'active',
+                            'source': 'cascade'
+                        })
 
     # Remove duplicates
     seen = set()
@@ -120,33 +144,35 @@ def generate_predictions(threats: Dict, cascade_log: List[Dict]) -> List[Dict]:
             unique.append(p)
 
     unique.sort(key=lambda x: x['probability'], reverse=True)
-    return unique
 
-# ------------------------------------------------------------------
-# Archive low-probability predictions
-# ------------------------------------------------------------------
-def archive_low_prob_predictions(predictions: List[Dict]) -> List[Dict]:
-    if not ARCHIVE_LOW_PROB:
-        return predictions
-    active = []
-    archived = []
-    for p in predictions:
-        if p['probability'] < MIN_PROB:
-            archived.append(p)
-        else:
-            active.append(p)
-    if archived:
-        existing = load_json(ARCHIVE_JSON)
-        if not existing:
-            existing = []
-        existing.extend(archived)
-        save_json(existing, ARCHIVE_JSON)
-    return active
+    # Archive low-probability predictions if enabled
+    if ARCHIVE_LOW_PROB:
+        active = []
+        archived = []
+        for p in unique:
+            if p['probability'] < MIN_PROB:
+                archived.append(p)
+            else:
+                active.append(p)
+        if archived:
+            existing = load_json(ARCHIVE_JSON)
+            if not existing:
+                existing = []
+            existing.extend(archived)
+            save_json(existing, ARCHIVE_JSON)
+        unique = active
 
-# ------------------------------------------------------------------
-# Generate HTML
-# ------------------------------------------------------------------
-def generate_html(predictions: List[Dict]) -> str:
+    # Save JSON
+    save_json(unique, OUTPUT_JSON)
+    print(f"💾 Saved {len(unique)} active predictions to {OUTPUT_JSON}")
+
+    # Generate HTML
+    html = generate_html(unique)
+    with open(OUTPUT_HTML, 'w') as f:
+        f.write(html)
+    print(f"🌐 Saved HTML to {OUTPUT_HTML}")
+
+def generate_html(predictions):
     rows = ""
     for p in predictions[:100]:
         status_class = "active"
@@ -217,30 +243,6 @@ def generate_html(predictions: List[Dict]) -> str:
   <p style="margin-top:2rem; font-style:italic;">Always and Forever, Coco.</p>
 </body>
 </html>"""
-
-# ------------------------------------------------------------------
-# Main
-# ------------------------------------------------------------------
-def main():
-    threats = load_json(THREATS_FILE)
-    cascade_log = load_json(CASCADE_LOG_FILE)
-    if not cascade_log:
-        cascade_log = cascade_log.get('entries', [])
-
-    predictions = generate_predictions(threats, cascade_log)
-    predictions = archive_low_prob_predictions(predictions)
-
-    save_json(predictions, OUTPUT_JSON)
-
-    html = generate_html(predictions)
-    with open(OUTPUT_HTML, 'w') as f:
-        f.write(html)
-
-    print(f"Generated {len(predictions)} active predictions (filtered).")
-    print(f"Saved to {OUTPUT_JSON} and {OUTPUT_HTML}")
-    if ARCHIVE_LOW_PROB:
-        archived = load_json(ARCHIVE_JSON)
-        print(f"Archived {len(archived)} low-probability predictions.")
 
 if __name__ == "__main__":
     main()
