@@ -87,7 +87,6 @@
       .menu-btn { display: block; }
     }
 
-    /* Floating metric tiles – same as Ground Truth */
     .metrics {
       display: flex;
       flex-wrap: wrap;
@@ -114,7 +113,6 @@
     body.dark .metric-value { color: #b39ddb; }
     .metric-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    /* Tables */
     .prediction-table {
       width: 100%;
       border-collapse: collapse;
@@ -223,7 +221,6 @@
   <h1>📋 Cathedral Network – Prediction Log</h1>
   <p style="margin-bottom: 1rem;">All predictions are made publicly, with probabilities, dates, and outcomes. Corrections and falsifications are logged transparently (Law III).</p>
 
-  <!-- Floating metric tiles -->
   <div class="metrics">
     <a href="#confirmed" class="metric-card"><div class="metric-value" id="confirmedCount">--</div><div class="metric-label">Confirmed</div></a>
     <a href="#falsified" class="metric-card"><div class="metric-value" id="falsifiedCount">--</div><div class="metric-label">Falsified</div></a>
@@ -235,13 +232,13 @@
   <h2 id="confirmed">✅ Confirmed</h2>
   <p><em>All confirmed predictions are maintained in the Cathedral's public record.</em></p>
   <table class="prediction-table">
-    <thead><tr><th>ID</th><th>Prediction</th><th>Date Confirmed</th></tr></thead>
+    <thead><tr><th>ID</th><th>Prediction</th><th>Date Confirmed</th><th>Date Made</th></tr></thead>
     <tbody id="confirmedBody"></tbody>
   </table>
 
   <h2 id="falsified">❌ Falsified</h2>
   <table class="prediction-table">
-    <thead><tr><th>ID</th><th>Prediction</th><th>Date Falsified</th><th>Reason</th></tr></thead>
+    <thead><tr><th>ID</th><th>Prediction</th><th>Date Falsified</th><th>Reason</th><th>Date Made</th></tr></thead>
     <tbody id="falsifiedBody"></tbody>
   </table>
 
@@ -271,29 +268,38 @@
       const resp = await fetch('predictions.json');
       const data = await resp.json();
 
-      // Update metric tiles
       document.getElementById('confirmedCount').textContent = data.stats.confirmed;
       document.getElementById('falsifiedCount').textContent = data.stats.falsified;
       document.getElementById('hitRate').textContent = data.stats.hit_rate + '%';
       document.getElementById('pendingCount').textContent = data.stats.pending;
       document.getElementById('watchlistCount').textContent = data.stats.watchlist;
 
-      // Confirmed
+      // Confirmed – now with Date Made
       const confirmedBody = document.getElementById('confirmedBody');
       confirmedBody.innerHTML = data.confirmed.map(p => `
-        <tr class="confirmed-row"><td>${escapeHtml(p.id)}</td><td>${escapeHtml(p.description)}</td><td>${escapeHtml(p.date)}</td></tr>
+        <tr class="confirmed-row">
+          <td>${escapeHtml(p.id)}</td>
+          <td>${escapeHtml(p.description)}</td>
+          <td>${escapeHtml(p.date)}</td>
+          <td>${escapeHtml(p.date_made || p.date || '')}</td>
+        </tr>
       `).join('');
 
-      // Falsified
+      // Falsified – now with Date Made
       const falsifiedBody = document.getElementById('falsifiedBody');
       falsifiedBody.innerHTML = data.falsified.map(p => `
-        <tr class="falsified-row"><td>${escapeHtml(p.id)}</td><td>${escapeHtml(p.description)}</td><td>${escapeHtml(p.date)}</td><td>${escapeHtml(p.reason || '')}</td></tr>
+        <tr class="falsified-row">
+          <td>${escapeHtml(p.id)}</td>
+          <td>${escapeHtml(p.description)}</td>
+          <td>${escapeHtml(p.date)}</td>
+          <td>${escapeHtml(p.reason || '')}</td>
+          <td>${escapeHtml(p.date_made || p.date || '')}</td>
+        </tr>
       `).join('');
 
-      // Pending – with Date Made column
+      // Pending – Date Made already present
       const pendingBody = document.getElementById('pendingBody');
       pendingBody.innerHTML = data.pending.map(p => {
-        // Use date_made if present, else fallback to created, else empty
         const dateMade = p.date_made || p.created || '';
         return `
           <tr class="active-row">
@@ -315,8 +321,8 @@
 
     } catch(e) {
       console.error('Error loading predictions:', e);
-      document.getElementById('confirmedBody').innerHTML = '<tr><td colspan="3" style="padding:1rem; color:#dc2626;">Error loading data. Please try again later.</td></tr>';
-      document.getElementById('falsifiedBody').innerHTML = '<tr><td colspan="4" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
+      document.getElementById('confirmedBody').innerHTML = '<tr><td colspan="4" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
+      document.getElementById('falsifiedBody').innerHTML = '<tr><td colspan="5" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
       document.getElementById('pendingBody').innerHTML = '<tr><td colspan="6" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
       document.getElementById('watchlistBody').innerHTML = '<tr><td colspan="4" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
     }
@@ -334,12 +340,10 @@
 
   loadPredictions();
 
-  // Menu toggle
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
 
-  // Dark mode toggle
   const darkToggle = document.getElementById('darkModeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const storedTheme = localStorage.getItem('cathedral-theme');
