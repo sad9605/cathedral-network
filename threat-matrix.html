@@ -82,6 +82,7 @@
       .nav-links.show { display: flex; }
       .menu-btn { display: block; }
     }
+
     .metrics-strip {
       display: flex;
       flex-wrap: wrap;
@@ -94,33 +95,189 @@
       border: 1px solid #eee;
     }
     body.dark .metrics-strip { background: #2a2a3a; border-color: #444; }
-    .metric-item { flex: 1; text-align: center; padding: 0.5rem; cursor: pointer; transition: background 0.2s; border-radius: var(--card-radius); }
+    .metric-item {
+      flex: 1;
+      text-align: center;
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      border-radius: var(--card-radius);
+      text-decoration: none;
+      color: inherit;
+      min-width: 80px;
+    }
     .metric-item:hover { background: var(--violet-light); }
     body.dark .metric-item:hover { background: var(--violet-dark); }
     .metric-value { font-size: 1.5rem; font-weight: 700; color: var(--violet-dark); }
+    body.dark .metric-value { color: #b39ddb; }
     .metric-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
-    .filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
-    .filter-btn {
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin: 1rem 0;
+    }
+    .toolbar-btn {
       background: var(--violet-light);
       border: none;
-      padding: 0.4rem 1rem;
+      padding: 0.5rem 1rem;
       border-radius: 40px;
       cursor: pointer;
       font-size: 0.8rem;
       font-weight: 500;
       color: #5e2d8e;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    body.dark .toolbar-btn { background: #3a3a4a; color: #b39ddb; }
+    .toolbar-btn:hover { background: var(--violet-dark); color: white; }
+    body.dark .toolbar-btn:hover { background: var(--violet); color: #1a1a1a; }
+    .toolbar-btn.active { background: var(--violet-dark); color: white; }
+    body.dark .toolbar-btn.active { background: var(--violet); color: #1a1a1a; }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.5rem 0;
+    }
+    .filter-btn {
+      background: var(--violet-light);
+      border: none;
+      padding: 0.3rem 0.8rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #5e2d8e;
+      transition: background 0.2s;
     }
     body.dark .filter-btn { background: #3a3a4a; color: #b39ddb; }
+    .filter-btn:hover { background: var(--violet-dark); color: white; }
+    body.dark .filter-btn:hover { background: var(--violet); color: #1a1a1a; }
     .filter-btn.active { background: var(--violet-dark); color: white; }
-    .search-box { margin: 1rem 0; padding: 0.6rem; border-radius: 40px; border: 1px solid #ccc; width: 100%; max-width: 300px; }
+    body.dark .filter-btn.active { background: var(--violet); color: #1a1a1a; }
+
+    .search-box {
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      border: 1px solid #ccc;
+      flex: 1;
+      min-width: 200px;
+      max-width: 350px;
+      font-size: 0.85rem;
+    }
     body.dark .search-box { background: #2a2a3a; border-color: #555; color: white; }
-    .threat-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.85rem; background: white; border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+
+    .threat-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      background: white;
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
     body.dark .threat-table { background: #2a2a3a; }
-    .threat-table th, .threat-table td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; vertical-align: top; }
+    .threat-table th, .threat-table td {
+      border: 1px solid #ddd;
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      vertical-align: middle;
+    }
     body.dark .threat-table th, body.dark .threat-table td { border-color: #444; }
-    .threat-table th { background: var(--violet-light); font-weight: 600; }
+    .threat-table th {
+      background: var(--violet-light);
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
     body.dark .threat-table th { background: #3a3a4a; }
-    .status-icon { font-size: 1.2rem; }
+    .threat-table tr { cursor: pointer; transition: background 0.15s; }
+    .threat-table tr:hover { background: var(--violet-light); }
+    body.dark .threat-table tr:hover { background: #3a3a4a; }
+    .status-icon { font-size: 1.2rem; text-align: center; }
+    .scp-bar {
+      display: inline-block;
+      height: 6px;
+      border-radius: 4px;
+      background: #e0e0e0;
+      width: 60px;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+    body.dark .scp-bar { background: #444; }
+    .scp-fill { height: 100%; border-radius: 4px; background: var(--violet-dark); }
+    .scp-high { background: #dc2626; }
+    .scp-mid { background: #f97316; }
+    .scp-low { background: #22c55e; }
+
+    .row-predictive {
+      border-left: 4px solid #dc2626;
+      animation: pulse-border 2s infinite;
+    }
+    @keyframes pulse-border {
+      0%, 100% { border-left-color: #dc2626; }
+      50% { border-left-color: #f97316; }
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: white;
+      border-radius: var(--card-radius);
+      max-width: 700px;
+      width: 95%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem;
+      box-shadow: var(--shadow-hover);
+      position: relative;
+      animation: modal-in 0.25s ease;
+    }
+    body.dark .modal { background: #2a2a3a; }
+    @keyframes modal-in {
+      from { transform: scale(0.95) translateY(-20px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #888;
+    }
+    body.dark .modal-close { color: #aaa; }
+    .modal-close:hover { color: var(--text-dark); }
+    .modal h2 { margin-bottom: 0.5rem; }
+    .modal .meta { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0 1rem 0; font-size: 0.9rem; color: #666; }
+    body.dark .modal .meta { color: #aaa; }
+    .modal .meta span { background: var(--violet-light); padding: 0.2rem 0.8rem; border-radius: 40px; }
+    body.dark .modal .meta span { background: #3a3a4a; }
+    .modal .detail-row { display: flex; padding: 0.4rem 0; border-bottom: 1px solid #eee; }
+    body.dark .modal .detail-row { border-bottom-color: #444; }
+    .modal .detail-row .label { font-weight: 600; width: 120px; flex-shrink: 0; }
+    .modal .detail-row .value { flex: 1; }
+
     .footer { margin-top: 3rem; text-align: center; font-style: italic; color: #888; border-top: 1px solid #ddd; padding-top: 1rem; }
     .dark-mode-toggle {
       position: fixed;
@@ -137,7 +294,12 @@
       z-index: 1000;
       box-shadow: var(--shadow-sm);
     }
-    @media (max-width: 768px) { .threat-table { font-size: 0.7rem; } .threat-table th, .threat-table td { padding: 0.3rem; } }
+    @media (max-width: 768px) {
+      .threat-table { font-size: 0.7rem; }
+      .threat-table th, .threat-table td { padding: 0.3rem; }
+      .modal { padding: 1.2rem; }
+      .modal .detail-row .label { width: 80px; }
+    }
   </style>
 </head>
 <body>
@@ -169,16 +331,26 @@
   </div>
 
   <div class="metrics-strip" id="metricsStrip">
-    <a href="glossary.html#sca" class="metric-item" style="text-decoration: none; color: inherit;"><div class="metric-value" id="scaValue">--</div><div class="metric-label">SCA Tier</div></a>
-    <a href="glossary.html#ivf" class="metric-item" style="text-decoration: none; color: inherit;"><div class="metric-value" id="ivfValue">--</div><div class="metric-label">IVF</div></a>
-    <a href="glossary.html#scp" class="metric-item" style="text-decoration: none; color: inherit;"><div class="metric-value" id="scpCount">--</div><div class="metric-label">Bayesian SCP</div></a>
-    <a href="threat-matrix.html#cascade" class="metric-item" style="text-decoration: none; color: inherit;"><div class="metric-value" id="ruleCount">--</div><div class="metric-label">Cascade rules</div></a>
-    <a href="threat-matrix.html" class="metric-item" style="text-decoration: none; color: inherit;"><div class="metric-value" id="threatCount">--</div><div class="metric-label">Threats tracked</div></a>
+    <a href="glossary.html#sca" class="metric-item"><div class="metric-value" id="scaValue">--</div><div class="metric-label">SCA Tier</div></a>
+    <a href="glossary.html#ivf" class="metric-item"><div class="metric-value" id="ivfValue">--</div><div class="metric-label">IVF</div></a>
+    <a href="glossary.html#scp" class="metric-item"><div class="metric-value" id="scpCount">--</div><div class="metric-label">Bayesian SCP</div></a>
+    <a href="#cascade" class="metric-item"><div class="metric-value" id="ruleCount">--</div><div class="metric-label">Cascade rules</div></a>
+    <a href="#" class="metric-item"><div class="metric-value" id="threatCount">--</div><div class="metric-label">Threats tracked</div></a>
   </div>
 
-  <h1>Full Threat Matrix & Cascade Engine</h1>
+  <h1>Full Threat Matrix &amp; Cascade Engine</h1>
   <div class="date" id="lastUpdated">Loading threat data...</div>
 
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <button class="toolbar-btn" id="refreshBtn">⟳ Refresh</button>
+    <button class="toolbar-btn" id="exportBtn">⬇ Export CSV</button>
+    <button class="toolbar-btn" id="watchlistToggle" data-view="all">👁 Watchlist</button>
+    <button class="toolbar-btn" id="predictiveToggle" data-mode="off">🔮 Predictive</button>
+    <span style="font-size:0.8rem; color:#888; margin-left:auto;">SCP trend: <span id="trendLabel">--</span></span>
+  </div>
+
+  <!-- Domain filters -->
   <div class="filter-bar" id="domain-filter">
     <button class="filter-btn active" data-domain="all">All Domains</button>
     <button class="filter-btn" data-domain="Geopolitical">Geopolitical</button>
@@ -194,11 +366,12 @@
     <button class="filter-btn" data-domain="Biosecurity">Biosecurity</button>
     <button class="filter-btn" data-domain="Institutional">Institutional</button>
   </div>
-  <input type="text" id="threat-search" class="search-box" placeholder="Search threats by ID, name, or domain...">
+
+  <input type="text" id="threat-search" class="search-box" placeholder="Search by ID, name, or domain...">
 
   <table class="threat-table" id="threat-table">
     <thead>
-      <tr><th>ID</th><th>Icon</th><th>Threat Name</th><th>Domains</th><th>Status</th><th>SCP</th><th>Notes</th></tr>
+      <tr><th>ID</th><th style="width:40px;">⚡</th><th>Threat Name</th><th>Domains</th><th>Status</th><th style="width:100px;">SCP</th><th>Notes</th></tr>
     </thead>
     <tbody id="threat-body">
       <tr><td colspan="7" style="text-align:center; padding:2rem; color:#888;">Loading threats...</td></tr>
@@ -210,12 +383,38 @@
     Threat Matrix · Fully dynamic · Updated daily.
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="threatModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <h2 id="modalTitle">Threat Details</h2>
+    <div class="meta" id="modalMeta"></div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
 <script>
   let allThreats = [];
   let currentDomain = "all";
   let currentSearch = "";
+  let watchlistMode = false;
+  let predictiveMode = false;
+  let watchlistIds = new Set();
+
+  // Load watchlist from predictions.json
+  async function loadWatchlist() {
+    try {
+      const resp = await fetch('predictions.json');
+      if (!resp.ok) return;
+      const data = await resp.json();
+      if (data.watchlist) {
+        data.watchlist.forEach(p => watchlistIds.add(p.id));
+      }
+    } catch(e) { console.warn('Could not load watchlist', e); }
+  }
 
   function getStatusIcon(status) {
     const s = status || 'Yellow';
@@ -227,6 +426,20 @@
     return '🟣';
   }
 
+  function getSCPClass(scp) {
+    if (scp >= 0.7) return 'scp-high';
+    if (scp >= 0.4) return 'scp-mid';
+    return 'scp-low';
+  }
+
+  function isEscalating(threat) {
+    // Simple predictive heuristic: high SCP + high priority + Black/Red status
+    const scp = threat.scp || 0;
+    const priority = threat.priority_score || 0;
+    const status = threat.status || '';
+    return (scp > 0.6 && priority > 60) || status.includes('Black') || status === 'Red';
+  }
+
   function renderMetrics(threats) {
     const total = threats.length;
     document.getElementById('threatCount').innerText = total;
@@ -234,35 +447,158 @@
     document.getElementById('scaValue').innerText = 'Tier 5';
     document.getElementById('ivfValue').innerText = '0.81';
     document.getElementById('scpCount').innerText = '100%';
+
+    // Trend label: count of escalating threats
+    const escalating = threats.filter(t => isEscalating(t)).length;
+    document.getElementById('trendLabel').innerText = `${escalating} escalating`;
   }
 
   function renderThreats() {
-    const filtered = allThreats.filter(t => {
+    let filtered = allThreats.filter(t => {
       if (currentDomain !== "all" && !t.domains.includes(currentDomain)) return false;
       if (currentSearch && !t.name.toLowerCase().includes(currentSearch.toLowerCase()) && !t.id.toLowerCase().includes(currentSearch.toLowerCase())) return false;
+      if (watchlistMode && !watchlistIds.has(t.id)) return false;
       return true;
     });
+
+    // Sort by priority (descending)
+    filtered.sort((a, b) => (b.priority_score || 0) - (a.priority_score || 0));
+
     const tbody = document.getElementById("threat-body");
     if (filtered.length === 0) {
       tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:2rem; color:#888;">No threats match your filters.</td></tr>';
+      renderMetrics(filtered);
       return;
     }
-    tbody.innerHTML = filtered.map(t => `
-      <tr>
-        <td>${t.id || ''}</td>
-        <td class="status-icon">${getStatusIcon(t.status)}</td>
-        <td>${t.name || ''}</td>
-        <td>${Array.isArray(t.domains) ? t.domains.join(", ") : ''}</td>
-        <td>${t.status || 'Yellow'}</td>
-        <td>${(t.scp || 0.5).toFixed(2)}</td>
-        <td>${t.description || ''}</td>
-      </tr>
-    `).join("");
+
+    tbody.innerHTML = filtered.map(t => {
+      const scp = t.scp || 0.5;
+      const scpPct = Math.round(scp * 100);
+      const isEsc = predictiveMode && isEscalating(t);
+      const rowClass = isEsc ? 'row-predictive' : '';
+      const desc = t.description || t.name || 'No description';
+      return `
+        <tr class="${rowClass}" data-id="${t.id || ''}" onclick="openModal('${t.id || ''}')">
+          <td>${t.id || ''}</td>
+          <td class="status-icon">${getStatusIcon(t.status)}</td>
+          <td><strong>${t.name || ''}</strong></td>
+          <td>${Array.isArray(t.domains) ? t.domains.join(", ") : ''}</td>
+          <td>${t.status || 'Yellow'}</td>
+          <td>
+            <span class="scp-bar"><span class="scp-fill ${getSCPClass(scp)}" style="width:${scpPct}%;"></span></span>
+            ${scpPct}%
+          </td>
+          <td>${desc.length > 60 ? desc.slice(0, 60) + '…' : desc}</td>
+        </tr>
+      `;
+    }).join("");
     renderMetrics(filtered);
   }
 
+  // --- Modal ---
+  function openModal(id) {
+    const threat = allThreats.find(t => t.id === id);
+    if (!threat) return;
+    document.getElementById('modalTitle').textContent = threat.id + ' – ' + (threat.name || 'Unknown');
+    document.getElementById('modalMeta').innerHTML = `
+      <span>${threat.status || 'Yellow'}</span>
+      <span>SCP: ${Math.round((threat.scp || 0.5) * 100)}%</span>
+      <span>Priority: ${Math.round(threat.priority_score || 0)}</span>
+      <span>${Array.isArray(threat.domains) ? threat.domains.join(', ') : ''}</span>
+    `;
+    document.getElementById('modalBody').innerHTML = `
+      <div class="detail-row"><span class="label">Description</span><span class="value">${threat.description || threat.name || 'No description'}</span></div>
+      <div class="detail-row"><span class="label">SCP (Bayesian)</span><span class="value">${(threat.scp || 0.5).toFixed(3)}</span></div>
+      <div class="detail-row"><span class="label">Priority Score</span><span class="value">${Math.round(threat.priority_score || 0)}</span></div>
+      <div class="detail-row"><span class="label">Status</span><span class="value">${threat.status || 'Yellow'}</span></div>
+      <div class="detail-row"><span class="label">Domains</span><span class="value">${Array.isArray(threat.domains) ? threat.domains.join(', ') : 'None'}</span></div>
+      <div class="detail-row"><span class="label">Cascade Targets</span><span class="value">${threat.cascade_targets ? threat.cascade_targets.join(', ') : 'None'}</span></div>
+      <div class="detail-row"><span class="label">Confidence</span><span class="value">${(threat.confidence || 0.5).toFixed(2)}</span></div>
+      <div style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <button class="toolbar-btn" onclick="alert('Cascade graph for ${threat.id} – coming soon.')">🔗 Cascade Graph</button>
+        <button class="toolbar-btn" onclick="alert('Simulation for ${threat.id} – coming soon.')">🧠 What‑if Simulation</button>
+      </div>
+    `;
+    document.getElementById('threatModal').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('threatModal').classList.remove('active');
+  }
+
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('threatModal').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  // --- Export CSV ---
+  function exportCSV() {
+    let filtered = allThreats.filter(t => {
+      if (currentDomain !== "all" && !t.domains.includes(currentDomain)) return false;
+      if (currentSearch && !t.name.toLowerCase().includes(currentSearch.toLowerCase()) && !t.id.toLowerCase().includes(currentSearch.toLowerCase())) return false;
+      if (watchlistMode && !watchlistIds.has(t.id)) return false;
+      return true;
+    });
+    const headers = ['ID','Name','Domains','Status','SCP','Priority','Description'];
+    const rows = filtered.map(t => [
+      t.id || '', t.name || '', (t.domains || []).join(';'), t.status || '',
+      (t.scp || 0.5).toFixed(3), Math.round(t.priority_score || 0),
+      (t.description || '').replace(/,/g,';')
+    ]);
+    let csv = headers.join(',') + '\n' + rows.map(r => r.join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `threat-matrix-${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  document.getElementById('exportBtn').addEventListener('click', exportCSV);
+
+  // --- Refresh ---
+  document.getElementById('refreshBtn').addEventListener('click', () => {
+    document.getElementById('threat-body').innerHTML = '<tr><td colspan="7" style="text-align:center; padding:2rem; color:#888;">Refreshing...</td></tr>';
+    loadThreatMatrix();
+  });
+
+  // --- Watchlist toggle ---
+  document.getElementById('watchlistToggle').addEventListener('click', function() {
+    watchlistMode = !watchlistMode;
+    this.textContent = watchlistMode ? '👁 Watchlist (on)' : '👁 Watchlist';
+    this.classList.toggle('active', watchlistMode);
+    renderThreats();
+  });
+
+  // --- Predictive toggle ---
+  document.getElementById('predictiveToggle').addEventListener('click', function() {
+    predictiveMode = !predictiveMode;
+    this.textContent = predictiveMode ? '🔮 Predictive (on)' : '🔮 Predictive';
+    this.classList.toggle('active', predictiveMode);
+    renderThreats();
+  });
+
+  // --- Filters ---
+  document.querySelectorAll("[data-domain]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("[data-domain]").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentDomain = btn.dataset.domain;
+      renderThreats();
+    });
+  });
+
+  document.getElementById("threat-search").addEventListener("input", (e) => {
+    currentSearch = e.target.value;
+    renderThreats();
+  });
+
+  // --- Load data ---
   async function loadThreatMatrix() {
     try {
+      await loadWatchlist();
       const resp = await fetch('threats.json');
       const data = await resp.json();
       allThreats = data.threats || [];
@@ -275,19 +611,7 @@
     }
   }
 
-  document.querySelectorAll("[data-domain]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll("[data-domain]").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      currentDomain = btn.dataset.domain;
-      renderThreats();
-    });
-  });
-  document.getElementById("threat-search").addEventListener("input", (e) => {
-    currentSearch = e.target.value;
-    renderThreats();
-  });
-
+  // --- Nav & dark mode ---
   const menuBtn = document.getElementById("menuBtn");
   const navLinks = document.getElementById("navLinks");
   if (menuBtn) menuBtn.addEventListener("click", () => navLinks.classList.toggle("show"));
@@ -305,6 +629,7 @@
     darkToggle.innerText = isDark ? "☀️" : "🌙";
     localStorage.setItem("cathedral-theme", isDark ? "dark" : "light");
   });
+
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("service-worker.js");
 
   loadThreatMatrix();
