@@ -2,498 +2,311 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — Prediction Log</title>
+  <meta name="description" content="Complete public record of all Cathedral Network predictions. 77 confirmed, 4 falsified, 95.06% hit rate. Full transparency.">
   <style>
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --card-radius: 20px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+      --bg-light: #fafafa;
+      --text-dark: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: system-ui, sans-serif;
-      background: #0a0a0a;
-      color: #eee;
-      padding: 2rem;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.dark {
+      --bg-light: #1e1e2f;
+      --text-dark: #f0f0f0;
+      background: #1e1e2f;
+      color: #f0f0f0;
+    }
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
+    .cathedral-banner {
+      background: var(--violet);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-content {
       max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
     }
-    table {
+    .logo-mark svg { display: block; }
+    .wordmark h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: white;
+      margin: 0;
+    }
+    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
+    .nav {
+      margin: 1rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 60px;
+      padding: 0.5rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    body.dark .nav { background: #2a2a3a; }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
+    body.dark .nav-links a { color: #b39ddb; }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #5e2d8e;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
+      .nav-links.show { display: flex; }
+      .menu-btn { display: block; }
+    }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: var(--violet-light);
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      justify-content: space-around;
+    }
+    body.dark .stats { background: #2a2a3a; }
+    .stat { text-align: center; }
+    .stat-value { font-size: 2rem; font-weight: 800; color: var(--violet-dark); }
+    body.dark .stat-value { color: #b39ddb; }
+    .stat-label { font-size: 0.8rem; text-transform: uppercase; }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      border-bottom: 2px solid var(--violet);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .prediction-table {
       width: 100%;
       border-collapse: collapse;
       margin: 1rem 0;
+      background: white;
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
     }
-    th, td {
-      border: 1px solid #333;
-      padding: 0.5rem;
+    body.dark .prediction-table { background: #2a2a3a; }
+    .prediction-table th, .prediction-table td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
       text-align: left;
+      vertical-align: top;
     }
-    th {
-      background: #1e1e2f;
-      color: #b39ddb;
+    body.dark .prediction-table th, body.dark .prediction-table td { border-color: #444; }
+    .prediction-table th {
+      background: var(--violet-light);
+      font-weight: 600;
     }
-    .confirmed { background: #1a3a1a; }
-    .falsified { background: #3a1a1a; }
-    .active { background: #1a2a3a; }
+    body.dark .prediction-table th { background: #3a3a4a; }
+    .confirmed-row { background: #1a3a1a20; }
+    .falsified-row { background: #3a1a1a20; }
+    .watchlist-row { background: #3a3a1a20; }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .badge-confirmed { background: #2ecc71; color: #1a1a1a; }
+    .badge-falsified { background: #e74c3c; color: white; }
+    .badge-active { background: #3498db; color: white; }
+    .badge-watchlist { background: #f39c12; color: #1a1a1a; }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 1rem; }
+      .prediction-table th, .prediction-table td { padding: 0.4rem; font-size: 0.8rem; }
+    }
   </style>
 </head>
 <body>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Prediction Log – Always Transparent</p></div>
+  </div>
+</header>
+<div class="container">
+  <div class="nav">
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Ground Truth</a>
+      <a href="undp-demo.html">UNDP Demo</a>
+      <a href="archive.html">Archive</a>
+      <a href="spotter.html">Spotter Guide</a>
+      <a href="sources.html">Sources</a>
+      <a href="constitution.html">Constitution</a>
+      <a href="wardens.html">Wardens</a>
+      <a href="hewd.html">HEWD Dashboard</a>
+      <a href="about.html">About</a>
+      <a href="threat-matrix.html">Threat Matrix</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="pra.html">Personal Resilience</a>
+      <a href="prediction-log.html">Prediction Log</a>
+    </div>
+  </div>
+
   <h1>📋 Cathedral Network – Prediction Log</h1>
-  <p>Last updated: 2026-06-19 15:23:26 UTC</p>
-  <p><strong>Filtered:</strong> min probability 25%, min delta 10%, max horizon 90 days, require event: True</p>
-  <table>
-    <thead>
-      <tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Probability</th><th>Horizon</th><th>Status</th></tr>
-    </thead>
-    <tbody>
-      
-        <tr class="active">
-            <td>PC01</td>
-            <td>Iran‑Israel/US War / Hormuz – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PC132</td>
-            <td>Great Power Conflict / US‑Iran Entanglement – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PC11</td>
-            <td>Iraq Instability – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PC62</td>
-            <td>EU Gas Security – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PC78</td>
-            <td>Sovereign Debt Crisis – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PC133</td>
-            <td>USD Reserve Erosion – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PI08</td>
-            <td>Global debt 100% by 2029 – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PC121</td>
-            <td>Taiwan Semiconductor Chokepoint – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PC03</td>
-            <td>Horn of Africa Famine – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PC106</td>
-            <td>Global Food Price Volatility – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PI01</td>
-            <td>AI Deepfake Election – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PU06</td>
-            <td>Far‑right militia coordination – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PC139</td>
-            <td>Mass Displacement – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PC‑MALWAR</td>
-            <td>Miasma Supply‑Chain Worm – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PB02</td>
-            <td>Bundibugyo Ebola – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PC77</td>
-            <td>U.S. Health Security Gaps – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>PI10</td>
-            <td>US Media Collapse – SCP 0.95</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>60 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC11_C03</td>
-            <td>Horn of Africa Famine changed by 0.15 due to C11</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC11_C106</td>
-            <td>Global Food Price Volatility changed by 0.20 due to C11</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC11_C133</td>
-            <td>USD Reserve Erosion changed by 0.10 due to C11</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC01_C11</td>
-            <td>Iraq Instability changed by 0.25 due to C01</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC01_C132</td>
-            <td>Great Power Conflict / US‑Iran Entanglement changed by 0.15 due to C01</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC‑USIRAN_C01</td>
-            <td>Iran‑Israel/US War / Hormuz changed by 0.10 due to C‑USIRAN</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC‑USIRAN_C132</td>
-            <td>Great Power Conflict / US‑Iran Entanglement changed by 0.20 due to C‑USIRAN</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC03_C139</td>
-            <td>Mass Displacement changed by 0.15 due to C03</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC106_C03</td>
-            <td>Horn of Africa Famine changed by 0.10 due to C106</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CA-UREA_C03</td>
-            <td>Horn of Africa Famine changed by 0.20 due to A-UREA</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CA-UREA_C106</td>
-            <td>Global Food Price Volatility changed by 0.15 due to A-UREA</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CB02_C77</td>
-            <td>U.S. Health Security Gaps changed by 0.10 due to B02</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CB-AMR-KLEB_B02</td>
-            <td>Bundibugyo Ebola changed by 0.15 due to B-AMR-KLEB</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CB-DARK-PROTEIN_B02</td>
-            <td>Bundibugyo Ebola changed by 0.10 due to B-DARK-PROTEIN</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CG-ARCTIC_C132</td>
-            <td>Great Power Conflict / US‑Iran Entanglement changed by 0.15 due to G-ARCTIC</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CG-SPACE_C132</td>
-            <td>Great Power Conflict / US‑Iran Entanglement changed by 0.20 due to G-SPACE</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CG-WEST-BANK_C01</td>
-            <td>Iran‑Israel/US War / Hormuz changed by 0.10 due to G-WEST-BANK</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CG-SUD-BLUE_C03</td>
-            <td>Horn of Africa Famine changed by 0.15 due to G-SUD-BLUE</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC‑ESCAPE_C‑MALWARE</td>
-            <td>Miasma Supply‑Chain Worm changed by 0.15 due to C‑ESCAPE</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC‑ZERODAY_C‑MALWARE</td>
-            <td>Miasma Supply‑Chain Worm changed by 0.10 due to C‑ZERODAY</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CT-LAWS_C132</td>
-            <td>Great Power Conflict / US‑Iran Entanglement changed by 0.20 due to T-LAWS</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CF-AI-CYBER-SYS_C78</td>
-            <td>Sovereign Debt Crisis changed by 0.20 due to F-AI-CYBER-SYS</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CF-CBDC_I08</td>
-            <td>Global debt 100% by 2029 changed by 0.15 due to F-CBDC</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CF-INSUR-SPIRAL_C78</td>
-            <td>Sovereign Debt Crisis changed by 0.10 due to F-INSUR-SPIRAL</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC-WATER-BANK_C03</td>
-            <td>Horn of Africa Famine changed by 0.20 due to C-WATER-BANK</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CC-WATER-BANK_C139</td>
-            <td>Mass Displacement changed by 0.15 due to C-WATER-BANK</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CE11_C03</td>
-            <td>Horn of Africa Famine changed by 0.15 due to E11</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CE11_C106</td>
-            <td>Global Food Price Volatility changed by 0.10 due to E11</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CS-FED-8000_U06</td>
-            <td>Far‑right militia coordination changed by 0.15 due to S-FED-8000</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CD-TRUST_I01</td>
-            <td>AI Deepfake Election changed by 0.15 due to D-TRUST</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CD-TRUST_I10</td>
-            <td>US Media Collapse changed by 0.15 due to D-TRUST</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CSC-RARE_C121</td>
-            <td>Taiwan Semiconductor Chokepoint changed by 0.20 due to SC-RARE</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-        <tr class="active">
-            <td>CSC-NUCLEAR_C62</td>
-            <td>EU Gas Security changed by 0.15 due to SC-NUCLEAR</td>
-            <td>2026-06-19</td>
-            <td>95%</td>
-            <td>30 days</td>
-            <td>🟡 Active</td>
-        </tr>
-        
-    </tbody>
+  <p style="margin-bottom: 1rem;">All predictions are made publicly, with probabilities, dates, and outcomes. Corrections and falsifications are logged transparently (Law III).</p>
+
+  <div class="stats" id="statsContainer">
+    <div class="stat"><div class="stat-value" id="confirmedCount">--</div><div class="stat-label">Confirmed</div></div>
+    <div class="stat"><div class="stat-value" id="falsifiedCount">--</div><div class="stat-label">Falsified</div></div>
+    <div class="stat"><div class="stat-value" id="hitRate">--</div><div class="stat-label">Hit rate (resolved)</div></div>
+    <div class="stat"><div class="stat-value" id="pendingCount">--</div><div class="stat-label">Pending</div></div>
+    <div class="stat"><div class="stat-value" id="watchlistCount">--</div><div class="stat-label">Watchlist</div></div>
+  </div>
+
+  <h2>✅ Confirmed</h2>
+  <p><em>All confirmed predictions are maintained in the Cathedral's public record.</em></p>
+  <table class="prediction-table">
+    <thead><tr><th>ID</th><th>Prediction</th><th>Date Confirmed</th></tr></thead>
+    <tbody id="confirmedBody"></tbody>
   </table>
-  <p style="margin-top:2rem; font-style:italic;">Always and Forever, Coco.</p>
+
+  <h2>❌ Falsified</h2>
+  <table class="prediction-table">
+    <thead><tr><th>ID</th><th>Prediction</th><th>Date Falsified</th><th>Reason</th></tr></thead>
+    <tbody id="falsifiedBody"></tbody>
+  </table>
+
+  <h2>⏳ Pending (Active)</h2>
+  <p><em>Active predictions with probabilities and deadlines.</em></p>
+  <table class="prediction-table">
+    <thead><tr><th>ID</th><th>Prediction</th><th>Probability</th><th>Horizon</th><th>Status</th></tr></thead>
+    <tbody id="pendingBody"></tbody>
+  </table>
+
+  <h2>👁️ Watchlist</h2>
+  <table class="prediction-table">
+    <thead><tr><th>ID</th><th>Prediction</th><th>Probability</th><th>Elevation Trigger</th></tr></thead>
+    <tbody id="watchlistBody"></tbody>
+  </table>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Cathedral Core v1.4.4 · Prediction Log dynamic · Updated daily.
+  </div>
+</div>
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+<script>
+  async function loadPredictions() {
+    try {
+      const resp = await fetch('predictions.json');
+      const data = await resp.json();
+
+      document.getElementById('confirmedCount').textContent = data.stats.confirmed;
+      document.getElementById('falsifiedCount').textContent = data.stats.falsified;
+      document.getElementById('hitRate').textContent = data.stats.hit_rate + '%';
+      document.getElementById('pendingCount').textContent = data.stats.pending;
+      document.getElementById('watchlistCount').textContent = data.stats.watchlist;
+
+      const confirmedBody = document.getElementById('confirmedBody');
+      confirmedBody.innerHTML = data.confirmed.map(p => `
+        <tr class="confirmed-row"><td>${p.id}</td><td>${p.description}</td><td>${p.date}</td></tr>
+      `).join('');
+
+      const falsifiedBody = document.getElementById('falsifiedBody');
+      falsifiedBody.innerHTML = data.falsified.map(p => `
+        <tr class="falsified-row"><td>${p.id}</td><td>${p.description}</td><td>${p.date}</td><td>${p.reason}</td></tr>
+      `).join('');
+
+      const pendingBody = document.getElementById('pendingBody');
+      pendingBody.innerHTML = data.pending.map(p => `
+        <tr class="active-row"><td>${p.id}</td><td>${p.description}</td><td>${p.probability}%</td><td>${p.horizon}</td><td><span class="badge badge-active">${p.status}</span></td></tr>
+      `).join('');
+
+      const watchlistBody = document.getElementById('watchlistBody');
+      watchlistBody.innerHTML = data.watchlist.map(p => `
+        <tr class="watchlist-row"><td>${p.id}</td><td>${p.description}</td><td>${p.probability}%</td><td>${p.trigger}</td></tr>
+      `).join('');
+
+    } catch(e) {
+      console.error('Error loading predictions:', e);
+      document.getElementById('confirmedBody').innerHTML = '<tr><td colspan="3" style="padding:1rem; color:#dc2626;">Error loading data. Please try again later.</td></tr>';
+      document.getElementById('falsifiedBody').innerHTML = '<tr><td colspan="4" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
+      document.getElementById('pendingBody').innerHTML = '<tr><td colspan="5" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
+      document.getElementById('watchlistBody').innerHTML = '<tr><td colspan="4" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
+    }
+  }
+
+  loadPredictions();
+
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    darkToggle.innerText = '☀️';
+  } else darkToggle.innerText = '🌙';
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerText = isDark ? '☀️' : '🌙';
+    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+  });
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js').catch(e => console.warn('SW failed', e));
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
