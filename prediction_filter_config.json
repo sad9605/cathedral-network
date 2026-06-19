@@ -1,0 +1,7 @@
+{
+  "min_probability": 0.25,
+  "min_delta": 0.10,
+  "max_horizon_days": 90,
+  "require_event": true,
+  "archive_low_prob": true
+}

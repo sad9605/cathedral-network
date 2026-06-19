@@ -1,51 +1,51 @@
-# Ground Truth Summary – 2026-06-17T18:44:38.278444+00:00
+# Ground Truth Summary – 2026-06-19T07:37:13.540540+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
-- Iran sends tankers loaded with oil past US military blockade
-- PM warns Burnham against immediate leadership challenge if he wins by-election
-- BBC announces 550 job cuts as first part of £500m savings plan
+- Chris Mason: Emphatic win leaves Starmer with big decision on leadership
+- Burnham says 'tonight could be the turning point' in his victory speech
+- Scottish Conservatives win first Westminster by-election in more than 50 years
 
 **Reuters**:
 
 **Al Jazeera**:
-- Trump: World will ‘find out pretty soon’ if Iran MOU signing will happen
-- US Federal Reserve holds rates steady under new chair Warsh
-- Thick black smoke towers over Paris skyline after warehouse blaze
+- US-Iran talks postponed as Israel attacks Lebanon
+- Iran to lodge complaint with FIFA over World Cup 2026 travel restrictions
+- Iran war day 112: Vance defends Tehran ‘deal’ but Switzerland trips are off
 
 **The Guardian**:
-- Seven-year-old Abdiqadir was hit in a US airstrike. Without a $750 operation, he may lose his ability to walk
-- Sierra Leone’s first lady refuses to condemn FGM without ‘reliable data’ on harms
-- Ghana to advance reparatory justice at first major gathering since landmark UN resolution
+- CDC to tap $107m in emergency funding for Ebola response in DRC and Uganda
+- Barbados prime minister announces manifesto for slavery reparations
+- South African men sentenced in ‘world’s largest’ rhino horn trafficking case
 
 **France 24**:
 
 **Deutsche Welle**:
 
 **Sky News**:
-- A different kind of Starmer turned up for G7 interview - armed with a message
-- Heatwave set to return to UK
-- Serial killer who murdered eight women in US sentenced
+- Tories and SNP win Scottish by-elections - as Labour come fourth in both races
+- Boy, 3, seriously hurt in crocodile pen - with man 'not known to him' arrested for 'attempted murder'
+- Lilo & Stitch actress Daveigh Chase dies aged 35
 
 **NHK World**:
-- 【ライブ配信】米FRB 政策金利据え置き 新議長が記者会見
-- G7サミット最終日 経済・AIなど議論し閉幕
-- 食料品の消費税 来年4月から1％ 所得連動給付で“実質ゼロ”案
+- 日本人乗組員を乗せた日本関係船舶 すべてペルシャ湾外に退避
+- 東京 北区 小学校で火事 児童など計11人が病院搬送 全員避難
+- 皇位継承 法案の骨子案 木原官房長官が衆参両院正副議長に説明
 
 **Times of India**:
-- US officials release details of US-Iran interim deal after days of secrecy: Read the 14-point MoU
-- US Federal Reserve policy meet: Kevin Warsh-led FOMC keeps interest rates unchanged
-- Dell CEO Michael Dell makes one of largest public university donations in US history
+- Black rain, smoke over Moscow: Russia-Ukraine trade bombs, drones and missiles as war intensifies
+- Delhi HC upholds Centre's Telegram ban order ahead of NEET retest
+- RSS office attack in Ranchi: Pakistan ISI-backed terror network uncovered
 
 **South China Morning Post**:
-- Sexual abuse against children up 20% in 2025 as security chief vows tighter laws
-- Hong Kong police arrest male suspect, 36, over sexual assaults on 4 drunk men
-- Hong Kong’s John Lee pledges 10-fold expansion of new university town
+- Poverty line a limited marker, Hong Kong minister says, as aid focus expands to carers
+- US, Iran sign peace deal; China’s C919 jets grounded for safety checks: SCMP’s 7 highlights
+- Dragon Boat Festival drums up a buzz as unsettled weather fails to dampen spirits
 
 **Africa News**:
-- Chloe Bailey stars in psychological thriller 'Strung'
-- Government of Equatorial Guinea submits collective resignation
-- African and Commonwealth nations in Kenya urge quick execution of key treaty protecting oceans
+- Mexico becomes first nation to reach World Cup knockout stage
+- Niger: search underway for attackers who killed 11 soldiers at Niamey airport
+- Ebola death toll passes 200 in DR Congo from 875 confirmed cases
 
 ## Disaster and Conflict Alerts
 - gdacs: error

@@ -1441,10 +1441,10 @@
     // ---------- SUPABASE INIT ----------
     async function initSupabase() {
       try {
-        state.supabase = window.supabase.createClient(
-          'https://hebioqhjdjtjxjamjvka.supabase.co',
-          'sb_publishable_eetpDN8_aqWTHr5Bt9ML5w_87XT5ac1'
-        );
+       state.supabase = window.supabase.createClient(
+  'https://prwfzkbrtxvoyamgdcem.supabase.co',           // Your new Project URL
+  'sb_publishable_RXSq-kezZRkFz8TVoJl3lw_nbEarg46'     // Your new Anon Key
+);
         const { error } = await state.supabase.auth.signInAnonymously();
         if (error) throw error;
         state.supabaseReady = true;

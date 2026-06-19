@@ -1,0 +1,2715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — UNDP Crisis Mapping Demo</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    /* ----- GLOBAL STYLES (dark mode, responsive, accessible) ----- */
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --card-radius: 20px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+      --bg-light: #fafafa;
+      --text-dark: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.dark {
+      --bg-light: #1e1e2f;
+      --text-dark: #f0f0f0;
+      background: #1e1e2f;
+      color: #f0f0f0;
+    }
+    body.dark .container > div[style*="background: white"] {
+      background: #2a2a3a !important;
+      border: 1px solid #444;
+    }
+    body.dark .container > div[style*="background: white"] input,
+    body.dark .container > div[style*="background: white"] textarea,
+    body.dark .container > div[style*="background: white"] select {
+      background: #1e1e2f;
+      color: #f0f0f0;
+      border: 1px solid #555;
+    }
+    body.dark .container > div[style*="background: white"] label {
+      color: #ddd;
+    }
+    body.dark .onboarding, body.dark .warning {
+      background: #2a2a3a;
+    }
+    body.dark .lang-selector {
+      background: #2a2a3a;
+    }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #7c4dff;
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      z-index: 2000;
+    }
+    .skip-link:focus { top: 0; }
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
+    h2 { font-size: 1.4rem; margin-top: 2rem; border-bottom: 2px solid var(--violet); padding-bottom: 0.5rem; display: inline-block; }
+    .nav {
+      margin: 1rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 60px;
+      padding: 0.5rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    body.dark .nav { background: #2a2a3a; }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #5e2d8e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    body.dark .nav-links a { color: #b39ddb; }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #5e2d8e;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
+      .nav-links.show { display: flex; }
+      .menu-btn { display: block; }
+    }
+    .btn, button:not(.share-btn):not(.sat-btn):not(.filter-btn):not(.close-modal) {
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover, button:not(.share-btn):not(.sat-btn):not(.filter-btn):not(.close-modal):hover { background: #6b3fc0; }
+    .step-badge {
+      display: inline-block;
+      background: var(--violet);
+      color: white;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      text-align: center;
+      line-height: 28px;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    .onboarding, .warning {
+      background: #f8f4ff;
+      border-left: 4px solid var(--violet-dark);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      border-radius: 12px;
+    }
+    body.dark .onboarding, body.dark .warning { background: #2a2a3a; }
+    .warning { background: #fff7e5; border-left-color: #f5a623; }
+    .ai-panel { display: none; background: #eef2ff; border-radius: 16px; padding: 1rem; margin: 0.8rem 0; }
+    body.dark .ai-panel { background: #2d2f4a; }
+    .report-grid, .hewd-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+    .report-card, .hewd-card {
+      background: white;
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.1s, box-shadow 0.2s;
+      overflow: hidden;
+      border: 1px solid #eee;
+      cursor: pointer;
+    }
+    body.dark .report-card, body.dark .hewd-card { background: #2a2a3a; border-color: #444; }
+    .report-card:hover, .hewd-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .report-card-content { padding: 1rem; }
+    .report-card img { max-width: 100%; border-radius: 12px; margin-top: 0.8rem; }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+    }
+    .badge-minimal { background: #f1c40f; color: #2c3e50; }
+    .badge-partial { background: #e67e22; color: white; }
+    .badge-destroyed { background: #c0392b; color: white; }
+    .badge-ai { background: #5e2d8e; color: white; margin-left: 0.5rem; }
+    .badge-help { background: #2ecc71; color: white; }
+    .badge-latest { background: #3498db; color: white; margin-left: 0.5rem; }
+    .filter-bar { margin: 1rem 0; display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .filter-btn {
+      background: #f0eef5;
+      color: #2c1a3a;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      border: none;
+      cursor: pointer;
+    }
+    body.dark .filter-btn { background: #3a3a4a; color: #ddd; }
+    .filter-btn.active { background: var(--violet-dark); color: white; }
+    #map { height: 400px; width: 100%; border-radius: var(--card-radius); margin: 1rem 0; box-shadow: var(--shadow-sm); }
+    .lang-selector { margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; background: #f3edf9; padding: 0.5rem 1rem; border-radius: 40px; width: fit-content; }
+    body.dark .lang-selector { background: #2a2a3a; }
+    .footer { margin-top: 3rem; font-style: italic; color: #888; border-top: 1px solid #ddd; padding-top: 1rem; text-align: center; }
+    .leaderboard, .impact-panel { background: white; border-radius: var(--card-radius); padding: 1rem; margin-top: 1rem; border: 1px solid var(--violet); }
+    body.dark .leaderboard, body.dark .impact-panel { background: #2a2a3a; }
+    .leaderboard ol { margin: 0.5rem 0; padding-left: 1.2rem; }
+    .impact-stat { font-size: 1.8rem; font-weight: bold; color: #5e2d8e; margin: 0.2rem 0; }
+    .impact-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #555; }
+    .share-buttons { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+    .share-btn { background: #5e2d8e; padding: 0.2rem 0.8rem; font-size: 0.7rem; border-radius: 20px; color: white; border: none; cursor: pointer; }
+    .help-flag { margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem; }
+    .cathedral-banner {
+      background: var(--violet);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .wordmark h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: white;
+      margin: 0;
+    }
+    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
+    .modal, .share-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      overflow: auto;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content, .share-modal-content {
+      background-color: white;
+      margin: auto;
+      padding: 0;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 1000px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .share-modal-content { max-width: 400px; text-align: center; padding: 1.5rem; }
+    .modal-header { padding: 1rem; background: var(--violet); color: white; border-radius: 20px 20px 0 0; display: flex; justify-content: space-between; align-items: center; }
+    .close-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: white; }
+    .split-view { display: flex; flex-wrap: wrap; padding: 1rem; gap: 1rem; }
+    .split-view > div { flex: 1; min-width: 200px; }
+    .split-view img { max-width: 100%; border-radius: 12px; }
+    .satellite-map { height: 300px; border-radius: 12px; background: #ccc; }
+    .sat-btn { background: #2c3e66; margin-top: 0.5rem; font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 20px; color: white; border: none; cursor: pointer; }
+    .hewd-widget { background: white; border-radius: var(--card-radius); box-shadow: var(--shadow-sm); padding: 1.2rem; margin-top: 1.5rem; border: 1px solid var(--violet); }
+    body.dark .hewd-widget { background: #2a2a3a; }
+    .hewd-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 1rem; }
+    .hewd-title { font-size: 1.2rem; font-weight: bold; color: #5e2d8e; }
+    .hewd-status { padding: 0.2rem 0.6rem; border-radius: 2rem; font-size: 0.6rem; font-weight: bold; text-transform: uppercase; }
+    .status-red { background: #dc2626; color: white; }
+    .status-orange { background: #f97316; color: white; }
+    .hewd-recommendation { font-size: 0.7rem; margin-top: 0.5rem; border-left: 2px solid #5e2d8e; padding-left: 0.5rem; }
+    .hewd-compound { background: #5e2d8e20; border-radius: 12px; padding: 0.5rem; text-align: center; margin-bottom: 1rem; font-weight: bold; }
+    .offline-banner { background: #dc2626; color: white; text-align: center; padding: 0.5rem; font-size: 0.8rem; display: none; }
+    .sync-timestamp { font-size: 0.7rem; color: #666; margin-left: 1rem; }
+    body.dark .sync-timestamp { color: #aaa; }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    .error-message {
+      color: #dc2626;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+    [aria-live="polite"] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(0,0,0,0.1);
+      border-top-color: #5e2d8e;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .report-card.duplicate { opacity: 0.5; filter: grayscale(0.3); background: #ccc; }
+    body.dark .report-card.duplicate { background: #444; }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 0 1rem; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
+    }
+    body[dir="rtl"] .step-badge { margin-right: 0; margin-left: 0.5rem; }
+  </style>
+</head>
+<body>
+    <a class='skip-link' href='https://cathedral-network.netlify.app/undp-demo#main-content'>Skip to main content</a>
+<div aria-live="polite" id="live-status" aria-label="Status messages"></div>
+<div id="offlineBanner" class="offline-banner" role="alert">📡 You are offline. Reports will be saved locally and sync when online.</div>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60" aria-label="Cathedral Network logo – stylised cathedral spire with constellation of dots">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">A cathedral that watches</p></div>
+  </div>
+</header>
+<div class="container" id="main-content">
+  <div class="undp-branding" style="display: flex; flex-direction: column; gap: 0.5rem; margin: 0 0 1rem 0; background: #f0f5ff; padding: 0.75rem 1.25rem; border-radius: 60px; border: 1px solid #004c9e;">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <a href="https://www.undp.org" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+        <img src="https://www.undp.org/sites/g/files/zskgke326/files/2025-04/undp-logo-blue.4f32e17f.svg" alt="UNDP logo" style="height: 32px;">
+        <span style="font-weight: 600; color: #004c9e;">Crisis Mapping Challenge</span>
+      </a>
+      <span style="font-size: 0.85rem; color: #2c3e66;">Demonstration · Cathedral Network Spotter</span>
+    </div>
+    <div style="font-size: 0.85rem; font-style: italic; border-left: 3px solid #004c9e; padding-left: 0.75rem; color: #1e466e;">
+      “In the initial hours after a crisis, responders are often working with incomplete information… By enabling people to report crisis damage directly from their communities, we can combine local knowledge with satellite analysis to create a faster, clearer picture.”
+      <strong>— Anila Qehaja, UNDP Crisis Bureau</strong>
+    </div>
+  </div>
+
+  <!-- HAMBURGER NAVIGATION -->
+<div class="nav">
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Main menu">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href='index.html'>Ground Truth</a>
+    <a href='https://cathedral-network.netlify.app/undp-demo'>UNDP Demo</a>
+    <a href='https://cathedral-network.netlify.app/archive'>Archive</a>
+    <a href='https://cathedral-network.netlify.app/spotter'>Spotter Guide</a>
+    <a href='https://cathedral-network.netlify.app/sources'>Sources</a>
+    <a href='https://cathedral-network.netlify.app/constitution'>Constitution</a>
+    <a href='https://cathedral-network.netlify.app/wardens'>Wardens</a>
+    <a href='https://cathedral-network.netlify.app/hewd'>HEWD Dashboard</a>
+    <a href='https://cathedral-network.netlify.app/about'>About</a>
+    <a href='https://cathedral-network.netlify.app/threat-matrix'>Threat Matrix</a>
+    <a href='https://cathedral-network.netlify.app/glossary'>Glossary</a>
+    <a href='https://cathedral-network.netlify.app/pra'>Personal Resilience</a>
+    <a href='prediction-log.html'>Prediction Log</a>
+  </div>
+</div>
+
+  <!-- LANGUAGE SELECTOR -->
+  <div class="lang-selector"><span>🌐</span><select id="lang-select" aria-label="Select language">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="ar">العربية</option>
+    <option value="es">Español</option>
+    <option value="sw">Kiswahili</option>
+    <option value="pt">Português</option>
+    <option value="zh">中文</option>
+    <option value="ru">Русский</option>
+    <option value="fa">فارسی</option>
+    <option value="uk">Українська</option>
+  </select></div>
+
+  <div class="onboarding" id="onboarding-text" aria-live="polite"></div>
+
+  <!-- DAMAGE REPORT FORM (includes ALL mandatory UNDP questions) -->
+  <h2 id="submit-heading">Submit a Damage Report</h2>
+  <div style="background: white; border-radius: var(--card-radius); padding: 1.2rem; box-shadow: var(--shadow-sm); margin-bottom: 1rem;">
+    <p><span class="step-badge">1</span> <label id="photo-label"></label><br><input type="file" id="photo" accept="image/*"  aria-describedby="photo-help"></p>
+    <div class="ai-toggle"><a href='https://cathedral-network.netlify.app/undp-demo#' id='ai-toggle-link' style='color: #5e2d8e; text-decoration: none;'>📡 Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸</a></div>
+    <div class="ai-panel" id="ai-panel">
+      <strong id="ai-title"></strong><br>
+      <button id="analyze-btn" disabled>🔍 Analyze with AI</button>
+      <span id="ai-status" aria-live="polite"></span>
+      <div id="ai-spinner" style="display: none;"><div class="spinner"></div> Analyzing...</div>
+      <div id="ai-result" style="display:none; margin-top:0.8rem;">
+        <strong id="predictions-label"></strong> <span id="ai-predictions"></span><br>
+        <strong id="suggestion-label"></strong> <span id="ai-suggestion"></span>
+        <button id="accept-ai" style="margin-top:0.5rem;">✓ Accept Suggestion</button>
+        <button id="suggest-infra-ai" style="margin-top:0.5rem; margin-left:0.5rem;">🏗️ Suggest infrastructure from photo</button>
+      </div>
+    </div>
+    <p><span class="step-badge">2</span> <label id="damage-label"></label><br>
+      <select id="damage-level" aria-label="Damage level">
+        <option value="minimal">Minimal</option>
+        <option value="partial">Partial</option>
+        <option value="destroyed">Completely Destroyed</option>
+      </select>
+      <span id="ai-badge" class="badge badge-ai" style="display:none;">AI Assisted</span>
+    </p>
+
+    <!-- MANDATORY APPENDIX 1 QUESTIONS - DYNAMIC CHECKBOXES -->
+    <p><span class="step-badge">3</span> <strong id="infra-label"></strong><br>
+      <div id="infra-list" role="group" aria-labelledby="infra-label"></div>
+      <label><input type="checkbox" name="infra" value="Other"> <span id="infra-other-label"></span> <input type="text" id="infraOther" placeholder=""></label>
+    </p>
+    <p><label><strong id="infra_name_label"></strong><br>
+      <input type="text" id="infraName" placeholder="e.g., Central Market, Main Bridge, City Hospital" style="width:100%"></label>
+    </p>
+    <p><strong id="crisis-label"></strong><br>
+      <div id="crisis-list" role="group" aria-labelledby="crisis-label"></div>
+    </p>
+    <p><label><strong id="debris_label"></strong><br>
+      <select id="debris" aria-label="Debris">
+        <option value="Yes">Yes</option>
+        <option value="No" selected>No</option>
+      </select>
+    </label></p>
+
+    <div style="margin: 10px 0;"><button id="toggleAppendixBtn" type="button" class="btn" style="padding:0.2rem 1rem;">➕ Show optional questions (electricity, health, needs)</button></div>
+    <div id="appendixFields" style="display: none; border-top: 1px solid #ccc; margin-top: 10px; padding-top: 10px;">
+      <p><strong>🏭 Electricity infrastructure condition:</strong><br>
+      <select id="electricityCondition" aria-label="Electricity condition">
+        <option value="">-- Select --</option>
+        <option>No damage observed</option>
+        <option>Minor damage (service disruptions but quickly repairable)</option>
+        <option>Moderate damage (partial outages requiring repairs)</option>
+        <option>Severe damage (major infrastructure damaged, prolonged outages)</option>
+        <option>Completely destroyed (no electricity infrastructure functioning)</option>
+        <option>Unknown/cannot be assessed</option>
+      </select></p>
+      <p><strong>🏥 Health services functioning:</strong><br>
+      <select id="healthFunctioning" aria-label="Health functioning">
+        <option value="">-- Select --</option>
+        <option>Fully functional</option>
+        <option>Partially functional</option>
+        <option>Largely disrupted</option>
+        <option>Not functioning at all</option>
+        <option>Unknown</option>
+      </select></p>
+      <p><strong>❗ Most pressing needs:</strong><br>
+      <div id="needsCheckboxes" role="group" aria-label="Most pressing needs">
+        <label><input type="checkbox" value="Food assistance and safe drinking water"> Food assistance and safe drinking water</label><br>
+        <label><input type="checkbox" value="Cash or financial assistance"> Cash or financial assistance</label><br>
+        <label><input type="checkbox" value="Access to healthcare and essential medicines"> Access to healthcare and essential medicines</label><br>
+        <label><input type="checkbox" value="Shelter, housing repair, or temporary accommodation"> Shelter, housing repair, or temporary accommodation</label><br>
+        <label><input type="checkbox" value="Restoration of livelihoods or income sources"> Restoration of livelihoods or income sources</label><br>
+        <label><input type="checkbox" value="Water, sanitation, and hygiene"> Water, sanitation, and hygiene (toilets, washing facilities)</label><br>
+        <label><input type="checkbox" value="Restoration of basic services and infrastructure"> Restoration of basic services and infrastructure (electricity, roads, schools)</label><br>
+        <label><input type="checkbox" value="Protection services and psychosocial support"> Protection services and psychosocial support</label><br>
+        <label><input type="checkbox" value="Support from local authorities and community organizations"> Support from local authorities and community organizations</label><br>
+        <label><input type="checkbox" value="Other"> Other: <input type="text" id="needOther" placeholder="Specify"></label>
+      </div></p>
+    </div>
+
+    <div class="help-flag"><input type="checkbox" id="need-help"> <label id="help-label" for="need-help">📢 I need humanitarian assistance</label></div>
+    <p><span class="step-badge">4</span> <label id="desc-label"></label><br>
+      <textarea id="description" rows="3" placeholder="Describe what you see..."></textarea>
+    </p>
+    <div class="warning" id="privacy-box"></div>
+    <p><span class="step-badge">5</span> <label id="geo-label"></label><br>
+      <span id="location-status">No location captured. Tap map to drop a pin, or</span>
+      <button id="get-location" style="margin-left:0.5rem;">📍 Share My Location</button>
+      <button id="clear-map-btn" style="margin-left:0.5rem;">🗑️ Clear map pin</button>
+    </p>
+    <div id="form-error" class="error-message" role="alert"></div>
+    <button id="submit-report" class="btn">Submit Report</button>
+    <div style="margin:1rem 0; display:flex; gap:1rem; align-items: center; flex-wrap: wrap;">
+      <button id="sync-now" class="btn">🔄 Sync Now</button>
+      <span id="sync-status" style="font-size:0.8rem;" aria-live="polite"></span>
+      <span id="last-sync" class="sync-timestamp">Last sync: never</span>
+      <button id="clear-reports-btn" class="btn" style="background:#c0392b;">🗑️ Clear all reports (local)</button>
+      <span id="pendingQueueIndicator" style="font-size:0.8rem; background:#f39c12; padding:0.2rem 0.6rem; border-radius:20px; display:none;">📤 Pending sync: 0</span>
+    </div>
+  </div>
+
+  <!-- MAP AND HEATMAP -->
+  <h2 id="map-heading">Map View</h2>
+  <div id="map"></div>
+  <div class="heatmap-toggle"><button id="toggle-heatmap" class="btn" style="padding:0.2rem 1rem;">🔥 Toggle Heatmap</button></div>
+  <div style="margin: 0.5rem 0;"><button id="loadFootprintsBtn" class="btn" style="padding:0.2rem 1rem;">🏢 Load sample building footprints (test)</button></div>
+
+  <!-- SUBMITTED REPORTS (versioned: latest per location) -->
+  <h2 id="reports-heading">Submitted Reports (Latest per location)</h2>
+  <div class="filter-bar" id="filter-bar" aria-label="Filter reports by damage level">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="destroyed">Destroyed</button>
+    <button class="filter-btn" data-filter="partial">Partial</button>
+    <button class="filter-btn" data-filter="minimal">Minimal</button>
+  </div>
+  <div id="reports-list" class="report-grid" aria-live="polite"></div>
+
+  <!-- COMMUNITY IMPACT AND LEADERBOARD -->
+  <h2>🌍 Community Impact</h2>
+  <div id="impact-panel" class="impact-panel" aria-live="polite">Loading community impact...</div>
+  <h2>📋 Top Contributors – This Week</h2>
+  <div id="leaderboard" class="leaderboard">Loading...</div>
+  <div style="margin-top: 0.5rem;"><button id="setDisplayNameBtn" class="btn" style="padding: 0.2rem 1rem; font-size: 0.8rem;">✏️ Set Display Name</button></div>
+  <p style="font-size:0.75rem; color:#666; margin-top:0.2rem;">Anonymised list of spotters who helped their community.</p>
+
+  <!-- HEWD WIDGET (humanitarian only) -->
+  <div id="hewd-root"></div>
+
+  <!-- EXPORT -->
+  <h2 id="export-heading">Export Data</h2>
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <button id="export-json" class="btn">Download Reports (JSON)</button>
+    <button id="export-csv" class="btn">Export as CSV</button>
+    <button id="export-geojson" class="btn">Export as GeoJSON</button>
+  </div>
+
+  <div class="footer">
+    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;">
+      <a href="https://github.com/sad9605/cathedral-network" target="_blank">🔗 GitHub Repo</a>
+      <a href='https://cathedral-network.netlify.app/undp-demo#' id='sharePageBtn'>📢 Share this tool</a>
+      <a href="mailto:cathedral.network@proton.me">✉️ Proton Mail</a>
+      <a href="https://signal.me/#p/@cathedral.network" target="_blank">📱 Signal</a>
+    </div>
+    <strong>Always and Forever, Coco. Always and Forever.</strong>
+  </div>
+</div>
+
+<button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+
+<div id="shareModal" class="share-modal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
+  <div class="share-modal-content">
+    <h3 id="shareModalTitle">Share Cathedral Crisis Mapper</h3>
+    <p>Help others report damage.</p>
+    <button id="shareNativeBtn" class="btn">📱 Share via...</button>
+    <button id="copyLinkBtn" class="btn">🔗 Copy Link</button>
+    <button id="closeShareModal" class="btn" style="background:#ccc;">Close</button>
+  </div>
+</div>
+<div id="satelliteModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="satelliteModalTitle">
+  <div class="modal-content">
+    <div class="modal-header"><h3 id="satelliteModalTitle">🛰️ Satellite Comparison</h3><button class="close-modal" aria-label="Close">&times;</button></div>
+    <div class="split-view">
+      <div><strong>📸 Your Photo</strong><img id="modalPhoto" alt="User photo"><p id="modalPhotoMissing" style="font-size:0.7rem; display:none;">No photo submitted.</p></div>
+      <div><strong>🛰️ Satellite Imagery (Esri)</strong><div id="satelliteMap" class="satellite-map"></div><button id="refreshSatellite" class="sat-btn">🔄 Refresh layer</button><p style="font-size:0.7rem">High‑resolution imagery provided by Esri.</p></div>
+    </div>
+    <div class="modal-footer"><span id="satelliteCoords"></span></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/dexie@3/dist/dexie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+<script type="module">
+  import { pipeline } from 'https://unpkg.com/@xenova/transformers@2.17.2';
+
+  // FULL i18n OBJECT (10 LANGUAGES) - INCLUDING ALL NEW KEYS FOR BUTTONS, LABELS, ETC.
+  const i18n = {
+    en: {
+      how_it_works: "How it works:", step1: "Take a photo", step2: "Select damage level", step3: "Infrastructure & crisis info", step4: "Describe", step5: "Add location",
+      offline_note: "Works offline.", submit_report_heading: "Submit a Damage Report", photo_label: "Photo of damage:",
+      ai_toggle: "Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸", ai_analysis: "AI Analysis (optional):",
+      analyze_with_ai: "Analyze with AI", predictions: "Predictions:", suggested_damage: "Suggested damage level:",
+      accept_suggestion: "Accept Suggestion", damage_label: "Damage level:", damage_minimal: "Minimal", damage_partial: "Partial",
+      damage_destroyed: "Completely Destroyed", ai_assisted: "AI Assisted", description_label: "Description (optional):",
+      description_placeholder: "Describe what you see...", privacy_title: "Privacy:",
+      privacy_text: "Your location and images are stored only on your device until you submit. Submissions are anonymous.",
+      geolocation_label: "Geolocation:", location_default: "No location captured. Tap map to drop a pin, or",
+      share_location: "Share My Location", submit_report_btn: "Submit Report", satellite_view: "🛰️ Satellite View",
+      map_view: "Map View", submitted_reports: "Submitted Reports", sync_pending: "Pending sync: 0 reports",
+      no_reports: "No reports yet.", export_data: "Export Data", download_json: "Download Reports (JSON)",
+      help_label: "📢 I need humanitarian assistance", sync_now: "Sync Now", satellite_btn: "🛰️ Satellite",
+      hewd_title: "Humanitarian Early Warning Dashboard", multi_crisis: "⚠️ MULTI‑CRISIS: Integrated response required.",
+      hewd_footer: "Cathedral Network — HEWD • Mortality‑weighted prioritisation", export_csv: "Export as CSV",
+      infra_label: "Type of infrastructure:", infra_name_label: "Provide more details on the nature of the infrastructure, including the name of the infrastructure:",
+      crisis_label: "Nature of the crisis:", debris_label: "Is there any debris that requires clearing on or near the infrastructure site?",
+      infra_residential: "Residential Infrastructure (Houses and apartments)",
+      infra_commercial: "Commercial Infrastructure (Markets, malls, shops, hotels, banks, industries, etc.)",
+      infra_government: "Government Building (Administrative buildings, courthouses, police stations, fire stations, etc.)",
+      infra_utility: "Utility Infrastructure (Water pumps, power plants, waste treatment plants, etc.)",
+      infra_transport: "Transport and Communication Infrastructure (Roads, cell towers, bridges, railway station, bus station, etc.)",
+      infra_community: "Community Infrastructure (Schools, hospitals, community halls, public toilets, etc.)",
+      infra_publicspace: "Public spaces/Recreation Infrastructure (stadiums, playgrounds, religious buildings, etc.)",
+      infra_other: "Other, please specify:",
+      crisis_earthquake: "Earthquake", crisis_flood: "Flood", crisis_tsunami: "Tsunami", crisis_hurricane: "Hurricane/Cyclone",
+      crisis_wildfire: "Wildfire", crisis_explosion: "Explosion", crisis_chemical: "Chemical incident", crisis_conflict: "Conflict", crisis_civilunrest: "Civil unrest",
+      toggle_appendix: "Show optional questions (electricity, health, needs)",
+      electricity_condition: "Electricity infrastructure condition",
+      health_functioning: "Health services functioning",
+      most_pressing_needs: "Most pressing needs",
+      no_damage_observed: "No damage observed",
+      minor_damage: "Minor damage (service disruptions but quickly repairable)",
+      moderate_damage: "Moderate damage (partial outages requiring repairs)",
+      severe_damage: "Severe damage (major infrastructure damaged, prolonged outages)",
+      completely_destroyed_elec: "Completely destroyed (no electricity infrastructure functioning)",
+      unknown: "Unknown/cannot be assessed",
+      fully_functional: "Fully functional",
+      partially_functional: "Partially functional",
+      largely_disrupted: "Largely disrupted",
+      not_functioning: "Not functioning at all",
+      food_assistance: "Food assistance and safe drinking water",
+      cash_assistance: "Cash or financial assistance",
+      healthcare_access: "Access to healthcare and essential medicines",
+      shelter: "Shelter, housing repair, or temporary accommodation",
+      livelihoods: "Restoration of livelihoods or income sources",
+      wash: "Water, sanitation, and hygiene (toilets, washing facilities)",
+      basic_services: "Restoration of basic services and infrastructure (electricity, roads, schools)",
+      protection: "Protection services and psychosocial support",
+      local_support: "Support from local authorities and community organizations",
+      need_other: "Other:",
+      clear_map_pin: "Clear map pin",
+      duplicate_flag: "Flag as duplicate (Warden)",
+      share_whatsapp: "Share on WhatsApp",
+      export_geojson: "Export as GeoJSON",
+      load_footprints: "Load sample building footprints (test)",
+      suggest_infra_ai: "Suggest infrastructure from photo",
+      pending_sync: "Pending sync:",
+      // Added missing UI translations
+      yes: "Yes",
+      no: "No",
+      debris_yes: "Yes",
+      debris_no: "No",
+      clear_all_reports: "Clear all reports (local)",
+      toggle_heatmap: "Toggle Heatmap",
+      set_display_name: "Set Display Name",
+      community_impact: "Community Impact",
+      total_reports_label: "Total reports",
+      people_need_help_label: "People need help",
+      aid_convoys_label: "Aid convoys triggered*",
+      top_contributors: "Top Contributors – This Week",
+      leaderboard_note: "Anonymised list of spotters who helped their community.",
+      export_geojson_btn: "Export as GeoJSON"
+      // Damage classifiers in reports (already present)
+    }
+  },
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — UNDP Crisis Mapping Demo</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    /* ----- GLOBAL STYLES (dark mode, responsive, accessible) ----- */
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --card-radius: 20px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+      --bg-light: #fafafa;
+      --text-dark: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.dark {
+      --bg-light: #1e1e2f;
+      --text-dark: #f0f0f0;
+      background: #1e1e2f;
+      color: #f0f0f0;
+    }
+    body.dark .container > div[style*="background: white"] {
+      background: #2a2a3a !important;
+      border: 1px solid #444;
+    }
+    body.dark .container > div[style*="background: white"] input,
+    body.dark .container > div[style*="background: white"] textarea,
+    body.dark .container > div[style*="background: white"] select {
+      background: #1e1e2f;
+      color: #f0f0f0;
+      border: 1px solid #555;
+    }
+    body.dark .container > div[style*="background: white"] label {
+      color: #ddd;
+    }
+    body.dark .onboarding, body.dark .warning {
+      background: #2a2a3a;
+    }
+    body.dark .lang-selector {
+      background: #2a2a3a;
+    }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #7c4dff;
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      z-index: 2000;
+    }
+    .skip-link:focus { top: 0; }
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
+    h2 { font-size: 1.4rem; margin-top: 2rem; border-bottom: 2px solid var(--violet); padding-bottom: 0.5rem; display: inline-block; }
+    .nav {
+      margin: 1rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 60px;
+      padding: 0.5rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    body.dark .nav { background: #2a2a3a; }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #5e2d8e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    body.dark .nav-links a { color: #b39ddb; }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #5e2d8e;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
+      .nav-links.show { display: flex; }
+      .menu-btn { display: block; }
+    }
+    .btn, button:not(.share-btn):not(.sat-btn):not(.filter-btn):not(.close-modal) {
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover, button:not(.share-btn):not(.sat-btn):not(.filter-btn):not(.close-modal):hover { background: #6b3fc0; }
+    .step-badge {
+      display: inline-block;
+      background: var(--violet);
+      color: white;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      text-align: center;
+      line-height: 28px;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    .onboarding, .warning {
+      background: #f8f4ff;
+      border-left: 4px solid var(--violet-dark);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      border-radius: 12px;
+    }
+    body.dark .onboarding, body.dark .warning { background: #2a2a3a; }
+    .warning { background: #fff7e5; border-left-color: #f5a623; }
+    .ai-panel { display: none; background: #eef2ff; border-radius: 16px; padding: 1rem; margin: 0.8rem 0; }
+    body.dark .ai-panel { background: #2d2f4a; }
+    .report-grid, .hewd-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+    .report-card, .hewd-card {
+      background: white;
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.1s, box-shadow 0.2s;
+      overflow: hidden;
+      border: 1px solid #eee;
+      cursor: pointer;
+    }
+    body.dark .report-card, body.dark .hewd-card { background: #2a2a3a; border-color: #444; }
+    .report-card:hover, .hewd-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .report-card-content { padding: 1rem; }
+    .report-card img { max-width: 100%; border-radius: 12px; margin-top: 0.8rem; }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+    }
+    .badge-minimal { background: #f1c40f; color: #2c3e50; }
+    .badge-partial { background: #e67e22; color: white; }
+    .badge-destroyed { background: #c0392b; color: white; }
+    .badge-ai { background: #5e2d8e; color: white; margin-left: 0.5rem; }
+    .badge-help { background: #2ecc71; color: white; }
+    .badge-latest { background: #3498db; color: white; margin-left: 0.5rem; }
+    .filter-bar { margin: 1rem 0; display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .filter-btn {
+      background: #f0eef5;
+      color: #2c1a3a;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      border: none;
+      cursor: pointer;
+    }
+    body.dark .filter-btn { background: #3a3a4a; color: #ddd; }
+    .filter-btn.active { background: var(--violet-dark); color: white; }
+    #map { height: 400px; width: 100%; border-radius: var(--card-radius); margin: 1rem 0; box-shadow: var(--shadow-sm); }
+    .lang-selector { margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; background: #f3edf9; padding: 0.5rem 1rem; border-radius: 40px; width: fit-content; }
+    body.dark .lang-selector { background: #2a2a3a; }
+    .footer { margin-top: 3rem; font-style: italic; color: #888; border-top: 1px solid #ddd; padding-top: 1rem; text-align: center; }
+    .leaderboard, .impact-panel { background: white; border-radius: var(--card-radius); padding: 1rem; margin-top: 1rem; border: 1px solid var(--violet); }
+    body.dark .leaderboard, body.dark .impact-panel { background: #2a2a3a; }
+    .leaderboard ol { margin: 0.5rem 0; padding-left: 1.2rem; }
+    .impact-stat { font-size: 1.8rem; font-weight: bold; color: #5e2d8e; margin: 0.2rem 0; }
+    .impact-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #555; }
+    .share-buttons { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+    .share-btn { background: #5e2d8e; padding: 0.2rem 0.8rem; font-size: 0.7rem; border-radius: 20px; color: white; border: none; cursor: pointer; }
+    .help-flag { margin: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem; }
+    .cathedral-banner {
+      background: var(--violet);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .wordmark h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: white;
+      margin: 0;
+    }
+    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
+    .modal, .share-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      overflow: auto;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content, .share-modal-content {
+      background-color: white;
+      margin: auto;
+      padding: 0;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 1000px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .share-modal-content { max-width: 400px; text-align: center; padding: 1.5rem; }
+    .modal-header { padding: 1rem; background: var(--violet); color: white; border-radius: 20px 20px 0 0; display: flex; justify-content: space-between; align-items: center; }
+    .close-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: white; }
+    .split-view { display: flex; flex-wrap: wrap; padding: 1rem; gap: 1rem; }
+    .split-view > div { flex: 1; min-width: 200px; }
+    .split-view img { max-width: 100%; border-radius: 12px; }
+    .satellite-map { height: 300px; border-radius: 12px; background: #ccc; }
+    .sat-btn { background: #2c3e66; margin-top: 0.5rem; font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 20px; color: white; border: none; cursor: pointer; }
+    .hewd-widget { background: white; border-radius: var(--card-radius); box-shadow: var(--shadow-sm); padding: 1.2rem; margin-top: 1.5rem; border: 1px solid var(--violet); }
+    body.dark .hewd-widget { background: #2a2a3a; }
+    .hewd-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 1rem; }
+    .hewd-title { font-size: 1.2rem; font-weight: bold; color: #5e2d8e; }
+    .hewd-status { padding: 0.2rem 0.6rem; border-radius: 2rem; font-size: 0.6rem; font-weight: bold; text-transform: uppercase; }
+    .status-red { background: #dc2626; color: white; }
+    .status-orange { background: #f97316; color: white; }
+    .hewd-recommendation { font-size: 0.7rem; margin-top: 0.5rem; border-left: 2px solid #5e2d8e; padding-left: 0.5rem; }
+    .hewd-compound { background: #5e2d8e20; border-radius: 12px; padding: 0.5rem; text-align: center; margin-bottom: 1rem; font-weight: bold; }
+    .offline-banner { background: #dc2626; color: white; text-align: center; padding: 0.5rem; font-size: 0.8rem; display: none; }
+    .sync-timestamp { font-size: 0.7rem; color: #666; margin-left: 1rem; }
+    body.dark .sync-timestamp { color: #aaa; }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    .error-message {
+      color: #dc2626;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+    [aria-live="polite"] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(0,0,0,0.1);
+      border-top-color: #5e2d8e;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .report-card.duplicate { opacity: 0.5; filter: grayscale(0.3); background: #ccc; }
+    body.dark .report-card.duplicate { background: #444; }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 0 1rem; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
+    }
+    body[dir="rtl"] .step-badge { margin-right: 0; margin-left: 0.5rem; }
+  </style>
+</head>
+<body>
+    <a href="undp-demo.html#main-content" class="skip-link">Skip to main content</a>
+<div aria-live="polite" id="live-status" aria-label="Status messages"></div>
+<div id="offlineBanner" class="offline-banner" role="alert">📡 You are offline. Reports will be saved locally and sync when online.</div>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60" aria-label="Cathedral Network logo – stylised cathedral spire with constellation of dots">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">A cathedral that watches</p></div>
+  </div>
+</header>
+<div class="container" id="main-content">
+  <div class="undp-branding" style="display: flex; flex-direction: column; gap: 0.5rem; margin: 0 0 1rem 0; background: #f0f5ff; padding: 0.75rem 1.25rem; border-radius: 60px; border: 1px solid #004c9e;">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <a href="https://www.undp.org" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+        <img src="https://www.undp.org/sites/g/files/zskgke326/files/2025-04/undp-logo-blue.4f32e17f.svg" alt="UNDP logo" style="height: 32px;">
+        <span style="font-weight: 600; color: #004c9e;">Crisis Mapping Challenge</span>
+      </a>
+      <span style="font-size: 0.85rem; color: #2c3e66;">Demonstration · Cathedral Network Spotter</span>
+    </div>
+    <div style="font-size: 0.85rem; font-style: italic; border-left: 3px solid #004c9e; padding-left: 0.75rem; color: #1e466e;">
+      “In the initial hours after a crisis, responders are often working with incomplete information… By enabling people to report crisis damage directly from their communities, we can combine local knowledge with satellite analysis to create a faster, clearer picture.”
+      <strong>— Anila Qehaja, UNDP Crisis Bureau</strong>
+    </div>
+  </div>
+
+  <!-- HAMBURGER NAVIGATION -->
+<div class="nav">
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Main menu">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Ground Truth</a>
+    <a href="undp-demo.html">UNDP Demo</a>
+    <a href="archive.html">Archive</a>
+    <a href="spotter.html">Spotter Guide</a>
+    <a href="sources.html">Sources</a>
+    <a href="constitution.html">Constitution</a>
+    <a href="wardens.html">Wardens</a>
+    <a href="hewd.html">HEWD Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="threat-matrix.html">Threat Matrix</a>
+    <a href="glossary.html">Glossary</a>
+    <a href="pra.html">Personal Resilience</a>
+  </div>
+</div>
+
+  <!-- LANGUAGE SELECTOR -->
+  <div class="lang-selector"><span>🌐</span><select id="lang-select" aria-label="Select language">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="ar">العربية</option>
+    <option value="es">Español</option>
+    <option value="sw">Kiswahili</option>
+    <option value="pt">Português</option>
+    <option value="zh">中文</option>
+    <option value="ru">Русский</option>
+    <option value="fa">فارسی</option>
+    <option value="uk">Українська</option>
+  </select></div>
+
+  <div class="onboarding" id="onboarding-text" aria-live="polite"></div>
+
+  <!-- DAMAGE REPORT FORM (includes ALL mandatory UNDP questions) -->
+  <h2 id="submit-heading">Submit a Damage Report</h2>
+  <div style="background: white; border-radius: var(--card-radius); padding: 1.2rem; box-shadow: var(--shadow-sm); margin-bottom: 1rem;">
+    <p><span class="step-badge">1</span> <label id="photo-label"></label><br><input type="file" id="photo" accept="image/*"  aria-describedby="photo-help"></p>
+    <div class="ai-toggle"><a href="undp-demo.html#" id="ai-toggle-link" style="color: #5e2d8e; text-decoration: none;">📡 Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸</a></div>
+    <div class="ai-panel" id="ai-panel">
+      <strong id="ai-title"></strong><br>
+      <button id="analyze-btn" disabled>🔍 Analyze with AI</button>
+      <span id="ai-status" aria-live="polite"></span>
+      <div id="ai-spinner" style="display: none;"><div class="spinner"></div> Analyzing...</div>
+      <div id="ai-result" style="display:none; margin-top:0.8rem;">
+        <strong id="predictions-label"></strong> <span id="ai-predictions"></span><br>
+        <strong id="suggestion-label"></strong> <span id="ai-suggestion"></span>
+        <button id="accept-ai" style="margin-top:0.5rem;">✓ Accept Suggestion</button>
+        <button id="suggest-infra-ai" style="margin-top:0.5rem; margin-left:0.5rem;">🏗️ Suggest infrastructure from photo</button>
+      </div>
+    </div>
+    <p><span class="step-badge">2</span> <label id="damage-label"></label><br>
+      <select id="damage-level" aria-label="Damage level">
+        <option value="minimal">Minimal</option>
+        <option value="partial">Partial</option>
+        <option value="destroyed">Completely Destroyed</option>
+      </select>
+      <span id="ai-badge" class="badge badge-ai" style="display:none;">AI Assisted</span>
+    </p>
+
+    <!-- MANDATORY APPENDIX 1 QUESTIONS - DYNAMIC CHECKBOXES -->
+    <p><span class="step-badge">3</span> <strong id="infra-label"></strong><br>
+      <div id="infra-list" role="group" aria-labelledby="infra-label"></div>
+      <label><input type="checkbox" name="infra" value="Other"> <span id="infra-other-label"></span> <input type="text" id="infraOther" placeholder=""></label>
+    </p>
+    <p><label><strong id="infra_name_label"></strong><br>
+      <input type="text" id="infraName" placeholder="e.g., Central Market, Main Bridge, City Hospital" style="width:100%"></label>
+    </p>
+    <p><strong id="crisis-label"></strong><br>
+      <div id="crisis-list" role="group" aria-labelledby="crisis-label"></div>
+    </p>
+    <p><label><strong id="debris_label"></strong><br>
+      <select id="debris" aria-label="Debris">
+        <option value="Yes">Yes</option>
+        <option value="No" selected>No</option>
+      </select>
+    </label></p>
+
+    <div style="margin: 10px 0;"><button id="toggleAppendixBtn" type="button" class="btn" style="padding:0.2rem 1rem;">➕ Show optional questions (electricity, health, needs)</button></div>
+    <div id="appendixFields" style="display: none; border-top: 1px solid #ccc; margin-top: 10px; padding-top: 10px;">
+      <p><strong>🏭 Electricity infrastructure condition:</strong><br>
+      <select id="electricityCondition" aria-label="Electricity condition">
+        <option value="">-- Select --</option>
+        <option>No damage observed</option>
+        <option>Minor damage (service disruptions but quickly repairable)</option>
+        <option>Moderate damage (partial outages requiring repairs)</option>
+        <option>Severe damage (major infrastructure damaged, prolonged outages)</option>
+        <option>Completely destroyed (no electricity infrastructure functioning)</option>
+        <option>Unknown/cannot be assessed</option>
+      </select></p>
+      <p><strong>🏥 Health services functioning:</strong><br>
+      <select id="healthFunctioning" aria-label="Health functioning">
+        <option value="">-- Select --</option>
+        <option>Fully functional</option>
+        <option>Partially functional</option>
+        <option>Largely disrupted</option>
+        <option>Not functioning at all</option>
+        <option>Unknown</option>
+      </select></p>
+      <p><strong>❗ Most pressing needs:</strong><br>
+      <div id="needsCheckboxes" role="group" aria-label="Most pressing needs">
+        <label><input type="checkbox" value="Food assistance and safe drinking water"> Food assistance and safe drinking water</label><br>
+        <label><input type="checkbox" value="Cash or financial assistance"> Cash or financial assistance</label><br>
+        <label><input type="checkbox" value="Access to healthcare and essential medicines"> Access to healthcare and essential medicines</label><br>
+        <label><input type="checkbox" value="Shelter, housing repair, or temporary accommodation"> Shelter, housing repair, or temporary accommodation</label><br>
+        <label><input type="checkbox" value="Restoration of livelihoods or income sources"> Restoration of livelihoods or income sources</label><br>
+        <label><input type="checkbox" value="Water, sanitation, and hygiene"> Water, sanitation, and hygiene (toilets, washing facilities)</label><br>
+        <label><input type="checkbox" value="Restoration of basic services and infrastructure"> Restoration of basic services and infrastructure (electricity, roads, schools)</label><br>
+        <label><input type="checkbox" value="Protection services and psychosocial support"> Protection services and psychosocial support</label><br>
+        <label><input type="checkbox" value="Support from local authorities and community organizations"> Support from local authorities and community organizations</label><br>
+        <label><input type="checkbox" value="Other"> Other: <input type="text" id="needOther" placeholder="Specify"></label>
+      </div></p>
+    </div>
+
+    <div class="help-flag"><input type="checkbox" id="need-help"> <label id="help-label" for="need-help">📢 I need humanitarian assistance</label></div>
+    <p><span class="step-badge">4</span> <label id="desc-label"></label><br>
+      <textarea id="description" rows="3" placeholder="Describe what you see..."></textarea>
+    </p>
+    <div class="warning" id="privacy-box"></div>
+    <p><span class="step-badge">5</span> <label id="geo-label"></label><br>
+      <span id="location-status">No location captured. Tap map to drop a pin, or</span>
+      <button id="get-location" style="margin-left:0.5rem;">📍 Share My Location</button>
+      <button id="clear-map-btn" style="margin-left:0.5rem;">🗑️ Clear map pin</button>
+    </p>
+    <div id="form-error" class="error-message" role="alert"></div>
+    <button id="submit-report" class="btn">Submit Report</button>
+    <div style="margin:1rem 0; display:flex; gap:1rem; align-items: center; flex-wrap: wrap;">
+      <button id="sync-now" class="btn">🔄 Sync Now</button>
+      <span id="sync-status" style="font-size:0.8rem;" aria-live="polite"></span>
+      <span id="last-sync" class="sync-timestamp">Last sync: never</span>
+      <button id="clear-reports-btn" class="btn" style="background:#c0392b;">🗑️ Clear all reports (local)</button>
+      <span id="pendingQueueIndicator" style="font-size:0.8rem; background:#f39c12; padding:0.2rem 0.6rem; border-radius:20px; display:none;">📤 Pending sync: 0</span>
+    </div>
+  </div>
+
+  <!-- MAP AND HEATMAP -->
+  <h2 id="map-heading">Map View</h2>
+  <div id="map"></div>
+  <div class="heatmap-toggle"><button id="toggle-heatmap" class="btn" style="padding:0.2rem 1rem;">🔥 Toggle Heatmap</button></div>
+  <div style="margin: 0.5rem 0;"><button id="loadFootprintsBtn" class="btn" style="padding:0.2rem 1rem;">🏢 Load sample building footprints (test)</button></div>
+
+  <!-- SUBMITTED REPORTS (versioned: latest per location) -->
+  <h2 id="reports-heading">Submitted Reports (Latest per location)</h2>
+  <div class="filter-bar" id="filter-bar" aria-label="Filter reports by damage level">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="destroyed">Destroyed</button>
+    <button class="filter-btn" data-filter="partial">Partial</button>
+    <button class="filter-btn" data-filter="minimal">Minimal</button>
+  </div>
+  <div id="reports-list" class="report-grid" aria-live="polite"></div>
+
+  <!-- COMMUNITY IMPACT AND LEADERBOARD -->
+  <h2>🌍 Community Impact</h2>
+  <div id="impact-panel" class="impact-panel" aria-live="polite">Loading community impact...</div>
+  <h2>📋 Top Contributors – This Week</h2>
+  <div id="leaderboard" class="leaderboard">Loading...</div>
+  <div style="margin-top: 0.5rem;"><button id="setDisplayNameBtn" class="btn" style="padding: 0.2rem 1rem; font-size: 0.8rem;">✏️ Set Display Name</button></div>
+  <p style="font-size:0.75rem; color:#666; margin-top:0.2rem;">Anonymised list of spotters who helped their community.</p>
+
+  <!-- HEWD WIDGET (humanitarian only) -->
+  <div id="hewd-root"></div>
+
+  <!-- EXPORT -->
+  <h2 id="export-heading">Export Data</h2>
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <button id="export-json" class="btn">Download Reports (JSON)</button>
+    <button id="export-csv" class="btn">Export as CSV</button>
+    <button id="export-geojson" class="btn">Export as GeoJSON</button>
+  </div>
+
+  <div class="footer">
+    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;">
+      <a href="https://github.com/sad9605/cathedral-network" target="_blank">🔗 GitHub Repo</a>
+      <a href="undp-demo.html#" id="sharePageBtn">📢 Share this tool</a>
+      <a href="mailto:cathedral.network@proton.me">✉️ Proton Mail</a>
+      <a href="https://signal.me/#p/@cathedral.network" target="_blank">📱 Signal</a>
+    </div>
+    <strong>Always and Forever, Coco. Always and Forever.</strong>
+  </div>
+</div>
+
+<button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+
+<div id="shareModal" class="share-modal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
+  <div class="share-modal-content">
+    <h3 id="shareModalTitle">Share Cathedral Crisis Mapper</h3>
+    <p>Help others report damage.</p>
+    <button id="shareNativeBtn" class="btn">📱 Share via...</button>
+    <button id="copyLinkBtn" class="btn">🔗 Copy Link</button>
+    <button id="closeShareModal" class="btn" style="background:#ccc;">Close</button>
+  </div>
+</div>
+<div id="satelliteModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="satelliteModalTitle">
+  <div class="modal-content">
+    <div class="modal-header"><h3 id="satelliteModalTitle">🛰️ Satellite Comparison</h3><button class="close-modal" aria-label="Close">&times;</button></div>
+    <div class="split-view">
+      <div><strong>📸 Your Photo</strong><img id="modalPhoto" alt="User photo"><p id="modalPhotoMissing" style="font-size:0.7rem; display:none;">No photo submitted.</p></div>
+      <div><strong>🛰️ Satellite Imagery (Esri)</strong><div id="satelliteMap" class="satellite-map"></div><button id="refreshSatellite" class="sat-btn">🔄 Refresh layer</button><p style="font-size:0.7rem">High‑resolution imagery provided by Esri.</p></div>
+    </div>
+    <div class="modal-footer"><span id="satelliteCoords"></span></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/dexie@3/dist/dexie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+<script type="module">
+  import { pipeline, env } from 'https://unpkg.com/@xenova/transformers@2.17.2';
+env.allowLocalModels = false;
+
+  // FULL i18n OBJECT (10 LANGUAGES) - INCLUDING ALL NEW KEYS FOR BUTTONS, LABELS, ETC.
+  const i18n = {
+    en: {
+      how_it_works: "How it works:", step1: "Take a photo", step2: "Select damage level", step3: "Infrastructure & crisis info", step4: "Describe", step5: "Add location",
+      offline_note: "Works offline.", submit_report_heading: "Submit a Damage Report", photo_label: "Photo of damage:",
+      ai_toggle: "Analyze with AI (requires ~100 MB download, Wi‑Fi recommended) ▸", ai_analysis: "AI Analysis (optional):",
+      analyze_with_ai: "Analyze with AI", predictions: "Predictions:", suggested_damage: "Suggested damage level:",
+      accept_suggestion: "Accept Suggestion", damage_label: "Damage level:", damage_minimal: "Minimal", damage_partial: "Partial",
+      damage_destroyed: "Completely Destroyed", ai_assisted: "AI Assisted", description_label: "Description (optional):",
+      description_placeholder: "Describe what you see...", privacy_title: "Privacy:",
+      privacy_text: "Your location and images are stored only on your device until you submit. Submissions are anonymous.",
+      geolocation_label: "Geolocation:", location_default: "No location captured. Tap map to drop a pin, or",
+      share_location: "Share My Location", submit_report_btn: "Submit Report", satellite_view: "🛰️ Satellite View",
+      map_view: "Map View", submitted_reports: "Submitted Reports", sync_pending: "Pending sync: 0 reports",
+      no_reports: "No reports yet.", export_data: "Export Data", download_json: "Download Reports (JSON)",
+      help_label: "📢 I need humanitarian assistance", sync_now: "Sync Now", satellite_btn: "🛰️ Satellite",
+      hewd_title: "Humanitarian Early Warning Dashboard", multi_crisis: "⚠️ MULTI‑CRISIS: Integrated response required.",
+      hewd_footer: "Cathedral Network — HEWD • Mortality‑weighted prioritisation", export_csv: "Export as CSV",
+      infra_label: "Type of infrastructure:", infra_name_label: "Provide more details on the nature of the infrastructure, including the name of the infrastructure:",
+      crisis_label: "Nature of the crisis:", debris_label: "Is there any debris that requires clearing on or near the infrastructure site?",
+      infra_residential: "Residential Infrastructure (Houses and apartments)",
+      infra_commercial: "Commercial Infrastructure (Markets, malls, shops, hotels, banks, industries, etc.)",
+      infra_government: "Government Building (Administrative buildings, courthouses, police stations, fire stations, etc.)",
+      infra_utility: "Utility Infrastructure (Water pumps, power plants, waste treatment plants, etc.)",
+      infra_transport: "Transport and Communication Infrastructure (Roads, cell towers, bridges, railway station, bus station, etc.)",
+      infra_community: "Community Infrastructure (Schools, hospitals, community halls, public toilets, etc.)",
+      infra_publicspace: "Public spaces/Recreation Infrastructure (stadiums, playgrounds, religious buildings, etc.)",
+      infra_other: "Other, please specify:",
+      crisis_earthquake: "Earthquake", crisis_flood: "Flood", crisis_tsunami: "Tsunami", crisis_hurricane: "Hurricane/Cyclone",
+      crisis_wildfire: "Wildfire", crisis_explosion: "Explosion", crisis_chemical: "Chemical incident", crisis_conflict: "Conflict", crisis_civilunrest: "Civil unrest",
+      toggle_appendix: "Show optional questions (electricity, health, needs)",
+      electricity_condition: "Electricity infrastructure condition",
+      health_functioning: "Health services functioning",
+      most_pressing_needs: "Most pressing needs",
+      no_damage_observed: "No damage observed",
+      minor_damage: "Minor damage (service disruptions but quickly repairable)",
+      moderate_damage: "Moderate damage (partial outages requiring repairs)",
+      severe_damage: "Severe damage (major infrastructure damaged, prolonged outages)",
+      completely_destroyed_elec: "Completely destroyed (no electricity infrastructure functioning)",
+      unknown: "Unknown/cannot be assessed",
+      fully_functional: "Fully functional",
+      partially_functional: "Partially functional",
+      largely_disrupted: "Largely disrupted",
+      not_functioning: "Not functioning at all",
+      food_assistance: "Food assistance and safe drinking water",
+      cash_assistance: "Cash or financial assistance",
+      healthcare_access: "Access to healthcare and essential medicines",
+      shelter: "Shelter, housing repair, or temporary accommodation",
+      livelihoods: "Restoration of livelihoods or income sources",
+      wash: "Water, sanitation, and hygiene (toilets, washing facilities)",
+      basic_services: "Restoration of basic services and infrastructure (electricity, roads, schools)",
+      protection: "Protection services and psychosocial support",
+      local_support: "Support from local authorities and community organizations",
+      need_other: "Other:",
+      clear_map_pin: "Clear map pin",
+      duplicate_flag: "Flag as duplicate (Warden)",
+      share_whatsapp: "Share on WhatsApp",
+      export_geojson: "Export as GeoJSON",
+      load_footprints: "Load sample building footprints (test)",
+      suggest_infra_ai: "Suggest infrastructure from photo",
+      pending_sync: "Pending sync:",
+      yes: "Yes",
+      no: "No",
+      debris_yes: "Yes",
+      debris_no: "No",
+      clear_all_reports: "Clear all reports (local)",
+      toggle_heatmap: "Toggle Heatmap",
+      set_display_name: "Set Display Name",
+      community_impact: "Community Impact",
+      total_reports_label: "Total reports",
+      people_need_help_label: "People need help",
+      aid_convoys_label: "Aid convoys triggered*",
+      top_contributors: "Top Contributors – This Week",
+      leaderboard_note: "Anonymised list of spotters who helped their community.",
+      export_geojson_btn: "Export as GeoJSON"
+    },
+    fr: {
+      how_it_works: "Comment ça marche :", step1: "Prendre une photo", step2: "Choisir le niveau de dégât", step3: "Infrastructure et nature de la crise", step4: "Décrire", step5: "Ajouter un lieu",
+      offline_note: "Fonctionne hors ligne.", submit_report_heading: "Envoyer un rapport de dégâts", photo_label: "Photo du dégât :",
+      ai_toggle: "Analyser avec IA (téléchargement ~100 Mo, Wi‑Fi recommandé) ▸", ai_analysis: "Analyse IA (facultative) :",
+      analyze_with_ai: "Analyser avec IA", predictions: "Prédictions :", suggested_damage: "Niveau de dégât suggéré :",
+      accept_suggestion: "Accepter la suggestion", damage_label: "Niveau de dégât :", damage_minimal: "Minime", damage_partial: "Partiel",
+      damage_destroyed: "Complètement détruit", ai_assisted: "Assisté par IA", description_label: "Description (facultative) :",
+      description_placeholder: "Décrivez ce que vous voyez...", privacy_title: "Confidentialité :",
+      privacy_text: "Vos images et votre position restent sur votre appareil jusqu'à l'envoi. Les envois sont anonymes.",
+      geolocation_label: "Géolocalisation :", location_default: "Aucune position enregistrée. Touchez la carte pour placer une épingle, ou",
+      share_location: "Partager ma position", submit_report_btn: "Envoyer le rapport", satellite_view: "🛰️ Vue satellite",
+      map_view: "Vue de la carte", submitted_reports: "Rapports envoyés", sync_pending: "Synchronisation en attente : 0 rapport(s)",
+      no_reports: "Aucun rapport pour l'instant.", export_data: "Exporter les données", download_json: "Télécharger les rapports (JSON)",
+      help_label: "📢 J'ai besoin d'aide humanitaire", sync_now: "Synchroniser maintenant", satellite_btn: "🛰️ Satellite",
+      hewd_title: "Tableau de bord d'alerte humanitaire", multi_crisis: "⚠️ MULTI‑CRISE : réponse intégrée requise",
+      hewd_footer: "Réseau Cathédrale — HEWD • Priorisation basée sur la mortalité", export_csv: "Exporter en CSV",
+      infra_label: "Type d'infrastructure :", infra_name_label: "Fournissez plus de détails sur la nature de l'infrastructure, y compris son nom :",
+      crisis_label: "Nature de la crise :", debris_label: "Y a-t-il des débris nécessitant un déblaiement sur ou près du site d'infrastructure ?",
+      infra_residential: "Infrastructure résidentielle (maisons et appartements)",
+      infra_commercial: "Infrastructure commerciale (marchés, centres commerciaux, hôtels, banques, industries, etc.)",
+      infra_government: "Bâtiment gouvernemental (administrations, tribunaux, commissariats, casernes de pompiers, etc.)",
+      infra_utility: "Infrastructure utilitaire (pompes à eau, centrales électriques, stations d'épuration, etc.)",
+      infra_transport: "Infrastructure de transport et communication (routes, tours de téléphonie, ponts, gares, etc.)",
+      infra_community: "Infrastructure communautaire (écoles, hôpitaux, salles communautaires, toilettes publiques, etc.)",
+      infra_publicspace: "Espaces publics / loisirs (stades, terrains de jeux, édifices religieux, etc.)",
+      infra_other: "Autre, précisez :",
+      crisis_earthquake: "Tremblement de terre", crisis_flood: "Inondation", crisis_tsunami: "Tsunami", crisis_hurricane: "Ouragan/cyclone",
+      crisis_wildfire: "Incendie de forêt", crisis_explosion: "Explosion", crisis_chemical: "Incident chimique", crisis_conflict: "Conflit", crisis_civilunrest: "Troubles civils",
+      toggle_appendix: "Afficher les questions optionnelles (électricité, santé, besoins)",
+      electricity_condition: "État de l'infrastructure électrique",
+      health_functioning: "Fonctionnement des services de santé",
+      most_pressing_needs: "Besoins les plus urgents",
+      no_damage_observed: "Aucun dommage observé",
+      minor_damage: "Dommages mineurs (interruptions de service mais réparables rapidement)",
+      moderate_damage: "Dommages modérés (pannes partielles nécessitant des réparations)",
+      severe_damage: "Dommages graves (infrastructures majeures endommagées, pannes prolongées)",
+      completely_destroyed_elec: "Complètement détruit (aucune infrastructure électrique fonctionnelle)",
+      unknown: "Inconnu / impossible à évaluer",
+      fully_functional: "Pleinement fonctionnel",
+      partially_functional: "Partiellement fonctionnel",
+      largely_disrupted: "Largement perturbé",
+      not_functioning: "Ne fonctionne pas du tout",
+      food_assistance: "Aide alimentaire et eau potable",
+      cash_assistance: "Aide financière",
+      healthcare_access: "Accès aux soins de santé et médicaments essentiels",
+      shelter: "Abri, réparation de logement ou hébergement temporaire",
+      livelihoods: "Restauration des moyens de subsistance",
+      wash: "Eau, assainissement et hygiène",
+      basic_services: "Restauration des services de base (électricité, routes, écoles)",
+      protection: "Services de protection et soutien psychosocial",
+      local_support: "Soutien des autorités locales et organisations communautaires",
+      need_other: "Autre :",
+      clear_map_pin: "Effacer le point sur la carte",
+      duplicate_flag: "Signaler comme doublon (Gardien)",
+      share_whatsapp: "Partager sur WhatsApp",
+      export_geojson: "Exporter en GeoJSON",
+      load_footprints: "Charger des empreintes de bâtiments (test)",
+      suggest_infra_ai: "Suggérer l'infrastructure depuis la photo",
+      pending_sync: "Synchronisation en attente :",
+      yes: "Oui",
+      no: "Non",
+      debris_yes: "Oui",
+      debris_no: "Non",
+      clear_all_reports: "Effacer tous les rapports (local)",
+      toggle_heatmap: "Activer la carte de chaleur",
+      set_display_name: "Définir le nom d'affichage",
+      community_impact: "Impact communautaire",
+      total_reports_label: "Rapports totaux",
+      people_need_help_label: "Personnes ayant besoin d'aide",
+      aid_convoys_label: "Convois d'aide déclenchés*",
+      top_contributors: "Principaux contributeurs – Cette semaine",
+      leaderboard_note: "Liste anonymisée des spotters qui ont aidé leur communauté.",
+      export_geojson_btn: "Exporter en GeoJSON"
+    },
+  ar: {
+    how_it_works: "كيف يعمل:", step1: "التقاط صورة", step2: "اختيار مستوى الضرر", step3: "البنية التحتية ونوع الأزمة", step4: "الوصف", step5: "إضافة الموقع",
+    offline_note: "يعمل بدون اتصال.", submit_report_heading: "إرسال بلاغ عن ضرر", photo_label: "صورة الضرر:",
+    ai_toggle: "تحليل بالذكاء الاصطناعي (يتطلب تنزيل ~100 ميجابايت، يُوصى بشبكة Wi‑Fi) ▸", ai_analysis: "تحليل الذكاء الاصطناعي (اختياري):",
+    analyze_with_ai: "تحليل بالذكاء الاصطناعي", predictions: "التوقعات:", suggested_damage: "مستوى الضرر المقترح:",
+    accept_suggestion: "قبول الاقتراح", damage_label: "مستوى الضرر:", damage_minimal: "طفيف", damage_partial: "جزئي",
+    damage_destroyed: "مدمر بالكامل", ai_assisted: "بمساعدة الذكاء الاصطناعي", description_label: "الوصف (اختياري):",
+    description_placeholder: "صف ما تراه...", privacy_title: "الخصوصية:",
+    privacy_text: "موقعك وصورك تبقى على جهازك حتى تقوم بالإرسال. التقارير مجهولة المصدر.",
+    geolocation_label: "الموقع الجغرافي:", location_default: "لم يتم التقاط الموقع. اضغط على الخريطة لإضافة دبوس، أو",
+    share_location: "مشاركة موقعي", submit_report_btn: "إرسال البلاغ", satellite_view: "🛰️ عرض القمر الصناعي",
+    map_view: "عرض الخريطة", submitted_reports: "التقارير المرسلة", sync_pending: "مزامنة معلقة: 0 تقارير",
+    no_reports: "لا توجد تقارير بعد.", export_data: "تصدير البيانات", download_json: "تنزيل التقارير (JSON)",
+    help_label: "📢 أحتاج مساعدة إنسانية", sync_now: "مزامنة الآن", satellite_btn: "🛰️ قمر صناعي",
+    hewd_title: "لوحة معلومات الإنذار المبكر الإنساني", multi_crisis: "⚠️ أزمة متعددة: استجابة متكاملة مطلوبة",
+    hewd_footer: "شبكة الكاتدرائية — HEWD • تحديد الأولويات على أساس الوفيات", export_csv: "تصدير كـ CSV",
+    infra_label: "نوع البنية التحتية:", infra_name_label: "قدم مزيدًا من التفاصيل حول طبيعة البنية التحتية، بما في ذلك اسمها:",
+    crisis_label: "طبيعة الأزمة:", debris_label: "هل هناك حطام يتطلب إزالة في موقع البنية التحتية أو بالقرب منه؟",
+    infra_residential: "بنية سكنية (منازل وشقق)",
+    infra_commercial: "بنية تجارية (أسواق، مراكز تسوق، فنادق، بنوك، صناعات، إلخ)",
+    infra_government: "مبنى حكومي (مبان إدارية، محاكم، مراكز شرطة، إطفاء، إلخ)",
+    infra_utility: "بنية مرافقية (مضخات مياه، محطات طاقة، محطات معالجة نفايات، إلخ)",
+    infra_transport: "بنية نقل واتصالات (طرق، أبراج اتصالات، جسور، محطات قطار، حافلات، إلخ)",
+    infra_community: "بنية مجتمعية (مدارس، مستشفيات، قاعات مجتمعية، دورات مياه عامة، إلخ)",
+    infra_publicspace: "مساحات عامة/ترفيهية (ملاعب، حدائق، مبان دينية، إلخ)",
+    infra_other: "أخرى، يرجى التحديد:",
+    crisis_earthquake: "زلزال", crisis_flood: "فيضان", crisis_tsunami: "تسونامي", crisis_hurricane: "إعصار",
+    crisis_wildfire: "حرائق الغابات", crisis_explosion: "انفجار", crisis_chemical: "حادث كيميائي", crisis_conflict: "نزاع", crisis_civilunrest: "اضطرابات مدنية",
+    toggle_appendix: "عرض الأسئلة الاختيارية (الكهرباء، الصحة، الاحتياجات)",
+    electricity_condition: "حالة البنية التحتية للكهرباء",
+    health_functioning: "عمل الخدمات الصحية",
+    most_pressing_needs: "الاحتياجات الأكثر إلحاحًا",
+    no_damage_observed: "لم يُلاحظ أي ضرر",
+    minor_damage: "أضرار طفيفة (انقطاع الخدمة لكن قابل للإصلاح بسرعة)",
+    moderate_damage: "أضرار متوسطة (انقطاعات جزئية تتطلب إصلاحات)",
+    severe_damage: "أضرار جسيمة (تضرر البنية التحتية الرئيسية، انقطاعات طويلة)",
+    completely_destroyed_elec: "مدمر بالكامل (لا توجد بنية تحتية للكهرباء تعمل)",
+    unknown: "غير معروف / لا يمكن التقييم",
+    fully_functional: "يعمل بكامل طاقته",
+    partially_functional: "يعمل جزئيًا",
+    largely_disrupted: "معطل إلى حد كبير",
+    not_functioning: "لا يعمل على الإطلاق",
+    food_assistance: "المساعدة الغذائية ومياه الشرب المأمونة",
+    cash_assistance: "المساعدة النقدية أو المالية",
+    healthcare_access: "الوصول إلى الرعاية الصحية والأدوية الأساسية",
+    shelter: "المأوى، إصلاح المساكن، أو الإقامة المؤقتة",
+    livelihoods: "استعادة سبل العيش أو مصادر الدخل",
+    wash: "المياه والصرف الصحي والنظافة (مراحيض، مرافق غسل)",
+    basic_services: "استعادة الخدمات الأساسية والبنية التحتية (الكهرباء، الطرق، المدارس)",
+    protection: "خدمات الحماية والدعم النفسي الاجتماعي",
+    local_support: "دعم السلطات المحلية والمنظمات المجتمعية",
+    need_other: "أخرى:",
+    clear_map_pin: "مسح علامة الخريطة",
+    duplicate_flag: "وضع علامة مكرر (حارس)",
+    share_whatsapp: "مشاركة عبر واتساب",
+    export_geojson: "تصدير كـ GeoJSON",
+    load_footprints: "تحميل عينة من بصمات المباني (اختبار)",
+    suggest_infra_ai: "اقتراح البنية التحتية من الصورة",
+    pending_sync: "مزامنة معلقة:",
+    yes: "نعم",
+    no: "لا",
+    debris_yes: "نعم",
+    debris_no: "لا",
+    clear_all_reports: "مسح جميع التقارير (محلي)",
+    toggle_heatmap: "تبديل خريطة الحرارة",
+    set_display_name: "تعيين اسم العرض",
+    community_impact: "الأثر المجتمعي",
+    total_reports_label: "إجمالي التقارير",
+    people_need_help_label: "أشخاص بحاجة للمساعدة",
+    aid_convoys_label: "قوافل مساعدة تم إطلاقها*",
+    top_contributors: "أهم المساهمين – هذا الأسبوع",
+    leaderboard_note: "قائمة بأسماء المراسلين الذين ساعدوا مجتمعهم مع إخفاء هويتهم.",
+    export_geojson_btn: "تصدير كـ GeoJSON"
+  },
+  // SPANISH
+  es: {
+    how_it_works: "Cómo funciona:", step1: "Tomar una foto", step2: "Seleccionar nivel de daño", step3: "Infraestructura y tipo de crisis", step4: "Describir", step5: "Agregar ubicación",
+    offline_note: "Funciona sin conexión.", submit_report_heading: "Enviar un informe de daños", photo_label: "Foto del daño:",
+    ai_toggle: "Analizar con IA (descarga ~100 MB, Wi‑Fi recomendado) ▸", ai_analysis: "Análisis de IA (opcional):",
+    analyze_with_ai: "Analizar con IA", predictions: "Predicciones:", suggested_damage: "Nivel de daño sugerido:",
+    accept_suggestion: "Aceptar sugerencia", damage_label: "Nivel de daño:", damage_minimal: "Mínimo", damage_partial: "Parcial",
+    damage_destroyed: "Completamente destruido", ai_assisted: "Asistido por IA", description_label: "Descripción (opcional):",
+    description_placeholder: "Describe lo que ves...", privacy_title: "Privacidad:",
+    privacy_text: "Tu ubicación e imágenes se almacenan solo en tu dispositivo hasta que las envíes. Los envíos son anónimos.",
+    geolocation_label: "Geolocalización:", location_default: "No se ha capturado ubicación. Toca el mapa para colocar un pin, o",
+    share_location: "Compartir mi ubicación", submit_report_btn: "Enviar informe", satellite_view: "🛰️ Vista satelital",
+    map_view: "Vista del mapa", submitted_reports: "Informes enviados", sync_pending: "Sincronización pendiente: 0 informes",
+    no_reports: "Aún no hay informes.", export_data: "Exportar datos", download_json: "Descargar informes (JSON)",
+    help_label: "📢 Necesito asistencia humanitaria", sync_now: "Sincronizar ahora", satellite_btn: "🛰️ Satélite",
+    hewd_title: "Panel de alerta humanitaria temprana", multi_crisis: "⚠️ MULTI‑CRISIS: respuesta integrada necesaria",
+    hewd_footer: "Red Cathedral — HEWD • Priorización por mortalidad", export_csv: "Exportar como CSV",
+    infra_label: "Tipo de infraestructura:", infra_name_label: "Proporcione más detalles sobre la naturaleza de la infraestructura, incluido su nombre:",
+    crisis_label: "Naturaleza de la crisis:", debris_label: "¿Hay escombros que requieran limpieza en el sitio de infraestructura o cerca de él?",
+    infra_residential: "Infraestructura residencial (casas y apartamentos)",
+    infra_commercial: "Infraestructura comercial (mercados, centros comerciales, hoteles, bancos, industrias, etc.)",
+    infra_government: "Edificio gubernamental (administraciones, juzgados, comisarías, estaciones de bomberos, etc.)",
+    infra_utility: "Infraestructura de servicios (bombas de agua, centrales eléctricas, plantas de tratamiento, etc.)",
+    infra_transport: "Infraestructura de transporte y comunicaciones (carreteras, torres de telefonía, puentes, estaciones de tren, autobuses, etc.)",
+    infra_community: "Infraestructura comunitaria (escuelas, hospitales, salones comunales, baños públicos, etc.)",
+    infra_publicspace: "Espacios públicos / recreación (estadios, parques, edificios religiosos, etc.)",
+    infra_other: "Otro, especifique:",
+    crisis_earthquake: "Terremoto", crisis_flood: "Inundación", crisis_tsunami: "Tsunami", crisis_hurricane: "Huracán/Ciclón",
+    crisis_wildfire: "Incendio forestal", crisis_explosion: "Explosión", crisis_chemical: "Incidente químico", crisis_conflict: "Conflicto", crisis_civilunrest: "Malestar civil",
+    toggle_appendix: "Mostrar preguntas opcionales (electricidad, salud, necesidades)",
+    electricity_condition: "Condición de la infraestructura eléctrica",
+    health_functioning: "Funcionamiento de los servicios de salud",
+    most_pressing_needs: "Necesidades más urgentes",
+    no_damage_observed: "No se observaron daños",
+    minor_damage: "Daños menores (interrupciones del servicio pero reparables rápidamente)",
+    moderate_damage: "Daños moderados (cortes parciales que requieren reparaciones)",
+    severe_damage: "Daños graves (infraestructura principal dañada, cortes prolongados)",
+    completely_destroyed_elec: "Completamente destruido (no funciona ninguna infraestructura eléctrica)",
+    unknown: "Desconocido / no se puede evaluar",
+    fully_functional: "Totalmente funcional",
+    partially_functional: "Parcialmente funcional",
+    largely_disrupted: "Mayormente interrumpido",
+    not_functioning: "No funciona en absoluto",
+    food_assistance: "Asistencia alimentaria y agua potable",
+    cash_assistance: "Asistencia en efectivo o financiera",
+    healthcare_access: "Acceso a atención médica y medicamentos esenciales",
+    shelter: "Refugio, reparación de vivienda o alojamiento temporal",
+    livelihoods: "Restauración de medios de vida o fuentes de ingresos",
+    wash: "Agua, saneamiento e higiene (letrinas, instalaciones de lavado)",
+    basic_services: "Restauración de servicios básicos e infraestructura (electricidad, carreteras, escuelas)",
+    protection: "Servicios de protección y apoyo psicosocial",
+    local_support: "Apoyo de autoridades locales y organizaciones comunitarias",
+    need_other: "Otro:",
+    clear_map_pin: "Borrar pin del mapa",
+    duplicate_flag: "Marcar como duplicado (Guardián)",
+    share_whatsapp: "Compartir en WhatsApp",
+    export_geojson: "Exportar como GeoJSON",
+    load_footprints: "Cargar muestra de huellas de edificios (prueba)",
+    suggest_infra_ai: "Sugerir infraestructura desde la foto",
+    pending_sync: "Sincronización pendiente:",
+    yes: "Sí",
+    no: "No",
+    debris_yes: "Sí",
+    debris_no: "No",
+    clear_all_reports: "Borrar todos los informes (local)",
+    toggle_heatmap: "Alternar mapa de calor",
+    set_display_name: "Establecer nombre de visualización",
+    community_impact: "Impacto comunitario",
+    total_reports_label: "Informes totales",
+    people_need_help_label: "Personas que necesitan ayuda",
+    aid_convoys_label: "Convoyes de ayuda activados*",
+    top_contributors: "Principales colaboradores – Esta semana",
+    leaderboard_note: "Lista anonimizada de colaboradores que ayudaron a su comunidad.",
+    export_geojson_btn: "Exportar como GeoJSON"
+  },
+  // SWAHILI
+  sw: {
+    how_it_works: "Jinsi inavyofanya kazi:", step1: "Piga picha", step2: "Chagua kiwango cha uharibifu", step3: "Miundombinu na aina ya msiba", step4: "Eleza", step5: "Ongeza eneo",
+    offline_note: "Inafanya kazi bila intaneti.", submit_report_heading: "Tuma Ripoti ya Uharibifu", photo_label: "Picha ya uharibifu:",
+    ai_toggle: "Changanua kwa AI (inahitaji upakuaji wa ~100 MB, Wi‑Fi inapendekezwa) ▸", ai_analysis: "Uchambuzi wa AI (si lazima):",
+    analyze_with_ai: "Changanua kwa AI", predictions: "Utabiri:", suggested_damage: "Kiwango cha uharibifu kinachopendekezwa:",
+    accept_suggestion: "Kubali pendekezo", damage_label: "Kiwango cha uharibifu:", damage_minimal: "Kidogo", damage_partial: "Sehemu",
+    damage_destroyed: "Imeharibiwa kabisa", ai_assisted: "Imesaidiwa na AI", description_label: "Maelezo (si lazima):",
+    description_placeholder: "Eleza unachokiona...", privacy_title: "Faragha:",
+    privacy_text: "Mahali pako na picha huhifadhiwa kwenye kifaa chako hadi utume. Ripoti ni za siri.",
+    geolocation_label: "Mahali:", location_default: "Hakuna eneo lililopatikana. Gusa ramani kuweka alama, au",
+    share_location: "Shiriki eneo langu", submit_report_btn: "Tuma Ripoti", satellite_view: "🛰️ Mwonekano wa setilaiti",
+    map_view: "Mwonekano wa ramani", submitted_reports: "Ripoti zilizotumwa", sync_pending: "Usawazishaji unaosubiri: 0 ripoti",
+    no_reports: "Hakuna ripoti bado.", export_data: "Hamisha Data", download_json: "Pakua Ripoti (JSON)",
+    help_label: "📢 Nahitaji msaada wa kibinadamu", sync_now: "Sawazisha sasa", satellite_btn: "🛰️ Setilaiti",
+    hewd_title: "Dashibodi ya Onyo la Mapema la Kibinadamu", multi_crisis: "⚠️ MGOGORO MINGI: majibu jumuishi yanahitajika",
+    hewd_footer: "Mtandao wa Cathedral — HEWD • Upangaji kipaumbele kulingana na vifo", export_csv: "Hamisha kama CSV",
+    infra_label: "Aina ya miundombinu:", infra_name_label: "Toa maelezo zaidi kuhusu asili ya miundombinu, ikijumuisha jina lake:",
+    crisis_label: "Asili ya msiba:", debris_label: "Je, kuna uchafu unaohitaji kusafishwa kwenye tovuti ya miundombinu au karibu nayo?",
+    infra_residential: "Miundombinu ya makazi (nyumba na vyumba)",
+    infra_commercial: "Miundombinu ya kibiashara (masoko, maduka, hoteli, benki, viwanda, n.k.)",
+    infra_government: "Jengo la serikali (majengo ya utawala, mahakama, vituo vya polisi, moto, n.k.)",
+    infra_utility: "Miundombinu ya huduma (pampu za maji, mitambo ya umeme, mitambo ya kusafisha taka, n.k.)",
+    infra_transport: "Miundombinu ya uchukuzi na mawasiliano (barabara, minara ya simu, madaraja, vituo vya treni, mabasi, n.k.)",
+    infra_community: "Miundombinu ya jamii (shule, hospitali, kumbi za jamii, vyoo vya umma, n.k.)",
+    infra_publicspace: "Maeneo ya umma/burudani (viwanja, uwanja, majengo ya kidini, n.k.)",
+    infra_other: "Nyingine, tafadhali taja:",
+    crisis_earthquake: "Tetemeko la ardhi", crisis_flood: "Mafuriko", crisis_tsunami: "Tsunami", crisis_hurricane: "Kimbunga",
+    crisis_wildfire: "Moto wa nyika", crisis_explosion: "Mlipuko", crisis_chemical: "Tukio la kemikali", crisis_conflict: "Migogoro", crisis_civilunrest: "Machafuko ya kiraia",
+    toggle_appendix: "Onyesha maswali ya hiari (umeme, afya, mahitaji)",
+    electricity_condition: "Hali ya miundombinu ya umeme",
+    health_functioning: "Utendaji wa huduma za afya",
+    most_pressing_needs: "Mahitaji muhimu zaidi",
+    no_damage_observed: "Hakuna uharibifu uliozingatiwa",
+    minor_damage: "Uharibifu mdogo (usumbufu wa huduma lakini unakarabika haraka)",
+    moderate_damage: "Uharibifu wa wastani (ukatizaji wa sehemu unaohitaji matengenezo)",
+    severe_damage: "Uharibifu mkubwa (miundombinu mikuu imeharibiwa, kukatika kwa muda mrefu)",
+    completely_destroyed_elec: "Imeharibiwa kabisa (hakuna miundombinu ya umeme inayofanya kazi)",
+    unknown: "Haijulikani / haiwezi kutathminiwa",
+    fully_functional: "Inafanya kazi kikamilifu",
+    partially_functional: "Inafanya kazi kwa sehemu",
+    largely_disrupted: "Imesumbuliwa kwa kiasi kikubwa",
+    not_functioning: "Haifanyi kazi hata kidogo",
+    food_assistance: "Msaada wa chakula na maji safi ya kunywa",
+    cash_assistance: "Msaada wa pesa au fedha",
+    healthcare_access: "Upatikanaji wa huduma za afya na dawa muhimu",
+    shelter: "Makazi, ukarabati wa nyumba, au malazi ya muda",
+    livelihoods: "Kurejesha vyanzo vya riziki au mapato",
+    wash: "Maji, usafi wa mazingira na usafi (vyoo, vyombo vya kuoshea)",
+    basic_services: "Kurejesha huduma za kimsingi na miundombinu (umeme, barabara, shule)",
+    protection: "Huduma za ulinzi na usaidizi wa kisaikolojia na kijamii",
+    local_support: "Msaada kutoka kwa mamlaka za mitaa na mashirika ya jamii",
+    need_other: "Nyingine:",
+    clear_map_pin: "Futa alama kwenye ramani",
+    duplicate_flag: "Weka alama kama nakala dufu (Mlinzi)",
+    share_whatsapp: "Shiriki kwenye WhatsApp",
+    export_geojson: "Hamisha kama GeoJSON",
+    load_footprints: "Pakia sampuli za nyayo za majengo (jaribio)",
+    suggest_infra_ai: "Pendekeza miundombinu kutoka kwenye picha",
+    pending_sync: "Usawazishaji unaosubiri:",
+    yes: "Ndiyo",
+    no: "Hapana",
+    debris_yes: "Ndiyo",
+    debris_no: "Hapana",
+    clear_all_reports: "Futa ripoti zote (za ndani)",
+    toggle_heatmap: "Geuza ramani ya joto",
+    set_display_name: "Weka jina la kuonyesha",
+    community_impact: "Athari za Jamii",
+    total_reports_label: "Jumla ya ripoti",
+    people_need_help_label: "Watu wanaohitaji msaada",
+    aid_convoys_label: "Misafara ya misaada iliyoanzishwa*",
+    top_contributors: "Wachangiaji Bora – Wiki Hii",
+    leaderboard_note: "Orodha ya watu wasiojulikana waliosaidia jamii zao.",
+    export_geojson_btn: "Hamisha kama GeoJSON"
+  },
+  // PORTUGUESE
+  pt: {
+    how_it_works: "Como funciona:", step1: "Tirar uma foto", step2: "Selecionar nível de dano", step3: "Infraestrutura e natureza da crise", step4: "Descrever", step5: "Adicionar localização",
+    offline_note: "Funciona offline.", submit_report_heading: "Enviar um Relatório de Danos", photo_label: "Foto do dano:",
+    ai_toggle: "Analisar com IA (requer download de ~100 MB, Wi‑Fi recomendado) ▸", ai_analysis: "Análise de IA (opcional):",
+    analyze_with_ai: "Analisar com IA", predictions: "Previsões:", suggested_damage: "Nível de dano sugerido:",
+    accept_suggestion: "Aceitar sugestão", damage_label: "Nível de dano:", damage_minimal: "Mínimo", damage_partial: "Parcial",
+    damage_destroyed: "Completamente destruído", ai_assisted: "Assistido por IA", description_label: "Descrição (opcional):",
+    description_placeholder: "Descreva o que você vê...", privacy_title: "Privacidade:",
+    privacy_text: "Sua localização e imagens ficam apenas no seu dispositivo até o envio. Os envios são anônimos.",
+    geolocation_label: "Geolocalização:", location_default: "Nenhuma localização capturada. Toque no mapa para colocar um alfinete, ou",
+    share_location: "Compartilhar minha localização", submit_report_btn: "Enviar Relatório", satellite_view: "🛰️ Vista de Satélite",
+    map_view: "Vista do Mapa", submitted_reports: "Relatórios Enviados", sync_pending: "Sincronização pendente: 0 relatórios",
+    no_reports: "Nenhum relatório ainda.", export_data: "Exportar Dados", download_json: "Baixar Relatórios (JSON)",
+    help_label: "📢 Preciso de assistência humanitária", sync_now: "Sincronizar agora", satellite_btn: "🛰️ Satélite",
+    hewd_title: "Painel de Alerta Humanitário Antecipado", multi_crisis: "⚠️ MULTI‑CRISE: resposta integrada necessária",
+    hewd_footer: "Rede Cathedral — HEWD • Priorização baseada na mortalidade", export_csv: "Exportar como CSV",
+    infra_label: "Tipo de infraestrutura:", infra_name_label: "Forneça mais detalhes sobre a natureza da infraestrutura, incluindo o nome:",
+    crisis_label: "Natureza da crise:", debris_label: "Há detritos que precisam ser removidos no local da infraestrutura ou próximo a ele?",
+    infra_residential: "Infraestrutura residencial (casas e apartamentos)",
+    infra_commercial: "Infraestrutura comercial (mercados, shoppings, hotéis, bancos, indústrias, etc.)",
+    infra_government: "Edifício governamental (administrações, tribunais, delegacias, bombeiros, etc.)",
+    infra_utility: "Infraestrutura de utilidades (bombas d'água, usinas, estações de tratamento, etc.)",
+    infra_transport: "Infraestrutura de transporte e comunicação (estradas, torres de celular, pontes, estações, etc.)",
+    infra_community: "Infraestrutura comunitária (escolas, hospitais, salões, banheiros públicos, etc.)",
+    infra_publicspace: "Espaços públicos/lazer (estádios, parques, edifícios religiosos, etc.)",
+    infra_other: "Outro, especifique:",
+    crisis_earthquake: "Terremoto", crisis_flood: "Inundação", crisis_tsunami: "Tsunami", crisis_hurricane: "Furacão/Ciclone",
+    crisis_wildfire: "Incêndio florestal", crisis_explosion: "Explosão", crisis_chemical: "Incidente químico", crisis_conflict: "Conflito", crisis_civilunrest: "Distúrbios civis",
+    toggle_appendix: "Mostrar perguntas opcionais (eletricidade, saúde, necessidades)",
+    electricity_condition: "Condição da infraestrutura elétrica",
+    health_functioning: "Funcionamento dos serviços de saúde",
+    most_pressing_needs: "Necessidades mais prementes",
+    no_damage_observed: "Nenhum dano observado",
+    minor_damage: "Danos menores (interrupções de serviço mas reparáveis rapidamente)",
+    moderate_damage: "Danos moderados (quedas parciais que exigem reparos)",
+    severe_damage: "Danos graves (infraestrutura principal danificada, quedas prolongadas)",
+    completely_destroyed_elec: "Completamente destruído (nenhuma infraestrutura elétrica funcionando)",
+    unknown: "Desconhecido / não pode ser avaliado",
+    fully_functional: "Totalmente funcional",
+    partially_functional: "Parcialmente funcional",
+    largely_disrupted: "Grandemente interrompido",
+    not_functioning: "Não funciona de todo",
+    food_assistance: "Assistência alimentar e água potável",
+    cash_assistance: "Assistência em dinheiro ou financeira",
+    healthcare_access: "Acesso a cuidados de saúde e medicamentos essenciais",
+    shelter: "Abrigo, reparo de habitação ou acomodação temporária",
+    livelihoods: "Restauração de meios de subsistência ou fontes de renda",
+    wash: "Água, saneamento e higiene (banheiros, instalações de lavagem)",
+    basic_services: "Restauração de serviços básicos e infraestrutura (eletricidade, estradas, escolas)",
+    protection: "Serviços de proteção e apoio psicossocial",
+    local_support: "Apoio de autoridades locais e organizações comunitárias",
+    need_other: "Outro:",
+    clear_map_pin: "Limpar pino do mapa",
+    duplicate_flag: "Marcar como duplicado (Guardião)",
+    share_whatsapp: "Compartilhar no WhatsApp",
+    export_geojson: "Exportar como GeoJSON",
+    load_footprints: "Carregar amostra de pegadas de edifícios (teste)",
+    suggest_infra_ai: "Sugerir infraestrutura a partir da foto",
+    pending_sync: "Sincronização pendente:",
+    yes: "Sim",
+    no: "Não",
+    debris_yes: "Sim",
+    debris_no: "Não",
+    clear_all_reports: "Limpar todos os relatórios (local)",
+    toggle_heatmap: "Alternar mapa de calor",
+    set_display_name: "Definir nome de exibição",
+    community_impact: "Impacto comunitário",
+    total_reports_label: "Relatórios totais",
+    people_need_help_label: "Pessoas que precisam de ajuda",
+    aid_convoys_label: "Comboios de ajuda acionados*",
+    top_contributors: "Principais contribuidores – Esta semana",
+    leaderboard_note: "Lista anonimizada de colaboradores que ajudaram sua comunidade.",
+    export_geojson_btn: "Exportar como GeoJSON"
+  },
+  // CHINESE (SIMPLIFIED)
+  zh: {
+    how_it_works: "使用方法：", step1: "拍照", step2: "选择损坏程度", step3: "基础设施与危机类型", step4: "描述", step5: "添加位置",
+    offline_note: "离线可用。", submit_report_heading: "提交损坏报告", photo_label: "损坏照片：",
+    ai_toggle: "使用AI分析（需下载约100MB，推荐Wi‑Fi）▸", ai_analysis: "AI分析（可选）：",
+    analyze_with_ai: "使用AI分析", predictions: "预测：", suggested_damage: "建议损坏程度：",
+    accept_suggestion: "接受建议", damage_label: "损坏程度：", damage_minimal: "轻微", damage_partial: "部分",
+    damage_destroyed: "完全摧毁", ai_assisted: "AI辅助", description_label: "描述（可选）：",
+    description_placeholder: "描述你看到的...", privacy_title: "隐私：",
+    privacy_text: "您的位置和图像仅存储在您的设备上，直至提交。提交匿名。",
+    geolocation_label: "地理位置：", location_default: "未捕获位置。点击地图放置标记，或",
+    share_location: "分享我的位置", submit_report_btn: "提交报告", satellite_view: "🛰️ 卫星视图",
+    map_view: "地图视图", submitted_reports: "已提交报告", sync_pending: "待同步：0份报告",
+    no_reports: "暂无报告。", export_data: "导出数据", download_json: "下载报告 (JSON)",
+    help_label: "📢 我需要人道主义援助", sync_now: "立即同步", satellite_btn: "🛰️ 卫星",
+    hewd_title: "人道主义早期预警仪表板", multi_crisis: "⚠️ 多重危机：需要综合响应",
+    hewd_footer: "大教堂网络 — HEWD • 基于死亡率的优先级排序", export_csv: "导出为CSV",
+    infra_label: "基础设施类型：", infra_name_label: "提供有关基础设施性质的更多详细信息，包括其名称：",
+    crisis_label: "危机性质：", debris_label: "基础设施现场或附近是否有需要清理的瓦砾？",
+    infra_residential: "住宅基础设施（房屋和公寓）",
+    infra_commercial: "商业基础设施（市场、商场、酒店、银行、工业等）",
+    infra_government: "政府建筑（行政大楼、法院、警察局、消防站等）",
+    infra_utility: "公用基础设施（水泵、发电厂、废物处理厂等）",
+    infra_transport: "交通和通信基础设施（道路、信号塔、桥梁、火车站、公交站等）",
+    infra_community: "社区基础设施（学校、医院、社区大厅、公共厕所等）",
+    infra_publicspace: "公共空间/娱乐基础设施（体育场、游乐场、宗教建筑等）",
+    infra_other: "其他，请注明：",
+    crisis_earthquake: "地震", crisis_flood: "洪水", crisis_tsunami: "海啸", crisis_hurricane: "飓风/气旋",
+    crisis_wildfire: "野火", crisis_explosion: "爆炸", crisis_chemical: "化学事故", crisis_conflict: "冲突", crisis_civilunrest: "内乱",
+    toggle_appendix: "显示可选问题（电力、卫生、需求）",
+    electricity_condition: "电力基础设施状况",
+    health_functioning: "卫生服务运作情况",
+    most_pressing_needs: "最迫切的需求",
+    no_damage_observed: "未观察到损坏",
+    minor_damage: "轻微损坏（服务中断但可快速修复）",
+    moderate_damage: "中度损坏（部分停电需要维修）",
+    severe_damage: "严重损坏（主要基础设施受损，长期停电）",
+    completely_destroyed_elec: "完全摧毁（无电力基础设施运作）",
+    unknown: "未知/无法评估",
+    fully_functional: "完全运作",
+    partially_functional: "部分运作",
+    largely_disrupted: "大部分中断",
+    not_functioning: "完全不运作",
+    food_assistance: "粮食援助和安全饮用水",
+    cash_assistance: "现金或财政援助",
+    healthcare_access: "获得医疗服务和基本药物",
+    shelter: "住所、房屋维修或临时住宿",
+    livelihoods: "恢复生计或收入来源",
+    wash: "水、环境卫生和个人卫生（厕所、洗涤设施）",
+    basic_services: "恢复基本服务和基础设施（电力、道路、学校）",
+    protection: "保护服务和心理社会支持",
+    local_support: "地方当局和社区组织的支持",
+    need_other: "其他：",
+    clear_map_pin: "清除地图标记",
+    duplicate_flag: "标记为重复（守护者）",
+    share_whatsapp: "通过WhatsApp分享",
+    export_geojson: "导出为GeoJSON",
+    load_footprints: "加载示例建筑足迹（测试）",
+    suggest_infra_ai: "从照片中建议基础设施",
+    pending_sync: "待同步：",
+    yes: "是",
+    no: "否",
+    debris_yes: "是",
+    debris_no: "否",
+    clear_all_reports: "清除所有报告（本地）",
+    toggle_heatmap: "切换热力图",
+    set_display_name: "设置显示名称",
+    community_impact: "社区影响",
+    total_reports_label: "报告总数",
+    people_need_help_label: "需要帮助的人",
+    aid_convoys_label: "已触发援助车队*",
+    top_contributors: "本周贡献者",
+    leaderboard_note: "帮助社区的匿名贡献者名单。",
+    export_geojson_btn: "导出为GeoJSON"
+  },
+  // RUSSIAN
+  ru: {
+    how_it_works: "Как это работает:", step1: "Сделать фото", step2: "Выбрать степень повреждения", step3: "Инфраструктура и тип кризиса", step4: "Описать", step5: "Добавить местоположение",
+    offline_note: "Работает офлайн.", submit_report_heading: "Отправить сообщение об ущербе", photo_label: "Фото повреждения:",
+    ai_toggle: "Анализ с ИИ (требуется загрузка ~100 МБ, рекомендуется Wi‑Fi) ▸", ai_analysis: "Анализ ИИ (опционально):",
+    analyze_with_ai: "Анализировать с ИИ", predictions: "Прогнозы:", suggested_damage: "Предлагаемая степень повреждения:",
+    accept_suggestion: "Принять предложение", damage_label: "Степень повреждения:", damage_minimal: "Минимальная", damage_partial: "Частичная",
+    damage_destroyed: "Полностью разрушено", ai_assisted: "С помощью ИИ", description_label: "Описание (опционально):",
+    description_placeholder: "Опишите, что вы видите...", privacy_title: "Конфиденциальность:",
+    privacy_text: "Ваше местоположение и изображения хранятся только на вашем устройстве до отправки. Отправки анонимны.",
+    geolocation_label: "Геолокация:", location_default: "Местоположение не определено. Нажмите на карту, чтобы установить маркер, или",
+    share_location: "Поделиться моим местоположением", submit_report_btn: "Отправить сообщение", satellite_view: "🛰️ Спутниковый вид",
+    map_view: "Вид карты", submitted_reports: "Отправленные сообщения", sync_pending: "Ожидание синхронизации: 0 сообщений",
+    no_reports: "Пока нет сообщений.", export_data: "Экспорт данных", download_json: "Скачать сообщения (JSON)",
+    help_label: "📢 Мне нужна гуманитарная помощь", sync_now: "Синхронизировать сейчас", satellite_btn: "🛰️ Спутник",
+    hewd_title: "Панель гуманитарного раннего предупреждения", multi_crisis: "⚠️ МНОГОКРИЗИСНЫЙ: требуется комплексное реагирование",
+    hewd_footer: "Сеть Cathedral — HEWD • Приоритизация на основе смертности", export_csv: "Экспорт в CSV",
+    infra_label: "Тип инфраструктуры:", infra_name_label: "Предоставьте более подробную информацию о характере инфраструктуры, включая ее название:",
+    crisis_label: "Природа кризиса:", debris_label: "Есть ли мусор, требующий уборки на объекте инфраструктуры или рядом с ним?",
+    infra_residential: "Жилая инфраструктура (дома и квартиры)",
+    infra_commercial: "Коммерческая инфраструктура (рынки, торговые центры, отели, банки, промышленность и т.д.)",
+    infra_government: "Правительственное здание (административные здания, суды, полиция, пожарные части и т.д.)",
+    infra_utility: "Инфраструктура коммунальных услуг (водяные насосы, электростанции, очистные сооружения и т.д.)",
+    infra_transport: "Транспортная и коммуникационная инфраструктура (дороги, вышки связи, мосты, железнодорожные вокзалы, автобусные станции и т.д.)",
+    infra_community: "Общественная инфраструктура (школы, больницы, общинные залы, общественные туалеты и т.д.)",
+    infra_publicspace: "Общественные пространства/рекреационная инфраструктура (стадионы, игровые площадки, религиозные здания и т.д.)",
+    infra_other: "Другое, укажите:",
+    crisis_earthquake: "Землетрясение", crisis_flood: "Наводнение", crisis_tsunami: "Цунами", crisis_hurricane: "Ураган/циклон",
+    crisis_wildfire: "Лесной пожар", crisis_explosion: "Взрыв", crisis_chemical: "Химическая авария", crisis_conflict: "Конфликт", crisis_civilunrest: "Гражданские беспорядки",
+    toggle_appendix: "Показать дополнительные вопросы (электричество, здоровье, потребности)",
+    electricity_condition: "Состояние инфраструктуры электроснабжения",
+    health_functioning: "Функционирование медицинских услуг",
+    most_pressing_needs: "Наиболее насущные потребности",
+    no_damage_observed: "Повреждений не наблюдается",
+    minor_damage: "Незначительные повреждения (перебои в обслуживании, но быстро ремонтируемые)",
+    moderate_damage: "Умеренные повреждения (частичные отключения, требующие ремонта)",
+    severe_damage: "Серьезные повреждения (повреждена основная инфраструктура, длительные отключения)",
+    completely_destroyed_elec: "Полностью разрушено (нет функционирующей электроинфраструктуры)",
+    unknown: "Неизвестно / невозможно оценить",
+    fully_functional: "Полностью функционально",
+    partially_functional: "Частично функционально",
+    largely_disrupted: "В значительной степени нарушено",
+    not_functioning: "Совсем не функционирует",
+    food_assistance: "Продовольственная помощь и безопасная питьевая вода",
+    cash_assistance: "Денежная или финансовая помощь",
+    healthcare_access: "Доступ к медицинской помощи и основным лекарствам",
+    shelter: "Убежище, ремонт жилья или временное размещение",
+    livelihoods: "Восстановление средств к существованию или источников дохода",
+    wash: "Вода, санитария и гигиена (туалеты, умывальники)",
+    basic_services: "Восстановление базовых услуг и инфраструктуры (электричество, дороги, школы)",
+    protection: "Службы защиты и психосоциальная поддержка",
+    local_support: "Поддержка местных властей и общественных организаций",
+    need_other: "Другое:",
+    clear_map_pin: "Очистить метку на карте",
+    duplicate_flag: "Отметить как дубликат (Хранитель)",
+    share_whatsapp: "Поделиться в WhatsApp",
+    export_geojson: "Экспорт в GeoJSON",
+    load_footprints: "Загрузить образец отпечатков зданий (тест)",
+    suggest_infra_ai: "Предложить инфраструктуру по фото",
+    pending_sync: "Ожидание синхронизации:",
+    yes: "Да",
+    no: "Нет",
+    debris_yes: "Да",
+    debris_no: "Нет",
+    clear_all_reports: "Очистить все сообщения (локально)",
+    toggle_heatmap: "Переключить тепловую карту",
+    set_display_name: "Установить отображаемое имя",
+    community_impact: "Влияние на сообщество",
+    total_reports_label: "Всего сообщений",
+    people_need_help_label: "Нуждаются в помощи",
+    aid_convoys_label: "Активировано гуманитарных конвоев*",
+    top_contributors: "Лучшие участники – Эта неделя",
+    leaderboard_note: "Анонимный список участников, которые помогли своему сообществу.",
+    export_geojson_btn: "Экспорт в GeoJSON"
+  },
+  // FARSI (PERSIAN)
+  fa: {
+    how_it_works: "نحوه کار:", step1: "عکس بگیرید", step2: "سطح خسارت را انتخاب کنید", step3: "زیرساخت و نوع بحران", step4: "توضیحات", step5: "افزودن مکان",
+    offline_note: "بدون اتصال کار می‌کند.", submit_report_heading: "ارسال گزارش خسارت", photo_label: "عکس خسارت:",
+    ai_toggle: "تحلیل با هوش مصنوعی (نیاز به دانلود ~۱۰۰ مگابایت، Wi‑Fi توصیه می‌شود) ▸", ai_analysis: "تحلیل هوش مصنوعی (اختیاری):",
+    analyze_with_ai: "تحلیل با هوش مصنوعی", predictions: "پیش‌بینی‌ها:", suggested_damage: "سطح خسارت پیشنهادی:",
+    accept_suggestion: "پذیرش پیشنهاد", damage_label: "سطح خسارت:", damage_minimal: "کم", damage_partial: "جزئی",
+    damage_destroyed: "کاملاً تخریب شده", ai_assisted: "کمک گرفته از هوش مصنوعی", description_label: "توضیحات (اختیاری):",
+    description_placeholder: "آنچه می‌بینید توضیح دهید...", privacy_title: "حریم خصوصی:",
+    privacy_text: "مکان و تصاویر شما فقط تا زمان ارسال در دستگاه شما ذخیره می‌شوند. ارسال‌ها ناشناس است.",
+    geolocation_label: "موقعیت جغرافیایی:", location_default: "موقعیتی ثبت نشده. روی نقشه ضربه بزنید تا پین بیندازید، یا",
+    share_location: "اشتراک موقعیت من", submit_report_btn: "ارسال گزارش", satellite_view: "🛰️ نمای ماهواره‌ای",
+    map_view: "نمای نقشه", submitted_reports: "گزارش‌های ارسال شده", sync_pending: "همگام‌سازی در انتظار: ۰ گزارش",
+    no_reports: "هنوز گزارشی وجود ندارد.", export_data: "خروجی داده‌ها", download_json: "دانلود گزارش‌ها (JSON)",
+    help_label: "📢 به کمک‌های بشردوستانه نیاز دارم", sync_now: "همگام‌سازی اکنون", satellite_btn: "🛰️ ماهواره",
+    hewd_title: "داشبورد هشدار زودهنگام بشردوستانه", multi_crisis: "⚠️ بحران چندگانه: پاسخ یکپارچه لازم است",
+    hewd_footer: "شبکه کلیسا — HEWD • اولویت‌بندی مبتنی بر مرگ‌ومیر", export_csv: "خروجی CSV",
+    infra_label: "نوع زیرساخت:", infra_name_label: "جزئیات بیشتری در مورد ماهیت زیرساخت، از جمله نام آن ارائه دهید:",
+    crisis_label: "ماهیت بحران:", debris_label: "آیا آوارهایی وجود دارد که نیاز به پاکسازی در سایت زیرساخت یا نزدیک آن داشته باشد؟",
+    infra_residential: "زیرساخت مسکونی (خانه‌ها و آپارتمان‌ها)",
+    infra_commercial: "زیرساخت تجاری (بازارها، مراکز خرید، هتل‌ها، بانک‌ها، صنایع و غیره)",
+    infra_government: "ساختمان دولتی (ساختمان‌های اداری، دادگاه‌ها، کلانتری‌ها، ایستگاه‌های آتش‌نشانی و غیره)",
+    infra_utility: "زیرساخت تاسیساتی (پمپ‌های آب، نیروگاه‌ها، تصفیه‌خانه‌های فاضلاب و غیره)",
+    infra_transport: "زیرساخت حمل و نقل و ارتباطات (جاده‌ها، دکل‌های تلفن همراه، پل‌ها، ایستگاه راه آهن، ایستگاه اتوبوس و غیره)",
+    infra_community: "زیرساخت اجتماعی (مدارس، بیمارستان‌ها، تالارهای عمومی، توالت‌های عمومی و غیره)",
+    infra_publicspace: "فضاهای عمومی/زیرساخت تفریحی (استادیوم‌ها، زمین بازی، ساختمان‌های مذهبی و غیره)",
+    infra_other: "سایر، لطفاً مشخص کنید:",
+    crisis_earthquake: "زمین لرزه", crisis_flood: "سیل", crisis_tsunami: "سونامی", crisis_hurricane: "طوفان",
+    crisis_wildfire: "آتش‌سوزی", crisis_explosion: "انفجار", crisis_chemical: "حادثه شیمیایی", crisis_conflict: "درگیری", crisis_civilunrest: "ناآرامی مدنی",
+    toggle_appendix: "نمایش سوالات اختیاری (برق، بهداشت، نیازها)",
+    electricity_condition: "وضعیت زیرساخت برق",
+    health_functioning: "عملکرد خدمات بهداشتی",
+    most_pressing_needs: "نیازهای فوری",
+    no_damage_observed: "هیچ خسارتی مشاهده نشد",
+    minor_damage: "خسارت جزئی (اختلال در سرویس اما سریعاً قابل تعمیر)",
+    moderate_damage: "خسارت متوسط (قطع جزئی نیازمند تعمیرات)",
+    severe_damage: "خسارت شدید (آسیب به زیرساخت اصلی، قطعی طولانی)",
+    completely_destroyed_elec: "کاملاً تخریب شده (هیچ زیرساخت برقی کار نمی‌کند)",
+    unknown: "ناشناخته / قابل ارزیابی نیست",
+    fully_functional: "کاملاً عملیاتی",
+    partially_functional: "تا حدی عملیاتی",
+    largely_disrupted: "بشدت مختل شده",
+    not_functioning: "اصلاً کار نمی‌کند",
+    food_assistance: "کمک‌های غذایی و آب آشامیدنی سالم",
+    cash_assistance: "کمک نقدی یا مالی",
+    healthcare_access: "دسترسی به مراقبت‌های بهداشتی و داروهای ضروری",
+    shelter: "سرپناه، تعمیر مسکن یا اسکان موقت",
+    livelihoods: "بازیابی معیشت یا منابع درآمد",
+    wash: "آب، بهداشت و سلامت (توالت، امکانات شستشو)",
+    basic_services: "بازیابی خدمات پایه و زیرساخت (برق، راه‌ها، مدارس)",
+    protection: "خدمات حفاظتی و حمایت روانی اجتماعی",
+    local_support: "حمایت مقامات محلی و سازمان‌های اجتماعی",
+    need_other: "سایر:",
+    clear_map_pin: "پاک کردن نشانگر نقشه",
+    duplicate_flag: "علامت‌گذاری به عنوان تکراری (نگهبان)",
+    share_whatsapp: "اشتراک در واتساپ",
+    export_geojson: "خروجی GeoJSON",
+    load_footprints: "بارگیری نمونه ردپای ساختمان (تست)",
+    suggest_infra_ai: "پیشنهاد زیرساخت از روی عکس",
+    pending_sync: "همگام‌سازی در انتظار:",
+    yes: "بله",
+    no: "خیر",
+    debris_yes: "بله",
+    debris_no: "خیر",
+    clear_all_reports: "پاک کردن همه گزارش‌ها (محلی)",
+    toggle_heatmap: "تعویض نقشه حرارتی",
+    set_display_name: "تنظیم نام نمایشی",
+    community_impact: "تأثیر بر جامعه",
+    total_reports_label: "کل گزارش‌ها",
+    people_need_help_label: "افراد نیازمند کمک",
+    aid_convoys_label: "کاروان‌های کمک فعال شده*",
+    top_contributors: "برترین مشارکت‌کنندگان – این هفته",
+    leaderboard_note: "لیست ناشناس افرادی که به جامعه خود کمک کردند.",
+    export_geojson_btn: "خروجی GeoJSON"
+  },
+  // UKRAINIAN
+  uk: {
+    how_it_works: "Як це працює:", step1: "Зробити фото", step2: "Вибрати рівень пошкодження", step3: "Інфраструктура та тип кризи", step4: "Описати", step5: "Додати місцезнаходження",
+    offline_note: "Працює офлайн.", submit_report_heading: "Надіслати звіт про збитки", photo_label: "Фото пошкодження:",
+    ai_toggle: "Аналіз з ШІ (потрібне завантаження ~100 МБ, рекомендовано Wi‑Fi) ▸", ai_analysis: "Аналіз ШІ (опціонально):",
+    analyze_with_ai: "Аналізувати з ШІ", predictions: "Прогнози:", suggested_damage: "Рекомендований рівень пошкодження:",
+    accept_suggestion: "Прийняти пропозицію", damage_label: "Рівень пошкодження:", damage_minimal: "Мінімальний", damage_partial: "Частковий",
+    damage_destroyed: "Повністю зруйновано", ai_assisted: "За допомогою ШІ", description_label: "Опис (опціонально):",
+    description_placeholder: "Опишіть, що ви бачите...", privacy_title: "Конфіденційність:",
+    privacy_text: "Ваше місцезнаходження та зображення зберігаються лише на вашому пристрої до надсилання. Надсилання анонімні.",
+    geolocation_label: "Геолокація:", location_default: "Місце не визначено. Торкніться карти, щоб встановити маркер, або",
+    share_location: "Поділитися моїм місцем", submit_report_btn: "Надіслати звіт", satellite_view: "🛰️ Супутниковий вигляд",
+    map_view: "Вигляд мапи", submitted_reports: "Надіслані звіти", sync_pending: "Очікує синхронізації: 0 звітів",
+    no_reports: "Ще немає звітів.", export_data: "Експорт даних", download_json: "Завантажити звіти (JSON)",
+    help_label: "📢 Мені потрібна гуманітарна допомога", sync_now: "Синхронізувати зараз", satellite_btn: "🛰️ Супутник",
+    hewd_title: "Панель гуманітарного раннього попередження", multi_crisis: "⚠️ БАГАТОКРИЗОВА СИТУАЦІЯ: потрібна комплексна відповідь",
+    hewd_footer: "Мережа Cathedral — HEWD • Пріоритезація на основі смертності", export_csv: "Експорт у CSV",
+    infra_label: "Тип інфраструктури:", infra_name_label: "Надайте більш детальну інформацію про характер інфраструктури, включаючи її назву:",
+    crisis_label: "Природа кризи:", debris_label: "Чи є сміття, яке потребує очищення на об'єкті інфраструктури або біля нього?",
+    infra_residential: "Житлова інфраструктура (будинки та квартири)",
+    infra_commercial: "Комерційна інфраструктура (ринки, торгові центри, готелі, банки, промисловість тощо)",
+    infra_government: "Урядова будівля (адміністративні будівлі, суди, поліцейські дільниці, пожежні частини тощо)",
+    infra_utility: "Інфраструктура комунальних послуг (водяні насоси, електростанції, очисні споруди тощо)",
+    infra_transport: "Транспортна та комунікаційна інфраструктура (дороги, вежі стільникового зв'язку, мости, залізничні вокзали, автобусні станції тощо)",
+    infra_community: "Громадська інфраструктура (школи, лікарні, громадські зали, громадські туалети тощо)",
+    infra_publicspace: "Громадські простори/рекреаційна інфраструктура (стадіони, ігрові майданчики, релігійні будівлі тощо)",
+    infra_other: "Інше, будь ласка, уточніть:",
+    crisis_earthquake: "Землетрус", crisis_flood: "Повінь", crisis_tsunami: "Цунамі", crisis_hurricane: "Ураган/циклон",
+    crisis_wildfire: "Лісова пожежа", crisis_explosion: "Вибух", crisis_chemical: "Хімічна аварія", crisis_conflict: "Конфлікт", crisis_civilunrest: "Громадські заворушення",
+    toggle_appendix: "Показати додаткові запитання (електрика, здоров'я, потреби)",
+    electricity_condition: "Стан інфраструктури електропостачання",
+    health_functioning: "Функціонування медичних послуг",
+    most_pressing_needs: "Найбільш нагальні потреби",
+    no_damage_observed: "Пошкоджень не спостерігається",
+    minor_damage: "Незначні пошкодження (перебої в обслуговуванні, але швидко ремонтуються)",
+    moderate_damage: "Помірні пошкодження (часткові відключення, що потребують ремонту)",
+    severe_damage: "Серйозні пошкодження (пошкоджено основну інфраструктуру, тривалі відключення)",
+    completely_destroyed_elec: "Повністю зруйновано (немає функціонуючої електроінфраструктури)",
+    unknown: "Невідомо / неможливо оцінити",
+    fully_functional: "Повністю функціональний",
+    partially_functional: "Частково функціональний",
+    largely_disrupted: "Значно порушений",
+    not_functioning: "Зовсім не функціонує",
+    food_assistance: "Продовольча допомога та безпечна питна вода",
+    cash_assistance: "Грошова або фінансова допомога",
+    healthcare_access: "Доступ до медичної допомоги та основних ліків",
+    shelter: "Притулок, ремонт житла або тимчасове розміщення",
+    livelihoods: "Відновлення засобів до існування або джерел доходу",
+    wash: "Вода, санітарія та гігієна (туалети, мийні приміщення)",
+    basic_services: "Відновлення базових послуг та інфраструктури (електрика, дороги, школи)",
+    protection: "Послуги захисту та психосоціальна підтримка",
+    local_support: "Підтримка місцевої влади та громадських організацій",
+    need_other: "Інше:",
+    clear_map_pin: "Очистити маркер на карті",
+    duplicate_flag: "Позначити як дублікат (Хранитель)",
+    share_whatsapp: "Поділитися у WhatsApp",
+    export_geojson: "Експорт у GeoJSON",
+    load_footprints: "Завантажити зразок відбитків будівель (тест)",
+    suggest_infra_ai: "Запропонувати інфраструктуру з фото",
+    pending_sync: "Очікує синхронізації:",
+    yes: "Так",
+    no: "Ні",
+    debris_yes: "Так",
+    debris_no: "Ні",
+    clear_all_reports: "Очистити всі звіти (локально)",
+    toggle_heatmap: "Перемкнути теплову карту",
+    set_display_name: "Встановити відображуване ім'я",
+    community_impact: "Вплив на громаду",
+    total_reports_label: "Всього звітів",
+    people_need_help_label: "Потребують допомоги",
+    aid_convoys_label: "Активовано гуманітарних конвоїв*",
+    top_contributors: "Найкращі учасники – Цей тиждень",
+    leaderboard_note: "Анонімний список учасників, які допомогли своїй громаді.",
+    export_geojson_btn: "Експорт у GeoJSON"
+  }
+};
+  // ---------- GLOBAL STATE ----------
+  let supabase, supabaseReady = false;
+  let classifier = null, modelReady = false, aiSuggestedDamage = null;
+  let currentLocation = null, manualPin = null, map = null, marker = null;
+  let currentLang = 'en';
+  let reports = JSON.parse(localStorage.getItem('cathedral-undp-reports') || '[]');
+  let currentFilter = 'all';
+  let spotterId = localStorage.getItem('cathedral-spotter-id') || (() => { let id = 's' + Math.random().toString(36).substr(2, 8); localStorage.setItem('cathedral-spotter-id', id); return id; })();
+  let spotterDisplayName = localStorage.getItem('cathedral-display-name') || '';
+  let heatmapLayer = null;
+  let heatmapEnabled = false;
+  let currentSatMap = null;
+
+  const db = new Dexie('cathedral-outbox');
+  db.version(2).stores({ pendingReports: '++id, timestamp, retryCount' }).upgrade(() => {});
+
+  function t(key) { return i18n[currentLang]?.[key] || i18n.en[key]; }
+
+  // ---------- DYNAMIC UI UPDATE FUNCTIONS ----------
+function updateAllDynamicText() {
+  // Update buttons and labels that are not covered by updateUI()
+  document.getElementById('toggle-heatmap').textContent = t('toggle_heatmap');
+  document.getElementById('loadFootprintsBtn').textContent = t('load_footprints');
+  document.getElementById('clear-reports-btn').textContent = t('clear_all_reports');
+  document.getElementById('setDisplayNameBtn').textContent = t('set_display_name');
+  document.getElementById('export-geojson').textContent = t('export_geojson_btn');
+  document.getElementById('toggleAppendixBtn').textContent = t('toggle_appendix');
+  document.getElementById('clear-map-btn').textContent = t('clear_map_pin');
+  document.getElementById('sync-now').textContent = t('sync_now');
+  // Update leaderboard and impact panel text (static parts)
+  const impactPanel = document.getElementById('impact-panel');
+  if (impactPanel) {
+    const impactTitle = impactPanel.previousElementSibling;
+    if (impactTitle && impactTitle.tagName === 'H2') impactTitle.textContent = t('community_impact');
+  }
+  const leaderboardTitle = document.getElementById('leaderboard').previousElementSibling;
+  if (leaderboardTitle && leaderboardTitle.tagName === 'H2') leaderboardTitle.textContent = t('top_contributors');
+  const leaderboardNote = document.querySelector('#leaderboard + p');
+  if (leaderboardNote) leaderboardNote.textContent = t('leaderboard_note');
+  // Update HEWD widget title (will be re-rendered anyway)
+  renderHEWD();
+  // Update filter buttons
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  if (filterBtns.length) {
+    filterBtns[0].textContent = 'All';
+    filterBtns[1].textContent = t('damage_destroyed');
+    filterBtns[2].textContent = t('damage_partial');
+    filterBtns[3].textContent = t('damage_minimal');
+  }
+  // Update damage level select options
+  const damageSelect = document.getElementById('damage-level');
+  if (damageSelect) {
+    damageSelect.options[0].text = t('damage_minimal');
+    damageSelect.options[1].text = t('damage_partial');
+    damageSelect.options[2].text = t('damage_destroyed');
+  }
+  // Update debris select
+  const debrisSelect = document.getElementById('debris');
+  if (debrisSelect) {
+    debrisSelect.options[0].text = t('debris_yes');
+    debrisSelect.options[1].text = t('debris_no');
+  }
+  // Update electricity condition select options
+  const elecSelect = document.getElementById('electricityCondition');
+  if (elecSelect && elecSelect.options.length === 7) {
+    const opts = elecSelect.options;
+    opts[1].text = t('no_damage_observed');
+    opts[2].text = t('minor_damage');
+    opts[3].text = t('moderate_damage');
+    opts[4].text = t('severe_damage');
+    opts[5].text = t('completely_destroyed_elec');
+    opts[6].text = t('unknown');
+  }
+  // Update health functioning select options
+  const healthSelect = document.getElementById('healthFunctioning');
+  if (healthSelect && healthSelect.options.length === 6) {
+    const hopts = healthSelect.options;
+    hopts[1].text = t('fully_functional');
+    hopts[2].text = t('partially_functional');
+    hopts[3].text = t('largely_disrupted');
+    hopts[4].text = t('not_functioning');
+    hopts[5].text = t('unknown');
+  }
+
+  // ***** FIX FOR NEEDS CHECKBOXES – REGENERATE ENTIRE HTML *****
+  const needsContainer = document.getElementById('needsCheckboxes');
+  if (needsContainer) {
+    const needsOptions = [
+      { key: 'food_assistance', value: 'Food assistance and safe drinking water' },
+      { key: 'cash_assistance', value: 'Cash or financial assistance' },
+      { key: 'healthcare_access', value: 'Access to healthcare and essential medicines' },
+      { key: 'shelter', value: 'Shelter, housing repair, or temporary accommodation' },
+      { key: 'livelihoods', value: 'Restoration of livelihoods or income sources' },
+      { key: 'wash', value: 'Water, sanitation, and hygiene (toilets, washing facilities)' },
+      { key: 'basic_services', value: 'Restoration of basic services and infrastructure (electricity, roads, schools)' },
+      { key: 'protection', value: 'Protection services and psychosocial support' },
+      { key: 'local_support', value: 'Support from local authorities and community organizations' }
+    ];
+    let html = '';
+    for (const opt of needsOptions) {
+      html += `<label><input type="checkbox" value="${opt.value}"> ${t(opt.key)}</label><br>`;
+    }
+    html += `<label><input type="checkbox" value="Other"> ${t('need_other')} <input type="text" id="needOther" placeholder="${t('need_other')}"></label>`;
+    needsContainer.innerHTML = html;
+  }
+}
+
+  // ---------- HELPER FUNCTIONS ----------
+  function generateChecklists() {
+    const infraContainer = document.getElementById('infra-list');
+    const infraTypes = [
+      { value: 'Residential', key: 'infra_residential' },
+      { value: 'Commercial', key: 'infra_commercial' },
+      { value: 'Government', key: 'infra_government' },
+      { value: 'Utility', key: 'infra_utility' },
+      { value: 'Transport', key: 'infra_transport' },
+      { value: 'Community', key: 'infra_community' },
+      { value: 'PublicSpace', key: 'infra_publicspace' }
+    ];
+    infraContainer.innerHTML = infraTypes.map(inf => `
+      <label><input type="checkbox" name="infra" value="${inf.value}"> ${t(inf.key)}</label><br>
+    `).join('');
+    document.getElementById('infra-other-label').innerHTML = t('infra_other');
+    document.getElementById('infraOther').placeholder = t('infra_other');
+
+    const crisisContainer = document.getElementById('crisis-list');
+    const crisisTypes = [
+      'Earthquake', 'Flood', 'Tsunami', 'Hurricane', 'Wildfire',
+      'Explosion', 'Chemical', 'Conflict', 'CivilUnrest'
+    ];
+    crisisContainer.innerHTML = crisisTypes.map(c => `
+      <label><input type="checkbox" name="crisis" value="${c}"> ${t(`crisis_${c.toLowerCase()}`)}</label> 
+    `).join('');
+  }
+
+  function updateUI() {
+    document.getElementById('onboarding-text').innerHTML = `<strong>${t('how_it_works')}</strong> <span class="step-badge">1</span> ${t('step1')} <span class="step-badge">2</span> ${t('step2')} <span class="step-badge">3</span> ${t('step3')} <span class="step-badge">4</span> ${t('step4')} <span class="step-badge">5</span> ${t('step5')} — ${t('offline_note')}`;
+    document.getElementById('submit-heading').innerText = t('submit_report_heading');
+    document.getElementById('photo-label').innerHTML = t('photo_label');
+    document.getElementById('ai-toggle-link').innerHTML = t('ai_toggle');
+    document.getElementById('ai-title').innerHTML = t('ai_analysis');
+    document.getElementById('analyze-btn').innerHTML = `🔍 ${t('analyze_with_ai')}`;
+    document.getElementById('predictions-label').innerHTML = t('predictions');
+    document.getElementById('suggestion-label').innerHTML = t('suggested_damage');
+    document.getElementById('accept-ai').innerHTML = t('accept_suggestion');
+    document.getElementById('damage-label').innerHTML = t('damage_label');
+    document.getElementById('desc-label').innerHTML = t('description_label');
+    document.getElementById('description').placeholder = t('description_placeholder');
+    document.getElementById('privacy-box').innerHTML = `<strong>${t('privacy_title')}</strong> ${t('privacy_text')}`;
+    document.getElementById('geo-label').innerHTML = t('geolocation_label');
+    document.getElementById('location-status').innerText = t('location_default');
+    document.getElementById('get-location').innerHTML = t('share_location');
+    document.getElementById('submit-report').innerText = t('submit_report_btn');
+    document.getElementById('map-heading').innerHTML = `${t('map_view')} <small>(${t('satellite_view')})</small>`;
+    document.getElementById('reports-heading').innerText = t('submitted_reports');
+    document.getElementById('export-heading').innerText = t('export_data');
+    document.getElementById('export-json').innerText = t('download_json');
+    document.getElementById('export-csv').innerText = t('export_csv');
+    document.getElementById('help-label').innerHTML = t('help_label');
+    document.getElementById('infra-label').innerHTML = t('infra_label');
+    document.getElementById('infra_name_label').innerHTML = t('infra_name_label');
+    document.getElementById('crisis-label').innerHTML = t('crisis_label');
+    document.getElementById('debris_label').innerHTML = t('debris_label');
+    generateChecklists();
+    updateAllDynamicText(); // additional translations for buttons and dynamic sections
+    renderReports();
+    renderLeaderboardAndImpact();
+    renderHEWD();
+  }
+
+  // ---------- SUPABASE & SYNC ----------
+  async function initSupabase() {
+    supabase = window.supabase.createClient('https://hebioqhjdjtjxjamjvka.supabase.co', 'sb_publishable_eetpDN8_aqWTHr5Bt9ML5w_87XT5ac1');
+    const { error } = await supabase.auth.signInAnonymously();
+    if (error) { console.warn('Supabase anon sign-in failed, local-only mode'); supabaseReady = false; return false; }
+    supabaseReady = true;
+    return true;
+  }
+
+  async function syncOutbox(retryDelay = 1000) {
+  if (!supabaseReady || !navigator.onLine) return;
+  const pending = await db.pendingReports.toArray();
+  const syncStatusEl = document.getElementById('sync-status');
+  if (!pending.length) {
+    if (syncStatusEl) syncStatusEl.innerHTML = '✅ All synced';
+    await updatePendingQueueIndicator();
+    return;
+  }
+  if (syncStatusEl) syncStatusEl.innerHTML = `⏳ Syncing ${pending.length}...`;
+  let anyFailed = false;
+  for (const entry of pending) {
+    const { error } = await supabase.from('reports').insert({
+      damage_level: entry.report.damage,
+      description: entry.report.desc,
+      photo: entry.report.photo,
+      lat: entry.report.lat,
+      lng: entry.report.lng,
+      ai_assisted: entry.report.aiAssisted,
+      need_help: entry.report.needHelp,
+      spotter_id: entry.report.spotterId,
+      infrastructure_types: entry.report.infrastructureTypes,
+      infrastructure_name: entry.report.infrastructureName,
+      crisis_types: entry.report.crisisTypes,
+      debris: entry.report.debris,
+      electricity_condition: entry.report.electricityCondition,
+      health_functioning: entry.report.healthFunctioning,
+      most_pressing_needs: entry.report.mostPressingNeeds
+    });
+    if (!error) {
+      await db.pendingReports.delete(entry.id);
+    } else {
+      anyFailed = true;
+      const rc = (entry.retryCount || 0);
+      if (rc < 5) await db.pendingReports.update(entry.id, { retryCount: rc + 1 });
+    }
+  }
+  const remaining = await db.pendingReports.count();
+  if (syncStatusEl) {
+    if (remaining) syncStatusEl.innerHTML = `⚠️ ${remaining} pending, retrying...`;
+    else syncStatusEl.innerHTML = '✅ All synced';
+  }
+  const lastSyncEl = document.getElementById('last-sync');
+  if (lastSyncEl) lastSyncEl.innerText = `Last sync: ${new Date().toLocaleTimeString()}`;
+  await updatePendingQueueIndicator();
+  if (anyFailed && retryDelay <= 30000) setTimeout(() => syncOutbox(retryDelay * 2), retryDelay);
+}
+
+async function updatePendingQueueIndicator() {
+  const count = await db.pendingReports.count();
+  const indicator = document.getElementById('pendingQueueIndicator');
+  if (!indicator) return;
+  if (count > 0) {
+    // Use a safe translation with fallback
+    const pendingText = (typeof t === 'function' && t('pending_sync')) || 'Pending sync:';
+    indicator.innerText = `📤 ${pendingText} ${count}`;
+    indicator.style.display = 'inline-block';
+  } else {
+    indicator.style.display = 'none';
+  }
+}
+
+  async function checkDuplicateReport(lat, lng) {
+    if (!lat || !lng) return false;
+    const now = Date.now();
+    const oneHour = 60 * 60 * 1000;
+    const similar = reports.find(r => {
+      if (!r.lat || !r.lng) return false;
+      const dist = Math.hypot(r.lat - lat, r.lng - lng) * 111000;
+      if (dist > 50) return false;
+      const age = now - new Date(r.timestamp).getTime();
+      if (age > oneHour) return false;
+      return true;
+    });
+    if (similar) {
+      alert(`A similar report was submitted within the last hour within 50 meters of this location. Consider checking before submitting a duplicate.`);
+      return true;
+    }
+    return false;
+  }
+
+  function markReportAsDuplicate(reportId) {
+    const report = reports.find(r => r.id == reportId);
+    if (!report) return;
+    report.duplicate = true;
+    localStorage.setItem('cathedral-undp-reports', JSON.stringify(reports));
+    renderReports();
+    alert("Report flagged as duplicate (hidden from main view).");
+  }
+
+  function shareOnWhatsApp(report) {
+    const text = `Crisis report: ${report.damage} damage at ${report.lat?.toFixed(4)},${report.lng?.toFixed(4)}. Description: ${report.desc || 'No description'}`;
+    const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  }
+
+  function isLatestForLocation(report) {
+    if (!report.lat || !report.lng) return false;
+    const key = `${Math.round(report.lat * 1000)}_${Math.round(report.lng * 1000)}`;
+    const sameLoc = reports.filter(r => r.lat && r.lng && `${Math.round(r.lat * 1000)}_${Math.round(r.lng * 1000)}` === key);
+    const latest = sameLoc.reduce((a,b) => new Date(a.timestamp) > new Date(b.timestamp) ? a : b);
+    return latest.id === report.id;
+  }
+
+  function getLatestReportsPerLocation() {
+    const groups = new Map();
+    for (const r of reports) {
+      if (r.lat && r.lng && !r.duplicate) {
+        const key = `${Math.round(r.lat * 1000)}_${Math.round(r.lng * 1000)}`;
+        if (!groups.has(key) || new Date(r.timestamp) > new Date(groups.get(key).timestamp)) {
+          groups.set(key, r);
+        }
+      }
+    }
+    const grouped = Array.from(groups.values());
+    const noLocation = reports.filter(r => (!r.lat || !r.lng) && !r.duplicate);
+    return [...grouped, ...noLocation];
+  }
+
+  function renderReports() {
+    let latestReports = getLatestReportsPerLocation();
+    if (currentFilter !== 'all') latestReports = latestReports.filter(r => r.damage === currentFilter);
+    const visibleReports = latestReports; // duplicates already filtered
+    const container = document.getElementById('reports-list');
+    if (!visibleReports.length) { container.innerHTML = `<div style="grid-column:1/-1; text-align:center;">${t('no_reports')}</div>`; return; }
+    container.innerHTML = visibleReports.map(r => {
+      let badgeClass = r.damage === 'destroyed' ? 'badge-destroyed' : (r.damage === 'partial' ? 'badge-partial' : 'badge-minimal');
+      let damageText = t(`damage_${r.damage}`) || r.damage;
+      const coords = (r.lat && r.lng) ? `${r.lat.toFixed(4)}, ${r.lng.toFixed(4)}` : 'No location';
+      const needBadge = r.needHelp ? `<span class="badge badge-help">🆘 Needs Help</span> ` : '';
+      const hasCoords = !!(r.lat && r.lng);
+      const satBtnHtml = hasCoords ? `<button class="sat-btn" data-lat="${r.lat}" data-lng="${r.lng}" data-photo="${r.photo || ''}" aria-label="Satellite comparison">🛰️ ${t('satellite_btn')}</button>` : '';
+      let historyBtn = '';
+      if (r.lat && r.lng) {
+        const key = `${Math.round(r.lat * 1000)}_${Math.round(r.lng * 1000)}`;
+        const allForLocation = reports.filter(rep => rep.lat && rep.lng && `${Math.round(rep.lat * 1000)}_${Math.round(rep.lng * 1000)}` === key);
+        if (allForLocation.length > 1) historyBtn = `<button class="sat-btn history-btn" data-lat="${r.lat}" data-lng="${r.lng}" style="margin-left:0.5rem;">📜 History (${allForLocation.length})</button>`;
+      }
+      const altText = `Damage photo showing ${damageText} damage at ${coords}`;
+      const isLatest = isLatestForLocation(r);
+      const latestBadge = isLatest ? `<span class="badge badge-latest">Latest</span>` : '';
+      return `<div class="report-card" id="report-${r.id}"><div class="report-card-content"><div>${needBadge}<span class="badge ${badgeClass}">${damageText}</span> ${r.aiAssisted ? '<span class="badge badge-ai">AI</span>' : ''} ${latestBadge}</div><small>${new Date(r.timestamp).toLocaleString()} | ${coords}</small>${r.desc ? `<p style="margin:0.5rem 0;">${r.desc}</p>` : ''}${r.photo ? `<img src="https://cathedral-network.netlify.app/${r.photo}" alt="${altText}" loading="lazy">` : ''}<div>${satBtnHtml} ${historyBtn}<button class="whatsapp-btn" data-id="${r.id}" style="margin-left:0.5rem;">📱 WhatsApp</button><button class="duplicate-btn" data-id="${r.id}" style="margin-left:0.5rem;">🚫 ${t('duplicate_flag')}</button></div></div></div>`;
+    }).join('');
+    document.querySelectorAll('.whatsapp-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => { e.stopPropagation(); const id = btn.dataset.id; const rep = reports.find(r => r.id == id); if (rep) shareOnWhatsApp(rep); });
+    });
+    document.querySelectorAll('.duplicate-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => { e.stopPropagation(); const id = btn.dataset.id; markReportAsDuplicate(id); });
+    });
+    reports.forEach(r => {
+      const card = document.getElementById(`report-${r.id}`);
+      if (card) {
+        const satBtn = card.querySelector('.sat-btn');
+        if (satBtn && !satBtn.dataset.listener) {
+          satBtn.dataset.listener = 'true';
+          satBtn.addEventListener('click', (e) => { e.stopPropagation(); const lat = parseFloat(satBtn.dataset.lat); const lng = parseFloat(satBtn.dataset.lng); const photo = satBtn.dataset.photo; if (!isNaN(lat) && !isNaN(lng)) openSatelliteModal(lat, lng, photo); else alert('Invalid coordinates'); });
+        }
+        const histBtn = card.querySelector('.history-btn');
+        if (histBtn && !histBtn.dataset.listener) {
+          histBtn.dataset.listener = 'true';
+          histBtn.addEventListener('click', (e) => { e.stopPropagation(); const lat = parseFloat(histBtn.dataset.lat); const lng = parseFloat(histBtn.dataset.lng); showHistoryModal(lat, lng); });
+        }
+      }
+    });
+  }
+
+  function showHistoryModal(lat, lng) {
+    const key = `${Math.round(lat * 1000)}_${Math.round(lng * 1000)}`;
+    const allReports = reports.filter(rep => rep.lat && rep.lng && `${Math.round(rep.lat * 1000)}_${Math.round(rep.lng * 1000)}` === key);
+    allReports.sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp));
+    const modalContent = `<div style="max-height: 80vh; overflow-y: auto;"><h4>Damage history for location (${lat.toFixed(4)}, ${lng.toFixed(4)})</h4>${allReports.map(r => `<div style="border-bottom:1px solid #ccc; padding:0.5rem;"><strong>${new Date(r.timestamp).toLocaleString()}</strong> – Damage: ${r.damage}<br>${r.desc ? `Description: ${r.desc}<br>` : ''}${r.photo ? `<img src="https://cathedral-network.netlify.app/${r.photo}" alt="Historical damage photo" style="max-width:100px; max-height:100px;">` : ''}</div>`).join('')}</div>`;
+    const modal = document.createElement('div'); modal.className = 'modal'; modal.style.display = 'flex';
+    modal.innerHTML = `<div class="modal-content" style="max-width:500px;"><div class="modal-header"><h3>Report History</h3><button class="close-modal">&times;</button></div><div class="modal-body">${modalContent}</div></div>`;
+    document.body.appendChild(modal);
+    modal.querySelector('.close-modal').onclick = () => modal.remove();
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+    modal.querySelector('.close-modal').focus();
+  }
+
+  function renderLeaderboardAndImpact() {
+    const counts = new Map();
+    for (const r of reports) { if (!r.duplicate) { const sid = r.spotterId || 'anonymous'; counts.set(sid, (counts.get(sid) || 0) + 1); } }
+    const sorted = Array.from(counts.entries()).sort((a,b) => b[1] - a[1]).slice(0,10);
+    let leaderHtml = `<ol>${sorted.map(([id,c]) => {
+      let name = id;
+      if (id === spotterId && spotterDisplayName) name = spotterDisplayName;
+      else if (id === spotterId) name = 'You';
+      else if (id.startsWith('s')) name = 'Spotter ' + id.slice(1,5);
+      return `<li><strong>${name}</strong> — ${c} report${c!==1?'s':''}</li>`;
+    }).join('')}</ol>`;
+    if (!sorted.length) leaderHtml = '<p>No reports yet. Be the first to help your community.</p>';
+    document.getElementById('leaderboard').innerHTML = leaderHtml;
+
+    const totalReports = reports.filter(r => !r.duplicate).length;
+    const helpRequests = reports.filter(r => r.needHelp && !r.duplicate).length;
+    const aidConvoys = Math.floor(helpRequests / 8);
+    const impactHtml = `<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between;"><div><div class="impact-stat">${totalReports}</div><div class="impact-label">${t('total_reports_label')}</div></div><div><div class="impact-stat">${helpRequests}</div><div class="impact-label">${t('people_need_help_label')}</div></div><div><div class="impact-stat">${aidConvoys}</div><div class="impact-label">${t('aid_convoys_label')}</div></div></div><p style="font-size:0.7rem; margin-top:0.8rem;">* Estimate based on community reports. Your reports directly inform responders.</p>`;
+    document.getElementById('impact-panel').innerHTML = impactHtml;
+  }
+
+  function renderMapMarkers() {
+    if (!map) return;
+    map.eachLayer(layer => { if (layer instanceof L.Marker && layer !== marker) map.removeLayer(layer); });
+    if (heatmapEnabled && heatmapLayer) map.removeLayer(heatmapLayer);
+    const points = reports.filter(r => r.lat && r.lng && !r.duplicate).map(r => [r.lat, r.lng, r.damage === 'destroyed' ? 1 : 0.5]);
+    if (heatmapEnabled && points.length) {
+      heatmapLayer = L.heatLayer(points, { radius: 25, blur: 15, maxZoom: 10 });
+      heatmapLayer.addTo(map);
+    } else {
+      reports.forEach(r => {
+        if (r.lat && r.lng && !r.duplicate) {
+          L.circleMarker([r.lat, r.lng], {
+            color: r.damage === 'destroyed' ? 'red' : (r.damage === 'partial' ? 'orange' : 'gold'),
+            radius: 8,
+            fillOpacity: 0.6
+          }).addTo(map).bindPopup(`<b>${r.damage.toUpperCase()}</b><br>${r.desc || ''}`);
+        }
+      });
+    }
+  }
+
+  async function loadRealisticFootprints() {
+    // For demo, we try to fetch a sample GeoJSON from a real crisis area (e.g., Bangladesh flood zone)
+    // If fetch fails, fallback to sample London polygons.
+    try {
+      const response = await fetch('https://raw.githubusercontent.com/opengeos/geemap/master/examples/data/floodmap.geojson');
+      if (!response.ok) throw new Error();
+      const data = await response.json();
+      const layer = L.geoJSON(data, { style: { color: '#ff7800', weight: 1 } }).addTo(map);
+      map.fitBounds(layer.getBounds());
+      alert("Building footprints loaded for a sample flood‑prone area (Bangladesh).");
+    } catch(e) {
+      // fallback to hardcoded sample
+      const sampleGeoJSON = {
+        "type": "FeatureCollection",
+        "features": [
+          { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-0.12, 51.51],[-0.11,51.51],[-0.11,51.52],[-0.12,51.52],[-0.12,51.51]]] }, "properties": { "name": "Sample Building 1" } },
+          { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-0.13, 51.50],[-0.12,51.50],[-0.12,51.51],[-0.13,51.51],[-0.13,51.50]]] }, "properties": { "name": "Sample Building 2" } }
+        ]
+      };
+      const layer = L.geoJSON(sampleGeoJSON, { style: { color: '#ff7800', weight: 2 } }).addTo(map);
+      map.fitBounds(layer.getBounds());
+      alert("Sample building footprints loaded (London test area). Replace with actual crisis region data as needed.");
+    }
+  }
+
+  function initMap() {
+    map = L.map('map').setView([20, 0], 3);
+    const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{y}/{x}.png', {
+      attribution: '© OpenStreetMap',
+      maxZoom: 19
+    });
+    const esriSatellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a>',
+      maxZoom: 18
+    });
+    const cartoLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© CartoDB',
+      maxZoom: 19
+    }).addTo(map);
+    L.control.layers({ 'Map (CartoDB)': cartoLayer, 'OpenStreetMap': osmLayer, 'Satellite': esriSatellite }).addTo(map);
+    map.on('click', e => {
+      manualPin = { lat: e.latlng.lat, lng: e.latlng.lng };
+      if (marker) map.removeLayer(marker);
+      marker = L.marker([manualPin.lat, manualPin.lng]).addTo(map)
+        .bindPopup(`Manual pin: ${manualPin.lat.toFixed(4)}, ${manualPin.lng.toFixed(4)}`)
+        .openPopup();
+      document.getElementById('location-status').innerText = `Manual pin: ${manualPin.lat.toFixed(4)}, ${manualPin.lng.toFixed(4)}`;
+    });
+    renderMapMarkers();
+  }
+
+  function openSatelliteModal(lat, lng, photoUrl) {
+    const modal = document.getElementById('satelliteModal');
+    const modalPhoto = document.getElementById('modalPhoto');
+    const modalPhotoMissing = document.getElementById('modalPhotoMissing');
+    const coordsSpan = document.getElementById('satelliteCoords');
+    coordsSpan.innerText = `📍 ${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+    if (photoUrl) { modalPhoto.src = photoUrl; modalPhoto.style.display = 'block'; modalPhotoMissing.style.display = 'none'; }
+    else { modalPhoto.style.display = 'none'; modalPhotoMissing.style.display = 'block'; }
+    modal.style.display = 'flex';
+    const mapDiv = document.getElementById('satelliteMap');
+    if (currentSatMap) currentSatMap.remove();
+    currentSatMap = L.map(mapDiv).setView([lat, lng], 16);
+    const satLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a>',
+      maxZoom: 18
+    }).addTo(currentSatMap);
+    L.marker([lat, lng]).addTo(currentSatMap).bindPopup('Report location').openPopup();
+    document.getElementById('refreshSatellite').onclick = () => { satLayer.setUrl('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'); };
+  }
+
+  function renderHEWD() {
+    const threats = [
+      { name: '🇸🇩 Horn Famine', status: 'red', value: '135,000', unit: 'people IPC5', rec: '🚨 Pre‑position food & water. Humanitarian access critical.' },
+      { name: '🦠 Bundibugyo Ebola', status: 'red', value: '1,130+', unit: 'suspected cases', rec: '🚑 Isolate suspected cases. No vaccine.' },
+      { name: '🌊 Bangladesh Monsoon Flood', status: 'orange', value: '2.1M', unit: 'displaced', rec: '🏚️ Shelter and clean water urgently needed.' },
+      { name: '🔥 Amazon Wildfires', status: 'orange', value: '45K', unit: 'hectares', rec: '🌬️ Respiratory health risk; evacuate if near fires.' }
+    ];
+    const cardsHtml = threats.map(th => `<div class="hewd-card"><div class="hewd-card-title"><span>${th.name}</span><span class="hewd-status status-${th.status}">${th.status === 'red' ? 'CRITICAL' : 'ELEVATED'}</span></div><div class="hewd-value">${th.value} <span class="hewd-unit">${th.unit}</span></div><div class="hewd-recommendation">${th.rec}</div></div>`).join('');
+    const totalReports = reports.filter(r => !r.duplicate).length;
+    const needHelpCount = reports.filter(r => r.needHelp && !r.duplicate).length;
+    const communityCard = `<div class="hewd-card"><div class="hewd-card-title"><span>📢 Community Reports (Spotters)</span><span class="hewd-status status-${totalReports > 5 ? 'orange' : 'green'}">${totalReports > 5 ? 'ELEVATED' : 'NORMAL'}</span></div><div class="hewd-value">${totalReports} <span class="hewd-unit">reports</span></div><div class="hewd-recommendation">⚠️ ${needHelpCount} need help · Community alerts active</div></div>`;
+    const dateStr = new Date().toLocaleString();
+    document.getElementById('hewd-root').innerHTML = `<div class="hewd-widget"><div class="hewd-header"><div class="hewd-title">🚨 ${t('hewd_title')}</div><div class="hewd-last-updated">📅 ${dateStr}</div></div><div class="hewd-compound">⚠️ ${t('multi_crisis')}</div><div class="hewd-grid">${communityCard + cardsHtml}</div><div class="hewd-footer">${t('hewd_footer')}</div></div>`;
+  }
+
+  async function saveReport(report) {
+    try {
+      reports.unshift(report);
+      localStorage.setItem('cathedral-undp-reports', JSON.stringify(reports));
+      renderReports(); renderLeaderboardAndImpact(); renderMapMarkers(); renderHEWD();
+      if (supabaseReady && navigator.onLine) {
+        const { error } = await supabase.from('reports').insert({
+          damage_level: report.damage,
+          description: report.desc,
+          photo: report.photo,
+          lat: report.lat,
+          lng: report.lng,
+          ai_assisted: report.aiAssisted,
+          need_help: report.needHelp,
+          spotter_id: report.spotterId,
+          infrastructure_types: report.infrastructureTypes,
+          infrastructure_name: report.infrastructureName,
+          crisis_types: report.crisisTypes,
+          debris: report.debris,
+          electricity_condition: report.electricityCondition,
+          health_functioning: report.healthFunctioning,
+          most_pressing_needs: report.mostPressingNeeds
+        });
+        if (error) {
+          console.warn('Supabase insert error:', error);
+          await db.pendingReports.add({ report, timestamp: Date.now(), retryCount: 0 });
+        }
+      } else {
+        await db.pendingReports.add({ report, timestamp: Date.now(), retryCount: 0 });
+      }
+      syncOutbox();
+      document.getElementById('live-status').textContent = 'Report submitted successfully.';
+      setTimeout(() => { document.getElementById('live-status').textContent = ''; }, 5000);
+    } catch (e) {
+      alert('Storage full or error. Please clear some reports (use the "Clear all reports" button).');
+      console.error(e);
+    }
+  }
+
+  function validateForm() {
+    const infraSelected = Array.from(document.querySelectorAll('input[name="infra"]:checked')).length > 0 || document.getElementById('infraOther').value.trim() !== '';
+    const crisisSelected = Array.from(document.querySelectorAll('input[name="crisis"]:checked')).length > 0;
+    const debris = document.getElementById('debris').value;
+    const photo = document.getElementById('photo').files.length;
+    const desc = document.getElementById('description').value.trim();
+    const locationOk = currentLocation || manualPin;
+    const errorDiv = document.getElementById('form-error');
+    if (!infraSelected) { errorDiv.textContent = 'Please select at least one infrastructure type.'; errorDiv.style.display = 'block'; return false; }
+    if (!crisisSelected) { errorDiv.textContent = 'Please select at least one nature of crisis.'; errorDiv.style.display = 'block'; return false; }
+    if (!debris) { errorDiv.textContent = 'Please indicate if there is debris requiring clearing.'; errorDiv.style.display = 'block'; return false; }
+    if (!photo && !desc) { errorDiv.textContent = 'Please provide a photo or a description.'; errorDiv.style.display = 'block'; return false; }
+    if (!locationOk) { errorDiv.textContent = 'Please add a location (GPS or map pin).'; errorDiv.style.display = 'block'; return false; }
+    errorDiv.style.display = 'none';
+    return true;
+  }
+
+  async function submitReportHandler() {
+  if (!validateForm()) return;
+  const photoInput = document.getElementById('photo');
+  const damageLevel = document.getElementById('damage-level').value;
+  const description = document.getElementById('description').value;
+  const aiAssisted = document.getElementById('ai-badge').style.display === 'inline-block';
+  const needHelp = document.getElementById('need-help').checked;
+  const locationToUse = currentLocation || manualPin;
+  if (locationToUse && (await checkDuplicateReport(locationToUse.lat, locationToUse.lng))) {
+    if (!confirm("A recent report exists nearby. Submit anyway?")) return;
+  }
+  const infraSelected = Array.from(document.querySelectorAll('input[name="infra"]:checked')).map(cb => cb.value);
+  const infraOther = document.getElementById('infraOther').value.trim();
+  if (infraOther) infraSelected.push(`Other: ${infraOther}`);
+  const crisisSelected = Array.from(document.querySelectorAll('input[name="crisis"]:checked')).map(cb => cb.value);
+  const debris = document.getElementById('debris').value;
+  const infraName = document.getElementById('infraName').value.trim();
+  const electricity = document.getElementById('electricityCondition').value || '';
+  const health = document.getElementById('healthFunctioning').value || '';
+  const needs = Array.from(document.querySelectorAll('#needsCheckboxes input[type="checkbox"]:checked')).map(cb => cb.value);
+  const needOther = document.getElementById('needOther')?.value;
+  if (needOther) needs.push(`Other: ${needOther}`);
+
+  const build = (photoData) => {
+    const report = { id: Date.now(), timestamp: new Date().toISOString(), damage: damageLevel, desc: description, photo: photoData, lat: locationToUse?.lat ?? null, lng: locationToUse?.lng ?? null, aiAssisted, needHelp, spotterId, infrastructureTypes: infraSelected, infrastructureName: infraName, crisisTypes: crisisSelected, debris: debris, electricityCondition: electricity, healthFunctioning: health, mostPressingNeeds: needs };
+    saveReport(report);
+  };
+
+  if (photoInput.files?.[0]) {
+    const reader = new FileReader();
+    reader.onload = e => build(e.target.result);
+    reader.readAsDataURL(photoInput.files[0]);
+  } else {
+    build(null);
+  }
+
+  // FIX #3: Wrap form reset in setTimeout to ensure report appears immediately on mobile
+  setTimeout(() => {
+    document.getElementById('photo').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('ai-badge').style.display = 'none';
+    document.getElementById('ai-result').style.display = 'none';
+    document.getElementById('need-help').checked = false;
+    document.querySelectorAll('input[name="infra"]:checked').forEach(cb => cb.checked = false);
+    document.getElementById('infraOther').value = '';
+    document.getElementById('infraName').value = '';
+    document.querySelectorAll('input[name="crisis"]:checked').forEach(cb => cb.checked = false);
+    document.getElementById('debris').value = 'No';
+    document.getElementById('electricityCondition').value = '';
+    document.getElementById('healthFunctioning').value = '';
+    document.querySelectorAll('#needsCheckboxes input[type="checkbox"]:checked').forEach(cb => cb.checked = false);
+    document.getElementById('needOther').value = '';
+    aiSuggestedDamage = null;
+    manualPin = null;
+    currentLocation = null;
+    if (marker) {
+      map.removeLayer(marker);
+      marker = null;
+    }
+    document.getElementById('location-status').innerText = t('location_default');
+  }, 100);
+}
+
+  // ---------- ZERO‑SHOT AI DAMAGE GRADING (CLIP) ----------
+  window.loadModel = async function() {
+    if (modelReady) return true;
+    try {
+      classifier = await pipeline('zero-shot-image-classification', 'Xenova/clip-vit-base-patch32');
+      modelReady = true;
+      document.getElementById('ai-status').innerHTML = 'AI ready (zero-shot).';
+      document.getElementById('analyze-btn').disabled = false;
+      return true;
+    } catch(e) {
+      document.getElementById('ai-status').innerHTML = 'AI unavailable (low memory). Use manual damage selection.';
+      return false;
+    }
+  };
+
+  window.analyzeImage = async function() {
+    const photoInput = document.getElementById('photo');
+    if (!photoInput.files?.[0]) { alert('Select a photo first.'); return; }
+    if (!modelReady && !(await window.loadModel())) return;
+    document.getElementById('ai-status').innerHTML = 'Analyzing...';
+    const spinner = document.getElementById('ai-spinner'); spinner.style.display = 'inline-block';
+    document.getElementById('analyze-btn').disabled = true;
+    try {
+      const dataUrl = await new Promise(resolve => { const r = new FileReader(); r.onload = () => resolve(r.result); r.readAsDataURL(photoInput.files[0]); });
+      const candidateLabels = ["minimal damage", "partial damage", "completely destroyed"];
+      const result = await classifier(dataUrl, candidateLabels);
+      spinner.style.display = 'none';
+      const top = result[0];
+      let suggested = 'minimal';
+      if (top.label === "completely destroyed") suggested = 'destroyed';
+      else if (top.label === "partial damage") suggested = 'partial';
+      else suggested = 'minimal';
+      document.getElementById('ai-predictions').innerHTML = result.map(r => `${r.label} (${(r.score*100).toFixed(0)}%)`).join(', ');
+      document.getElementById('ai-suggestion').innerHTML = suggested === 'destroyed' ? t('damage_destroyed') : (suggested === 'partial' ? t('damage_partial') : t('damage_minimal'));
+      aiSuggestedDamage = suggested;
+      document.getElementById('ai-result').style.display = 'block';
+      document.getElementById('ai-status').innerHTML = 'Analysis complete.';
+    } catch(e) {
+      document.getElementById('ai-status').innerHTML = 'Analysis failed.';
+      spinner.style.display = 'none';
+    } finally {
+      document.getElementById('analyze-btn').disabled = false;
+    }
+  };
+  window.acceptAI = function() { if (aiSuggestedDamage) { document.getElementById('damage-level').value = aiSuggestedDamage; document.getElementById('ai-badge').style.display = 'inline-block'; document.getElementById('ai-result').style.display = 'none'; aiSuggestedDamage = null; } };
+  async function autoSuggestInfrastructure() {
+    const photoInput = document.getElementById('photo');
+    if (!photoInput.files?.[0]) { alert("Take or select a photo first."); return; }
+    if (!modelReady && !(await window.loadModel())) return;
+    const spinner = document.getElementById('ai-spinner'); spinner.style.display = 'inline-block';
+    const dataUrl = await new Promise(resolve => { const r = new FileReader(); r.onload = () => resolve(r.result); r.readAsDataURL(photoInput.files[0]); });
+    const candidateLabels = ["residential building", "commercial building", "government building", "utility infrastructure", "road or bridge", "school or hospital", "public space"];
+    const result = await classifier(dataUrl, candidateLabels);
+    spinner.style.display = 'none';
+    const topLabel = result[0].label;
+    const mapping = {
+      "residential building": "Residential",
+      "commercial building": "Commercial",
+      "government building": "Government",
+      "utility infrastructure": "Utility",
+      "road or bridge": "Transport",
+      "school or hospital": "Community",
+      "public space": "PublicSpace"
+    };
+    const suggested = mapping[topLabel];
+    if (suggested) {
+      const checkboxes = document.querySelectorAll('input[name="infra"]');
+      for (let cb of checkboxes) { if (cb.value === suggested) cb.checked = true; }
+      alert(`AI suggests infrastructure type: ${suggested}`);
+    } else {
+      alert("Could not confidently suggest infrastructure from this image.");
+    }
+  }
+
+  // ---------- EVENT LISTENERS & INITIALISATION ----------
+  document.getElementById('ai-toggle-link').addEventListener('click', (e) => { e.preventDefault(); const p = document.getElementById('ai-panel'); p.style.display = p.style.display === 'none' ? 'block' : 'none'; if (p.style.display === 'block') window.loadModel(); });
+  document.getElementById('analyze-btn').addEventListener('click', window.analyzeImage);
+  document.getElementById('accept-ai').addEventListener('click', window.acceptAI);
+  document.getElementById('suggest-infra-ai').addEventListener('click', autoSuggestInfrastructure);
+  document.getElementById('photo').addEventListener('change', () => { if (document.getElementById('photo').files?.[0]) document.getElementById('analyze-btn').disabled = false; });
+  document.getElementById('get-location').addEventListener('click', () => { if (!confirm("Allow location access?")) return; navigator.geolocation.getCurrentPosition(pos => { currentLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude }; map.setView([currentLocation.lat, currentLocation.lng], 14); if (marker) map.removeLayer(marker); marker = L.marker([currentLocation.lat, currentLocation.lng]).addTo(map).bindPopup('📍 Your location').openPopup(); document.getElementById('location-status').innerText = `GPS: ${currentLocation.lat.toFixed(4)}, ${currentLocation.lng.toFixed(4)}`; }, err => document.getElementById('location-status').innerText = 'Location unavailable.'); });
+  document.getElementById('clear-map-btn').addEventListener('click', () => { if (marker) map.removeLayer(marker); manualPin = null; currentLocation = null; document.getElementById('location-status').innerText = t('location_default'); });
+  document.getElementById('submit-report').addEventListener('click', submitReportHandler);
+  document.getElementById('sync-now').addEventListener('click', () => syncOutbox(1000));
+  document.getElementById('clear-reports-btn').addEventListener('click', () => { if (confirm('Delete ALL reports from this device? This cannot be undone.')) { reports = []; localStorage.removeItem('cathedral-undp-reports'); renderReports(); renderLeaderboardAndImpact(); renderMapMarkers(); renderHEWD(); } });
+  document.getElementById('toggle-heatmap').addEventListener('click', () => { heatmapEnabled = !heatmapEnabled; renderMapMarkers(); });
+  document.getElementById('loadFootprintsBtn').addEventListener('click', loadRealisticFootprints);
+  document.getElementById('toggleAppendixBtn').addEventListener('click', () => { const div = document.getElementById('appendixFields'); div.style.display = div.style.display === 'none' ? 'block' : 'none'; });
+  document.getElementById('export-json').addEventListener('click', () => {
+    const exportData = reports.filter(r => !r.duplicate).map(r => ({ id: r.id, timestamp: r.timestamp, damage_level: r.damage, description: r.desc, latitude: r.lat, longitude: r.lng, ai_assisted: r.aiAssisted, need_help: r.needHelp, spotter_id: r.spotterId, infrastructure_types: r.infrastructureTypes, infrastructure_name: r.infrastructureName, crisis_types: r.crisisTypes, debris: r.debris, electricity_condition: r.electricityCondition, health_functioning: r.healthFunctioning, most_pressing_needs: r.mostPressingNeeds }));
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'cathedral-reports.json'; a.click(); URL.revokeObjectURL(blob);
+  });
+  document.getElementById('export-csv').addEventListener('click', () => {
+    const headers = ['id','timestamp','damage_level','description','latitude','longitude','ai_assisted','need_help','spotter_id','infrastructure_types','infrastructure_name','crisis_types','debris','electricity_condition','health_functioning','most_pressing_needs'];
+    const rows = reports.filter(r => !r.duplicate).map(r => [r.id, r.timestamp, r.damage, r.desc, r.lat, r.lng, r.aiAssisted, r.needHelp, r.spotterId, (r.infrastructureTypes||[]).join(';'), r.infrastructureName||'', (r.crisisTypes||[]).join(';'), r.debris||'', r.electricityCondition||'', r.healthFunctioning||'', (r.mostPressingNeeds||[]).join(';')]);
+    const csv = [headers, ...rows].map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'cathedral-reports.csv'; a.click(); URL.revokeObjectURL(blob);
+  });
+  document.getElementById('export-geojson').addEventListener('click', () => {
+    const features = reports.filter(r => r.lat && r.lng && !r.duplicate).map(r => ({
+      type: "Feature",
+      geometry: { type: "Point", coordinates: [r.lng, r.lat] },
+      properties: { damage: r.damage, description: r.desc, needHelp: r.needHelp, timestamp: r.timestamp, infrastructure_name: r.infrastructureName, crisis_types: (r.crisisTypes||[]).join(',') }
+    }));
+    const geojson = { type: "FeatureCollection", features };
+    const blob = new Blob([JSON.stringify(geojson, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'cathedral-reports.geojson'; a.click(); URL.revokeObjectURL(blob);
+  });
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); currentFilter = btn.getAttribute('data-filter'); renderReports(); });
+  });
+  document.getElementById('setDisplayNameBtn').addEventListener('click', () => {
+    const name = prompt('Enter a display name (visible only to you on this device):', spotterDisplayName);
+    if (name && name.trim()) { spotterDisplayName = name.trim(); localStorage.setItem('cathedral-display-name', spotterDisplayName); renderLeaderboardAndImpact(); }
+  });
+
+  const shareModal = document.getElementById('shareModal');
+  document.getElementById('sharePageBtn').addEventListener('click', (e) => { e.preventDefault(); shareModal.style.display = 'flex'; });
+  document.getElementById('shareNativeBtn').addEventListener('click', () => { if (navigator.share) navigator.share({ title: 'Cathedral Network Crisis Mapper', url: window.location.href }); else alert('Your browser does not support native sharing. Use Copy Link.'); shareModal.style.display = 'none'; });
+  document.getElementById('copyLinkBtn').addEventListener('click', () => { navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!'); shareModal.style.display = 'none'; });
+  document.getElementById('closeShareModal').addEventListener('click', () => { shareModal.style.display = 'none'; });
+  window.addEventListener('click', (e) => { if (e.target === shareModal) shareModal.style.display = 'none'; });
+
+  const modal = document.getElementById('satelliteModal');
+  modal.querySelector('.close-modal').onclick = () => { modal.style.display = 'none'; if (currentSatMap) currentSatMap.remove(); currentSatMap = null; };
+  window.onclick = (e) => { if (e.target === modal) { modal.style.display = 'none'; if (currentSatMap) currentSatMap.remove(); currentSatMap = null; } };
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    const isRTL = (lang === 'ar' || lang === 'fa');
+    document.body.dir = isRTL ? 'rtl' : 'ltr';
+    updateUI();
+    updateAllDynamicText();
+    renderReports(); renderLeaderboardAndImpact(); renderHEWD();
+  }
+  document.getElementById('lang-select').addEventListener('change', (e) => setLanguage(e.target.value));
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) { document.body.classList.add('dark'); darkToggle.innerText = '☀️'; } else { darkToggle.innerText = '🌙'; }
+  darkToggle.addEventListener('click', () => { document.body.classList.toggle('dark'); const isDark = document.body.classList.contains('dark'); darkToggle.innerText = isDark ? '☀️' : '🌙'; localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light'); });
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => { const expanded = navLinks.classList.toggle('show'); menuBtn.setAttribute('aria-expanded', expanded); });
+  }
+
+  window.addEventListener('resize', () => { if (map) map.invalidateSize(); });
+
+  initMap(); renderReports(); renderLeaderboardAndImpact(); renderHEWD();
+  initSupabase().then(() => { if (navigator.onLine) syncOutbox(); });
+  setLanguage('en');
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js').catch(e => console.warn('SW failed', e));
+  setInterval(renderHEWD, 60000);
+  setInterval(updatePendingQueueIndicator, 5000);
+  window.addEventListener('online', () => { document.getElementById('offlineBanner').style.display = 'none'; syncOutbox(); });
+  window.addEventListener('offline', () => { document.getElementById('offlineBanner').style.display = 'block'; });
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
