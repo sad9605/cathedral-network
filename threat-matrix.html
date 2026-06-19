@@ -5,12 +5,15 @@
   <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — Threat Matrix (Advanced)</title>
-  <meta name="description" content="Interactive threat matrix with SCP slider, cascade graph, heatmap, and predictive intelligence.">
+  <meta name="description" content="Interactive threat matrix with 3D cascade graph, SCP slider, heatmap, and predictive intelligence.">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet-heat@0.2.0/dist/leaflet-heat.js"></script>
   <script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+  <!-- 3d-force-graph and dependencies -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.73.0/dist/3d-force-graph.min.js"></script>
   <style>
     :root {
       --violet: #b39ddb;
@@ -217,6 +220,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      cursor: pointer;
     }
     body.dark .threat-table th { background: #3a3a4a; }
     .threat-table tr { cursor: pointer; transition: background 0.15s; }
@@ -328,20 +332,47 @@
       top: 0; left: 0;
       width: 100%; height: 100%;
       z-index: 1500;
-      background: #000;
+      background: #111;
     }
     #nexus-container.active { display: block; }
-    #nexus-canvas { width: 100%; height: 100%; }
-
-    #cascadeGraphContainer {
+    #nexus-canvas {
       width: 100%;
-      height: 400px;
-      margin-top: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      display: none;
+      height: 100%;
+      position: relative;
     }
-    body.dark #cascadeGraphContainer { border-color: #444; }
+    #nexus-canvas .graph-legend {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: var(--card-radius);
+      font-size: 0.8rem;
+      z-index: 10;
+      pointer-events: none;
+      border: 1px solid #444;
+    }
+    #nexus-canvas .graph-legend .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.2rem 0;
+    }
+    #nexus-canvas .graph-legend .color-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    #nexus-container .nexus-controls {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      display: flex;
+      gap: 0.5rem;
+    }
 
     .footer { margin-top: 3rem; text-align: center; font-style: italic; color: #888; border-top: 1px solid #ddd; padding-top: 1rem; }
     .dark-mode-toggle {
@@ -458,10 +489,21 @@
 
   <table class="threat-table" id="threat-table">
     <thead>
-      <tr><th>ID</th><th style="width:40px;">⚡</th><th>Threat Name</th><th>Domains</th><th>Status</th><th style="width:100px;">SCP</th><th>Trend</th><th>Notes</th></tr>
+      <tr>
+        <th data-sort="rank">#</th>
+        <th data-sort="id">ID</th>
+        <th style="width:40px;">⚡</th>
+        <th data-sort="name">Threat Name</th>
+        <th data-sort="domains">Domains</th>
+        <th data-sort="status">Status</th>
+        <th data-sort="scp">SCP</th>
+        <th data-sort="confidence">Confidence</th>
+        <th data-sort="trend">Trend</th>
+        <th data-sort="notes">Notes</th>
+      </tr>
     </thead>
     <tbody id="threat-body">
-      <tr><td colspan="8" style="text-align:center; padding:2rem; color:#888;">Loading threats...</td></tr>
+      <tr><td colspan="10" style="text-align:center; padding:2rem; color:#888;">Loading threats...</td></tr>
     </tbody>
   </table>
 
@@ -485,9 +527,12 @@
   <div id="heatmap-map"></div>
 </div>
 
-<!-- Nexus 3D Container -->
+<!-- Nexus 3D Container (UPGRADED) -->
 <div id="nexus-container">
-  <button class="toolbar-btn" style="position:absolute; top:1rem; right:1rem; z-index:1001;" id="nexusClose">✕ Exit</button>
+  <div class="nexus-controls">
+    <button class="toolbar-btn" id="nexusReset">⟲ Reset View</button>
+    <button class="toolbar-btn" id="nexusClose">✕ Close</button>
+  </div>
   <div id="nexus-canvas"></div>
 </div>
 
@@ -518,12 +563,13 @@
   let trendData = {};
   let coordsData = {};
   let graphData = null;
+  let sortColumn = 'priority';
+  let sortAsc = false;
 
-  // Translations (simplified – full set would be larger)
+  // Translations (simplified)
   const translations = {
     en: { title: "Threat Matrix", search: "Search by ID, name, or domain...", confirmed: "Confirmed", falsified: "Falsified", pending: "Pending", watchlist: "Watchlist", hitRate: "Hit rate", refresh: "Refresh", exportCSV: "Export CSV", predictive: "Predictive", heatmap: "Heatmap", nexus: "NEXUS 3D", trend: "SCP trend", recovery: "Recovery Signals (Ascension Engine)" },
     es: { title: "Matriz de Amenazas", search: "Buscar por ID, nombre o dominio...", confirmed: "Confirmado", falsified: "Falsificado", pending: "Pendiente", watchlist: "Lista de seguimiento", hitRate: "Tasa de aciertos", refresh: "Actualizar", exportCSV: "Exportar CSV", predictive: "Predictivo", heatmap: "Mapa de calor", nexus: "NEXUS 3D", trend: "Tendencia SCP", recovery: "Señales de Recuperación (Motor Ascensión)" }
-    // other languages would be added similarly
   };
 
   // ============================================================
@@ -552,7 +598,6 @@
     return (scp > 0.6 && priority > 60) || status.includes('Black') || status === 'Red';
   }
 
-  // ---- REAL TREND FROM trend.json ----
   function getTrend(threat) {
     const tid = threat.id || '';
     const entry = trendData[tid] || {};
@@ -573,7 +618,7 @@
   }
 
   // ============================================================
-  // 3. LOAD DATA (with backend integrations)
+  // 3. LOAD DATA
   // ============================================================
   async function loadWatchlist() {
     try {
@@ -590,7 +635,6 @@
     try {
       await loadWatchlist();
 
-      // Fetch all data in parallel
       const [threatResp, trendResp, coordsResp, graphResp] = await Promise.all([
         fetch('threats.json'),
         fetch('trend.json').catch(() => ({ ok: false })),
@@ -598,34 +642,20 @@
         fetch('cascade_graph.json').catch(() => ({ ok: false }))
       ]);
 
-      // Threats
       const data = await threatResp.json();
       allThreats = data.threats || [];
       const updated = data.last_updated || 'unknown';
       document.getElementById('lastUpdated').innerHTML = `Updated: ${updated} · ${allThreats.length} threats · 92+ cascade rules`;
 
-      // Trend data
-      if (trendResp.ok) {
-        trendData = await trendResp.json();
-      } else {
-        trendData = {};
-      }
+      if (trendResp.ok) trendData = await trendResp.json();
+      else trendData = {};
 
-      // Coordinates
-      if (coordsResp.ok) {
-        coordsData = await coordsResp.json();
-      } else {
-        coordsData = {};
-      }
+      if (coordsResp.ok) coordsData = await coordsResp.json();
+      else coordsData = {};
 
-      // Graph data
-      if (graphResp.ok) {
-        graphData = await graphResp.json();
-      } else {
-        graphData = null;
-      }
+      if (graphResp.ok) graphData = await graphResp.json();
+      else graphData = null;
 
-      // Load SCP history if available
       try {
         const histResp = await fetch('scp_history.json');
         if (histResp.ok) {
@@ -637,12 +667,12 @@
       renderMetrics();
     } catch(e) {
       console.error('Error loading threats:', e);
-      document.getElementById('threat-body').innerHTML = '<tr><td colspan="8" style="text-align:center; padding:2rem; color:#dc2626;">Error loading threat data. Please try again later.</td></tr>';
+      document.getElementById('threat-body').innerHTML = '<tr><td colspan="10" style="text-align:center; padding:2rem; color:#dc2626;">Error loading threat data. Please try again later.</td></tr>';
     }
   }
 
   // ============================================================
-  // 4. RENDER FUNCTIONS
+  // 4. RENDER FUNCTIONS (with rank, confidence, sorting)
   // ============================================================
   function renderMetrics() {
     const total = allThreats.length;
@@ -655,6 +685,18 @@
     document.getElementById('trendLabel').innerText = `${escalating} escalating`;
   }
 
+  function sortThreats(threats, column, asc) {
+    return threats.sort((a, b) => {
+      let valA = a[column] || 0;
+      let valB = b[column] || 0;
+      if (typeof valA === 'string') valA = valA.toLowerCase();
+      if (typeof valB === 'string') valB = valB.toLowerCase();
+      if (valA < valB) return asc ? -1 : 1;
+      if (valA > valB) return asc ? 1 : -1;
+      return 0;
+    });
+  }
+
   function renderThreats() {
     let filtered = allThreats.filter(t => {
       if (currentDomain !== "all" && !t.domains.includes(currentDomain)) return false;
@@ -662,18 +704,26 @@
       if (watchlistMode && !watchlistIds.has(t.id)) return false;
       return true;
     });
-    filtered.sort((a, b) => (b.priority_score || 0) - (a.priority_score || 0));
+
+    // Apply sorting (default: priority desc)
+    if (sortColumn === 'rank') {
+      // rank is based on index, so we sort by priority first
+      filtered.sort((a, b) => (b.priority_score || 0) - (a.priority_score || 0));
+    } else {
+      sortThreats(filtered, sortColumn, sortAsc);
+    }
 
     const sliderVal = parseInt(document.getElementById('scpSlider').value);
-    const factor = 1 - (sliderVal / 30) * 0.5; // simulate historical SCP: lower values in past
+    const factor = 1 - (sliderVal / 30) * 0.5;
 
     const tbody = document.getElementById("threat-body");
     if (filtered.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:2rem; color:#888;">No threats match your filters.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="10" style="text-align:center; padding:2rem; color:#888;">No threats match your filters.</td></tr>';
       return;
     }
 
-    tbody.innerHTML = filtered.map(t => {
+    tbody.innerHTML = filtered.map((t, index) => {
+      const rank = index + 1;
       const scp = (t.scp || 0.5) * factor;
       const scpPct = Math.round(scp * 100);
       const isEsc = predictiveMode && isEscalating(t);
@@ -681,8 +731,11 @@
       const desc = t.description || t.name || 'No description';
       const trend = getTrend(t);
       const trendClass = trend === '▲' ? 'trend-up' : (trend === '▼' ? 'trend-down' : 'trend-stable');
+      const conf = t.confidence || 0.5;
+      const confStars = conf >= 0.8 ? '★★★★★' : conf >= 0.6 ? '★★★☆☆' : '★☆☆☆☆';
       return `
         <tr class="${rowClass}" data-id="${t.id || ''}" onclick="openModal('${t.id || ''}')">
+          <td>${rank}</td>
           <td>${t.id || ''}</td>
           <td class="status-icon">${getStatusIcon(t.status)}</td>
           <td><strong>${t.name || ''}</strong></td>
@@ -692,6 +745,7 @@
             <span class="scp-bar"><span class="scp-fill ${getSCPClass(scp)}" style="width:${scpPct}%;"></span></span>
             ${scpPct}%
           </td>
+          <td>${confStars} (${Math.round(conf*100)}%)</td>
           <td><span class="${trendClass}">${trend}</span></td>
           <td>${desc.length > 60 ? desc.slice(0, 60) + '…' : desc}</td>
         </tr>
@@ -727,13 +781,11 @@
     `;
     document.getElementById('threatModal').classList.add('active');
 
-    // Cascade graph button
     document.getElementById('cascadeGraphBtn').onclick = function() {
       const container = document.getElementById('cascadeGraphContainer');
       container.style.display = 'block';
       initCascadeGraph(threat.id);
     };
-    // What‑if button
     document.getElementById('whatifBtn').onclick = function() {
       alert(`Simulating cascade propagation for ${threat.id}...\n\nAffected threats: C11, C48, C129 (dummy)`);
     };
@@ -751,7 +803,7 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
   // ============================================================
-  // 6. CASCADE GRAPH (Cytoscape) – Loads real graphData
+  // 6. CASCADE GRAPH (Cytoscape)
   // ============================================================
   let cy = null;
 
@@ -762,10 +814,8 @@
       cy = null;
     }
 
-    // If graphData exists, use it
     if (graphData && graphData.nodes && graphData.edges) {
       const elements = graphData.nodes.concat(graphData.edges);
-      // If no graph data for the specific threat, show all
       cy = cytoscape({
         container: container,
         elements: elements,
@@ -776,11 +826,10 @@
         ],
         layout: { name: 'cose' }
       });
-      // Highlight the threat node if exists
       const targetNode = cy.getElementById(threatId);
       if (targetNode.length > 0) targetNode.select();
     } else {
-      // Fallback to dummy graph if graphData not available
+      // Dummy fallback
       const nodes = [
         { data: { id: threatId, label: threatId } },
         { data: { id: 'C11', label: 'C11' } },
@@ -809,7 +858,7 @@
   }
 
   // ============================================================
-  // 7. HEATMAP (Leaflet) – Uses real coordsData
+  // 7. HEATMAP (Leaflet)
   // ============================================================
   let heatmapLayer = null;
   let heatmapMap = null;
@@ -823,7 +872,6 @@
         attribution: '&copy; OpenStreetMap contributors'
       }).addTo(heatmapMap);
 
-      // Build points from coordsData
       const points = [];
       for (const [tid, coord] of Object.entries(coordsData)) {
         if (coord.lat && coord.lng) {
@@ -832,8 +880,6 @@
           points.push([coord.lat, coord.lng, intensity]);
         }
       }
-
-      // If no real coords, generate random points
       if (points.length === 0) {
         for (let i = 0; i < 50; i++) {
           const lat = (Math.random() - 0.5) * 100;
@@ -842,7 +888,6 @@
           points.push([lat, lng, intensity]);
         }
       }
-
       heatmapLayer = L.heatLayer(points, { radius: 25, blur: 15, maxZoom: 17 });
       heatmapMap.addLayer(heatmapLayer);
     }
@@ -855,66 +900,100 @@
   });
 
   // ============================================================
-  // 8. NEXUS 3D (Three.js placeholder)
+  // 8. NEXUS 3D – UPGRADED: Real Force‑Directed Graph
   // ============================================================
-  let scene, camera, renderer;
+  let forceGraph = null;
+  let graphInstance = null;
 
   function initNexus() {
     const container = document.getElementById('nexus-container');
     container.classList.add('active');
-    const canvas = document.getElementById('nexus-canvas');
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const canvasDiv = document.getElementById('nexus-canvas');
 
-    if (!scene) {
-      scene = new THREE.Scene();
-      camera = new THREE.PerspectiveCamera(75, width/height, 0.1, 1000);
-      camera.position.z = 5;
-
-      renderer = new THREE.WebGLRenderer({ antialias: true });
-      renderer.setSize(width, height);
-      canvas.appendChild(renderer.domElement);
-
-      // Lighting
-      const light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(1, 1, 1);
-      scene.add(light);
-      const ambient = new THREE.AmbientLight(0x404060);
-      scene.add(ambient);
-
-      // Create threat nodes as spheres
-      const colors = [0x7c4dff, 0xdc2626, 0xf97316, 0x22c55e];
-      const numSpheres = 20;
-      for (let i = 0; i < numSpheres; i++) {
-        const geometry = new THREE.SphereGeometry(0.2 + Math.random()*0.3, 16, 16);
-        const material = new THREE.MeshPhongMaterial({ color: colors[i % colors.length] });
-        const sphere = new THREE.Mesh(geometry, material);
-        sphere.position.set(
-          (Math.random() - 0.5) * 8,
-          (Math.random() - 0.5) * 6,
-          (Math.random() - 0.5) * 6
-        );
-        scene.add(sphere);
-      }
-
-      // Draw lines between some nodes
-      const lineMat = new THREE.LineBasicMaterial({ color: 0x444466 });
-      for (let i = 0; i < 10; i++) {
-        const p1 = new THREE.Vector3((Math.random()-0.5)*8, (Math.random()-0.5)*6, (Math.random()-0.5)*6);
-        const p2 = new THREE.Vector3((Math.random()-0.5)*8, (Math.random()-0.5)*6, (Math.random()-0.5)*6);
-        const geometry = new THREE.BufferGeometry().setFromPoints([p1, p2]);
-        const line = new THREE.Line(geometry, lineMat);
-        scene.add(line);
-      }
-
-      function animate() {
-        requestAnimationFrame(animate);
-        scene.rotation.y += 0.002;
-        renderer.render(scene, camera);
-      }
-      animate();
+    // If already created, just show
+    if (forceGraph) {
+      return;
     }
+
+    // Prepare data
+    let nodes = [];
+    let links = [];
+
+    if (graphData && graphData.nodes && graphData.edges) {
+      nodes = graphData.nodes.map(n => ({ id: n.data.id, label: n.data.label, scp: n.data.scp, status: n.data.status }));
+      links = graphData.edges.map(e => ({ source: e.data.source, target: e.data.target, weight: e.data.weight || 1 }));
+    } else {
+      // Dummy data
+      const dummyIds = ['C01','C11','C48','C129','C88','C132','C25','C19','C54','C90','C2','C3','C4','C58','C64','C85','C122'];
+      nodes = dummyIds.map(id => ({ id, label: id, scp: 0.5 + Math.random()*0.4, status: ['Red','Orange','Yellow','Green'][Math.floor(Math.random()*4)] }));
+      links = [];
+      for (let i = 0; i < nodes.length-1; i++) {
+        links.push({ source: nodes[i].id, target: nodes[i+1].id, weight: 1 });
+      }
+    }
+
+    // Color mapping by status
+    const statusColors = {
+      'Black Acute': '#1a1a1a',
+      'Black Structural': '#2c2c2c',
+      'Red': '#dc2626',
+      'Orange': '#f97316',
+      'Yellow': '#eab308',
+      'Green': '#22c55e'
+    };
+    const defaultColor = '#7c4dff';
+
+    // Create the graph
+    forceGraph = ForceGraph3D()(canvasDiv)
+      .graphData({ nodes, links })
+      .nodeId('id')
+      .nodeLabel('label')
+      .nodeColor(node => statusColors[node.status] || defaultColor)
+      .nodeVal(node => (node.scp || 0.5) * 8 + 2)  // size based on SCP
+      .linkWidth(link => (link.weight || 1) * 2)
+      .linkColor(() => 'rgba(200,200,200,0.6)')
+      .onNodeClick(node => {
+        // Open threat modal for that node
+        openModal(node.id);
+      })
+      .onNodeHover(node => {
+        // tooltip handled by label
+      })
+      .cooldownTime(2000)
+      .damping(0.9)
+      .backgroundColor('#111111')
+      .showNavInfo(false)
+      .enableDrag(true)
+      .enableZoom(true)
+      .enablePan(true)
+      .autoRotate(true)
+      .autoRotateSpeed(0.5);
+
+    // Add legend
+    const legendDiv = document.createElement('div');
+    legendDiv.className = 'graph-legend';
+    legendDiv.innerHTML = `
+      <div style="font-weight:bold; margin-bottom:0.3rem;">Legend</div>
+      <div class="legend-item"><span class="color-dot" style="background:#dc2626;"></span> Red (Critical)</div>
+      <div class="legend-item"><span class="color-dot" style="background:#f97316;"></span> Orange (High)</div>
+      <div class="legend-item"><span class="color-dot" style="background:#eab308;"></span> Yellow (Elevated)</div>
+      <div class="legend-item"><span class="color-dot" style="background:#22c55e;"></span> Green (Stable)</div>
+      <div class="legend-item"><span class="color-dot" style="background:#1a1a1a;"></span> Black (Systemic)</div>
+      <div style="font-size:0.7rem; margin-top:0.3rem; opacity:0.6;">Size = SCP</div>
+    `;
+    canvasDiv.appendChild(legendDiv);
+
+    // Store instance for later
+    graphInstance = forceGraph;
   }
+
+  // Reset view
+  document.getElementById('nexusReset').addEventListener('click', () => {
+    if (forceGraph) {
+      forceGraph.cameraPosition({ x: 0, y: 0, z: 200 });
+      forceGraph.autoRotate(true);
+    }
+  });
 
   document.getElementById('nexusToggle').addEventListener('click', initNexus);
   document.getElementById('nexusClose').addEventListener('click', () => {
@@ -931,7 +1010,7 @@
   });
 
   // ============================================================
-  // 10. FILTERS, SEARCH, WATCHLIST, PREDICTIVE, REFRESH, EXPORT
+  // 10. FILTERS, SEARCH, WATCHLIST, PREDICTIVE, REFRESH, EXPORT, SORT
   // ============================================================
   // Domain filters
   document.querySelectorAll("[data-domain]").forEach(btn => {
@@ -963,7 +1042,7 @@
   });
 
   document.getElementById('refreshBtn').addEventListener('click', () => {
-    document.getElementById('threat-body').innerHTML = '<tr><td colspan="8" style="text-align:center; padding:2rem; color:#888;">Refreshing...</td></tr>';
+    document.getElementById('threat-body').innerHTML = '<tr><td colspan="10" style="text-align:center; padding:2rem; color:#888;">Refreshing...</td></tr>';
     loadThreatMatrix();
   });
 
@@ -976,10 +1055,11 @@
       if (watchlistMode && !watchlistIds.has(t.id)) return false;
       return true;
     });
-    const headers = ['ID','Name','Domains','Status','SCP','Priority','Description'];
-    const rows = filtered.map(t => [
-      t.id || '', t.name || '', (t.domains || []).join(';'), t.status || '',
-      (t.scp || 0.5).toFixed(3), Math.round(t.priority_score || 0),
+    const headers = ['Rank','ID','Name','Domains','Status','SCP','Confidence','Trend','Description'];
+    filtered.sort((a, b) => (b.priority_score || 0) - (a.priority_score || 0));
+    const rows = filtered.map((t, i) => [
+      i+1, t.id || '', t.name || '', (t.domains || []).join(';'), t.status || '',
+      (t.scp || 0.5).toFixed(3), (t.confidence || 0.5).toFixed(2), getTrend(t),
       (t.description || '').replace(/,/g,';')
     ]);
     let csv = headers.join(',') + '\n' + rows.map(r => r.join(',')).join('\n');
@@ -992,16 +1072,28 @@
     URL.revokeObjectURL(url);
   }
 
+  // Sortable columns
+  document.querySelectorAll('.threat-table th[data-sort]').forEach(th => {
+    th.addEventListener('click', function() {
+      const column = this.dataset.sort;
+      if (sortColumn === column) {
+        sortAsc = !sortAsc;
+      } else {
+        sortColumn = column;
+        sortAsc = (column === 'rank' || column === 'id' || column === 'name') ? true : false; // default for strings
+      }
+      renderThreats();
+    });
+  });
+
   // ============================================================
   // 11. LANGUAGE SELECTOR
   // ============================================================
   document.getElementById('langSelect').addEventListener('change', function() {
     const lang = this.value;
     const t = translations[lang] || translations.en;
-    // Update static texts (partial implementation)
     document.querySelector('h1').textContent = t.title || 'Threat Matrix';
     document.getElementById('threat-search').placeholder = t.search || 'Search...';
-    // More updates can be added
     alert('Language switched to ' + lang + ' (partial translation)');
   });
 
