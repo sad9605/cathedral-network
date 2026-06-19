@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — Prediction Log</title>
-  <meta name="description" content="Complete public record of all Cathedral Network predictions. 77 confirmed, 4 falsified, 95.06% hit rate. Full transparency.">
+  <meta name="description" content="Complete public record of Cathedral Network predictions. All predictions with dates made, probabilities, and outcomes.">
+  <meta property="og:title" content="Cathedral Network — Prediction Log">
+  <meta property="og:description" content="Every prediction, probability, date made, and outcome. Fully transparent.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cathedral-network.netlify.app/prediction-log.html">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     :root {
       --violet: #b39ddb;
@@ -71,7 +76,11 @@
       gap: 1.2rem;
       flex-wrap: wrap;
     }
-    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
+    .nav-links a {
+      color: #5e2d8e;
+      text-decoration: none;
+      font-weight: 500;
+    }
     body.dark .nav-links a { color: #b39ddb; }
     .menu-btn {
       display: none;
@@ -87,6 +96,7 @@
       .menu-btn { display: block; }
     }
 
+    /* Floating metric tiles – same as Ground Truth */
     .metrics {
       display: flex;
       flex-wrap: wrap;
@@ -113,6 +123,15 @@
     body.dark .metric-value { color: #b39ddb; }
     .metric-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
 
+    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      border-bottom: 2px solid var(--violet);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
     .prediction-table {
       width: 100%;
       border-collapse: collapse;
@@ -135,6 +154,7 @@
       font-weight: 600;
     }
     body.dark .prediction-table th { background: #3a3a4a; }
+
     .confirmed-row { background: #1a3a1a20; }
     .falsified-row { background: #3a1a1a20; }
     .active-row { background: transparent; }
@@ -152,14 +172,6 @@
     .badge-active { background: #3498db; color: white; }
     .badge-watchlist { background: #f39c12; color: #1a1a1a; }
 
-    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
-    h2 {
-      font-size: 1.4rem;
-      margin-top: 2rem;
-      border-bottom: 2px solid var(--violet);
-      padding-bottom: 0.5rem;
-      display: inline-block;
-    }
     .footer {
       margin-top: 3rem;
       text-align: center;
@@ -187,14 +199,24 @@
       .banner-content { flex-direction: column; text-align: center; }
       .container { padding: 1rem; }
       .prediction-table th, .prediction-table td { padding: 0.4rem; font-size: 0.8rem; }
-      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
     }
   </style>
 </head>
 <body>
 <header class="cathedral-banner">
   <div class="banner-content">
-    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
     <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Prediction Log – Always Transparent</p></div>
   </div>
 </header>
@@ -221,6 +243,7 @@
   <h1>📋 Cathedral Network – Prediction Log</h1>
   <p style="margin-bottom: 1rem;">All predictions are made publicly, with probabilities, dates, and outcomes. Corrections and falsifications are logged transparently (Law III).</p>
 
+  <!-- Dynamic metric tiles -->
   <div class="metrics">
     <a href="#confirmed" class="metric-card"><div class="metric-value" id="confirmedCount">--</div><div class="metric-label">Confirmed</div></a>
     <a href="#falsified" class="metric-card"><div class="metric-value" id="falsifiedCount">--</div><div class="metric-label">Falsified</div></a>
@@ -229,121 +252,148 @@
     <a href="#watchlist" class="metric-card"><div class="metric-value" id="watchlistCount">--</div><div class="metric-label">Watchlist</div></a>
   </div>
 
+  <!-- CONFIRMED PREDICTIONS -->
   <h2 id="confirmed">✅ Confirmed</h2>
-  <p><em>All confirmed predictions are maintained in the Cathedral's public record.</em></p>
+  <p><em>All confirmed predictions with their date made and date confirmed.</em></p>
   <table class="prediction-table">
-    <thead><tr><th>ID</th><th>Prediction</th><th>Date Confirmed</th><th>Date Made</th></tr></thead>
+    <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Date Confirmed</th><th>Evidence / Notes</th></tr></thead>
     <tbody id="confirmedBody"></tbody>
   </table>
 
+  <!-- FALSIFIED PREDICTIONS -->
   <h2 id="falsified">❌ Falsified</h2>
   <table class="prediction-table">
-    <thead><tr><th>ID</th><th>Prediction</th><th>Date Falsified</th><th>Reason</th><th>Date Made</th></tr></thead>
+    <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Date Falsified</th><th>Reason</th></tr></thead>
     <tbody id="falsifiedBody"></tbody>
   </table>
 
+  <!-- PENDING PREDICTIONS (Active) -->
   <h2 id="pending">⏳ Pending (Active)</h2>
   <p><em>Active predictions with probabilities, deadlines, and the date each was made.</em></p>
   <table class="prediction-table">
-    <thead><tr><th>ID</th><th>Prediction</th><th>Probability</th><th>Horizon</th><th>Status</th><th>Date Made</th></tr></thead>
+    <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Probability</th><th>Horizon</th><th>Status</th></tr></thead>
     <tbody id="pendingBody"></tbody>
   </table>
 
+  <!-- WATCHLIST -->
   <h2 id="watchlist">👁️ Watchlist</h2>
   <table class="prediction-table">
-    <thead><tr><th>ID</th><th>Prediction</th><th>Probability</th><th>Elevation Trigger</th></tr></thead>
+    <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Probability</th><th>Elevation Trigger</th></tr></thead>
     <tbody id="watchlistBody"></tbody>
   </table>
 
   <div class="footer">
     <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Cathedral Core v1.4.4 · Prediction Log dynamic · Updated daily.
+    Cathedral Core v1.4.4 · Prediction Log updated dynamically from predictions.json.
   </div>
 </div>
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
-
 <script>
   async function loadPredictions() {
     try {
       const resp = await fetch('predictions.json');
+      if (!resp.ok) throw new Error('Failed to fetch predictions.json');
       const data = await resp.json();
 
+      // Update metric tiles
       document.getElementById('confirmedCount').textContent = data.stats.confirmed;
       document.getElementById('falsifiedCount').textContent = data.stats.falsified;
       document.getElementById('hitRate').textContent = data.stats.hit_rate + '%';
       document.getElementById('pendingCount').textContent = data.stats.pending;
       document.getElementById('watchlistCount').textContent = data.stats.watchlist;
 
-      // Confirmed – now with Date Made
+      // Helper: escape HTML
+      function esc(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+          if (m === '&') return '&amp;';
+          if (m === '<') return '&lt;';
+          if (m === '>') return '&gt;';
+          return m;
+        });
+      }
+
+      // Confirmed
       const confirmedBody = document.getElementById('confirmedBody');
-      confirmedBody.innerHTML = data.confirmed.map(p => `
-        <tr class="confirmed-row">
-          <td>${escapeHtml(p.id)}</td>
-          <td>${escapeHtml(p.description)}</td>
-          <td>${escapeHtml(p.date)}</td>
-          <td>${escapeHtml(p.date_made || p.date || '')}</td>
-        </tr>
-      `).join('');
-
-      // Falsified – now with Date Made
-      const falsifiedBody = document.getElementById('falsifiedBody');
-      falsifiedBody.innerHTML = data.falsified.map(p => `
-        <tr class="falsified-row">
-          <td>${escapeHtml(p.id)}</td>
-          <td>${escapeHtml(p.description)}</td>
-          <td>${escapeHtml(p.date)}</td>
-          <td>${escapeHtml(p.reason || '')}</td>
-          <td>${escapeHtml(p.date_made || p.date || '')}</td>
-        </tr>
-      `).join('');
-
-      // Pending – Date Made already present
-      const pendingBody = document.getElementById('pendingBody');
-      pendingBody.innerHTML = data.pending.map(p => {
-        const dateMade = p.date_made || p.created || '';
-        return `
-          <tr class="active-row">
-            <td>${escapeHtml(p.id)}</td>
-            <td>${escapeHtml(p.description)}</td>
-            <td>${p.probability}%</td>
-            <td>${escapeHtml(p.horizon)}</td>
-            <td><span class="badge badge-active">${escapeHtml(p.status)}</span></td>
-            <td>${escapeHtml(dateMade)}</td>
+      if (data.confirmed && data.confirmed.length) {
+        confirmedBody.innerHTML = data.confirmed.map(p => `
+          <tr class="confirmed-row">
+            <td>${esc(p.id)}</td>
+            <td>${esc(p.description)}</td>
+            <td>${esc(p.date_made || p.date || '')}</td>
+            <td>${esc(p.date)}</td>
+            <td>${esc(p.evidence || p.reason || '')}</td>
           </tr>
-        `;
-      }).join('');
+        `).join('');
+      } else {
+        confirmedBody.innerHTML = '<tr><td colspan="5">No confirmed predictions found.</td></tr>';
+      }
+
+      // Falsified
+      const falsifiedBody = document.getElementById('falsifiedBody');
+      if (data.falsified && data.falsified.length) {
+        falsifiedBody.innerHTML = data.falsified.map(p => `
+          <tr class="falsified-row">
+            <td>${esc(p.id)}</td>
+            <td>${esc(p.description)}</td>
+            <td>${esc(p.date_made || p.date || '')}</td>
+            <td>${esc(p.date)}</td>
+            <td>${esc(p.reason || '')}</td>
+          </tr>
+        `).join('');
+      } else {
+        falsifiedBody.innerHTML = '<tr><td colspan="5">No falsified predictions found.</td></tr>';
+      }
+
+      // Pending
+      const pendingBody = document.getElementById('pendingBody');
+      if (data.pending && data.pending.length) {
+        pendingBody.innerHTML = data.pending.map(p => `
+          <tr class="active-row">
+            <td>${esc(p.id)}</td>
+            <td>${esc(p.description)}</td>
+            <td>${esc(p.date_made || p.created || '')}</td>
+            <td>${p.probability || 0}%</td>
+            <td>${esc(p.horizon || '')}</td>
+            <td><span class="badge badge-active">${esc(p.status || 'Active')}</span></td>
+          </tr>
+        `).join('');
+      } else {
+        pendingBody.innerHTML = '<tr><td colspan="6">No pending predictions found.</td></tr>';
+      }
 
       // Watchlist
       const watchlistBody = document.getElementById('watchlistBody');
-      watchlistBody.innerHTML = data.watchlist.map(p => `
-        <tr class="watchlist-row"><td>${escapeHtml(p.id)}</td><td>${escapeHtml(p.description)}</td><td>${p.probability}%</td><td>${escapeHtml(p.trigger)}</td></tr>
-      `).join('');
+      if (data.watchlist && data.watchlist.length) {
+        watchlistBody.innerHTML = data.watchlist.map(p => `
+          <tr class="watchlist-row">
+            <td>${esc(p.id)}</td>
+            <td>${esc(p.description)}</td>
+            <td>${esc(p.date_made || p.created || '')}</td>
+            <td>${p.probability || 0}%</td>
+            <td>${esc(p.trigger || '')}</td>
+          </tr>
+        `).join('');
+      } else {
+        watchlistBody.innerHTML = '<tr><td colspan="5">No watchlist items found.</td></tr>';
+      }
 
-    } catch(e) {
+    } catch (e) {
       console.error('Error loading predictions:', e);
-      document.getElementById('confirmedBody').innerHTML = '<tr><td colspan="4" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
-      document.getElementById('falsifiedBody').innerHTML = '<tr><td colspan="5" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
-      document.getElementById('pendingBody').innerHTML = '<tr><td colspan="6" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
-      document.getElementById('watchlistBody').innerHTML = '<tr><td colspan="4" style="padding:1rem; color:#dc2626;">Error loading data.</td></tr>';
+      document.querySelectorAll('.prediction-table tbody').forEach(tbody => {
+        tbody.innerHTML = '<tr><td colspan="5" style="color:#dc2626; text-align:center;">Error loading data. Please try again later.</td></tr>';
+      });
     }
-  }
-
-  function escapeHtml(str) {
-    if (!str) return '';
-    return str.replace(/[&<>]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      return m;
-    });
   }
 
   loadPredictions();
 
+  // Menu toggle
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
 
+  // Dark mode toggle
   const darkToggle = document.getElementById('darkModeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const storedTheme = localStorage.getItem('cathedral-theme');
@@ -358,7 +408,7 @@
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
 
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js').catch(e => console.warn('SW failed', e));
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js');
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
