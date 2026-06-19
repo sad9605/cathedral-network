@@ -514,7 +514,10 @@
   let watchlistMode = false;
   let predictiveMode = false;
   let watchlistIds = new Set();
-  let scpHistory = []; // will be populated from scp_history.json if available
+  let scpHistory = [];
+  let trendData = {};
+  let coordsData = {};
+  let graphData = null;
 
   // Translations (simplified – full set would be larger)
   const translations = {
@@ -549,11 +552,13 @@
     return (scp > 0.6 && priority > 60) || status.includes('Black') || status === 'Red';
   }
 
+  // ---- REAL TREND FROM trend.json ----
   function getTrend(threat) {
-    // Simulate trend based on priority change – will be replaced by real SCP delta
-    const pri = threat.priority_score || 50;
-    if (pri > 75) return '▲';
-    if (pri < 40) return '▼';
+    const tid = threat.id || '';
+    const entry = trendData[tid] || {};
+    const trend = entry.trend || 'stable';
+    if (trend === 'up') return '▲';
+    if (trend === 'down') return '▼';
     return '–';
   }
 
@@ -568,7 +573,7 @@
   }
 
   // ============================================================
-  // 3. LOAD DATA
+  // 3. LOAD DATA (with backend integrations)
   // ============================================================
   async function loadWatchlist() {
     try {
@@ -584,13 +589,42 @@
   async function loadThreatMatrix() {
     try {
       await loadWatchlist();
-      const resp = await fetch('threats.json');
-      const data = await resp.json();
+
+      // Fetch all data in parallel
+      const [threatResp, trendResp, coordsResp, graphResp] = await Promise.all([
+        fetch('threats.json'),
+        fetch('trend.json').catch(() => ({ ok: false })),
+        fetch('threat_coords.json').catch(() => ({ ok: false })),
+        fetch('cascade_graph.json').catch(() => ({ ok: false }))
+      ]);
+
+      // Threats
+      const data = await threatResp.json();
       allThreats = data.threats || [];
       const updated = data.last_updated || 'unknown';
       document.getElementById('lastUpdated').innerHTML = `Updated: ${updated} · ${allThreats.length} threats · 92+ cascade rules`;
-      renderThreats();
-      renderMetrics();
+
+      // Trend data
+      if (trendResp.ok) {
+        trendData = await trendResp.json();
+      } else {
+        trendData = {};
+      }
+
+      // Coordinates
+      if (coordsResp.ok) {
+        coordsData = await coordsResp.json();
+      } else {
+        coordsData = {};
+      }
+
+      // Graph data
+      if (graphResp.ok) {
+        graphData = await graphResp.json();
+      } else {
+        graphData = null;
+      }
+
       // Load SCP history if available
       try {
         const histResp = await fetch('scp_history.json');
@@ -598,6 +632,9 @@
           scpHistory = await histResp.json();
         }
       } catch(e) { /* no history yet */ }
+
+      renderThreats();
+      renderMetrics();
     } catch(e) {
       console.error('Error loading threats:', e);
       document.getElementById('threat-body').innerHTML = '<tr><td colspan="8" style="text-align:center; padding:2rem; color:#dc2626;">Error loading threat data. Please try again later.</td></tr>';
@@ -714,7 +751,7 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
   // ============================================================
-  // 6. CASCADE GRAPH (Cytoscape)
+  // 6. CASCADE GRAPH (Cytoscape) – Loads real graphData
   // ============================================================
   let cy = null;
 
@@ -724,38 +761,55 @@
       cy.destroy();
       cy = null;
     }
-    // Build a dummy graph for demo – in reality, load from cascade_rules.json
-    const nodes = [
-      { data: { id: threatId, label: threatId } },
-      { data: { id: 'C11', label: 'C11' } },
-      { data: { id: 'C48', label: 'C48' } },
-      { data: { id: 'C129', label: 'C129' } },
-      { data: { id: 'C88', label: 'C88' } },
-    ];
-    const edges = [
-      { data: { source: threatId, target: 'C11' } },
-      { data: { source: threatId, target: 'C48' } },
-      { data: { source: 'C11', target: 'C129' } },
-      { data: { source: 'C48', target: 'C88' } },
-    ];
 
-    cy = cytoscape({
-      container: container,
-      elements: nodes.concat(edges),
-      style: [
-        { selector: 'node', style: { 'background-color': '#7c4dff', 'label': 'data(label)', 'color': '#fff', 'font-size': '12px', 'text-valign': 'center', 'text-halign': 'center', 'width': '40px', 'height': '40px' } },
-        { selector: 'edge', style: { 'width': 3, 'line-color': '#ccc', 'target-arrow-color': '#ccc', 'target-arrow-shape': 'triangle' } },
-        { selector: 'node:selected', style: { 'background-color': '#dc2626' } }
-      ],
-      layout: { name: 'cose' }
-    });
-
-    // Highlight the threat node
-    cy.getElementById(threatId).select();
+    // If graphData exists, use it
+    if (graphData && graphData.nodes && graphData.edges) {
+      const elements = graphData.nodes.concat(graphData.edges);
+      // If no graph data for the specific threat, show all
+      cy = cytoscape({
+        container: container,
+        elements: elements,
+        style: [
+          { selector: 'node', style: { 'background-color': '#7c4dff', 'label': 'data(label)', 'color': '#fff', 'font-size': '12px', 'text-valign': 'center', 'text-halign': 'center', 'width': '40px', 'height': '40px' } },
+          { selector: 'edge', style: { 'width': 3, 'line-color': '#ccc', 'target-arrow-color': '#ccc', 'target-arrow-shape': 'triangle' } },
+          { selector: 'node:selected', style: { 'background-color': '#dc2626' } }
+        ],
+        layout: { name: 'cose' }
+      });
+      // Highlight the threat node if exists
+      const targetNode = cy.getElementById(threatId);
+      if (targetNode.length > 0) targetNode.select();
+    } else {
+      // Fallback to dummy graph if graphData not available
+      const nodes = [
+        { data: { id: threatId, label: threatId } },
+        { data: { id: 'C11', label: 'C11' } },
+        { data: { id: 'C48', label: 'C48' } },
+        { data: { id: 'C129', label: 'C129' } },
+        { data: { id: 'C88', label: 'C88' } },
+      ];
+      const edges = [
+        { data: { source: threatId, target: 'C11' } },
+        { data: { source: threatId, target: 'C48' } },
+        { data: { source: 'C11', target: 'C129' } },
+        { data: { source: 'C48', target: 'C88' } },
+      ];
+      cy = cytoscape({
+        container: container,
+        elements: nodes.concat(edges),
+        style: [
+          { selector: 'node', style: { 'background-color': '#7c4dff', 'label': 'data(label)', 'color': '#fff', 'font-size': '12px', 'text-valign': 'center', 'text-halign': 'center', 'width': '40px', 'height': '40px' } },
+          { selector: 'edge', style: { 'width': 3, 'line-color': '#ccc', 'target-arrow-color': '#ccc', 'target-arrow-shape': 'triangle' } },
+          { selector: 'node:selected', style: { 'background-color': '#dc2626' } }
+        ],
+        layout: { name: 'cose' }
+      });
+      cy.getElementById(threatId).select();
+    }
   }
 
   // ============================================================
-  // 7. HEATMAP (Leaflet)
+  // 7. HEATMAP (Leaflet) – Uses real coordsData
   // ============================================================
   let heatmapLayer = null;
   let heatmapMap = null;
@@ -768,14 +822,27 @@
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
       }).addTo(heatmapMap);
-      // Generate dummy points – replace with real threat coordinates
+
+      // Build points from coordsData
       const points = [];
-      for (let i = 0; i < 50; i++) {
-        const lat = (Math.random() - 0.5) * 100;
-        const lng = (Math.random() - 0.5) * 200;
-        const intensity = Math.random() * 0.5 + 0.5;
-        points.push([lat, lng, intensity]);
+      for (const [tid, coord] of Object.entries(coordsData)) {
+        if (coord.lat && coord.lng) {
+          const threat = allThreats.find(t => t.id === tid);
+          const intensity = threat ? threat.scp || 0.5 : 0.5;
+          points.push([coord.lat, coord.lng, intensity]);
+        }
       }
+
+      // If no real coords, generate random points
+      if (points.length === 0) {
+        for (let i = 0; i < 50; i++) {
+          const lat = (Math.random() - 0.5) * 100;
+          const lng = (Math.random() - 0.5) * 200;
+          const intensity = Math.random() * 0.5 + 0.5;
+          points.push([lat, lng, intensity]);
+        }
+      }
+
       heatmapLayer = L.heatLayer(points, { radius: 25, blur: 15, maxZoom: 17 });
       heatmapMap.addLayer(heatmapLayer);
     }

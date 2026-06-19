@@ -3,119 +3,607 @@
     {
       "category": "Official Disasters & Climate",
       "sources": [
-        {"name": "GDACS", "description": "Global Disaster Alert and Coordination System – real-time alerts for floods, earthquakes, cyclones.", "link": "https://www.gdacs.org/", "type": "RSS/API"},
-        {"name": "USGS Earthquakes", "description": "United States Geological Survey – real-time earthquake data (GeoJSON).", "link": "https://earthquake.usgs.gov/", "type": "GeoJSON API"},
-        {"name": "NASA FIRMS", "description": "Satellite detection of active fire hotspots.", "link": "https://firms.modaps.eosdis.nasa.gov/", "type": "API"},
-        {"name": "ReliefWeb (UN OCHA)", "description": "Comprehensive humanitarian information portal – used for food security and displacement reports.", "link": "https://reliefweb.int/", "type": "RSS/API"},
-        {"name": "Floodlist", "description": "Monitors significant flood events globally.", "link": "https://floodlist.com/", "type": "RSS/Web"},
-        {"name": "ElectricityMap", "description": "Real-time electricity mix and carbon intensity.", "link": "https://www.electricitymap.org/", "type": "API"},
-        {"name": "EIA", "description": "Energy Information Administration – oil, gas, electricity data.", "link": "https://www.eia.gov/", "type": "API"}
+        {
+          "name": "GDACS",
+          "description": "Global Disaster Alert and Coordination System \u2013 real-time alerts for floods, earthquakes, cyclones.",
+          "link": "https://www.gdacs.org/",
+          "type": "RSS/API"
+        },
+        {
+          "name": "USGS Earthquakes",
+          "description": "United States Geological Survey \u2013 real-time earthquake data (GeoJSON).",
+          "link": "https://earthquake.usgs.gov/",
+          "type": "GeoJSON API"
+        },
+        {
+          "name": "NASA FIRMS",
+          "description": "Satellite detection of active fire hotspots.",
+          "link": "https://firms.modaps.eosdis.nasa.gov/",
+          "type": "API"
+        },
+        {
+          "name": "ReliefWeb (UN OCHA)",
+          "description": "Comprehensive humanitarian information portal \u2013 used for food security and displacement reports.",
+          "link": "https://reliefweb.int/",
+          "type": "RSS/API"
+        },
+        {
+          "name": "Floodlist",
+          "description": "Monitors significant flood events globally.",
+          "link": "https://floodlist.com/",
+          "type": "RSS/Web"
+        },
+        {
+          "name": "ElectricityMap",
+          "description": "Real-time electricity mix and carbon intensity.",
+          "link": "https://www.electricitymap.org/",
+          "type": "API"
+        },
+        {
+          "name": "EIA",
+          "description": "Energy Information Administration \u2013 oil, gas, electricity data.",
+          "link": "https://www.eia.gov/",
+          "type": "API"
+        }
       ]
     },
     {
       "category": "Conflict & Military",
       "sources": [
-        {"name": "GDELT", "description": "Global Database of Events, Language, and Tone – monitors world broadcast, print, and web news.", "link": "https://www.gdeltproject.org/", "type": "API"},
-        {"name": "ACLED", "description": "Armed Conflict Location & Event Data – real-time political violence and protest events.", "link": "https://acleddata.com/", "type": "API (Pending)"},
-        {"name": "UCDP", "description": "Uppsala Conflict Data Program – conflict event data.", "link": "https://ucdp.uu.se/", "type": "API (Pending)"},
-        {"name": "OpenSky Network", "description": "Real-time tracking of military and civilian aircraft.", "link": "https://opensky-network.org/", "type": "API"},
-        {"name": "Kalshi", "description": "Prediction markets providing 'wisdom of the crowd' probabilities.", "link": "https://kalshi.com/", "type": "API"},
-        {"name": "MagenYehudaBot", "description": "Aggregates 85+ sources for Iran-Israel conflict OSINT.", "link": "N/A", "type": "Open-Source Tool"}
+        {
+          "name": "GDELT",
+          "description": "Global Database of Events, Language, and Tone \u2013 monitors world broadcast, print, and web news.",
+          "link": "https://www.gdeltproject.org/",
+          "type": "API"
+        },
+        {
+          "name": "ACLED",
+          "description": "Armed Conflict Location & Event Data \u2013 real-time political violence and protest events.",
+          "link": "https://acleddata.com/",
+          "type": "API (Pending)"
+        },
+        {
+          "name": "UCDP",
+          "description": "Uppsala Conflict Data Program \u2013 conflict event data.",
+          "link": "https://ucdp.uu.se/",
+          "type": "API (Pending)"
+        },
+        {
+          "name": "OpenSky Network",
+          "description": "Real-time tracking of military and civilian aircraft.",
+          "link": "https://opensky-network.org/",
+          "type": "API"
+        },
+        {
+          "name": "Kalshi",
+          "description": "Prediction markets providing 'wisdom of the crowd' probabilities.",
+          "link": "https://kalshi.com/",
+          "type": "API"
+        },
+        {
+          "name": "MagenYehudaBot",
+          "description": "Aggregates 85+ sources for Iran-Israel conflict OSINT.",
+          "link": "N/A",
+          "type": "Open-Source Tool"
+        }
       ]
     },
     {
       "category": "Disease Outbreaks",
       "sources": [
-        {"name": "WHO DON", "description": "WHO Disease Outbreak News – official PHEIC declarations.", "link": "https://www.who.int/emergencies/disease-outbreak-news", "type": "RSS/API"},
-        {"name": "ProMED-Mail", "description": "Early, unofficial reports of emerging disease outbreaks.", "link": "https://www.promedmail.org/", "type": "RSS"},
-        {"name": "GeoSentinel", "description": "Global surveillance of emerging infectious diseases.", "link": "https://www.geosentinel.org/", "type": "API (Simulated)"}
+        {
+          "name": "WHO DON",
+          "description": "WHO Disease Outbreak News \u2013 official PHEIC declarations.",
+          "link": "https://www.who.int/emergencies/disease-outbreak-news",
+          "type": "RSS/API"
+        },
+        {
+          "name": "ProMED-Mail",
+          "description": "Early, unofficial reports of emerging disease outbreaks.",
+          "link": "https://www.promedmail.org/",
+          "type": "RSS"
+        },
+        {
+          "name": "GeoSentinel",
+          "description": "Global surveillance of emerging infectious diseases.",
+          "link": "https://www.geosentinel.org/",
+          "type": "API (Simulated)"
+        }
       ]
     },
     {
       "category": "AI & Cybersecurity",
       "sources": [
-        {"name": "AI Incident Database", "description": "Tracks real-world failures and safety incidents related to AI systems.", "link": "https://incidentdatabase.ai/", "type": "API"},
-        {"name": "GitHub Security Advisories", "description": "Official database for open-source vulnerabilities.", "link": "https://github.com/advisories", "type": "API"},
-        {"name": "CVELogic", "description": "Daily prioritized list of dangerous CVEs.", "link": "https://cvelogic.com/", "type": "API"},
-        {"name": "Krebs on Security", "description": "Independent cybersecurity news.", "link": "https://krebsonsecurity.com/", "type": "RSS"},
-        {"name": "Bleeping Computer", "description": "Commercial cybersecurity news.", "link": "https://www.bleepingcomputer.com/", "type": "RSS"}
+        {
+          "name": "AI Incident Database",
+          "description": "Tracks real-world failures and safety incidents related to AI systems.",
+          "link": "https://incidentdatabase.ai/",
+          "type": "API"
+        },
+        {
+          "name": "GitHub Security Advisories",
+          "description": "Official database for open-source vulnerabilities.",
+          "link": "https://github.com/advisories",
+          "type": "API"
+        },
+        {
+          "name": "CVELogic",
+          "description": "Daily prioritized list of dangerous CVEs.",
+          "link": "https://cvelogic.com/",
+          "type": "API"
+        },
+        {
+          "name": "Krebs on Security",
+          "description": "Independent cybersecurity news.",
+          "link": "https://krebsonsecurity.com/",
+          "type": "RSS"
+        },
+        {
+          "name": "Bleeping Computer",
+          "description": "Commercial cybersecurity news.",
+          "link": "https://www.bleepingcomputer.com/",
+          "type": "RSS"
+        }
       ]
     },
     {
       "category": "Alternative Data & Early Signals",
       "sources": [
-        {"name": "Cloudflare Radar", "description": "Monitors global internet outages.", "link": "https://radar.cloudflare.com/", "type": "API/Web"},
-        {"name": "Wikipedia Pageview API", "description": "Tracks sudden spikes in article views, correlating with major news events.", "link": "https://wikimedia.org/api/rest_v1/metrics/pageviews/", "type": "API"},
-        {"name": "Currency Safe-Haven Flows", "description": "USD/JPY and CHF/USD as proxies for geopolitical risk.", "link": "https://www.exchangerate-api.com/", "type": "API"}
+        {
+          "name": "Cloudflare Radar",
+          "description": "Monitors global internet outages.",
+          "link": "https://radar.cloudflare.com/",
+          "type": "API/Web"
+        },
+        {
+          "name": "Wikipedia Pageview API",
+          "description": "Tracks sudden spikes in article views, correlating with major news events.",
+          "link": "https://wikimedia.org/api/rest_v1/metrics/pageviews/",
+          "type": "API"
+        },
+        {
+          "name": "Currency Safe-Haven Flows",
+          "description": "USD/JPY and CHF/USD as proxies for geopolitical risk.",
+          "link": "https://www.exchangerate-api.com/",
+          "type": "API"
+        }
       ]
     },
     {
       "category": "Global News Services",
       "sources": [
-        {"name": "Reuters", "owner": "Thomson Reuters Corporation", "link": "https://www.reuters.com/", "type": "RSS/API", "disclaimer": "Commercial wire service"},
-        {"name": "Associated Press (AP)", "owner": "The Associated Press (non-profit news cooperative)", "link": "https://apnews.com/", "type": "RSS/API", "disclaimer": "Non-profit wire service"},
-        {"name": "Agence France-Presse (AFP)", "owner": "Agence France-Presse (state-supported, commercially operated)", "link": "https://www.afp.com/", "type": "RSS/API", "disclaimer": "State-supported commercial wire service"},
-        {"name": "BBC News", "owner": "British Broadcasting Corporation (public service broadcaster, UK government-funded)", "link": "https://www.bbc.com/news", "type": "RSS/API", "disclaimer": "State-funded public service broadcaster (UK)"},
-        {"name": "Al Jazeera", "owner": "Al Jazeera Media Network (state-funded, Qatar)", "link": "https://www.aljazeera.com/", "type": "RSS/API", "disclaimer": "State-funded media (Qatar)"},
-        {"name": "CNN", "owner": "Warner Bros. Discovery (commercial)", "link": "https://edition.cnn.com/", "type": "RSS/API", "disclaimer": "Commercial broadcaster"},
-        {"name": "The Guardian", "owner": "Guardian Media Group (Scott Trust, non-profit)", "link": "https://www.theguardian.com/", "type": "RSS/API", "disclaimer": "Non-profit media trust"},
-        {"name": "Deutsche Welle (DW)", "owner": "Deutsche Welle (public broadcaster, German government-funded)", "link": "https://www.dw.com/", "type": "RSS/API", "disclaimer": "State-funded public broadcaster (Germany)"},
-        {"name": "France 24", "owner": "France Médias Monde (public broadcaster, French government-funded)", "link": "https://www.france24.com/", "type": "RSS/API", "disclaimer": "State-funded public broadcaster (France)"},
-        {"name": "NHK World", "owner": "Japan Broadcasting Corporation (public broadcaster, Japanese government-funded)", "link": "https://www3.nhk.or.jp/nhkworld/", "type": "RSS/API", "disclaimer": "State-funded public broadcaster (Japan)"},
-        {"name": "CGTN", "owner": "China Global Television Network (state-owned, China)", "link": "https://www.cgtn.com/", "type": "RSS/API", "disclaimer": "State-controlled media (China)"},
-        {"name": "NDTV", "owner": "NDTV (commercial, India)", "link": "https://www.ndtv.com/", "type": "RSS/API", "disclaimer": "Commercial broadcaster (India)"},
-        {"name": "South China Morning Post (SCMP)", "owner": "SCMP Group (commercial, Hong Kong; significant Chinese ownership)", "link": "https://www.scmp.com/", "type": "RSS/API", "disclaimer": "Commercial media (Hong Kong, Chinese ownership)"},
-        {"name": "The Straits Times", "owner": "SPH Media Trust (Singapore, state-affiliated)", "link": "https://www.straitstimes.com/", "type": "RSS/API", "disclaimer": "State-affiliated media (Singapore)"},
-        {"name": "ABC Australia", "owner": "Australian Broadcasting Corporation (public broadcaster, Australian government-funded)", "link": "https://www.abc.net.au/", "type": "RSS/API", "disclaimer": "State-funded public broadcaster (Australia)"},
-        {"name": "News24", "owner": "Media24 (commercial, South Africa; part of Naspers)", "link": "https://www.news24.com/", "type": "RSS/API", "disclaimer": "Commercial media (South Africa)"},
-        {"name": "Haaretz", "owner": "Haaretz Group (commercial, Israel)", "link": "https://www.haaretz.com/", "type": "RSS/API", "disclaimer": "Commercial media (Israel)"},
-        {"name": "Times of Israel", "owner": "Times of Israel (commercial, Israel)", "link": "https://www.timesofisrael.com/", "type": "RSS/API", "disclaimer": "Commercial media (Israel)"}
+        {
+          "name": "Reuters",
+          "owner": "Thomson Reuters Corporation",
+          "link": "https://www.reuters.com/",
+          "type": "RSS/API",
+          "disclaimer": "Commercial wire service"
+        },
+        {
+          "name": "Associated Press (AP)",
+          "owner": "The Associated Press (non-profit news cooperative)",
+          "link": "https://apnews.com/",
+          "type": "RSS/API",
+          "disclaimer": "Non-profit wire service"
+        },
+        {
+          "name": "Agence France-Presse (AFP)",
+          "owner": "Agence France-Presse (state-supported, commercially operated)",
+          "link": "https://www.afp.com/",
+          "type": "RSS/API",
+          "disclaimer": "State-supported commercial wire service"
+        },
+        {
+          "name": "BBC News",
+          "owner": "British Broadcasting Corporation (public service broadcaster, UK government-funded)",
+          "link": "https://www.bbc.com/news",
+          "type": "RSS/API",
+          "disclaimer": "State-funded public service broadcaster (UK)"
+        },
+        {
+          "name": "Al Jazeera",
+          "owner": "Al Jazeera Media Network (state-funded, Qatar)",
+          "link": "https://www.aljazeera.com/",
+          "type": "RSS/API",
+          "disclaimer": "State-funded media (Qatar)"
+        },
+        {
+          "name": "CNN",
+          "owner": "Warner Bros. Discovery (commercial)",
+          "link": "https://edition.cnn.com/",
+          "type": "RSS/API",
+          "disclaimer": "Commercial broadcaster"
+        },
+        {
+          "name": "The Guardian",
+          "owner": "Guardian Media Group (Scott Trust, non-profit)",
+          "link": "https://www.theguardian.com/",
+          "type": "RSS/API",
+          "disclaimer": "Non-profit media trust"
+        },
+        {
+          "name": "Deutsche Welle (DW)",
+          "owner": "Deutsche Welle (public broadcaster, German government-funded)",
+          "link": "https://www.dw.com/",
+          "type": "RSS/API",
+          "disclaimer": "State-funded public broadcaster (Germany)"
+        },
+        {
+          "name": "France 24",
+          "owner": "France M\u00e9dias Monde (public broadcaster, French government-funded)",
+          "link": "https://www.france24.com/",
+          "type": "RSS/API",
+          "disclaimer": "State-funded public broadcaster (France)"
+        },
+        {
+          "name": "NHK World",
+          "owner": "Japan Broadcasting Corporation (public broadcaster, Japanese government-funded)",
+          "link": "https://www3.nhk.or.jp/nhkworld/",
+          "type": "RSS/API",
+          "disclaimer": "State-funded public broadcaster (Japan)"
+        },
+        {
+          "name": "CGTN",
+          "owner": "China Global Television Network (state-owned, China)",
+          "link": "https://www.cgtn.com/",
+          "type": "RSS/API",
+          "disclaimer": "State-controlled media (China)"
+        },
+        {
+          "name": "NDTV",
+          "owner": "NDTV (commercial, India)",
+          "link": "https://www.ndtv.com/",
+          "type": "RSS/API",
+          "disclaimer": "Commercial broadcaster (India)"
+        },
+        {
+          "name": "South China Morning Post (SCMP)",
+          "owner": "SCMP Group (commercial, Hong Kong; significant Chinese ownership)",
+          "link": "https://www.scmp.com/",
+          "type": "RSS/API",
+          "disclaimer": "Commercial media (Hong Kong, Chinese ownership)"
+        },
+        {
+          "name": "The Straits Times",
+          "owner": "SPH Media Trust (Singapore, state-affiliated)",
+          "link": "https://www.straitstimes.com/",
+          "type": "RSS/API",
+          "disclaimer": "State-affiliated media (Singapore)"
+        },
+        {
+          "name": "ABC Australia",
+          "owner": "Australian Broadcasting Corporation (public broadcaster, Australian government-funded)",
+          "link": "https://www.abc.net.au/",
+          "type": "RSS/API",
+          "disclaimer": "State-funded public broadcaster (Australia)"
+        },
+        {
+          "name": "News24",
+          "owner": "Media24 (commercial, South Africa; part of Naspers)",
+          "link": "https://www.news24.com/",
+          "type": "RSS/API",
+          "disclaimer": "Commercial media (South Africa)"
+        },
+        {
+          "name": "Haaretz",
+          "owner": "Haaretz Group (commercial, Israel)",
+          "link": "https://www.haaretz.com/",
+          "type": "RSS/API",
+          "disclaimer": "Commercial media (Israel)"
+        },
+        {
+          "name": "Times of Israel",
+          "owner": "Times of Israel (commercial, Israel)",
+          "link": "https://www.timesofisrael.com/",
+          "type": "RSS/API",
+          "disclaimer": "Commercial media (Israel)"
+        }
       ]
+    },
+    {
+      "name": "Usgs",
+      "type": "OSINT",
+      "status": "active"
+    },
+    {
+      "name": "Gdelt",
+      "type": "OSINT",
+      "status": "active"
+    },
+    {
+      "name": "Opensky",
+      "type": "OSINT",
+      "status": "active"
+    },
+    {
+      "name": "Github_Advisories",
+      "type": "OSINT",
+      "status": "active"
+    },
+    {
+      "name": "Cyber_News",
+      "type": "OSINT",
+      "status": "active"
+    },
+    {
+      "name": "Wikipedia_Pageviews",
+      "type": "OSINT",
+      "status": "active"
+    },
+    {
+      "name": "Currency_Flows",
+      "type": "OSINT",
+      "status": "active"
     }
   ],
   "attributions": [
     {
       "category": "Core Libraries (Python)",
       "items": [
-        {"name": "Prophet", "description": "Time-series forecasting for Brent, FAO, FEMA.", "link": "https://facebook.github.io/prophet/", "license": "BSD-3-Clause"},
-        {"name": "pgmpy", "description": "Probabilistic graphical models for cascade discovery.", "link": "https://pgmpy.org/", "license": "BSD-3-Clause"},
-        {"name": "scikit-learn", "description": "Machine learning for anomaly detection and classification.", "link": "https://scikit-learn.org/", "license": "BSD-3-Clause"},
-        {"name": "statsmodels", "description": "Statistical modeling and time-series analysis.", "link": "https://www.statsmodels.org/", "license": "BSD-3-Clause"},
-        {"name": "yfinance", "description": "Historical and real-time market data for Brent and other commodities.", "link": "https://github.com/ranaroussi/yfinance", "license": "Apache-2.0"},
-        {"name": "feedparser", "description": "RSS and Atom feed parsing.", "link": "https://github.com/kurtmckee/feedparser", "license": "BSD-2-Clause"},
-        {"name": "BeautifulSoup4", "description": "HTML and XML parsing for web scraping.", "link": "https://www.crummy.com/software/BeautifulSoup/", "license": "MIT"},
-        {"name": "numpy", "description": "Numerical computing.", "link": "https://numpy.org/", "license": "BSD-3-Clause"},
-        {"name": "scipy", "description": "Scientific computing and statistical functions.", "link": "https://scipy.org/", "license": "BSD-3-Clause"},
-        {"name": "pandas", "description": "Data manipulation and analysis.", "link": "https://pandas.pydata.org/", "license": "BSD-3-Clause"}
+        {
+          "name": "Prophet",
+          "description": "Time-series forecasting for Brent, FAO, FEMA.",
+          "link": "https://facebook.github.io/prophet/",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "pgmpy",
+          "description": "Probabilistic graphical models for cascade discovery.",
+          "link": "https://pgmpy.org/",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "scikit-learn",
+          "description": "Machine learning for anomaly detection and classification.",
+          "link": "https://scikit-learn.org/",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "statsmodels",
+          "description": "Statistical modeling and time-series analysis.",
+          "link": "https://www.statsmodels.org/",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "yfinance",
+          "description": "Historical and real-time market data for Brent and other commodities.",
+          "link": "https://github.com/ranaroussi/yfinance",
+          "license": "Apache-2.0"
+        },
+        {
+          "name": "feedparser",
+          "description": "RSS and Atom feed parsing.",
+          "link": "https://github.com/kurtmckee/feedparser",
+          "license": "BSD-2-Clause"
+        },
+        {
+          "name": "BeautifulSoup4",
+          "description": "HTML and XML parsing for web scraping.",
+          "link": "https://www.crummy.com/software/BeautifulSoup/",
+          "license": "MIT"
+        },
+        {
+          "name": "numpy",
+          "description": "Numerical computing.",
+          "link": "https://numpy.org/",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "scipy",
+          "description": "Scientific computing and statistical functions.",
+          "link": "https://scipy.org/",
+          "license": "BSD-3-Clause"
+        },
+        {
+          "name": "pandas",
+          "description": "Data manipulation and analysis.",
+          "link": "https://pandas.pydata.org/",
+          "license": "BSD-3-Clause"
+        }
       ]
     },
     {
       "category": "Frontend Libraries (JavaScript)",
       "items": [
-        {"name": "Cytoscape.js", "description": "Graph visualization for cascade mapping.", "link": "https://js.cytoscape.org/", "license": "MIT"},
-        {"name": "Leaflet", "description": "Interactive mapping library.", "link": "https://leafletjs.com/", "license": "BSD-2-Clause"},
-        {"name": "Leaflet.heat", "description": "Heatmap plugin for Leaflet.", "link": "https://github.com/Leaflet/Leaflet.heat", "license": "MIT"},
-        {"name": "Dexie", "description": "IndexedDB wrapper for offline-first storage.", "link": "https://dexie.org/", "license": "Apache-2.0"},
-        {"name": "Supabase", "description": "PostgreSQL backend with real-time sync.", "link": "https://supabase.com/", "license": "Apache-2.0"},
-        {"name": "Transformers.js", "description": "CLIP zero-shot image classification for AI damage grading.", "link": "https://huggingface.co/docs/transformers.js/", "license": "MIT"}
+        {
+          "name": "Cytoscape.js",
+          "description": "Graph visualization for cascade mapping.",
+          "link": "https://js.cytoscape.org/",
+          "license": "MIT"
+        },
+        {
+          "name": "Leaflet",
+          "description": "Interactive mapping library.",
+          "link": "https://leafletjs.com/",
+          "license": "BSD-2-Clause"
+        },
+        {
+          "name": "Leaflet.heat",
+          "description": "Heatmap plugin for Leaflet.",
+          "link": "https://github.com/Leaflet/Leaflet.heat",
+          "license": "MIT"
+        },
+        {
+          "name": "Dexie",
+          "description": "IndexedDB wrapper for offline-first storage.",
+          "link": "https://dexie.org/",
+          "license": "Apache-2.0"
+        },
+        {
+          "name": "Supabase",
+          "description": "PostgreSQL backend with real-time sync.",
+          "link": "https://supabase.com/",
+          "license": "Apache-2.0"
+        },
+        {
+          "name": "Transformers.js",
+          "description": "CLIP zero-shot image classification for AI damage grading.",
+          "link": "https://huggingface.co/docs/transformers.js/",
+          "license": "MIT"
+        }
       ]
     },
     {
       "category": "Custom Cathedral Modules",
       "items": [
-        {"name": "Cascade Engine v8", "description": "Bayesian probability drive with log-odds fusion, SCP, GSCI, SSI, DS, SCA, DAS.", "link": "N/A", "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"},
-        {"name": "Agentic Warden", "description": "Policy-driven, self-auditing AI assistant with escalation logic and kill switch.", "link": "N/A", "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"},
-        {"name": "GovAgent", "description": "Governance and security module – privacy, intent, fiscal circuit breakers.", "link": "N/A", "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"},
-        {"name": "Provenance Engine", "description": "Cryptographic signing and immutable audit trail for predictions.", "link": "N/A", "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"},
-        {"name": "Formal Verification", "description": "Mathematical proof generation for cascade consistency using Z3.", "link": "N/A", "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"},
-        {"name": "Unconventional Orchestrator", "description": "Emerging threat handling outside standard cascade framework.", "link": "N/A", "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"},
-        {"name": "Community Sensors", "description": "Reddit, Telegram, and Mastodon data ingestion.", "link": "N/A", "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"},
-        {"name": "Cascade Discovery", "description": "Automated discovery of new cascade rules from historical data.", "link": "N/A", "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"},
-        {"name": "InSAR Integrity", "description": "Satellite-based infrastructure monitoring (Sentinel-1).", "link": "N/A", "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"},
-        {"name": "Steganographic Layer", "description": "Covert Warden communications via LSB steganography.", "link": "N/A", "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"},
-        {"name": "Stochastic Pattern Analysis", "description": "Non-linear hypothesis generation for edge-case threat detection.", "link": "N/A", "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"}
+        {
+          "name": "Cascade Engine v8",
+          "description": "Bayesian probability drive with log-odds fusion, SCP, GSCI, SSI, DS, SCA, DAS.",
+          "link": "N/A",
+          "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"
+        },
+        {
+          "name": "Agentic Warden",
+          "description": "Policy-driven, self-auditing AI assistant with escalation logic and kill switch.",
+          "link": "N/A",
+          "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"
+        },
+        {
+          "name": "GovAgent",
+          "description": "Governance and security module \u2013 privacy, intent, fiscal circuit breakers.",
+          "link": "N/A",
+          "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"
+        },
+        {
+          "name": "Provenance Engine",
+          "description": "Cryptographic signing and immutable audit trail for predictions.",
+          "link": "N/A",
+          "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"
+        },
+        {
+          "name": "Formal Verification",
+          "description": "Mathematical proof generation for cascade consistency using Z3.",
+          "link": "N/A",
+          "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"
+        },
+        {
+          "name": "Unconventional Orchestrator",
+          "description": "Emerging threat handling outside standard cascade framework.",
+          "link": "N/A",
+          "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"
+        },
+        {
+          "name": "Community Sensors",
+          "description": "Reddit, Telegram, and Mastodon data ingestion.",
+          "link": "N/A",
+          "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"
+        },
+        {
+          "name": "Cascade Discovery",
+          "description": "Automated discovery of new cascade rules from historical data.",
+          "link": "N/A",
+          "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"
+        },
+        {
+          "name": "InSAR Integrity",
+          "description": "Satellite-based infrastructure monitoring (Sentinel-1).",
+          "link": "N/A",
+          "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"
+        },
+        {
+          "name": "Steganographic Layer",
+          "description": "Covert Warden communications via LSB steganography.",
+          "link": "N/A",
+          "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"
+        },
+        {
+          "name": "Stochastic Pattern Analysis",
+          "description": "Non-linear hypothesis generation for edge-case threat detection.",
+          "link": "N/A",
+          "license": "Cathedral Constitution (CC BY-NC-SA 4.0)"
+        }
       ]
     }
   ],
-  "last_updated": "2026-06-19T00:00:00.000000"
+  "last_updated": "2026-06-19T14:11:42.574985",
+  "software": [
+    {
+      "name": "pgmpy",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "prophet",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "scipy",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "numpy",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "pandas",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "statsmodels",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "yfinance",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "feedparser",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "beautifulsoup4",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "requests",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "Agentic Warden",
+      "type": "Custom Module"
+    },
+    {
+      "name": "GovAgent",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Steganographic Layer",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Provenance Engine",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Formal Verification",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Unconventional Orchestrator",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Community Sensors",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Cascade Discovery",
+      "type": "Custom Module"
+    }
+  ],
+  "stats": {
+    "threats": 213,
+    "cascade_rules": 34,
+    "data_sources": 13,
+    "software_libraries": 18
+  }
 }
