@@ -336,7 +336,6 @@
       // Build map of threat ID → latest event description
       const eventMap = {};
       if (Array.isArray(cascadeLog)) {
-        // Sort events by timestamp descending
         const sortedEvents = [...cascadeLog].sort((a,b) => {
           const ta = a.timestamp || '';
           const tb = b.timestamp || '';
@@ -345,7 +344,6 @@
         for (const ev of sortedEvents) {
           const tid = ev.threat_id || ev.id || '';
           if (tid && !eventMap[tid]) {
-            // Take the first (most recent) event for this threat
             eventMap[tid] = {
               description: ev.description || ev.event || 'Event logged',
               timestamp: ev.timestamp || 'recent'
@@ -365,13 +363,14 @@
         const cardClass = getStatusClass(status);
         const badgeClass = getBadgeClass(status);
         const tid = t.id || '';
+        // Use description or name
+        const description = t.description || t.name || 'No description';
         const eventInfo = eventMap[tid];
         let justification = '';
         if (eventInfo) {
           const time = eventInfo.timestamp ? new Date(eventInfo.timestamp).toLocaleString() : 'recently';
           justification = `<div class="justification"><strong>Latest development:</strong> ${escapeHtml(eventInfo.description)} <span style="font-size:0.7rem; opacity:0.7;">(${time})</span></div>`;
         } else {
-          // Fallback: use SCP and priority to generate a qualitative reason
           const scp = t.scp || 0.5;
           const pri = t.priority_score || 0;
           let reason = 'High systemic risk';
@@ -391,7 +390,7 @@
                 <span>${escapeHtml(tid)} – ${escapeHtml(t.name || 'Unknown')}</span>
                 <span class="badge ${badgeClass}">${escapeHtml(status)}</span>
               </div>
-              <p>${escapeHtml(t.description || 'No description')}</p>
+              <p>${escapeHtml(description)}</p>
               ${justification}
               <div style="font-size:0.75rem; margin-top:0.5rem;">SCP: ${(t.scp||0).toFixed(2)} · Priority: ${Math.round(t.priority_score||0)}</div>
             </div>
