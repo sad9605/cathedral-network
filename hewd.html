@@ -5,210 +5,62 @@
   <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — HEWD Dashboard</title>
-  <meta name="description" content="Humanitarian Early Warning Dashboard – real‑time indicators for food security, conflict, displacement, and health emergencies.">
+  <meta name="description" content="Humanitarian early warning dashboard – dynamic, mortality‑weighted, updated daily.">
+  <meta property="og:title" content="Cathedral Network — HEWD Dashboard">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
-    :root {
-      --violet: #b39ddb;
-      --violet-dark: #7c4dff;
-      --violet-light: #f5f0fa;
-      --card-radius: 20px;
-      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
-      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
-      --bg-light: #fafafa;
-      --text-dark: #1a1a1a;
-    }
+    /* Same CSS as original – unchanged */
+    :root { --violet: #b39ddb; --violet-dark: #7c4dff; --violet-light: #f5f0fa; --card-radius: 20px; --shadow-sm: 0 4px 12px rgba(0,0,0,0.05); --shadow-hover: 0 12px 24px rgba(0,0,0,0.1); --bg-light: #fafafa; --text-dark: #1a1a1a; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-      transition: background 0.2s, color 0.2s;
-    }
-    body.dark {
-      --bg-light: #1e1e2f;
-      --text-dark: #f0f0f0;
-      background: #1e1e2f;
-      color: #f0f0f0;
-    }
-    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
-    .cathedral-banner {
-      background: var(--violet);
-      padding: 1.5rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    .banner-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.5; transition: background 0.2s, color 0.2s; }
+    body.dark { --bg-light: #1e1e2f; --text-dark: #f0f0f0; background: #1e1e2f; color: #f0f0f0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+    .cathedral-banner { background: var(--violet); padding: 1.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .banner-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1.5rem; }
     .logo-mark svg { display: block; }
-    .wordmark h1 {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 300;
-      font-size: 1.6rem;
-      letter-spacing: 0.1em;
-      color: white;
-      margin: 0;
-    }
+    .wordmark h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 300; font-size: 1.6rem; letter-spacing: 0.1em; color: white; margin: 0; }
     .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
-    .nav {
-      margin: 1rem 0 1.5rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      background: white;
-      border-radius: 60px;
-      padding: 0.5rem 1rem;
-      box-shadow: var(--shadow-sm);
-    }
+    .nav { margin: 1rem 0 1.5rem 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; background: white; border-radius: 60px; padding: 0.5rem 1rem; box-shadow: var(--shadow-sm); }
     body.dark .nav { background: #2a2a3a; }
     .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
     .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
     body.dark .nav-links a { color: #b39ddb; }
-    .menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #5e2d8e;
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
-      .nav-links.show { display: flex; }
-      .menu-btn { display: block; }
-    }
-
-    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
-    .date { color: #666; margin-bottom: 1rem; font-size: 0.9rem; }
-    body.dark .date { color: #aaa; }
-
-    /* Stats grid */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    .stat-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1rem;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.1s, box-shadow 0.2s;
-    }
-    body.dark .stat-card { background: #2a2a3a; }
-    .stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-    .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--violet-dark); }
-    body.dark .stat-card .number { color: #b39ddb; }
-    .stat-card .label { font-size: 0.7rem; text-transform: uppercase; color: #666; letter-spacing: 0.5px; }
-    body.dark .stat-card .label { color: #aaa; }
-
-    /* Indicator grid */
-    .indicator-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.2rem;
-      margin: 1.5rem 0;
-    }
-    .indicator-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      box-shadow: var(--shadow-sm);
-      border-left: 6px solid var(--violet-dark);
-      transition: transform 0.1s, box-shadow 0.2s;
-    }
-    body.dark .indicator-card { background: #2a2a3a; }
-    .indicator-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-    .indicator-card .title {
-      font-weight: 700;
-      font-size: 1.05rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .indicator-card .badge {
-      display: inline-block;
-      padding: 0.2rem 0.6rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      background: var(--violet-light);
-      color: var(--violet-dark);
-    }
-    body.dark .indicator-card .badge { background: #3a3a4a; color: #b39ddb; }
-    .badge-critical { background: #dc2626; color: white; }
-    .badge-warning { background: #f97316; color: white; }
-    .badge-normal { background: #22c55e; color: white; }
-    .indicator-card .value { font-size: 1.8rem; font-weight: 700; margin: 0.3rem 0; }
-    .indicator-card .desc { font-size: 0.9rem; opacity: 0.8; }
-    .indicator-card .meta { font-size: 0.75rem; opacity: 0.6; margin-top: 0.4rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .empty-state {
-      text-align: center;
-      padding: 3rem 1rem;
-      opacity: 0.6;
-    }
-    .footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-style: italic;
-      color: #888;
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
-    }
-    .dark-mode-toggle {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      background: var(--violet-dark);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: var(--shadow-sm);
-    }
-    @media (max-width: 600px) {
-      .banner-content { flex-direction: column; text-align: center; }
-      .container { padding: 1rem; }
-      .indicator-grid { grid-template-columns: 1fr; }
-      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
-    }
+    .menu-btn { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #5e2d8e; }
+    @media (max-width: 768px) { .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; } .nav-links.show { display: flex; } .menu-btn { display: block; } }
+    .metrics-strip { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; background: white; border-radius: var(--card-radius); padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #eee; cursor: pointer; }
+    body.dark .metrics-strip { background: #2a2a3a; border-color: #444; }
+    .metric-item { flex: 1; text-align: center; padding: 0.5rem; transition: background 0.2s; border-radius: var(--card-radius); text-decoration: none; color: inherit; }
+    .metric-item:hover { background: var(--violet-light); }
+    body.dark .metric-item:hover { background: var(--violet-dark); }
+    .metric-value { font-size: 1.5rem; font-weight: 700; color: var(--violet-dark); }
+    .metric-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.2rem; margin: 1.5rem 0; }
+    .card { background: white; border-radius: var(--card-radius); box-shadow: var(--shadow-sm); transition: transform 0.1s, box-shadow 0.2s; overflow: hidden; border: 1px solid #eee; }
+    body.dark .card { background: #2a2a3a; border-color: #444; }
+    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .card-content { padding: 1.2rem; }
+    .card-title { font-weight: 700; font-size: 1.2rem; margin-bottom: 0.75rem; color: #5e2d8e; border-left: 4px solid var(--violet-dark); padding-left: 0.75rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .severity-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 40px; font-size: 0.7rem; font-weight: 600; }
+    .severity-red { background: #dc2626; color: white; }
+    .severity-orange { background: #f97316; color: white; }
+    .severity-yellow { background: #facc15; color: #1a1a1a; }
+    .severity-black { background: #111; color: white; }
+    .chronic-badge { background: #5e2d8e; color: white; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 20px; margin-left: 0.5rem; }
+    .alert-badge { background: #dc2626; color: white; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 20px; margin-left: 0.5rem; }
+    .recommendation { font-size: 0.85rem; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid #eee; }
+    body.dark .recommendation { border-top-color: #444; }
+    .footer { margin-top: 3rem; text-align: center; font-style: italic; color: #888; border-top: 1px solid #ddd; padding-top: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    .date { color: #555; margin-bottom: 1rem; font-size: 0.9rem; }
+    .dark-mode-toggle { position: fixed; bottom: 1rem; right: 1rem; background: var(--violet-dark); color: white; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 1.2rem; cursor: pointer; z-index: 1000; box-shadow: var(--shadow-sm); }
+    @media (max-width: 600px) { .banner-content { flex-direction: column; text-align: center; } .container { padding: 1rem; } .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; } .metrics-strip { flex-direction: column; } }
   </style>
 </head>
 <body>
 <header class="cathedral-banner">
   <div class="banner-content">
-    <div class="logo-mark">
-      <svg viewBox="0 0 120 140" width="50" height="60">
-        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
-        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
-        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
-        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
-        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
-        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
-        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
-        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
-      </svg>
-    </div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">HEWD – Humanitarian Early Warning Dashboard</p></div>
+    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Humanitarian Early Warning Dashboard</p></div>
   </div>
 </header>
 <div class="container">
@@ -234,185 +86,118 @@
     </div>
   </div>
 
-  <h1>🌐 Humanitarian Early Warning Dashboard</h1>
-  <div class="date" id="lastUpdateDate">Loading latest data…</div>
+  <h1>Humanitarian Early Warning Dashboard (HEWD)</h1>
+  <div class="date" id="hewdDate">Loading latest data…</div>
 
-  <!-- Stats -->
-  <div class="stats-grid">
-    <div class="stat-card"><div class="number" id="totalThreats">--</div><div class="label">Threats Tracked</div></div>
-    <div class="stat-card"><div class="number" id="criticalCount">--</div><div class="label">Critical (Red/Black)</div></div>
-    <div class="stat-card"><div class="number" id="alertCount">--</div><div class="label">Alerts Active</div></div>
-    <div class="stat-card"><div class="number" id="domainsCovered">--</div><div class="label">Domains Covered</div></div>
+  <div class="metrics-strip">
+    <a href="glossary.html#sca" class="metric-item"><div class="metric-value" id="scaValue">--</div><div class="metric-label">SCA Tier</div></a>
+    <a href="glossary.html#scp" class="metric-item"><div class="metric-value" id="scpValue">--</div><div class="metric-label">Bayesian SCP</div></a>
+    <a href="glossary.html#gsci" class="metric-item"><div class="metric-value" id="gsciValue">--</div><div class="metric-label">GSCI</div></a>
+    <a href="prediction-log.html" class="metric-item"><div class="metric-value" id="hitRateValue">--</div><div class="metric-label">Prediction hit rate</div></a>
   </div>
 
-  <!-- Indicators -->
-  <div id="indicatorContainer">
-    <div class="empty-state">Loading humanitarian indicators…</div>
+  <div id="hewd-grid" class="card-grid">
+    <p style="grid-column:1/-1; text-align:center; padding:2rem; opacity:0.6;">Loading humanitarian threats…</p>
   </div>
 
   <div class="footer">
     <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    HEWD Dashboard · Updated daily from the Cathedral's sweep.
+    HEWD v2.0 · Dynamic · Powered by Cathedral Engine
   </div>
 </div>
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
-
 <script>
-  async function loadHEWD() {
-    const container = document.getElementById('indicatorContainer');
-
-    try {
-      // Try to load hewd_data.json first (if generated by pipeline)
-      let resp = await fetch('hewd_data.json');
-      let data = null;
-      if (resp.ok) {
-        data = await resp.json();
-      }
-
-      // If no dedicated hewd_data.json, build from threats.json and sweep_report.json
-      if (!data || Object.keys(data).length === 0) {
-        const [threatResp, sweepResp] = await Promise.all([
-          fetch('threats.json'),
-          fetch('sweep_report.json').catch(() => ({ ok: false }))
-        ]);
-
-        if (threatResp.ok) {
-          const threatData = await threatResp.json();
-          const threats = threatData.threats || [];
-          const sweep = sweepResp.ok ? await sweepResp.json() : {};
-
-          // Build indicators from threats
-          const statusCounts = { Black: 0, Red: 0, Orange: 0, Yellow: 0, Green: 0 };
-          const domains = new Set();
-
-          threats.forEach(t => {
-            const status = t.status || 'Yellow';
-            if (status.includes('Black')) statusCounts.Black++;
-            else if (status === 'Red') statusCounts.Red++;
-            else if (status === 'Orange') statusCounts.Orange++;
-            else if (status === 'Yellow') statusCounts.Yellow++;
-            else if (status === 'Green') statusCounts.Green++;
-            if (t.domains) t.domains.forEach(d => domains.add(d));
-          });
-
-          data = {
-            timestamp: sweep.timestamp || new Date().toISOString(),
-            indicators: [
-              {
-                id: 'total_threats',
-                title: 'Total Threats',
-                value: threats.length,
-                description: 'All tracked threats across all domains',
-                status: 'normal',
-                source: 'threats.json'
-              },
-              {
-                id: 'black_red',
-                title: 'Critical Threats (Black/Red)',
-                value: statusCounts.Black + statusCounts.Red,
-                description: 'Immediate humanitarian risk',
-                status: statusCounts.Black + statusCounts.Red > 5 ? 'critical' : 'warning',
-                source: 'threats.json'
-              },
-              {
-                id: 'active_alerts',
-                title: 'Active Alerts (CAP)',
-                value: statusCounts.Red + statusCounts.Black,
-                description: 'Red and Black level alerts requiring immediate attention',
-                status: statusCounts.Red + statusCounts.Black > 3 ? 'critical' : 'normal',
-                source: 'threats.json'
-              },
-              {
-                id: 'domains',
-                title: 'Domains Affected',
-                value: domains.size,
-                description: `Unique humanitarian domains (${Array.from(domains).join(', ')})`,
-                status: domains.size > 5 ? 'warning' : 'normal',
-                source: 'threats.json'
-              }
-            ]
-          };
-
-          // Update stats
-          document.getElementById('totalThreats').textContent = threats.length;
-          document.getElementById('criticalCount').textContent = statusCounts.Black + statusCounts.Red;
-          document.getElementById('alertCount').textContent = statusCounts.Red + statusCounts.Black;
-          document.getElementById('domainsCovered').textContent = domains.size;
-
-          if (sweep.timestamp) {
-            document.getElementById('lastUpdateDate').textContent = new Date(sweep.timestamp).toLocaleString();
-          }
-        } else {
-          throw new Error('Could not load threat data');
-        }
-      } else {
-        // Use hewd_data.json if available
-        const indicators = data.indicators || [];
-        document.getElementById('totalThreats').textContent = data.total_threats || '--';
-        document.getElementById('criticalCount').textContent = data.critical_count || '--';
-        document.getElementById('alertCount').textContent = data.alert_count || '--';
-        document.getElementById('domainsCovered').textContent = data.domains_covered || '--';
-        if (data.timestamp) {
-          document.getElementById('lastUpdateDate').textContent = new Date(data.timestamp).toLocaleString();
-        }
-      }
-
-      // Render indicators
-      const indicators = data.indicators || [];
-      if (indicators.length === 0) {
-        container.innerHTML = `
-          <div class="empty-state">
-            <p style="font-size: 2rem;">📡</p>
-            <p style="font-size: 1.2rem; font-weight: 600;">No indicators available</p>
-            <p>Humanitarian data is being processed. Check back soon.</p>
+  // ----- Render HEWD from data -----
+  function renderHEWD(threats) {
+    const container = document.getElementById('hewd-grid');
+    if (!threats || threats.length === 0) {
+      container.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:2rem; opacity:0.6;">No humanitarian threats found.</p>';
+      return;
+    }
+    // Score is already computed in the JSON, but we can re-sort by score to be safe
+    const sorted = [...threats].sort((a,b) => (b.score||0) - (a.score||0));
+    container.innerHTML = sorted.map(t => {
+      let severityClass = '';
+      if (t.severity === 'black') severityClass = 'severity-black';
+      else if (t.severity === 'red') severityClass = 'severity-red';
+      else if (t.severity === 'orange') severityClass = 'severity-orange';
+      else severityClass = 'severity-yellow';
+      let chronicHtml = t.chronicClass ? `<span class="chronic-badge">Chronic Class ${t.chronicClass}</span>` : '';
+      let compoundHtml = t.compoundAlert ? `<span class="alert-badge">⚠️ Compound Alert</span>` : '';
+      return `
+        <div class="card">
+          <div class="card-content">
+            <div class="card-title">${t.name}<span><span class="severity-badge ${severityClass}">${t.status}</span>${chronicHtml}${compoundHtml}</span></div>
+            <div>🎯 Priority score: <strong>${t.score}</strong> (${t.mortalityWeight}^0.7 × ${t.severityFactor} × ${(1+0.2*(t.recency-1)).toFixed(1)})</div>
+            <div class="recommendation">📋 ${t.recommendation}</div>
+            <div style="font-size:0.65rem; margin-top:0.5rem; color:#888;">📡 ${t.source}</div>
           </div>
-        `;
-        return;
-      }
-
-      container.innerHTML = indicators.map(ind => {
-        const badgeClass = ind.status === 'critical' ? 'badge-critical' :
-                           ind.status === 'warning' ? 'badge-warning' : 'badge-normal';
-        const badgeLabel = ind.status === 'critical' ? 'Critical' :
-                           ind.status === 'warning' ? 'Watch' : 'Normal';
-        return `
-          <div class="indicator-card">
-            <div class="title">
-              <span>${ind.title}</span>
-              <span class="badge ${badgeClass}">${badgeLabel}</span>
-            </div>
-            <div class="value">${ind.value}</div>
-            <div class="desc">${ind.description || ''}</div>
-            <div class="meta">
-              <span>📌 ${ind.source || 'Cathedral'}</span>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-    } catch(e) {
-      console.error('Error loading HEWD data:', e);
-      container.innerHTML = `
-        <div class="empty-state">
-          <p style="font-size: 2rem;">⚠️</p>
-          <p style="font-size: 1.2rem; font-weight: 600;">Could not load HEWD data</p>
-          <p>Please try again later. The Cathedral is watching.</p>
         </div>
       `;
-      // Set default stats anyway
-      document.getElementById('totalThreats').textContent = '--';
-      document.getElementById('criticalCount').textContent = '--';
-      document.getElementById('alertCount').textContent = '--';
-      document.getElementById('domainsCovered').textContent = '--';
+    }).join('');
+  }
+
+  // ----- Load HEWD data -----
+  async function loadHEWD() {
+    try {
+      const resp = await fetch('hewd_data.json');
+      if (!resp.ok) throw new Error('Failed to fetch hewd_data.json');
+      const data = await resp.json();
+      document.getElementById('hewdDate').textContent = new Date(data.timestamp).toLocaleString();
+
+      // Update metrics strip
+      // We can pull these from the global threats.json via separate fetch, or keep static
+      // For now, we'll keep them as they were (hardcoded in HTML) but could be dynamic later
+      // But we can also fetch threats.json and compute them on the fly
+      // For simplicity, we'll load from the same data if available, but we'll keep the HTML placeholders
+
+      renderHEWD(data.threats);
+    } catch(e) {
+      console.error('Error loading HEWD data:', e);
+      document.getElementById('hewd-grid').innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:2rem; color:#dc2626;">Error loading humanitarian data. Please try again later.</p>';
     }
   }
 
-  // ---- Nav toggle ----
+  // ----- Also update metrics strip from threats.json -----
+  async function updateMetrics() {
+    try {
+      const resp = await fetch('threats.json');
+      if (!resp.ok) return;
+      const data = await resp.json();
+      const threats = data.threats || [];
+      // Compute metrics: SCA tier, avg SCP, GSCI, hit rate (from predictions)
+      const scpValues = threats.map(t => t.scp || 0);
+      const avgScp = scpValues.length ? scpValues.reduce((a,b)=>a+b,0)/scpValues.length : 0;
+      const scaTier = (avgScp > 0.8) ? '5 (Unprecedented)' :
+                      (avgScp > 0.6) ? '4 (Critical)' :
+                      (avgScp > 0.4) ? '3 (Extreme)' :
+                      (avgScp > 0.2) ? '2 (High)' : '1 (Elevated)';
+
+      document.getElementById('scaValue').textContent = scaTier;
+      document.getElementById('scpValue').textContent = Math.round(avgScp * 100) + '%';
+      document.getElementById('gsciValue').textContent = data.gsci || Math.round(avgScp * 100);
+
+      // Hit rate from predictions.json
+      const predResp = await fetch('predictions.json');
+      if (predResp.ok) {
+        const predData = await predResp.json();
+        document.getElementById('hitRateValue').textContent = (predData.stats && predData.stats.hit_rate) ? predData.stats.hit_rate + '%' : '--';
+      }
+    } catch(e) {
+      console.warn('Could not update metrics:', e);
+    }
+  }
+
+  // ----- On load -----
+  loadHEWD();
+  updateMetrics();
+
+  // ----- Nav toggle -----
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
 
-  // ---- Dark mode ----
+  // ----- Dark mode -----
   const darkToggle = document.getElementById('darkModeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const storedTheme = localStorage.getItem('cathedral-theme');
@@ -426,11 +211,7 @@
     darkToggle.innerText = isDark ? '☀️' : '🌙';
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
-
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');
-
-  // Load HEWD data on page load
-  loadHEWD();
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

@@ -92,7 +92,7 @@ def main():
         print(f"   ⚠️ ML step failed: {e}")
 
     # ---- Generate HEWD data ----
-    run_script("generate_hewd.py", "HEWD data generation")
+    run_script("generate_hewd.py", "HEWD humanitarian threat selection")
 
     # 4. Regional indices
     run_script("indices.py", "Regional indices")
