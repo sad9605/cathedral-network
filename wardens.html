@@ -163,7 +163,251 @@
 <header class="cathedral-banner">
   <div class="banner-content">
     <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">A cathedral that watches</p></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — Wardens</title>
+  <meta name="description" content="Join the Cathedral's bicameral Warden system – the guardians of early warning.">
+  <style>
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --card-radius: 20px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+      --bg-light: #fafafa;
+      --text-dark: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.dark {
+      --bg-light: #1e1e2f;
+      --text-dark: #f0f0f0;
+      background: #1e1e2f;
+      color: #f0f0f0;
+    }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
+    .cathedral-banner {
+      background: var(--violet);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .logo-mark svg { display: block; }
+    .wordmark h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: white;
+      margin: 0;
+    }
+    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
+    .nav {
+      margin: 1rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 60px;
+      padding: 0.5rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    body.dark .nav { background: #2a2a3a; }
+    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
+    body.dark .nav-links a { color: #b39ddb; }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #5e2d8e;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
+      .nav-links.show { display: flex; }
+      .menu-btn { display: block; }
+    }
+
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      border-bottom: 2px solid var(--violet);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    h3 { font-size: 1.1rem; margin-top: 1.5rem; color: var(--violet-dark); }
+    body.dark h3 { color: #b39ddb; }
+
+    .warden-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+    }
+    body.dark .stat-card { background: #2a2a3a; }
+    .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--violet-dark); }
+    body.dark .stat-card .number { color: #b39ddb; }
+    .stat-card .label { font-size: 0.8rem; text-transform: uppercase; color: #666; }
+    body.dark .stat-card .label { color: #aaa; }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 700px) { .role-grid { grid-template-columns: 1fr; } }
+    .role-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--violet-dark);
+    }
+    body.dark .role-card { background: #2a2a3a; }
+    .role-card h3 { margin-top: 0; }
+    .role-card .pill {
+      display: inline-block;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: var(--violet-light);
+      color: var(--violet-dark);
+    }
+    body.dark .role-card .pill { background: #3a3a4a; color: #b39ddb; }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .contact-item {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 0.8rem 1.2rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1px solid #eee;
+      text-decoration: none;
+      color: inherit;
+    }
+    body.dark .contact-item { background: #2a2a3a; border-color: #444; }
+    .contact-item:hover { border-color: var(--violet-dark); }
+    .contact-item .icon { font-size: 1.2rem; }
+    .contact-item .handle { font-weight: 500; }
+
+    .form-wrapper {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #eee;
+      overflow: hidden;
+    }
+    body.dark .form-wrapper { background: #2a2a3a; border-color: #444; }
+    .form-wrapper iframe {
+      width: 100%;
+      height: 2459px;
+      border: none;
+    }
+    @media (max-width: 700px) {
+      .form-wrapper iframe { height: 2800px; }
+    }
+
+    .cta-box {
+      background: var(--violet-light);
+      border-radius: var(--card-radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      border: 2px solid var(--violet-dark);
+    }
+    body.dark .cta-box { background: #2a2a3a; border-color: var(--violet); }
+    .cta-box .big { font-size: 1.8rem; font-weight: 700; }
+    .cta-box .sub { font-size: 1rem; margin-top: 0.5rem; }
+
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 1rem; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
+    }
+  </style>
+</head>
+<body>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">The Warden Corps</p></div>
   </div>
 </header>
 <div class="container">
@@ -178,92 +422,135 @@
       <a href="constitution.html">Constitution</a>
       <a href="wardens.html">Wardens</a>
       <a href="hewd.html">HEWD Dashboard</a>
+      <a href="health.html">System Health</a>
       <a href="about.html">About</a>
       <a href="threat-matrix.html">Threat Matrix</a>
       <a href="glossary.html">Glossary</a>
       <a href="methodology.html">Methodology</a>
       <a href="pra.html">Personal Resilience</a>
       <a href="prediction-log.html">Prediction Log</a>
+      <a href="credits.html">Credits</a>
     </div>
   </div>
 
-  <h1>🛡️ Wardens of the Cathedral</h1>
-  <p style="margin-bottom: 1rem;">Human stewards who validate predictions, confirm alerts, and govern the Cathedral. The engine runs itself – but it answers to you.</p>
+  <h1>🛡️ The Warden Corps</h1>
+  <p style="margin-bottom: 1rem;">
+    The Cathedral is governed by its Wardens – a bicameral body of guardians who verify threats, confirm predictions, and uphold the Constitution.
+    <strong>Law XI</strong> establishes the Council (21 Wardens) and the Assembly (41 Wardens). This is your invitation to join them.
+  </p>
 
-  <!-- Current Status -->
-  <div style="background: var(--violet-light); padding: 1.5rem; border-radius: var(--card-radius); margin-bottom: 2rem;">
-    <h3 style="margin-bottom: 0.5rem;">⚡ Current Status</h3>
-    <ul style="list-style: none; padding: 0;">
-      <li>✅ The daily sweep is <strong>fully automated</strong> – no manual sweeps required.</li>
-      <li>✅ The cascade engine runs <strong>every 6 hours</strong> – predictions update automatically.</li>
-      <li>✅ The Agentic Warden handles <strong>low-risk actions</strong> autonomously.</li>
-      <li>🟡 <strong>Wardens are needed</strong> to validate predictions and confirm Black Acute alerts (Law II).</li>
-      <li>🟡 <strong>Wardens are needed</strong> to review proposed cascade rules and constitutional amendments.</li>
-    </ul>
+  <!-- Stats -->
+  <div class="warden-stats" id="wardenStats">
+    <div class="stat-card"><div class="number" id="councilCount">0</div><div class="label">Council Wardens (of 21)</div></div>
+    <div class="stat-card"><div class="number" id="assemblyCount">0</div><div class="label">Assembly Wardens (of 41)</div></div>
+    <div class="stat-card"><div class="number" id="totalCount">0</div><div class="label">Total Wardens</div></div>
+    <div class="stat-card"><div class="number" id="spottersCount">0</div><div class="label">Spotters</div></div>
   </div>
 
-  <div class="warden-grid">
-    <div class="warden-card">
-      <h3>🌍 Regional Wardens</h3>
-      <p>Validate ground truth for your region. Confirm or falsify predictions. Flag local context the engine might miss.</p>
-      <p class="status"><span class="status-open">🟢 Open</span> – North America, Europe, Middle East, East Africa, South Asia, Southeast Asia, Latin America</p>
-      <p class="status"><span class="status-filled">🔵 Filled</span> – None yet. You could be the first.</p>
+  <!-- Roles -->
+  <h2>⚖️ Two Chambers, One Mission</h2>
+  <div class="role-grid">
+    <div class="role-card">
+      <span class="pill">Council</span>
+      <h3>🏛️ The Council (21)</h3>
+      <p><strong>Strategic oversight.</strong> Council Wardens approve major amendments, confirm Black-level threats, and guide the Cathedral's long-term direction.</p>
+      <ul style="margin-top:0.5rem; padding-left:1.2rem;">
+        <li>Serve 3‑year terms</li>
+        <li>Vote on constitutional amendments</li>
+        <li>Confirm Black Acute / Black Structural threats</li>
+        <li>Approve the annual budget (when endowed)</li>
+      </ul>
     </div>
-    <div class="warden-card">
-      <h3>🏛️ Institutional Wardens</h3>
-      <p>Monitor specific institutions – UN, WHO, FAO, IMF, NATO, AI Safety Institutes. Track institutional responses to crises.</p>
-      <p class="status"><span class="status-open">🟢 Open</span> – All institutional roles are open.</p>
-    </div>
-    <div class="warden-card">
-      <h3>🧠 Technical Wardens</h3>
-      <p>Review code, suggest improvements, maintain the infrastructure. Ensure the Cathedral remains self-sustaining.</p>
-      <p class="status"><span class="status-open">🟢 Open</span> – Knowledge of Python, JavaScript, or DevOps is a plus.</p>
+    <div class="role-card">
+      <span class="pill">Assembly</span>
+      <h3>🗳️ The Assembly (41)</h3>
+      <p><strong>Operational verification.</strong> Assembly Wardens review predictions, verify events, and ensure the Cathedral's daily work is accurate and honest.</p>
+      <ul style="margin-top:0.5rem; padding-left:1.2rem;">
+        <li>Serve 2‑year terms</li>
+        <li>Confirm/falsify predictions</li>
+        <li>Review threat escalations</li>
+        <li>Elect the Council Speaker</li>
+      </ul>
     </div>
   </div>
 
-  <!-- Why Wardens Are Needed -->
-  <h2>Why Wardens?</h2>
-  <p>The engine predicts. Wardens <strong>confirm</strong>. The Cathedral is bound by Law II – no autonomous action without Warden confirmation. You are the human override layer.</p>
-
-  <h2>What Wardens Do (Updated)</h2>
-  <ul>
-    <li><strong>Validate predictions</strong> – Check the Prediction Log. Confirm or falsify predictions when they reach their deadline.</li>
-    <li><strong>Approve Black Acute alerts</strong> – Before any critical alert is published, a Warden must confirm it (Law II).</li>
-    <li><strong>Review cascade rules</strong> – The engine suggests new rules. Wardens review and approve them.</li>
-    <li><strong>Provide local context</strong> – The engine sees data. You see the ground truth. Flag what the engine misses.</li>
-    <li><strong>Govern the Cathedral</strong> – As the Warden corps grows, you will seat the Council and Assembly (Law XI).</li>
+  <!-- Responsibilities -->
+  <h2>📋 What Wardens Do</h2>
+  <ul style="margin:1rem 0 1.5rem 2rem;">
+    <li><strong>Verify threats</strong> – review OSINT reports and confirm whether a threat is real.</li>
+    <li><strong>Confirm predictions</strong> – mark predictions as confirmed or falsified (Law III).</li>
+    <li><strong>Uphold the Constitution</strong> – ensure all actions align with the XV Laws.</li>
+    <li><strong>Participate in votes</strong> – quorum of ⅓ for ordinary votes, ⅔ for amendments.</li>
+    <li><strong>Protect the vulnerable</strong> – Law I is non‑negotiable.</li>
   </ul>
 
-  <h2>How to Become a Warden</h2>
-  <ol>
-    <li>Read the <a href="constitution.html">Eleven Immutable Laws</a>.</li>
-    <li>Fill out the application form below.</li>
-    <li>Complete a brief onboarding session (30 min, remote).</li>
-    <li>Start validating predictions.</li>
-  </ol>
-
-  <h2>Apply Now</h2>
-  <!-- Embed your application form here -->
-  <div style="background: var(--violet-light); padding: 1.5rem; border-radius: var(--card-radius); margin: 1rem 0;">
-    <p><strong>Application form is embedded here.</strong></p>
-    <!-- Paste your form embed code below -->
-    <!-- <iframe src="YOUR_FORM_URL" width="100%" height="800" frameborder="0" style="border-radius: var(--card-radius);"></iframe> -->
-    <p style="font-size: 0.9rem; color: #555;">Or apply via Signal: <code>+1-XXX-XXX-XXXX</code></p>
+  <!-- Call to Action -->
+  <div class="cta-box">
+    <div class="big">🕯️ The Cathedral Needs You</div>
+    <div class="sub">Apply to become a Warden. Serve the vulnerable. Outlast the builders.</div>
   </div>
+
+  <!-- Application Form -->
+  <h2>📝 Apply Now</h2>
+  <p>Fill out the application below. All Wardens must agree to the Silence Clause (Law III, Section 2) and uphold the Constitution.</p>
+  <div class="form-wrapper">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfoEW_bbD8aSslmYWgVcPdEKty8aX3YJscP15sGSjAguq9N2g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+
+  <!-- Contact -->
+  <h2>📬 Contact the Cathedral</h2>
+  <div class="contact-grid">
+    <a href="mailto:cathedral.network@proton.me" class="contact-item">
+      <span class="icon">✉️</span>
+      <span class="handle">cathedral.network@proton.me</span>
+    </a>
+    <a href="https://github.com/sad9605/cathedral-network" target="_blank" rel="noopener" class="contact-item">
+      <span class="icon">🐙</span>
+      <span class="handle">GitHub</span>
+    </a>
+    <a href="#" class="contact-item" id="signalLink">
+      <span class="icon">📱</span>
+      <span class="handle">Signal (coming soon)</span>
+    </a>
+    <a href="https://sad9605.github.io/cathedral-network/" class="contact-item">
+      <span class="icon">🌐</span>
+      <span class="handle">Live Site</span>
+    </a>
+  </div>
+  <p style="font-size:0.85rem; color:#666; margin-top:0.5rem;">
+    <strong>Signal:</strong> A dedicated Warden Signal group will be established once we have 5+ applicants. For urgent matters, email us directly.
+  </p>
 
   <div class="footer">
     <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Cathedral Core v1.6.0 · Wardens page updated 16 June 2026.
+    Warden Corps · Updated dynamically from wardens.json.
   </div>
 </div>
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
 <script>
-  // Navigation and dark mode (standard)
+  // ---- Load Warden stats from wardens.json (if available) ----
+  async function loadWardenStats() {
+    try {
+      const resp = await fetch('wardens.json');
+      if (!resp.ok) return;
+      const data = await resp.json();
+      document.getElementById('councilCount').textContent = data.council || 0;
+      document.getElementById('assemblyCount').textContent = data.assembly || 0;
+      document.getElementById('totalCount').textContent = (data.council || 0) + (data.assembly || 0);
+      document.getElementById('spottersCount').textContent = data.spotters || 0;
+    } catch(e) {
+      // Silently fallback – stats stay at 0
+    }
+  }
+  loadWardenStats();
+
+  // ---- Nav toggle ----
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
 
+  // ---- Dark mode ----
   const darkToggle = document.getElementById('darkModeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const storedTheme = localStorage.getItem('cathedral-theme');
@@ -277,6 +564,9 @@
     darkToggle.innerText = isDark ? '☀️' : '🌙';
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
+
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');
 </script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
