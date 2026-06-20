@@ -4,13 +4,8 @@
   <meta charset="UTF-8">
   <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — HEWD Dashboard · 10 June 2026</title>
-  <meta name="description" content="Humanitarian priorities: Horn famine, Ebola, Iran-Israel war, Philippines earthquake, water‑borne illness risk. Mortality‑weighted scoring.">
-  <meta property="og:title" content="Cathedral Network — HEWD Dashboard · 10 June 2026">
-  <meta property="og:description" content="Prioritising the most severe humanitarian threats with transparent mortality‑weighted scoring.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cathedral-network.netlify.app/hewd.html">
-  <meta name="twitter:card" content="summary_large_image">
+  <title>Cathedral Network — HEWD Dashboard</title>
+  <meta name="description" content="Humanitarian Early Warning Dashboard – real‑time indicators for food security, conflict, displacement, and health emergencies.">
   <style>
     :root {
       --violet: #b39ddb;
@@ -27,7 +22,7 @@
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg-light);
       color: var(--text-dark);
-      line-height: 1.5;
+      line-height: 1.6;
       transition: background 0.2s, color 0.2s;
     }
     body.dark {
@@ -36,7 +31,7 @@
       background: #1e1e2f;
       color: #f0f0f0;
     }
-    .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
     .cathedral-banner {
       background: var(--violet);
       padding: 1.5rem 1rem;
@@ -71,16 +66,8 @@
       box-shadow: var(--shadow-sm);
     }
     body.dark .nav { background: #2a2a3a; }
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: #5e2d8e;
-      text-decoration: none;
-      font-weight: 500;
-    }
+    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
     body.dark .nav-links a { color: #b39ddb; }
     .menu-btn {
       display: none;
@@ -95,94 +82,86 @@
       .nav-links.show { display: flex; }
       .menu-btn { display: block; }
     }
-    .metrics-strip {
-      display: flex;
-      flex-wrap: wrap;
+
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+    .date { color: #666; margin-bottom: 1rem; font-size: 0.9rem; }
+    body.dark .date { color: #aaa; }
+
+    /* Stats grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       gap: 1rem;
-      justify-content: space-between;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
       background: white;
       border-radius: var(--card-radius);
       padding: 1rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid #eee;
-      cursor: pointer;
-    }
-    body.dark .metrics-strip { background: #2a2a3a; border-color: #444; }
-    .metric-item {
-      flex: 1;
       text-align: center;
-      padding: 0.5rem;
-      transition: background 0.2s;
-      border-radius: var(--card-radius);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.1s, box-shadow 0.2s;
     }
-    .metric-item:hover { background: var(--violet-light); }
-    body.dark .metric-item:hover { background: var(--violet-dark); }
-    .metric-value { font-size: 1.5rem; font-weight: 700; color: var(--violet-dark); }
-    body.dark .metric-value { color: #b39ddb; }
-    .metric-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
-    .card-grid {
+    body.dark .stat-card { background: #2a2a3a; }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--violet-dark); }
+    body.dark .stat-card .number { color: #b39ddb; }
+    .stat-card .label { font-size: 0.7rem; text-transform: uppercase; color: #666; letter-spacing: 0.5px; }
+    body.dark .stat-card .label { color: #aaa; }
+
+    /* Indicator grid */
+    .indicator-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.2rem;
       margin: 1.5rem 0;
     }
-    .card {
+    .indicator-card {
       background: white;
       border-radius: var(--card-radius);
+      padding: 1.2rem;
       box-shadow: var(--shadow-sm);
+      border-left: 6px solid var(--violet-dark);
       transition: transform 0.1s, box-shadow 0.2s;
-      overflow: hidden;
-      border: 1px solid #eee;
     }
-    body.dark .card { background: #2a2a3a; border-color: #444; }
-    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-    .card-content { padding: 1.2rem; }
-    .card-title {
+    body.dark .indicator-card { background: #2a2a3a; }
+    .indicator-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .indicator-card .title {
       font-weight: 700;
-      font-size: 1.2rem;
-      margin-bottom: 0.75rem;
-      color: #5e2d8e;
-      border-left: 4px solid var(--violet-dark);
-      padding-left: 0.75rem;
+      font-size: 1.05rem;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-    .severity-badge {
+    .indicator-card .badge {
       display: inline-block;
       padding: 0.2rem 0.6rem;
       border-radius: 40px;
       font-size: 0.7rem;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: var(--violet-light);
+      color: var(--violet-dark);
     }
-    .severity-red { background: #dc2626; color: white; }
-    .severity-orange { background: #f97316; color: white; }
-    .severity-yellow { background: #facc15; color: #1a1a1a; }
-    .severity-black { background: #111; color: white; }
-    .chronic-badge {
-      background: #5e2d8e;
-      color: white;
-      font-size: 0.7rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 20px;
-      margin-left: 0.5rem;
+    body.dark .indicator-card .badge { background: #3a3a4a; color: #b39ddb; }
+    .badge-critical { background: #dc2626; color: white; }
+    .badge-warning { background: #f97316; color: white; }
+    .badge-normal { background: #22c55e; color: white; }
+    .indicator-card .value { font-size: 1.8rem; font-weight: 700; margin: 0.3rem 0; }
+    .indicator-card .desc { font-size: 0.9rem; opacity: 0.8; }
+    .indicator-card .meta { font-size: 0.75rem; opacity: 0.6; margin-top: 0.4rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      opacity: 0.6;
     }
-    .alert-badge {
-      background: #dc2626;
-      color: white;
-      font-size: 0.7rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 20px;
-      margin-left: 0.5rem;
-    }
-    .recommendation {
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-      padding-top: 0.5rem;
-      border-top: 1px solid #eee;
-    }
-    body.dark .recommendation { border-top-color: #444; }
     .footer {
       margin-top: 3rem;
       text-align: center;
@@ -191,8 +170,6 @@
       border-top: 1px solid #ddd;
       padding-top: 1rem;
     }
-    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
-    .date { color: #555; margin-bottom: 1rem; font-size: 0.9rem; }
     .dark-mode-toggle {
       position: fixed;
       bottom: 1rem;
@@ -211,8 +188,8 @@
     @media (max-width: 600px) {
       .banner-content { flex-direction: column; text-align: center; }
       .container { padding: 1rem; }
+      .indicator-grid { grid-template-columns: 1fr; }
       .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
-      .metrics-strip { flex-direction: column; }
     }
   </style>
 </head>
@@ -231,249 +208,218 @@
         <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
       </svg>
     </div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Humanitarian Early Warning Dashboard</p></div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">HEWD – Humanitarian Early Warning Dashboard</p></div>
   </div>
 </header>
 <div class="container">
   <div class="nav">
     <button class="menu-btn" id="menuBtn">☰</button>
     <div class="nav-links" id="navLinks">
-      <a href='index.html'>Ground Truth</a>
-      <a href='https://cathedral-network.netlify.app/undp-demo'>UNDP Demo</a>
-      <a href='https://cathedral-network.netlify.app/archive'>Archive</a>
-      <a href='https://cathedral-network.netlify.app/spotter'>Spotter Guide</a>
-      <a href='https://cathedral-network.netlify.app/sources'>Sources</a>
-      <a href='https://cathedral-network.netlify.app/constitution'>Constitution</a>
-      <a href='https://cathedral-network.netlify.app/wardens'>Wardens</a>
-      <a href='https://cathedral-network.netlify.app/hewd'>HEWD Dashboard</a>
-      <a href='https://cathedral-network.netlify.app/about'>About</a>
-      <a href='https://cathedral-network.netlify.app/threat-matrix'>Threat Matrix</a>
-      <a href='https://cathedral-network.netlify.app/glossary'>Glossary</a>
-      <a href='https://cathedral-network.netlify.app/pra'>Personal Resilience</a>
-      <a href='prediction-log.html'>Prediction Log</a>
+      <a href="index.html">Ground Truth</a>
+      <a href="undp-demo.html">UNDP Demo</a>
+      <a href="archive.html">Archive</a>
+      <a href="spotter.html">Spotter Guide</a>
+      <a href="sources.html">Sources</a>
+      <a href="constitution.html">Constitution</a>
+      <a href="wardens.html">Wardens</a>
+      <a href="hewd.html">HEWD Dashboard</a>
+      <a href="health.html">System Health</a>
+      <a href="about.html">About</a>
+      <a href="threat-matrix.html">Threat Matrix</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="pra.html">Personal Resilience</a>
+      <a href="prediction-log.html">Prediction Log</a>
+      <a href="credits.html">Credits</a>
     </div>
   </div>
 
-  <h1>Humanitarian Early Warning Dashboard (HEWD)</h1>
-  <div class="date">Tuesday, 10 June 2026 · 12:00 CST</div>
+  <h1>🌐 Humanitarian Early Warning Dashboard</h1>
+  <div class="date" id="lastUpdateDate">Loading latest data…</div>
 
-  <!-- Global metrics strip with clickable links -->
-  <div class="metrics-strip">
-    <a class='metric-item' href='https://cathedral-network.netlify.app/glossary#sca' style='text-decoration: none; color: inherit;'>
-      <div class="metric-value">SCA Tier 5</div>
-      <div class="metric-label">Unprecedented</div>
-    </a>
-    <a class='metric-item' href='https://cathedral-network.netlify.app/glossary#scp' style='text-decoration: none; color: inherit;'>
-      <div class="metric-value">100%</div>
-      <div class="metric-label">Bayesian SCP</div>
-    </a>
-    <a class='metric-item' href='https://cathedral-network.netlify.app/glossary#gsci' style='text-decoration: none; color: inherit;'>
-      <div class="metric-value">53.2</div>
-      <div class="metric-label">GSCI (High)</div>
-    </a>
-    <a class='metric-item' href='prediction-log.html' style='text-decoration: none; color: inherit;'>
-      <div class="metric-value">95.06%</div>
-      <div class="metric-label">Prediction hit rate</div>
-    </a>
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-card"><div class="number" id="totalThreats">--</div><div class="label">Threats Tracked</div></div>
+    <div class="stat-card"><div class="number" id="criticalCount">--</div><div class="label">Critical (Red/Black)</div></div>
+    <div class="stat-card"><div class="number" id="alertCount">--</div><div class="label">Alerts Active</div></div>
+    <div class="stat-card"><div class="number" id="domainsCovered">--</div><div class="label">Domains Covered</div></div>
   </div>
 
-  <p><strong>Priority score = mortality_weight^0.7 × severity_factor × (1 + 0.2×recency)</strong>. Scores are normalised 0‑100. Highest priority threats demand immediate humanitarian attention.</p>
-
-  <div id="hewd-grid" class="card-grid"></div>
-
-  <div class="auto-refresh" id="last-updated">Last updated: 10 June 2026, 12:00 CST (data from daily sweep)</div>
-
-  <h2>Methodology & Transparency</h2>
-  <ul>
-    <li><strong>Mortality weight</strong> – famine=10, conflict/disease=9, displacement/food shock=8, climate/water‑borne=7.</li>
-    <li><strong>Severity factor</strong> – Black=4, Red=3, Orange=2, Yellow=1.</li>
-    <li><strong>Recency</strong> – 2 (≤24h), 1 (≤7d), 0 (older).</li>
-    <li><strong>Chronic Condition badges</strong> – Class 2 (DAS≥51 for ≥2 weeks), Class 3 (≥8 weeks or Black/Red).</li>
-    <li><strong>Compound Alerts</strong> – absolute trigger breached + DAS≥51 for ≥2 weeks.</li>
-    <li>All inputs open‑source or manually verified. See <a href='https://cathedral-network.netlify.app/sources'>Sources & Methodology</a>.</li>
-  </ul>
+  <!-- Indicators -->
+  <div id="indicatorContainer">
+    <div class="empty-state">Loading humanitarian indicators…</div>
+  </div>
 
   <div class="footer">
     <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    HEWD v1.5.1 · Mortality‑weighted · Open source · Updated daily
+    HEWD Dashboard · Updated daily from the Cathedral's sweep.
   </div>
 </div>
-
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
 <script>
-  // Threat data from 10 June 2026 sweep
-  const threats = [
-    {
-      name: "🇸🇩 Horn of Africa Famine (C03)",
-      status: "⚫ Black Acute",
-      severity: "black",
-      severityFactor: 4,
-      mortalityWeight: 10,
-      recency: 2,
-      chronicClass: 3,
-      compoundAlert: true,
-      recommendation: "🍞 Pre‑position food & water. 19.5M acutely food insecure. IPC AMN Phase 5 in Kenya. Humanitarian access critical.",
-      source: "IPC, UN OCHA"
-    },
-    {
-      name: "🦠 Bundibugyo Ebola (B02)",
-      status: "🔴 Red",
-      severity: "red",
-      severityFactor: 3,
-      mortalityWeight: 9,
-      recency: 2,
-      chronicClass: 2,
-      compoundAlert: false,
-      recommendation: "🧑‍⚕️ Isolate suspected cases. Deploy PPE. 534 confirmed cases, 93 deaths. No vaccine. Cross‑border spread to Uganda.",
-      source: "WHO DON606"
-    },
-    {
-      name: "🇮🇷 Iran‑Israel/US War / Civilians (C01)",
-      status: "⚫ Black Acute",
-      severity: "black",
-      severityFactor: 4,
-      mortalityWeight: 9,
-      recency: 2,
-      chronicClass: null,
-      compoundAlert: true,
-      recommendation: "🚨 Mass casualty preparedness. Trauma care, shelter in Haifa, Tel Aviv, Tehran. Direct US‑Iran strikes ongoing.",
-      source: "IDF, IRGC, Reuters"
-    },
-    {
-      name: "🇺🇸 FEMA DRF Shortfall (D02)",
-      status: "🟣 Black Structural",
-      severity: "black",
-      severityFactor: 4,
-      mortalityWeight: 8,
-      recency: 2,
-      chronicClass: 3,
-      compoundAlert: true,
-      recommendation: "🏚️ DRF critically low. Disaster response capacity strained. Hurricane season active, no supplemental funding.",
-      source: "FEMA, Senate Appropriations"
-    },
-    {
-      name: "🇵🇭 Philippines Earthquake (G08)",
-      status: "🟠 Orange",
-      severity: "orange",
-      severityFactor: 2,
-      mortalityWeight: 8,
-      recency: 1,  // slightly older now
-      chronicClass: null,
-      compoundAlert: false,
-      recommendation: "🏚️ Emergency shelter, medical supplies, water purification. 35 dead, 200+ injured, 12 missing. Aftershocks continue.",
-      source: "Phivolcs, UNN"
-    },
-    {
-      name: "💧 Water‑Borne Illness Outbreak (Sirik, Iran) – P109",
-      status: "🟠 Orange",
-      severity: "orange",
-      severityFactor: 2,
-      mortalityWeight: 7,
-      recency: 2,
-      chronicClass: null,
-      compoundAlert: false,
-      recommendation: "🚰 Immediate provision of clean water and medical supplies. US strike damaged two reservoirs, cutting off water to Bamani district. High risk of cholera, typhoid.",
-      source: "Al Jazeera, IRGC, WHO"
-    },
-    {
-      name: "🌾 Global Food Price Volatility (C106)",
-      status: "🟠 Orange",
-      severity: "orange",
-      severityFactor: 2,
-      mortalityWeight: 7,
-      recency: 2,
-      chronicClass: 2,
-      compoundAlert: false,
-      recommendation: "📉 Oil futures ~$94‑$95 but physical markets tight. Food inflation pressures remain. Buffer stock releases recommended.",
-      source: "FAO, Mint, Platts"
-    },
-    {
-      name: "🏚️ Mass Displacement (C139)",
-      status: "🔴 Red",
-      severity: "red",
-      severityFactor: 3,
-      mortalityWeight: 9,
-      recency: 2,
-      chronicClass: 2,
-      compoundAlert: false,
-      recommendation: "9M IDPs in Sudan; new displacement along Israel‑Lebanon border. Pre‑register camps, coordinate with UNHCR.",
-      source: "UNHCR, IOM"
-    },
-    {
-      name: "🌊 El Niño / Extreme Weather (E11)",
-      status: "🟠 Orange",
-      severity: "orange",
-      severityFactor: 2,
-      mortalityWeight: 7,
-      recency: 1,
-      chronicClass: null,
-      compoundAlert: false,
-      recommendation: "WMO 80‑90% chance of strong El Niño by August. Pre‑position flood/drought supplies, monitor crop yields.",
-      source: "WMO, UNOG"
-    }
-  ];
+  async function loadHEWD() {
+    const container = document.getElementById('indicatorContainer');
 
-  function computeScore(t) {
-    let w = Math.pow(t.mortalityWeight, 0.7);
-    let severity = t.severityFactor;
-    let recencyFactor = 1 + 0.2 * t.recency;
-    return w * severity * recencyFactor;
-  }
+    try {
+      // Try to load hewd_data.json first (if generated by pipeline)
+      let resp = await fetch('hewd_data.json');
+      let data = null;
+      if (resp.ok) {
+        data = await resp.json();
+      }
 
-  function renderHEWD() {
-    const container = document.getElementById('hewd-grid');
-    if (!container) return;
-    const sorted = [...threats].sort((a,b) => computeScore(b) - computeScore(a));
-    container.innerHTML = sorted.map(t => {
-      const score = computeScore(t).toFixed(1);
-      let severityClass = '';
-      if (t.severity === 'black') severityClass = 'severity-black';
-      else if (t.severity === 'red') severityClass = 'severity-red';
-      else if (t.severity === 'orange') severityClass = 'severity-orange';
-      else severityClass = 'severity-yellow';
-      let chronicHtml = t.chronicClass ? `<span class="chronic-badge">Chronic Class ${t.chronicClass}</span>` : '';
-      let compoundHtml = t.compoundAlert ? `<span class="alert-badge">⚠️ Compound Alert</span>` : '';
-      return `
-        <div class="card">
-          <div class="card-content">
-            <div class="card-title">
-              ${t.name}
-              <span>
-                <span class="severity-badge ${severityClass}">${t.status}</span>
-                ${chronicHtml}
-                ${compoundHtml}
-              </span>
-            </div>
-            <div>🎯 Priority score: <strong>${score}</strong> (${t.mortalityWeight}^0.7 × ${t.severityFactor} × ${(1+0.2*t.recency).toFixed(1)})</div>
-            <div class="recommendation">📋 ${t.recommendation}</div>
-            <div style="font-size:0.65rem; margin-top:0.5rem; color:#888;">📡 ${t.source}</div>
+      // If no dedicated hewd_data.json, build from threats.json and sweep_report.json
+      if (!data || Object.keys(data).length === 0) {
+        const [threatResp, sweepResp] = await Promise.all([
+          fetch('threats.json'),
+          fetch('sweep_report.json').catch(() => ({ ok: false }))
+        ]);
+
+        if (threatResp.ok) {
+          const threatData = await threatResp.json();
+          const threats = threatData.threats || [];
+          const sweep = sweepResp.ok ? await sweepResp.json() : {};
+
+          // Build indicators from threats
+          const statusCounts = { Black: 0, Red: 0, Orange: 0, Yellow: 0, Green: 0 };
+          const domains = new Set();
+
+          threats.forEach(t => {
+            const status = t.status || 'Yellow';
+            if (status.includes('Black')) statusCounts.Black++;
+            else if (status === 'Red') statusCounts.Red++;
+            else if (status === 'Orange') statusCounts.Orange++;
+            else if (status === 'Yellow') statusCounts.Yellow++;
+            else if (status === 'Green') statusCounts.Green++;
+            if (t.domains) t.domains.forEach(d => domains.add(d));
+          });
+
+          data = {
+            timestamp: sweep.timestamp || new Date().toISOString(),
+            indicators: [
+              {
+                id: 'total_threats',
+                title: 'Total Threats',
+                value: threats.length,
+                description: 'All tracked threats across all domains',
+                status: 'normal',
+                source: 'threats.json'
+              },
+              {
+                id: 'black_red',
+                title: 'Critical Threats (Black/Red)',
+                value: statusCounts.Black + statusCounts.Red,
+                description: 'Immediate humanitarian risk',
+                status: statusCounts.Black + statusCounts.Red > 5 ? 'critical' : 'warning',
+                source: 'threats.json'
+              },
+              {
+                id: 'active_alerts',
+                title: 'Active Alerts (CAP)',
+                value: statusCounts.Red + statusCounts.Black,
+                description: 'Red and Black level alerts requiring immediate attention',
+                status: statusCounts.Red + statusCounts.Black > 3 ? 'critical' : 'normal',
+                source: 'threats.json'
+              },
+              {
+                id: 'domains',
+                title: 'Domains Affected',
+                value: domains.size,
+                description: `Unique humanitarian domains (${Array.from(domains).join(', ')})`,
+                status: domains.size > 5 ? 'warning' : 'normal',
+                source: 'threats.json'
+              }
+            ]
+          };
+
+          // Update stats
+          document.getElementById('totalThreats').textContent = threats.length;
+          document.getElementById('criticalCount').textContent = statusCounts.Black + statusCounts.Red;
+          document.getElementById('alertCount').textContent = statusCounts.Red + statusCounts.Black;
+          document.getElementById('domainsCovered').textContent = domains.size;
+
+          if (sweep.timestamp) {
+            document.getElementById('lastUpdateDate').textContent = new Date(sweep.timestamp).toLocaleString();
+          }
+        } else {
+          throw new Error('Could not load threat data');
+        }
+      } else {
+        // Use hewd_data.json if available
+        const indicators = data.indicators || [];
+        document.getElementById('totalThreats').textContent = data.total_threats || '--';
+        document.getElementById('criticalCount').textContent = data.critical_count || '--';
+        document.getElementById('alertCount').textContent = data.alert_count || '--';
+        document.getElementById('domainsCovered').textContent = data.domains_covered || '--';
+        if (data.timestamp) {
+          document.getElementById('lastUpdateDate').textContent = new Date(data.timestamp).toLocaleString();
+        }
+      }
+
+      // Render indicators
+      const indicators = data.indicators || [];
+      if (indicators.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <p style="font-size: 2rem;">📡</p>
+            <p style="font-size: 1.2rem; font-weight: 600;">No indicators available</p>
+            <p>Humanitarian data is being processed. Check back soon.</p>
           </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = indicators.map(ind => {
+        const badgeClass = ind.status === 'critical' ? 'badge-critical' :
+                           ind.status === 'warning' ? 'badge-warning' : 'badge-normal';
+        const badgeLabel = ind.status === 'critical' ? 'Critical' :
+                           ind.status === 'warning' ? 'Watch' : 'Normal';
+        return `
+          <div class="indicator-card">
+            <div class="title">
+              <span>${ind.title}</span>
+              <span class="badge ${badgeClass}">${badgeLabel}</span>
+            </div>
+            <div class="value">${ind.value}</div>
+            <div class="desc">${ind.description || ''}</div>
+            <div class="meta">
+              <span>📌 ${ind.source || 'Cathedral'}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+    } catch(e) {
+      console.error('Error loading HEWD data:', e);
+      container.innerHTML = `
+        <div class="empty-state">
+          <p style="font-size: 2rem;">⚠️</p>
+          <p style="font-size: 1.2rem; font-weight: 600;">Could not load HEWD data</p>
+          <p>Please try again later. The Cathedral is watching.</p>
         </div>
       `;
-    }).join('');
-    document.getElementById('last-updated').innerHTML = `Last updated: 10 June 2026, 12:00 CST (from daily sweep)`;
+      // Set default stats anyway
+      document.getElementById('totalThreats').textContent = '--';
+      document.getElementById('criticalCount').textContent = '--';
+      document.getElementById('alertCount').textContent = '--';
+      document.getElementById('domainsCovered').textContent = '--';
+    }
   }
 
-  // Hamburger menu
+  // ---- Nav toggle ----
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
-  if (menuBtn) {
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-  }
+  if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
 
-  // Dark mode
+  // ---- Dark mode ----
   const darkToggle = document.getElementById('darkModeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const storedTheme = localStorage.getItem('cathedral-theme');
   if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
     document.body.classList.add('dark');
     darkToggle.innerText = '☀️';
-  } else {
-    darkToggle.innerText = '🌙';
-  }
+  } else darkToggle.innerText = '🌙';
   darkToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark');
     const isDark = document.body.classList.contains('dark');
@@ -481,15 +427,11 @@
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
 
-  // Service worker
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(() => console.log('SW registered'))
-      .catch(e => console.warn('SW failed', e));
-  }
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');
 
-  renderHEWD();
+  // Load HEWD data on page load
+  loadHEWD();
 </script>
-<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
