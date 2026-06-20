@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
-add_descriptions.py – Add descriptions to top-priority threats in threats.json.
-Run once, then commit.
+add_descriptions.py – Add descriptions to all threats in threats.json.
 """
 
 import json
@@ -9,7 +8,17 @@ from pathlib import Path
 
 THREATS_FILE = "threats.json"
 
-# Descriptions for the top 20 threats (by priority score)
+def load_json(filepath, default=None):
+    if Path(filepath).exists():
+        with open(filepath, 'r') as f:
+            return json.load(f)
+    return default if default is not None else {}
+
+def save_json(data, filepath):
+    with open(filepath, 'w') as f:
+        json.dump(data, f, indent=2)
+
+# Existing descriptions for top threats (from your earlier list)
 DESCRIPTIONS = {
     "C01": "Geopolitical conflict involving Iran, Israel, and the US, with potential closure of the Strait of Hormuz, disrupting global oil supplies and triggering a wider regional war. Elevated risk of missile strikes and naval engagements.",
     "C-USIRAN": "Direct military confrontation between the United States and Iran, following proxy escalations and missile strikes. Includes the possibility of US airstrikes on Iranian nuclear sites and Iranian retaliation against US bases in the region.",
@@ -44,11 +53,17 @@ def main():
 
     for t in threats:
         tid = t.get('id')
-        if tid in DESCRIPTIONS:
-            # Only set if not already present or empty
-            if not t.get('description') or t['description'] == '':
+        # If no description, try to generate one
+        if not t.get('description') or t['description'] == '':
+            if tid in DESCRIPTIONS:
                 t['description'] = DESCRIPTIONS[tid]
-                updated += 1
+            else:
+                # Generate a generic description from name and domains
+                name = t.get('name', 'Unknown threat')
+                domains = t.get('domains', [])
+                domain_str = ', '.join(domains) if domains else 'multiple domains'
+                t['description'] = f"{name} – a threat affecting {domain_str}. Monitor closely for escalation."
+            updated += 1
 
     save_json(data, THREATS_FILE)
     print(f"✅ Added descriptions to {updated} threats.")
