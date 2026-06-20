@@ -81,78 +81,37 @@ def get_ml_likelihoods(threats: List[Dict]) -> Dict[str, float]:
     return lrs
 
 def train_from_history():
-    """Train the ML model from confirmed/falsified predictions."""
+    """Train the ML model using prediction descriptions (no need for threat matching)."""
     try:
         with open('predictions.json') as f:
             preds = json.load(f)
-        with open('threats.json') as f:
-            threats_data = json.load(f)
-            threats = threats_data.get('threats', [])
-    except FileNotFoundError as e:
-        print(f"❌ File missing: {e}")
+    except FileNotFoundError:
+        print("❌ predictions.json not found.")
         return
 
-    # Build a set of confirmed and falsified IDs
-    confirmed_ids = set()
-    falsified_ids = set()
+    confirmed = preds.get('confirmed', [])
+    falsified = preds.get('falsified', [])
 
-    # Helper to extract IDs from a list
-    def extract_ids(items):
-        ids = []
-        for item in items:
-            if isinstance(item, dict):
-                # Try common keys
-                tid = item.get('id') or item.get('prediction_id') or item.get('threat_id')
-                if tid:
-                    ids.append(tid)
-                # If item has a 'status' field, we might filter later
-        return ids
-
-    # Check various structures
-    if 'confirmed' in preds:
-        confirmed_ids.update(extract_ids(preds['confirmed']))
-    if 'falsified' in preds:
-        falsified_ids.update(extract_ids(preds['falsified']))
-
-    # If no confirmed/falsified, look in 'history' or 'pending' with status
-    if not confirmed_ids and not falsified_ids:
-        print("⚠️ No 'confirmed' or 'falsified' keys found. Scanning all entries...")
-        # Look in 'pending' for status
-        for entry in preds.get('pending', []):
-            status = entry.get('status', '').lower()
-            tid = entry.get('id')
-            if tid:
-                if status in ('confirmed', 'resolved'):
-                    confirmed_ids.add(tid)
-                elif status == 'falsified':
-                    falsified_ids.add(tid)
-
-        # Also check 'history' if present
-        for entry in preds.get('history', []):
-            # maybe history contains status changes
-            pass
-
-    print(f"📊 Found {len(confirmed_ids)} confirmed, {len(falsified_ids)} falsified predictions.")
-
-    if not confirmed_ids and not falsified_ids:
-        print("❌ No resolved predictions found. Cannot train.")
-        return
-
-    # Build training data
     texts = []
     labels = []
-    for t in threats:
-        tid = t.get('id')
-        if tid in confirmed_ids:
-            texts.append(t.get('description', '') or t.get('name', ''))
+
+    for p in confirmed:
+        desc = p.get('description', '')
+        if desc:
+            texts.append(desc)
             labels.append(1)
-        elif tid in falsified_ids:
-            texts.append(t.get('description', '') or t.get('name', ''))
+
+    for p in falsified:
+        desc = p.get('description', '')
+        if desc:
+            texts.append(desc)
             labels.append(0)
 
     if len(texts) < 10:
-        print(f"⚠️ Only {len(texts)} resolved threats matched in threats.json – need at least 10.")
+        print(f"⚠️ Only {len(texts)} prediction texts with descriptions – need at least 10.")
         return
+
+    print(f"📊 Training with {len(texts)} samples ({sum(labels)} confirmed, {len(labels)-sum(labels)} falsified)")
 
     detector = HybridThreatDetector()
     detector.train(texts, labels)
