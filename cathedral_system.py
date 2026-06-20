@@ -106,6 +106,9 @@ def main():
     # 13. Git commit and push (to trigger GitHub Pages rebuild)
     run_script("git_commit_push.py", "Git commit and push")
 
+    # ---- Generate health check ----
+    run_script("generate_health.py", "Health check generation")
+
     print("\n" + "=" * 60)
     print("✅ Cathedral pipeline finished.")
     print(f"   Completed at {datetime.now().isoformat()}")

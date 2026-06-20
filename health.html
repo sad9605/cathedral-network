@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cathedral — System Health</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .status-ok { color: #22c55e; }
+    .status-warning { color: #f97316; }
+    .status-error { color: #dc2626; }
+    .health-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .health-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+    body.dark .health-card { background: #2a2a3a; }
+    .health-card .label { font-size: 0.7rem; text-transform: uppercase; color: #666; }
+    body.dark .health-card .label { color: #aaa; }
+    .health-card .value { font-size: 1.8rem; font-weight: 700; margin: 0.2rem 0; }
+  </style>
+</head>
+<body>
+  <!-- Include banner and nav as usual -->
+  <div class="container">
+    <h1>🩺 Cathedral System Health</h1>
+    <div id="health-content">
+      <p>Loading health data...</p>
+    </div>
+  </div>
+  <script>
+    async function loadHealth() {
+      try {
+        const resp = await fetch('health.json');
+        const data = await resp.json();
+        const statusClass = data.status === 'ok' ? 'status-ok' : 'status-warning';
+        document.getElementById('health-content').innerHTML = `
+          <div class="health-grid">
+            <div class="health-card"><div class="label">Status</div><div class="value ${statusClass}">${data.status.toUpperCase()}</div></div>
+            <div class="health-card"><div class="label">Threats tracked</div><div class="value">${data.threats}</div></div>
+            <div class="health-card"><div class="label">Last sweep</div><div class="value" style="font-size:1rem;">${data.last_sweep ? new Date(data.last_sweep).toLocaleString() : 'Never'}</div></div>
+          </div>
+          ${data.errors && data.errors.length ? `<div style="color:#dc2626;"><strong>Warnings:</strong> ${data.errors.join(', ')}</div>` : '<div style="color:#22c55e;">All systems nominal.</div>'}
+          <p style="margin-top:1rem; font-size:0.8rem; color:#666;">Health checked at ${new Date(data.timestamp).toLocaleString()}</p>
+        `;
+      } catch(e) {
+        document.getElementById('health-content').innerHTML = '<p style="color:#dc2626;">Could not load health data.</p>';
+      }
+    }
+    loadHealth();
+  </script>
+</body>
+</html>
