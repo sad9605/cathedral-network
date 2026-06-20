@@ -1,171 +1,158 @@
 #!/usr/bin/env python3
 """
-cathedral_ml.py – Deep Learning + Bayesian hybrid for threat detection.
-Integrates with existing cascade_engine.py via likelihood ratios.
+cathedral_ml.py – Lightweight ML using TF‑IDF + Logistic Regression.
+No torch, no transformers – runs on any CPU.
 """
 
 import json
 import numpy as np
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import List, Dict
 
-# NLP
-from sentence_transformers import SentenceTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.calibration import CalibratedClassifierCV
-
-# Placeholder for image models
-# from torchvision import models, transforms
+import joblib
 
 class HybridThreatDetector:
     def __init__(self, model_dir: str = "ml_models"):
         self.model_dir = Path(model_dir)
         self.model_dir.mkdir(exist_ok=True)
+        self.vectorizer = None
+        self.classifier = None
+        self._load_or_train()
 
-        # Load NLP encoder (lightweight, 384-dim embeddings)
-        self.nlp_encoder = SentenceTransformer('all-MiniLM-L6-v2')
-
-        # Load or train the classifier
-        self.classifier = self._load_or_train_classifier()
-
-    def _load_or_train_classifier(self):
-        # Check if we have a saved classifier
+    def _load_or_train(self):
+        vec_path = self.model_dir / "vectorizer.pkl"
         clf_path = self.model_dir / "threat_classifier.pkl"
-        if clf_path.exists():
-            import joblib
-            return joblib.load(clf_path)
+        if vec_path.exists() and clf_path.exists():
+            self.vectorizer = joblib.load(vec_path)
+            self.classifier = joblib.load(clf_path)
+            print("✅ Loaded existing ML model")
+        else:
+            print("⚠️ No trained model found. Train with train_from_history()")
 
-        # If not, train on existing threats (or fallback to dummy)
-        print("⚠️ No trained classifier found. Using rule‑based fallback.")
-        return None
+    def train(self, texts: List[str], labels: List[int]):
+        if len(texts) < 10:
+            print("⚠️ Need at least 10 samples for training.")
+            return
 
-    def encode_text(self, texts: List[str]) -> np.ndarray:
-        """Convert list of text strings to embeddings."""
-        if not texts:
-            return np.array([])
-        return self.nlp_encoder.encode(texts, convert_to_numpy=True)
+        self.vectorizer = TfidfVectorizer(
+            max_features=1000,
+            ngram_range=(1, 2),
+            stop_words='english'
+        )
+        X = self.vectorizer.fit_transform(texts)
+        clf = LogisticRegression(class_weight='balanced', max_iter=1000)
+        clf.fit(X, labels)
 
-    def extract_features_from_sweep(self, sweep_report: Dict) -> Dict:
-        """
-        Process sweep_report.json and extract:
-          - Threat text embeddings
-          - Sentiment scores
-          - Event detection scores
-        """
-        features = {}
-        # Extract relevant text fields from sweep report
-        events = sweep_report.get('events', [])
-        texts = [e.get('description', '') for e in events if e.get('description')]
+        calibrated_clf = CalibratedClassifierCV(clf, cv=3)
+        calibrated_clf.fit(X, labels)
 
-        if texts:
-            embeddings = self.encode_text(texts)
-            # For each threat ID, we might aggregate embeddings (e.g., average)
-            # For now, store as list
-            features['text_embeddings'] = embeddings.tolist()
-            features['text_count'] = len(texts)
+        self.classifier = calibrated_clf
+        joblib.dump(self.vectorizer, self.model_dir / "vectorizer.pkl")
+        joblib.dump(self.classifier, self.model_dir / "threat_classifier.pkl")
+        print(f"✅ Trained on {len(texts)} samples.")
 
-        # Could also compute sentiment polarity (using a separate model)
-        # Placeholder:
-        features['avg_sentiment'] = 0.0  # would compute from VADER or similar
-
-        return features
-
-    def compute_likelihood_ratio(self, threat_id: str, threat_text: str, features: Dict) -> float:
-        """
-        For a given threat, compute a likelihood ratio based on ML features.
-        Returns LR > 1 if evidence supports escalation.
-        """
-        if self.classifier is None:
-            # Fallback: use a simple heuristic based on sentiment and event count
-            # This is a dummy – in production we'd use the classifier
+    def compute_likelihood_ratio(self, text: str) -> float:
+        if self.vectorizer is None or self.classifier is None:
             return 1.0
-
-        # Encode the threat description
-        embedding = self.encode_text([threat_text])[0]
-
-        # Get probability from classifier
-        prob = self.classifier.predict_proba([embedding])[0][1]
-        # Convert to likelihood ratio: LR = P(evidence|threat) / P(evidence|no-threat)
-        # For binary classifier, we use the predicted probability as P(evidence|threat)
-        # and 1 - P as P(evidence|no-threat)
+        X = self.vectorizer.transform([text])
+        prob = self.classifier.predict_proba(X)[0][1]
         lr = prob / (1 - prob + 1e-6)
         return float(lr)
 
-    def train_classifier(self, threats: List[Dict], labels: List[int]):
-        """
-        Train a logistic regression classifier on threat descriptions.
-        labels: 1 for threats that escalated, 0 for those that didn't (from prediction log).
-        """
-        texts = [t.get('description', '') or t.get('name', '') for t in threats]
-        if not texts:
-            print("No text data for training.")
-            return
-
-        embeddings = self.encode_text(texts)
-        clf = LogisticRegression(class_weight='balanced', max_iter=1000)
-        clf.fit(embeddings, labels)
-
-        # Calibrate for better probabilities
-        calibrated_clf = CalibratedClassifierCV(clf, cv=3)
-        calibrated_clf.fit(embeddings, labels)
-
-        # Save
-        import joblib
-        joblib.dump(calibrated_clf, self.model_dir / "threat_classifier.pkl")
-        self.classifier = calibrated_clf
-        print(f"✅ Classifier trained on {len(texts)} samples.")
-
 # ------------------------------------------------------------
-# Integration function for cascade_engine.py
+# Integration functions
 # ------------------------------------------------------------
 
-def get_ml_likelihoods(threats: List[Dict], sweep_data: Dict) -> Dict[str, float]:
-    """
-    Called from cascade_engine.py to get per‑threat likelihood ratios.
-    Returns dict: {threat_id: LR}
-    """
+def get_ml_likelihoods(threats: List[Dict]) -> Dict[str, float]:
     detector = HybridThreatDetector()
-    features = detector.extract_features_from_sweep(sweep_data)
+    if detector.classifier is None:
+        print("⚠️ ML model not trained – returning neutral LRs (1.0)")
+        return {t['id']: 1.0 for t in threats if t.get('id')}
 
     lrs = {}
     for t in threats:
         tid = t.get('id')
         text = t.get('description', '') or t.get('name', '')
         if tid and text:
-            lr = detector.compute_likelihood_ratio(tid, text, features)
-            lrs[tid] = lr
+            lrs[tid] = detector.compute_likelihood_ratio(text)
     return lrs
 
-# ------------------------------------------------------------
-# Training script (to be run manually after sufficient history)
-# ------------------------------------------------------------
-
 def train_from_history():
-    """Load confirmed/falsified predictions and train classifier."""
-    preds = json.load(open('predictions.json'))
-    threats = json.load(open('threats.json')).get('threats', [])
+    """Train the ML model from confirmed/falsified predictions."""
+    try:
+        with open('predictions.json') as f:
+            preds = json.load(f)
+        with open('threats.json') as f:
+            threats_data = json.load(f)
+            threats = threats_data.get('threats', [])
+    except FileNotFoundError as e:
+        print(f"❌ File missing: {e}")
+        return
 
-    # Create labels: 1 if confirmed, 0 if falsified or unresolved? We'll use confirmed as positive.
-    confirmed_ids = {p['id'] for p in preds.get('confirmed', [])}
-    falsified_ids = {p['id'] for p in preds.get('falsified', [])}
-    # Only use threats that have been resolved
+    # Build a set of confirmed and falsified IDs
+    confirmed_ids = set()
+    falsified_ids = set()
+
+    # Helper to extract IDs from a list
+    def extract_ids(items):
+        ids = []
+        for item in items:
+            if isinstance(item, dict):
+                # Try common keys
+                tid = item.get('id') or item.get('prediction_id') or item.get('threat_id')
+                if tid:
+                    ids.append(tid)
+                # If item has a 'status' field, we might filter later
+        return ids
+
+    # Check various structures
+    if 'confirmed' in preds:
+        confirmed_ids.update(extract_ids(preds['confirmed']))
+    if 'falsified' in preds:
+        falsified_ids.update(extract_ids(preds['falsified']))
+
+    # If no confirmed/falsified, look in 'history' or 'pending' with status
+    if not confirmed_ids and not falsified_ids:
+        print("⚠️ No 'confirmed' or 'falsified' keys found. Scanning all entries...")
+        # Look in 'pending' for status
+        for entry in preds.get('pending', []):
+            status = entry.get('status', '').lower()
+            tid = entry.get('id')
+            if tid:
+                if status in ('confirmed', 'resolved'):
+                    confirmed_ids.add(tid)
+                elif status == 'falsified':
+                    falsified_ids.add(tid)
+
+        # Also check 'history' if present
+        for entry in preds.get('history', []):
+            # maybe history contains status changes
+            pass
+
+    print(f"📊 Found {len(confirmed_ids)} confirmed, {len(falsified_ids)} falsified predictions.")
+
+    if not confirmed_ids and not falsified_ids:
+        print("❌ No resolved predictions found. Cannot train.")
+        return
+
+    # Build training data
+    texts = []
     labels = []
-    training_threats = []
     for t in threats:
         tid = t.get('id')
         if tid in confirmed_ids:
-            training_threats.append(t)
+            texts.append(t.get('description', '') or t.get('name', ''))
             labels.append(1)
         elif tid in falsified_ids:
-            training_threats.append(t)
+            texts.append(t.get('description', '') or t.get('name', ''))
             labels.append(0)
-    if len(training_threats) < 10:
-        print("Not enough resolved threats for training. Need more data.")
+
+    if len(texts) < 10:
+        print(f"⚠️ Only {len(texts)} resolved threats matched in threats.json – need at least 10.")
         return
 
     detector = HybridThreatDetector()
-    detector.train_classifier(training_threats, labels)
-
-if __name__ == "__main__":
-    # Example: train from history
-    train_from_history()
+    detector.train(texts, labels)
