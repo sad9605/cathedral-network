@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-06-20T02:47:41.460207",
+  "status": "ok",
+  "last_sweep": "2026-06-20T05:31:18.534086+00:00",
+  "threats": 213,
+  "errors": [
+    "Error parsing sweep timestamp: can't subtract offset-naive and offset-aware datetimes",
+    "TypeError: can't subtract offset-naive and offset-aware datetimes"
+  ],
+  "pipeline_steps": []
+}
