@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Ground Truth (Live)</title>
+  <title>Cathedral Network — Ground Truth</title>
   <meta name="description" content="Live summary of the Cathedral Network's threat assessment, global metrics, and top pressing threats.">
   <style>
     :root {
@@ -83,21 +83,31 @@
       .menu-btn { display: block; }
     }
 
-    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
-    h2 {
-      font-size: 1.4rem;
-      margin-top: 2rem;
-      border-bottom: 2px solid var(--violet);
-      padding-bottom: 0.5rem;
+    /* Title styling */
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.15rem;
+      border-bottom: 3px solid var(--violet-dark);
       display: inline-block;
+      padding-bottom: 0.25rem;
     }
-    .date { color: #666; margin-bottom: 1rem; font-size: 0.9rem; }
+    .page-title small {
+      font-size: 1rem;
+      font-weight: 400;
+      opacity: 0.6;
+      display: block;
+      margin-top: 0.1rem;
+      border-bottom: none;
+    }
+    .date { color: #666; margin-bottom: 1.2rem; font-size: 0.9rem; }
     body.dark .date { color: #aaa; }
 
-    /* Metric cards – same as Wardens stats */
+    /* Stats grid */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       gap: 1rem;
       margin: 1.5rem 0;
     }
@@ -118,9 +128,9 @@
     body.dark .stat-card .number { color: #b39ddb; }
     .stat-card .label { font-size: 0.7rem; text-transform: uppercase; color: #666; letter-spacing: 0.5px; }
     body.dark .stat-card .label { color: #aaa; }
-    .stat-card .sub { font-size: 0.65rem; opacity: 0.7; margin-top: 0.2rem; }
+    .stat-card .sub { font-size: 0.65rem; opacity: 0.6; margin-top: 0.15rem; }
 
-    /* Threat grid – consistent with category cards */
+    /* Threat grid */
     .threat-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -158,9 +168,11 @@
       color: var(--violet-dark);
     }
     body.dark .threat-card .badge { background: #3a3a4a; color: #b39ddb; }
-    .badge-black { background: #1f1f1f; color: white; }
-    .badge-red { background: #dc2626; color: white; }
-    .badge-orange { background: #f97316; color: white; }
+    .badge-black { background: #1f1f1f; color: #fff; }
+    .badge-red { background: #dc2626; color: #fff; }
+    .badge-orange { background: #f97316; color: #fff; }
+    .badge-yellow { background: #eab308; color: #1a1a1a; }
+    .badge-green { background: #22c55e; color: #1a1a1a; }
     .threat-card .desc { font-size: 0.9rem; margin: 0.5rem 0; }
     .threat-card .justification {
       font-size: 0.85rem;
@@ -171,9 +183,9 @@
       margin: 0.5rem 0;
     }
     body.dark .threat-card .justification { background: #3a3a4a; border-left-color: #b39ddb; }
-    .threat-card .meta { font-size: 0.75rem; opacity: 0.7; margin-top: 0.4rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .threat-card .meta { font-size: 0.75rem; opacity: 0.6; margin-top: 0.4rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 
-    /* Recovery signals */
+    /* Recovery / Resilience */
     .recovery-card {
       background: #fef9e7;
       border-radius: var(--card-radius);
@@ -184,13 +196,79 @@
     body.dark .recovery-card { background: #2a2a1a; border-left-color: #d4a837; }
     .recovery-card h3 { color: #d4a837; margin: 0 0 0.5rem 0; }
     .recovery-signal {
-      background: rgba(212,168,55,0.15);
+      background: rgba(212,168,55,0.12);
       border-radius: 8px;
       padding: 0.5rem 1rem;
       margin: 0.25rem 0;
     }
 
-    /* Corrections feed */
+    /* HEWD widget */
+    .hewd-widget {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+    }
+    body.dark .hewd-widget { background: #2a2a3a; }
+    .hewd-widget .widget-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 0.5rem 0;
+    }
+    .hewd-widget .widget-item { text-align: center; }
+    .hewd-widget .widget-item .number { font-size: 1.6rem; font-weight: 700; color: var(--violet-dark); }
+    body.dark .hewd-widget .widget-item .number { color: #b39ddb; }
+    .hewd-widget .widget-item .label { font-size: 0.7rem; text-transform: uppercase; color: #666; }
+    body.dark .hewd-widget .widget-item .label { color: #aaa; }
+
+    /* Oil section */
+    .oil-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .oil-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+    }
+    body.dark .oil-card { background: #2a2a3a; }
+    .oil-card .number { font-size: 1.5rem; font-weight: 700; color: var(--violet-dark); }
+    body.dark .oil-card .number { color: #b39ddb; }
+    .oil-card .label { font-size: 0.7rem; text-transform: uppercase; color: #666; letter-spacing: 0.5px; }
+    body.dark .oil-card .label { color: #aaa; }
+
+    .prediction-update {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+    }
+    body.dark .prediction-update { background: #2a2a3a; }
+    .prediction-update .update-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    body.dark .prediction-update .update-item { border-bottom-color: #444; }
+    .prediction-update .update-item:last-child { border-bottom: none; }
+    .prediction-update .update-item .badge { font-size: 0.65rem; }
+    .prediction-update .update-item .desc { flex: 1; font-size: 0.9rem; }
+    .prediction-update .update-item .date { font-size: 0.75rem; opacity: 0.6; margin: 0; }
+
     .corrections-feed {
       margin-top: 1rem;
       font-size: 0.8rem;
@@ -268,7 +346,10 @@
     </div>
   </div>
 
-  <h1>📊 Ground Truth Summary</h1>
+  <div class="page-title">
+    Ground Truth Summary
+    <small>The Cathedral's live assessment of global systemic risk</small>
+  </div>
   <div class="date" id="lastUpdateDate">Loading latest sweep…</div>
 
   <!-- Metric tiles -->
@@ -296,35 +377,56 @@
   </div>
 
   <!-- Top threats -->
-  <h2>🔴 Top Pressing Threats</h2>
+  <h2 style="font-size:1.4rem; margin-top:2rem; border-bottom:2px solid var(--violet); padding-bottom:0.5rem; display:inline-block;">Top Pressing Threats</h2>
   <div id="dynamicThreatGrid" class="threat-grid">
     <p>Loading threats…</p>
   </div>
 
-  <!-- Recovery signals -->
+  <!-- Recovery / Resilience -->
   <div class="recovery-card">
     <h3>🕯️ Glimmers of Resilience</h3>
     <div id="resilienceText">
-      <p>No positive cascades detected in the latest sweep. The watch continues.</p>
+      <div class="recovery-signal">⏳ The Resilience Engine is under construction. This section will soon display positive cascades, recovery signals, and opportunities for intervention. The Cathedral watches for light as carefully as for shadow.</div>
     </div>
-    <p style="font-size:0.8rem; margin-top:0.5rem; opacity:0.7;">The Cathedral watches for light as carefully as for shadow. These are early signals, not guarantees.</p>
+    <p style="font-size:0.8rem; margin-top:0.5rem; opacity:0.6;">Coming soon: Ascension Engine · Opportunity Matrix · Recovery Probability</p>
   </div>
 
-  <!-- Oil market predictions (simplified) -->
-  <h2>⛽ Oil Market & Predictions</h2>
-  <div id="oilMetrics" class="stats-grid" style="grid-template-columns: repeat(auto-fill, minmax(150px,1fr));">
-    <div class="stat-card"><div class="number" id="oil100Prob">--</div><div class="label">P108: Oil &gt;$100/bbl (7d)</div></div>
-    <div class="stat-card"><div class="number" id="oil120Prob">--</div><div class="label">P78: Oil &gt;$120/bbl (7d)</div></div>
-    <div class="stat-card"><div class="number" id="coordAttackProb">--</div><div class="label">P101: Coordinated attack (60d)</div></div>
-    <div class="stat-card"><div class="number" id="casualtyProb">--</div><div class="label">P107: US‑Iran casualties (14d)</div></div>
+  <!-- HEWD Widget -->
+  <div class="hewd-widget">
+    <h3 style="font-size:1.1rem; margin:0 0 0.3rem 0; color:var(--violet-dark);">🌐 HEWD Snapshot</h3>
+    <p style="font-size:0.85rem; opacity:0.7; margin-bottom:0.5rem;">Humanitarian Early Warning Dashboard – key indicators</p>
+    <div class="widget-grid" id="hewdWidget">
+      <div class="widget-item"><div class="number" id="hewdCritical">--</div><div class="label">Critical Threats</div></div>
+      <div class="widget-item"><div class="number" id="hewdAlerts">--</div><div class="label">Active Alerts</div></div>
+      <div class="widget-item"><div class="number" id="hewdDomains">--</div><div class="label">Domains Affected</div></div>
+      <div class="widget-item"><div class="number" id="hewdUpdated">--</div><div class="label">Last Update</div></div>
+    </div>
+    <p style="font-size:0.75rem; text-align:right; margin:0.3rem 0 0 0; opacity:0.5;"><a href="hewd.html" style="color:var(--violet-dark);">View full HEWD Dashboard →</a></p>
   </div>
-  <p id="oilPricesText" style="font-size:0.8rem; opacity:0.7;">Loading oil prices…</p>
 
-  <!-- Prediction log update -->
-  <h2>📋 Prediction Log Update</h2>
-  <ul id="predictionUpdates" style="margin:0.5rem 0 1rem 1.5rem;">
-    <li>Prediction log is being updated. Check the <a href="prediction-log.html" style="color:var(--violet-dark);">full prediction log</a> for the latest confirmed and falsified predictions.</li>
-  </ul>
+  <!-- Oil Market & Predictions -->
+  <h2 style="font-size:1.4rem; margin-top:2rem; border-bottom:2px solid var(--violet); padding-bottom:0.5rem; display:inline-block;">Oil Market & Predictions</h2>
+  <div class="oil-grid" id="oilPrices">
+    <div class="oil-card"><div class="number" id="brentPrice">--</div><div class="label">Brent Crude</div></div>
+    <div class="oil-card"><div class="number" id="wtiPrice">--</div><div class="label">WTI Crude</div></div>
+  </div>
+  <div id="oilPredictions" style="display:flex; flex-wrap:wrap; gap:1rem; margin:0.5rem 0 1rem 0;">
+    <div style="flex:1; min-width:200px; background:white; border-radius:var(--card-radius); padding:0.8rem 1rem; box-shadow:var(--shadow-sm); border-left:4px solid var(--violet-dark);">
+      <div style="font-size:0.7rem; text-transform:uppercase; opacity:0.6;">Closest to confirmation</div>
+      <div id="oilClosestConfirm" style="font-weight:600;">Loading…</div>
+    </div>
+    <div style="flex:1; min-width:200px; background:white; border-radius:var(--card-radius); padding:0.8rem 1rem; box-shadow:var(--shadow-sm); border-left:4px solid #dc2626;">
+      <div style="font-size:0.7rem; text-transform:uppercase; opacity:0.6;">Closest to falsification</div>
+      <div id="oilClosestFalsify" style="font-weight:600;">Loading…</div>
+    </div>
+  </div>
+  <p id="oilPricesText" style="font-size:0.8rem; opacity:0.6;">Data from latest OSINT sweep</p>
+
+  <!-- Prediction Log Update -->
+  <h2 style="font-size:1.4rem; margin-top:2rem; border-bottom:2px solid var(--violet); padding-bottom:0.5rem; display:inline-block;">Prediction Log Update</h2>
+  <div class="prediction-update" id="predictionUpdates">
+    <div class="update-item"><span class="desc">Loading latest predictions…</span></div>
+  </div>
 
   <div class="corrections-feed">
     📡 <a href="corrections.xml" style="color:var(--violet-dark);">Corrections RSS feed</a> – real‑time error logging (Law III)
@@ -339,16 +441,12 @@
 
 <script>
   // ----- Utility functions -----
-  function getStatusClass(status) {
-    if (status === 'Black Acute' || status === 'Black Structural') return 'card-black';
-    if (status === 'Red') return 'card-red';
-    if (status === 'Orange') return 'card-orange';
-    return 'card-purple';
-  }
   function getBadgeClass(status) {
     if (status === 'Black Acute' || status === 'Black Structural') return 'badge-black';
     if (status === 'Red') return 'badge-red';
     if (status === 'Orange') return 'badge-orange';
+    if (status === 'Yellow') return 'badge-yellow';
+    if (status === 'Green') return 'badge-green';
     return '';
   }
 
@@ -372,10 +470,12 @@
   }
 
   async function loadAll() {
-    // 1. Sweep data for timestamp
+    // 1. Sweep data
     const sweep = await fetchJson('sweep_report.json');
     if (sweep && sweep.timestamp) {
       document.getElementById('lastUpdateDate').innerText = new Date(sweep.timestamp).toLocaleString();
+      // HEWD last update
+      document.getElementById('hewdUpdated').innerText = new Date(sweep.timestamp).toLocaleDateString();
     }
 
     // 2. Threats
@@ -384,13 +484,17 @@
 
     document.getElementById('threatCountValue').innerText = threats.length;
 
-    // GSCI / SSI
+    // GSCI – use actual value from threats.json
     let gsci = threatData ? threatData.gsci : null;
-    if (!gsci && threats.length) {
+    if (gsci !== null && gsci !== undefined) {
+      document.getElementById('gsciValue').innerText = gsci;
+    } else if (threats.length) {
       const avgScp = threats.reduce((s,t) => s + (t.scp||0.5), 0) / threats.length;
       gsci = Math.round(avgScp * 100);
+      document.getElementById('gsciValue').innerText = gsci;
+    } else {
+      document.getElementById('gsciValue').innerText = '--';
     }
-    document.getElementById('gsciValue').innerText = gsci || '--';
 
     let ssi = threatData ? threatData.ssi : null;
     if (!ssi) {
@@ -422,7 +526,7 @@
       }
     }
 
-    // 5. Render top threats
+    // 5. Render top threats with color badges
     const sorted = [...threats].sort((a,b) => (b.priority_score||0) - (a.priority_score||0));
     const top10 = sorted.slice(0,10);
     const grid = document.getElementById('dynamicThreatGrid');
@@ -431,7 +535,6 @@
     } else {
       grid.innerHTML = top10.map(t => {
         const status = t.status || 'Yellow';
-        const cardClass = getStatusClass(status);
         const badgeClass = getBadgeClass(status);
         const tid = t.id || '';
         const description = t.description || t.name || 'No description';
@@ -453,7 +556,7 @@
           justification = `<div class="justification"><strong>Why pressing:</strong> ${reason} (SCP ${Math.round(scp*100)}%, Priority ${Math.round(pri)})</div>`;
         }
         return `
-          <div class="threat-card ${cardClass}">
+          <div class="threat-card">
             <div class="title">
               <span>${escapeHtml(tid)} – ${escapeHtml(t.name || 'Unknown')}</span>
               <span class="badge ${badgeClass}">${escapeHtml(status)}</span>
@@ -466,22 +569,78 @@
       }).join('');
     }
 
-    // 6. Oil predictions
-    const oilThreat = threats.find(t => t.id === 'C11');
-    if (oilThreat) {
-      document.getElementById('oil100Prob').innerText = Math.round((oilThreat.base_probability||0.5)*100) + '%';
-      const p78 = Math.min(1, (oilThreat.scp||0.5) + 0.2);
-      document.getElementById('oil120Prob').innerText = Math.round(p78 * 100) + '%';
+    // 6. HEWD Widget
+    const critical = threats.filter(t => t.status === 'Red' || t.status.includes('Black')).length;
+    const alerts = threats.filter(t => t.status === 'Red' || t.status === 'Orange').length;
+    const domains = new Set();
+    threats.forEach(t => { if (t.domains) t.domains.forEach(d => domains.add(d)); });
+    document.getElementById('hewdCritical').textContent = critical;
+    document.getElementById('hewdAlerts').textContent = alerts;
+    document.getElementById('hewdDomains').textContent = domains.size;
+
+    // 7. Oil Prices (if available in sweep)
+    let brent = '--', wti = '--';
+    if (sweep && sweep.oil) {
+      brent = sweep.oil.brent ? `$${sweep.oil.brent.toFixed(2)}` : '--';
+      wti = sweep.oil.wti ? `$${sweep.oil.wti.toFixed(2)}` : '--';
+    }
+    document.getElementById('brentPrice').innerText = brent;
+    document.getElementById('wtiPrice').innerText = wti;
+
+    // 8. Oil predictions – closest to confirm/falsify
+    const oilPreds = threats.filter(t => t.id && (t.id.startsWith('P') || t.id.startsWith('C')) && t.scp !== undefined);
+    const sortedByScp = [...oilPreds].sort((a,b) => (b.scp||0) - (a.scp||0));
+    const closestConfirm = sortedByScp.slice(0,1)[0];
+    const closestFalsify = sortedByScp.slice(-1)[0];
+
+    if (closestConfirm) {
+      document.getElementById('oilClosestConfirm').innerHTML = `${escapeHtml(closestConfirm.id)} – ${Math.round((closestConfirm.scp||0)*100)}% (${escapeHtml(closestConfirm.name||'Unknown')})`;
     } else {
-      document.getElementById('oil100Prob').innerText = '--';
-      document.getElementById('oil120Prob').innerText = '--';
+      document.getElementById('oilClosestConfirm').innerHTML = 'No oil predictions tracked';
+    }
+    if (closestFalsify) {
+      document.getElementById('oilClosestFalsify').innerHTML = `${escapeHtml(closestFalsify.id)} – ${Math.round((closestFalsify.scp||0)*100)}% (${escapeHtml(closestFalsify.name||'Unknown')})`;
+    } else {
+      document.getElementById('oilClosestFalsify').innerHTML = 'No oil predictions tracked';
     }
 
-    // 7. Oil prices text
-    document.getElementById('oilPricesText').innerHTML = 'Brent and WTI prices from latest OSINT sweep.';
+    document.getElementById('oilPricesText').innerHTML = 'Oil prices from latest OSINT sweep. Predictions based on SCP values.';
 
-    // 8. Recovery signals (placeholder)
-    // Could be loaded from a separate file if needed
+    // 9. Prediction Log Update – latest confirmed & falsified
+    const updateContainer = document.getElementById('predictionUpdates');
+    let updatesHtml = '';
+
+    if (preds && preds.confirmed && preds.confirmed.length) {
+      const latestConfirmed = preds.confirmed.slice(-3).reverse();
+      updatesHtml += `<div style="font-weight:600; color:#22c55e; margin:0.3rem 0;">✅ Latest Confirmed</div>`;
+      latestConfirmed.forEach(p => {
+        updatesHtml += `
+          <div class="update-item">
+            <span class="desc">${escapeHtml(p.id)} – ${escapeHtml(p.description)}</span>
+            <span style="font-size:0.7rem; opacity:0.6;">${escapeHtml(p.date)}</span>
+          </div>
+        `;
+      });
+    }
+
+    if (preds && preds.falsified && preds.falsified.length) {
+      const latestFalsified = preds.falsified.slice(-2).reverse();
+      updatesHtml += `<div style="font-weight:600; color:#dc2626; margin:0.5rem 0 0.3rem 0;">❌ Latest Falsified</div>`;
+      latestFalsified.forEach(p => {
+        updatesHtml += `
+          <div class="update-item">
+            <span class="desc">${escapeHtml(p.id)} – ${escapeHtml(p.description)}</span>
+            <span style="font-size:0.7rem; opacity:0.6;">${escapeHtml(p.date)}</span>
+          </div>
+        `;
+      });
+    }
+
+    if (!updatesHtml) {
+      updatesHtml = `<div class="update-item"><span class="desc">No predictions logged yet.</span></div>`;
+    }
+
+    updateContainer.innerHTML = updatesHtml;
   }
 
   // Run on load
