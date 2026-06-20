@@ -66,6 +66,31 @@ def main():
     # 3. Cascade Engine – Bayesian updates, SCP, GSCI, etc.
     run_script("cascade_engine.py", "Cascade Engine (v8)")
 
+    # ---- v9 ML Likelihoods ----
+    print("🧠 Computing ML likelihood ratios...")
+    try:
+        from cathedral_ml import get_ml_likelihoods
+        data = load_json("threats.json")
+        threats = data.get('threats', [])
+        ml_lrs = get_ml_likelihoods(threats)
+    
+        # Store ML LRs in a separate file for now
+        save_json(ml_lrs, "ml_likelihoods.json")
+    
+        # Also attach them to each threat in threats.json
+        for t in threats:
+            tid = t.get('id')
+            if tid and tid in ml_lrs:
+                t['ml_likelihood_ratio'] = ml_lrs[tid]
+    
+        # Save updated threats
+        data['threats'] = threats
+        save_json(data, "threats.json")
+    
+        print(f"   ✅ ML LRs computed for {len(ml_lrs)} threats")
+    except Exception as e:
+        print(f"   ⚠️ ML step failed: {e}")
+
     # 4. Regional indices
     run_script("indices.py", "Regional indices")
 
