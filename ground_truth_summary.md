@@ -1,4 +1,4 @@
-# Ground Truth Summary – 2026-06-20T18:59:12.438058+00:00
+# Ground Truth Summary – 2026-06-20T19:24:14.075465+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
@@ -9,9 +9,9 @@
 **Reuters**:
 
 **Al Jazeera**:
+- Are UK Prime Minister Keir Starmer’s political days numbered?
 - Al Jazeera cameraman Ahmed Wishah killed in Israeli attack in Gaza
 - US-Iran talks to kick off Sunday in Switzerland, says Pakistan
-- As ILO convention turns 30, India’s home-based workers demand equal rights
 
 **The Guardian**:
 - Global framework for reparatory justice adopted at landmark Ghana conference
@@ -28,9 +28,9 @@
 - Trump-Meloni row intensifies as leaders trade barbs
 
 **NHK World**:
+- Ｗ杯 オランダがスウェーデンに快勝 日本と同じグループＦ
 - 神戸 マンションの冷凍庫から切断された男性の遺体見つかる
 - イラン中央司令部「ホルムズ海峡は封鎖される」声明発表
-- 東北南部と新潟県含む北陸が梅雨入り 激しい雨のおそれ
 
 **Times of India**:
 - 'Driven by bigotry and hatred': MEA hits back at Pakistan president, calls comments 'absurd'

@@ -65,3 +65,6 @@ TypeError: can't subtract offset-naive and offset-aware datetimes
 ✅ Health data written to health.json
    Status: warning
    Threats: 213
+✅ Health data written to health.json
+   Status: ok
+   Threats: 213
