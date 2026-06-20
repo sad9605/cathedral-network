@@ -141,6 +141,26 @@
     body.dark .category-card h4 { color: #b39ddb; }
     .category-card p { font-size: 0.9rem; margin: 0; }
 
+    /* Fixed: info cards for dark mode */
+    .info-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1.2rem;
+      margin: 1rem 0;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+    }
+    body.dark .info-card {
+      background: #2a2a3a;
+      color: #f0f0f0;
+    }
+    .info-card ol, .info-card ul {
+      margin: 0.5rem 0 0 1.5rem;
+    }
+    .info-card li {
+      margin: 0.3rem 0;
+    }
+
     .cta-box {
       background: var(--violet-light);
       border-radius: var(--card-radius);
@@ -324,16 +344,16 @@
     </div>
   </div>
 
-  <!-- How to Report -->
+  <!-- How to Report (fixed with class) -->
   <h2>📨 How to Report</h2>
-  <div style="background:white; border-radius:var(--card-radius); padding:1.2rem; margin:1rem 0; box-shadow:var(--shadow-sm); border-left:4px solid var(--violet-dark);">
+  <div class="info-card">
     <p style="font-weight:600;">Follow these three steps:</p>
-    <ol style="margin:0.5rem 0 0 1.5rem;">
+    <ol>
       <li><strong>Observe</strong> – note the event, location, time, and any source links or photos (if safe to share).</li>
       <li><strong>Classify</strong> – which category does it fit? (use the categories above).</li>
       <li><strong>Send</strong> – use one of the contact methods below. Include as much detail as you can.</li>
     </ol>
-    <p style="margin-top:0.5rem; font-size:0.9rem; color:#666;">If you're unsure, report anyway. The Cathedral will triage and verify.</p>
+    <p style="margin-top:0.5rem; font-size:0.9rem; opacity:0.8;">If you're unsure, report anyway. The Cathedral will triage and verify.</p>
   </div>
 
   <!-- Contact Methods -->
@@ -356,14 +376,14 @@
       <span class="handle">Become a Warden</span>
     </a>
   </div>
-  <p style="font-size:0.85rem; color:#666; margin-top:0.5rem;">
+  <p style="font-size:0.85rem; opacity:0.7; margin-top:0.5rem;">
     <strong>Security:</strong> For sensitive reports, use encrypted email (ProtonMail) or Signal. Never share classified or dangerous information – your safety comes first.
   </p>
 
-  <!-- Ethics & Responsibilities -->
+  <!-- Spotter Ethics (fixed with class) -->
   <h2>⚖️ Spotter Ethics</h2>
-  <div style="background:white; border-radius:var(--card-radius); padding:1.2rem; margin:1rem 0; box-shadow:var(--shadow-sm); border-left:4px solid var(--violet-dark);">
-    <ul style="margin:0 0 0 1.2rem;">
+  <div class="info-card">
+    <ul>
       <li><strong>Be honest</strong> – report what you see, not what you think.</li>
       <li><strong>Protect sources</strong> – never endanger informants or vulnerable people.</li>
       <li><strong>Stay safe</strong> – do not put yourself at risk to gather information.</li>
