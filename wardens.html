@@ -5,171 +5,6 @@
   <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — Wardens</title>
-  <style>
-    /* --- COPY THE EXACT CSS FROM YOUR index.html HERE --- */
-    :root {
-      --violet: #b39ddb;
-      --violet-dark: #7c4dff;
-      --violet-light: #f5f0fa;
-      --card-radius: 20px;
-      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
-      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
-      --bg-light: #fafafa;
-      --text-dark: #1a1a1a;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.5;
-      transition: background 0.2s, color 0.2s;
-    }
-    body.dark {
-      --bg-light: #1e1e2f;
-      --text-dark: #f0f0f0;
-      background: #1e1e2f;
-      color: #f0f0f0;
-    }
-    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
-    .cathedral-banner {
-      background: var(--violet);
-      padding: 1.5rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    .banner-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .logo-mark svg { display: block; }
-    .wordmark h1 {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 300;
-      font-size: 1.6rem;
-      letter-spacing: 0.1em;
-      color: white;
-      margin: 0;
-    }
-    .tagline {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.8);
-      margin: 0;
-    }
-    .nav {
-      margin: 1rem 0 1.5rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      background: white;
-      border-radius: 60px;
-      padding: 0.5rem 1rem;
-      box-shadow: var(--shadow-sm);
-    }
-    body.dark .nav { background: #2a2a3a; }
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: #5e2d8e;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    body.dark .nav-links a { color: #b39ddb; }
-    .menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #5e2d8e;
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
-      .nav-links.show { display: flex; }
-      .menu-btn { display: block; }
-    }
-    .warden-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    .warden-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.5rem;
-      border: 1px solid #eee;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.1s, box-shadow 0.2s;
-    }
-    body.dark .warden-card { background: #2a2a3a; border-color: #444; }
-    .warden-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-    .warden-card h3 { color: var(--violet-dark); margin-bottom: 0.5rem; }
-    body.dark .warden-card h3 { color: #b39ddb; }
-    .warden-card .status { font-size: 0.8rem; font-weight: 600; }
-    .status-open { color: #22c55e; }
-    .status-filled { color: var(--violet-dark); }
-    .cta-button {
-      display: inline-block;
-      background: var(--violet-dark);
-      color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 1rem;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .cta-button:hover { background: #6a3de8; }
-    .footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-style: italic;
-      color: #888;
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
-    }
-    .dark-mode-toggle {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      background: var(--violet-dark);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: var(--shadow-sm);
-    }
-    @media (max-width: 600px) {
-      .banner-content { flex-direction: column; text-align: center; }
-      .container { padding: 1rem; }
-      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
-    }
-  </style>
-</head>
-<body>
-<header class="cathedral-banner">
-  <div class="banner-content">
-    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Wardens</title>
   <meta name="description" content="Join the Cathedral's bicameral Warden system – the guardians of early warning.">
   <style>
     :root {
@@ -343,11 +178,8 @@
     body.dark .form-wrapper { background: #2a2a3a; border-color: #444; }
     .form-wrapper iframe {
       width: 100%;
-      height: 2459px;
       border: none;
-    }
-    @media (max-width: 700px) {
-      .form-wrapper iframe { height: 2800px; }
+      min-height: 600px;
     }
 
     .cta-box {
@@ -494,7 +326,7 @@
   <h2>📝 Apply Now</h2>
   <p>Fill out the application below. All Wardens must agree to the Silence Clause (Law III, Section 2) and uphold the Constitution.</p>
   <div class="form-wrapper">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfoEW_bbD8aSslmYWgVcPdEKty8aX3YJscP15sGSjAguq9N2g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfoEW_bbD8aSslmYWgVcPdEKty8aX3YJscP15sGSjAguq9N2g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" style="height:80vh; min-height:600px;">Loading…</iframe>
   </div>
 
   <!-- Contact -->
@@ -508,9 +340,9 @@
       <span class="icon">🐙</span>
       <span class="handle">GitHub</span>
     </a>
-    <a href="#" class="contact-item" id="signalLink">
+    <a href="https://signal.me/#p/+1234567890" target="_blank" rel="noopener" class="contact-item">
       <span class="icon">📱</span>
-      <span class="handle">Signal (coming soon)</span>
+      <span class="handle">@cathedral_network01 (Signal)</span>
     </a>
     <a href="https://sad9605.github.io/cathedral-network/" class="contact-item">
       <span class="icon">🌐</span>
@@ -529,6 +361,16 @@
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
 <script>
+  // ---- Auto‑resize iframe ----
+  function resizeIframe() {
+    const iframe = document.querySelector('.form-wrapper iframe');
+    if (!iframe) return;
+    const height = Math.max(600, window.innerHeight * 0.8);
+    iframe.style.height = height + 'px';
+  }
+  window.addEventListener('load', resizeIframe);
+  window.addEventListener('resize', resizeIframe);
+
   // ---- Load Warden stats from wardens.json (if available) ----
   async function loadWardenStats() {
     try {
@@ -540,7 +382,7 @@
       document.getElementById('totalCount').textContent = (data.council || 0) + (data.assembly || 0);
       document.getElementById('spottersCount').textContent = data.spotters || 0;
     } catch(e) {
-      // Silently fallback – stats stay at 0
+      // Silently fallback
     }
   }
   loadWardenStats();
