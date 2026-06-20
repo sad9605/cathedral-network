@@ -66,22 +66,32 @@ def compute_gsci(threats: List[Dict]) -> float:
     for t in threats:
         # Extract regional_ds: use scp scaled to 0-10 range as a proxy
         scp = t.get('scp', 0.5)
-        regional_ds = scp * 10  # adjust scaling as needed
+        regional_ds = scp * 10
 
-        # Extract selected domain scores: if 'domain_scores' is a dict, use its values
+        # Extract selected domain scores
         domain_scores = t.get('domain_scores', [])
         if isinstance(domain_scores, dict):
             domain_scores = list(domain_scores.values())
         elif not isinstance(domain_scores, list):
             domain_scores = []
 
+        # Compute NSI – it should return a number, but handle dict just in case
         nsi = compute_nsi(regional_ds, domain_scores)
-        nsi_values.append(nsi)
+        if isinstance(nsi, dict):
+            # Try to extract a numeric value
+            nsi = nsi.get('nsi') or nsi.get('value') or nsi.get('score')
+            if nsi is None:
+                # Try first numeric value
+                for v in nsi.values():
+                    if isinstance(v, (int, float)):
+                        nsi = v
+                        break
+        if isinstance(nsi, (int, float)):
+            nsi_values.append(nsi)
 
     avg_nsi = np.mean(nsi_values) if nsi_values else 0
     gsci = min(100, round((avg_nsi / 21) * 100, 2))
     return gsci
-
 # ---------- 2. Cascade & Collapse Probability Metrics ----------
 
 def compute_sca_tier(active_cascades: int) -> Dict:
