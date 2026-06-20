@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-06-20T18:52:12.788682+00:00",
+  "total_threats": 213,
+  "critical_count": 60,
+  "alert_count": 60,
+  "domains_covered": 13,
+  "indicators": [
+    {
+      "id": "total_threats",
+      "title": "Total Threats",
+      "value": 213,
+      "description": "All tracked threats across all domains",
+      "status": "normal",
+      "source": "threats.json"
+    },
+    {
+      "id": "black_red",
+      "title": "Critical Threats (Black/Red)",
+      "value": 60,
+      "description": "Immediate humanitarian risk requiring urgent attention",
+      "status": "critical",
+      "source": "threats.json"
+    },
+    {
+      "id": "orange",
+      "title": "Orange Level Threats",
+      "value": 80,
+      "description": "Elevated risk \u2013 monitoring required",
+      "status": "warning",
+      "source": "threats.json"
+    },
+    {
+      "id": "domains",
+      "title": "Domains Affected",
+      "value": 13,
+      "description": "Humanitarian domains impacted: Domestic, Geopolitical, Energy, Supply Chains, Technology, Biosecurity, Institutional, Information, Social, Food, Cyber, Financial, Climate",
+      "status": "warning",
+      "source": "threats.json"
+    }
+  ]
+}

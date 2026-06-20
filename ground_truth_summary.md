@@ -1,20 +1,20 @@
-# Ground Truth Summary – 2026-06-20T05:31:18.534086+00:00
+# Ground Truth Summary – 2026-06-20T18:52:12.788682+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
-- Driver dies and 33 people seriously injured in Bedford train crash
-- 'People flew from their seats': Passengers describe how collision unfolded
-- PM under pressure from Labour MPs and ministers to set timetable for exit
+- Nine people in critical condition among 100 injured in fatal Bedford train crash
+- Talk of Starmer staying on to fight is fading - fast
+- Extreme heat warning expanded as 36C heatwave approaches UK
 
 **Reuters**:
 
 **Al Jazeera**:
-- Inferno rips through Dominican Republic beach resort
-- Israel fetes Somaliland’s leader as it seeks to expand Red Sea influence
-- UN meeting erupts over sexual violence allegations against Israel
+- Al Jazeera cameraman Ahmed Wishah killed in Israeli attack in Gaza
+- US-Iran talks to kick off Sunday in Switzerland, says Pakistan
+- As ILO convention turns 30, India’s home-based workers demand equal rights
 
 **The Guardian**:
-- Global framework for reparatory justice adopted at landmark conference in Ghana
+- Global framework for reparatory justice adopted at landmark Ghana conference
 - CDC to tap $107m in emergency funding for Ebola response in DRC and Uganda
 - Barbados prime minister announces manifesto for slavery reparations
 
@@ -23,29 +23,29 @@
 **Deutsche Welle**:
 
 **Sky News**:
-- Britain facing 'tropical night' temperatures as extreme heat warning issued
-- Tourist dies after huge fire destroys luxury beach resort
-- Apology over illegal Israeli settlements brochures criticised
+- Counter terror police investigate attacks that appeared to target Muslims in UK city
+- Murder investigation after boy, 17, fatally stabbed
+- Trump-Meloni row intensifies as leaders trade barbs
 
 **NHK World**:
+- 神戸 マンションの冷凍庫から切断された男性の遺体見つかる
+- イラン中央司令部「ホルムズ海峡は封鎖される」声明発表
 - 東北南部と新潟県含む北陸が梅雨入り 激しい雨のおそれ
-- 東京 北区 小学校の火事 音楽準備室が火元とみて現場検証
-- “米特使スイスへ”報道 米イラン協議近く開催か注目
 
 **Times of India**:
-- 'Be quiet, obsessed with targeting Israel': UN hearing on Gaza kids turns into shouting match; watch
-- 'Just being cute, funny': Donald Trump clarifies 'I'm the boss' remark at G7 summit
-- Citizens can seek damages if right to walk is violated: SC
+- 'Driven by bigotry and hatred': MEA hits back at Pakistan president, calls comments 'absurd'
+- 18-year-old drugged, recorded, raped in Gujarat
+- America@250 swathed in red, white, and blue — and green algae
 
 **South China Morning Post**:
-- ‘Tap your cultural foundation’, Shangri-La’s Kuok Hui Kwong tells Hong Kong tourism trade
-- Easy money or risky business? What can Hong Kong do as prediction markets boom?
-- Taxi fleet severs ties with driver who made mid-road stop to let passengers out
+- Man suspected of 3 burglaries in Hong Kong arrested at airport
+- MTR Corp investigates after woman injured by falling ceiling panel at plaza
+- Motorcyclist dies after collision with double-decker bus in Hong Kong
 
 **Africa News**:
-- New wave of anti-LGBTQ laws sweeps Africa
-- Russia, Madagascar foreign ministers hold talks in Moscow
-- South Sudan repatriates Vietnamese man deported from US
+- Oil 'pouring through' Strait of Hormuz, Trump says, as he unveils new Air Force One
+- Fans party in Monterrey ahead of Japan-Tunisia World Cup match
+- African leaders mark Juneteenth with call for reparations for Atlantic slave trade
 
 ## Disaster and Conflict Alerts
 - gdacs: error

@@ -37,3 +37,31 @@ Traceback (most recent call last):
     ret = umr_sum(arr, axis, dtype, out, keepdims, where=where)
 TypeError: unsupported operand type(s) for +: 'dict' and 'dict'
 ===== Sat Jun 20 00:01:58 CDT 2026 =====
+Traceback (most recent call last):
+  File "/home/sad9605/cathedral-core/generate_health.py", line 61, in <module>
+    main()
+    ~~~~^^
+  File "/home/sad9605/cathedral-core/generate_health.py", line 36, in main
+    if datetime.now() - last > timedelta(hours=8):
+       ~~~~~~~~~~~~~~~^~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+/home/sad9605/cathedral-core/generate_health.py:69: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  mtime = datetime.utcfromtimestamp(Path(LOG_FILE).stat().st_mtime)
+✅ Health data written to health.json
+   Status: ok
+   Threats: 213
+/home/sad9605/cathedral-core/generate_health.py:69: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  mtime = datetime.utcfromtimestamp(Path(LOG_FILE).stat().st_mtime)
+✅ Health data written to health.json
+   Status: warning
+   Threats: 213
+/home/sad9605/cathedral-core/generate_health.py:69: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  mtime = datetime.utcfromtimestamp(Path(LOG_FILE).stat().st_mtime)
+✅ Health data written to health.json
+   Status: warning
+   Threats: 213
+/home/sad9605/cathedral-core/generate_health.py:69: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  mtime = datetime.utcfromtimestamp(Path(LOG_FILE).stat().st_mtime)
+✅ Health data written to health.json
+   Status: warning
+   Threats: 213
