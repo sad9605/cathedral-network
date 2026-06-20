@@ -128,6 +128,9 @@ def main():
     # 12. Generate daily archive
     run_script("generate_archive.py", "Daily archive generation")
 
+    # ---- Generate archive index ----
+    run_script("generate_archive_index.py", "Archive index generation")
+
     # 13. Git commit and push (to trigger GitHub Pages rebuild)
     run_script("git_commit_push.py", "Git commit and push")
 
