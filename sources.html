@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — Data Sources</title>
   <style>
-    /* --- COPY THE EXACT CSS FROM YOUR index.html HERE --- */
     :root {
       --violet: #b39ddb;
       --violet-dark: #7c4dff;
@@ -94,34 +93,70 @@
       .nav-links.show { display: flex; }
       .menu-btn { display: block; }
     }
-    .source-category { margin-bottom: 2.5rem; }
+
+    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    .source-category { margin: 2rem 0 1.5rem 0; }
     .source-category h2 {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       border-bottom: 2px solid var(--violet);
       padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
+      display: inline-block;
+      margin-bottom: 1rem;
     }
     .source-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
     }
     .source-card {
       background: white;
       border-radius: var(--card-radius);
+      padding: 1rem 1.2rem;
       box-shadow: var(--shadow-sm);
-      padding: 1.2rem;
-      border: 1px solid #eee;
+      border-left: 4px solid var(--violet-dark);
       transition: transform 0.1s, box-shadow 0.2s;
     }
-    body.dark .source-card { background: #2a2a3a; border-color: #444; }
+    body.dark .source-card { background: #2a2a3a; }
     .source-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-    .source-name { font-weight: 700; font-size: 1.1rem; color: var(--violet-dark); }
-    body.dark .source-name { color: #b39ddb; }
-    .source-type { font-size: 0.7rem; background: var(--violet-light); padding: 0.2rem 0.6rem; border-radius: 40px; display: inline-block; margin-left: 0.5rem; }
-    body.dark .source-type { background: #3a3a4a; }
-    .source-desc { font-size: 0.9rem; margin: 0.5rem 0; }
-    .source-link { font-size: 0.8rem; word-break: break-all; color: var(--violet-dark); }
+    .source-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .source-type {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: var(--violet-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+      color: var(--violet-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    body.dark .source-type { background: #3a3a4a; color: #b39ddb; }
+    .source-desc {
+      font-size: 0.9rem;
+      margin: 0.4rem 0 0.2rem 0;
+      color: #444;
+    }
+    body.dark .source-desc { color: #ccc; }
+    .source-link {
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+    }
+    .source-link a {
+      color: var(--violet-dark);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    body.dark .source-link a { color: #b39ddb; }
+    .source-link a:hover { text-decoration: underline; }
+
     .footer {
       margin-top: 3rem;
       text-align: center;
@@ -148,6 +183,7 @@
     @media (max-width: 600px) {
       .banner-content { flex-direction: column; text-align: center; }
       .container { padding: 1rem; }
+      .source-grid { grid-template-columns: 1fr; }
       .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
     }
   </style>
@@ -155,8 +191,19 @@
 <body>
 <header class="cathedral-banner">
   <div class="banner-content">
-    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">A cathedral that watches</p></div>
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Data &amp; Technology Sources</p></div>
   </div>
 </header>
 <div class="container">
@@ -177,15 +224,14 @@
       <a href="methodology.html">Methodology</a>
       <a href="pra.html">Personal Resilience</a>
       <a href="prediction-log.html">Prediction Log</a>
+      <a href="credits.html">Credits</a>
     </div>
   </div>
 
-  <h1>📡 Cathedral Data & Technology Sources</h1>
+  <h1>📡 Cathedral Data &amp; Technology Sources</h1>
   <p style="margin-bottom: 1rem;">Every feed, every API, every library, and every custom module that powers the Cathedral Network. Fully transparent, always updated.</p>
 
-  <div id="sourcesContainer">
-    <p style="text-align:center; color:#888;">Loading sources...</p>
-  </div>
+  <div id="sourcesContainer"><p>Loading sources…</p></div>
 
   <div class="footer">
     <strong>Always and Forever, Coco. Always and Forever.</strong><br>
@@ -196,40 +242,57 @@
 
 <script>
   async function loadSources() {
+    const container = document.getElementById('sourcesContainer');
     try {
       const resp = await fetch('sources.json');
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
       const data = await resp.json();
-      const container = document.getElementById('sourcesContainer');
+
       if (!data.data_sources || data.data_sources.length === 0) {
         container.innerHTML = '<p>No sources found.</p>';
         return;
       }
+
       let html = '';
-      data.data_sources.forEach(category => {
-        html += `<div class="source-category"><h2>${category.category}</h2><div class="source-grid">`;
-        category.sources.forEach(source => {
+      for (const category of data.data_sources) {
+        html += `<div class="source-category"><h2>${escapeHtml(category.category)}</h2><div class="source-grid">`;
+        for (const source of category.sources) {
           html += `
             <div class="source-card">
-              <div class="source-name">${source.name}<span class="source-type">${source.type}</span></div>
-              <div class="source-desc">${source.description}</div>
-              ${source.link && source.link !== 'N/A' ? `<div class="source-link">🔗 <a href="${source.link}" target="_blank">${source.link}</a></div>` : ''}
+              <div class="source-name">
+                ${escapeHtml(source.name)}
+                <span class="source-type">${escapeHtml(source.type || '')}</span>
+              </div>
+              <div class="source-desc">${escapeHtml(source.description || '')}</div>
+              ${source.link && source.link !== 'N/A' ? `<div class="source-link">🔗 <a href="${escapeHtml(source.link)}" target="_blank" rel="noopener">${escapeHtml(source.link)}</a></div>` : ''}
             </div>
           `;
-        });
+        }
         html += `</div></div>`;
-      });
+      }
       container.innerHTML = html;
-    } catch(e) {
+    } catch (e) {
       console.error('Error loading sources:', e);
-      document.getElementById('sourcesContainer').innerHTML = '<p style="color:#dc2626;">Error loading sources. Please try again later.</p>';
+      container.innerHTML = '<p style="color:#dc2626;">Error loading sources. Please try again later.</p>';
     }
   }
 
-  // Navigation and dark mode (standard)
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    });
+  }
+
+  // Navigation toggle
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
 
+  // Dark mode
   const darkToggle = document.getElementById('darkModeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const storedTheme = localStorage.getItem('cathedral-theme');
@@ -244,7 +307,10 @@
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
 
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');
+
   loadSources();
 </script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
