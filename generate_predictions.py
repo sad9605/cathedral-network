@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 generate_predictions.py – Auto-generate predictions from engine data.
-Preserves confirmed/falsified history, updates pending probabilities, adds date_made to all.
+Preserves confirmed/falsified history, updates pending probabilities, adds correct date_made.
 """
 
 import json
@@ -9,6 +9,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 THREATS_FILE = "threats.json"
+SWEEP_FILE = "sweep_report.json"
 PREDICTIONS_FILE = "predictions.json"
 
 def load_json(filepath, default=None):
@@ -20,6 +21,18 @@ def load_json(filepath, default=None):
 def save_json(data, filepath):
     with open(filepath, 'w') as f:
         json.dump(data, f, indent=2)
+
+def get_sweep_date():
+    """Get the timestamp from sweep_report.json, fallback to today."""
+    sweep = load_json(SWEEP_FILE, {})
+    ts = sweep.get('timestamp')
+    if ts:
+        try:
+            dt = datetime.fromisoformat(ts)
+            return dt.strftime("%Y-%m-%d")
+        except:
+            pass
+    return datetime.now().strftime("%Y-%m-%d")
 
 def generate_predictions():
     print("📋 Generating prediction log (preserving history, adding date_made)...")
@@ -38,6 +51,8 @@ def generate_predictions():
     
     threats_data = load_json(THREATS_FILE)
     threats = threats_data.get('threats', [])
+    sweep_date = get_sweep_date()
+    now = datetime.now().isoformat()
     
     pending_map = {p['id']: p for p in predictions.get('pending', [])}
     confirmed_ids = {p['id'] for p in predictions.get('confirmed', [])}
@@ -45,8 +60,6 @@ def generate_predictions():
     
     updated_count = 0
     added_count = 0
-    now = datetime.now().isoformat()
-    today = datetime.now().strftime("%Y-%m-%d")
     
     for t in threats:
         tid = t.get('id', '')
@@ -60,12 +73,12 @@ def generate_predictions():
             pending_map[tid]['scp'] = round(t.get('scp', 0.5), 2)
             pending_map[tid]['priority_score'] = round(t.get('priority_score', 0), 2)
             pending_map[tid]['updated'] = now
-            # Ensure date_made exists (should already)
+            # Ensure date_made exists
             if 'date_made' not in pending_map[tid]:
-                pending_map[tid]['date_made'] = today
+                pending_map[tid]['date_made'] = sweep_date
             updated_count += 1
         else:
-            # New prediction – add date_made
+            # New prediction – use sweep date
             new_pred = {
                 "id": tid,
                 "description": t.get('name', tid)[:80],
@@ -74,8 +87,8 @@ def generate_predictions():
                 "priority_score": round(t.get('priority_score', 0), 2),
                 "horizon": "30 days",
                 "status": "Active",
-                "date_made": today,      # <-- creation date
-                "created": today,
+                "date_made": sweep_date,
+                "created": sweep_date,
                 "updated": now
             }
             predictions['pending'].append(new_pred)
