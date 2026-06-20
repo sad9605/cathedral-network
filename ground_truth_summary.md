@@ -1,17 +1,17 @@
-# Ground Truth Summary – 2026-06-19T19:10:58.912909+00:00
+# Ground Truth Summary – 2026-06-20T05:31:18.534086+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
-- 'Like a bomb explosion': Bedford train passenger describes crash
+- Driver dies and 33 people seriously injured in Bedford train crash
+- 'People flew from their seats': Passengers describe how collision unfolded
 - PM under pressure from Labour MPs and ministers to set timetable for exit
-- Henry Zeffman: What does Keir Starmer do next after Andy Burnham's Makerfield win?
 
 **Reuters**:
 
 **Al Jazeera**:
-- How is the Iran-US agreement being viewed in Israel?
-- Two trains collide near Bedford, north of London
-- Backlash for UK MP who linked England World Cup result to women’s safety
+- Inferno rips through Dominican Republic beach resort
+- Israel fetes Somaliland’s leader as it seeks to expand Red Sea influence
+- UN meeting erupts over sexual violence allegations against Israel
 
 **The Guardian**:
 - Global framework for reparatory justice adopted at landmark conference in Ghana
@@ -23,29 +23,29 @@
 **Deutsche Welle**:
 
 **Sky News**:
-- 'Muggier' heatwave could hit 34C as extreme heat warning issued
-- Need for 'genuine human connection' has never been greater, says Kate
-- Toddler hurt at zoo was attacked by crocodile, Sky News understands
+- Britain facing 'tropical night' temperatures as extreme heat warning issued
+- Tourist dies after huge fire destroys luxury beach resort
+- Apology over illegal Israeli settlements brochures criticised
 
 **NHK World**:
-- 東海道新幹線 ダイヤ乱れ 20日は始発から平常どおり運行予定
-- 東電の提携交渉 日米の投資ファンドや通信大手の5陣営が軸に
-- “イスラエルとヒズボラ 停戦で合意” 米政府当局者
+- 東北南部と新潟県含む北陸が梅雨入り 激しい雨のおそれ
+- 東京 北区 小学校の火事 音楽準備室が火元とみて現場検証
+- “米特使スイスへ”報道 米イラン協議近く開催か注目
 
 **Times of India**:
-- 'Ready to resign': Uddhav's emotional offer amid MPs rebellion, but with a condition
-- Two trains collide near London, emergency services respond
-- A tale of two cross-votings: How power politics played out in Karnataka, Jharkhand
+- 'Be quiet, obsessed with targeting Israel': UN hearing on Gaza kids turns into shouting match; watch
+- 'Just being cute, funny': Donald Trump clarifies 'I'm the boss' remark at G7 summit
+- Citizens can seek damages if right to walk is violated: SC
 
 **South China Morning Post**:
+- ‘Tap your cultural foundation’, Shangri-La’s Kuok Hui Kwong tells Hong Kong tourism trade
+- Easy money or risky business? What can Hong Kong do as prediction markets boom?
 - Taxi fleet severs ties with driver who made mid-road stop to let passengers out
-- Illegal gambling in Hong Kong
-- Will hosting Hyrox World Championships add muscle to Hong Kong’s tourism trade?
 
 **Africa News**:
+- New wave of anti-LGBTQ laws sweeps Africa
 - Russia, Madagascar foreign ministers hold talks in Moscow
 - South Sudan repatriates Vietnamese man deported from US
-- Heatwave nears 40C in France, forcing tourists to change routines
 
 ## Disaster and Conflict Alerts
 - gdacs: error

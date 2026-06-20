@@ -4,14 +4,25 @@ cathedral_system.py – Master orchestrator for Cathedral Network daily pipeline
 Runs: sweep → forecast → cascade engine → indices → early warning → SCP history → cascade graph → trends → verify predictions → generate predictions → update sources → archive → git push.
 """
 
-import subprocess
-import sys
 import json
+import sys
+import subprocess
 import traceback
 from pathlib import Path
 from datetime import datetime
+from cathedral_math import compute_gsci
 
 # ------------- helper functions -------------
+
+def load_json(filepath, default=None):
+    if Path(filepath).exists():
+        with open(filepath, 'r') as f:
+            return json.load(f)
+    return default if default is not None else {}
+
+def save_json(data, filepath):
+    with open(filepath, 'w') as f:
+        json.dump(data, f, indent=2)
 
 def run_script(script_name, description):
     """Run a Python script and log success/failure."""
@@ -57,6 +68,15 @@ def main():
 
     # 4. Regional indices
     run_script("indices.py", "Regional indices")
+
+    # ---- Compute and store GSCI ----
+    print("📊 Computing and storing GSCI...")
+    data = load_json("threats.json")
+    threats = data.get('threats', [])
+    gsci = compute_gsci(threats)
+    data['gsci'] = gsci
+    save_json(data, "threats.json")
+    print(f"   GSCI = {gsci}")
 
     # 5. Early warning report
     run_script("early_warning.py", "Early warning report")
