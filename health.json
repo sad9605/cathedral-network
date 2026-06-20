@@ -1,10 +1,8 @@
 {
-  "timestamp": "2026-06-20T18:30:02.329108+00:00Z",
-  "status": "warning",
-  "last_sweep": "2026-06-20T05:31:18.534086+00:00",
+  "timestamp": "2026-06-20T18:53:03.798353+00:00Z",
+  "status": "ok",
+  "last_sweep": "2026-06-20T18:52:12.788682+00:00",
   "threats": 213,
-  "errors": [
-    "No sweep in the last 8 hours"
-  ],
+  "errors": [],
   "pipeline_steps": []
 }

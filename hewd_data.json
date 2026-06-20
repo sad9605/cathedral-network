@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-20T18:52:12.788682+00:00",
+  "timestamp": "2026-06-20T18:59:12.438058+00:00",
   "total_threats": 213,
   "critical_count": 60,
   "alert_count": 60,
@@ -33,7 +33,7 @@
       "id": "domains",
       "title": "Domains Affected",
       "value": 13,
-      "description": "Humanitarian domains impacted: Domestic, Geopolitical, Energy, Supply Chains, Technology, Biosecurity, Institutional, Information, Social, Food, Cyber, Financial, Climate",
+      "description": "Humanitarian domains impacted: Financial, Biosecurity, Social, Information, Domestic, Cyber, Geopolitical, Food, Climate, Supply Chains, Institutional, Energy, Technology",
       "status": "warning",
       "source": "threats.json"
     }

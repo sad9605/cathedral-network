@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-20T18:52:12.788682+00:00",
+  "timestamp": "2026-06-20T18:59:12.438058+00:00",
   "feeds": {
     "news_rss": {
       "BBC News": [
@@ -30,8 +30,8 @@
         "Counter terror police investigate attacks that appeared to target Muslims in UK city",
         "Murder investigation after boy, 17, fatally stabbed",
         "Trump-Meloni row intensifies as leaders trade barbs",
-        "Britain facing 'tropical night' temperatures as extreme heat warning issued",
-        "Alcohol bans as Europe swelters - with temperatures of up to 44C forecast"
+        "Alcohol bans as Europe swelters - with temperatures of up to 44C forecast",
+        "Britain facing 'tropical night' temperatures as extreme heat warning issued"
       ],
       "NHK World": [
         "\u795e\u6238 \u30de\u30f3\u30b7\u30e7\u30f3\u306e\u51b7\u51cd\u5eab\u304b\u3089\u5207\u65ad\u3055\u308c\u305f\u7537\u6027\u306e\u907a\u4f53\u898b\u3064\u304b\u308b",
@@ -100,7 +100,7 @@
     "opensky": {
       "source": "OpenSky",
       "status": "success",
-      "aircraft": 11220
+      "aircraft": 11073
     },
     "kalshi": {
       "source": "Kalshi",
