@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Threat Matrix (Advanced)</title>
-  <meta name="description" content="Interactive threat matrix with 3D cascade graph, SCP slider, heatmap, and predictive intelligence.">
+  <title>Cathedral Network — Threat Matrix</title>
+  <meta name="description" content="Interactive threat matrix with SCP slider, cascade graph, heatmap, and predictive intelligence.">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet-heat@0.2.0/dist/leaflet-heat.js"></script>
   <script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
-  <!-- 3d-force-graph and dependencies -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.73.0/dist/3d-force-graph.min.js"></script>
+
   <style>
     :root {
       --violet: #b39ddb;
@@ -30,7 +30,7 @@
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg-light);
       color: var(--text-dark);
-      line-height: 1.5;
+      line-height: 1.6;
       transition: background 0.2s, color 0.2s;
     }
     body.dark {
@@ -39,7 +39,7 @@
       background: #1e1e2f;
       color: #f0f0f0;
     }
-    .container { max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
+    .container { max-width: 1400px; margin: 2rem auto; padding: 0 1.5rem; }
     .cathedral-banner {
       background: var(--violet);
       padding: 1.5rem 1rem;
@@ -91,46 +91,47 @@
       .menu-btn { display: block; }
     }
 
-    .metrics-strip {
-      display: flex;
-      flex-wrap: wrap;
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+    .date { color: #666; margin-bottom: 1rem; font-size: 0.9rem; }
+    body.dark .date { color: #aaa; }
+
+    /* Stats grid – like index/wardens */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       gap: 1rem;
-      justify-content: space-between;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
       background: white;
       border-radius: var(--card-radius);
       padding: 1rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid #eee;
-    }
-    body.dark .metrics-strip { background: #2a2a3a; border-color: #444; }
-    .metric-item {
-      flex: 1;
       text-align: center;
-      padding: 0.5rem;
-      cursor: pointer;
-      transition: background 0.2s;
-      border-radius: var(--card-radius);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
       text-decoration: none;
       color: inherit;
-      min-width: 80px;
+      transition: transform 0.1s, box-shadow 0.2s;
     }
-    .metric-item:hover { background: var(--violet-light); }
-    body.dark .metric-item:hover { background: var(--violet-dark); }
-    .metric-value { font-size: 1.5rem; font-weight: 700; color: var(--violet-dark); }
-    body.dark .metric-value { color: #b39ddb; }
-    .metric-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+    body.dark .stat-card { background: #2a2a3a; }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--violet-dark); }
+    body.dark .stat-card .number { color: #b39ddb; }
+    .stat-card .label { font-size: 0.7rem; text-transform: uppercase; color: #666; letter-spacing: 0.5px; }
+    body.dark .stat-card .label { color: #aaa; }
 
+    /* Toolbar */
     .toolbar {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.6rem;
       align-items: center;
       margin: 1rem 0;
     }
     .toolbar-btn {
       background: var(--violet-light);
       border: none;
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 1rem;
       border-radius: 40px;
       cursor: pointer;
       font-size: 0.8rem;
@@ -139,7 +140,7 @@
       transition: background 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.3rem;
     }
     body.dark .toolbar-btn { background: #3a3a4a; color: #b39ddb; }
     .toolbar-btn:hover { background: var(--violet-dark); color: white; }
@@ -171,12 +172,12 @@
     body.dark .filter-btn.active { background: var(--violet); color: #1a1a1a; }
 
     .search-box {
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 1rem;
       border-radius: 40px;
       border: 1px solid #ccc;
       flex: 1;
-      min-width: 200px;
-      max-width: 350px;
+      min-width: 180px;
+      max-width: 300px;
       font-size: 0.85rem;
     }
     body.dark .search-box { background: #2a2a3a; border-color: #555; color: white; }
@@ -196,20 +197,24 @@
     .slider-label { font-size: 0.8rem; color: #666; }
     body.dark .slider-label { color: #aaa; }
 
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
     .threat-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
-      font-size: 0.85rem;
       background: white;
       border-radius: var(--card-radius);
       overflow: hidden;
       box-shadow: var(--shadow-sm);
+      font-size: 0.85rem;
     }
     body.dark .threat-table { background: #2a2a3a; }
     .threat-table th, .threat-table td {
+      padding: 0.5rem 0.6rem;
       border: 1px solid #ddd;
-      padding: 0.6rem 0.75rem;
       text-align: left;
       vertical-align: middle;
     }
@@ -234,13 +239,14 @@
       background: #e0e0e0;
       width: 60px;
       vertical-align: middle;
-      margin-right: 6px;
+      margin-right: 4px;
     }
     body.dark .scp-bar { background: #444; }
-    .scp-fill { height: 100%; border-radius: 4px; background: var(--violet-dark); }
+    .scp-fill { height: 100%; border-radius: 4px; }
     .scp-high { background: #dc2626; }
     .scp-mid { background: #f97316; }
     .scp-low { background: #22c55e; }
+
     .row-predictive { border-left: 4px solid #dc2626; animation: pulse-border 2s infinite; }
     @keyframes pulse-border {
       0%, 100% { border-left-color: #dc2626; }
@@ -250,21 +256,33 @@
     .trend-down { color: #dc2626; }
     .trend-stable { color: #f97316; }
 
-    .recovery-signal {
-      background: #d4a83720;
-      border-left: 4px solid #d4a837;
-      padding: 0.5rem 1rem;
-      margin: 0.25rem 0;
-      border-radius: 8px;
-    }
     .lang-select {
       padding: 0.3rem 0.8rem;
       border-radius: 40px;
       border: 1px solid #ccc;
       background: white;
+      font-size: 0.8rem;
     }
     body.dark .lang-select { background: #2a2a3a; border-color: #555; color: white; }
 
+    /* Recovery signals */
+    .recovery-card {
+      background: #fef9e7;
+      border-radius: var(--card-radius);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid #d4a837;
+    }
+    body.dark .recovery-card { background: #2a2a1a; border-left-color: #d4a837; }
+    .recovery-card h3 { color: #d4a837; margin: 0 0 0.5rem 0; }
+    .recovery-signal {
+      background: rgba(212,168,55,0.15);
+      border-radius: 8px;
+      padding: 0.4rem 0.8rem;
+      margin: 0.25rem 0;
+    }
+
+    /* Modal */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -315,6 +333,17 @@
     .modal .detail-row .label { font-weight: 600; width: 120px; flex-shrink: 0; }
     .modal .detail-row .value { flex: 1; }
 
+    #cascadeGraphContainer {
+      width: 100%;
+      height: 400px;
+      margin-top: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      display: none;
+    }
+    body.dark #cascadeGraphContainer { border-color: #444; }
+
+    /* Overlays */
     #heatmap-overlay {
       display: none;
       position: fixed;
@@ -353,18 +382,8 @@
       pointer-events: none;
       border: 1px solid #444;
     }
-    #nexus-canvas .graph-legend .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 0.2rem 0;
-    }
-    #nexus-canvas .graph-legend .color-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      display: inline-block;
-    }
+    #nexus-canvas .graph-legend .legend-item { display: flex; align-items: center; gap: 0.5rem; margin: 0.2rem 0; }
+    #nexus-canvas .graph-legend .color-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
     #nexus-container .nexus-controls {
       position: absolute;
       top: 1rem;
@@ -374,7 +393,14 @@
       gap: 0.5rem;
     }
 
-    .footer { margin-top: 3rem; text-align: center; font-style: italic; color: #888; border-top: 1px solid #ddd; padding-top: 1rem; }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
     .dark-mode-toggle {
       position: fixed;
       bottom: 1rem;
@@ -396,6 +422,13 @@
       .modal { padding: 1.2rem; }
       .modal .detail-row .label { width: 80px; }
       .slider-container { flex-wrap: wrap; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 1rem; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
     }
   </style>
 </head>
@@ -403,7 +436,7 @@
 <header class="cathedral-banner">
   <div class="banner-content">
     <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Advanced Threat Matrix</p></div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Full Threat Matrix</p></div>
   </div>
 </header>
 <div class="container">
@@ -418,25 +451,28 @@
       <a href="constitution.html">Constitution</a>
       <a href="wardens.html">Wardens</a>
       <a href="hewd.html">HEWD Dashboard</a>
+      <a href="health.html">System Health</a>
       <a href="about.html">About</a>
       <a href="threat-matrix.html">Threat Matrix</a>
       <a href="glossary.html">Glossary</a>
       <a href="methodology.html">Methodology</a>
       <a href="pra.html">Personal Resilience</a>
       <a href="prediction-log.html">Prediction Log</a>
+      <a href="credits.html">Credits</a>
     </div>
   </div>
 
-  <div class="metrics-strip" id="metricsStrip">
-    <a href="glossary.html#sca" class="metric-item"><div class="metric-value" id="scaValue">--</div><div class="metric-label">SCA Tier</div></a>
-    <a href="glossary.html#ivf" class="metric-item"><div class="metric-value" id="ivfValue">--</div><div class="metric-label">IVF</div></a>
-    <a href="glossary.html#scp" class="metric-item"><div class="metric-value" id="scpCount">--</div><div class="metric-label">Bayesian SCP</div></a>
-    <a href="#cascade" class="metric-item"><div class="metric-value" id="ruleCount">--</div><div class="metric-label">Cascade rules</div></a>
-    <a href="#" class="metric-item"><div class="metric-value" id="threatCount">--</div><div class="metric-label">Threats tracked</div></a>
-  </div>
+  <h1>🗺️ Full Threat Matrix</h1>
+  <div class="date" id="lastUpdated">Loading threat data…</div>
 
-  <h1>Full Threat Matrix &amp; Cascade Engine</h1>
-  <div class="date" id="lastUpdated">Loading threat data...</div>
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-card"><div class="number" id="scaValue">--</div><div class="label">SCA Tier</div></div>
+    <div class="stat-card"><div class="number" id="ivfValue">--</div><div class="label">IVF</div></div>
+    <div class="stat-card"><div class="number" id="scpCount">--</div><div class="label">Bayesian SCP</div></div>
+    <div class="stat-card"><div class="number" id="ruleCount">--</div><div class="label">Cascade rules</div></div>
+    <div class="stat-card"><div class="number" id="threatCount">--</div><div class="label">Threats tracked</div></div>
+  </div>
 
   <!-- Toolbar -->
   <div class="toolbar">
@@ -446,7 +482,7 @@
     <button class="toolbar-btn" id="predictiveToggle" data-mode="off">🔮 Predictive</button>
     <button class="toolbar-btn" id="heatmapToggle">🗺 Heatmap</button>
     <button class="toolbar-btn" id="nexusToggle">🌐 NEXUS 3D</button>
-    <span style="font-size:0.8rem; color:#888; margin-left:auto;">SCP trend: <span id="trendLabel">--</span></span>
+    <span style="font-size:0.8rem; opacity:0.7; margin-left:auto;">SCP trend: <span id="trendLabel">--</span></span>
     <select class="lang-select" id="langSelect">
       <option value="en">English</option>
       <option value="es">Español</option>
@@ -478,41 +514,46 @@
     <button class="filter-btn" data-domain="Institutional">Institutional</button>
   </div>
 
-  <input type="text" id="threat-search" class="search-box" placeholder="Search by ID, name, or domain...">
+  <input type="text" id="threat-search" class="search-box" placeholder="Search by ID, name, or domain…">
 
-  <!-- SCP time‑slider -->
+  <!-- SCP slider -->
   <div class="slider-container">
     <span class="slider-label">SCP History (days back):</span>
     <input type="range" id="scpSlider" min="0" max="30" value="0">
     <span class="slider-label" id="scpSliderValue">0 days (current)</span>
   </div>
 
-  <table class="threat-table" id="threat-table">
-    <thead>
-      <tr>
-        <th data-sort="rank">#</th>
-        <th data-sort="id">ID</th>
-        <th style="width:40px;">⚡</th>
-        <th data-sort="name">Threat Name</th>
-        <th data-sort="domains">Domains</th>
-        <th data-sort="status">Status</th>
-        <th data-sort="scp">SCP</th>
-        <th data-sort="confidence">Confidence</th>
-        <th data-sort="trend">Trend</th>
-        <th data-sort="notes">Notes</th>
-      </tr>
-    </thead>
-    <tbody id="threat-body">
-      <tr><td colspan="10" style="text-align:center; padding:2rem; color:#888;">Loading threats...</td></tr>
-    </tbody>
-  </table>
+  <!-- Table -->
+  <div class="table-wrap">
+    <table class="threat-table" id="threat-table">
+      <thead>
+        <tr>
+          <th data-sort="rank">#</th>
+          <th data-sort="id">ID</th>
+          <th style="width:40px;">⚡</th>
+          <th data-sort="name">Threat Name</th>
+          <th data-sort="domains">Domains</th>
+          <th data-sort="status">Status</th>
+          <th data-sort="scp">SCP</th>
+          <th data-sort="confidence">Confidence</th>
+          <th data-sort="trend">Trend</th>
+          <th data-sort="notes">Notes</th>
+        </tr>
+      </thead>
+      <tbody id="threat-body">
+        <tr><td colspan="10" style="text-align:center; padding:2rem; opacity:0.6;">Loading threats…</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <!-- Recovery Signals -->
-  <h2>🕯️ Recovery Signals (Ascension Engine)</h2>
-  <div id="recoverySignals">
-    <div class="recovery-signal">🌱 Positive cascade detected: Community resilience in Horn of Africa (IPC Phase 4 → 3) – Confidence 67%</div>
-    <div class="recovery-signal">🌱 Diplomatic breakthrough: US-Iran backchannel talks resumed – Confidence 54%</div>
-    <div class="recovery-signal">🌱 Food price stabilization: FAO index dropped 3% in last 7 days – Confidence 72%</div>
+  <!-- Recovery signals -->
+  <div class="recovery-card">
+    <h3>🕯️ Recovery Signals (Ascension Engine)</h3>
+    <div id="recoverySignals">
+      <div class="recovery-signal">🌱 Positive cascade detected: Community resilience in Horn of Africa (IPC Phase 4 → 3) – Confidence 67%</div>
+      <div class="recovery-signal">🌱 Diplomatic breakthrough: US-Iran backchannel talks resumed – Confidence 54%</div>
+      <div class="recovery-signal">🌱 Food price stabilization: FAO index dropped 3% in last 7 days – Confidence 72%</div>
+    </div>
   </div>
 
   <div class="footer">
@@ -527,7 +568,7 @@
   <div id="heatmap-map"></div>
 </div>
 
-<!-- Nexus 3D Container (UPGRADED) -->
+<!-- Nexus 3D Container -->
 <div id="nexus-container">
   <div class="nexus-controls">
     <button class="toolbar-btn" id="nexusReset">⟲ Reset View</button>
@@ -559,7 +600,6 @@
   let watchlistMode = false;
   let predictiveMode = false;
   let watchlistIds = new Set();
-  let scpHistory = [];
   let trendData = {};
   let coordsData = {};
   let graphData = null;
@@ -568,8 +608,8 @@
 
   // Translations (simplified)
   const translations = {
-    en: { title: "Threat Matrix", search: "Search by ID, name, or domain...", confirmed: "Confirmed", falsified: "Falsified", pending: "Pending", watchlist: "Watchlist", hitRate: "Hit rate", refresh: "Refresh", exportCSV: "Export CSV", predictive: "Predictive", heatmap: "Heatmap", nexus: "NEXUS 3D", trend: "SCP trend", recovery: "Recovery Signals (Ascension Engine)" },
-    es: { title: "Matriz de Amenazas", search: "Buscar por ID, nombre o dominio...", confirmed: "Confirmado", falsified: "Falsificado", pending: "Pendiente", watchlist: "Lista de seguimiento", hitRate: "Tasa de aciertos", refresh: "Actualizar", exportCSV: "Exportar CSV", predictive: "Predictivo", heatmap: "Mapa de calor", nexus: "NEXUS 3D", trend: "Tendencia SCP", recovery: "Señales de Recuperación (Motor Ascensión)" }
+    en: { title: "Threat Matrix", search: "Search by ID, name, or domain...", confirmed: "Confirmed", falsified: "Falsified", pending: "Pending", watchlist: "Watchlist", hitRate: "Hit rate", refresh: "Refresh", exportCSV: "Export CSV", predictive: "Predictive", heatmap: "Heatmap", nexus: "NEXUS 3D", trend: "SCP trend" },
+    es: { title: "Matriz de Amenazas", search: "Buscar por ID, nombre o dominio...", confirmed: "Confirmado", falsified: "Falsificado", pending: "Pendiente", watchlist: "Lista de seguimiento", hitRate: "Tasa de aciertos", refresh: "Actualizar", exportCSV: "Exportar CSV", predictive: "Predictivo", heatmap: "Mapa de calor", nexus: "NEXUS 3D", trend: "Tendencia SCP" }
   };
 
   // ============================================================
@@ -642,6 +682,8 @@
         fetch('cascade_graph.json').catch(() => ({ ok: false }))
       ]);
 
+      if (!threatResp.ok) throw new Error('Failed to fetch threats');
+
       const data = await threatResp.json();
       allThreats = data.threats || [];
       const updated = data.last_updated || 'unknown';
@@ -656,13 +698,6 @@
       if (graphResp.ok) graphData = await graphResp.json();
       else graphData = null;
 
-      try {
-        const histResp = await fetch('scp_history.json');
-        if (histResp.ok) {
-          scpHistory = await histResp.json();
-        }
-      } catch(e) { /* no history yet */ }
-
       renderThreats();
       renderMetrics();
     } catch(e) {
@@ -672,7 +707,7 @@
   }
 
   // ============================================================
-  // 4. RENDER FUNCTIONS (with rank, confidence, sorting)
+  // 4. RENDER
   // ============================================================
   function renderMetrics() {
     const total = allThreats.length;
@@ -705,9 +740,7 @@
       return true;
     });
 
-    // Apply sorting (default: priority desc)
     if (sortColumn === 'rank') {
-      // rank is based on index, so we sort by priority first
       filtered.sort((a, b) => (b.priority_score || 0) - (a.priority_score || 0));
     } else {
       sortThreats(filtered, sortColumn, sortAsc);
@@ -718,7 +751,7 @@
 
     const tbody = document.getElementById("threat-body");
     if (filtered.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="10" style="text-align:center; padding:2rem; color:#888;">No threats match your filters.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="10" style="text-align:center; padding:2rem; opacity:0.6;">No threats match your filters.</td></tr>';
       return;
     }
 
@@ -736,25 +769,25 @@
       return `
         <tr class="${rowClass}" data-id="${t.id || ''}" onclick="openModal('${t.id || ''}')">
           <td>${rank}</td>
-          <td>${t.id || ''}</td>
+          <td>${escapeHtml(t.id || '')}</td>
           <td class="status-icon">${getStatusIcon(t.status)}</td>
-          <td><strong>${t.name || ''}</strong></td>
-          <td>${Array.isArray(t.domains) ? t.domains.join(", ") : ''}</td>
-          <td>${t.status || 'Yellow'}</td>
+          <td><strong>${escapeHtml(t.name || '')}</strong></td>
+          <td>${Array.isArray(t.domains) ? escapeHtml(t.domains.join(", ")) : ''}</td>
+          <td>${escapeHtml(t.status || 'Yellow')}</td>
           <td>
             <span class="scp-bar"><span class="scp-fill ${getSCPClass(scp)}" style="width:${scpPct}%;"></span></span>
             ${scpPct}%
           </td>
           <td>${confStars} (${Math.round(conf*100)}%)</td>
           <td><span class="${trendClass}">${trend}</span></td>
-          <td>${desc.length > 60 ? desc.slice(0, 60) + '…' : desc}</td>
+          <td>${desc.length > 60 ? escapeHtml(desc.slice(0, 60)) + '…' : escapeHtml(desc)}</td>
         </tr>
       `;
     }).join("");
   }
 
   // ============================================================
-  // 5. MODAL WITH CASCADE GRAPH & WHAT-IF
+  // 5. MODAL
   // ============================================================
   function openModal(id) {
     const threat = allThreats.find(t => t.id === id);
@@ -803,16 +836,13 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
   // ============================================================
-  // 6. CASCADE GRAPH (Cytoscape)
+  // 6. CASCADE GRAPH
   // ============================================================
   let cy = null;
 
   function initCascadeGraph(threatId) {
     const container = document.getElementById('cascadeGraphContainer');
-    if (cy) {
-      cy.destroy();
-      cy = null;
-    }
+    if (cy) { cy.destroy(); cy = null; }
 
     if (graphData && graphData.nodes && graphData.edges) {
       const elements = graphData.nodes.concat(graphData.edges);
@@ -829,19 +859,18 @@
       const targetNode = cy.getElementById(threatId);
       if (targetNode.length > 0) targetNode.select();
     } else {
-      // Dummy fallback
       const nodes = [
         { data: { id: threatId, label: threatId } },
         { data: { id: 'C11', label: 'C11' } },
         { data: { id: 'C48', label: 'C48' } },
         { data: { id: 'C129', label: 'C129' } },
-        { data: { id: 'C88', label: 'C88' } },
+        { data: { id: 'C88', label: 'C88' } }
       ];
       const edges = [
         { data: { source: threatId, target: 'C11' } },
         { data: { source: threatId, target: 'C48' } },
         { data: { source: 'C11', target: 'C129' } },
-        { data: { source: 'C48', target: 'C88' } },
+        { data: { source: 'C48', target: 'C88' } }
       ];
       cy = cytoscape({
         container: container,
@@ -858,7 +887,7 @@
   }
 
   // ============================================================
-  // 7. HEATMAP (Leaflet)
+  // 7. HEATMAP
   // ============================================================
   let heatmapLayer = null;
   let heatmapMap = null;
@@ -900,22 +929,19 @@
   });
 
   // ============================================================
-  // 8. NEXUS 3D – UPGRADED: Real Force‑Directed Graph
+  // 8. NEXUS 3D
   // ============================================================
   let forceGraph = null;
-  let graphInstance = null;
 
   function initNexus() {
     const container = document.getElementById('nexus-container');
     container.classList.add('active');
     const canvasDiv = document.getElementById('nexus-canvas');
 
-    // If already created, just show
     if (forceGraph) {
       return;
     }
 
-    // Prepare data
     let nodes = [];
     let links = [];
 
@@ -923,7 +949,6 @@
       nodes = graphData.nodes.map(n => ({ id: n.data.id, label: n.data.label, scp: n.data.scp, status: n.data.status }));
       links = graphData.edges.map(e => ({ source: e.data.source, target: e.data.target, weight: e.data.weight || 1 }));
     } else {
-      // Dummy data
       const dummyIds = ['C01','C11','C48','C129','C88','C132','C25','C19','C54','C90','C2','C3','C4','C58','C64','C85','C122'];
       nodes = dummyIds.map(id => ({ id, label: id, scp: 0.5 + Math.random()*0.4, status: ['Red','Orange','Yellow','Green'][Math.floor(Math.random()*4)] }));
       links = [];
@@ -932,7 +957,6 @@
       }
     }
 
-    // Color mapping by status
     const statusColors = {
       'Black Acute': '#1a1a1a',
       'Black Structural': '#2c2c2c',
@@ -943,22 +967,15 @@
     };
     const defaultColor = '#7c4dff';
 
-    // Create the graph
     forceGraph = ForceGraph3D()(canvasDiv)
       .graphData({ nodes, links })
       .nodeId('id')
       .nodeLabel('label')
       .nodeColor(node => statusColors[node.status] || defaultColor)
-      .nodeVal(node => (node.scp || 0.5) * 8 + 2)  // size based on SCP
+      .nodeVal(node => (node.scp || 0.5) * 8 + 2)
       .linkWidth(link => (link.weight || 1) * 2)
       .linkColor(() => 'rgba(200,200,200,0.6)')
-      .onNodeClick(node => {
-        // Open threat modal for that node
-        openModal(node.id);
-      })
-      .onNodeHover(node => {
-        // tooltip handled by label
-      })
+      .onNodeClick(node => { openModal(node.id); })
       .cooldownTime(2000)
       .damping(0.9)
       .backgroundColor('#111111')
@@ -969,7 +986,6 @@
       .autoRotate(true)
       .autoRotateSpeed(0.5);
 
-    // Add legend
     const legendDiv = document.createElement('div');
     legendDiv.className = 'graph-legend';
     legendDiv.innerHTML = `
@@ -982,22 +998,17 @@
       <div style="font-size:0.7rem; margin-top:0.3rem; opacity:0.6;">Size = SCP</div>
     `;
     canvasDiv.appendChild(legendDiv);
-
-    // Store instance for later
-    graphInstance = forceGraph;
   }
 
-  // Reset view
+  document.getElementById('nexusToggle').addEventListener('click', initNexus);
+  document.getElementById('nexusClose').addEventListener('click', () => {
+    document.getElementById('nexus-container').classList.remove('active');
+  });
   document.getElementById('nexusReset').addEventListener('click', () => {
     if (forceGraph) {
       forceGraph.cameraPosition({ x: 0, y: 0, z: 200 });
       forceGraph.autoRotate(true);
     }
-  });
-
-  document.getElementById('nexusToggle').addEventListener('click', initNexus);
-  document.getElementById('nexusClose').addEventListener('click', () => {
-    document.getElementById('nexus-container').classList.remove('active');
   });
 
   // ============================================================
@@ -1012,7 +1023,6 @@
   // ============================================================
   // 10. FILTERS, SEARCH, WATCHLIST, PREDICTIVE, REFRESH, EXPORT, SORT
   // ============================================================
-  // Domain filters
   document.querySelectorAll("[data-domain]").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll("[data-domain]").forEach(b => b.classList.remove("active"));
@@ -1042,7 +1052,7 @@
   });
 
   document.getElementById('refreshBtn').addEventListener('click', () => {
-    document.getElementById('threat-body').innerHTML = '<tr><td colspan="10" style="text-align:center; padding:2rem; color:#888;">Refreshing...</td></tr>';
+    document.getElementById('threat-body').innerHTML = '<tr><td colspan="10" style="text-align:center; padding:2rem; opacity:0.6;">Refreshing…</td></tr>';
     loadThreatMatrix();
   });
 
@@ -1072,7 +1082,6 @@
     URL.revokeObjectURL(url);
   }
 
-  // Sortable columns
   document.querySelectorAll('.threat-table th[data-sort]').forEach(th => {
     th.addEventListener('click', function() {
       const column = this.dataset.sort;
@@ -1080,7 +1089,7 @@
         sortAsc = !sortAsc;
       } else {
         sortColumn = column;
-        sortAsc = (column === 'rank' || column === 'id' || column === 'name') ? true : false; // default for strings
+        sortAsc = (column === 'rank' || column === 'id' || column === 'name') ? true : false;
       }
       renderThreats();
     });
