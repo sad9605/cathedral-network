@@ -20,6 +20,9 @@ def load_json(filepath, default=None):
     return default if default is not None else {}
 
 def main():
+    # Get naive current time for comparisons
+    now = datetime.now().replace(tzinfo=None)
+
     health = {
         "timestamp": datetime.now().isoformat(),
         "status": "ok",
@@ -28,14 +31,12 @@ def main():
         "errors": []
     }
 
-    # Get a naive "now" for comparisons
-    now = datetime.now().replace(tzinfo=None)
-
-    # Check sweep timestamp
+    # ---- Check sweep timestamp ----
     sweep = load_json(SWEEP_FILE, {})
     if sweep.get('timestamp'):
         health['last_sweep'] = sweep['timestamp']
         try:
+            # Parse and make naive (no timezone)
             last = datetime.fromisoformat(sweep['timestamp']).replace(tzinfo=None)
             if now - last > timedelta(hours=8):
                 health['status'] = "warning"
@@ -43,34 +44,29 @@ def main():
         except Exception as e:
             health['errors'].append(f"Error parsing sweep timestamp: {e}")
 
-    # Check threats
+    # ---- Check threats ----
     threats_data = load_json(THREATS_FILE, {})
     threats = threats_data.get('threats', [])
     health['threats'] = len(threats)
 
-    # Check cron.log for recent activity (if it exists)
+    # ---- Check cron.log ----
     if Path(LOG_FILE).exists():
-        mtime = datetime.fromtimestamp(Path(LOG_FILE).stat().st_mtime).replace(tzinfo=None)
-        if now - mtime > timedelta(hours=12):
-            health['status'] = "warning"
-            health['errors'].append("cron.log not updated in 12 hours")
-        # Read last 5 lines for errors
         try:
-            with open(LOG_FILE, 'r') as f:
-                lines = f.readlines()[-5:]
-                errors = [line.strip() for line in lines if 'error' in line.lower()]
-                if errors:
-                    health['errors'].extend(errors[:3])
-        except:
-            pass
+            mtime = datetime.fromtimestamp(Path(LOG_FILE).stat().st_mtime).replace(tzinfo=None)
+            if now - mtime > timedelta(hours=12):
+                health['status'] = "warning"
+                health['errors'].append("cron.log not updated in 12 hours")
+        except Exception as e:
+            health['errors'].append(f"Error reading cron.log: {e}")
 
-    # Write health.json
+    # ---- Write health.json ----
     with open(HEALTH_FILE, 'w') as f:
         json.dump(health, f, indent=2)
 
     print(f"✅ Health data written to {HEALTH_FILE}")
     print(f"   Status: {health['status']}")
     print(f"   Threats: {health['threats']}")
+    print(f"   Errors: {len(health['errors'])}")
 
 if __name__ == "__main__":
     main()
