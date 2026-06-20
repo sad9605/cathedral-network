@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — Credits & Acknowledgments</title>
+  <meta name="description" content="Open source credits and acknowledgments for the Cathedral Network.">
+  <style>
+    :root {
+      --violet: #b39ddb;
+      --violet-dark: #7c4dff;
+      --violet-light: #f5f0fa;
+      --card-radius: 20px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
+      --bg-light: #fafafa;
+      --text-dark: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.dark {
+      --bg-light: #1e1e2f;
+      --text-dark: #f0f0f0;
+      background: #1e1e2f;
+      color: #f0f0f0;
+    }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
+    .cathedral-banner {
+      background: var(--violet);
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .logo-mark svg { display: block; }
+    .wordmark h1 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      color: white;
+      margin: 0;
+    }
+    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
+    .nav {
+      margin: 1rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 60px;
+      padding: 0.5rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    body.dark .nav { background: #2a2a3a; }
+    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
+    body.dark .nav-links a { color: #b39ddb; }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #5e2d8e;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
+      .nav-links.show { display: flex; }
+      .menu-btn { display: block; }
+    }
+
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      border-bottom: 2px solid var(--violet);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    h3 { font-size: 1.1rem; margin-top: 1.5rem; color: var(--violet-dark); }
+    body.dark h3 { color: #b39ddb; }
+    .credit-block {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1rem 1.5rem;
+      margin: 0.5rem 0;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+    }
+    body.dark .credit-block { background: #2a2a3a; }
+    .credit-block .name { font-weight: 700; font-size: 1.05rem; }
+    .credit-block .license { font-size: 0.85rem; color: #666; }
+    body.dark .credit-block .license { color: #aaa; }
+    .credit-block .link { font-size: 0.85rem; }
+    .credit-block .link a { color: var(--violet-dark); text-decoration: none; }
+    body.dark .credit-block .link a { color: #b39ddb; }
+    .credit-block .link a:hover { text-decoration: underline; }
+    .license-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: var(--violet-light);
+      color: var(--violet-dark);
+    }
+    body.dark .license-badge { background: #3a3a4a; color: #b39ddb; }
+
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 1rem; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
+    }
+  </style>
+</head>
+<body>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Credits & Acknowledgments</p></div>
+  </div>
+</header>
+<div class="container">
+  <div class="nav">
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Ground Truth</a>
+      <a href="undp-demo.html">UNDP Demo</a>
+      <a href="archive.html">Archive</a>
+      <a href="spotter.html">Spotter Guide</a>
+      <a href="sources.html">Sources</a>
+      <a href="constitution.html">Constitution</a>
+      <a href="wardens.html">Wardens</a>
+      <a href="hewd.html">HEWD Dashboard</a>
+      <a href="about.html">About</a>
+      <a href="threat-matrix.html">Threat Matrix</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="pra.html">Personal Resilience</a>
+      <a href="prediction-log.html">Prediction Log</a>
+      <a href="credits.html">Credits</a>
+    </div>
+  </div>
+
+  <h1>🙏 Credits & Acknowledgments</h1>
+  <p style="margin-bottom: 1rem;">
+    The Cathedral Network is built on the shoulders of giants. This page lists the open‑source projects, data sources, and communities whose work makes the Cathedral possible. We honour their contributions and their licenses.
+  </p>
+
+  <!-- Cathedral License -->
+  <h2>🏛️ Cathedral Network License</h2>
+  <div class="credit-block">
+    <div class="name">Cathedral Network</div>
+    <div class="license">
+      <span class="license-badge">CC BY‑NC‑SA 4.0</span>
+      Creative Commons Attribution‑NonCommercial‑ShareAlike 4.0 International
+    </div>
+    <div class="link">
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">creativecommons.org/licenses/by-nc-sa/4.0/</a>
+    </div>
+    <div style="margin-top:0.5rem; font-size:0.9rem;">
+      This license is perpetual and irrevocable. See <a href="constitution.html">Constitution Law V</a>.
+    </div>
+  </div>
+
+  <!-- Python / Backend -->
+  <h2>🐍 Python & Backend Libraries</h2>
+
+  <div class="credit-block">
+    <div class="name">Requests</div>
+    <div class="license"><span class="license-badge">Apache‑2.0</span> Copyright 2019 Kenneth Reitz</div>
+    <div class="link"><a href="https://requests.readthedocs.io/" target="_blank">requests.readthedocs.io</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">Feedparser</div>
+    <div class="license"><span class="license-badge">BSD‑2‑Clause</span> Copyright (c) 2010‑2025, Kurt McKee</div>
+    <div class="link"><a href="https://feedparser.readthedocs.io/" target="_blank">feedparser.readthedocs.io</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">Beautiful Soup</div>
+    <div class="license"><span class="license-badge">MIT</span> Copyright (c) 2004‑2025, Leonard Richardson</div>
+    <div class="link"><a href="https://www.crummy.com/software/BeautifulSoup/" target="_blank">crummy.com/software/BeautifulSoup/</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">Pandas</div>
+    <div class="license"><span class="license-badge">BSD‑3‑Clause</span> Copyright (c) 2008‑2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team</div>
+    <div class="link"><a href="https://pandas.pydata.org/" target="_blank">pandas.pydata.org</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">NumPy</div>
+    <div class="license"><span class="license-badge">BSD‑3‑Clause</span> Copyright (c) 2005‑2025, NumPy Developers</div>
+    <div class="link"><a href="https://numpy.org/" target="_blank">numpy.org</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">SciPy</div>
+    <div class="license"><span class="license-badge">BSD‑3‑Clause</span> Copyright (c) 2001‑2002 Enthought, Inc. 2003‑2025, SciPy Developers</div>
+    <div class="link"><a href="https://scipy.org/" target="_blank">scipy.org</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">Statsmodels</div>
+    <div class="license"><span class="license-badge">BSD‑3‑Clause</span> Copyright (c) 2006‑2025, Statsmodels Developers</div>
+    <div class="link"><a href="https://www.statsmodels.org/" target="_blank">statsmodels.org</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">yfinance</div>
+    <div class="license"><span class="license-badge">Apache‑2.0</span> Copyright (c) 2017‑2025, Ran Aroussi</div>
+    <div class="link"><a href="https://github.com/ranaroussi/yfinance" target="_blank">github.com/ranaroussi/yfinance</a></div>
+  </div>
+
+  <!-- Frontend / Mapping -->
+  <h2>🗺️ Frontend & Mapping Libraries</h2>
+
+  <div class="credit-block">
+    <div class="name">Leaflet</div>
+    <div class="license"><span class="license-badge">BSD‑2‑Clause</span> Copyright (c) 2010‑2024, Vladimir Agafonkin</div>
+    <div class="link"><a href="https://leafletjs.com/" target="_blank">leafletjs.com</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">Leaflet.heat</div>
+    <div class="license"><span class="license-badge">BSD‑2‑Clause</span> Copyright (c) 2014, Vladimir Agafonkin</div>
+    <div class="link"><a href="https://github.com/Leaflet/Leaflet.heat" target="_blank">github.com/Leaflet/Leaflet.heat</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">Cytoscape.js</div>
+    <div class="license"><span class="license-badge">MIT</span> Copyright (c) 2016‑2025, The Cytoscape Consortium</div>
+    <div class="link"><a href="https://js.cytoscape.org/" target="_blank">js.cytoscape.org</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">Three.js</div>
+    <div class="license"><span class="license-badge">MIT</span> Copyright (c) 2010‑2025, Three.js Authors</div>
+    <div class="link"><a href="https://threejs.org/" target="_blank">threejs.org</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">3d‑force‑graph</div>
+    <div class="license"><span class="license-badge">MIT</span> Copyright (c) 2017‑2025, Vasturiano</div>
+    <div class="link"><a href="https://github.com/vasturiano/3d-force-graph" target="_blank">github.com/vasturiano/3d-force-graph</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">D3.js</div>
+    <div class="license"><span class="license-badge">ISC</span> Copyright (c) 2010‑2025, Mike Bostock</div>
+    <div class="link"><a href="https://d3js.org/" target="_blank">d3js.org</a></div>
+  </div>
+
+  <!-- Data Sources -->
+  <h2>📡 Data Sources</h2>
+
+  <div class="credit-block">
+    <div class="name">GDACS</div>
+    <div class="license">Global Disaster Alert and Coordination System</div>
+    <div class="link"><a href="https://www.gdacs.org/" target="_blank">gdacs.org</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">USGS Earthquakes</div>
+    <div class="license">U.S. Geological Survey – Public Domain</div>
+    <div class="link"><a href="https://earthquake.usgs.gov/" target="_blank">earthquake.usgs.gov</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">NASA FIRMS</div>
+    <div class="license">NASA Fire Information for Resource Management System – Public Domain</div>
+    <div class="link"><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank">firms.modaps.eosdis.nasa.gov</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">ReliefWeb</div>
+    <div class="license">UN OCHA ReliefWeb</div>
+    <div class="link"><a href="https://reliefweb.int/" target="_blank">reliefweb.int</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">GDELT</div>
+    <div class="license">GDELT Project – Open Data</div>
+    <div class="link"><a href="https://www.gdeltproject.org/" target="_blank">gdeltproject.org</a></div>
+  </div>
+
+  <div class="credit-block">
+    <div class="name">HDX HAPI</div>
+    <div class="license">Humanitarian Data Exchange – OCHA</div>
+    <div class="link"><a href="https://data.humdata.org/" target="_blank">data.humdata.org</a></div>
+  </div>
+
+  <!-- Special Thanks -->
+  <h2>🕯️ Special Thanks</h2>
+  <div class="credit-block" style="border-left-color: #d4a837;">
+    <div class="name">The Cathedral Community</div>
+    <div class="license">Wardens, Spotters, and all who watch with us.</div>
+    <div style="font-size:0.9rem; margin-top:0.3rem;">
+      <strong>Coco</strong> – whose identity is sealed, but whose vision endures.
+    </div>
+  </div>
+
+  <div class="credit-block" style="border-left-color: #d4a837;">
+    <div class="name">The Recovery Community</div>
+    <div class="license">Narcotics Anonymous – whose principles of rigorous honesty, surrender, and service shaped the Cathedral's soul.</div>
+  </div>
+
+  <div class="credit-block" style="border-left-color: #d4a837;">
+    <div class="name">The Buddhist Tradition</div>
+    <div class="license">Impermanence, interdependence, and compassion – the Dharma encoded in the Cascade Engine.</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Cathedral Network · Credits updated 19 June 2026.
+  </div>
+</div>
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    darkToggle.innerText = '☀️';
+  } else darkToggle.innerText = '🌙';
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerText = isDark ? '☀️' : '🌙';
+    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+  });
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
