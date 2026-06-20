@@ -2,15 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — Prediction Log</title>
-  <meta name="description" content="Complete public record of Cathedral Network predictions. All predictions with dates made, probabilities, and outcomes.">
-  <meta property="og:title" content="Cathedral Network — Prediction Log">
-  <meta property="og:description" content="Every prediction, probability, date made, and outcome. Fully transparent.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cathedral-network.netlify.app/prediction-log.html">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="description" content="Complete public record of all Cathedral Network predictions. 77 confirmed, 4 falsified, 95.06% hit rate. Full transparency.">
   <style>
     :root {
       --violet: #b39ddb;
@@ -27,7 +22,7 @@
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg-light);
       color: var(--text-dark);
-      line-height: 1.5;
+      line-height: 1.6;
       transition: background 0.2s, color 0.2s;
     }
     body.dark {
@@ -36,7 +31,7 @@
       background: #1e1e2f;
       color: #f0f0f0;
     }
-    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
     .cathedral-banner {
       background: var(--violet);
       padding: 1.5rem 1rem;
@@ -71,16 +66,8 @@
       box-shadow: var(--shadow-sm);
     }
     body.dark .nav { background: #2a2a3a; }
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: #5e2d8e;
-      text-decoration: none;
-      font-weight: 500;
-    }
+    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
     body.dark .nav-links a { color: #b39ddb; }
     .menu-btn {
       display: none;
@@ -96,34 +83,7 @@
       .menu-btn { display: block; }
     }
 
-    /* Floating metric tiles – same as Ground Truth */
-    .metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    .metric-card {
-      background: var(--violet-light);
-      border-radius: var(--card-radius);
-      padding: 1rem;
-      text-align: center;
-      flex: 1;
-      min-width: 100px;
-      border: 1px solid var(--violet);
-      cursor: pointer;
-      transition: background 0.2s;
-      text-decoration: none;
-      color: inherit;
-    }
-    .metric-card:hover { background: var(--violet); color: white; }
-    body.dark .metric-card { background: #2a2a3a; border-color: var(--violet-dark); }
-    .metric-card:hover .metric-value { color: white; }
-    .metric-value { font-size: 2rem; font-weight: 800; color: #5e2d8e; }
-    body.dark .metric-value { color: #b39ddb; }
-    .metric-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
-
-    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
     h2 {
       font-size: 1.4rem;
       margin-top: 2rem;
@@ -132,19 +92,49 @@
       display: inline-block;
     }
 
+    /* Metric cards – same as index */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.1s, box-shadow 0.2s;
+    }
+    body.dark .stat-card { background: #2a2a3a; }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--violet-dark); }
+    body.dark .stat-card .number { color: #b39ddb; }
+    .stat-card .label { font-size: 0.7rem; text-transform: uppercase; color: #666; letter-spacing: 0.5px; }
+    body.dark .stat-card .label { color: #aaa; }
+
+    /* Tables – consistent with new design */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
     .prediction-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 1rem 0;
       background: white;
       border-radius: var(--card-radius);
       overflow: hidden;
       box-shadow: var(--shadow-sm);
+      font-size: 0.85rem;
     }
     body.dark .prediction-table { background: #2a2a3a; }
     .prediction-table th, .prediction-table td {
+      padding: 0.6rem 0.8rem;
       border: 1px solid #ddd;
-      padding: 0.75rem;
       text-align: left;
       vertical-align: top;
     }
@@ -154,7 +144,6 @@
       font-weight: 600;
     }
     body.dark .prediction-table th { background: #3a3a4a; }
-
     .confirmed-row { background: #1a3a1a20; }
     .falsified-row { background: #3a1a1a20; }
     .active-row { background: transparent; }
@@ -162,11 +151,16 @@
 
     .badge {
       display: inline-block;
-      padding: 0.2rem 0.5rem;
-      border-radius: 20px;
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
       font-size: 0.7rem;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: var(--violet-light);
+      color: var(--violet-dark);
     }
+    body.dark .badge { background: #3a3a4a; color: #b39ddb; }
     .badge-confirmed { background: #2ecc71; color: #1a1a1a; }
     .badge-falsified { background: #e74c3c; color: white; }
     .badge-active { background: #3498db; color: white; }
@@ -198,7 +192,10 @@
     @media (max-width: 600px) {
       .banner-content { flex-direction: column; text-align: center; }
       .container { padding: 1rem; }
-      .prediction-table th, .prediction-table td { padding: 0.4rem; font-size: 0.8rem; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .prediction-table { font-size: 0.7rem; }
+      .prediction-table th, .prediction-table td { padding: 0.3rem; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
     }
   </style>
 </head>
@@ -232,63 +229,76 @@
       <a href="constitution.html">Constitution</a>
       <a href="wardens.html">Wardens</a>
       <a href="hewd.html">HEWD Dashboard</a>
+      <a href="health.html">System Health</a>
       <a href="about.html">About</a>
       <a href="threat-matrix.html">Threat Matrix</a>
       <a href="glossary.html">Glossary</a>
       <a href="methodology.html">Methodology</a>
       <a href="pra.html">Personal Resilience</a>
       <a href="prediction-log.html">Prediction Log</a>
+      <a href="credits.html">Credits</a>
     </div>
   </div>
 
-  <h1>📋 Cathedral Network – Prediction Log</h1>
-  <p style="margin-bottom: 1rem;">All predictions are made publicly, with probabilities, dates, and outcomes. Corrections and falsifications are logged transparently (Law III).</p>
+  <h1>📋 Prediction Log</h1>
+  <p style="margin-bottom: 1rem;">
+    All predictions are made publicly, with probabilities, dates, and outcomes. Corrections and falsifications are logged transparently (Law III).
+  </p>
 
-  <!-- Dynamic metric tiles -->
-  <div class="metrics">
-    <a href="#confirmed" class="metric-card"><div class="metric-value" id="confirmedCount">--</div><div class="metric-label">Confirmed</div></a>
-    <a href="#falsified" class="metric-card"><div class="metric-value" id="falsifiedCount">--</div><div class="metric-label">Falsified</div></a>
-    <a href="#pending" class="metric-card"><div class="metric-value" id="hitRate">--</div><div class="metric-label">Hit rate (resolved)</div></a>
-    <a href="#pending" class="metric-card"><div class="metric-value" id="pendingCount">--</div><div class="metric-label">Pending</div></a>
-    <a href="#watchlist" class="metric-card"><div class="metric-value" id="watchlistCount">--</div><div class="metric-label">Watchlist</div></a>
+  <!-- Metric tiles -->
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-card"><div class="number" id="confirmedCount">--</div><div class="label">Confirmed</div></div>
+    <div class="stat-card"><div class="number" id="falsifiedCount">--</div><div class="label">Falsified</div></div>
+    <div class="stat-card"><div class="number" id="hitRate">--</div><div class="label">Hit rate (resolved)</div></div>
+    <div class="stat-card"><div class="number" id="pendingCount">--</div><div class="label">Pending</div></div>
+    <div class="stat-card"><div class="number" id="watchlistCount">--</div><div class="label">Watchlist</div></div>
   </div>
 
-  <!-- CONFIRMED PREDICTIONS -->
+  <!-- Confirmed -->
   <h2 id="confirmed">✅ Confirmed</h2>
   <p><em>All confirmed predictions with their date made and date confirmed.</em></p>
-  <table class="prediction-table">
-    <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Date Confirmed</th><th>Evidence / Notes</th></tr></thead>
-    <tbody id="confirmedBody"></tbody>
-  </table>
+  <div class="table-wrap">
+    <table class="prediction-table">
+      <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Date Confirmed</th><th>Evidence / Notes</th></tr></thead>
+      <tbody id="confirmedBody"></tbody>
+    </table>
+  </div>
 
-  <!-- FALSIFIED PREDICTIONS -->
+  <!-- Falsified -->
   <h2 id="falsified">❌ Falsified</h2>
-  <table class="prediction-table">
-    <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Date Falsified</th><th>Reason</th></tr></thead>
-    <tbody id="falsifiedBody"></tbody>
-  </table>
+  <div class="table-wrap">
+    <table class="prediction-table">
+      <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Date Falsified</th><th>Reason</th></tr></thead>
+      <tbody id="falsifiedBody"></tbody>
+    </table>
+  </div>
 
-  <!-- PENDING PREDICTIONS (Active) -->
+  <!-- Pending -->
   <h2 id="pending">⏳ Pending (Active)</h2>
   <p><em>Active predictions with probabilities, deadlines, and the date each was made.</em></p>
-  <table class="prediction-table">
-    <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Probability</th><th>Horizon</th><th>Status</th></tr></thead>
-    <tbody id="pendingBody"></tbody>
-  </table>
+  <div class="table-wrap">
+    <table class="prediction-table">
+      <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Probability</th><th>Horizon</th><th>Status</th></tr></thead>
+      <tbody id="pendingBody"></tbody>
+    </table>
+  </div>
 
-  <!-- WATCHLIST -->
+  <!-- Watchlist -->
   <h2 id="watchlist">👁️ Watchlist</h2>
-  <table class="prediction-table">
-    <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Probability</th><th>Elevation Trigger</th></tr></thead>
-    <tbody id="watchlistBody"></tbody>
-  </table>
+  <div class="table-wrap">
+    <table class="prediction-table">
+      <thead><tr><th>ID</th><th>Prediction</th><th>Date Made</th><th>Probability</th><th>Elevation Trigger</th></tr></thead>
+      <tbody id="watchlistBody"></tbody>
+    </table>
+  </div>
 
   <div class="footer">
     <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Cathedral Core v1.4.4 · Prediction Log updated dynamically from predictions.json.
+    Prediction Log · Updated dynamically from predictions.json.
   </div>
 </div>
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
 <script>
   async function loadPredictions() {
     try {
@@ -303,7 +313,6 @@
       document.getElementById('pendingCount').textContent = data.stats.pending;
       document.getElementById('watchlistCount').textContent = data.stats.watchlist;
 
-      // Helper: escape HTML
       function esc(str) {
         if (!str) return '';
         return str.replace(/[&<>]/g, function(m) {
@@ -379,7 +388,7 @@
         watchlistBody.innerHTML = '<tr><td colspan="5">No watchlist items found.</td></tr>';
       }
 
-    } catch (e) {
+    } catch(e) {
       console.error('Error loading predictions:', e);
       document.querySelectorAll('.prediction-table tbody').forEach(tbody => {
         tbody.innerHTML = '<tr><td colspan="5" style="color:#dc2626; text-align:center;">Error loading data. Please try again later.</td></tr>';
@@ -389,12 +398,12 @@
 
   loadPredictions();
 
-  // Menu toggle
+  // Nav toggle
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
 
-  // Dark mode toggle
+  // Dark mode
   const darkToggle = document.getElementById('darkModeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const storedTheme = localStorage.getItem('cathedral-theme');
@@ -409,7 +418,7 @@
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
 
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js');
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
