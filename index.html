@@ -8,7 +8,6 @@
   <meta name="description" content="Live summary of the Cathedral Network's threat assessment, global metrics, and top pressing threats.">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Minimal page-specific overrides */
     .hewd-widget {
       background: white;
       border-radius: var(--card-radius);
@@ -32,7 +31,6 @@
     .threat-card { cursor: pointer; transition: transform 0.1s, box-shadow 0.2s; }
     .threat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
 
-    /* Modal overlay */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -497,12 +495,21 @@
       document.getElementById('lastUpdateDate').innerText = new Date(sweep.timestamp).toLocaleString();
     }
 
-    // Threats
+    // Threats – handles both object and array formats
     const threatData = await fetchJson('threats.json');
-    const threats = threatData ? threatData.threats || [] : [];
+    let threats = [];
+    if (threatData) {
+      if (Array.isArray(threatData)) {
+        threats = threatData;
+      } else if (threatData.threats && Array.isArray(threatData.threats)) {
+        threats = threatData.threats;
+      }
+    }
+
     document.getElementById('threatCountValue').innerText = threats.length;
 
-    let gsci = threatData ? threatData.gsci : null;
+    // GSCI
+    let gsci = threatData?.gsci || null;
     if (gsci !== null && gsci !== undefined) {
       document.getElementById('gsciValue').innerText = gsci;
     } else if (threats.length) {
@@ -513,7 +520,8 @@
       document.getElementById('gsciValue').innerText = '--';
     }
 
-    let ssi = threatData ? threatData.ssi : null;
+    // SSI
+    let ssi = threatData?.ssi || null;
     if (!ssi) {
       ssi = gsci ? Math.round(gsci + (threats.length / 10)) : Math.round(25 + (threats.length / 10));
     }
@@ -545,7 +553,8 @@
     const sortedThreats = [...threats].sort((a,b) => (b.priority_score||0) - (a.priority_score||0));
     const top10 = sortedThreats.slice(0,10);
     const grid = document.getElementById('dynamicThreatGrid');
-    if (top10.length === 0) {
+
+    if (!top10 || top10.length === 0) {
       grid.innerHTML = '<p>No threats loaded.</p>';
     } else {
       grid.innerHTML = top10.map(t => {
