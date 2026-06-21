@@ -4,7 +4,6 @@ generate_health.py – Produce health.json with pipeline status.
 """
 
 import json
-import os
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -20,7 +19,7 @@ def load_json(filepath, default=None):
     return default if default is not None else {}
 
 def main():
-    # Get naive current time for comparisons
+    # Use naive datetime for comparisons
     now = datetime.now().replace(tzinfo=None)
 
     health = {
@@ -31,12 +30,11 @@ def main():
         "errors": []
     }
 
-    # ---- Check sweep timestamp ----
+    # Check sweep timestamp
     sweep = load_json(SWEEP_FILE, {})
     if sweep.get('timestamp'):
         health['last_sweep'] = sweep['timestamp']
         try:
-            # Parse and make naive (no timezone)
             last = datetime.fromisoformat(sweep['timestamp']).replace(tzinfo=None)
             if now - last > timedelta(hours=8):
                 health['status'] = "warning"
@@ -44,12 +42,12 @@ def main():
         except Exception as e:
             health['errors'].append(f"Error parsing sweep timestamp: {e}")
 
-    # ---- Check threats ----
+    # Check threats
     threats_data = load_json(THREATS_FILE, {})
     threats = threats_data.get('threats', [])
     health['threats'] = len(threats)
 
-    # ---- Check cron.log ----
+    # Check cron.log for recent activity
     if Path(LOG_FILE).exists():
         try:
             mtime = datetime.fromtimestamp(Path(LOG_FILE).stat().st_mtime).replace(tzinfo=None)
@@ -59,7 +57,7 @@ def main():
         except Exception as e:
             health['errors'].append(f"Error reading cron.log: {e}")
 
-    # ---- Write health.json ----
+    # Write health.json
     with open(HEALTH_FILE, 'w') as f:
         json.dump(health, f, indent=2)
 

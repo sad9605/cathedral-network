@@ -56,42 +56,47 @@ def compute_nsi(regional_ds: float, selected_domain_scores: List[float]) -> floa
     """
     return regional_ds + sum(selected_domain_scores)
 
-def compute_gsci(threats: List[Dict]) -> float:
+def compute_gsci(threats):
     """
-    Global Systemic Collapse Index (GSCI)
-    Computes NSI for each threat using compute_nsi, then averages and normalizes.
-    GSCI = (avg NSI / 21) * 100, capped at 100.
+    Compute Global Systemic Collapse Index (GSCI).
+    Returns a float between 0 and 100.
     """
     nsi_values = []
     for t in threats:
-        # Extract regional_ds: use scp scaled to 0-10 range as a proxy
+        # Get SCP and domains
         scp = t.get('scp', 0.5)
-        regional_ds = scp * 10
-
-        # Extract selected domain scores
-        domain_scores = t.get('domain_scores', [])
-        if isinstance(domain_scores, dict):
-            domain_scores = list(domain_scores.values())
-        elif not isinstance(domain_scores, list):
-            domain_scores = []
-
-        # Compute NSI – it should return a number, but handle dict just in case
-        nsi = compute_nsi(regional_ds, domain_scores)
-        if isinstance(nsi, dict):
-            # Try to extract a numeric value
-            nsi = nsi.get('nsi') or nsi.get('value') or nsi.get('score')
-            if nsi is None:
-                # Try first numeric value
-                for v in nsi.values():
-                    if isinstance(v, (int, float)):
-                        nsi = v
-                        break
-        if isinstance(nsi, (int, float)):
-            nsi_values.append(nsi)
-
-    avg_nsi = np.mean(nsi_values) if nsi_values else 0
+        domains = t.get('domains', [])
+        
+        # Compute a numeric NSI per threat
+        # Use SCP as the primary driver, scaled by domain weight
+        domain_weight = 1.0
+        if 'Geopolitical' in domains:
+            domain_weight = 1.2
+        elif 'Energy' in domains:
+            domain_weight = 1.2
+        elif 'Food' in domains:
+            domain_weight = 1.1
+        elif 'Financial' in domains:
+            domain_weight = 1.0
+        elif 'Climate' in domains:
+            domain_weight = 1.0
+        elif 'Health' in domains:
+            domain_weight = 0.9
+        else:
+            domain_weight = 0.8
+        
+        # NSI = SCP * 10 * domain_weight (scaled to 0-10 range)
+        nsi = scp * 10 * domain_weight
+        nsi_values.append(nsi)
+    
+    if not nsi_values:
+        return 0.0
+    
+    avg_nsi = np.mean(nsi_values)
+    # GSCI = (avg NSI / 21) * 100, capped at 100
     gsci = min(100, round((avg_nsi / 21) * 100, 2))
     return gsci
+
 # ---------- 2. Cascade & Collapse Probability Metrics ----------
 
 def compute_sca_tier(active_cascades: int) -> Dict:
