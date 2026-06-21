@@ -99,6 +99,15 @@ def generate_regional_indices():
     
     print(f"✅ Regional indices saved for {len(results)} regions")
     return results
+    # After computing regional_scores
+    output_data = {
+        "timestamp": datetime.now().isoformat(),
+        "regions": regional_scores
+    }
+    save_json(output_data, "indices.json")
+    print(f"✅ Regional indices saved to indices.json")
 
 if __name__ == "__main__":
     generate_regional_indices()
+
+

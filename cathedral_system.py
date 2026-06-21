@@ -139,6 +139,9 @@ def main():
     # ---- Generate archive index ----
     run_script("generate_archive_index.py", "Archive index generation")
 
+    # ---- Generate regional indices JSON ----
+    run_script("indices.py", "Regional indices JSON")
+
     # ---- Generate daily brief ----
     run_script("generate_daily_brief.py", "Daily brief generation")
 
