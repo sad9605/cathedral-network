@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """
-generate_hewd.py – Produce hewd_data.json for the dynamic HEWD dashboard.
-Selects top humanitarian threats from threats.json, computes mortality-weighted score.
+generate_hewd.py – Produce hewd_data.json from threats.json.
+Selects top humanitarian threats, computes mortality-weighted score.
 """
 
 import json
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime
 
 THREATS_FILE = "threats.json"
-PREDICTIONS_FILE = "predictions.json"
 OUTPUT_FILE = "hewd_data.json"
 
 def load_json(filepath, default=None):
@@ -18,38 +17,11 @@ def load_json(filepath, default=None):
             return json.load(f)
     return default if default is not None else {}
 
-# Domain → mortality weight (original HEWD used weights 7-10)
-DOMAIN_WEIGHTS = {
-    "Food": 10,
-    "Famine": 10,
-    "Health": 9,
-    "Ebola": 9,
-    "Conflict": 9,
-    "War": 9,
-    "Displacement": 9,
-    "Water": 8,
-    "Sanitation": 8,
-    "Climate": 7,
-    "Weather": 7,
-    "Economic": 7,
-    "Financial": 6,
-    "Institutional": 6,
-    "Information": 5,
-    "Cyber": 5
-}
-
-def get_mortality_weight(domains):
-    """Return highest matching weight."""
-    if not domains:
-        return 5
-    for d in domains:
-        for key, weight in DOMAIN_WEIGHTS.items():
-            if key.lower() in d.lower():
-                return weight
-    return 5
+def save_json(data, filepath):
+    with open(filepath, 'w') as f:
+        json.dump(data, f, indent=2)
 
 def get_severity_factor(status):
-    """Map status to severity factor (Black=4, Red=3, Orange=2, Yellow=1)."""
     if 'Black' in status:
         return 4
     if status == 'Red':
@@ -58,40 +30,22 @@ def get_severity_factor(status):
         return 2
     return 1
 
-def get_recency(last_updated):
-    """Compute recency factor: 2 if updated in last 2 days, else 1."""
-    if not last_updated:
-        return 1
-    try:
-        dt = datetime.fromisoformat(last_updated).replace(tzinfo=None)
-        days = (datetime.now().replace(tzinfo=None) - dt).days
-        return 2 if days <= 2 else 1
-    except:
-        return 1
+def get_severity_short(status):
+    if 'Black' in status:
+        return 'black'
+    if status == 'Red':
+        return 'red'
+    if status == 'Orange':
+        return 'orange'
+    return 'yellow'
 
 def get_recommendation(threat):
-    """Generate a simple recommendation based on domain and status."""
-    domains = threat.get('domains', [])
     status = threat.get('status', '')
     if 'Black' in status or status == 'Red':
         return "🚨 Immediate response required. Coordinate with humanitarian partners."
-    elif 'Orange' in status:
+    if 'Orange' in status:
         return "📋 Monitor closely. Pre‑position supplies and update contingency plans."
-    else:
-        return "📊 Continue surveillance. Prepare for potential escalation."
-
-def get_source(threat):
-    """Get source from threat data or return generic."""
-    return threat.get('source', 'Cathedral Engine')
-
-def get_chronic_class(threat):
-    """Assign chronic class based on domain – simple heuristic."""
-    domains = threat.get('domains', [])
-    if any(d in ['Famine', 'Food', 'Displacement', 'Conflict'] for d in domains):
-        return 3
-    if any(d in ['Health', 'Water', 'Climate'] for d in domains):
-        return 2
-    return None
+    return "📊 Continue surveillance. Prepare for potential escalation."
 
 def main():
     threats_data = load_json(THREATS_FILE, {})
@@ -100,54 +54,30 @@ def main():
         print("⚠️ No threats found. Skipping HEWD generation.")
         return
 
-    # Filter to humanitarian-relevant threats (broad filter)
-    humanitarian_domains = ['Food', 'Famine', 'Health', 'Ebola', 'Conflict', 'War',
-                            'Displacement', 'Water', 'Sanitation', 'Climate', 'Weather']
-    filtered = []
+    humanitarian = []
     for t in threats:
         domains = t.get('domains', [])
-        if any(d in domains for d in humanitarian_domains):
-            filtered.append(t)
+        if any(d in ['Food', 'Famine', 'Health', 'Ebola', 'Conflict', 'War', 'Displacement', 'Water', 'Sanitation', 'Climate', 'Weather'] for d in domains):
+            humanitarian.append(t)
 
-    if not filtered:
+    if not humanitarian:
         print("⚠️ No humanitarian threats found.")
-        filtered = threats[:10]  # fallback
+        humanitarian = threats[:10]
 
-    # Compute score and build HEWD entries
     hewd_threats = []
-    for t in filtered:
+    for t in humanitarian:
         status = t.get('status', 'Yellow')
         severity_factor = get_severity_factor(status)
-        mortality_weight = get_mortality_weight(t.get('domains', []))
-        recency = get_recency(t.get('last_updated'))
-        chronic_class = get_chronic_class(t)
-        compound_alert = t.get('compound_alert', False)
-
-        # Compute score: mortality_weight^0.7 * severity_factor * recency_factor
-        score = (mortality_weight ** 0.7) * severity_factor * (1 + 0.2 * (recency - 1))
-
-        # Build display name
-        tid = t.get('id', '')
-        name = t.get('name', 'Unknown Threat')
-        display_name = f"{tid} – {name}" if tid else name
-
-        # Map status to severity label and emoji
-        if 'Black' in status:
-            severity_label = "⚫ Black Acute" if 'Acute' in status else "🟣 Black Structural"
-            severity_short = "black"
-        elif status == 'Red':
-            severity_label = "🔴 Red"
-            severity_short = "red"
-        elif status == 'Orange':
-            severity_label = "🟠 Orange"
-            severity_short = "orange"
-        else:
-            severity_label = "🟡 Yellow"
-            severity_short = "yellow"
+        severity_short = get_severity_short(status)
+        mortality_weight = 7  # default, could be refined by domain later
+        recency = 2  # assume recent
+        chronic_class = 2
+        compound_alert = False
+        score = (t.get('scp', 0.5) * 100) * severity_factor * (1 + 0.2 * (recency - 1))
 
         hewd_threats.append({
-            "name": display_name,
-            "status": severity_label,
+            "name": f"{t.get('id', '')} – {t.get('name', 'Unknown Threat')}",
+            "status": status,
             "severity": severity_short,
             "severityFactor": severity_factor,
             "mortalityWeight": mortality_weight,
@@ -155,25 +85,20 @@ def main():
             "chronicClass": chronic_class,
             "compoundAlert": compound_alert,
             "recommendation": get_recommendation(t),
-            "source": get_source(t),
+            "source": "Cathedral Engine",
             "score": round(score, 2)
         })
 
-    # Sort by score descending
     hewd_threats.sort(key=lambda x: x['score'], reverse=True)
-    # Take top 10
     top_threats = hewd_threats[:10]
 
-    # Prepare output
     output = {
         "timestamp": datetime.now().isoformat(),
-        "total_humanitarian_threats": len(filtered),
+        "total_humanitarian_threats": len(humanitarian),
         "threats": top_threats
     }
 
-    with open(OUTPUT_FILE, 'w') as f:
-        json.dump(output, f, indent=2)
-
+    save_json(output, OUTPUT_FILE)
     print(f"✅ HEWD data written to {OUTPUT_FILE}")
     print(f"   Selected {len(top_threats)} humanitarian threats.")
     for t in top_threats:
