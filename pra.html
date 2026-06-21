@@ -2,732 +2,335 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>The Chapel – Relationship & Personal Resilience</title>
-  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <title>Cathedral Network — Personal Resilience</title>
+  <meta name="description" content="Track your personal resilience, set goals, and monitor your progress over time.">
+  <link rel="stylesheet" href="style.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --violet: #b39ddb;
-      --violet-dark: #7c4dff;
-      --violet-light: #f5f0fa;
-      --bg-light: #f0f0f0;
-      --bg-dark: #1e1e2f;
-      --surface-light: white;
-      --surface-dark: #2a2a3a;
-      --text-light: #1a1a1a;
-      --text-dark: #f0f0f0;
-      --border-light: #ddd;
-      --border-dark: #444;
-      --card-radius: 20px;
-      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+    .pra-form {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
     }
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg-light);
-      color: var(--text-light);
-      padding: 1.5rem;
-      max-width: 1300px;
-      margin: 0 auto;
-      transition: background 0.2s, color 0.2s;
+    body.dark .pra-form {
+      background: #2a2a3a;
     }
-    body.dark {
-      background: var(--bg-dark);
-      color: var(--text-dark);
+    .pra-form label {
+      font-weight: 600;
+      display: block;
+      margin: 0.5rem 0 0.2rem 0;
     }
-    body.dark .card {
-      background: var(--surface-dark);
-      border-color: var(--border-dark);
+    .pra-form input, .pra-form textarea, .pra-form select {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background: white;
+      font-family: inherit;
+      font-size: 0.95rem;
     }
-    body.dark .tab-btn.active { background: var(--violet-dark); color: white; }
-    body.dark input, body.dark textarea, body.dark select {
-      background: #1e1e2f; color: #f0f0f0; border-color: #555;
+    body.dark .pra-form input,
+    body.dark .pra-form textarea,
+    body.dark .pra-form select {
+      background: #1e1e2f;
+      border-color: #444;
+      color: #f0f0f0;
     }
-    .chapel-banner {
-      background: linear-gradient(135deg, var(--violet-dark), var(--violet));
-      padding: 1rem; border-radius: var(--card-radius); margin-bottom: 2rem;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+    .pra-form .range-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0.5rem 0;
+    }
+    .pra-form .range-wrap input[type="range"] {
+      flex: 1;
+    }
+    .pra-form .range-value {
+      font-weight: 700;
+      font-size: 1.2rem;
+      min-width: 40px;
+      text-align: center;
+    }
+    .btn {
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .btn-primary {
+      background: var(--violet-dark);
       color: white;
     }
-    .banner-left { display: flex; align-items: center; gap: 1rem; }
-    .banner-left .title h1 { font-weight: 300; letter-spacing: 0.1em; font-size: 1.6rem; }
-    .dark-mode-toggle { background: rgba(255,255,255,0.2); border: none; border-radius: 30px; padding: 0.4rem 1rem; cursor: pointer; color: white; }
-    .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; border-bottom: 2px solid var(--violet-light); }
-    .tab-btn { background: none; border: none; padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: 500; cursor: pointer; border-radius: 30px; color: var(--text-light); }
-    body.dark .tab-btn { color: #ccc; }
-    .tab-btn.active { background: var(--violet-dark); color: white; }
-    .card {
-      background: var(--surface-light); border-radius: var(--card-radius); padding: 1.5rem;
-      margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light);
+    .btn-primary:hover {
+      background: #5a2db8;
     }
-    .card h2 {
-      font-size: 1.3rem; margin-bottom: 1rem; color: var(--violet-dark);
-      border-left: 4px solid var(--violet-dark); padding-left: 0.75rem;
+    body.dark .btn-primary {
+      background: var(--violet);
+      color: #1a1a1a;
     }
-    label { font-weight: 600; display: block; margin-top: 1rem; margin-bottom: 0.25rem; }
-    input, textarea, select {
-      width: 100%; padding: 0.5rem; border-radius: 12px; border: 1px solid #ccc; font-size: 1rem;
+    body.dark .btn-primary:hover {
+      background: #c4a8e8;
     }
-    button {
-      background: var(--violet-dark); color: white; border: none; padding: 0.5rem 1rem;
-      border-radius: 30px; cursor: pointer; margin-top: 0.5rem;
+    .btn-danger {
+      background: #dc2626;
+      color: white;
     }
-    .flex-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.5rem 0; }
-    .badge { background: var(--violet-light); color: var(--violet-dark); padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; }
-    .threat-item { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
-    .threat-name { width: 120px; font-weight: 500; }
-    input[type="range"] { flex: 1; min-width: 150px; }
-    .threat-value { width: 45px; text-align: center; }
-    .ssi-box { text-align: center; background: var(--violet-light); border-radius: var(--card-radius); padding: 1rem; margin-bottom: 1rem; }
-    .ssi-value { font-size: 2.8rem; font-weight: 800; color: var(--violet-dark); }
-    .alert-badge { background: #dc2626; color: white; border-radius: 40px; padding: 0.2rem 0.8rem; font-size: 0.7rem; display: inline-block; }
-    .checklist { list-style: none; margin: 1rem 0; }
-    .checklist li { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
-    .history-list { max-height: 300px; overflow-y: auto; }
-    .history-item { border-bottom: 1px solid var(--border-light); padding: 0.5rem 0; display: flex; justify-content: space-between; }
-    .voice-controls { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
-    .grid-2col { display: flex; flex-wrap: wrap; gap: 1.5rem; }
-    .grid-2col > * { flex: 1; min-width: 280px; }
-    .quiz-question { margin-bottom: 1rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem; }
-    footer { text-align: center; font-size: 0.7rem; margin-top: 2rem; border-top: 1px solid #ccc; padding-top: 1rem; }
-    .pin-modal { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); display:flex; align-items:center; justify-content:center; z-index:1000; }
-    .pin-box { background: white; padding:2rem; border-radius:20px; text-align:center; }
-    @media (max-width: 600px) { body { padding: 1rem; } }
+    .btn-danger:hover {
+      background: #b91c1c;
+    }
+    .history-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+      margin: 1.5rem 0;
+    }
+    .history-item {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1rem 1.2rem;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    body.dark .history-item {
+      background: #2a2a3a;
+    }
+    .history-item .score {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--violet-dark);
+    }
+    body.dark .history-item .score {
+      color: #b39ddb;
+    }
+    .history-item .meta {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+    .history-item .notes {
+      flex: 1;
+      font-size: 0.9rem;
+      margin: 0 1rem;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.6;
+    }
   </style>
 </head>
 <body>
-<div class="chapel-banner">
-  <div class="banner-left">
-    <div class="logo"><svg viewBox="0 0 120 140" width="40" height="47"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
-    <div class="title"><h1>THE CHAPEL</h1><p>by Cathedral Network · resilience · private · offline</p></div>
-  </div>
-  <button id="darkModeToggle" class="dark-mode-toggle">🌙 Dark Mode</button>
-</div>
 
-<div class="tabs">
-  <button class="tab-btn active" data-tab="log">📔 My Log</button>
-  <button class="tab-btn" data-tab="pra">📊 PRA</button>
-  <button class="tab-btn" data-tab="quiz">📝 Quiz</button>
-  <button class="tab-btn" data-tab="insights">🔮 Insights</button>
-  <button class="tab-btn" data-tab="partner">💑 Partner Sync</button>
-  <button class="tab-btn" data-tab="data">⚙️ Data & Export</button>
-  <button class="tab-btn" data-tab="settings">⚙️ Settings</button>
-</div>
-
-<!-- ==================== TAB: MY LOG ==================== -->
-<div id="log" class="tab-content active">
-  <div class="card">
-    <h2>How are you feeling today?</h2>
-    <div class="grid-2col">
-      <div>
-        <label>Mood (1–10)</label><input type="range" id="moodSlider" min="1" max="10" value="7"><span id="moodValue">7</span>
-        <label>Energy (1–10)</label><input type="range" id="energySlider" min="1" max="10" value="6"><span id="energyValue">6</span>
-        <label>Connection to partner (1–10)</label><input type="range" id="connectionSlider" min="1" max="10" value="7"><span id="connectionValue">7</span>
-        <div id="customMetricsContainer"></div>
-        <button id="addCustomMetricBtn" class="badge" style="background:var(--violet-dark); color:white;">➕ Add custom metric</button>
-      </div>
-      <div>
-        <label>Journal / Notes</label><textarea id="journal" rows="3" placeholder="Anything on your mind?"></textarea>
-        <div class="voice-controls"><button id="startRecordBtn">🎙️ Record voice</button><button id="stopRecordBtn" disabled>⏹️ Stop</button><audio id="voicePlayback" controls style="display:none;"></audio></div>
-        <label>Tags (comma)</label><input type="text" id="entryTags" placeholder="e.g., work, family">
-        <label>Topics to discuss</label><input type="text" id="topics" placeholder="vacation, money, future">
-      </div>
+<!-- Hardcoded Sidebar (same as other pages) -->
+<div class="sidebar-container" id="sidebar">
+  <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
+  <nav>
+    <div class="nav-section">
+      <strong>📊 Dashboard</strong>
+      <a href="index.html">Ground Truth</a>
+      <a href="hewd.html">HEWD Dashboard</a>
+      <a href="health.html">System Health</a>
     </div>
-    <button id="saveDayBtn">💾 Save today's entry</button>
-  </div>
-</div>
-
-<!-- ==================== TAB: PRA ==================== -->
-<div id="pra" class="tab-content" style="display:none;">
-  <div class="grid-2col">
-    <div class="card">
-      <h2>📊 Daily Threats (1‑10)</h2>
-      <div id="threats-container" class="threat-list"></div>
-      <div class="flex-buttons">
-        <button id="savePRAEntryBtn">💾 Save PRA today</button>
-        <button id="resetPRAThreatsBtn">⟳ Reset threats</button>
-      </div>
+    <div class="nav-section">
+      <strong>🧠 Intelligence</strong>
+      <a href="threat-matrix.html">Threat Matrix</a>
+      <a href="prediction-log.html">Prediction Log</a>
+      <a href="regional.html">Regional Forecasts</a>
+      <a href="daily-brief.html">Daily Brief</a>
+      <a href="breaking.html">Breaking News</a>
     </div>
-    <div class="card">
-      <h2>⚖️ Personal SSI & Coach</h2>
-      <div class="ssi-box">
-        <div class="ssi-value" id="ssiValue">--</div>
-        <div>System Stress Index (0‑100)</div>
-        <div id="alertMessage" style="margin-top:0.5rem;"></div>
-      </div>
-      <h3>🧘 Cathedral Coach</h3>
-      <ul class="checklist" id="checklist">
-        <li><input type="checkbox" id="ck1"> <label>Morning inventory (gratitude, intention)</label></li>
-        <li><input type="checkbox" id="ck2"> <label>Evening accountability (amends, learn)</label></li>
-        <li><input type="checkbox" id="ck3"> <label>Sacred Date (non‑negotiable time for self)</label></li>
-        <li><input type="checkbox" id="ck4"> <label>Movement / walk outside</label></li>
-        <li><input type="checkbox" id="ck5"> <label>Created something (even small)</label></li>
-        <li><input type="checkbox" id="ck6"> <label>Reality test: am I more stable than last week?</label></li>
-        <li><input type="checkbox" id="ck7"> <label>Practiced gratitude (3 things)</label></li>
-        <li><input type="checkbox" id="ck8"> <label>Connected with a Warden or friend</label></li>
-      </ul>
-      <button id="resetChecklistBtn" style="background:#888;">Reset checklist</button>
-      <div style="margin-top:1rem; font-size:0.8rem;">
-        <strong>📖 RHS (Relationship Health Score):</strong> Average of mood, energy, connection (0‑10). Shown in Insights.<br>
-        <strong>⚡ SSI (System Stress Index):</strong> Weighted aggregate of 10 daily threats (0‑100). Lower is better.
-      </div>
+    <div class="nav-section">
+      <strong>⚖️ Governance</strong>
+      <a href="constitution.html">Constitution</a>
+      <a href="wardens.html">Wardens</a>
+      <a href="ascension.html">Ascension Engine</a>
+      <a href="warden-dashboard.html">Warden Dashboard</a>
     </div>
-    <div class="card">
-      <h2>📜 PRA History (last 14 days)</h2>
-      <div id="praHistoryList" class="history-list">No entries yet.</div>
-      <button id="clearPRAHistoryBtn" style="background:#c0392b;">Clear history</button>
+    <div class="nav-section">
+      <strong>🌍 Community</strong>
+      <a href="spotter.html">Spotter Guide</a>
+      <a href="about.html">About</a>
+      <a href="sources.html">Sources</a>
+      <a href="credits.html">Credits</a>
     </div>
-  </div>
-</div>
-
-<!-- ==================== TAB: QUIZ ==================== -->
-<div id="quiz" class="tab-content" style="display:none;">
-  <div class="card">
-    <h2>📝 Compatibility Quiz</h2>
-    <p>Answer each question (1=strongly disagree, 5=strongly agree). Export your answers and ask your partner to do the same, then import theirs.</p>
-    <div id="quizQuestions"></div>
-    <div class="flex-buttons">
-      <button id="exportQuizAnswersBtn">📤 Export my answers</button>
-      <button id="importQuizAnswersBtn">📂 Import partner's answers</button>
+    <div class="nav-section">
+      <strong>🔧 Tools</strong>
+      <a href="undp-demo.html">UNDP Demo</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="pra.html">PRA</a>
     </div>
-    <div id="compatibilityScoreDisplay" style="margin-top:1rem; text-align:center;"></div>
+  </nav>
+</div>
+
+<!-- Banner -->
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Personal Resilience</p></div>
+  </div>
+</header>
+
+<!-- Top Nav (mobile) -->
+<div class="top-nav">
+  <a href="index.html">Ground Truth</a>
+  <a href="threat-matrix.html">Threat Matrix</a>
+  <a href="prediction-log.html">Prediction Log</a>
+  <a href="hewd.html">HEWD</a>
+  <a href="health.html">Health</a>
+  <a href="wardens.html">Wardens</a>
+  <a href="pra.html">PRA</a>
+</div>
+
+<!-- Main content -->
+<div class="container">
+  <h1>🛡️ Personal Resilience Assessment</h1>
+  <p style="margin-bottom: 1rem;">Track your own resilience over time. Log your current resilience score, add notes, and monitor your progress.</p>
+
+  <!-- Form -->
+  <div class="pra-form">
+    <h3 style="margin-top:0;">Log Your Resilience</h3>
+    <div class="range-wrap">
+      <label for="resilienceScore">Resilience Score (0–10):</label>
+      <input type="range" id="resilienceScore" min="0" max="10" step="0.5" value="5">
+      <span class="range-value" id="scoreDisplay">5.0</span>
+    </div>
+    <label for="notes">Notes / Context:</label>
+    <textarea id="notes" rows="3" placeholder="What's affecting your resilience today?"></textarea>
+    <button class="btn btn-primary" id="saveEntry">Save Entry</button>
+  </div>
+
+  <!-- History -->
+  <h2>📋 Your Resilience History</h2>
+  <div id="historyContainer" class="history-grid">
+    <div class="empty-state">No entries yet. Log your first resilience score above.</div>
+  </div>
+  <button class="btn btn-danger" id="clearHistory">Clear All History</button>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Personal Resilience · Data stored locally in your browser.
   </div>
 </div>
 
-<!-- ==================== TAB: INSIGHTS ==================== -->
-<div id="insights" class="tab-content" style="display:none;">
-  <div class="card">
-    <h2>💞 Relationship Health Score</h2>
-    <div id="rhsScore" class="ssi-value" style="font-size:2rem;">—</div>
-    <div id="emergencyAlert" style="color:red; font-weight:bold;"></div>
-  </div>
-  <div class="card">
-    <h2>📈 RHS & SSI (last 30 days)</h2>
-    <canvas id="rhsSsiChart" width="400" height="200"></canvas>
-  </div>
-  <div class="card">
-    <h2>📈 Mood, Energy, Connection</h2>
-    <canvas id="trendChart" width="400" height="200"></canvas>
-    <div id="sparklineContainer"></div>
-  </div>
-  <div class="card">
-    <h2>📅 Calendar View</h2>
-    <div id="calendar"></div>
-  </div>
-  <div class="card">
-    <h2>🗣️ Conversation Starters</h2>
-    <div class="flex-buttons"><select id="questionPackSelect"></select><button id="uploadQuestionPackBtn">📁 Upload pack</button></div>
-    <ul id="suggestions"></ul>
-  </div>
-</div>
-
-<!-- ==================== TAB: PARTNER SYNC ==================== -->
-<div id="partner" class="tab-content" style="display:none;">
-  <div class="card">
-    <h2>📥 Import partner data</h2>
-    <div class="flex-buttons"><button id="importFileBtn">📂 Choose file (JSON)</button><button id="scanQRBtn">📷 Scan QR code</button></div>
-    <div id="qrReader" style="display:none;"><div id="qr-reader" style="width:100%; max-width:300px;"></div><button id="stopScanBtn">🛑 Stop</button></div>
-    <div id="partnerDisplay"></div>
-  </div>
-</div>
-
-<!-- ==================== TAB: DATA & EXPORT ==================== -->
-<div id="data" class="tab-content" style="display:none;">
-  <div class="card">
-    <h2>🔐 Export</h2>
-    <label>Password (optional)</label><input type="password" id="exportPassword">
-    <div class="flex-buttons"><button id="exportBtn">📤 Export JSON</button><button id="copyToClipboardBtn">📋 Copy</button><button id="generateQRBtn">🔲 QR (plain)</button><button id="exportPdfBtn">📄 PDF</button></div>
-    <div id="qrCodeContainer" style="display:none;"><canvas id="qrCodeCanvas"></canvas></div>
-    <pre id="exportOutput" style="display:none;"></pre>
-  </div>
-  <div class="card">
-    <h2>📂 Import</h2>
-    <label>Password (if encrypted)</label><input type="password" id="importPassword">
-    <button id="importDataBtn">Import from file</button>
-    <div id="importStatus"></div>
-  </div>
-  <div class="card">
-    <h2>⚠️ Danger zone</h2>
-    <button id="clearAllBtn" style="background:#c0392b;">Delete all my data</button>
-    <button id="undoLastEntryBtn">↩️ Undo last entry</button>
-  </div>
-</div>
-
-<!-- ==================== TAB: SETTINGS ==================== -->
-<div id="settings" class="tab-content" style="display:none;">
-  <div class="card">
-    <h2>🧠 Sentiment Analysis (Experimental)</h2>
-    <p>Uses on‑device AI to analyse journal entries and suggest tags. Model ~50MB.</p>
-    <button id="enableSentimentBtn">Enable Sentiment Analysis</button>
-    <div id="sentimentStatus"></div>
-  </div>
-  <div class="card">
-    <h2>🔔 Weekly Reminder</h2>
-    <label>Enable?</label><select id="reminderEnabled"><option value="no">No</option><option value="yes">Yes</option></select>
-    <label>Day</label><select id="reminderDay"><option value="0">Sun</option><option value="1">Mon</option><option value="2">Tue</option><option value="3">Wed</option><option value="4">Thu</option><option value="5">Fri</option><option value="6">Sat</option></select>
-    <label>Time</label><input type="time" id="reminderTime" value="20:00">
-    <label>Custom message</label><input type="text" id="reminderMessage" placeholder="Time to check in">
-    <button id="saveReminderBtn">Save</button>
-  </div>
-  <div class="card">
-    <h2>🔒 PIN Lock (session)</h2>
-    <button id="setPinBtn">Set PIN</button>
-    <button id="lockNowBtn">Lock now</button>
-  </div>
-  <div class="card">
-    <h2>📱 PWA Install</h2>
-    <button id="installPwaBtn">Install App</button>
-  </div>
-  <div class="card">
-    <h2>🎨 Theme</h2>
-    <button id="darkModeToggleSettings">Toggle Dark Mode</button>
-  </div>
-</div>
-
-<footer>Always and Forever, Coco. All data stays on your device.</footer>
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
 <script>
-  // ========== GLOBAL STATE ==========
-  let myEntries = [];
-  let partnerEntry = null;
-  let customMetrics = [];
-  let questionPacks = [];
-  let currentPackIndex = 0;
-  let chartInstance = null;
-  let rhsSsiChart = null;
-  let calendarInstance = null;
-  let html5QrCode = null;
-  let mediaRecorder = null;
-  let audioChunks = [];
-  let recordedAudioBase64 = null;
+  // ---- Sidebar toggle ----
+  document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
+    document.getElementById('sidebar')?.classList.toggle('open');
+  });
 
-  // PRA
-  const PRA_THREATS = [
-    { id: "sleep", label: "😴 Sleep quality" },
-    { id: "stress", label: "😫 Stress level" },
-    { id: "debt", label: "💰 Financial worry" },
-    { id: "social", label: "👥 Social connection" },
-    { id: "health", label: "🩺 Physical health" },
-    { id: "mood", label: "😊 Mood / depression" },
-    { id: "work", label: "💼 Work pressure" },
-    { id: "loneliness", label: "🕊️ Loneliness / isolation" },
-    { id: "purpose", label: "🎯 Sense of purpose" },
-    { id: "future", label: "🔮 Fear about future" }
-  ];
-  let praEntries = [];
-  let praCurrentValues = {};
+  // ---- Dark mode ----
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    darkToggle.innerText = '☀️';
+  } else darkToggle.innerText = '🌙';
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerText = isDark ? '☀️' : '🌙';
+    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+  });
 
-  // Quiz
-  const QUIZ_QUESTIONS = [
-    "I enjoy spending quality time with my partner.",
-    "We communicate openly about our feelings.",
-    "I trust my partner completely.",
-    "We handle disagreements respectfully.",
-    "I feel supported in my personal goals.",
-    "Our values align on important matters.",
-    "We share similar ideas about finances.",
-    "Physical affection is important to us.",
-    "We have fun together regularly.",
-    "I see a long‑term future with my partner."
-  ];
-  let myQuizAnswers = new Array(QUIZ_QUESTIONS.length).fill(3);
-  let partnerQuizAnswers = null;
+  // ---- PRA functionality ----
+  const STORAGE_KEY = 'cathedral_pra_data';
 
-  // Initialize PRA defaults
-  PRA_THREATS.forEach(t => { if (praCurrentValues[t.id] === undefined) praCurrentValues[t.id] = 5; });
+  function getEntries() {
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : [];
+    } catch { return []; }
+  }
 
-  // Load/save all
-  function loadAllData() {
-    myEntries = JSON.parse(localStorage.getItem('chapelCore_myEntries') || '[]');
-    partnerEntry = JSON.parse(localStorage.getItem('chapelCore_partner') || 'null');
-    customMetrics = JSON.parse(localStorage.getItem('chapelCore_customMetrics') || '[]');
-    questionPacks = JSON.parse(localStorage.getItem('chapelCore_questionPacks') || '[]');
-    if (questionPacks.length === 0) {
-      questionPacks = [
-        { name: "General", questions: ["What is one thing I did this week that made you feel appreciated?","Is there anything you’ve been wanting to talk about?","What’s a small worry on your mind?"] },
-        { name: "Conflict Repair", questions: ["What’s something we argued about that still feels unresolved?","How could I have handled our last disagreement differently?","What does a good apology look like to you?"] },
-        { name: "Future & Goals", questions: ["What’s a dream you have for us in the next year?","Where would you like to be living in five years?","What skill do you want to learn together?"] }
-      ];
-      localStorage.setItem('chapelCore_questionPacks', JSON.stringify(questionPacks));
+  function saveEntries(entries) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+  }
+
+  function renderHistory() {
+    const container = document.getElementById('historyContainer');
+    const entries = getEntries();
+    if (entries.length === 0) {
+      container.innerHTML = '<div class="empty-state">No entries yet. Log your first resilience score above.</div>';
+      return;
     }
-    currentPackIndex = parseInt(localStorage.getItem('chapelCore_currentPack') || '0');
-    praEntries = JSON.parse(localStorage.getItem('chapelCore_praEntries') || '[]');
-    const storedPra = localStorage.getItem('chapelCore_praCurrent');
-    if (storedPra) praCurrentValues = JSON.parse(storedPra);
-    myQuizAnswers = JSON.parse(localStorage.getItem('chapelCore_myQuizAnswers') || JSON.stringify(new Array(QUIZ_QUESTIONS.length).fill(3)));
-    partnerQuizAnswers = JSON.parse(localStorage.getItem('chapelCore_partnerQuizAnswers') || 'null');
-
-    renderCustomMetricsUI();
-    renderQuestionPacksUI();
-    renderPRAThreatSliders();
-    updateSSIAndAlert();
-    renderPRAHistory();
-    loadLatestPraChecklist();
-    renderQuizUI();
-    updateCompatibilityScore();
-    renderInsights();
-    renderCalendar();
-    renderTrendChart();
-    renderRhsSsiChart();
-    updateRHS();
-    loadReminderSettings();
-  }
-  function saveAllData() {
-    localStorage.setItem('chapelCore_myEntries', JSON.stringify(myEntries));
-    localStorage.setItem('chapelCore_partner', JSON.stringify(partnerEntry));
-    localStorage.setItem('chapelCore_customMetrics', JSON.stringify(customMetrics));
-    localStorage.setItem('chapelCore_questionPacks', JSON.stringify(questionPacks));
-    localStorage.setItem('chapelCore_currentPack', currentPackIndex);
-    localStorage.setItem('chapelCore_praEntries', JSON.stringify(praEntries));
-    localStorage.setItem('chapelCore_praCurrent', JSON.stringify(praCurrentValues));
-    localStorage.setItem('chapelCore_myQuizAnswers', JSON.stringify(myQuizAnswers));
-    localStorage.setItem('chapelCore_partnerQuizAnswers', JSON.stringify(partnerQuizAnswers));
-    renderInsights(); renderTrendChart(); renderRhsSsiChart(); updateRHS(); renderPRAHistory(); updateCompatibilityScore();
+    // Show newest first
+    const sorted = [...entries].reverse();
+    container.innerHTML = sorted.map(entry => `
+      <div class="history-item">
+        <span class="score">${entry.score}/10</span>
+        <span class="meta">${new Date(entry.timestamp).toLocaleString()}</span>
+        ${entry.notes ? `<span class="notes">${escapeHtml(entry.notes)}</span>` : ''}
+      </div>
+    `).join('');
   }
 
-  // Custom metrics
-  function renderCustomMetricsUI() {
-    const container = document.getElementById('customMetricsContainer');
-    container.innerHTML = '';
-    customMetrics.forEach((metric, idx) => {
-      const div = document.createElement('div');
-      div.innerHTML = `<label>${metric.name} (1-10)</label><input type="range" class="custom-metric-slider" data-idx="${idx}" min="1" max="10" value="5"><span class="custom-metric-value">5</span><button class="remove-metric" data-idx="${idx}" style="background:#c0392b; padding:0.2rem 0.5rem;">✖️</button>`;
-      container.appendChild(div);
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
+  }
+
+  // ---- Save entry ----
+  document.getElementById('saveEntry').addEventListener('click', function() {
+    const score = parseFloat(document.getElementById('resilienceScore').value);
+    const notes = document.getElementById('notes').value.trim();
+    const entries = getEntries();
+    entries.push({
+      timestamp: new Date().toISOString(),
+      score: score,
+      notes: notes
     });
-    document.querySelectorAll('.custom-metric-slider').forEach(s => s.addEventListener('input', (e) => { e.target.parentElement.querySelector('.custom-metric-value').innerText = e.target.value; }));
-    document.querySelectorAll('.remove-metric').forEach(btn => btn.addEventListener('click', (e) => { const idx = parseInt(btn.dataset.idx); customMetrics.splice(idx,1); saveAllData(); }));
-  }
-  document.getElementById('addCustomMetricBtn').addEventListener('click', () => { let name = prompt('Metric name:'); if(name) { customMetrics.push({ name: name.trim() }); saveAllData(); } });
-
-  // Chapel entry
-  function addTodayEntry() {
-    const today = new Date().toISOString().slice(0,10);
-    const existingIndex = myEntries.findIndex(e => e.date === today);
-    const customValues = {};
-    document.querySelectorAll('.custom-metric-slider').forEach(slider => {
-      const idx = slider.dataset.idx;
-      if(customMetrics[idx]) customValues[customMetrics[idx].name] = parseInt(slider.value);
-    });
-    const newEntry = {
-      date: today,
-      mood: parseInt(document.getElementById('moodSlider').value),
-      energy: parseInt(document.getElementById('energySlider').value),
-      connection: parseInt(document.getElementById('connectionSlider').value),
-      journal: document.getElementById('journal').value,
-      topics: document.getElementById('topics').value.split(',').map(s=>s.trim()).filter(s=>s),
-      tags: document.getElementById('entryTags').value.split(',').map(s=>s.trim()).filter(s=>s),
-      customValues,
-      audio: recordedAudioBase64 || null
-    };
-    if (existingIndex >= 0) myEntries[existingIndex] = newEntry;
-    else myEntries.unshift(newEntry);
-    myEntries.sort((a,b)=>new Date(b.date)-new Date(a.date));
-    saveAllData();
-    alert('Saved');
-    document.getElementById('journal').value = '';
-    document.getElementById('topics').value = '';
-    document.getElementById('entryTags').value = '';
-    recordedAudioBase64 = null;
-    document.getElementById('voicePlayback').style.display = 'none';
-    if("vibrate" in navigator) navigator.vibrate(100);
-  }
-  document.getElementById('saveDayBtn').addEventListener('click', addTodayEntry);
-  document.getElementById('undoLastEntryBtn').addEventListener('click', () => { if(myEntries.length) { myEntries.shift(); saveAllData(); alert('Undone'); } });
-
-  // PRA functions
-  function renderPRAThreatSliders() {
-    const container = document.getElementById('threats-container');
-    container.innerHTML = '';
-    PRA_THREATS.forEach(t => {
-      const val = praCurrentValues[t.id];
-      const div = document.createElement('div');
-      div.className = 'threat-item';
-      div.innerHTML = `<span class="threat-name">${t.label}</span><input type="range" id="pra-slider-${t.id}" min="1" max="10" value="${val}"><span class="threat-value" id="pra-val-${t.id}">${val}</span>`;
-      container.appendChild(div);
-      const slider = div.querySelector('input');
-      const valSpan = div.querySelector('.threat-value');
-      slider.addEventListener('input', (e) => {
-        const newVal = parseInt(e.target.value);
-        praCurrentValues[t.id] = newVal;
-        valSpan.innerText = newVal;
-        updateSSIAndAlert();
-        saveAllData();
-      });
-    });
-  }
-  function getPoints(val) { if (val<=3) return 0; if (val<=5) return 1; if (val<=7) return 2; return 3; }
-  function computeSSI(values) { let total = 0; for (let t of PRA_THREATS) total += getPoints(values[t.id] || 5); return Math.round((total / (PRA_THREATS.length * 3)) * 100); }
-  function checkRedAlert(values) { for (let t of PRA_THREATS) if (values[t.id] >= 8) return true; return false; }
-  function updateSSIAndAlert() {
-    const ssi = computeSSI(praCurrentValues);
-    document.getElementById('ssiValue').innerText = ssi;
-    const hasRed = checkRedAlert(praCurrentValues);
-    const alertDiv = document.getElementById('alertMessage');
-    if (hasRed) alertDiv.innerHTML = '<span class="alert-badge">🔴 RED ALERT – One or more threats ≥8. Take immediate action.</span>';
-    else if (ssi >= 70) alertDiv.innerHTML = '<span style="color:#e67e22;">⚠️ Elevated personal stress – review practices.</span>';
-    else if (ssi >= 50) alertDiv.innerHTML = '<span>🟡 Moderate stress – monitor trends.</span>';
-    else alertDiv.innerHTML = '<span>🟢 Normal range. Continue practices.</span>';
-  }
-  function savePRAEntry() {
-    const today = new Date().toISOString().slice(0,10);
-    const existingIndex = praEntries.findIndex(e => e.date === today);
-    const newEntry = {
-      date: today,
-      values: { ...praCurrentValues },
-      checklist: {
-        ck1: document.getElementById('ck1').checked, ck2: document.getElementById('ck2').checked,
-        ck3: document.getElementById('ck3').checked, ck4: document.getElementById('ck4').checked,
-        ck5: document.getElementById('ck5').checked, ck6: document.getElementById('ck6').checked,
-        ck7: document.getElementById('ck7').checked, ck8: document.getElementById('ck8').checked
-      },
-      ssi: computeSSI(praCurrentValues)
-    };
-    if (existingIndex !== -1) praEntries[existingIndex] = newEntry;
-    else praEntries.unshift(newEntry);
-    while (praEntries.length > 30) praEntries.pop();
-    saveAllData();
-    alert('PRA saved');
-  }
-  function resetPRAThreats() { for (let t of PRA_THREATS) praCurrentValues[t.id] = 5; saveAllData(); renderPRAThreatSliders(); updateSSIAndAlert(); }
-  function renderPRAHistory() {
-    const container = document.getElementById('praHistoryList');
-    if (!praEntries.length) { container.innerHTML = '<div>No entries yet.</div>'; return; }
-    container.innerHTML = praEntries.slice(0,14).map(e => `<div class="history-item"><span><strong>${e.date}</strong> SSI: ${e.ssi}</span><span>${Object.values(e.checklist).filter(v=>v).length}/8 ✅</span></div>`).join('');
-  }
-  function clearPRAHistory() { if (confirm('Delete all PRA history?')) { praEntries = []; saveAllData(); renderPRAHistory(); } }
-  function loadLatestPraChecklist() {
-    const today = new Date().toISOString().slice(0,10);
-    const todayEntry = praEntries.find(e => e.date === today);
-    if (todayEntry) for (let i=1;i<=8;i++) document.getElementById(`ck${i}`).checked = todayEntry.checklist[`ck${i}`];
-    else for (let i=1;i<=8;i++) document.getElementById(`ck${i}`).checked = false;
-  }
-  function resetChecklist() { for (let i=1;i<=8;i++) document.getElementById(`ck${i}`).checked = false; }
-  document.getElementById('savePRAEntryBtn').addEventListener('click', savePRAEntry);
-  document.getElementById('resetPRAThreatsBtn').addEventListener('click', resetPRAThreats);
-  document.getElementById('clearPRAHistoryBtn').addEventListener('click', clearPRAHistory);
-  document.getElementById('resetChecklistBtn').addEventListener('click', resetChecklist);
-
-  // Quiz
-  function renderQuizUI() {
-    const container = document.getElementById('quizQuestions');
-    container.innerHTML = '';
-    QUIZ_QUESTIONS.forEach((q, idx) => {
-      const div = document.createElement('div');
-      div.className = 'quiz-question';
-      div.innerHTML = `<p><strong>${idx+1}. ${q}</strong></p><div style="display:flex; gap:1rem; flex-wrap:wrap;">
-        <label><input type="radio" name="q${idx}" value="1">1 (Strongly disagree)</label>
-        <label><input type="radio" name="q${idx}" value="2">2</label>
-        <label><input type="radio" name="q${idx}" value="3">3 (Neutral)</label>
-        <label><input type="radio" name="q${idx}" value="4">4</label>
-        <label><input type="radio" name="q${idx}" value="5">5 (Strongly agree)</label>
-      </div>`;
-      container.appendChild(div);
-      const radios = div.querySelectorAll(`input[name="q${idx}"]`);
-      radios.forEach(r => { if (parseInt(r.value) === myQuizAnswers[idx]) r.checked = true; });
-      radios.forEach(r => r.addEventListener('change', (e) => { myQuizAnswers[idx] = parseInt(e.target.value); saveAllData(); updateCompatibilityScore(); }));
-    });
-  }
-  function updateCompatibilityScore() {
-    if (!partnerQuizAnswers) { document.getElementById('compatibilityScoreDisplay').innerHTML = '<p>Import partner\'s answers to see compatibility score.</p>'; return; }
-    let totalDiff = 0;
-    for (let i=0; i<QUIZ_QUESTIONS.length; i++) totalDiff += Math.abs(myQuizAnswers[i] - partnerQuizAnswers[i]);
-    const maxDiff = 4 * QUIZ_QUESTIONS.length;
-    const compatibility = Math.round((1 - totalDiff / maxDiff) * 100);
-    document.getElementById('compatibilityScoreDisplay').innerHTML = `<div class="ssi-value">${compatibility}%</div><p>Compatibility Score</p>`;
-  }
-  document.getElementById('exportQuizAnswersBtn').addEventListener('click', () => {
-    const data = JSON.stringify({ quizAnswers: myQuizAnswers, version: '1' });
-    const blob = new Blob([data], {type: 'application/json'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = 'chapel_quiz_answers.json'; a.click(); URL.revokeObjectURL(url);
-  });
-  document.getElementById('importQuizAnswersBtn').addEventListener('click', () => {
-    const input = document.createElement('input'); input.type='file'; input.accept='application/json';
-    input.onchange = e => {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = ev => {
-        try {
-          const data = JSON.parse(ev.target.result);
-          if (data.quizAnswers && Array.isArray(data.quizAnswers)) { partnerQuizAnswers = data.quizAnswers; saveAllData(); updateCompatibilityScore(); alert('Partner answers imported.'); }
-          else alert('Invalid format');
-        } catch(err) { alert('Invalid JSON'); }
-      };
-      reader.readAsText(file);
-    };
-    input.click();
+    saveEntries(entries);
+    document.getElementById('notes').value = '';
+    renderHistory();
   });
 
-  // Insights
-  function updateRHS() {
-    if (myEntries.length === 0) { document.getElementById('rhsScore').innerHTML = '—'; document.getElementById('emergencyAlert').innerHTML = ''; return; }
-    const last7 = myEntries.slice(0,7);
-    const avg = last7.reduce((s,e)=>s+(e.mood+e.energy+e.connection)/3,0)/last7.length;
-    const rhs = (avg * 10).toFixed(1);
-    document.getElementById('rhsScore').innerHTML = `❤️ ${rhs} / 10`;
-    if (rhs < 2.0) document.getElementById('emergencyAlert').innerHTML = '⚠️ EMERGENCY: Relationship Health Score critically low – seek immediate support.';
-    else document.getElementById('emergencyAlert').innerHTML = '';
-  }
-  function getDailyRHS() {
-    const last30 = myEntries.slice(0,30).reverse();
-    const dates = last30.map(e => e.date.slice(5));
-    const rhsValues = last30.map(e => (e.mood + e.energy + e.connection) / 3);
-    return { dates, rhsValues };
-  }
-  function getDailySSI() {
-    const last30 = praEntries.slice(0,30).reverse();
-    const dates = last30.map(e => e.date.slice(5));
-    const ssiValues = last30.map(e => e.ssi);
-    return { dates, ssiValues };
-  }
-  function renderRhsSsiChart() {
-    const ctx = document.getElementById('rhsSsiChart').getContext('2d');
-    const rhs = getDailyRHS();
-    const ssi = getDailySSI();
-    const allDates = [...new Set([...rhs.dates, ...ssi.dates])].sort();
-    const rhsAligned = allDates.map(d => { const i = rhs.dates.indexOf(d); return i !== -1 ? rhs.rhsValues[i] : null; });
-    const ssiAligned = allDates.map(d => { const i = ssi.dates.indexOf(d); return i !== -1 ? ssi.ssiValues[i] : null; });
-    if (rhsSsiChart) rhsSsiChart.destroy();
-    rhsSsiChart = new Chart(ctx, {
-      type: 'line',
-      data: { labels: allDates, datasets: [
-        { label: 'RHS (0-10)', data: rhsAligned, borderColor: '#7c4dff', fill: false, tension: 0.2, yAxisID: 'y' },
-        { label: 'SSI (0-100)', data: ssiAligned, borderColor: '#e67e22', fill: false, tension: 0.2, yAxisID: 'y1' }
-      ]},
-      options: { responsive: true, scales: { y: { title: { display: true, text: 'RHS' }, min: 0, max: 10 }, y1: { position: 'right', title: { display: true, text: 'SSI' }, min: 0, max: 100, grid: { drawOnChartArea: false } } } }
-    });
-  }
-  function renderTrendChart() {
-    const ctx = document.getElementById('trendChart').getContext('2d');
-    const last30 = myEntries.slice(0,30).reverse();
-    const labels = last30.map(e=>e.date.slice(5));
-    if(chartInstance) chartInstance.destroy();
-    chartInstance = new Chart(ctx, {
-      type: 'line',
-      data: { labels, datasets: [
-        { label: 'Mood', data: last30.map(e=>e.mood), borderColor: '#f1c40f', fill: false },
-        { label: 'Energy', data: last30.map(e=>e.energy), borderColor: '#e67e22', fill: false },
-        { label: 'Connection', data: last30.map(e=>e.connection), borderColor: '#7c4dff', fill: false }
-      ]},
-      options: { responsive: true }
-    });
-    const sparkDiv = document.getElementById('sparklineContainer');
-    if (sparkDiv) {
-      sparkDiv.innerHTML = '<h3>30‑day sparklines</h3>';
-      ['mood','energy','connection'].forEach(metric => {
-        const values = last30.map(e=>e[metric]);
-        const max = Math.max(...values,1);
-        const bars = values.map(v => `<div class="sparkline-bar ${v>max/2?'fill':''}" style="height:${(v/max)*20}px;"></div>`).join('');
-        sparkDiv.innerHTML += `<div><strong>${metric}</strong><div class="sparkline">${bars}</div></div>`;
-      });
+  // ---- Clear history ----
+  document.getElementById('clearHistory').addEventListener('click', function() {
+    if (confirm('Delete all your resilience history?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      renderHistory();
     }
-  }
-  function renderCalendar() {
-    if(calendarInstance) calendarInstance.destroy();
-    calendarInstance = flatpickr("#calendar", { inline: true, onChange: (_,dateStr) => {
-      const entry = myEntries.find(e=>e.date===dateStr);
-      alert(entry ? `Mood:${entry.mood} Energy:${entry.energy} Connection:${entry.connection}\n${entry.journal}` : 'No entry');
-    }});
-  }
-  function renderInsights() { updateRHS(); renderConversationStarters(); renderRhsSsiChart(); }
-  function renderQuestionPacksUI() {
-    const select = document.getElementById('questionPackSelect');
-    select.innerHTML = questionPacks.map((p,i) => `<option value="${i}" ${i===currentPackIndex?'selected':''}>${p.name}</option>`).join('');
-    renderConversationStarters();
-  }
-  function renderConversationStarters() {
-    const pack = questionPacks[currentPackIndex];
-    const ul = document.getElementById('suggestions');
-    if(pack) ul.innerHTML = pack.questions.map(q => `<li>${q}</li>`).join('');
-    else ul.innerHTML = '<li>No questions.</li>';
-  }
-  questionPackSelect.addEventListener('change', () => { currentPackIndex = parseInt(questionPackSelect.value); localStorage.setItem('chapelCore_currentPack', currentPackIndex); renderConversationStarters(); });
-  document.getElementById('uploadQuestionPackBtn').addEventListener('click', () => {
-    const input = document.createElement('input'); input.type='file'; input.accept='application/json';
-    input.onchange = e => {
-      const file = e.target.files[0];
-      if(!file) return;
-      const reader = new FileReader();
-      reader.onload = ev => {
-        try {
-          const pack = JSON.parse(ev.target.result);
-          if(pack.name && Array.isArray(pack.questions)) { questionPacks.push(pack); saveAllData(); renderQuestionPacksUI(); }
-          else alert('Invalid pack');
-        } catch(err) { alert('Invalid JSON'); }
-      };
-      reader.readAsText(file);
-    };
-    input.click();
   });
 
-  // Voice recording
-  document.getElementById('startRecordBtn').addEventListener('click', async () => {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    mediaRecorder = new MediaRecorder(stream);
-    audioChunks = [];
-    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-    mediaRecorder.onstop = () => {
-      const blob = new Blob(audioChunks, { type: 'audio/webm' });
-      const reader = new FileReader();
-      reader.onloadend = () => { recordedAudioBase64 = reader.result; document.getElementById('voicePlayback').src = URL.createObjectURL(blob); document.getElementById('voicePlayback').style.display = 'block'; };
-      reader.readAsDataURL(blob);
-      stream.getTracks().forEach(track => track.stop());
-    };
-    mediaRecorder.start();
-    document.getElementById('startRecordBtn').disabled = true;
-    document.getElementById('stopRecordBtn').disabled = false;
+  // ---- Update score display ----
+  document.getElementById('resilienceScore').addEventListener('input', function() {
+    document.getElementById('scoreDisplay').textContent = parseFloat(this.value).toFixed(1);
   });
-  document.getElementById('stopRecordBtn').addEventListener('click', () => { if(mediaRecorder) mediaRecorder.stop(); document.getElementById('startRecordBtn').disabled = false; document.getElementById('stopRecordBtn').disabled = true; });
 
-  // Reminders, PIN, PWA, dark mode (simplified)
-  let reminderTimeout = null;
-  function scheduleReminder(day, time, message) { if (reminderTimeout) clearTimeout(reminderTimeout); const now = new Date(); const target = new Date(); const [hour, minute] = time.split(':'); target.setHours(parseInt(hour), parseInt(minute), 0, 0); let daysUntil = (day - now.getDay() + 7) % 7; if (daysUntil===0 && now>target) daysUntil=7; target.setDate(now.getDate()+daysUntil); const delay = target-now; reminderTimeout = setTimeout(() => { if (Notification.permission === 'granted') new Notification('The Chapel', { body: message || "Time to check in" }); scheduleReminder(day, time, message); }, delay); }
-  function loadReminderSettings() { const enabled = localStorage.getItem('chapel_reminder_enabled')==='yes'; document.getElementById('reminderEnabled').value = enabled?'yes':'no'; const day = parseInt(localStorage.getItem('chapel_reminder_day')||'1'); const time = localStorage.getItem('chapel_reminder_time')||'20:00'; const message = localStorage.getItem('chapel_reminder_message')||''; document.getElementById('reminderDay').value = day; document.getElementById('reminderTime').value = time; document.getElementById('reminderMessage').value = message; if (enabled && Notification.permission === 'granted') scheduleReminder(day, time, message); else if (enabled && Notification.permission !== 'denied') Notification.requestPermission(); }
-  document.getElementById('saveReminderBtn').addEventListener('click', () => { const enabled = document.getElementById('reminderEnabled').value === 'yes'; const day = parseInt(document.getElementById('reminderDay').value); const time = document.getElementById('reminderTime').value; const message = document.getElementById('reminderMessage').value; localStorage.setItem('chapel_reminder_enabled', enabled?'yes':'no'); localStorage.setItem('chapel_reminder_day', day); localStorage.setItem('chapel_reminder_time', time); localStorage.setItem('chapel_reminder_message', message); if(reminderTimeout) clearTimeout(reminderTimeout); if(enabled && Notification.permission === 'granted') scheduleReminder(day, time, message); else if(enabled && Notification.permission !== 'denied') Notification.requestPermission(); alert('Reminder saved'); });
-  let pin = null;
-  function showPinModal() { const modal = document.createElement('div'); modal.className='pin-modal'; modal.innerHTML=`<div class="pin-box"><h3>Enter PIN</h3><input type="password" id="pinInput" maxlength="6"><br><button id="unlockBtn">Unlock</button></div>`; document.body.appendChild(modal); document.getElementById('unlockBtn').onclick=()=>{ if(document.getElementById('pinInput').value===pin){ sessionStorage.setItem('chapel_unlocked','true'); modal.remove(); } else alert('Wrong PIN'); }; }
-  document.getElementById('setPinBtn').addEventListener('click',()=>{ const newPin = prompt('Set PIN (empty to disable)'); if(newPin) pin=newPin; else pin=null; localStorage.setItem('chapel_pin',pin); });
-  document.getElementById('lockNowBtn').addEventListener('click',()=>{ if(pin) sessionStorage.removeItem('chapel_unlocked'); showPinModal(); });
-  const storedPin = localStorage.getItem('chapel_pin'); if(storedPin) pin=storedPin; if(pin && !sessionStorage.getItem('chapel_unlocked')) showPinModal();
-  let deferredPrompt; window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; document.getElementById('installPwaBtn').style.display = 'block'; });
-  document.getElementById('installPwaBtn').addEventListener('click', () => { if(deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(()=>{ deferredPrompt=null; }); } });
-  (function createManifest() { const manifest = { name: "The Chapel", short_name: "Chapel", start_url: ".", display: "standalone", theme_color: "#7c4dff", background_color: "#f0f0f0", icons: [] }; const blob = new Blob([JSON.stringify(manifest)], {type:'application/json'}); const url = URL.createObjectURL(blob); const link = document.createElement('link'); link.rel='manifest'; link.href=url; document.head.appendChild(link); })();
-  function setDarkMode(enabled) { if(enabled) document.body.classList.add('dark'); else document.body.classList.remove('dark'); localStorage.setItem('chapel_darkMode', enabled); }
-  document.getElementById('darkModeToggle').addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark')));
-  document.getElementById('darkModeToggleSettings').addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark')));
-  if(localStorage.getItem('chapel_darkMode') === 'true') setDarkMode(true);
-  document.getElementById('enableSentimentBtn').addEventListener('click', () => { document.getElementById('sentimentStatus').innerHTML = '✅ Sentiment analysis activated (simulated).'; });
+  // ---- Init ----
+  renderHistory();
 
-  // Encryption / QR / Export (simplified but functional)
-  async function exportMyData() { const json = JSON.stringify({ entries: myEntries, praEntries, quizAnswers: myQuizAnswers, partnerQuizAnswers, version:'3.0' }); document.getElementById('exportOutput').innerText = json; document.getElementById('exportOutput').style.display = 'block'; return json; }
-  document.getElementById('exportBtn').addEventListener('click', exportMyData);
-  document.getElementById('copyToClipboardBtn').addEventListener('click', async () => { const json = await exportMyData(); navigator.clipboard.writeText(json); alert('Copied'); });
-  document.getElementById('generateQRBtn').addEventListener('click', async () => { const json = await exportMyData(); const canvas = document.getElementById('qrCodeCanvas'); new QRCode(canvas, { text: json, width: 200, height: 200 }); document.getElementById('qrCodeContainer').style.display = 'block'; });
-  document.getElementById('exportPdfBtn').addEventListener('click', () => { const { jsPDF } = window.jspdf; const doc = new jsPDF(); doc.text('The Chapel Export',10,10); let y=20; myEntries.slice(0,30).forEach(e=>{ doc.text(`${e.date}: Mood ${e.mood}, Energy ${e.energy}, Connection ${e.connection}`,10,y); y+=10; if(y>280){doc.addPage(); y=20;} }); doc.save('chapel.pdf'); });
-  document.getElementById('importDataBtn').addEventListener('click', () => { const input = document.createElement('input'); input.type='file'; input.accept='application/json'; input.onchange=async(e)=>{ const file=e.target.files[0]; const text=await file.text(); const data = JSON.parse(text); if(data.entries) { myEntries = data.entries; praEntries = data.praEntries || []; myQuizAnswers = data.quizAnswers || myQuizAnswers; partnerQuizAnswers = data.partnerQuizAnswers || null; saveAllData(); alert('Imported'); } else alert('Invalid'); }; input.click(); });
-  document.getElementById('importFileBtn').addEventListener('click', () => { const input = document.createElement('input'); input.type='file'; input.accept='application/json'; input.onchange=async(e)=>{ const file=e.target.files[0]; const text=await file.text(); const data = JSON.parse(text); if(data.entries && data.entries.length) partnerEntry = data.entries[0]; else partnerEntry = data; localStorage.setItem('chapelCore_partner', JSON.stringify(partnerEntry)); document.getElementById('partnerDisplay').innerHTML = '<div class="badge">✅ Partner imported</div>'; }; input.click(); });
-  document.getElementById('scanQRBtn').addEventListener('click', async () => { html5QrCode = new Html5Qrcode("qr-reader"); await html5QrCode.start({ facingMode: "environment" }, { fps:10, qrbox:250 }, decodedText => { try { const data = JSON.parse(decodedText); partnerEntry = data.entries ? data.entries[0] : data; localStorage.setItem('chapelCore_partner', JSON.stringify(partnerEntry)); document.getElementById('partnerDisplay').innerHTML = '<div class="badge">✅ Partner via QR</div>'; html5QrCode.stop(); } catch(e){ alert('Invalid QR'); } }); document.getElementById('qrReader').style.display = 'block'; });
-  document.getElementById('stopScanBtn').addEventListener('click', () => { if(html5QrCode) html5QrCode.stop(); document.getElementById('qrReader').style.display = 'none'; });
-  document.getElementById('clearAllBtn').addEventListener('click', () => { if(confirm('Delete everything?')) { localStorage.clear(); location.reload(); } });
-
-  // Tabs
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
-  function switchTab(tabId) { tabContents.forEach(tc=>tc.style.display='none'); document.getElementById(tabId).style.display='block'; tabBtns.forEach(btn=>btn.classList.remove('active')); document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add('active'); }
-  tabBtns.forEach(btn=>btn.addEventListener('click',()=>switchTab(btn.getAttribute('data-tab'))));
-
-  // Sliders display
-  document.getElementById('moodSlider').oninput = () => document.getElementById('moodValue').innerText = document.getElementById('moodSlider').value;
-  document.getElementById('energySlider').oninput = () => document.getElementById('energyValue').innerText = document.getElementById('energySlider').value;
-  document.getElementById('connectionSlider').oninput = () => document.getElementById('connectionValue').innerText = document.getElementById('connectionSlider').value;
-
-  loadAllData();
-  switchTab('log');
+  // ---- Service worker ----
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').catch(() => {});
+  }
 </script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
