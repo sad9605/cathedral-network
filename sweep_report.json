@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-21T04:10:35.834992",
+  "timestamp": "2026-06-21T12:53:34.148375",
   "events": [
     {
       "title": "Green flood alert in T\u00fcrkiye",
@@ -36,7 +36,7 @@
     {
       "title": "Green forest fire notification in United States",
       "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029002",
-      "description": "On 20/06/2026, a forest fire started in United States,  until 20/06/2026.",
+      "description": "On 20/06/2026, a forest fire started in United States,  until 21/06/2026.",
       "published": "Sun, 21 Jun 2026 07:00:51 GMT",
       "source": "https://www.gdacs.org/xml/rss.xml",
       "feed": "gdacs"
@@ -100,7 +100,7 @@
     {
       "title": "Green notification for tropical cyclone MEKKHALA-26. Population affected by Category 1 (120 km/h) wind speeds or higher is 0  (0 in Tropical Storm).",
       "link": "https://www.gdacs.org/report.aspx?eventtype=TC&eventid=1001277",
-      "description": "From 18/06/2026 to 21/06/2026, a Hurricane/Typhoon > 74 mph (maximum wind speed of 213 km/h) MEKKHALA-26 was active in NWPacific. The cyclone affects these countries: Japan (vulnerability Low). Estimated population affected by category 1 (120 km/h) wind speeds or higher is 0  (0 in tropical storm).",
+      "description": "From 18/06/2026 to 21/06/2026, a Hurricane/Typhoon > 74 mph (maximum wind speed of 222 km/h) MEKKHALA-26 was active in NWPacific. The cyclone affects these countries: Japan (vulnerability Low). Estimated population affected by category 1 (120 km/h) wind speeds or higher is 0  (0 in tropical storm).",
       "published": "Thu, 18 Jun 2026 20:07:15 GMT",
       "source": "https://www.gdacs.org/xml/rss.xml",
       "feed": "gdacs"
@@ -138,50 +138,58 @@
       "feed": "gdacs"
     },
     {
-      "title": "Green forest fire notification in Zambia",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1028982",
-      "description": "On 18/06/2026, a forest fire started in Zambia,  until 20/06/2026.",
-      "published": "Sat, 20 Jun 2026 07:00:12 GMT",
-      "source": "https://www.gdacs.org/xml/rss.xml",
-      "feed": "gdacs"
-    },
-    {
       "title": "Green forest fire notification in Australia",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1028983",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029003",
       "description": "On 18/06/2026, a forest fire started in Australia,  until 21/06/2026.",
-      "published": "Sat, 20 Jun 2026 11:00:17 GMT",
+      "published": "Sun, 21 Jun 2026 15:01:16 GMT",
       "source": "https://www.gdacs.org/xml/rss.xml",
       "feed": "gdacs"
     },
     {
       "title": "Green forest fire notification in Namibia",
       "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1028989",
-      "description": "On 18/06/2026, a forest fire started in Namibia,  until 20/06/2026.",
+      "description": "On 18/06/2026, a forest fire started in Namibia,  until 21/06/2026.",
       "published": "Sun, 21 Jun 2026 03:01:20 GMT",
       "source": "https://www.gdacs.org/xml/rss.xml",
       "feed": "gdacs"
     },
     {
-      "title": "US-Iran talks to begin in Switzerland as Tehran says it closed Strait of Hormuz",
-      "link": "https://www.bbc.com/news/articles/cwyekkwm1mmo?at_medium=RSS&at_campaign=rss",
-      "description": "The US disputed Iran's claim the waterway is shut, a move Tehran says was a response to Israeli attacks in Lebanon.",
-      "published": "Sun, 21 Jun 2026 04:34:00 GMT",
+      "title": "Green forest fire notification in Zambia",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1028982",
+      "description": "On 18/06/2026, a forest fire started in Zambia,  until 21/06/2026.",
+      "published": "Sat, 20 Jun 2026 07:00:12 GMT",
+      "source": "https://www.gdacs.org/xml/rss.xml",
+      "feed": "gdacs"
+    },
+    {
+      "title": "US and Iran begin talks on initial peace deal in Switzerland",
+      "link": "https://www.bbc.com/news/articles/cwy0q41v1lzo?at_medium=RSS&at_campaign=rss",
+      "description": "The face-to-face meeting follows ongoing fighting in Lebanon and Iran's claim to have shut the Strait of Hormuz.",
+      "published": "Sun, 21 Jun 2026 14:41:02 GMT",
       "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
       "feed": "bbc"
     },
     {
-      "title": "BBC sees destroyed villages in Israeli-occupied southern Lebanon",
-      "link": "https://www.bbc.com/news/videos/c8r2pyv3e2po?at_medium=RSS&at_campaign=rss",
-      "description": "Travelling with a humanitarian convoy, BBC's Hugo Bachega has been given rare access to a part of Lebanon under Israeli occupation.",
-      "published": "Sat, 20 Jun 2026 16:37:03 GMT",
+      "title": "Fuel sales halted in occupied Crimea as Ukraine targets oil facilities",
+      "link": "https://www.bbc.com/news/articles/clyx2lk9d15o?at_medium=RSS&at_campaign=rss",
+      "description": "Fuel had already been rationed due to shortages caused by Kyiv's attacks against supply routes in Russian-occupied territories.",
+      "published": "Sun, 21 Jun 2026 10:55:05 GMT",
       "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
       "feed": "bbc"
     },
     {
-      "title": "Lebanese turtle conservationist Mona Khalil killed by Israeli strike",
-      "link": "https://www.bbc.com/news/articles/cwylx1vq18zo?at_medium=RSS&at_campaign=rss",
-      "description": "Mona Khalil, who had refused to leave the beach she had spent years protecting, died after several days in hospital, an environmental group said.",
-      "published": "Sat, 20 Jun 2026 17:40:43 GMT",
+      "title": "Ethiopia PM's party wins landslide as fears grow of new conflict",
+      "link": "https://www.bbc.com/news/articles/cz750q5e3w3o?at_medium=RSS&at_campaign=rss",
+      "description": "Abiy Ahmed's party retains its huge majority despite unrest in several parts of Ethiopia and tensions with its neighbours.",
+      "published": "Sun, 21 Jun 2026 15:01:28 GMT",
+      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "feed": "bbc"
+    },
+    {
+      "title": "Half of France under red heat alert as alcohol banned at street music festival",
+      "link": "https://www.bbc.com/news/articles/cgmdw4vn7y2o?at_medium=RSS&at_campaign=rss",
+      "description": "Temperatures are forecast to peak on Monday, and authorities warn they could match historic highs.",
+      "published": "Sun, 21 Jun 2026 15:22:14 GMT",
       "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
       "feed": "bbc"
     },
@@ -194,10 +202,18 @@
       "feed": "bbc"
     },
     {
-      "title": "Meloni tells Trump to 'focus on your own popularity' as row escalates",
-      "link": "https://www.bbc.com/news/articles/cgqj77909jpo?at_medium=RSS&at_campaign=rss",
-      "description": "The US president earlier questioned Meloni's popularity after suggesting she \"begged\" for a photo at G7 summit",
-      "published": "Sat, 20 Jun 2026 15:31:12 GMT",
+      "title": "Former Olympian denies vandalising Washington Reflecting Pool after arrest",
+      "link": "https://www.bbc.com/news/articles/c8d26051vv2o?at_medium=RSS&at_campaign=rss",
+      "description": "Davey Hearn says he was simply touching the new paint at the site out of curiosity and did not remove or alter it.",
+      "published": "Sun, 21 Jun 2026 07:16:54 GMT",
+      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "feed": "bbc"
+    },
+    {
+      "title": "Tight security as Indian students resit medical exam after alleged paper leak",
+      "link": "https://www.bbc.com/news/articles/cwy0gjqv783o?at_medium=RSS&at_campaign=rss",
+      "description": "Millions of candidates face biometric checks and frisking as air force deployed to secure exam papers.",
+      "published": "Sun, 21 Jun 2026 11:06:31 GMT",
       "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
       "feed": "bbc"
     },
@@ -210,6 +226,38 @@
       "feed": "bbc"
     },
     {
+      "title": "Low-key funeral held for giant of the art world David Hockney",
+      "link": "https://www.bbc.com/news/articles/cn8q6wxy706o?at_medium=RSS&at_campaign=rss",
+      "description": "The artist, who passed away at his home in London earlier this month, requested just his partner and great-nephew attend.",
+      "published": "Sun, 21 Jun 2026 13:08:49 GMT",
+      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "feed": "bbc"
+    },
+    {
+      "title": "Dutch royals enjoy two big results in one World Cup day",
+      "link": "https://www.bbc.com/sport/football/articles/c4gydq973nqo?at_medium=RSS&at_campaign=rss",
+      "description": "There may be about 5,000 miles between the Netherlands and their former colony Curacao but members of the Dutch royal family managed to see both sides play on Saturday.",
+      "published": "Sun, 21 Jun 2026 09:45:57 GMT",
+      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "feed": "bbc"
+    },
+    {
+      "title": "African and Caribbean nations call for formal apology for transatlantic slavery",
+      "link": "https://www.bbc.com/news/articles/cm2rl8z5x7no?at_medium=RSS&at_campaign=rss",
+      "description": "The leaders have asked for apologies from the countries that benefited from the slave trade, as well as debt relief and financial compensation.",
+      "published": "Sat, 20 Jun 2026 02:33:30 GMT",
+      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "feed": "bbc"
+    },
+    {
+      "title": "Indian cricketer, 15, hits record-breaking 50 in just 11 balls",
+      "link": "https://www.bbc.com/sport/cricket/articles/czdev6lp8p9o?at_medium=RSS&at_campaign=rss",
+      "description": "Vaibhav Sooryavanshi breaks the record for the fastest 50-over List A half-century in history on the same day he was not included in India's one-day international squad.",
+      "published": "Sun, 21 Jun 2026 11:10:21 GMT",
+      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "feed": "bbc"
+    },
+    {
       "title": "Zelensky returns highest Polish honour after award stripped",
       "link": "https://www.bbc.com/news/articles/c2lye7xje9yo?at_medium=RSS&at_campaign=rss",
       "description": "Ukraine's president said his country was open to \"engagement\" about \"difficult and painful chapters of our shared past\".",
@@ -218,10 +266,10 @@
       "feed": "bbc"
     },
     {
-      "title": "France bans alcohol at music festival events under red heatwave alert",
-      "link": "https://www.bbc.com/news/articles/cgmdw4vn7y2o?at_medium=RSS&at_campaign=rss",
-      "description": "Annual street parties attended by millions ordered to help \u201cpreserve\u201d healthcare services in 40C (104F) heat.",
-      "published": "Sun, 21 Jun 2026 00:29:51 GMT",
+      "title": "Lebanese turtle conservationist Mona Khalil killed by Israeli strike",
+      "link": "https://www.bbc.com/news/articles/cwylx1vq18zo?at_medium=RSS&at_campaign=rss",
+      "description": "Mona Khalil, who had refused to leave the beach she had spent years protecting, died after several days in hospital, an environmental group said.",
+      "published": "Sat, 20 Jun 2026 17:40:43 GMT",
       "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
       "feed": "bbc"
     },
@@ -238,14 +286,6 @@
       "link": "https://www.bbc.com/news/articles/c4gykxklvl5o?at_medium=RSS&at_campaign=rss",
       "description": "Australia was previously the only continent where the H5N1 bird flu strain had not yet been found.",
       "published": "Sat, 20 Jun 2026 03:12:47 GMT",
-      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
-      "feed": "bbc"
-    },
-    {
-      "title": "African and Caribbean nations call for formal apology for transatlantic slavery",
-      "link": "https://www.bbc.com/news/articles/cm2rl8z5x7no?at_medium=RSS&at_campaign=rss",
-      "description": "The leaders have asked for apologies from the countries that benefited from the slave trade, as well as debt relief and financial compensation.",
-      "published": "Sat, 20 Jun 2026 02:33:30 GMT",
       "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
       "feed": "bbc"
     },
@@ -282,202 +322,162 @@
       "feed": "bbc"
     },
     {
-      "title": "Morocco captain Achraf Hakimi to stand trial for rape",
-      "link": "https://www.bbc.com/sport/football/articles/c20y18z7le1o?at_medium=RSS&at_campaign=rss",
-      "description": "French prosecutors confirm Morocco captain Achraf Hakimi will stand trial for rape, in accusations dating back to 2023.",
-      "published": "Fri, 19 Jun 2026 10:28:22 GMT",
-      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
-      "feed": "bbc"
-    },
-    {
-      "title": "Zimbabwe MPs pass bill to extend president's time in power",
-      "link": "https://www.bbc.com/news/articles/c20y15m0337o?at_medium=RSS&at_campaign=rss",
-      "description": "The proposal would extend Emmerson Mnangagwa's term by two years and scrap direct presidential elections.",
-      "published": "Fri, 19 Jun 2026 08:03:32 GMT",
-      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
-      "feed": "bbc"
-    },
-    {
-      "title": "Six-year-old Ebola patient taken from DR Congo hospital found and 'doing well'",
-      "link": "https://www.bbc.com/news/articles/c0qyg29wpk2o?at_medium=RSS&at_campaign=rss",
-      "description": "Health facilities have come under attack during the current outbreak as a result of misinformation and fear.",
-      "published": "Fri, 19 Jun 2026 14:45:57 GMT",
-      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
-      "feed": "bbc"
-    },
-    {
-      "title": "Mangione's lawyers reverse course on psychiatric defence in state murder trial",
-      "link": "https://www.bbc.com/news/articles/c20y162gpm6o?at_medium=RSS&at_campaign=rss",
-      "description": "The defence team reverse course a day after saying they would argue he suffered \"extreme emotional disturbance\".",
-      "published": "Fri, 19 Jun 2026 00:13:45 GMT",
-      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
-      "feed": "bbc"
-    },
-    {
-      "title": "Do it at home too, women tell Japanese fans who cleaned World Cup stadium",
-      "link": "https://www.bbc.com/news/articles/crel9xlp8r1o?at_medium=RSS&at_campaign=rss",
-      "description": "Some see a double standard: Japanese men who clean in public while their wives do all the housework.",
-      "published": "Fri, 19 Jun 2026 04:30:47 GMT",
-      "source": "http://feeds.bbci.co.uk/news/world/rss.xml",
-      "feed": "bbc"
-    },
-    {
-      "title": "Watch World Cup Day 10: Netherlands thrash Sweden, Japan eliminate Tunisia",
-      "link": "https://www.aljazeera.com/video/2026/6/21/video-world-cup-2026-highlights?traffic_source=rss",
-      "description": "Latest match highlights, reaction and previews from the FIFA World Cup 2026 in North America.",
-      "published": "Sun, 21 Jun 2026 08:45:41 +0000",
+      "title": "What\u2019s next in the Strait of Hormuz crisis?",
+      "link": "https://www.aljazeera.com/video/inside-story/2026/6/21/whats-next-in-the-strait-of-hormuz-crisis?traffic_source=rss",
+      "description": "Iranian armed forces say they&#039;ve closed the vital waterway after Israeli attacks on Lebanon.",
+      "published": "Sun, 21 Jun 2026 17:36:27 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "US and Iran face make-or-break talks in Switzerland",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/21/us-and-iran-face-make-or-break-talks-in-switzerland?traffic_source=rss",
-      "description": "Iranian and US officials are set for high stakes talks in Switzerland to reinforce the Memorandum of Understanding.",
-      "published": "Sun, 21 Jun 2026 07:53:01 +0000",
+      "title": "Ethiopian prime minister\u2019s party easily wins parliamentary election",
+      "link": "https://www.aljazeera.com/news/2026/6/21/ethiopian-prime-ministers-party-easily-wins-parliamentary-election?traffic_source=rss",
+      "description": "Nobel Peace Prize winner PM Abiy Ahmed will stay in power, as analysts warn of renewed conflicts in Ethiopia.",
+      "published": "Sun, 21 Jun 2026 17:07:52 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Vance arrives in Switzerland for US-Iran talks",
-      "link": "https://www.aljazeera.com/news/2026/6/21/vance-arrives-in-switzerland-for-us-iran-talks?traffic_source=rss",
-      "description": "Both nations seek a durable end to their war as Iran slams Israeli attacks on Lebanon as violations of interim deal.",
-      "published": "Sun, 21 Jun 2026 07:39:51 +0000",
+      "title": "Khamenei\u2019s MoU stance stirs debate as Iran and US meet in Switzerland",
+      "link": "https://www.aljazeera.com/news/2026/6/21/khameneis-mou-stance-stirs-debate-as-iran-and-us-meet-in-switzerland?traffic_source=rss",
+      "description": "Supreme leader has expressed reservations about interim deal with US, but most top decision-makers back it.",
+      "published": "Sun, 21 Jun 2026 17:01:50 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Iran war day 114: US, Iranian delegations in Switzerland for key talks",
-      "link": "https://www.aljazeera.com/news/2026/6/21/iran-war-day-114-us-iranian-delegations-in-switzerland-for-key-talks?traffic_source=rss",
-      "description": "Lebanon to top the agenda as US and Iran to hold talks in Switzerland\u2019s Burgenstock mediated by Qatar and Pakistan.",
-      "published": "Sun, 21 Jun 2026 07:22:28 +0000",
+      "title": "Iran, US, Israel: Memorandum of misunderstanding?",
+      "link": "https://www.aljazeera.com/video/the-bottom-line/2026/6/21/iran-us-israel-memorandum-of-misunderstanding?traffic_source=rss",
+      "description": "Chances are slim for progress between Iran and the US, argues Drop Site News co-founder Jeremy Scahill.",
+      "published": "Sun, 21 Jun 2026 16:49:31 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Ueda\u2019s brace helps Japan knock Tunisia out of World Cup 2026",
-      "link": "https://www.aljazeera.com/sports/2026/6/21/japan-tunisia-4-0-fifa-world-cup-2026-ayase-ueda-daichi-kamada-junya-ito?traffic_source=rss",
-      "description": "Two goals from Ayase Ueda, and one each from Daichi Kamada and Junya Ito, keep Asian giants Japan second in Group F.",
-      "published": "Sun, 21 Jun 2026 06:30:04 +0000",
+      "title": "The looming Super El Nino",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/21/the-looming-super-el-nino?traffic_source=rss",
+      "description": "A powerful El Nino is expected to peak in November that could threaten food supply and increase extreme weather events.",
+      "published": "Sun, 21 Jun 2026 16:45:39 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Trump official says Iran World Cup visa approval \u2018amazing\u2019",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/21/aje-onl-nf_trump-official-says-iran-visa-approval-amazing-210626?traffic_source=rss",
-      "description": "The chief of the White House World Cup task force says it\u2019s \u201cpretty amazing\u201d Iran\u2019s football team has been given visas.",
-      "published": "Sun, 21 Jun 2026 06:28:46 +0000",
+      "title": "India\u2019s \u2018Cockroach\u2019 movement camps out until education minister resigns",
+      "link": "https://www.aljazeera.com/news/2026/6/21/indias-cockroach-movement-camps-out-until-education-minister-resigns?traffic_source=rss",
+      "description": "The viral &#039;Cockroach&#039; movement&#039;s supporters occupy New Delhi&#039;s protest site, refusing to leave until minister resigns.",
+      "published": "Sun, 21 Jun 2026 16:37:49 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Which teams have qualified for the World Cup 2026 knockouts, round of 32?",
-      "link": "https://www.aljazeera.com/sports/2026/6/21/which-teams-have-qualified-for-the-world-cup-2026-knockouts-round-of-32?traffic_source=rss",
-      "description": "The 2026 FIFA World Cup knockout stage format, criteria and rules for qualification. Find out who&#039;s in and who&#039;s out.",
-      "published": "Sun, 21 Jun 2026 05:55:22 +0000",
+      "title": "Syria frees activist Hassan Akkad days after he was detained",
+      "link": "https://www.aljazeera.com/news/2026/6/21/syria-frees-activist-hassan-akkad-days-after-he-was-detained?traffic_source=rss",
+      "description": "His release comes after journalist Mousa al-Omar reportedly withdrew a complaint against Akkad over online criticism.",
+      "published": "Sun, 21 Jun 2026 15:56:04 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "South Africa\u2019s immigration crackdown divides Johannesburg\u2019s inner city",
-      "link": "https://www.aljazeera.com/economy/2026/6/21/south-africas-immigration-crackdown-divides-johannesburgs-inner-city?traffic_source=rss",
-      "description": "A government push to curb undocumented employment is exposing the dependence of many small businesses on migrant labour.",
-      "published": "Sun, 21 Jun 2026 05:42:08 +0000",
+      "title": "Mbappe, France play Iraq in World Cup match: prediction, team news, lineups",
+      "link": "https://www.aljazeera.com/sports/2026/6/21/mbappe-france-play-iraq-in-world-cup-match-prediction-team-news-lineups?traffic_source=rss",
+      "description": "Star forward Kylian Mbappe and France face Iraq with Les Bleus focused on securing a place in knockout phase.",
+      "published": "Sun, 21 Jun 2026 15:17:44 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Al Jazeera cameraman Ahmed Wishah killed in targeted Israeli strike",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/21/al-jazeera-cameraman-ahmed-wishah-killed-in-targeted-israeli-strike?traffic_source=rss",
-      "description": "Al Jazeera cameraman Ahmed Wishah killed in targeted Israeli strike",
-      "published": "Sun, 21 Jun 2026 05:35:36 +0000",
+      "title": "US-Iran negotiations in Switzerland kick off",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/21/us-iran-negotiations-in-switzerland-kick-off?traffic_source=rss",
+      "description": "US-Iran talks opened in Switzerland with mediators Qatar and Pakistan hailing a \u2018historic\u2019 opportunity for stability.",
+      "published": "Sun, 21 Jun 2026 15:16:44 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Egypt coach denies Salah rift before World Cup match against New Zealand",
-      "link": "https://www.aljazeera.com/sports/2026/6/21/egypt-coach-denies-salah-rift-before-world-cup-match-against-new-zealand?traffic_source=rss",
-      "description": "&#039;If he starts ... or if he gets substituted, it&#039;s fine - it is his role as a player,&#039; Egypt \u200ccoach Hossam Hassan says.",
-      "published": "Sun, 21 Jun 2026 02:43:53 +0000",
+      "title": "Iran-US launch historic peace talks with 60-day roadmap",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/21/iran-u-s-launch-historic-peace-talks-with-60-day-roadmap?traffic_source=rss",
+      "description": "Iran-US launch historic peace talks with 60-day roadmap",
+      "published": "Sun, 21 Jun 2026 14:54:56 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Room the hero as tiny Curacao earn first World Cup point against Ecuador",
-      "link": "https://www.aljazeera.com/sports/2026/6/21/room-the-hero-as-tiny-curacao-earn-first-world-cup-point-against-ecuador?traffic_source=rss",
-      "description": "Eloy Room&#039;s incredible goalkeeping helped Curacao make history in a goalless draw in a Group E match in Kansas City.",
-      "published": "Sun, 21 Jun 2026 02:41:05 +0000",
+      "title": "Fans flood Atlanta streets before Spain-Saudi Arabia match",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/21/fans-flood-atlanta-streets-before-spain-saudi-arabia-match?traffic_source=rss",
+      "description": "Spain and Saudi Arabia fans filled the streets of Atlanta with chants and celebrations ahead of their World Cup clash.",
+      "published": "Sun, 21 Jun 2026 14:48:18 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Suspect arrested after anti-Muslim stabbing rampage in Scotland",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/21/aje-onl-nf_suspect-arrested-anti-muslim-stabbing-in-scotland-200626?traffic_source=rss",
-      "description": "Bystanders captured the moment police arrested a machete-weilding man, suspected of anti-Muslim stabbing rampage.",
-      "published": "Sun, 21 Jun 2026 02:37:17 +0000",
+      "title": "Bolivian authorities say no active blockades after state of emergency decree",
+      "link": "https://www.aljazeera.com/news/2026/6/21/bolivian-authorities-say-no-active-blockades-after-state-of-emergency-decree?traffic_source=rss",
+      "description": "State of emergency permits deployment of military to support police amid five weeks of anti-government protests.",
+      "published": "Sun, 21 Jun 2026 14:27:50 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Iran war live: US, Tehran set to hold high-level talks in Switzerland",
-      "link": "https://www.aljazeera.com/news/liveblog/2026/6/21/iran-war-live-vance-heads-to-switzerland-israel-kills-16-in-lebanon?traffic_source=rss",
-      "description": "Talks come as Iran says it is closing the Strait of Hormuz over Israel&#039;s deadly attacks on Lebanon.",
-      "published": "Sun, 21 Jun 2026 00:00:00 +0000",
+      "title": "Gaza bids farewell to slain journalist Ahmed Wishah",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/21/gaza-bids-farewell-to-slain-journalist-ahmed-wishah?traffic_source=rss",
+      "description": "Gaza bids farewell to slain journalist Ahmed Wishah.",
+      "published": "Sun, 21 Jun 2026 14:12:49 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "US refuses to ease Iran World Cup travel restrictions for Belgium match",
-      "link": "https://www.aljazeera.com/sports/2026/6/20/us-refuses-to-ease-iran-world-cup-travel-restrictions-for-belgium-match?traffic_source=rss",
-      "description": "Andrew Giuliani says Iran&#039;s players will not be allowed to stay longer for their group matches in the US.",
-      "published": "Sat, 20 Jun 2026 23:45:36 +0000",
+      "title": "Police charge man after suspected anti-Muslim attacks in Edinburgh",
+      "link": "https://www.aljazeera.com/news/2026/6/21/police-charge-man-after-suspected-anti-muslim-attacks-in-edinburgh?traffic_source=rss",
+      "description": "UK Prime Minister Keir Starmer says &#039;the suspect appears to be motivated by anti-Muslim hatred&#039;.",
+      "published": "Sun, 21 Jun 2026 13:52:57 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Iranian delegation arrives in Switzerland for US peace talks",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/20/iranian-delegation-arrives-in-switzerland-for-us-peace-talks?traffic_source=rss",
-      "description": "Iranian delegation arrives in Switzerland for US peace talks",
-      "published": "Sat, 20 Jun 2026 23:39:45 +0000",
+      "title": "Is the French judiciary against Palestine?",
+      "link": "https://www.aljazeera.com/opinions/2026/6/21/is-the-french-judiciary-against-palestine?traffic_source=rss",
+      "description": "A recent decision by a French court seems to deny the widely accepted right of occupied populations to resist.",
+      "published": "Sun, 21 Jun 2026 13:46:16 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Undav injury-time goal sees Germany beat Ivory Coast to top World Cup group",
-      "link": "https://www.aljazeera.com/sports/2026/6/20/amiri-injury-time-goal-sees-germany-beat-ivory-coast-to-top-world-cup-group?traffic_source=rss",
-      "description": "Germany come from behind to beat Ivory Coast 2-1 in Group E, sealing FIFA World Cup 2026 knockout place.",
-      "published": "Sat, 20 Jun 2026 22:40:55 +0000",
+      "title": "Andy Burnham says Israel would be his first overseas visit in old clip",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/21/andy-burnham-says-israel-would-be-his-first-overseas-visit-in-old-clip?traffic_source=rss",
+      "description": "An old clip has resurfaced showing Andy Burnham saying Israel would be his first overseas visit if elected as UK PM.",
+      "published": "Sun, 21 Jun 2026 13:41:55 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Trump vows Iran will not charge Strait of Hormuz tolls, but says US might",
-      "link": "https://www.aljazeera.com/news/2026/6/20/trump-vows-iran-will-not-charge-strait-of-hormuz-tolls-but-says-us-might?traffic_source=rss",
-      "description": "The US-Iran memorandum of understanding does not rule out future tolls in the strait after an initial 60-day period.",
-      "published": "Sat, 20 Jun 2026 21:54:39 +0000",
+      "title": "Marc Marquez wins the Czech MotoGP, narrows title gap to leader Bezzecchi",
+      "link": "https://www.aljazeera.com/sports/2026/6/21/marc-marquez-wins-the-czech-motogp-narrows-title-gap-to-leader-bezzecchi?traffic_source=rss",
+      "description": "Seven-time MotoGP world champion reduces title leader Marco Bezzecchi&#039;s points lead after the Italian was suspended.",
+      "published": "Sun, 21 Jun 2026 13:32:10 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Uncertain World Cup for Paraguay\u2019s Almiron, sent off for covering his mouth",
-      "link": "https://www.aljazeera.com/sports/2026/6/20/uncertain-world-cup-for-paraguays-almiron-sent-off-for-covering-his-mouth?traffic_source=rss",
-      "description": "Almiron received the first red card for covering his mouth in the World Cup Group D match against Turkiye.",
-      "published": "Sat, 20 Jun 2026 21:52:28 +0000",
+      "title": "Why Lebanon may make or break the Iran-US deal",
+      "link": "https://www.aljazeera.com/news/2026/6/21/why-lebanon-may-make-or-break-the-iran-us-deal?traffic_source=rss",
+      "description": "Israeli escalation in Lebanon threatens to undermine agreement between Tehran and Washington, analysts say.",
+      "published": "Sun, 21 Jun 2026 13:11:50 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Bolivia declares state of emergency to clear protest blockades",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/20/bolivia-declares-state-of-emergency-to-clear-protest-blockades?traffic_source=rss",
-      "description": "Bolivia declares state of emergency to clear protest blockades",
-      "published": "Sat, 20 Jun 2026 20:42:42 +0000",
+      "title": "Pressure mounts on UK PM Starmer to quit after Burnham\u2019s by-election win",
+      "link": "https://www.aljazeera.com/news/2026/6/21/pressure-mounts-on-starmer-to-quit-after-burnhams-by-election-win?traffic_source=rss",
+      "description": "UK minister says Starmer considering &#039;political realities&#039; after rival Andy Burnham secured decisive by-election win.",
+      "published": "Sun, 21 Jun 2026 13:05:20 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
     {
-      "title": "Overplaying Strait of Hormuz card will turn Iran into a pariah state",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/20/overplaying-strait-of-hormuz-card-will-turn-iran-into-a-pariah-state?traffic_source=rss",
-      "description": "Overplaying Strait of Hormuz card will turn Iran into a pariah state.",
-      "published": "Sat, 20 Jun 2026 19:43:47 +0000",
+      "title": "LIVE: Spain vs Saudi Arabia \u2013 World Cup 2026",
+      "link": "https://www.aljazeera.com/sports/liveblog/2026/6/21/spain-vs-saudi-arabia-live-world-cup-2026?traffic_source=rss",
+      "description": "Live updates as Spain face Saudi Arabia in Group H - follow the build-up, analysis and live text commentary of the game.",
+      "published": "Sun, 21 Jun 2026 13:00:00 +0000",
       "source": "https://www.aljazeera.com/xml/rss/all.xml",
       "feed": "aljazeera"
     },
@@ -522,18 +522,18 @@
       "feed": "guardian"
     },
     {
-      "title": "Canada\u2019s policies force asylum seekers into US to face deportation, critics say",
-      "link": "https://www.theguardian.com/world/2026/jun/21/canada-immigration-us-deportation",
-      "description": "<p>Advocates say the Safe Third Country Agreement forces immigrants to head to an unsafe country: the United States</p><p>It was the threat of gang violence in <a href=\"https://www.theguardian.com/world/honduras\">Honduras</a> that pushed Carlos and Antonia to flee their home. In 2021, with their toddler, Alejandro, and a handful of belongings, the married couple ventured north hoping to reach safety in the US.</p><p>The journey, through <a href=\"https://www.theguardian.com/world/guatemala\">Guatemala</a> and <a href=\"https://www.theguardian.com/world/mexico\">Mexico</a>, was <a href=\"https://www.theguardian.com/global-development/2017/feb/21/mexico-kidnappings-refugees-central-america-immigration\">filled with danger and uncertainty</a></p> <a href=\"https://www.theguardian.com/world/2026/jun/21/canada-immigration-us-deportation\">Continue reading...</a>",
-      "published": "Sun, 21 Jun 2026 07:00:24 GMT",
+      "title": "Colombians vote in runoff election expected to trigger shift in decades-long armed conflict",
+      "link": "https://www.theguardian.com/world/2026/jun/21/colombias-runoff-election-expected-to-trigger-shift-in-decades-long-armed-conflict",
+      "description": "<p>Frontrunner Abelardo de la Espriella has vowed to return to full-scale military confrontation with armed groups</p><ul><li><p><a href=\"https://www.theguardian.com/world/2026/jun/20/colombia-presidential-election-paramilitary-militia-runoff\">Ghost of far-right paramilitaries hovers over Colombia\u2019s presidential runoff vote</a></p></li></ul><p>Colombians are going to the polls in a presidential runoff expected to trigger a dramatic shift in the country\u2019s decades-long armed conflict, now at its most violent point since the landmark 2016 peace agreement between the government and most of the Revolutionary Armed Forces of Colombia (Farc).</p><p>Polls show the frontrunner is the Trump-admiring far-right lawyer and millionaire businessman Abelardo de la Espriella, who has vowed to abandon President Gustavo Petro\u2019s <a href=\"https://www.theguardian.com/world/2026/apr/29/colombia-election-total-peace-promise-violence\">\u201ctotal peace\u201d plan</a> of negotiating the disarmament of all criminal organisations and instead return to full-scale military confrontation with armed groups.</p> <a href=\"https://www.theguardian.com/world/2026/jun/21/colombias-runoff-election-expected-to-trigger-shift-in-decades-long-armed-conflict\">Continue reading...</a>",
+      "published": "Sun, 21 Jun 2026 14:44:36 GMT",
       "source": "https://www.theguardian.com/world/rss",
       "feed": "guardian"
     },
     {
-      "title": "Colombia\u2019s runoff election expected to trigger shift in decades-long armed conflict",
-      "link": "https://www.theguardian.com/world/2026/jun/21/colombias-runoff-election-expected-to-trigger-shift-in-decades-long-armed-conflict",
-      "description": "<p>Frontrunner Abelardo de la Espriella has vowed to return to full-scale military confrontation with armed groups </p><p>Colombians go to the polls on Sunday in a presidential runoff expected to trigger to a dramatic shift in the country\u2019s decades-long armed conflict, now at its most violent point since the landmark 2016 peace agreement between the government and most of the Revolutionary Armed Forces of Colombia (Farc).</p><p>Polls show the frontrunner is the Trump-admiring far-right lawyer and millionaire businessman Abelardo de la Espriella, who has vowed to abandon President Gustavo Petro\u2019s <a href=\"https://www.theguardian.com/world/2026/apr/29/colombia-election-total-peace-promise-violence\">\u201ctotal peace\u201d plan</a> of negotiating the disarmament of all criminal organisations and instead return to full-scale military confrontation with armed groups.</p> <a href=\"https://www.theguardian.com/world/2026/jun/21/colombias-runoff-election-expected-to-trigger-shift-in-decades-long-armed-conflict\">Continue reading...</a>",
-      "published": "Sun, 21 Jun 2026 05:00:22 GMT",
+      "title": "Canada\u2019s policies force asylum seekers into US to face deportation, critics say",
+      "link": "https://www.theguardian.com/world/2026/jun/21/canada-immigration-us-deportation",
+      "description": "<p>Advocates say the Safe Third Country Agreement forces immigrants to head to an unsafe country: the United States</p><p>It was the threat of gang violence in <a href=\"https://www.theguardian.com/world/honduras\">Honduras</a> that pushed Carlos and Antonia to flee their home. In 2021, with their toddler, Alejandro, and a handful of belongings, the married couple ventured north hoping to reach safety in the US.</p><p>The journey, through <a href=\"https://www.theguardian.com/world/guatemala\">Guatemala</a> and <a href=\"https://www.theguardian.com/world/mexico\">Mexico</a>, was <a href=\"https://www.theguardian.com/global-development/2017/feb/21/mexico-kidnappings-refugees-central-america-immigration\">filled with danger and uncertainty</a>.</p> <a href=\"https://www.theguardian.com/world/2026/jun/21/canada-immigration-us-deportation\">Continue reading...</a>",
+      "published": "Sun, 21 Jun 2026 07:00:24 GMT",
       "source": "https://www.theguardian.com/world/rss",
       "feed": "guardian"
     },
@@ -558,6 +558,14 @@
       "link": "https://www.theguardian.com/society/2026/jun/17/cannabis-commercialisation-not-decriminalisation-drives-up-usage-study",
       "description": "<p>Review reveals rise in users and rates of psychosis in countries where cannabis is sold commercially  </p><p>Decriminalising the possession of cannabis or strictly regulating access to the drug do not appear to drive up usage, but when the drug is sold commercially the number of users increases and more mental health problems are seen, a review has found.</p><p>An international team analysed the dramatic shift in policies on cannabis between 2000 and 2025, including how the numbers of people taking the drug, its potency, and rates of psychosis changed after new rules came in.</p> <a href=\"https://www.theguardian.com/society/2026/jun/17/cannabis-commercialisation-not-decriminalisation-drives-up-usage-study\">Continue reading...</a>",
       "published": "Wed, 17 Jun 2026 22:30:46 GMT",
+      "source": "https://www.theguardian.com/world/rss",
+      "feed": "guardian"
+    },
+    {
+      "title": "Dutch PM apologises for Moluccan soldiers\u2019 mistreatment after Indonesian independence",
+      "link": "https://www.theguardian.com/world/2026/jun/21/dutch-pm-apologises-moluccan-soldiers-indonesia-independence",
+      "description": "<p>Rob Jetten acknowledges grief and pain of Moluccan families as crowdfunded monument unveiled in Rotterdam</p><p>The Dutch prime minister, Rob Jetten, has formally apologised for the \u201cheartless\u201d mistreatment of thousands of Moluccan soldiers who fought for the Dutch colonial army during Indonesia\u2019s struggle for independence.</p><p>About 12,500 people \u2013 men who had served in the Royal Dutch East Indies and their families \u2013 came from a group of Indonesian islands to the Netherlands in 1951, many having been given no choice. They thought it would be a temporary evacuation after Indonesia had won independence.</p> <a href=\"https://www.theguardian.com/world/2026/jun/21/dutch-pm-apologises-moluccan-soldiers-indonesia-independence\">Continue reading...</a>",
+      "published": "Sun, 21 Jun 2026 15:18:53 GMT",
       "source": "https://www.theguardian.com/world/rss",
       "feed": "guardian"
     },
@@ -594,10 +602,18 @@
       "feed": "guardian"
     },
     {
-      "title": "Fujitsu chair resigns after \u2018woman-related inappropriate conduct\u2019",
-      "link": "https://www.theguardian.com/business/2026/jun/16/fujitsu-chair-resigns-hidenori-furuta-technology-company",
-      "description": "<p>Japanese technology company at centre of Post Office IT scandal is negotiating settlement with UK government over faulty software</p><ul><li><p><a href=\"https://www.theguardian.com/business/live/2026/jun/16/japan-hikes-interest-rates-inflation-iran-war-thames-water-rescue-nationalisation-latest-news-updates\">Business live \u2013 latest updates</a></p></li></ul><p>The chair of Fujitsu, the Japanese technology firm at the centre of the Post Office IT scandal, has resigned after its board became aware of his \u201cwoman-related inappropriate conduct\u201d.</p><p>The company said on Tuesday that Hidenori Furuta had stepped down after two years in the role.</p> <a href=\"https://www.theguardian.com/business/2026/jun/16/fujitsu-chair-resigns-hidenori-furuta-technology-company\">Continue reading...</a>",
-      "published": "Tue, 16 Jun 2026 13:18:25 GMT",
+      "title": "Coal companies to reap billions more in taxpayer diesel subsidies as Labor approves new mining",
+      "link": "https://www.theguardian.com/australia-news/2026/jun/22/mining-tax-credit-scheme-coal-companies-subsidies-taxpayer-refunds-diesel",
+      "description": "<p>Albanese government under pressure to wind back fuel tax credit scheme for multinational miners as analysis shows cost to budget</p><ul><li><p>Get our <a href=\"https://www.theguardian.com/email-newsletters?CMP=cvau_sfl\">breaking news email</a>, <a href=\"https://app.adjust.com/w4u7jx3\">free app</a> or <a href=\"https://www.theguardian.com/australia-news/series/full-story?CMP=cvau_sfl\">daily news podcast</a></p></li></ul><p>Coal companies could receive an extra $6.2bn in taxpayer refunds for the diesel they use if the Albanese government greenlights just half the mine developments up for approval.</p><p>The finding, in <a href=\"https://www.energyresourceinsights.com/reports/260603-diesel-consumption-of-proposed-coal-projects.pdf\">an analysis</a> released by activist group Lock the Gate, comes as the government faces an internal campaign before next month\u2019s Labor party national conference to commit to winding back a fuel tax credit scheme for multinational miners.</p> <a href=\"https://www.theguardian.com/australia-news/2026/jun/22/mining-tax-credit-scheme-coal-companies-subsidies-taxpayer-refunds-diesel\">Continue reading...</a>",
+      "published": "Sun, 21 Jun 2026 15:00:36 GMT",
+      "source": "https://www.theguardian.com/world/rss",
+      "feed": "guardian"
+    },
+    {
+      "title": "Australia is publishing books too quickly \u2013 and everyone is losing out",
+      "link": "https://www.theguardian.com/books/2026/jun/22/australia-publishing-industry-releasing-books-too-quickly",
+      "description": "<p>Thanks to rushed deadlines, financial pressure and overworked staff, titles are going to market before they\u2019re ready \u2013 and then sliding from view immediately</p><p>A Sydney author \u2013 I\u2019ll call her Rebecca \u2013 vowed never to write another book after the deranging experience of publishing her first. She\u2019s using a pseudonym because one day she might change her mind; the notoriously small Australian publishing industry does not tend to look with favour on authors who complain.</p><p>When Rebecca was proofing her debut \u2013 a work of nonfiction published by one of the big five \u2013 she discovered that a pivotal chapter had been cut. \u201cI thought it was a mistake, that it had somehow been left out of the papers they\u2019d sent,\u201d she says. \u201cTurns out they\u2019d deliberately excised it and thought I wouldn\u2019t notice.\u201d</p> <a href=\"https://www.theguardian.com/books/2026/jun/22/australia-publishing-industry-releasing-books-too-quickly\">Continue reading...</a>",
+      "published": "Sun, 21 Jun 2026 15:00:33 GMT",
       "source": "https://www.theguardian.com/world/rss",
       "feed": "guardian"
     },
@@ -626,26 +642,50 @@
       "feed": "guardian"
     },
     {
-      "title": "Anthony Albanese says Australia\u2019s first mainland case of deadly H5N1 bird flu \u2018concerning\u2019",
-      "link": "https://www.theguardian.com/australia-news/2026/jun/20/australia-confirms-first-case-of-h5n1-bird-flu",
-      "description": "<p>Tests taken in Western Australia suggest a second bird was also infected, but there is no evidence poultry or agriculture systems are affected</p><ul><li><p>Get our <a href=\"https://www.theguardian.com/email-newsletters?CMP=cvau_sfl\">breaking news email</a>, <a href=\"https://app.adjust.com/w4u7jx3\">free app</a> or <a href=\"https://www.theguardian.com/australia-news/series/full-story?CMP=cvau_sfl\">daily news podcast</a></p></li></ul><p>The deadly <a href=\"https://www.theguardian.com/environment/2026/jun/18/more-than-13000-seal-pups-die-on-remote-australian-island-amid-bird-flu-outbreak\">H5N1 bird flu strain</a> has arrived on the Australian mainland with test results confirming a migratory seabird found on the Western Australian coast was positive for the disease.</p><p>The agriculture minister, Julie Collins, confirmed a brown skua \u2013 found unwell last Sunday at Cape Le Grand national park near Esperance in southern WA had died from H5N1.</p> <a href=\"https://www.theguardian.com/australia-news/2026/jun/20/australia-confirms-first-case-of-h5n1-bird-flu\">Continue reading...</a>",
-      "published": "Sat, 20 Jun 2026 02:55:13 GMT",
-      "source": "https://www.theguardian.com/world/rss",
-      "feed": "guardian"
-    },
-    {
-      "title": "St Kilda pier wins peak Victorian architecture award as judges praise playful and \u2018deeply civic\u2019 design",
-      "link": "https://www.theguardian.com/artanddesign/2026/jun/19/st-kilda-pier-wins-peak-victorian-architecture-award",
-      "description": "<p>State government project among range of works celebrated for community-centred design that goes beyond utility</p><p>The reimagined St Kilda pier has added more accolades to its burgeoning trophy cabinet, taking out some of the top gongs at the 2026 Australian Institute of Architects\u2019 Victorian awards.</p><p>The $53m Victorian government project by Jackson Clements Burrows Architects, alongside Site Office Landscape Architecture and AW Maritime, took home the Victorian architecture medal on Friday, the award given to the most outstanding project of the year.</p><p><strong><a href=\"https://www.theguardian.com/australia-news/2021/dec/21/sign-up-for-five-great-reads-guardian-australias-wrap-of-our-best-summer-stories\">Sign up for a weekly email featuring our best reads</a></strong></p> <a href=\"https://www.theguardian.com/artanddesign/2026/jun/19/st-kilda-pier-wins-peak-victorian-architecture-award\">Continue reading...</a>",
-      "published": "Fri, 19 Jun 2026 12:00:32 GMT",
-      "source": "https://www.theguardian.com/world/rss",
-      "feed": "guardian"
-    },
-    {
-      "title": "Mideast Live Updates: New Round of U.S.-Iran Talks Set to Start in Switzerland",
+      "title": "Mideast Live Updates: Strains Quickly Emerge on First Day of U.S.-Iran Talks",
       "link": "https://www.nytimes.com/live/2026/06/21/world/iran-us-trump-lebanon",
-      "description": "Vice President JD Vance was expected to meet with Iranian negotiators. But the conflict in Lebanon threatens efforts to reach a broader peace and keep the Strait of Hormuz open.",
-      "published": "Sun, 21 Jun 2026 08:38:11 +0000",
+      "description": "Iranian negotiators insisted on an end to the war in Lebanon as a condition for further talks, state media reported. And President Trump renewed threats against Iran, even as Vice President JD Vance was hailing progress.",
+      "published": "Sun, 21 Jun 2026 17:44:55 +0000",
+      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "feed": "nytimes"
+    },
+    {
+      "title": "Keir Starmer Reflects on \u2018Political Challenges\u2019 as Pressure to Resign Mounts",
+      "link": "https://www.nytimes.com/2026/06/21/world/europe/keir-starmer-andy-burnham-uk.html",
+      "description": "An ally of Keir Starmer\u2019s told the BBC on Sunday that Mr. Starmer was \u201ctaking the time to think through what the political realities are today compared to last week.\u201d",
+      "published": "Sun, 21 Jun 2026 16:23:36 +0000",
+      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "feed": "nytimes"
+    },
+    {
+      "title": "As Vance Offers Iran \u2018Outstretched Hand\u2019 in Talks, Trump Threatens Bombing",
+      "link": "https://www.nytimes.com/2026/06/21/world/middleeast/vance-iran-talks-trump.html",
+      "description": "The administration\u2019s split message came as the United States and Iran began a new round of nuclear negotiations in Switzerland.",
+      "published": "Sun, 21 Jun 2026 17:04:26 +0000",
+      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "feed": "nytimes"
+    },
+    {
+      "title": "Bitter Historical Feud Threatens Ukraine-Poland Alliance",
+      "link": "https://www.nytimes.com/2026/06/21/world/europe/ukraine-poland-alliance-russia.html",
+      "description": "President Volodymyr Zelensky of Ukraine signed a decree honoring World War II partisan fighters that has inflamed tensions with Warsaw.",
+      "published": "Sun, 21 Jun 2026 13:18:03 +0000",
+      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "feed": "nytimes"
+    },
+    {
+      "title": "The Women Running Businesses Under Taliban Rules",
+      "link": "https://www.nytimes.com/2026/06/21/world/asia/women-taliban-restrictions-jobs-education.html",
+      "description": "With secondary education and most jobs out of reach, thousands of Afghan women have turned to entrepreneurship as the only path to make money and maintain a social life.",
+      "published": "Sun, 21 Jun 2026 11:16:58 +0000",
+      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "feed": "nytimes"
+    },
+    {
+      "title": "Neither the War Nor Trump\u2019s Deal Terminated the Main Threats in Iran, Analysts Say",
+      "link": "https://www.nytimes.com/2026/06/21/us/iran-us-peace-deal-nuclear-program-threats.html",
+      "description": "Neither the war nor the agreement terminated the main threats emanating from Iran, many analysts said.",
+      "published": "Sun, 21 Jun 2026 17:03:52 +0000",
       "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
       "feed": "nytimes"
     },
@@ -658,10 +698,26 @@
       "feed": "nytimes"
     },
     {
-      "title": "The Women Running Businesses Under Taliban Rules",
-      "link": "https://www.nytimes.com/2026/06/21/world/asia/women-taliban-restrictions-jobs-education.html",
-      "description": "With secondary education and most jobs out of reach, thousands of Afghan women have turned to entrepreneurship as the only path to make money and maintain a social life.",
-      "published": "Sun, 21 Jun 2026 06:03:53 +0000",
+      "title": "Colombia\u2019s High-Stakes Election: What to Know About the Candidates, Issues and Expected Results",
+      "link": "https://www.nytimes.com/2026/06/21/world/americas/colombia-election-cepeda-espriella.html",
+      "description": "Colombia\u2019s election on Sunday pits a right-wing candidate endorsed by President Trump against a candidate promising continuity with the country\u2019s departing leftist president.",
+      "published": "Sun, 21 Jun 2026 09:01:06 +0000",
+      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "feed": "nytimes"
+    },
+    {
+      "title": "Wife of Spanish Prime Minister to Stand Trial for Corruption",
+      "link": "https://www.nytimes.com/2026/06/20/world/europe/gomez-spain-trial-corruption.html",
+      "description": "Bego\u00f1a G\u00f3mez faces charges of embezzlement, corruption, misappropriation of funds and influence peddling for helping favored companies win public contracts.",
+      "published": "Sat, 20 Jun 2026 19:11:10 +0000",
+      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "feed": "nytimes"
+    },
+    {
+      "title": "Father and Uncle of Slain New York Girl Given Life Sentences in Pakistan",
+      "link": "https://www.nytimes.com/2026/06/21/world/asia/pakistan-yonkers-hira-anwar.html",
+      "description": "The killing of the victim, a 14-year-old girl from Yonkers who was known for posting videos on TikTok, was premeditated, a court ruled.",
+      "published": "Sun, 21 Jun 2026 17:14:11 +0000",
       "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
       "feed": "nytimes"
     },
@@ -682,26 +738,10 @@
       "feed": "nytimes"
     },
     {
-      "title": "Huge Blaze Ravages Dominican Republic Beach Resort",
-      "link": "https://www.nytimes.com/2026/06/20/world/americas/dominican-republic-fire.html",
-      "description": "The fire on Friday forced the emergency evacuation of nearly 1,700 guests. Authorities said at least one person, an Italian tourist, was killed.",
-      "published": "Sun, 21 Jun 2026 03:27:41 +0000",
-      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-      "feed": "nytimes"
-    },
-    {
       "title": "Charles Kushner, U.S. Ambassador to France, Riles Paris With Trump Diplomacy",
       "link": "https://www.nytimes.com/2026/06/20/world/europe/charles-kushner-france-us-ambasador-trump.html",
       "description": "The U.S. envoy to Paris has emerged as the embodiment of combative diplomacy in the age of President Trump, riling the French establishment notably with his accusations of antisemitism.",
       "published": "Sat, 20 Jun 2026 04:01:06 +0000",
-      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-      "feed": "nytimes"
-    },
-    {
-      "title": "World Leaders Awaited Iran Deal for Months. Here\u2019s Why They\u2019re Still Wary.",
-      "link": "https://www.nytimes.com/2026/06/20/world/europe/world-iran-reaction.html",
-      "description": "President Trump\u2019s interim agreement with Iran raises hopes for the calming of the world economy. But it leaves many details for future negotiations, putting the world on edge.",
-      "published": "Sat, 20 Jun 2026 09:02:41 +0000",
       "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
       "feed": "nytimes"
     },
@@ -714,92 +754,60 @@
       "feed": "nytimes"
     },
     {
-      "title": "Trump Called Iv\u00e1n Cepeda a \u2018Radical Left Marxist.\u2019 Can He Be Colombia\u2019s President?",
-      "link": "https://www.nytimes.com/2026/06/20/world/americas/ivan-cepeda-colombia-president-election.html",
-      "description": "Iv\u00e1n Cepeda was caught off guard by a right-wing outsider and anti-leftist anger. He tells The Times he is not giving up.",
-      "published": "Sat, 20 Jun 2026 09:00:34 +0000",
+      "title": "U.S. and Iran Have Plenty to Negotiate Beyond Nuclear Issues",
+      "link": "https://www.nytimes.com/2026/06/21/world/middleeast/us-iran-negotiations-issues.html",
+      "description": "Both sides have committed to discussing sanctions relief and the shape of a reconstruction fund, as well as Iran\u2019s nuclear program.",
+      "published": "Sun, 21 Jun 2026 15:58:16 +0000",
       "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
       "feed": "nytimes"
     },
     {
-      "title": "Abelardo De La Espriella, Right-Wing Outsider, Could Be Colombia\u2019s Next President",
-      "link": "https://www.nytimes.com/2026/06/20/world/americas/colombia-election-abelardo-de-la-espriella.html",
-      "description": "President Trump endorsed Abelardo De La Espriella, the conservative presidential candidate in Sunday\u2019s election who has strong U.S. ties.",
-      "published": "Sat, 20 Jun 2026 14:22:35 +0000",
+      "title": "Netanyahu faces one of the biggest challenges of his career.",
+      "link": "https://www.nytimes.com/2026/06/21/world/middleeast/netanyahu-iran-deal-trump.html",
+      "description": "In a \u2018plot twist\u2019, Prime Minister Benjamin Netanyahu appears to be heading into an election this fall without his main prop: President Trump.",
+      "published": "Sun, 21 Jun 2026 15:30:13 +0000",
       "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
       "feed": "nytimes"
     },
     {
-      "title": "\u2018Game Changer\u2019? Too Soon to Tell. But Ukraine Flexed in Striking Moscow.",
-      "link": "https://www.nytimes.com/2026/06/19/world/europe/ukraine-drone-attack-moscow.html",
-      "description": "The drone attack that sent plumes of smoke rising over Moscow intensified Ukrainian hopes of bringing the war to Russia.",
-      "published": "Fri, 19 Jun 2026 17:37:30 +0000",
+      "title": "Three Men Are Key to Iran\u2019s Approach to U.S. Talks",
+      "link": "https://www.nytimes.com/2026/06/21/world/middleeast/three-men-are-key-to-irans-approach-to-us-talks.html",
+      "description": "Iran\u2019s supreme leader, foreign minister and parliament speaker all play central roles in hammering out an agreement with Washington.",
+      "published": "Sun, 21 Jun 2026 13:42:17 +0000",
       "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
       "feed": "nytimes"
     },
     {
-      "title": "Trains Collide in UK, Killing at Least One and Injuring Dozens of Others",
-      "link": "https://www.nytimes.com/2026/06/19/world/europe/uk-trains-collide-bedford-england.html",
-      "description": "At least one person was killed and dozens of others were injured in the crash near Bedford, England, the authorities said.",
-      "published": "Sat, 20 Jun 2026 00:22:33 +0000",
+      "title": "Israel Directs Its Military to Limit Its Actions in Lebanon, but Tensions Persist",
+      "link": "https://www.nytimes.com/2026/06/21/world/middleeast/israel-lebanon-hezbollah-fighting.html",
+      "description": "It was not clear whether the new directive would resolve the friction that led to deadly clashes on Friday and Saturday and threatened to derail a preliminary U.S.-Iran peace deal.",
+      "published": "Sun, 21 Jun 2026 15:56:40 +0000",
       "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
       "feed": "nytimes"
     },
     {
-      "title": "U.S. to End AIDS Funding for South Africa",
-      "link": "https://www.nytimes.com/2026/06/19/world/africa/southafrica-aids-pepfar.html",
-      "description": "According to an unsigned statement from the State Department, the U.S. will phase out support for H.I.V. prevention and treatment in South Africa.",
-      "published": "Fri, 19 Jun 2026 19:07:41 +0000",
+      "title": "Iran Nuclear Talks Expected to Hinge on These 4 Questions",
+      "link": "https://www.nytimes.com/2026/06/21/world/middleeast/iran-nuclear-talks-questions.html",
+      "description": "Tehran insists that its nuclear program is for peaceful purposes. The Trump administration is demanding assurances that Iran cannot secretly develop a weapon.",
+      "published": "Sun, 21 Jun 2026 09:56:52 +0000",
       "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
       "feed": "nytimes"
     },
     {
-      "title": "While the World Scrambles for Oil, China Sits on Full Tanks",
-      "link": "https://www.nytimes.com/2026/06/21/business/china-oil-iran.html",
-      "description": "The possible reopening of the Strait of Hormuz may not prompt China to return quickly to prewar levels of oil purchases from the Persian Gulf.",
-      "published": "Sun, 21 Jun 2026 09:01:52 +0000",
+      "title": "A Glamorous Swiss Resort Hosts Officials for U.S.-Iran Talks",
+      "link": "https://www.nytimes.com/2026/06/21/world/europe/switzerland-resort-us-iran-meeting.html",
+      "description": "The B\u00fcrgenstock Resort Lake Lucerne has hosted some of the world\u2019s wealthiest and most powerful people for more than 100 years.",
+      "published": "Sun, 21 Jun 2026 09:34:35 +0000",
       "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
       "feed": "nytimes"
     },
     {
-      "title": "Colombia\u2019s High-Stakes Election: What to Know About the Candidates, Issues and Expected Results",
-      "link": "https://www.nytimes.com/2026/06/21/world/americas/colombia-election-cepeda-espriella.html",
-      "description": "Colombia\u2019s election on Sunday pits a right-wing candidate endorsed by President Trump against a candidate promising continuity with the country\u2019s departing leftist president.",
-      "published": "Sun, 21 Jun 2026 09:01:06 +0000",
-      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-      "feed": "nytimes"
-    },
-    {
-      "title": "Father and Uncle of Slain New York Girl Given Life Sentences in Pakistan",
-      "link": "https://www.nytimes.com/2026/06/21/world/asia/pakistan-yonkers-hira-anwar.html",
-      "description": "The killing of the victim, a 14-year-old girl from Yonkers who was known for posting videos on TikTok, was premeditated, a court ruled.",
-      "published": "Sun, 21 Jun 2026 08:28:12 +0000",
-      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-      "feed": "nytimes"
-    },
-    {
-      "title": "Here\u2019s the latest.",
-      "link": "https://www.nytimes.com/live/2026/06/21/world/iran-us-trump-lebanon/heres-the-latest",
-      "description": "",
-      "published": "Sun, 21 Jun 2026 08:38:09 +0000",
-      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-      "feed": "nytimes"
-    },
-    {
-      "title": "U.S. and Iranian Officials to Meet for Peace Talks in Switzerland",
-      "link": "https://www.nytimes.com/2026/06/20/world/middleeast/iran-peace-talks-switzerland.html",
-      "description": "The next phase of talks to end the war in Iran is expected to begin on Sunday amid fighting in Lebanon and renewed confusion over the Strait of Hormuz.",
-      "published": "Sun, 21 Jun 2026 06:51:36 +0000",
-      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-      "feed": "nytimes"
-    },
-    {
-      "title": "Mona Khalil, Defender of Sea Turtles, Killed in an Israeli Strike in Lebanon",
-      "link": "https://www.nytimes.com/2026/06/20/world/middleeast/mona-kahlil-turtles-lebanon-conservation.html",
-      "description": "For a quarter century, Ms. Khalil ran a guesthouse and worked to protect endangered sea turtles who every summer lay their eggs on a stretch of beach near Tyre, Lebanon.",
-      "published": "Sat, 20 Jun 2026 22:18:23 +0000",
-      "source": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-      "feed": "nytimes"
+      "title": "Trump threatens Iran over Hormuz as JD Vance holds peace talks",
+      "link": "https://www.washingtonpost.com/world/2026/06/21/us-iranian-meet-switzerland-hash-out-peace-plan/",
+      "description": "Trump\u2019s warning underscores persistent tensions even as Vance said in Switzerland that he hoped Washington and Tehran would \u201cturn over a new leaf\u201d in their relationship.",
+      "published": "Sun, 21 Jun 2026 17:30:40 +0000",
+      "source": "https://feeds.washingtonpost.com/rss/world",
+      "feed": "washingtonpost"
     },
     {
       "title": "For cash-strapped farmers, deal to end Iran fighting comes too late",
@@ -850,6 +858,46 @@
       "feed": "washingtonpost"
     },
     {
+      "title": "Hong Kong father, son arrested after parking ticket thrown at traffic wardens",
+      "link": "https://www.scmp.com/news/hong-kong/law-and-crime/article/3357837/hong-kong-father-son-arrested-after-parking-ticket-thrown-traffic-wardens?utm_source=rss_feed",
+      "description": "Hong Kong police have arrested an elderly man and his son for allegedly assaulting public officers after they threw a parking ticket at two traffic wardens in Tuen Mun, the South China Morning Post has learned.\nA source said on Sunday that police arrested the 61-year-old man and his 31-year-old son outside cooked food stalls in Sam Shing at 11.40am.\nEarlier, at around 11.30am, a traffic warden had issued a parking ticket when the two men returned and disputed the penalty.\nDuring the...",
+      "published": "Sun, 21 Jun 2026 14:04:00 +0000",
+      "source": "https://www.scmp.com/rss/2/feed",
+      "feed": "scmp"
+    },
+    {
+      "title": "Hong Kong man, 54, dies after e-bike plunges from goods platform",
+      "link": "https://www.scmp.com/news/hong-kong/society/article/3357832/hong-kong-man-54-dies-after-e-bike-plunges-goods-platform?utm_source=rss_feed",
+      "description": "A 54-year-old Hong Kong man died after reportedly losing control of an electric bike and falling from an unloading platform in Yuen Long early on Sunday, with the incident only discovered more than five hours later.\nPolice received a report at 9.21am that a man was lying unconscious on Tong Yan San Tsuen Road. Officers arrived at the scene and found the man, surnamed Lam, with head and hand injuries. He was pronounced dead at the scene.\nAccording to the force, Lam was riding the e-bike eastbound...",
+      "published": "Sun, 21 Jun 2026 13:10:13 +0000",
+      "source": "https://www.scmp.com/rss/2/feed",
+      "feed": "scmp"
+    },
+    {
+      "title": "Hong Kong TV host Lillian Sze loses battle with ovarian cancer",
+      "link": "https://www.scmp.com/news/hong-kong/society/article/3357829/hong-kong-tv-host-lillian-sze-loses-battle-ovarian-cancer?utm_source=rss_feed",
+      "description": "Lillian Sze, a Hong Kong television host who spoke four languages and frequently emceed fan meetings for South Korean stars, has died of ovarian cancer, less than a month after revealing her diagnosis.\nThe death of the former ViuTV host and content creator was announced on her social media page on Sunday.\n\u201cLillian faced everything in life with a positive attitude, whether at work or in her daily life. Even in the face of illness, she continued to encourage herself with positivity while receiving...",
+      "published": "Sun, 21 Jun 2026 11:42:47 +0000",
+      "source": "https://www.scmp.com/rss/2/feed",
+      "feed": "scmp"
+    },
+    {
+      "title": "No more painful biopsies? How a new blood test will transform cancer detection in Hong Kong",
+      "link": "https://www.scmp.com/news/hong-kong/health-environment/article/3357760/no-more-painful-biopsies-how-new-blood-test-will-transform-cancer-detection-hong-kong?utm_source=rss_feed",
+      "description": "In the fourth instalment of a six-part Health Matters wellness series on cancer in Hong Kong, Elizabeth Cheung examines how city researchers are developing new blood tests to detect the disease earlier, and what they could mean for screenings and diagnoses.\nRetired Hong Kong businessman Peter Wan Ying-keung still remembers the uncertainty and discomfort of his months-long journey to a prostate cancer diagnosis 13 years ago.\nIt began with a routine blood test in 2013 that showed elevated levels...",
+      "published": "Sun, 21 Jun 2026 11:00:07 +0000",
+      "source": "https://www.scmp.com/rss/2/feed",
+      "feed": "scmp"
+    },
+    {
+      "title": "6 injured after 4 taxis and private car collide on Hong Kong\u2019s Shenzhen Bay Bridge",
+      "link": "https://www.scmp.com/news/hong-kong/transport/article/3357825/4-injured-after-2-taxis-and-private-car-collide-hong-kongs-shenzhen-bay-bridge?utm_source=rss_feed",
+      "description": "Four taxis and a private car collided on Hong Kong\u2019s Shenzhen Bay Bridge, leaving six people injured and forcing the temporary closure of a road leading to a nearby land border crossing.\nA police spokesman said officers were alerted to the crash at 2.36pm on Sunday.\n\u201cThe private car was suspected to have lost control and rammed into one of the taxis, which then crashed into three taxis in front, causing a serial collision and the private car to overturn,\u201d the force said.\nFootage of the collision...",
+      "published": "Sun, 21 Jun 2026 09:27:15 +0000",
+      "source": "https://www.scmp.com/rss/2/feed",
+      "feed": "scmp"
+    },
+    {
       "title": "Teahouse scores big as Hongkongers celebrate Father\u2019s Day with yum cha, football",
       "link": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3357823/teahouse-scores-big-hongkongers-celebrate-fathers-day-yum-cha-football?utm_source=rss_feed",
       "description": "Hong Kong families cheered for Japan as it beat Tunisia 4-0 during a Sunday lunchtime broadcast of the Fifa World Cup, making for a memorable Father\u2019s Day that combined the family tradition of yum cha with live football.\nThe occasion highlighted the catering sector\u2019s creative efforts to boost business, as a World Cup match coincided with a major family celebration, filling a local Cantonese teahouse to capacity.\nAt Lin Heung Lau in Sheung Wan, thunderous applause and roars erupted when the...",
@@ -866,17 +914,17 @@
       "feed": "scmp"
     },
     {
-      "title": "Hong Kong a \u2018strategic adaptation ground\u2019 for mainland Chinese tech giants: Paul Chan",
+      "title": "Hong Kong \u2018strategic adaptation ground\u2019 for mainland Chinese tech giants: Paul Chan",
       "link": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3357818/hong-kong-strategic-adaptation-ground-mainland-chinese-tech-giants-paul-chan?utm_source=rss_feed",
-      "description": "Mainland Chinese technology giants in cutting-edge fields are increasingly treating Hong Kong as a \u201cstrategic adaptation ground\u201d to transform themselves into global multinational enterprises, the city\u2019s finance chief has said.\nFollowing his trip to attend a forum and visit tech companies in Shanghai and Nanjing last week, Financial Secretary Paul Chan Mo-po said on Sunday that mainland technology companies expanding into international markets had moved beyond simply exporting products.\n\u201cBy...",
+      "description": "Mainland Chinese firms at the cutting edge of technology are increasingly using Hong Kong as a \u201cstrategic adaptation ground\u201d to transform themselves into multinational companies, the finance chief has said.\nFollowing his trip to attend a forum and visit tech companies in Shanghai and Nanjing last week, Financial Secretary Paul Chan Mo-po said on Sunday that mainland tech companies expanding into international markets had moved beyond simply exporting products.\n\u201cBy bringing in international...",
       "published": "Sun, 21 Jun 2026 07:41:13 +0000",
       "source": "https://www.scmp.com/rss/2/feed",
       "feed": "scmp"
     },
     {
-      "title": "Hong Kong considers expanding priority care scheme to better flag high-risk cases",
+      "title": "Dementia patients, carers of severely disabled may be flagged for priority outreach",
       "link": "https://www.scmp.com/news/hong-kong/society/article/3357817/hong-kong-considers-expanding-priority-care-scheme-better-flag-high-risk-cases?utm_source=rss_feed",
-      "description": "Hong Kong will consider expanding priority community care to include dementia patients and carers aged over 60 of people with severe disabilities, the city\u2019s welfare chief has said, in a bid to better identify high-risk cases vulnerable to tragedy.\nSecretary for Labour and Welfare Chris Sun Yuk-han said on Sunday that authorities were actively reviewing the screening criteria used to identify high-risk elderly individuals.\nThe move follows a tragedy in which a 70-year-old man was found hanging...",
+      "description": "Hong Kong will consider expanding priority community care to include dementia patients and residents aged over 60 who care for people with severe disabilities in a bid to better identify high-risk cases, the city\u2019s welfare chief has said.\nSecretary for Labour and Welfare Chris Sun Yuk-han said on Sunday that authorities were reviewing the screening criteria used to identify high-risk elderly individuals.\nThe move follows a tragedy in which a 70-year-old man was found hanging in his Kwai Chung...",
       "published": "Sun, 21 Jun 2026 07:37:39 +0000",
       "source": "https://www.scmp.com/rss/2/feed",
       "feed": "scmp"
@@ -884,15 +932,15 @@
     {
       "title": "Residents in 2 villages can turn houses fully into tourist sites under pilot scheme",
       "link": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3357815/residents-2-villages-can-turn-houses-fully-tourist-sites-under-pilot-scheme?utm_source=rss_feed",
-      "description": "Hong Kong residents living in the villages of Ho Sheung Heung and Yin Kong in Sheung Shui will be allowed to convert their entire houses into restaurants, guest houses or shops without prior application under a pilot scheme aimed at boosting rural tourism.\nThe relevant urban planning work is scheduled to begin in the third quarter this year, and the government will consider expanding the scheme to other village-type development zones depending on its effectiveness.\nIn a policy paper submitted to...",
+      "description": "Hong Kong residents living in the villages of Ho Sheung Heung and Yin Kong in Sheung Shui will be allowed to convert their entire houses into restaurants, guest houses or shops without prior application under a pilot scheme aimed at boosting rural tourism.\nThe necessary planning work is scheduled to begin in the third quarter of this year, and the government will consider expanding the scheme to other village-type development zones depending on its effectiveness.\nIn a policy paper made public on...",
       "published": "Sun, 21 Jun 2026 06:47:05 +0000",
       "source": "https://www.scmp.com/rss/2/feed",
       "feed": "scmp"
     },
     {
-      "title": "Hong Kong only place in China that can adopt model akin to SpaceX, CY Leung says",
+      "title": "Hong Kong only place in China that can replicate SpaceX model, CY Leung says",
       "link": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3357807/hong-kong-only-place-china-can-adopt-model-akin-spacex-cy-leung-says?utm_source=rss_feed",
-      "description": "Hong Kong is the only place in China capable of replicating the financing model of US tech giant SpaceX, which leverages market forces to grow rapidly, former leader Leung Chun-ying has said, urging the city to develop professional services for the emerging aerospace industry.\nLeung, a vice-chairman of the Chinese People\u2019s Political Consultative Conference, the country\u2019s top political advisory body, also called on Hong Kong to make trade-offs when formulating its first five-year plan,...",
+      "description": "Hong Kong is the only place in the country able to replicate the short-window growth model that US tech giant SpaceX used, former city leader Leung Chun-ying has said, calling for the development of local professional services for the emerging aerospace industry.\nLeung, a vice-chairman of the Chinese People\u2019s Political Consultative Conference, the country\u2019s top political advisory body, also said Hong Kong should make trade-offs when formulating its first five-year plan, prioritising initiatives...",
       "published": "Sun, 21 Jun 2026 04:49:11 +0000",
       "source": "https://www.scmp.com/rss/2/feed",
       "feed": "scmp"
@@ -900,7 +948,7 @@
     {
       "title": "Hong Kong parents turn to summer school options in Asia amid soaring airfares",
       "link": "https://www.scmp.com/news/hong-kong/education/article/3357803/hong-kong-parents-turn-summer-school-options-asia-amid-soaring-airfares?utm_source=rss_feed",
-      "description": "Hong Kong families are turning away from long-standing summer school favourites in Britain and North America amid soaring airfares, with education consultants reporting a sharp surge in demand for alternatives in Asia.\nApplications for British summer schools fell 35 per cent this year as Hong Kong parents balk at soaring airfares, fuelled by the war in Iran, according to Samuel Chan Sze-ming, founder of education consultancy Britannia StudyLink.\nThe firm acts as an agent for programmes in the...",
+      "description": "Hong Kong families are turning away from long-standing summer school favourites in Britain and North America amid soaring airfares, with education consultants reporting a sharp surge in demand for alternatives in Asia.\nApplications for British summer schools fell by 35 per cent this year as Hong Kong parents balk at soaring airfares, fuelled by the war in the Middle East, according to Samuel Chan Sze-ming, founder of education consultancy Britannia StudyLink.\nThe firm acts as an agent for...",
       "published": "Sun, 21 Jun 2026 04:00:20 +0000",
       "source": "https://www.scmp.com/rss/2/feed",
       "feed": "scmp"
@@ -970,46 +1018,6 @@
       "feed": "scmp"
     },
     {
-      "title": "After another tragedy, Hong Kong to review age threshold covering elderly needy",
-      "link": "https://www.scmp.com/news/hong-kong/society/article/3357769/after-another-suicide-hong-kong-review-age-threshold-cover-more-elder-need?utm_source=rss_feed",
-      "description": "Authorities will review the age threshold defining older residents in need to better identify priority cases and prevent more tragedies from happening, the welfare chief has vowed after an elderly Hongkonger was found hanging in his flat.\nSecretary for Labour and Welfare Chris Sun Yuk-han made the pledge on Saturday after the 70-year-old man was found hanging in his flat in Lai King Estate in Kwun Tong by his daughter the day before.\nPolice said the man\u2019s wife, 78, was found unconscious in the...",
-      "published": "Sat, 20 Jun 2026 07:33:00 +0000",
-      "source": "https://www.scmp.com/rss/2/feed",
-      "feed": "scmp"
-    },
-    {
-      "title": "More of Northern Metropolis set to benefit from eased flow of cross-border resources",
-      "link": "https://www.scmp.com/news/hong-kong/society/article/3357766/new-measures-aim-ease-cross-border-flow-resources-within-northern-metropolis?utm_source=rss_feed",
-      "description": "More areas within the Northern Metropolis megaproject could benefit from new measures to ease the cross-border flow of data, materials and capital, with pilot initiatives set to launch this year in an innovation zone Hong Kong shares with Shenzhen.\nThe details were revealed in a government paper submitted to the Legislative Council that provided an update on drafting dedicated legislation to accelerate development of the 30,000-hectare (74,131-acre) megaproject near the border with mainland...",
-      "published": "Sat, 20 Jun 2026 06:35:14 +0000",
-      "source": "https://www.scmp.com/rss/2/feed",
-      "feed": "scmp"
-    },
-    {
-      "title": "Thousands visit PLA barracks in Hong Kong to celebrate city\u2019s return to Chinese rule",
-      "link": "https://www.scmp.com/news/hong-kong/society/article/3357764/thousands-visit-pla-barracks-hong-kong-celebrate-citys-return-chinese-rule?utm_source=rss_feed",
-      "description": "Thousands of residents have flocked to the PLA barracks on Hong Kong\u2019s Stonecutters Island as part of celebrations marking the 29th anniversary of the city\u2019s return to Chinese rule on July 1, with many drawn by the display of military equipment and skills.\nThe Ngong Shuen Chau Barracks opened to visitors at 9am on Saturday, with hundreds of people queuing early.\nAmong them were families with young children, students and older residents, including Jennifer Shao Xia and her 16-year-old son Harry...",
-      "published": "Sat, 20 Jun 2026 06:25:16 +0000",
-      "source": "https://www.scmp.com/rss/2/feed",
-      "feed": "scmp"
-    },
-    {
-      "title": "Tap \u2018cultural foundation\u2019, Shangri-La\u2019s Kuok Hui Kwong tells Hong Kong tourism trade",
-      "link": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3357728/tap-your-cultural-foundation-shangri-las-kuok-hui-kwong-tells-hong-kong-tourism-trade?utm_source=rss_feed",
-      "description": "Hong Kong should do more to leverage its traditional festivals to draw international visitors and build its competitive advantage in cultural tourism, Shangri-La Group chairman and group CEO Kuok Hui Kwong has said.\nKuok, the daughter of Malaysian tycoon Robert Kuok, said Hong Kong had done well since the Covid-19 pandemic to entice international visitors back to the city, but could go even further in tapping its \u201ccultural foundation\u201d amid fierce competition for tourists.\nShe made the remarks to...",
-      "published": "Sat, 20 Jun 2026 04:00:14 +0000",
-      "source": "https://www.scmp.com/rss/2/feed",
-      "feed": "scmp"
-    },
-    {
-      "title": "Easy money or risky business? What can Hong Kong do as prediction markets boom?",
-      "link": "https://www.scmp.com/news/hong-kong/society/article/3357743/easy-money-or-risky-business-what-can-hong-kong-do-prediction-markets-boom?utm_source=rss_feed",
-      "description": "In the second of a two-part series tracing new trends in illegal betting in Hong Kong amid excitement over the football World Cup, Connor Mycroft looks at the rise of prediction markets and the risks. Read part one here.\nWhen 25-year-old Jean Pierre* started betting on Polymarket last year, his reasoning was simple: \u201cI was just looking to see if I could make some money easily,\u201d he told the South China Morning Post.\nThe French freelance video creator, who has lived in Hong Kong for five years,...",
-      "published": "Sat, 20 Jun 2026 01:00:17 +0000",
-      "source": "https://www.scmp.com/rss/2/feed",
-      "feed": "scmp"
-    },
-    {
       "raw": {
         "success": false,
         "error": {
@@ -1022,18 +1030,18 @@
     }
   ],
   "feed_errors": 15,
-  "total_events": 127,
+  "total_events": 128,
   "unconventional_signals": {
     "internet_blackout_events": [
       {
         "region": "Sudan",
         "event": "Internet shutdown",
-        "date": "2026-06-21T04:10:34.637458"
+        "date": "2026-06-21T12:53:32.410684"
       },
       {
         "region": "Iran",
         "event": "Restricted access",
-        "date": "2026-06-21T04:10:34.637535"
+        "date": "2026-06-21T12:53:32.410747"
       }
     ],
     "food_delivery_spikes": [
