@@ -2,7 +2,7 @@
 """
 generate_predictions.py – Auto-generate predictions from engine data.
 Preserves confirmed/falsified history, updates pending probabilities,
-applies filtering, adds date_made, and reincorporates CERES timestamp.
+applies filtering, adds date_made, CERES timestamp, and confidence breakdown.
 """
 
 import json
@@ -43,7 +43,7 @@ def get_sweep_date():
     return datetime.now().strftime("%Y-%m-%d")
 
 def parse_horizon_to_days(horizon_str):
-    """Convert horizon string (e.g., '30 days', '31 Jul 2026') to days from today."""
+    """Convert horizon string to days from today."""
     if not horizon_str:
         return 0
     # Try date format "31 Jul 2026"
@@ -60,16 +60,13 @@ def parse_horizon_to_days(horizon_str):
     match = re.search(r'(\d+)\s*week', horizon_str, re.I)
     if match:
         return int(match.group(1)) * 7
-    # If we can't parse, assume 30 days
     return 30
 
 def check_event_triggered(tid, cascade_log, sweep_data):
     """Check if there is recent evidence for this threat."""
-    # Look in cascade_log for this threat ID
     for entry in cascade_log:
         if entry.get('source') == tid or entry.get('target') == tid:
             return True
-    # Look in sweep_report for event mentioning this threat ID
     events = sweep_data.get('events', [])
     for ev in events:
         if tid in ev.get('description', ''):
@@ -97,7 +94,7 @@ def generate_predictions():
             "stats": {},
             "history": [],
             "last_updated": "",
-            "last_hash": "0"  # for CERES chain
+            "last_hash": "0"
         }
 
     threats_data = load_json(THREATS_FILE)
@@ -126,8 +123,8 @@ def generate_predictions():
         if tid in confirmed_ids or tid in falsified_ids:
             continue
 
-        # Current probability
         current_prob = t.get('base_probability', 0.5)
+        scp = t.get('scp', 0.5)
 
         # Compute delta from previous pending entry if exists
         previous = pending_map.get(tid)
@@ -135,14 +132,13 @@ def generate_predictions():
             previous_prob = previous.get('probability', 0.5) / 100.0
             delta = current_prob - previous_prob
         else:
-            # For new threats, we can either skip delta check or set delta = 0
             delta = 0.0
 
         # Parse horizon
         horizon_str = t.get('horizon', '30 days')
         horizon_days = parse_horizon_to_days(horizon_str)
 
-        # Check event trigger (if required)
+        # Check event trigger
         event_triggered = check_event_triggered(tid, cascade_log, sweep_data)
 
         # ---- Apply filters ----
@@ -163,13 +159,56 @@ def generate_predictions():
             archived_count += 1
             continue
 
+        # ---- Build confidence breakdown ----
+        # We'll list the contributing factors
+        evidence_sources = []
+        # OSINT events related to this threat
+        osint_events = [ev for ev in sweep_data.get('events', []) if tid in ev.get('description', '')]
+        if osint_events:
+            evidence_sources.append({
+                "source": "OSINT",
+                "events": [ev.get('description', '')[:50] for ev in osint_events[:3]]
+            })
+        # Cascade activations
+        cascade_activations = [entry for entry in cascade_log if entry.get('source') == tid or entry.get('target') == tid]
+        if cascade_activations:
+            evidence_sources.append({
+                "source": "Cascade Engine",
+                "activations": len(cascade_activations)
+            })
+        # TSF (if we have forecast data)
+        if sweep_data.get('forecasts'):
+            evidence_sources.append({
+                "source": "Time-Series Forecast",
+                "present": True
+            })
+        # Warden validation (if any)
+        if previous and previous.get('warden_verified'):
+            evidence_sources.append({
+                "source": "Warden Verification",
+                "confirmed": previous.get('warden_verified')
+            })
+
+        confidence_breakdown = {
+            "prior": round(current_prob, 3),
+            "final_probability": round(scp, 3),
+            "evidence_sources": evidence_sources,
+            "filter_applied": {
+                "min_probability": min_prob,
+                "min_delta": min_delta,
+                "max_horizon_days": max_horizon_days,
+                "require_event": require_event
+            }
+        }
+
         # ---- Passed filters ----
         if tid in pending_map:
-            # Update existing pending – preserve date_made and ceres_hash
+            # Update existing – preserve date_made and ceres_hash
             pending_map[tid]['probability'] = round(current_prob * 100)
-            pending_map[tid]['scp'] = round(t.get('scp', 0.5), 2)
+            pending_map[tid]['scp'] = round(scp, 2)
             pending_map[tid]['priority_score'] = round(t.get('priority_score', 0), 2)
             pending_map[tid]['updated'] = now
+            pending_map[tid]['confidence_breakdown'] = confidence_breakdown
             if 'date_made' not in pending_map[tid]:
                 pending_map[tid]['date_made'] = sweep_date
             updated_count += 1
@@ -192,26 +231,26 @@ def generate_predictions():
                 "id": tid,
                 "description": t.get('name', tid)[:80],
                 "probability": round(current_prob * 100),
-                "scp": round(t.get('scp', 0.5), 2),
+                "scp": round(scp, 2),
                 "priority_score": round(t.get('priority_score', 0), 2),
                 "horizon": horizon_str,
                 "status": "Active",
                 "date_made": sweep_date,
                 "created": sweep_date,
                 "updated": now,
-                "ceres_hash": ceres_hash
+                "ceres_hash": ceres_hash,
+                "confidence_breakdown": confidence_breakdown
             }
             predictions['pending'].append(new_pred)
             pending_map[tid] = new_pred
             added_count += 1
 
-    # Update last_hash in predictions
+    # Update last_hash
     predictions['last_hash'] = last_hash
 
     # ---- Archive filtered predictions ----
     if archived:
         existing_archive = load_json(ARCHIVE_FILE, [])
-        # Avoid duplicates by ID
         seen = {a.get('id') for a in existing_archive}
         for a in archived:
             if a['id'] not in seen:
