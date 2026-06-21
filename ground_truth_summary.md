@@ -1,4 +1,4 @@
-# Ground Truth Summary – 2026-06-21T08:38:01.622943+00:00
+# Ground Truth Summary – 2026-06-21T08:48:00.858662+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
@@ -33,14 +33,14 @@
 - ドジャース大谷 第2子誕生発表から一夜明け 復帰戦で16号ソロ
 
 **Times of India**:
-- 'Amma, Appa, Anna, Sorry': Another NEET aspirant dies ahead of retest in Tamil Nadu
-- 'Best of luck for NEET re-test, join us after exam': CJP founder Abhijeet Dipke
-- Satya Nadella's new inner circle: Meet Microsoft's key leaders
+- 'Amma, Appa, Anna, Sorry': Another NEET aspirant dies before retest in Tamil Nadu
+- 19-year-old NEET aspirant dies by suicide in Hyderabad
+- Kohli named in India's squad for England ODIs; no place for Jaiswal, Siraj
 
 **South China Morning Post**:
+- Teahouse scores big as Hongkongers celebrate Father’s Day with yum cha, football
 - For Hong Kong to succeed in AI, energy cannot be an afterthought
 - Hong Kong a ‘strategic adaptation ground’ for mainland Chinese tech giants: Paul Chan
-- Hong Kong considers expanding priority care scheme to better flag high-risk cases
 
 **Africa News**:
 - Niger and Benin discuss normalising relations between two countries
