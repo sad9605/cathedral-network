@@ -1,0 +1,111 @@
+#!/usr/bin/env python3
+"""
+generate_prediction_intelligence.py – Build reasoning traces for all predictions.
+"""
+
+import json
+from datetime import datetime
+from pathlib import Path
+
+def load_json(filepath, default=None):
+    if Path(filepath).exists():
+        with open(filepath, 'r') as f:
+            return json.load(f)
+    return default if default is not None else {}
+
+def main():
+    predictions = load_json("predictions.json", {})
+    threats = load_json("threats.json", {}).get('threats', [])
+    cascade_log = load_json("cascade_log.json", [])
+    sweep_data = load_json("sweep_report.json", {})
+
+    intelligence = {}
+
+    for p in predictions.get('pending', []):
+        tid = p.get('id')
+        if not tid:
+            continue
+
+        # Find threat data
+        threat = next((t for t in threats if t.get('id') == tid), None)
+        if not threat:
+            continue
+
+        # Build reasoning trace
+        reasoning = {
+            "id": tid,
+            "prediction": p.get('description', ''),
+            "current_probability": p.get('probability', 0),
+            "date_made": p.get('date_made', ''),
+            "horizon": p.get('horizon', ''),
+            "status": p.get('status', 'Active'),
+            "reasoning": {
+                "prior": {
+                    "value": threat.get('base_probability', 0.5),
+                    "source": "Historical baseline from threats.json"
+                },
+                "evidence": [],
+                "calculation": {},
+                "adjusted_probability": p.get('probability', 0),
+                "adjustment_reason": "Daily sweep update"
+            },
+            "forecast": "See current status in Ground Truth.",
+            "recommendations": ["Monitor related cascades", "Verify against OSINT"],
+            "confidence": threat.get('confidence', 0.7),
+            "sources": ["Cascade Engine", "OSINT", "TSF"]
+        }
+
+        # Add cascade evidence from cascade_log
+        for entry in cascade_log:
+            if entry.get('source') == tid or entry.get('target') == tid:
+                reasoning['reasoning']['evidence'].append({
+                    "type": "Cascade",
+                    "description": f"Cascade from {entry.get('source')} to {entry.get('target')}",
+                    "likelihood_ratio": 1.5,
+                    "weight": 0.8
+                })
+
+        # Add OSINT evidence from sweep_report
+        events = sweep_data.get('events', [])
+        for ev in events:
+            if tid in ev.get('description', ''):
+                reasoning['reasoning']['evidence'].append({
+                    "type": "OSINT",
+                    "description": ev.get('description', '')[:80],
+                    "likelihood_ratio": 2.0,
+                    "weight": 0.9
+                })
+
+        intelligence[tid] = reasoning
+
+    # Also include confirmed predictions with reasoning
+    for p in predictions.get('confirmed', []):
+        tid = p.get('id')
+        if not tid:
+            continue
+        if tid not in intelligence:
+            intelligence[tid] = {
+                "id": tid,
+                "prediction": p.get('description', ''),
+                "current_probability": 100,
+                "date_made": p.get('date_made', ''),
+                "horizon": p.get('horizon', ''),
+                "status": "Confirmed",
+                "reasoning": {
+                    "prior": {"value": 0.5, "source": "Historical baseline"},
+                    "evidence": [{"type": "Event", "description": "Event occurred", "likelihood_ratio": 10.0, "weight": 1.0}],
+                    "calculation": {},
+                    "adjusted_probability": 100,
+                    "adjustment_reason": "Confirmed on " + p.get('date', '')
+                },
+                "forecast": "Resolved.",
+                "recommendations": [],
+                "confidence": 1.0,
+                "sources": ["Prediction Log"]
+            }
+
+    save_json(intelligence, "prediction_intelligence.json")
+    print(f"✅ Generated intelligence for {len(intelligence)} predictions.")
+
+if __name__ == "__main__":
+    main()
