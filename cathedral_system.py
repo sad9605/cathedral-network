@@ -124,6 +124,11 @@ def main():
 
     # 10. Generate prediction log (filtered, with date_made)
     run_script("generate_predictions.py", "Prediction log generation")
+    
+    # ---- Ascension Engine ----
+    run_script("generate_positive_signals.py", "Positive signal extraction")
+
+    run_script("ascension_engine.py", "Ascension Engine (Recovery & Opportunity)")
 
     # 11. Update sources list
     run_script("update_sources.py", "Sources update")
