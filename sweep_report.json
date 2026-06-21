@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-21T08:32:00.916684+00:00",
+  "timestamp": "2026-06-21T08:38:01.622943+00:00",
   "feeds": {
     "news_rss": {
       "BBC News": [
@@ -70,7 +70,7 @@
     "usgs": {
       "source": "USGS",
       "status": "success",
-      "earthquakes": 221
+      "earthquakes": 220
     },
     "reliefweb": {
       "source": "ReliefWeb",
@@ -100,7 +100,7 @@
     "opensky": {
       "source": "OpenSky",
       "status": "success",
-      "aircraft": 6726
+      "aircraft": 6759
     },
     "kalshi": {
       "source": "Kalshi",
