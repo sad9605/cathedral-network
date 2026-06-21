@@ -1,17 +1,17 @@
-# Ground Truth Summary – 2026-06-20T19:24:14.075465+00:00
+# Ground Truth Summary – 2026-06-21T07:58:08.705893+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
-- Nine people in critical condition among 100 injured in fatal Bedford train crash
-- Talk of Starmer staying on to fight is fading - fast
-- Extreme heat warning expanded as 36C heatwave approaches UK
+- Leadership uncertainty 'enormously disruptive', former top civil servant warns
+- US-Iran talks to begin in Switzerland as Tehran says it closed Strait of Hormuz
+- Man charged after suspected anti-Muslim attacks in Edinburgh
 
 **Reuters**:
 
 **Al Jazeera**:
-- Are UK Prime Minister Keir Starmer’s political days numbered?
-- Al Jazeera cameraman Ahmed Wishah killed in Israeli attack in Gaza
-- US-Iran talks to kick off Sunday in Switzerland, says Pakistan
+- Vance arrives in Switzerland for US-Iran talks
+- Iran war day 114: US, Iranian delegations in Switzerland for key talks
+- Japan grab 4-0 win as Ueda’s brace knocks Tunisia out of 2026 World Cup
 
 **The Guardian**:
 - Global framework for reparatory justice adopted at landmark Ghana conference
@@ -23,24 +23,24 @@
 **Deutsche Welle**:
 
 **Sky News**:
-- Counter terror police investigate attacks that appeared to target Muslims in UK city
-- Murder investigation after boy, 17, fatally stabbed
-- Trump-Meloni row intensifies as leaders trade barbs
+- Man charged over series of 'anti-Muslim' attacks in Edinburgh
+- Three people killed in fire close to football ground
+- Sky News award-winning podcast The Wargame becoming TV series
 
 **NHK World**:
-- Ｗ杯 オランダがスウェーデンに快勝 日本と同じグループＦ
-- 神戸 マンションの冷凍庫から切断された男性の遺体見つかる
-- イラン中央司令部「ホルムズ海峡は封鎖される」声明発表
+- W杯 日本がチュニジアに勝利 鎌田 上田 伊東ゴール【詳しく】
+- W杯 日本が快勝 選手の地元は拍手と歓声に沸く
+- ドジャース大谷 第2子誕生発表から一夜明け 復帰戦で16号ソロ
 
 **Times of India**:
-- 'Driven by bigotry and hatred': MEA hits back at Pakistan president, calls comments 'absurd'
-- 18-year-old drugged, recorded, raped in Gujarat
-- America@250 swathed in red, white, and blue — and green algae
+- 'Amma, Appa, Anna, Sorry': Another NEET aspirant dies ahead of retest in Tamil Nadu
+- 'Best of luck for NEET re-test, join us after exam': CJP founder Abhijeet Dipke
+- 'Physical fitness, mental resilience': Indian Navy takes Yoga Day underwater — watch
 
 **South China Morning Post**:
-- Man suspected of 3 burglaries in Hong Kong arrested at airport
-- MTR Corp investigates after woman injured by falling ceiling panel at plaza
-- Motorcyclist dies after collision with double-decker bus in Hong Kong
+- Hong Kong a ‘strategic adaptation ground’ for mainland Chinese tech giants: Paul Chan
+- Hong Kong considers expanding priority care scheme to better flag high-risk cases
+- Residents in 2 villages can turn houses fully into tourist sites under pilot scheme
 
 **Africa News**:
 - Oil 'pouring through' Strait of Hormuz, Trump says, as he unveils new Air Force One
