@@ -122,10 +122,16 @@ def main():
     # 9. Verify predictions – auto‑confirm/falsify
     run_script("verify_predictions.py", "Prediction verification")
 
+    # ---- Generate corrections RSS ----
+    run_script("generate_corrections_xml.py", "Corrections RSS feed generation")
+
     # 10. Generate prediction log (filtered, with date_made)
     run_script("generate_predictions.py", "Prediction log generation")
     
-    # ---- Ascension Engine ----
+    # ---- Generate prediction intelligence ----
+    run_script("generate_prediction_intelligence.py", "Prediction intelligence generation")
+   
+     # ---- Ascension Engine ----
     run_script("generate_positive_signals.py", "Positive signal extraction")
 
     run_script("ascension_engine.py", "Ascension Engine (Recovery & Opportunity)")
