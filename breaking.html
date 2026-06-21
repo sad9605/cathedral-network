@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — Breaking News</title>
+  <meta name="description" content="Urgent updates and developments impacting global resilience – both positive and negative.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-specific styles */
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .news-item {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow-sm);
+      border-left: 6px solid var(--violet-dark);
+    }
+    body.dark .news-item {
+      background: #2a2a3a;
+    }
+    .news-item .title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+    .news-item .meta {
+      font-size: 0.8rem;
+      color: #666;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+    body.dark .news-item .meta {
+      color: #aaa;
+    }
+    .news-item .desc {
+      font-size: 0.95rem;
+      margin: 0.5rem 0;
+    }
+    .news-item .source {
+      font-size: 0.8rem;
+      color: #888;
+    }
+    body.dark .news-item .source {
+      color: #aaa;
+    }
+    .news-item .source a {
+      color: var(--violet-dark);
+      text-decoration: none;
+    }
+    body.dark .news-item .source a {
+      color: #b39ddb;
+    }
+    .tag-positive {
+      background: #22c55e;
+      color: white;
+      padding: 0.15rem 0.6rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .tag-negative {
+      background: #dc2626;
+      color: white;
+      padding: 0.15rem 0.6rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .tag-critical {
+      background: #1f1f1f;
+      color: white;
+      padding: 0.15rem 0.6rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .tag-high {
+      background: #f97316;
+      color: white;
+      padding: 0.15rem 0.6rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .submission-box {
+      background: var(--violet-light);
+      border-radius: var(--card-radius);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      border: 2px solid var(--violet-dark);
+    }
+    body.dark .submission-box {
+      background: #2a2a3a;
+      border-color: var(--violet);
+    }
+    .submission-box .btn {
+      background: var(--violet-dark);
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    .submission-box .btn:hover {
+      background: #5a2db8;
+    }
+    body.dark .submission-box .btn {
+      background: var(--violet);
+      color: #1a1a1a;
+    }
+    body.dark .submission-box .btn:hover {
+      background: #c4a8e8;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.6;
+    }
+    /* Sidebar etc. are already in style.css */
+  </style>
+</head>
+<body>
+
+<!-- Hardcoded Sidebar -->
+<div class="sidebar-container" id="sidebar">
+  <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
+  <nav>
+    <div class="nav-section">
+      <strong>📊 Dashboard</strong>
+      <a href="index.html">Ground Truth</a>
+      <a href="hewd.html">HEWD Dashboard</a>
+      <a href="health.html">System Health</a>
+    </div>
+    <div class="nav-section">
+      <strong>🧠 Intelligence</strong>
+      <a href="threat-matrix.html">Threat Matrix</a>
+      <a href="prediction-log.html">Prediction Log</a>
+      <a href="regional.html">Regional Forecasts</a>
+      <a href="daily-brief.html">Daily Brief</a>
+      <a href="breaking.html">Breaking News</a>
+    </div>
+    <div class="nav-section">
+      <strong>⚖️ Governance</strong>
+      <a href="constitution.html">Constitution</a>
+      <a href="wardens.html">Wardens</a>
+      <a href="ascension.html">Ascension Engine</a>
+      <a href="warden-dashboard.html">Warden Dashboard</a>
+    </div>
+    <div class="nav-section">
+      <strong>🌍 Community</strong>
+      <a href="spotter.html">Spotter Guide</a>
+      <a href="about.html">About</a>
+      <a href="sources.html">Sources</a>
+      <a href="credits.html">Credits</a>
+    </div>
+    <div class="nav-section">
+      <strong>🔧 Tools</strong>
+      <a href="undp-demo.html">UNDP Demo</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="pra.html">PRA</a>
+    </div>
+  </nav>
+</div>
+
+<!-- Banner -->
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Breaking News – Global Resilience</p></div>
+  </div>
+</header>
+
+<!-- Top Nav (mobile) -->
+<div class="top-nav" id="topNav">
+  <a href="index.html">Ground Truth</a>
+  <a href="threat-matrix.html">Threat Matrix</a>
+  <a href="prediction-log.html">Prediction Log</a>
+  <a href="hewd.html">HEWD</a>
+  <a href="health.html">Health</a>
+  <a href="wardens.html">Wardens</a>
+  <a href="about.html">About</a>
+  <a href="breaking.html">Breaking</a>
+</div>
+
+<!-- Main content -->
+<div class="container">
+  <h1>📰 Breaking News – Global Resilience</h1>
+  <p style="margin-bottom: 1rem;">Unfiltered updates on developments that impact global resilience – both positive and negative – that may not be reported by mainstream outlets.</p>
+
+  <div id="newsContainer">
+    <p>Loading news…</p>
+  </div>
+
+  <div class="submission-box">
+    <p><strong>📢 See something we should know?</strong><br>
+    Submit a tip or report a development that impacts global resilience.</p>
+    <a href="mailto:cathedral.network@proton.me?subject=Breaking%20News%20Tip" class="btn">📧 Email Us</a>
+  </div>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Breaking News · Updated as events unfold.
+  </div>
+</div>
+
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+<script>
+  // ---- Sidebar toggle ----
+  document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
+    document.getElementById('sidebar')?.classList.toggle('open');
+  });
+
+  // ---- Dark mode ----
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    darkToggle.innerText = '☀️';
+  } else darkToggle.innerText = '🌙';
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerText = isDark ? '☀️' : '🌙';
+    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+  });
+
+  // ---- Load news ----
+  async function loadNews() {
+    const container = document.getElementById('newsContainer');
+    try {
+      const resp = await fetch('breaking_news.json');
+      if (!resp.ok) throw new Error('Could not fetch news');
+      const data = await resp.json();
+      const items = data.items || [];
+      if (items.length === 0) {
+        container.innerHTML = '<div class="empty-state">No breaking news at this time.</div>';
+        return;
+      }
+      container.innerHTML = items.map(item => {
+        const categoryClass = item.category === 'Positive' ? 'tag-positive' : 'tag-negative';
+        const impactClass = item.impact === 'Critical' ? 'tag-critical' : (item.impact === 'High' ? 'tag-high' : '');
+        return `
+          <div class="news-item">
+            <div class="title">${escapeHtml(item.title)}</div>
+            <div class="meta">
+              <span>${escapeHtml(item.date)}</span>
+              <span>${item.category ? `<span class="${categoryClass}">${escapeHtml(item.category)}</span>` : ''}</span>
+              ${item.impact ? `<span class="${impactClass}">${escapeHtml(item.impact)}</span>` : ''}
+            </div>
+            <div class="desc">${escapeHtml(item.description)}</div>
+            <div class="source">
+              📡 ${item.source ? escapeHtml(item.source) : 'Unknown source'}
+              ${item.link ? ` · <a href="${escapeHtml(item.link)}" target="_blank" rel="noopener">Read more</a>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    } catch(e) {
+      console.error('Error loading news:', e);
+      container.innerHTML = '<p style="color:#dc2626;">Error loading news. Please try again later.</p>';
+    }
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
+  }
+
+  // ---- Service worker ----
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').catch(() => {});
+  }
+
+  loadNews();
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

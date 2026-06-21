@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-06-21T10:00:00Z",
+  "items": [
+    {
+      "id": "BN001",
+      "title": "Ceasefire Holding in Gaza – Humanitarian Aid Flow Increases",
+      "date": "2026-06-21",
+      "description": "A temporary ceasefire between Israel and Hamas has held for 72 hours, allowing aid convoys to enter Gaza. Over 200 trucks carrying food and medical supplies have crossed the border.",
+      "source": "UN OCHA",
+      "link": "https://www.unocha.org/",
+      "category": "Positive",
+      "impact": "High"
+    },
+    {
+      "id": "BN002",
+      "title": "Sudan Famine Expands – 1.2 Million Now at Risk",
+      "date": "2026-06-20",
+      "description": "Famine conditions have spread to four additional regions in Sudan, bringing the total population in IPC Phase 5 to over 1.2 million. Relief efforts are severely underfunded.",
+      "source": "IPC",
+      "link": "https://www.ipcinfo.org/",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "id": "BN003",
+      "title": "Breakthrough in Malaria Vaccine – 90% Efficacy in Trials",
+      "date": "2026-06-19",
+      "description": "A new mRNA malaria vaccine has shown 90% efficacy in Phase III trials, offering hope for millions in Sub-Saharan Africa. Production is expected to scale by early 2027.",
+      "source": "WHO",
+      "link": "https://www.who.int/",
+      "category": "Positive",
+      "impact": "High"
+    }
+  ]
+}
