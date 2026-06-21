@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cathedral — Warden Verification</title>
+  <style>
+    :root { --violet: #b39ddb; --violet-dark: #7c4dff; --violet-light: #f5f0fa; --card-radius: 20px; --shadow-sm: 0 4px 12px rgba(0,0,0,0.05); --bg-light: #fafafa; --text-dark: #1a1a1a; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.6; transition: background 0.2s, color 0.2s; }
+    body.dark { --bg-light: #1e1e2f; --text-dark: #f0f0f0; background: #1e1e2f; color: #f0f0f0; }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
+    .cathedral-banner { background: var(--violet); padding: 1.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .banner-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1.5rem; }
+    .logo-mark svg { display: block; }
+    .wordmark h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 300; font-size: 1.6rem; letter-spacing: 0.1em; color: white; margin: 0; }
+    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
+    .nav { margin: 1rem 0 1.5rem 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; background: white; border-radius: 60px; padding: 0.5rem 1rem; box-shadow: var(--shadow-sm); }
+    body.dark .nav { background: #2a2a3a; }
+    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
+    body.dark .nav-links a { color: #b39ddb; }
+    .menu-btn { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #5e2d8e; }
+    @media (max-width: 768px) { .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; } .nav-links.show { display: flex; } .menu-btn { display: block; } }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .stat-card { background: white; border-radius: var(--card-radius); padding: 1rem; text-align: center; box-shadow: var(--shadow-sm); border-left: 4px solid var(--violet-dark); }
+    body.dark .stat-card { background: #2a2a3a; }
+    .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--violet-dark); }
+    body.dark .stat-card .number { color: #b39ddb; }
+    .stat-card .label { font-size: 0.7rem; text-transform: uppercase; color: #666; letter-spacing: 0.5px; }
+    body.dark .stat-card .label { color: #aaa; }
+
+    .prediction-item { background: white; border-radius: var(--card-radius); padding: 1rem 1.2rem; margin: 0.5rem 0; box-shadow: var(--shadow-sm); border-left: 4px solid var(--violet-dark); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; }
+    body.dark .prediction-item { background: #2a2a3a; }
+    .prediction-item .info { flex: 1; min-width: 200px; }
+    .prediction-item .info .id { font-weight: 700; }
+    .prediction-item .info .desc { font-size: 0.9rem; opacity: 0.7; }
+    .prediction-item .info .prob { font-weight: 600; }
+    .prediction-item .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .btn { padding: 0.4rem 1rem; border-radius: 40px; border: none; cursor: pointer; font-weight: 600; transition: background 0.2s; }
+    .btn-verify { background: #22c55e; color: white; }
+    .btn-verify:hover { background: #16a34a; }
+    .btn-skip { background: #f97316; color: white; }
+    .btn-skip:hover { background: #ea580c; }
+    .verified-badge { background: #22c55e20; color: #22c55e; padding: 0.2rem 0.6rem; border-radius: 40px; font-size: 0.7rem; font-weight: 600; }
+
+    .footer { margin-top: 3rem; text-align: center; font-style: italic; color: #888; border-top: 1px solid #ddd; padding-top: 1rem; }
+    .dark-mode-toggle { position: fixed; bottom: 1rem; right: 1rem; background: var(--violet-dark); color: white; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 1.2rem; cursor: pointer; z-index: 1000; box-shadow: var(--shadow-sm); }
+    @media (max-width: 600px) { .banner-content { flex-direction: column; text-align: center; } .container { padding: 1rem; } .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; } .prediction-item { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Warden Verification Dashboard</p></div>
+  </div>
+</header>
+<div class="container">
+  <div class="nav">
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Ground Truth</a>
+      <a href="undp-demo.html">UNDP Demo</a>
+      <a href="archive.html">Archive</a>
+      <a href="spotter.html">Spotter Guide</a>
+      <a href="sources.html">Sources</a>
+      <a href="constitution.html">Constitution</a>
+      <a href="wardens.html">Wardens</a>
+      <a href="hewd.html">HEWD Dashboard</a>
+      <a href="health.html">System Health</a>
+      <a href="about.html">About</a>
+      <a href="threat-matrix.html">Threat Matrix</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="pra.html">Personal Resilience</a>
+      <a href="prediction-log.html">Prediction Log</a>
+      <a href="credits.html">Credits</a>
+      <a href="ascension.html">Ascension</a>
+      <a href="warden-dashboard.html">Warden Dashboard</a>
+    </div>
+  </div>
+
+  <h1>🛡️ Warden Verification Dashboard</h1>
+  <p style="margin-bottom: 1rem;">Review pending predictions. Verified predictions receive a confidence boost (Law II).</p>
+
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-card"><div class="number" id="pendingCount">--</div><div class="label">Pending</div></div>
+    <div class="stat-card"><div class="number" id="verifiedCount">--</div><div class="label">Verified</div></div>
+    <div class="stat-card"><div class="number" id="verifiedPct">--</div><div class="label">% Verified</div></div>
+  </div>
+
+  <div id="predictionsContainer">
+    <p>Loading predictions…</p>
+  </div>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Warden Dashboard · Seerist‑style verification workflow.
+  </div>
+</div>
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+<script>
+  let predictions = [];
+
+  async function loadPredictions() {
+    try {
+      const resp = await fetch('predictions.json');
+      if (!resp.ok) throw new Error('Failed to fetch predictions');
+      const data = await resp.json();
+      predictions = data.pending || [];
+      renderStats();
+      renderPredictions();
+    } catch(e) {
+      console.error('Error loading predictions:', e);
+      document.getElementById('predictionsContainer').innerHTML = '<p style="color:#dc2626;">Error loading predictions. Please try again later.</p>';
+    }
+  }
+
+  function renderStats() {
+    const verified = predictions.filter(p => p.warden_verified).length;
+    document.getElementById('pendingCount').textContent = predictions.length;
+    document.getElementById('verifiedCount').textContent = verified;
+    document.getElementById('verifiedPct').textContent = predictions.length ? Math.round(verified/predictions.length*100) + '%' : '--';
+  }
+
+  function renderPredictions() {
+    const container = document.getElementById('predictionsContainer');
+    if (predictions.length === 0) {
+      container.innerHTML = '<p>No pending predictions.</p>';
+      return;
+    }
+    container.innerHTML = predictions.map(p => {
+      const verified = p.warden_verified || false;
+      return `
+        <div class="prediction-item" data-id="${p.id}">
+          <div class="info">
+            <div class="id">${p.id} – ${p.description}</div>
+            <div class="desc">Probability: ${p.probability}% · Made: ${p.date_made || 'unknown'}</div>
+            ${verified ? '<span class="verified-badge">✅ Verified</span>' : ''}
+          </div>
+          <div class="actions">
+            ${!verified ? `
+              <button class="btn btn-verify" onclick="verifyPrediction('${p.id}')">✅ Verify</button>
+              <button class="btn btn-skip" onclick="skipPrediction('${p.id}')">⏭ Skip</button>
+            ` : `
+              <button class="btn btn-verify" style="background:#e0e0e0;color:#666;cursor:default;">✅ Verified</button>
+            `}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function verifyPrediction(id) {
+    const p = predictions.find(p => p.id === id);
+    if (!p) return;
+    p.warden_verified = true;
+    // We would POST to an endpoint, but for now we'll store in localStorage and regenerate predictions.json
+    // This is a front‑end only demo – in production, a backend would handle this.
+    alert(`✅ Prediction ${id} verified.`);
+    renderStats();
+    renderPredictions();
+  }
+
+  function skipPrediction(id) {
+    const p = predictions.find(p => p.id === id);
+    if (!p) return;
+    // Mark as skipped (or just hide)
+    alert(`⏭ Prediction ${id} skipped for now.`);
+  }
+
+  // Navigation
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+  // Dark mode
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    darkToggle.innerText = '☀️';
+  } else darkToggle.innerText = '🌙';
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerText = isDark ? '☀️' : '🌙';
+    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+  });
+
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');
+
+  loadPredictions();
+</script>
+</body>
+</html>
