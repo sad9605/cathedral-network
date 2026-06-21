@@ -202,27 +202,18 @@
       margin: 0.25rem 0;
     }
 
-    /* HEWD widget */
-    .hewd-widget {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      margin: 1.5rem 0;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-    }
-    body.dark .hewd-widget { background: #2a2a3a; }
-    .hewd-widget .widget-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 1rem;
-      margin: 0.5rem 0;
-    }
-    .hewd-widget .widget-item { text-align: center; }
-    .hewd-widget .widget-item .number { font-size: 1.6rem; font-weight: 700; color: var(--violet-dark); }
-    body.dark .hewd-widget .widget-item .number { color: #b39ddb; }
-    .hewd-widget .widget-item .label { font-size: 0.7rem; text-transform: uppercase; color: #666; }
-    body.dark .hewd-widget .widget-item .label { color: #aaa; }
+<!-- HEWD Widget -->
+<div class="hewd-widget">
+  <h3 style="font-size:1.1rem; margin:0 0 0.3rem 0; color:var(--violet-dark);">🌐 HEWD Snapshot</h3>
+  <p style="font-size:0.85rem; opacity:0.7; margin-bottom:0.5rem;">Humanitarian Early Warning Dashboard – top threats</p>
+  <div class="widget-grid" id="hewdWidget">
+    <div class="widget-item"><div class="number" id="hewdTotal">--</div><div class="label">Humanitarian Threats</div></div>
+    <div class="widget-item"><div class="number" id="hewdTopScore">--</div><div class="label">Top Priority Score</div></div>
+    <div class="widget-item"><div class="number" id="hewdTopName">--</div><div class="label">Top Threat</div></div>
+    <div class="widget-item"><div class="number" id="hewdUpdated">--</div><div class="label">Last Update</div></div>
+  </div>
+  <p style="font-size:0.75rem; text-align:right; margin:0.3rem 0 0 0; opacity:0.5;"><a href="hewd.html" style="color:var(--violet-dark);">View full HEWD Dashboard →</a></p>
+</div>
 
     /* Oil section */
     .oil-grid {
@@ -569,14 +560,26 @@
       }).join('');
     }
 
-    // 6. HEWD Widget
-    const critical = threats.filter(t => t.status === 'Red' || t.status.includes('Black')).length;
-    const alerts = threats.filter(t => t.status === 'Red' || t.status === 'Orange').length;
-    const domains = new Set();
-    threats.forEach(t => { if (t.domains) t.domains.forEach(d => domains.add(d)); });
-    document.getElementById('hewdCritical').textContent = critical;
-    document.getElementById('hewdAlerts').textContent = alerts;
-    document.getElementById('hewdDomains').textContent = domains.size;
+    // 6. HEWD Widget – load from hewd_data.json
+const hewdData = await fetchJson('hewd_data.json');
+if (hewdData && hewdData.threats) {
+  const threats = hewdData.threats;
+  document.getElementById('hewdTotal').textContent = threats.length;
+  const top = threats[0];
+  if (top) {
+    document.getElementById('hewdTopScore').textContent = top.score || '--';
+    document.getElementById('hewdTopName').textContent = top.name.slice(0, 30) + (top.name.length > 30 ? '…' : '');
+  } else {
+    document.getElementById('hewdTopScore').textContent = '--';
+    document.getElementById('hewdTopName').textContent = 'None';
+  }
+  document.getElementById('hewdUpdated').textContent = hewdData.timestamp ? new Date(hewdData.timestamp).toLocaleDateString() : '--';
+} else {
+  document.getElementById('hewdTotal').textContent = '--';
+  document.getElementById('hewdTopScore').textContent = '--';
+  document.getElementById('hewdTopName').textContent = '--';
+  document.getElementById('hewdUpdated').textContent = '--';
+}
 
     // 7. Oil Prices (if available in sweep)
     let brent = '--', wti = '--';
