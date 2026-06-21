@@ -1,4 +1,4 @@
-# Ground Truth Summary – 2026-06-21T07:58:08.705893+00:00
+# Ground Truth Summary – 2026-06-21T08:32:00.916684+00:00
 
 ## Top News Headlines (selected)
 **BBC News**:
@@ -9,14 +9,14 @@
 **Reuters**:
 
 **Al Jazeera**:
+- US and Iran face make-or-break talks in Switzerland
 - Vance arrives in Switzerland for US-Iran talks
 - Iran war day 114: US, Iranian delegations in Switzerland for key talks
-- Japan grab 4-0 win as Ueda’s brace knocks Tunisia out of 2026 World Cup
 
 **The Guardian**:
+- Sweat, tears and camaraderie as 20,000 runners take on world’s largest ultramarathon
 - Global framework for reparatory justice adopted at landmark Ghana conference
 - CDC to tap $107m in emergency funding for Ebola response in DRC and Uganda
-- Barbados prime minister announces manifesto for slavery reparations
 
 **France 24**:
 
@@ -25,7 +25,7 @@
 **Sky News**:
 - Man charged over series of 'anti-Muslim' attacks in Edinburgh
 - Three people killed in fire close to football ground
-- Sky News award-winning podcast The Wargame becoming TV series
+- Clarkson gives health update after cancer diagnosis revealed
 
 **NHK World**:
 - W杯 日本がチュニジアに勝利 鎌田 上田 伊東ゴール【詳しく】
@@ -35,17 +35,17 @@
 **Times of India**:
 - 'Amma, Appa, Anna, Sorry': Another NEET aspirant dies ahead of retest in Tamil Nadu
 - 'Best of luck for NEET re-test, join us after exam': CJP founder Abhijeet Dipke
-- 'Physical fitness, mental resilience': Indian Navy takes Yoga Day underwater — watch
+- Satya Nadella's new inner circle: Meet Microsoft's key leaders
 
 **South China Morning Post**:
+- For Hong Kong to succeed in AI, energy cannot be an afterthought
 - Hong Kong a ‘strategic adaptation ground’ for mainland Chinese tech giants: Paul Chan
 - Hong Kong considers expanding priority care scheme to better flag high-risk cases
-- Residents in 2 villages can turn houses fully into tourist sites under pilot scheme
 
 **Africa News**:
+- Niger and Benin discuss normalising relations between two countries
+- Iran says Strait of Hormuz closed again after Israeli attacks on Lebanon
 - Oil 'pouring through' Strait of Hormuz, Trump says, as he unveils new Air Force One
-- Fans party in Monterrey ahead of Japan-Tunisia World Cup match
-- African leaders mark Juneteenth with call for reparations for Atlantic slave trade
 
 ## Disaster and Conflict Alerts
 - gdacs: error

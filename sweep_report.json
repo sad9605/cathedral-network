@@ -1,36 +1,36 @@
 {
-  "timestamp": "2026-06-21T07:58:08.705893+00:00",
+  "timestamp": "2026-06-21T08:32:00.916684+00:00",
   "feeds": {
     "news_rss": {
       "BBC News": [
         "Leadership uncertainty 'enormously disruptive', former top civil servant warns",
         "US-Iran talks to begin in Switzerland as Tehran says it closed Strait of Hormuz",
         "Man charged after suspected anti-Muslim attacks in Edinburgh",
-        "Nine people in critical condition among 100 injured in Bedford train crash",
-        "Extreme heat warning expanded as 37C heatwave approaches UK"
+        "Extreme heat warning expanded as 37C heatwave approaches UK",
+        "Jeremy Clarkson in remission from prostate cancer"
       ],
       "Reuters": [],
       "Al Jazeera": [
+        "US and Iran face make-or-break talks in Switzerland",
         "Vance arrives in Switzerland for US-Iran talks",
         "Iran war day 114: US, Iranian delegations in Switzerland for key talks",
-        "Japan grab 4-0 win as Ueda\u2019s brace knocks Tunisia out of 2026 World Cup",
-        "Trump official says Iran World Cup visa approval \u2018amazing\u2019",
-        "Which teams have qualified for the World Cup 2026 knockouts, round of 32?"
+        "Ueda\u2019s brace helps Japan knock Tunisia out of World Cup 2026",
+        "Trump official says Iran World Cup visa approval \u2018amazing\u2019"
       ],
       "The Guardian": [
+        "Sweat, tears and camaraderie as 20,000 runners take on world\u2019s largest ultramarathon",
         "Global framework for reparatory justice adopted at landmark Ghana conference",
         "CDC to tap $107m in emergency funding for Ebola response in DRC and Uganda",
         "Barbados prime minister announces manifesto for slavery reparations",
-        "South African men sentenced in \u2018world\u2019s largest\u2019 rhino horn trafficking case",
-        "Seven-year-old Abdiqadir was hit in a US airstrike. Without a $750 operation, he may lose his ability to walk"
+        "South African men sentenced in \u2018world\u2019s largest\u2019 rhino horn trafficking case"
       ],
       "France 24": [],
       "Deutsche Welle": [],
       "Sky News": [
         "Man charged over series of 'anti-Muslim' attacks in Edinburgh",
         "Three people killed in fire close to football ground",
-        "Sky News award-winning podcast The Wargame becoming TV series",
         "Clarkson gives health update after cancer diagnosis revealed",
+        "Sky News award-winning podcast The Wargame becoming TV series",
         "Alcohol bans as Europe swelters - with temperatures of up to 44C forecast"
       ],
       "NHK World": [
@@ -43,23 +43,23 @@
       "Times of India": [
         "'Amma, Appa, Anna, Sorry': Another NEET aspirant dies ahead of retest in Tamil Nadu",
         "'Best of luck for NEET re-test, join us after exam': CJP founder Abhijeet Dipke",
-        "'Physical fitness, mental resilience': Indian Navy takes Yoga Day underwater \u2014 watch",
         "Satya Nadella's new inner circle: Meet Microsoft's key leaders",
-        "Happy Father\u2019s Day 2026: Top 50 wishes, messages and quotes to make dad feel special"
+        "Happy Father\u2019s Day 2026: Top 50 wishes, messages and quotes to make dad feel special",
+        "'Physical fitness, mental resilience': Indian Navy takes Yoga Day underwater \u2014 watch"
       ],
       "South China Morning Post": [
+        "For Hong Kong to succeed in AI, energy cannot be an afterthought",
         "Hong Kong a \u2018strategic adaptation ground\u2019 for mainland Chinese tech giants: Paul Chan",
         "Hong Kong considers expanding priority care scheme to better flag high-risk cases",
         "Residents in 2 villages can turn houses fully into tourist sites under pilot scheme",
-        "Hong Kong only place in China that can adopt model akin to SpaceX, CY Leung says",
-        "Hong Kong parents turn to summer school options in Asia amid soaring airfares"
+        "Hong Kong only place in China that can adopt model akin to SpaceX, CY Leung says"
       ],
       "Africa News": [
+        "Niger and Benin discuss normalising relations between two countries",
+        "Iran says Strait of Hormuz closed again after Israeli attacks on Lebanon",
         "Oil 'pouring through' Strait of Hormuz, Trump says, as he unveils new Air Force One",
         "Fans party in Monterrey ahead of Japan-Tunisia World Cup match",
-        "African leaders mark Juneteenth with call for reparations for Atlantic slave trade",
-        "Africa must invest own funds in Ebola response, says CDC head",
-        "Brazil and Haiti fans celebrate together after World Cup match"
+        "African leaders mark Juneteenth with call for reparations for Atlantic slave trade"
       ]
     },
     "gdacs": {
@@ -70,7 +70,7 @@
     "usgs": {
       "source": "USGS",
       "status": "success",
-      "earthquakes": 226
+      "earthquakes": 221
     },
     "reliefweb": {
       "source": "ReliefWeb",
@@ -100,7 +100,7 @@
     "opensky": {
       "source": "OpenSky",
       "status": "success",
-      "aircraft": 6492
+      "aircraft": 6726
     },
     "kalshi": {
       "source": "Kalshi",
