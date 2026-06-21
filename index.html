@@ -8,7 +8,7 @@
   <meta name="description" content="Live summary of the Cathedral Network's threat assessment, global metrics, and top pressing threats.">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Minimal page-specific overrides – everything else is in style.css */
+    /* Minimal page-specific overrides */
     .hewd-widget {
       background: white;
       border-radius: var(--card-radius);
@@ -81,12 +81,158 @@
     .modal li { margin: 0.3rem 0; }
     .modal .meta { font-size: 0.85rem; color: #666; }
     body.dark .modal .meta { color: #aaa; }
+
+    .sidebar-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100%;
+      background: white;
+      border-right: 1px solid #eee;
+      overflow-y: auto;
+      z-index: 1000;
+      padding: 1rem;
+      transition: transform 0.3s ease;
+    }
+    body.dark .sidebar-container {
+      background: #2a2a3a;
+      border-right-color: #444;
+    }
+    .sidebar-container .sidebar-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+    }
+    body.dark .sidebar-container .sidebar-header {
+      border-bottom-color: #444;
+    }
+    .sidebar-container .sidebar-header span {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--violet-dark);
+    }
+    body.dark .sidebar-container .sidebar-header span {
+      color: #b39ddb;
+    }
+    .sidebar-container nav .nav-section {
+      margin-bottom: 1.25rem;
+    }
+    .sidebar-container nav .nav-section strong {
+      display: block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--violet-dark);
+      padding: 0.2rem 0 0.3rem 0;
+      opacity: 0.7;
+    }
+    body.dark .sidebar-container nav .nav-section strong {
+      color: #b39ddb;
+    }
+    .sidebar-container nav .nav-section a {
+      display: block;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+    body.dark .sidebar-container nav .nav-section a {
+      color: #f0f0f0;
+    }
+    .sidebar-container nav .nav-section a:hover {
+      background: var(--violet-light);
+    }
+    body.dark .sidebar-container nav .nav-section a:hover {
+      background: #3a3a4a;
+    }
+
+    #sidebar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--violet-dark);
+    }
+    body.dark #sidebar-toggle {
+      color: #b39ddb;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar-container {
+        transform: translateX(-100%);
+        width: 260px;
+      }
+      .sidebar-container.open {
+        transform: translateX(0);
+      }
+      #sidebar-toggle {
+        display: block;
+      }
+      .container {
+        margin-left: 0 !important;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .container {
+        margin-left: 240px;
+      }
+    }
   </style>
 </head>
 <body>
 
-<!-- Sidebar placeholder -->
-<div id="sidebar-placeholder"></div>
+<!-- Hardcoded Sidebar -->
+<div class="sidebar-container" id="sidebar">
+  <div class="sidebar-header">
+    <span>🏛️ CATHEDRAL</span>
+  </div>
+  <nav>
+    <div class="nav-section">
+      <strong>📊 Dashboard</strong>
+      <a href="index.html">Ground Truth</a>
+      <a href="hewd.html">HEWD Dashboard</a>
+      <a href="health.html">System Health</a>
+    </div>
+    <div class="nav-section">
+      <strong>🧠 Intelligence</strong>
+      <a href="threat-matrix.html">Threat Matrix</a>
+      <a href="prediction-log.html">Prediction Log</a>
+      <a href="regional.html">Regional Forecasts</a>
+      <a href="daily-brief.html">Daily Brief</a>
+    </div>
+    <div class="nav-section">
+      <strong>⚖️ Governance</strong>
+      <a href="constitution.html">Constitution</a>
+      <a href="wardens.html">Wardens</a>
+      <a href="ascension.html">Ascension Engine</a>
+      <a href="warden-dashboard.html">Warden Dashboard</a>
+    </div>
+    <div class="nav-section">
+      <strong>🌍 Community</strong>
+      <a href="spotter.html">Spotter Guide</a>
+      <a href="about.html">About</a>
+      <a href="sources.html">Sources</a>
+      <a href="credits.html">Credits</a>
+    </div>
+    <div class="nav-section">
+      <strong>🔧 Tools</strong>
+      <a href="undp-demo.html">UNDP Demo</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="pra.html">PRA</a>
+    </div>
+  </nav>
+</div>
 
 <!-- Banner -->
 <header class="cathedral-banner">
@@ -209,13 +355,8 @@
 
 <script>
   // ============================================================
-  // SIDEBAR
+  // SIDEBAR TOGGLE (mobile)
   // ============================================================
-  fetch('sidebar.html')
-    .then(r => r.text())
-    .then(data => document.getElementById('sidebar-placeholder').innerHTML = data)
-    .catch(() => {});
-
   document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
     document.getElementById('sidebar')?.classList.toggle('open');
   });
