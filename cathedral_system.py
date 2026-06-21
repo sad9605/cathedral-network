@@ -139,6 +139,12 @@ def main():
     # ---- Generate archive index ----
     run_script("generate_archive_index.py", "Archive index generation")
 
+    # ---- Generate daily brief ----
+    run_script("generate_daily_brief.py", "Daily brief generation")
+
+    # The unconventional signals are already in sweep_report.json from daily-sweep.py,
+    # so we don't need a separate script. They are now part of the sweep data.
+
     # 13. Git commit and push (to trigger GitHub Pages rebuild)
     run_script("git_commit_push.py", "Git commit and push")
 
