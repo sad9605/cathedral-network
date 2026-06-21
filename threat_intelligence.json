@@ -1,0 +1,73 @@
+{
+  "C01": {
+    "id": "C01",
+    "name": "Iran‑Israel/US War / Hormuz",
+    "narrative": "A multi‑theater conflict involving Iran, Israel, and the United States, centred on the Strait of Hormuz and regional proxy forces.",
+    "timeline": {
+      "2026‑02‑20": "Initial escalation: Iran threatens to close Hormuz.",
+      "2026‑04‑13": "US imposes naval blockade of Iranian ports.",
+      "2026‑05‑07": "Tanker war resumes.",
+      "2026‑05‑09": "Iran threatens US military bases.",
+      "2026‑06‑07": "Israel strikes Iranian nuclear/military sites.",
+      "2026‑06‑09": "US retaliation within 72 hours following IRGC attack."
+    },
+    "current_status": "Active conflict with ongoing missile exchanges and naval skirmishes. SCP: 0.95.",
+    "forecast": "Likely escalation to full‑scale war within 14 days. Probability: 95%.",
+    "cascade_effects": [
+      {"target": "C11", "impact": "Iraq instability increases", "scp_boost": 0.15},
+      {"target": "C48", "impact": "AI deepfake operations intensify", "scp_boost": 0.10},
+      {"target": "C129", "impact": "Armenia‑Azerbaijan conflict re‑ignites", "scp_boost": 0.08}
+    ],
+    "human_cost": {
+      "casualties": "1,200+ (estimated)",
+      "displaced": "250,000+",
+      "affected": "2.5M+"
+    },
+    "economic_cost": {
+      "oil_impact": "Brent expected to exceed $150/bbl",
+      "global_gdp": "0.5‑1.0% contraction",
+      "estimated_loss": "$50‑100B"
+    },
+    "recommendations": [
+      "Pre‑position humanitarian supplies in the region.",
+      "Advise shipping to avoid Gulf waters.",
+      "Prepare for mass casualty events in Haifa, Tel Aviv, Tehran."
+    ],
+    "confidence": 0.92,
+    "sources": ["IDF", "IRGC", "Reuters", "OSINT"]
+  },
+  "C03": {
+    "id": "C03",
+    "name": "Horn of Africa Famine",
+    "narrative": "A catastrophic food crisis affecting Somalia, Kenya, Ethiopia, and South Sudan, driven by drought, conflict, and oil price shocks.",
+    "timeline": {
+      "2026‑04‑01": "Drought intensifies in the Horn.",
+      "2026‑05‑01": "IPC Phase 5 declared in parts of Somalia.",
+      "2026‑05‑14": "Horn food prices rise >25% YoY.",
+      "2026‑06‑01": "Famine expands to Kenya and Ethiopia."
+    },
+    "current_status": "Famine conditions are worsening. 19.5M acutely food insecure.",
+    "forecast": "Famine will expand to additional regions within 30 days. Probability: 85%.",
+    "cascade_effects": [
+      {"target": "C139", "impact": "Mass displacement increases", "scp_boost": 0.20},
+      {"target": "C48", "impact": "Disinformation amplifies", "scp_boost": 0.10}
+    ],
+    "human_cost": {
+      "casualties": "200,000+ (projected)",
+      "displaced": "2M+",
+      "affected": "19.5M+"
+    },
+    "economic_cost": {
+      "food_impact": "FAO index expected to exceed 250",
+      "aid_cost": "$10B+ required",
+      "estimated_loss": "$20‑40B"
+    },
+    "recommendations": [
+      "Pre‑position food and water in the Horn.",
+      "Use local logistics networks for distribution.",
+      "Monitor for additional compound alerts."
+    ],
+    "confidence": 0.88,
+    "sources": ["IPC", "UN OCHA", "FAO"]
+  }
+}
