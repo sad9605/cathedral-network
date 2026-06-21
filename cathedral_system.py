@@ -59,6 +59,9 @@ def main():
 
     # 1. Daily sweep – OSINT ingestion
     run_script("daily-sweep.py", "Daily OSINT sweep")
+    
+    # ---- Fetch breaking news ----
+    run_script("fetch_breaking_news.py", "Breaking news fetch")
 
     # 2. Time‑series forecasting (Prophet)
     run_script("tsf_prototype.py", "Time‑series forecasting")
