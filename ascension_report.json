@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-23T13:18:29.938458",
-  "resilience_score": 25.93,
+  "timestamp": "2026-06-23T13:53:58.353323",
+  "resilience_score": 25.92,
   "recovery_probabilities": {
     "C01": {
       "recovery_probability": 0.259,
@@ -373,9 +373,9 @@
       ]
     },
     "C19": {
-      "recovery_probability": 0.26,
+      "recovery_probability": 0.259,
       "region": "Global",
-      "scp": 0.9881,
+      "scp": 0.99,
       "signal_count": 29,
       "signals": [
         "positive_signal",
@@ -558,9 +558,9 @@
       ]
     },
     "C60": {
-      "recovery_probability": 0.26,
+      "recovery_probability": 0.259,
       "region": "Global",
-      "scp": 0.9888,
+      "scp": 0.99,
       "signal_count": 29,
       "signals": [
         "positive_signal",
@@ -2151,7 +2151,7 @@
     "G19": {
       "recovery_probability": 0.259,
       "region": "Global",
-      "scp": 0.9899,
+      "scp": 0.99,
       "signal_count": 29,
       "signals": [
         "positive_signal",
@@ -2186,9 +2186,9 @@
       ]
     },
     "G20": {
-      "recovery_probability": 0.26,
+      "recovery_probability": 0.259,
       "region": "Global",
-      "scp": 0.9879,
+      "scp": 0.99,
       "signal_count": 29,
       "signals": [
         "positive_signal",
@@ -2815,9 +2815,9 @@
       ]
     },
     "U10": {
-      "recovery_probability": 0.261,
+      "recovery_probability": 0.259,
       "region": "Global",
-      "scp": 0.9862,
+      "scp": 0.99,
       "signal_count": 29,
       "signals": [
         "positive_signal",
@@ -4149,7 +4149,7 @@
     "F-INSUR-SPIRAL": {
       "recovery_probability": 0.272,
       "region": "Global",
-      "scp": 0.9588,
+      "scp": 0.9592,
       "signal_count": 29,
       "signals": [
         "positive_signal",
@@ -6922,9 +6922,9 @@
       ]
     },
     "G14": {
-      "recovery_probability": 0.304,
+      "recovery_probability": 0.286,
       "region": "Global",
-      "scp": 0.8844,
+      "scp": 0.9253,
       "signal_count": 29,
       "signals": [
         "positive_signal",
@@ -7996,6 +7996,17 @@
       "current_signals": 29
     },
     {
+      "threat_id": "C19",
+      "name": "Zaporizhzhia NPP",
+      "impact": 0.88,
+      "effort": 0.092,
+      "score": 8.652,
+      "recovery_probability": 0.259,
+      "scp": 0.99,
+      "domain": "Geopolitical",
+      "current_signals": 29
+    },
+    {
       "threat_id": "C25",
       "name": "NATO Article 4 (Romania)",
       "impact": 0.88,
@@ -8040,6 +8051,17 @@
       "current_signals": 29
     },
     {
+      "threat_id": "C60",
+      "name": "Narva Border Crisis",
+      "impact": 0.88,
+      "effort": 0.092,
+      "score": 8.652,
+      "recovery_probability": 0.259,
+      "scp": 0.99,
+      "domain": "Geopolitical",
+      "current_signals": 29
+    },
+    {
       "threat_id": "C64",
       "name": "Mediterranean Migration",
       "impact": 0.88,
@@ -8075,28 +8097,6 @@
     {
       "threat_id": "C2",
       "name": "Information Warfare",
-      "impact": 0.88,
-      "effort": 0.092,
-      "score": 8.652,
-      "recovery_probability": 0.259,
-      "scp": 0.99,
-      "domain": "Geopolitical",
-      "current_signals": 29
-    },
-    {
-      "threat_id": "C4",
-      "name": "Moldova Transnistria escalation",
-      "impact": 0.88,
-      "effort": 0.092,
-      "score": 8.652,
-      "recovery_probability": 0.259,
-      "scp": 0.99,
-      "domain": "Geopolitical",
-      "current_signals": 29
-    },
-    {
-      "threat_id": "C6",
-      "name": "Russian sabotage in Germany/Poland",
       "impact": 0.88,
       "effort": 0.092,
       "score": 8.652,
@@ -8280,7 +8280,7 @@
       "type": "positive_signal",
       "region": "Global",
       "date": "2026-06-23",
-      "description": "U.S. lobbyists and pundits with the president\u2019s ear are aiding Latin America\u2019s swing to the right."
+      "description": "U.S. lobbyists and pundits with President Donald Trump\u2019s ear are aiding Latin America\u2019s swing to the right."
     }
   ],
   "summary": {

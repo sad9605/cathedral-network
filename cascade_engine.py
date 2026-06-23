@@ -86,15 +86,15 @@ def normalize_rules(rules_data):
     return normalized
 
 def compute_threat_status(scp: float) -> str:
-    if scp >= 0.95:
+    if scp >= 0.92:
         return "Black Acute"
-    elif scp >= 0.88:
+    elif scp >= 0.80:
         return "Black Structural"
-    elif scp >= 0.75:
+    elif scp >= 0.65:
         return "Red"
-    elif scp >= 0.55:
+    elif scp >= 0.45:
         return "Orange"
-    elif scp >= 0.30:
+    elif scp >= 0.25:
         return "Yellow"
     else:
         return "Green"
@@ -131,6 +131,8 @@ def run_cascade_engine(
 
         current_scp = t.get('scp', 0.5)
         base_prob = t.get('base_probability', DEFAULT_PRIOR)
+        # Scale down high base probabilities to prevent saturation
+        base_prob = min(0.50, base_prob * 0.6)  # reduce by 40%, cap at 0.50
 
         # Apply decay
         last_updated = t.get('last_updated')
@@ -167,6 +169,10 @@ def run_cascade_engine(
                 weighted_lr = 1.0 + (ml_lr - 1.0) * ML_WEIGHT
                 lrs.append(weighted_lr)
                 t['ml_likelihood_ratio'] = ml_lr
+        # Compute confidence from ML likelihood ratio
+        ml_lr = ml_lrs.get(tid, 1.0)
+        confidence = min(0.95, 0.50 + (ml_lr - 1.0) * 0.04)
+        t['confidence'] = round(confidence, 2)
 
         # Source credibility
         source_weights = []
