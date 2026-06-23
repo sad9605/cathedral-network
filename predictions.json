@@ -501,15 +501,6 @@
       "created": "2026-06-05"
     },
     {
-      "id": "P-OIL-150",
-      "description": "Brent >$150/bbl",
-      "probability": 45,
-      "horizon": "15 Jul 2026",
-      "status": "Active",
-      "date_made": "2026-05-20",
-      "created": "2026-05-20"
-    },
-    {
       "id": "P-FAO-140",
       "description": "FAO Food Price Index \u2265140",
       "probability": 50,
@@ -517,15 +508,6 @@
       "status": "Active",
       "date_made": "2026-05-01",
       "created": "2026-05-01"
-    },
-    {
-      "id": "P-ZNPP-LOSS",
-      "description": "ZNPP complete external power loss",
-      "probability": 30,
-      "horizon": "31 Aug 2026",
-      "status": "Active",
-      "date_made": "2026-05-15",
-      "created": "2026-05-15"
     },
     {
       "id": "P34",
@@ -717,15 +699,6 @@
       "created": "2026-06-06"
     },
     {
-      "id": "P74",
-      "description": "Oil exceeds $130/bbl within 7 days (from 7 June)",
-      "probability": 40,
-      "horizon": "7 days",
-      "status": "Active",
-      "date_made": "2026-06-07",
-      "created": "2026-06-07"
-    },
-    {
       "id": "P75",
       "description": "Israel strikes Iranian nuclear/military sites within 14 days (from 7 June)",
       "probability": 60,
@@ -753,15 +726,6 @@
       "created": "2026-06-07"
     },
     {
-      "id": "P78",
-      "description": "Brent >$120/bbl within 7 days (8 June)",
-      "probability": 40,
-      "horizon": "7 days",
-      "status": "Active",
-      "date_made": "2026-06-08",
-      "created": "2026-06-08"
-    },
-    {
       "id": "P79",
       "description": "Bab el-Mandab Strait disrupted within 30 days (from 8 June)",
       "probability": 65,
@@ -780,33 +744,6 @@
       "created": "2026-06-08"
     },
     {
-      "id": "P81",
-      "description": "Oil >$200/bbl within 14 days (Hormuz closed)",
-      "probability": 40,
-      "horizon": "14 days",
-      "status": "Active",
-      "date_made": "2026-06-08",
-      "created": "2026-06-08"
-    },
-    {
-      "id": "P82",
-      "description": "US-Iran direct military exchange within 14 days",
-      "probability": 40,
-      "horizon": "14 days",
-      "status": "Active",
-      "date_made": "2026-06-08",
-      "created": "2026-06-08"
-    },
-    {
-      "id": "P83",
-      "description": "Israel ground incursion into Lebanon within 14 days",
-      "probability": 45,
-      "horizon": "14 days",
-      "status": "Active",
-      "date_made": "2026-06-08",
-      "created": "2026-06-08"
-    },
-    {
       "id": "P84",
       "description": "Global recession declared within 60 days",
       "probability": 80,
@@ -819,15 +756,6 @@
       "id": "P85",
       "description": "At least 3 additional countries declare famine (IPC5) within 90 days",
       "probability": 65,
-      "horizon": "90 days",
-      "status": "Active",
-      "date_made": "2026-06-08",
-      "created": "2026-06-08"
-    },
-    {
-      "id": "P86",
-      "description": "US combat deaths >100 in Iran-related conflict within 90 days",
-      "probability": 40,
       "horizon": "90 days",
       "status": "Active",
       "date_made": "2026-06-08",
@@ -915,15 +843,6 @@
       "created": "2026-06-08"
     },
     {
-      "id": "P97",
-      "description": "Oil >$140/bbl within 30 days",
-      "probability": 25,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-08",
-      "created": "2026-06-08"
-    },
-    {
       "id": "P98",
       "description": "Houthi attack on commercial tanker causes casualty/spill within 30 days",
       "probability": 65,
@@ -955,15 +874,6 @@
       "description": "Coordinated attack on both Hormuz and Bab el-Mandeb within 60 days",
       "probability": 65,
       "horizon": "60 days",
-      "status": "Active",
-      "date_made": "2026-06-08",
-      "created": "2026-06-08"
-    },
-    {
-      "id": "P102",
-      "description": "Oil >$120/bbl within 30 days after 'security belt' implementation",
-      "probability": 45,
-      "horizon": "30 days",
       "status": "Active",
       "date_made": "2026-06-08",
       "created": "2026-06-08"
@@ -1158,78 +1068,6 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "C3",
-      "description": "Ukraine-Russia spillover",
-      "probability": 35,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-04-01",
-      "created": "2026-04-01",
-      "scp": 0.01,
-      "priority_score": 100,
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C11",
-      "description": "Iraq Instability",
-      "probability": 40,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-04-01",
-      "created": "2026-04-01",
-      "scp": 0.95,
-      "priority_score": 100,
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C58",
-      "description": "Underwater Infrastructure Sabotage",
-      "probability": 30,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-05-01",
-      "created": "2026-05-01",
-      "scp": 0.01,
-      "priority_score": 92.1,
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C64",
-      "description": "Mediterranean Migration",
-      "probability": 35,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-05-01",
-      "created": "2026-05-01",
-      "scp": 0.01,
-      "priority_score": 100,
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C85",
-      "description": "Cartel Violence Mexico",
-      "probability": 45,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-05-01",
-      "created": "2026-05-01",
-      "scp": 0.02,
-      "priority_score": 100,
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C122",
-      "description": "North Korea Ballistic",
-      "probability": 40,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-05-01",
-      "created": "2026-05-01",
-      "scp": 0.02,
-      "priority_score": 100,
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "C2",
       "description": "Information Warfare",
       "probability": 60,
@@ -1239,18 +1077,6 @@
       "created": "2026-05-01",
       "scp": 0.02,
       "priority_score": 100,
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C4",
-      "description": "Moldova Transnistria escalation",
-      "probability": 30,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-05-01",
-      "created": "2026-05-01",
-      "scp": 0.01,
-      "priority_score": 92.1,
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
@@ -1290,154 +1116,10 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "C60",
-      "description": "Narva Border Crisis",
-      "probability": 25,
-      "scp": 0.01,
-      "priority_score": 76.8,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C6",
-      "description": "Russian sabotage in Germany/Poland",
-      "probability": 35,
-      "scp": 0.01,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C7",
-      "description": "Finland\u2011Russia border closure",
-      "probability": 25,
-      "scp": 0.01,
-      "priority_score": 76.8,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C9",
-      "description": "Poland\u2011Belarus migrant weaponisation",
-      "probability": 40,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C10",
-      "description": "Ukraine frontline collapse",
-      "probability": 45,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "C12",
       "description": "Black Sea grain corridor closure",
       "probability": 50,
       "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C13",
-      "description": "Russian LNG terminal sabotage",
-      "probability": 35,
-      "scp": 0.01,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C14",
-      "description": "Nord Stream 2 reactivation",
-      "probability": 30,
-      "scp": 0.01,
-      "priority_score": 92.1,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C15",
-      "description": "Transnistria depot explosion",
-      "probability": 25,
-      "scp": 0.01,
-      "priority_score": 76.8,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C16",
-      "description": "Georgia Abkhazia freeze\u2011thaw",
-      "probability": 30,
-      "scp": 0.01,
-      "priority_score": 92.1,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C17",
-      "description": "Armenia\u2011Azerbaijan peace collapse",
-      "probability": 40,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C18",
-      "description": "Iranian drones to Russia",
-      "probability": 45,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C20",
-      "description": "Khmelnytskyi NPP shelling",
-      "probability": 35,
-      "scp": 0.01,
       "priority_score": 100,
       "horizon": "30 days",
       "status": "Active",
@@ -1451,42 +1133,6 @@
       "probability": 60,
       "scp": 0.02,
       "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C22",
-      "description": "Russian internal coup",
-      "probability": 25,
-      "scp": 0.01,
-      "priority_score": 76.8,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C23",
-      "description": "Wagner resurgence in Africa",
-      "probability": 40,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C24",
-      "description": "Russian Arctic militarisation",
-      "probability": 30,
-      "scp": 0.01,
-      "priority_score": 92.1,
       "horizon": "30 days",
       "status": "Active",
       "date_made": "2026-06-20",
@@ -1518,33 +1164,9 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "C28",
-      "description": "Turkish Straits closure",
-      "probability": 35,
-      "scp": 0.01,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "G-ARCTIC",
       "description": "Arctic resource wars (minerals, fish, oil, shipping)",
       "probability": 60,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "G-GREENLAND",
-      "description": "Greenland as geopolitical flashpoint",
-      "probability": 45,
       "scp": 0.02,
       "priority_score": 100,
       "horizon": "30 days",
@@ -1710,18 +1332,6 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "G16",
-      "description": "Oil price >$150",
-      "probability": 45,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "G17",
       "description": "Global deficit 7M b/d",
       "probability": 50,
@@ -1739,30 +1349,6 @@
       "probability": 55,
       "scp": 0.02,
       "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "G19",
-      "description": "China\u2011Iran petroyuan",
-      "probability": 40,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "G20",
-      "description": "Russia brokering role",
-      "probability": 15,
-      "scp": 0.01,
-      "priority_score": 46.1,
       "horizon": "30 days",
       "status": "Active",
       "date_made": "2026-06-20",
@@ -1794,33 +1380,9 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "E-SMR",
-      "description": "Small modular reactor safety & regulatory gap",
-      "probability": 40,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "E-HYPER-SCALE",
       "description": "Hyperscale AI data centre water/energy tipping point",
       "probability": 55,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "E-MINI-GRID",
-      "description": "Critical infrastructure mini\u2011grid fragility",
-      "probability": 45,
       "scp": 0.02,
       "priority_score": 100,
       "horizon": "30 days",
@@ -1926,69 +1488,9 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "C41",
-      "description": "AMOC Slowdown",
-      "probability": 35,
-      "scp": 0.01,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C46",
-      "description": "Bangladesh Monsoon Flood",
-      "probability": 45,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "E11",
       "description": "El Ni\u00f1o",
       "probability": 60,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "U10",
-      "description": "NOAA below\u2011avg forecast",
-      "probability": 15,
-      "scp": 0.01,
-      "priority_score": 46.1,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "U11",
-      "description": "California flood risk",
-      "probability": 35,
-      "scp": 0.01,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "U12",
-      "description": "Canada wildfire season",
-      "probability": 40,
       "scp": 0.02,
       "priority_score": 100,
       "horizon": "30 days",
@@ -2003,18 +1505,6 @@
       "probability": 50,
       "scp": 0.02,
       "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "CC2",
-      "description": "Georgia destabilisation",
-      "probability": 30,
-      "scp": 0.01,
-      "priority_score": 92.1,
       "horizon": "30 days",
       "status": "Active",
       "date_made": "2026-06-20",
@@ -2061,18 +1551,6 @@
       "id": "C-WATER-BANK",
       "description": "Global water bankruptcy",
       "probability": 65,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C-SUBSIDENCE",
-      "description": "Widespread land subsidence from groundwater depletion",
-      "probability": 45,
       "scp": 0.02,
       "priority_score": 100,
       "horizon": "30 days",
@@ -2226,18 +1704,6 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "U19",
-      "description": "Fed rate hold into 2027",
-      "probability": 35,
-      "scp": 0.01,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "C17*",
       "description": "African debt + private credit",
       "probability": 65,
@@ -2310,18 +1776,6 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "U17",
-      "description": "Venezuela oil sanctions relief",
-      "probability": 40,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "A24",
       "description": "Angola debt default risk",
       "probability": 60,
@@ -2382,18 +1836,6 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "F-CBDC",
-      "description": "CBDC\u2011driven disintermediation & bank runs",
-      "probability": 45,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "F-INSUR-SPIRAL",
       "description": "Climate\u2011driven insurance withdrawal spiral",
       "probability": 60,
@@ -2433,18 +1875,6 @@
       "id": "C36",
       "description": "Taiwan semiconductor cascade",
       "probability": 68,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C39",
-      "description": "Semiconductor\u2011fiscal",
-      "probability": 45,
       "scp": 0.02,
       "priority_score": 100,
       "horizon": "30 days",
@@ -2838,30 +2268,6 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "D-IMM-WAR",
-      "description": "Governor\u2011federal military standoff (state vs. national guard)",
-      "probability": 40,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "D-AI-LIAB",
-      "description": "Collapse of AI liability frameworks",
-      "probability": 45,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "D-TRUST",
       "description": "Compound erosion of trust in all institutions",
       "probability": 60,
@@ -2877,18 +2283,6 @@
       "id": "D-DESKILL",
       "description": "Massive technological deskilling & workforce mismatch",
       "probability": 50,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "D-GDPR",
-      "description": "Fragmentation of global privacy & AI governance",
-      "probability": 45,
       "scp": 0.02,
       "priority_score": 100,
       "horizon": "30 days",
@@ -2915,18 +2309,6 @@
       "probability": 88,
       "scp": 0.03,
       "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "U07",
-      "description": "Left\u2011wing protest violence",
-      "probability": 30,
-      "scp": 0.01,
-      "priority_score": 92.1,
       "horizon": "30 days",
       "status": "Active",
       "date_made": "2026-06-20",
@@ -2970,18 +2352,6 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "C64S",
-      "description": "Mediterranean Migration",
-      "probability": 40,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "C20*S",
       "description": "Demand destruction + frozen labour",
       "probability": 55,
@@ -3006,46 +2376,10 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "S-NVE",
-      "description": "Nihilistic Violent Extremists targeting children",
-      "probability": 45,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "S-CLASS",
-      "description": "Class\u2011based domestic terrorism (DHS)",
-      "probability": 40,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "S-FED-8000",
       "description": "8,000% rise in threats against federal law enforcement",
       "probability": 65,
       "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "S-LONELY",
-      "description": "Epidemic of loneliness as national security risk",
-      "probability": 35,
-      "scp": 0.01,
       "priority_score": 100,
       "horizon": "30 days",
       "status": "Active",
@@ -3069,42 +2403,6 @@
       "id": "C\u2011ZERODAY",
       "description": "AI\u2011Generated Zero\u2011Day Exploits",
       "probability": 58,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C\u2011BIOWPN",
-      "description": "AI\u2011Generated Bioweapon Instructions",
-      "probability": 45,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C\u2011AILANG",
-      "description": "Autonomous AI Social Networks",
-      "probability": 38,
-      "scp": 0.01,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "C\u2011DATACENTER\u2011RES",
-      "description": "AI Infrastructure Resource Tipping Point",
-      "probability": 40,
       "scp": 0.02,
       "priority_score": 100,
       "horizon": "30 days",
@@ -3174,33 +2472,9 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "I11",
-      "description": "AI disinformation supercycle",
-      "probability": 45,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "I12",
       "description": "Deepfake WMD false flag risk",
       "probability": 55,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "T-BIO-INF",
-      "description": "AI\u2011powered bioinformatics as national security vulnerability",
-      "probability": 45,
       "scp": 0.02,
       "priority_score": 100,
       "horizon": "30 days",
@@ -3294,30 +2568,6 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "G14",
-      "description": "Trump 'imminent deal' narrative",
-      "probability": 25,
-      "scp": 0.01,
-      "priority_score": 76.8,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "I11I",
-      "description": "AI disinformation supercycle",
-      "probability": 45,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "I12I",
       "description": "Deepfake WMD false flag",
       "probability": 55,
@@ -3366,18 +2616,6 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "C94",
-      "description": "H5N1 Mammalian Adaptation",
-      "probability": 40,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "C77",
       "description": "U.S. Health Security Gaps",
       "probability": 65,
@@ -3414,81 +2652,9 @@
       "updated": "2026-06-20T14:25:06.183831"
     },
     {
-      "id": "A14",
-      "description": "Mpox resurgence",
-      "probability": 35,
-      "scp": 0.01,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "A15",
-      "description": "Marburg outbreak",
-      "probability": 30,
-      "scp": 0.01,
-      "priority_score": 92.1,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "B-METABIO",
-      "description": "Convergent bio\u2011cyber threats (meta\u2011biothreats)",
-      "probability": 30,
-      "scp": 0.01,
-      "priority_score": 92.1,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
       "id": "B-AMR-KLEB",
       "description": "Hypervirulent carbapenem\u2011resistant Klebsiella pneumoniae (hvKp ST23)",
       "probability": 60,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "B-DARK-PROTEIN",
-      "description": "AI\u2011designed undetectable toxins",
-      "probability": 45,
-      "scp": 0.02,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "B-PANT-PIE",
-      "description": "Pantoea piersonii \u2013 emerging pathogen",
-      "probability": 35,
-      "scp": 0.01,
-      "priority_score": 100,
-      "horizon": "30 days",
-      "status": "Active",
-      "date_made": "2026-06-20",
-      "created": "2026-06-20",
-      "updated": "2026-06-20T14:25:06.183831"
-    },
-    {
-      "id": "B-RNA",
-      "description": "AI\u2011generated vaccine\u2011evading pathogens",
-      "probability": 40,
       "scp": 0.02,
       "priority_score": 100,
       "horizon": "30 days",
@@ -3689,7 +2855,7 @@
     "confirmed": 75,
     "falsified": 4,
     "hit_rate": 94.94,
-    "pending": 276,
+    "pending": 204,
     "watchlist": 11
   },
   "history": [
@@ -3780,8 +2946,28 @@
       "added": 0,
       "pending_count": 276,
       "hit_rate": 94.94
+    },
+    {
+      "timestamp": "2026-06-23T11:38:31.178934",
+      "action": "cleanup",
+      "removed": 72,
+      "kept": 204
+    },
+    {
+      "timestamp": "2026-06-23T11:40:30.821151",
+      "action": "cleanup",
+      "removed": 0,
+      "kept": 204
+    },
+    {
+      "timestamp": "2026-06-23T11:46:57.179155",
+      "action": "auto_generate",
+      "updated": 0,
+      "added": 0,
+      "pending_count": 204,
+      "hit_rate": 94.94
     }
   ],
-  "last_updated": "2026-06-21T12:53:47.812381",
+  "last_updated": "2026-06-23T11:46:57.179137",
   "last_hash": "0"
 }
