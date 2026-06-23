@@ -133,7 +133,10 @@ def main():
     
     run_script("generate_prediction_intelligence.py", "Prediction intelligence generation")    
     
-     # ---- Ascension Engine ----
+    # ---- Generate threat intelligence ----
+    run_script("generate_threat_intelligence.py", "Threat intelligence generation")
+    
+    # ---- Ascension Engine ----
     run_script("generate_positive_signals.py", "Positive signal extraction")
 
     run_script("ascension_engine.py", "Ascension Engine (Recovery & Opportunity)")

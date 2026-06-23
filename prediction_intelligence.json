@@ -2014,7 +2014,7 @@
       "evidence": [
         {
           "type": "Cascade",
-          "description": "Cascade from G-WEST-BANK to C01",
+          "description": "Cascade from C01 to C11",
           "likelihood_ratio": 1.5,
           "weight": 0.8
         },
@@ -2225,6 +2225,12 @@
       },
       "evidence": [
         {
+          "type": "Cascade",
+          "description": "Cascade from C129 to C3",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
+        {
           "type": "OSINT",
           "description": "Renewed armed conflict between Armenia and Azerbaijan over the Nagorno-Karabakh ",
           "likelihood_ratio": 2.0,
@@ -2264,6 +2270,12 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
+        {
+          "type": "Cascade",
+          "description": "Cascade from C19 to C54",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
         {
           "type": "OSINT",
           "description": "Baltic Grey-Zone operations \u2013 Russian hybrid warfare including GPS jamming, cybe",
@@ -2305,6 +2317,12 @@
       },
       "evidence": [
         {
+          "type": "Cascade",
+          "description": "Cascade from C132 to C88",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
+        {
           "type": "OSINT",
           "description": "Taiwan Strait Incident Risk \u2013 increased Chinese military activity and US naval p",
           "likelihood_ratio": 2.0,
@@ -2344,6 +2362,12 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
+        {
+          "type": "Cascade",
+          "description": "Cascade from C132 to C90",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
         {
           "type": "OSINT",
           "description": "South China Sea Militarisation \u2013 China's expansion of artificial islands and mil",
@@ -2385,6 +2409,12 @@
       },
       "evidence": [
         {
+          "type": "Cascade",
+          "description": "Cascade from C48 to C2",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
+        {
           "type": "OSINT",
           "description": "AI Deepfake Operations \u2013 coordinated disinformation campaigns using generative A",
           "likelihood_ratio": 2.0,
@@ -2424,6 +2454,12 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
+        {
+          "type": "Cascade",
+          "description": "Cascade from C19 to C54",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
         {
           "type": "OSINT",
           "description": "Zaporizhzhia Nuclear Power Plant \u2013 ongoing shelling and military activity around",
@@ -2465,6 +2501,12 @@
       },
       "evidence": [
         {
+          "type": "Cascade",
+          "description": "Cascade from C54 to C25",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
+        {
           "type": "OSINT",
           "description": "NATO Article 4 (Romania) \u2013 potential activation by Romania due to Russian drone ",
           "likelihood_ratio": 2.0,
@@ -2505,6 +2547,12 @@
       },
       "evidence": [
         {
+          "type": "Cascade",
+          "description": "Cascade from C48 to C2",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
+        {
           "type": "OSINT",
           "description": "Information Warfare \u2013 state-sponsored propaganda, disinformation, and cyber camp",
           "likelihood_ratio": 2.0,
@@ -2544,12 +2592,6 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
-        {
-          "type": "Cascade",
-          "description": "Cascade from C\u2011USIRAN to C01",
-          "likelihood_ratio": 1.5,
-          "weight": 0.8
-        },
         {
           "type": "OSINT",
           "description": "Direct US\u2011Iran Conflict \u2013 a threat affecting Geopolitical. Monitor closely for e",
@@ -2831,12 +2873,6 @@
       },
       "evidence": [
         {
-          "type": "Cascade",
-          "description": "Cascade from G-ARCTIC to C132",
-          "likelihood_ratio": 1.5,
-          "weight": 0.8
-        },
-        {
           "type": "OSINT",
           "description": "Arctic resource wars (minerals, fish, oil, shipping) \u2013 a threat affecting Geopol",
           "likelihood_ratio": 2.0,
@@ -2877,12 +2913,6 @@
       },
       "evidence": [
         {
-          "type": "Cascade",
-          "description": "Cascade from G-SPACE to C132",
-          "likelihood_ratio": 1.5,
-          "weight": 0.8
-        },
-        {
           "type": "OSINT",
           "description": "Weaponisation of low Earth orbit (ASAT, jamming, cyber) \u2013 a threat affecting Geo",
           "likelihood_ratio": 2.0,
@@ -2922,12 +2952,6 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
-        {
-          "type": "Cascade",
-          "description": "Cascade from G-WEST-BANK to C01",
-          "likelihood_ratio": 1.5,
-          "weight": 0.8
-        },
         {
           "type": "OSINT",
           "description": "West Bank violent escalation (third intifada risk) \u2013 a threat affecting Geopolit",
@@ -3014,6 +3038,12 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
+        {
+          "type": "Cascade",
+          "description": "Cascade from C11E to C106",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
         {
           "type": "OSINT",
           "description": "Oil Price Shock \u2013 a threat affecting Energy, Financial. Monitor closely for esca",
@@ -3661,6 +3691,12 @@
       },
       "evidence": [
         {
+          "type": "Cascade",
+          "description": "Cascade from C147 to C100",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
+        {
           "type": "OSINT",
           "description": "Arctic Sea Ice Loss \u2013 a threat affecting Climate. Monitor closely for escalation",
           "likelihood_ratio": 2.0,
@@ -3700,6 +3736,12 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
+        {
+          "type": "Cascade",
+          "description": "Cascade from C147 to C100",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
         {
           "type": "OSINT",
           "description": "Ross Ice Shelf Acceleration \u2013 a threat affecting Climate. Monitor closely for es",
@@ -3820,6 +3862,12 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
+        {
+          "type": "Cascade",
+          "description": "Cascade from C106 to C134",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
         {
           "type": "OSINT",
           "description": "Dry Corridor Famine\u2011Migration \u2013 a threat affecting Climate, Food, Social. Monito",
@@ -4358,12 +4406,6 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
-        {
-          "type": "Cascade",
-          "description": "Cascade from C11 to C133",
-          "likelihood_ratio": 1.5,
-          "weight": 0.8
-        },
         {
           "type": "OSINT",
           "description": "USD Reserve Erosion \u2013 a threat affecting Financial. Monitor closely for escalati",
@@ -5687,6 +5729,12 @@
       },
       "evidence": [
         {
+          "type": "Cascade",
+          "description": "Cascade from C03 to C126",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
+        {
           "type": "OSINT",
           "description": "North Africa Food Security Collapse \u2013 a threat affecting Food. Monitor closely f",
           "likelihood_ratio": 2.0,
@@ -6133,12 +6181,6 @@
       },
       "evidence": [
         {
-          "type": "Cascade",
-          "description": "Cascade from A-UREA to C03",
-          "likelihood_ratio": 1.5,
-          "weight": 0.8
-        },
-        {
           "type": "OSINT",
           "description": "Urea fertiliser supply chain timing window \u2013 a threat affecting Food, Supply Cha",
           "likelihood_ratio": 2.0,
@@ -6258,6 +6300,12 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
+        {
+          "type": "Cascade",
+          "description": "Cascade from A-STRAT-RES to C106",
+          "likelihood_ratio": 1.5,
+          "weight": 0.8
+        },
         {
           "type": "OSINT",
           "description": "Absence of strategic fertiliser reserves \u2013 a threat affecting Food. Monitor clos",
@@ -7753,12 +7801,6 @@
       },
       "evidence": [
         {
-          "type": "Cascade",
-          "description": "Cascade from B02 to C77",
-          "likelihood_ratio": 1.5,
-          "weight": 0.8
-        },
-        {
           "type": "OSINT",
           "description": "Bundibugyo Ebola \u2013 a threat affecting Biosecurity. Monitor closely for escalatio",
           "likelihood_ratio": 2.0,
@@ -7838,12 +7880,6 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
-        {
-          "type": "Cascade",
-          "description": "Cascade from B02 to C77",
-          "likelihood_ratio": 1.5,
-          "weight": 0.8
-        },
         {
           "type": "OSINT",
           "description": "U.S. Health Security Gaps \u2013 a threat affecting Biosecurity, Domestic. Monitor cl",
@@ -7964,12 +8000,6 @@
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
-        {
-          "type": "Cascade",
-          "description": "Cascade from B-AMR-KLEB to B02",
-          "likelihood_ratio": 1.5,
-          "weight": 0.8
-        },
         {
           "type": "OSINT",
           "description": "Hypervirulent carbapenem\u2011resistant Klebsiella pneumoniae (hvKp ST23) \u2013 a threat ",

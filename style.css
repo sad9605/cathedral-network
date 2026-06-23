@@ -964,3 +964,12 @@ body.dark .update-item {
   opacity: 0.6;
   margin: 0;
 }
+/* Threat status badges – Black Acute vs Black Structural */
+.badge-black-acute {
+  background: #1f1f1f;
+  color: #fff;
+}
+.badge-black-structural {
+  background: #7c4dff; /* Cathedral violet */
+  color: #fff;
+}
