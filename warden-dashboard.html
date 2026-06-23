@@ -3,182 +3,382 @@
 <head>
   <meta charset="UTF-8">
   <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cathedral — Warden Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — Warden Portal</title>
+  <meta name="description" content="Warden verification dashboard for the Cathedral Network.">
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root { --violet: #b39ddb; --violet-dark: #7c4dff; --violet-light: #f5f0fa; --card-radius: 20px; --shadow-sm: 0 4px 12px rgba(0,0,0,0.05); --bg-light: #fafafa; --text-dark: #1a1a1a; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.6; transition: background 0.2s, color 0.2s; }
-    body.dark { --bg-light: #1e1e2f; --text-dark: #f0f0f0; background: #1e1e2f; color: #f0f0f0; }
-    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
-    .cathedral-banner { background: var(--violet); padding: 1.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); }
-    .banner-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1.5rem; }
-    .logo-mark svg { display: block; }
-    .wordmark h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 300; font-size: 1.6rem; letter-spacing: 0.1em; color: white; margin: 0; }
-    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
-    .nav { margin: 1rem 0 1.5rem 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; background: white; border-radius: 60px; padding: 0.5rem 1rem; box-shadow: var(--shadow-sm); }
-    body.dark .nav { background: #2a2a3a; }
-    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
-    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
-    body.dark .nav-links a { color: #b39ddb; }
-    .menu-btn { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #5e2d8e; }
-    @media (max-width: 768px) { .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; } .nav-links.show { display: flex; } .menu-btn { display: block; } }
+    /* ----- Warden Portal specific styles ----- */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+    }
+    body.dark .stat-card {
+      background: #2a2a3a;
+    }
+    .stat-card .number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--violet-dark);
+    }
+    body.dark .stat-card .number {
+      color: #b39ddb;
+    }
+    .stat-card .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #666;
+      letter-spacing: 0.5px;
+    }
+    body.dark .stat-card .label {
+      color: #aaa;
+    }
 
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .stat-card { background: white; border-radius: var(--card-radius); padding: 1rem; text-align: center; box-shadow: var(--shadow-sm); border-left: 4px solid var(--violet-dark); }
-    body.dark .stat-card { background: #2a2a3a; }
-    .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--violet-dark); }
-    body.dark .stat-card .number { color: #b39ddb; }
-    .stat-card .label { font-size: 0.7rem; text-transform: uppercase; color: #666; letter-spacing: 0.5px; }
-    body.dark .stat-card .label { color: #aaa; }
+    /* Toolbar */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 1rem 0;
+    }
+    .toolbar .search-box {
+      flex: 1;
+      min-width: 200px;
+      max-width: 350px;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      border: 1px solid #ddd;
+      font-size: 0.85rem;
+    }
+    body.dark .toolbar .search-box {
+      background: #2a2a3a;
+      border-color: #555;
+      color: white;
+    }
+    .filter-btn {
+      padding: 0.3rem 0.8rem;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--violet-light);
+      color: #5e2d8e;
+      transition: background 0.2s;
+    }
+    body.dark .filter-btn {
+      background: #3a3a4a;
+      color: #b39ddb;
+    }
+    .filter-btn:hover {
+      background: var(--violet-dark);
+      color: white;
+    }
+    .filter-btn.active {
+      background: var(--violet-dark);
+      color: white;
+    }
 
-    .prediction-item { background: white; border-radius: var(--card-radius); padding: 1rem 1.2rem; margin: 0.5rem 0; box-shadow: var(--shadow-sm); border-left: 4px solid var(--violet-dark); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; }
-    body.dark .prediction-item { background: #2a2a3a; }
-    .prediction-item .info { flex: 1; min-width: 200px; }
-    .prediction-item .info .id { font-weight: 700; }
-    .prediction-item .info .desc { font-size: 0.9rem; opacity: 0.7; }
-    .prediction-item .info .prob { font-weight: 600; }
-    .prediction-item .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .btn { padding: 0.4rem 1rem; border-radius: 40px; border: none; cursor: pointer; font-weight: 600; transition: background 0.2s; }
-    .btn-verify { background: #22c55e; color: white; }
-    .btn-verify:hover { background: #16a34a; }
-    .btn-skip { background: #f97316; color: white; }
-    .btn-skip:hover { background: #ea580c; }
-    .verified-badge { background: #22c55e20; color: #22c55e; padding: 0.2rem 0.6rem; border-radius: 40px; font-size: 0.7rem; font-weight: 600; }
+    /* Prediction list */
+    .prediction-list {
+      display: grid;
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+    .prediction-item {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1rem 1.2rem;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      transition: border-color 0.2s;
+    }
+    body.dark .prediction-item {
+      background: #2a2a3a;
+    }
+    .prediction-item.verified {
+      border-left-color: #22c55e;
+    }
+    .prediction-item .info {
+      flex: 2;
+      min-width: 200px;
+    }
+    .prediction-item .info .id {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .prediction-item .info .desc {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    .prediction-item .info .meta {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin-top: 0.2rem;
+    }
+    .prediction-item .info .meta .prob {
+      font-weight: 600;
+      color: var(--violet-dark);
+    }
+    body.dark .prediction-item .info .meta .prob {
+      color: #b39ddb;
+    }
+    .prediction-item .actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.8rem;
+      transition: background 0.2s;
+    }
+    .btn-verify {
+      background: #22c55e;
+      color: white;
+    }
+    .btn-verify:hover {
+      background: #16a34a;
+    }
+    .btn-verify:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+    .btn-skip {
+      background: #f97316;
+      color: white;
+    }
+    .btn-skip:hover {
+      background: #ea580c;
+    }
+    .btn-details {
+      background: var(--violet-light);
+      color: #5e2d8e;
+    }
+    body.dark .btn-details {
+      background: #3a3a4a;
+      color: #b39ddb;
+    }
+    .btn-details:hover {
+      background: var(--violet-dark);
+      color: white;
+    }
+    .badge-verified {
+      background: #22c55e20;
+      color: #22c55e;
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
 
-    .footer { margin-top: 3rem; text-align: center; font-style: italic; color: #888; border-top: 1px solid #ddd; padding-top: 1rem; }
-    .dark-mode-toggle { position: fixed; bottom: 1rem; right: 1rem; background: var(--violet-dark); color: white; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 1.2rem; cursor: pointer; z-index: 1000; box-shadow: var(--shadow-sm); }
-    @media (max-width: 600px) { .banner-content { flex-direction: column; text-align: center; } .container { padding: 1rem; } .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; } .prediction-item { flex-direction: column; align-items: flex-start; } }
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal {
+      background: white;
+      border-radius: var(--card-radius);
+      max-width: 700px;
+      width: 95%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem;
+      box-shadow: var(--shadow-hover);
+      position: relative;
+      animation: modal-in 0.25s ease;
+    }
+    body.dark .modal {
+      background: #2a2a3a;
+    }
+    @keyframes modal-in {
+      from { transform: scale(0.95) translateY(-20px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #888;
+    }
+    body.dark .modal-close {
+      color: #aaa;
+    }
+    .modal-close:hover {
+      color: var(--text-dark);
+    }
+    .modal h2 {
+      margin-top: 0;
+    }
+    .modal .detail-row {
+      display: flex;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    body.dark .modal .detail-row {
+      border-bottom-color: #444;
+    }
+    .modal .detail-row .label {
+      font-weight: 600;
+      width: 120px;
+      flex-shrink: 0;
+    }
+    .modal .detail-row .value {
+      flex: 1;
+    }
+    .modal .reasoning {
+      background: var(--violet-light);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      border-left: 3px solid var(--violet-dark);
+    }
+    body.dark .modal .reasoning {
+      background: #3a3a4a;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.6;
+    }
+
+    /* Sidebar, banner, footer – handled by style.css */
   </style>
 </head>
 <body>
+
+<!-- Sidebar -->
+<div id="sidebar-placeholder"></div>
+
+<!-- Banner -->
 <header class="cathedral-banner">
   <div class="banner-content">
-    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Warden Verification Dashboard</p></div>
+    <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Warden Portal</p></div>
   </div>
 </header>
+
+<!-- Top Nav (mobile) -->
+<div class="top-nav">
+  <a href="index.html">Ground Truth</a>
+  <a href="threat-matrix.html">Threat Matrix</a>
+  <a href="prediction-log.html">Prediction Log</a>
+  <a href="hewd.html">HEWD</a>
+  <a href="health.html">Health</a>
+  <a href="wardens.html">Wardens</a>
+  <a href="warden-dashboard.html">Warden Portal</a>
+</div>
+
+<!-- Main content -->
 <div class="container">
-  <div class="nav">
-    <button class="menu-btn" id="menuBtn">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Ground Truth</a>
-      <a href="undp-demo.html">UNDP Demo</a>
-      <a href="archive.html">Archive</a>
-      <a href="spotter.html">Spotter Guide</a>
-      <a href="sources.html">Sources</a>
-      <a href="constitution.html">Constitution</a>
-      <a href="wardens.html">Wardens</a>
-      <a href="hewd.html">HEWD Dashboard</a>
-      <a href="health.html">System Health</a>
-      <a href="about.html">About</a>
-      <a href="threat-matrix.html">Threat Matrix</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="pra.html">Personal Resilience</a>
-      <a href="prediction-log.html">Prediction Log</a>
-      <a href="credits.html">Credits</a>
-      <a href="ascension.html">Ascension</a>
-      <a href="warden-dashboard.html">Warden Dashboard</a>
-    </div>
-  </div>
+  <h1>🛡️ Warden Portal</h1>
+  <p style="margin-bottom: 1rem;">Review pending predictions, verify Spotter reports, and uphold the Cathedral's intelligence.</p>
 
-  <h1>🛡️ Warden Verification Dashboard</h1>
-  <p style="margin-bottom: 1rem;">Review pending predictions. Verified predictions receive a confidence boost (Law II).</p>
-
+  <!-- Stats -->
   <div class="stats-grid" id="statsGrid">
     <div class="stat-card"><div class="number" id="pendingCount">--</div><div class="label">Pending</div></div>
     <div class="stat-card"><div class="number" id="verifiedCount">--</div><div class="label">Verified</div></div>
     <div class="stat-card"><div class="number" id="verifiedPct">--</div><div class="label">% Verified</div></div>
+    <div class="stat-card"><div class="number" id="totalCount">--</div><div class="label">Total Predictions</div></div>
   </div>
 
-  <div id="predictionsContainer">
-    <p>Loading predictions…</p>
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <input type="text" id="searchBox" class="search-box" placeholder="Search predictions…">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="pending">Pending</button>
+    <button class="filter-btn" data-filter="verified">Verified</button>
+    <button class="filter-btn" id="refreshBtn">⟳ Refresh</button>
   </div>
 
+  <!-- Prediction list -->
+  <div id="predictionList" class="prediction-list">
+    <div class="empty-state">Loading predictions…</div>
+  </div>
+
+  <!-- Footer -->
   <div class="footer">
     <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Warden Dashboard · Seerist‑style verification workflow.
+    Warden Portal · Law II – Human Authority.
   </div>
 </div>
+
+<!-- Prediction Detail Modal -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div id="modalContent">
+      <h2 id="modalTitle">Prediction Details</h2>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+</div>
+
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
 <script>
-  let predictions = [];
+  // ---- Sidebar ----
+  fetch('sidebar.html')
+    .then(r => r.text())
+    .then(data => document.getElementById('sidebar-placeholder').innerHTML = data)
+    .catch(() => {});
 
-  async function loadPredictions() {
-    try {
-      const resp = await fetch('predictions.json');
-      if (!resp.ok) throw new Error('Failed to fetch predictions');
-      const data = await resp.json();
-      predictions = data.pending || [];
-      renderStats();
-      renderPredictions();
-    } catch(e) {
-      console.error('Error loading predictions:', e);
-      document.getElementById('predictionsContainer').innerHTML = '<p style="color:#dc2626;">Error loading predictions. Please try again later.</p>';
-    }
-  }
+  document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
+    document.getElementById('sidebar')?.classList.toggle('open');
+  });
 
-  function renderStats() {
-    const verified = predictions.filter(p => p.warden_verified).length;
-    document.getElementById('pendingCount').textContent = predictions.length;
-    document.getElementById('verifiedCount').textContent = verified;
-    document.getElementById('verifiedPct').textContent = predictions.length ? Math.round(verified/predictions.length*100) + '%' : '--';
-  }
-
-  function renderPredictions() {
-    const container = document.getElementById('predictionsContainer');
-    if (predictions.length === 0) {
-      container.innerHTML = '<p>No pending predictions.</p>';
-      return;
-    }
-    container.innerHTML = predictions.map(p => {
-      const verified = p.warden_verified || false;
-      return `
-        <div class="prediction-item" data-id="${p.id}">
-          <div class="info">
-            <div class="id">${p.id} – ${p.description}</div>
-            <div class="desc">Probability: ${p.probability}% · Made: ${p.date_made || 'unknown'}</div>
-            ${verified ? '<span class="verified-badge">✅ Verified</span>' : ''}
-          </div>
-          <div class="actions">
-            ${!verified ? `
-              <button class="btn btn-verify" onclick="verifyPrediction('${p.id}')">✅ Verify</button>
-              <button class="btn btn-skip" onclick="skipPrediction('${p.id}')">⏭ Skip</button>
-            ` : `
-              <button class="btn btn-verify" style="background:#e0e0e0;color:#666;cursor:default;">✅ Verified</button>
-            `}
-          </div>
-        </div>
-      `;
-    }).join('');
-  }
-
-  function verifyPrediction(id) {
-    const p = predictions.find(p => p.id === id);
-    if (!p) return;
-    p.warden_verified = true;
-    // We would POST to an endpoint, but for now we'll store in localStorage and regenerate predictions.json
-    // This is a front‑end only demo – in production, a backend would handle this.
-    alert(`✅ Prediction ${id} verified.`);
-    renderStats();
-    renderPredictions();
-  }
-
-  function skipPrediction(id) {
-    const p = predictions.find(p => p.id === id);
-    if (!p) return;
-    // Mark as skipped (or just hide)
-    alert(`⏭ Prediction ${id} skipped for now.`);
-  }
-
-  // Navigation
-  const menuBtn = document.getElementById('menuBtn');
-  const navLinks = document.getElementById('navLinks');
-  if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
-
-  // Dark mode
+  // ---- Dark mode ----
   const darkToggle = document.getElementById('darkModeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const storedTheme = localStorage.getItem('cathedral-theme');
@@ -193,9 +393,191 @@
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
 
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');
+  // ---- State ----
+  let allPredictions = [];
+  let verifiedIds = new Set();
+  let currentFilter = 'all';
+  let searchTerm = '';
 
+  // Load verified IDs from localStorage (persist across sessions)
+  function loadVerified() {
+    try {
+      const data = localStorage.getItem('warden_verified');
+      if (data) verifiedIds = new Set(JSON.parse(data));
+    } catch {}
+  }
+
+  function saveVerified() {
+    try {
+      localStorage.setItem('warden_verified', JSON.stringify([...verifiedIds]));
+    } catch {}
+  }
+
+  // ---- Load predictions ----
+  async function loadPredictions() {
+    const list = document.getElementById('predictionList');
+    list.innerHTML = '<div class="empty-state">Loading predictions…</div>';
+
+    try {
+      const resp = await fetch('predictions.json');
+      if (!resp.ok) throw new Error('Failed to fetch predictions');
+      const data = await resp.json();
+      allPredictions = data.pending || [];
+      renderPredictions();
+    } catch (e) {
+      console.error('Error loading predictions:', e);
+      list.innerHTML = '<div class="empty-state" style="color:#dc2626;">Error loading predictions. Please try again.</div>';
+    }
+  }
+
+  // ---- Render ----
+  function renderPredictions() {
+    loadVerified();
+
+    // Filter
+    let filtered = allPredictions;
+    if (currentFilter === 'pending') {
+      filtered = filtered.filter(p => !verifiedIds.has(p.id));
+    } else if (currentFilter === 'verified') {
+      filtered = filtered.filter(p => verifiedIds.has(p.id));
+    }
+    if (searchTerm) {
+      const term = searchTerm.toLowerCase();
+      filtered = filtered.filter(p =>
+        p.id.toLowerCase().includes(term) ||
+        p.description.toLowerCase().includes(term)
+      );
+    }
+
+    // Stats
+    document.getElementById('pendingCount').textContent = allPredictions.length - verifiedIds.size;
+    document.getElementById('verifiedCount').textContent = verifiedIds.size;
+    document.getElementById('verifiedPct').textContent = allPredictions.length ?
+      Math.round((verifiedIds.size / allPredictions.length) * 100) + '%' : '--';
+    document.getElementById('totalCount').textContent = allPredictions.length;
+
+    // Render list
+    const list = document.getElementById('predictionList');
+    if (filtered.length === 0) {
+      list.innerHTML = '<div class="empty-state">No predictions match your filters.</div>';
+      return;
+    }
+
+    list.innerHTML = filtered.map(p => {
+      const isVerified = verifiedIds.has(p.id);
+      return `
+        <div class="prediction-item ${isVerified ? 'verified' : ''}">
+          <div class="info">
+            <div class="id">${escapeHtml(p.id)}</div>
+            <div class="desc">${escapeHtml(p.description)}</div>
+            <div class="meta">
+              <span class="prob">${p.probability || 0}%</span>
+              <span>Made: ${escapeHtml(p.date_made || p.created || 'unknown')}</span>
+              ${p.horizon ? `<span>Horizon: ${escapeHtml(p.horizon)}</span>` : ''}
+              ${isVerified ? '<span class="badge-verified">✅ Verified</span>' : ''}
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-details" onclick="showDetails('${p.id}')">📄 Details</button>
+            ${!isVerified ? `
+              <button class="btn btn-verify" onclick="verifyPrediction('${p.id}')">✅ Verify</button>
+              <button class="btn btn-skip" onclick="skipPrediction('${p.id}')">⏭ Skip</button>
+            ` : `
+              <button class="btn btn-verify" style="background:#9ca3af;color:white;cursor:default;" disabled>Verified</button>
+            `}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ---- Actions ----
+  function verifyPrediction(id) {
+    if (!confirm(`Verify prediction ${id}? This will mark it as Warden-verified.`)) return;
+    verifiedIds.add(id);
+    saveVerified();
+    renderPredictions();
+  }
+
+  function skipPrediction(id) {
+    // Just mark as skipped for now – we could log this later
+    alert(`⏭ Prediction ${id} skipped. It will remain pending.`);
+  }
+
+  // ---- Detail modal ----
+  function showDetails(id) {
+    const p = allPredictions.find(p => p.id === id);
+    if (!p) return;
+
+    const modal = document.getElementById('detailModal');
+    document.getElementById('modalTitle').textContent = `${p.id} – ${p.description}`;
+
+    let bodyHtml = `
+      <div class="detail-row"><span class="label">Probability</span><span class="value">${p.probability || 0}%</span></div>
+      <div class="detail-row"><span class="label">Date Made</span><span class="value">${escapeHtml(p.date_made || p.created || 'unknown')}</span></div>
+      <div class="detail-row"><span class="label">Horizon</span><span class="value">${escapeHtml(p.horizon || 'Not specified')}</span></div>
+      <div class="detail-row"><span class="label">Status</span><span class="value">${verifiedIds.has(p.id) ? '✅ Verified' : '⏳ Pending'}</span></div>
+      ${p.scp ? `<div class="detail-row"><span class="label">SCP</span><span class="value">${p.scp}</span></div>` : ''}
+      ${p.priority_score ? `<div class="detail-row"><span class="label">Priority</span><span class="value">${p.priority_score}</span></div>` : ''}
+    `;
+
+    // If there's a confidence breakdown, show it
+    if (p.confidence_breakdown) {
+      bodyHtml += `
+        <div class="reasoning">
+          <strong>📊 Confidence Breakdown</strong>
+          <div style="margin-top:0.3rem; font-size:0.85rem;">
+            Prior: ${Math.round((p.confidence_breakdown.prior || 0.5) * 100)}%<br>
+            Final: ${Math.round((p.confidence_breakdown.final_probability || 0.5) * 100)}%
+          </div>
+        </div>
+      `;
+    }
+
+    document.getElementById('modalBody').innerHTML = bodyHtml;
+    modal.classList.add('active');
+  }
+
+  document.getElementById('modalClose').addEventListener('click', () => {
+    document.getElementById('detailModal').classList.remove('active');
+  });
+  document.getElementById('detailModal').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+      document.getElementById('detailModal').classList.remove('active');
+    }
+  });
+
+  // ---- Filters ----
+  document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      currentFilter = this.dataset.filter;
+      renderPredictions();
+    });
+  });
+
+  document.getElementById('searchBox').addEventListener('input', function() {
+    searchTerm = this.value;
+    renderPredictions();
+  });
+
+  document.getElementById('refreshBtn').addEventListener('click', loadPredictions);
+
+  // ---- Utility ----
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
+  }
+
+  // ---- Service worker ----
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').catch(() => {});
+  }
+
+  // ---- Go ----
   loadPredictions();
 </script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
