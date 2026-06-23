@@ -616,14 +616,15 @@
   // 2. UTILITY FUNCTIONS
   // ============================================================
   function getStatusIcon(status) {
-    const s = status || 'Yellow';
-    if (s.includes('Black')) return '⚫';
-    if (s === 'Red') return '🔴';
-    if (s === 'Orange') return '🟠';
-    if (s === 'Yellow') return '🟡';
-    if (s === 'Green') return '🟢';
-    return '🟣';
-  }
+      const s = status || 'Yellow';
+      if (s === 'Black Acute') return '⚫';
+      if (s === 'Black Structural') return '🟣';
+      if (s === 'Red') return '🔴';
+      if (s === 'Orange') return '🟠';
+      if (s === 'Yellow') return '🟡';
+      if (s === 'Green') return '🟢';
+      return '🟣';
+   }
 
   function getSCPClass(scp) {
     if (scp >= 0.7) return 'scp-high';

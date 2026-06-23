@@ -491,7 +491,8 @@
 
   // ---- Utility functions ----
   function getBadgeClass(status) {
-    if (status === 'Black Acute' || status === 'Black Structural') return 'badge-black';
+    if (status === 'Black Acute') return 'badge-black-acute';
+    if (status === 'Black Structural') return 'badge-black-structural';
     if (status === 'Red') return 'badge-red';
     if (status === 'Orange') return 'badge-orange';
     if (status === 'Yellow') return 'badge-yellow';
