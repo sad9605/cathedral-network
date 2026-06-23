@@ -335,3 +335,97 @@ IndentationError: expected an indented block after 'if' statement on line 176
 ✅ SCP history logging completed.
 ✅ SCP history updated: 213 threats logged.
 ✅ SCP history updated: 213 threats logged.
+
+🔹 Cascade graph generation ...
+✅ Cascade graph generation completed.
+⚠️ Unexpected rules format: dict. Attempting to extract...
+✅ Cascade graph generated: 213 nodes, 33 edges.
+
+🔹 Trend computation ...
+✅ Trend computation completed.
+Not enough history for 7-day trend.
+
+🔹 Prediction verification ...
+✅ Prediction verification completed.
+
+🔹 Corrections RSS feed generation ...
+✅ Corrections RSS feed generation completed.
+✅ Corrections RSS feed written to corrections.xml
+
+🔹 Prediction log generation ...
+✅ Prediction log generation completed.
+📋 Generating prediction log (preserving history, adding date_made)...
+📦 Archived 213 filtered predictions (total archive: 285)
+✅ Prediction Log Updated:
+   Updated pending: 0, Added: 0
+   Confirmed: 75
+   Falsified: 4
+   Hit rate: 94.94%
+   Pending: 204
+   Archived: 213
+
+🔹 Positive signal extraction ...
+✅ Positive signal extraction completed.
+✅ Generated 26 positive signals
+
+🔹 Ascension Engine (Recovery & Opportunity) ...
+✅ Ascension Engine (Recovery & Opportunity) completed.
+🌱 Ascension Engine Alpha started
+Loaded 26 positive signals
+Computed Recovery Probability for 213 threats
+Generated Opportunity Matrix with 213 entries
+Resilience Score: 30.93
+✅ Ascension report saved to ascension_report.json
+
+📊 Top 5 Recovery Opportunities:
+  1. Iran‑Israel/US War / Hormuz (ID: C01)
+     Impact: 0.88, Effort: 0.09, Score: 8.65
+     Current RP: 0.26, SCP: 0.99
+  2. Great Power Conflict / US‑Iran Entanglement (ID: C132)
+     Impact: 0.88, Effort: 0.09, Score: 8.65
+     Current RP: 0.26, SCP: 0.99
+  3. Oil Price Shock (ID: C11E)
+     Impact: 0.87, Effort: 0.09, Score: 8.51
+     Current RP: 0.26, SCP: 0.98
+  4. Bab el‑Mandeb Blockade (ID: C‑RED‑BLOCK)
+     Impact: 0.86, Effort: 0.09, Score: 8.40
+     Current RP: 0.26, SCP: 0.98
+  5. Iran 'Resistance Security Belt' (ID: C‑BELT)
+     Impact: 0.86, Effort: 0.09, Score: 8.36
+     Current RP: 0.27, SCP: 0.98
+
+🔹 Sources update ...
+✅ Sources update completed.
+✅ Sources updated: 15 data sources, 18 software libraries
+
+🔹 Daily archive generation ...
+✅ Daily archive generation completed.
+Generated archive: archive/2026-06-23.html
+
+🔹 Archive index generation ...
+✅ Archive index generation completed.
+✅ Archive index generated: 21 unique archives
+
+🔹 Regional indices JSON ...
+✅ Regional indices JSON completed.
+✅ Regional indices saved for 20 regions
+
+🔹 Daily brief generation ...
+✅ Daily brief generation completed.
+✅ Daily brief generated (Markdown + HTML)
+
+🔹 Git commit and push ...
+✅ Git commit and push completed.
+✅ Changes committed and pushed
+
+🔹 Health check generation ...
+✅ Health check generation completed.
+✅ Health data written to health.json
+   Status: ok
+   Threats: 213
+   Errors: 0
+
+============================================================
+✅ Cathedral pipeline finished.
+   Completed at 2026-06-23T12:05:01.449172
+============================================================
