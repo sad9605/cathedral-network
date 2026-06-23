@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-06-23T13:53:56.163624",
+  "timestamp": "2026-06-23T14:16:37.395499",
   "total_humanitarian_threats": 49,
   "threats": [
     {
       "name": "C12 \u2013 Black Sea grain corridor closure",
-      "status": "Black Acute",
+      "status": "Black Structural",
       "severity": "black",
       "severityFactor": 4,
       "mortalityWeight": 7,
@@ -13,11 +13,11 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 475.2
+      "score": 384.0
     },
     {
       "name": "C24 \u2013 Russian Arctic militarisation",
-      "status": "Black Acute",
+      "status": "Black Structural",
       "severity": "black",
       "severityFactor": 4,
       "mortalityWeight": 7,
@@ -26,11 +26,11 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 475.2
+      "score": 384.0
     },
     {
       "name": "G-SUD-BLUE \u2013 Blue Nile / GERD water war escalation",
-      "status": "Black Acute",
+      "status": "Black Structural",
       "severity": "black",
       "severityFactor": 4,
       "mortalityWeight": 7,
@@ -39,11 +39,11 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 475.2
+      "score": 384.0
     },
     {
       "name": "E-HYPER-SCALE \u2013 Hyperscale AI data centre water/energy tipping point",
-      "status": "Black Acute",
+      "status": "Black Structural",
       "severity": "black",
       "severityFactor": 4,
       "mortalityWeight": 7,
@@ -52,11 +52,11 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 475.2
+      "score": 384.0
     },
     {
       "name": "C100 \u2013 Arctic Sea Ice Loss",
-      "status": "Black Acute",
+      "status": "Black Structural",
       "severity": "black",
       "severityFactor": 4,
       "mortalityWeight": 7,
@@ -65,11 +65,11 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 475.2
+      "score": 384.0
     },
     {
       "name": "C147 \u2013 Ross Ice Shelf Acceleration",
-      "status": "Black Acute",
+      "status": "Black Structural",
       "severity": "black",
       "severityFactor": 4,
       "mortalityWeight": 7,
@@ -78,11 +78,11 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 475.2
+      "score": 384.0
     },
     {
       "name": "C44 \u2013 Delhi Heatwave",
-      "status": "Black Acute",
+      "status": "Black Structural",
       "severity": "black",
       "severityFactor": 4,
       "mortalityWeight": 7,
@@ -91,11 +91,11 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 475.2
+      "score": 384.0
     },
     {
       "name": "C80 \u2013 U.S. Hurricane Season",
-      "status": "Black Acute",
+      "status": "Black Structural",
       "severity": "black",
       "severityFactor": 4,
       "mortalityWeight": 7,
@@ -104,11 +104,11 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 475.2
+      "score": 384.0
     },
     {
       "name": "C134 \u2013 Dry Corridor Famine\u2011Migration",
-      "status": "Black Acute",
+      "status": "Black Structural",
       "severity": "black",
       "severityFactor": 4,
       "mortalityWeight": 7,
@@ -117,11 +117,11 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 475.2
+      "score": 384.0
     },
     {
       "name": "C135 \u2013 Panama Canal Logistics Shock",
-      "status": "Black Acute",
+      "status": "Black Structural",
       "severity": "black",
       "severityFactor": 4,
       "mortalityWeight": 7,
@@ -130,7 +130,7 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 475.2
+      "score": 384.0
     }
   ]
 }

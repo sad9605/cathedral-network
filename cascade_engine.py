@@ -194,7 +194,7 @@ def run_cascade_engine(
         else:
             posterior = bayesian_log_odds(base_prob, lrs)
 
-        posterior = min(0.99, posterior)
+        posterior = min(0.80, posterior)
 
         t['scp'] = round(posterior, 4)
         t['status'] = compute_threat_status(posterior)
@@ -220,7 +220,7 @@ def run_cascade_engine(
             if source_scp > propagation_threshold:
                 target_scp = target_threat.get('scp', 0.5)
                 boost = delta * (source_scp - propagation_threshold) * 0.5
-                new_scp = min(0.99, target_scp + boost)
+                new_scp = min(0.80, target_scp + boost)
                 target_threat['scp'] = round(new_scp, 4)
                 target_threat['status'] = compute_threat_status(new_scp)
                 target_threat['last_updated'] = datetime.now().isoformat()
