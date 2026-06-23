@@ -1,9 +1,48 @@
 {
-  "timestamp": "2026-06-23T12:28:13.923064",
+  "timestamp": "2026-06-23T12:37:40.226195",
   "total_humanitarian_threats": 49,
   "threats": [
     {
+      "name": "C147 \u2013 Ross Ice Shelf Acceleration",
+      "status": "Black Acute",
+      "severity": "black",
+      "severityFactor": 4,
+      "mortalityWeight": 7,
+      "recency": 2,
+      "chronicClass": 2,
+      "compoundAlert": false,
+      "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
+      "source": "Cathedral Engine",
+      "score": 475.2
+    },
+    {
+      "name": "C134 \u2013 Dry Corridor Famine\u2011Migration",
+      "status": "Black Acute",
+      "severity": "black",
+      "severityFactor": 4,
+      "mortalityWeight": 7,
+      "recency": 2,
+      "chronicClass": 2,
+      "compoundAlert": false,
+      "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
+      "source": "Cathedral Engine",
+      "score": 475.2
+    },
+    {
       "name": "C03 \u2013 Horn of Africa Famine",
+      "status": "Black Acute",
+      "severity": "black",
+      "severityFactor": 4,
+      "mortalityWeight": 7,
+      "recency": 2,
+      "chronicClass": 2,
+      "compoundAlert": false,
+      "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
+      "source": "Cathedral Engine",
+      "score": 475.2
+    },
+    {
+      "name": "C126 \u2013 North Africa Food Security Collapse",
       "status": "Black Acute",
       "severity": "black",
       "severityFactor": 4,
@@ -39,20 +78,7 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 473.57
-    },
-    {
-      "name": "C126 \u2013 North Africa Food Security Collapse",
-      "status": "Black Acute",
-      "severity": "black",
-      "severityFactor": 4,
-      "mortalityWeight": 7,
-      "recency": 2,
-      "chronicClass": 2,
-      "compoundAlert": false,
-      "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
-      "source": "Cathedral Engine",
-      "score": 466.22
+      "score": 475.2
     },
     {
       "name": "A02 \u2013 Kenya AMN Phase 5",
@@ -65,59 +91,7 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 458.5
-    },
-    {
-      "name": "A-STRAT-RES \u2013 Absence of strategic fertiliser reserves",
-      "status": "Black Acute",
-      "severity": "black",
-      "severityFactor": 4,
-      "mortalityWeight": 7,
-      "recency": 2,
-      "chronicClass": 2,
-      "compoundAlert": false,
-      "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
-      "source": "Cathedral Engine",
-      "score": 450.62
-    },
-    {
-      "name": "C134 \u2013 Dry Corridor Famine\u2011Migration",
-      "status": "Black Acute",
-      "severity": "black",
-      "severityFactor": 4,
-      "mortalityWeight": 7,
-      "recency": 2,
-      "chronicClass": 2,
-      "compoundAlert": false,
-      "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
-      "source": "Cathedral Engine",
-      "score": 447.31
-    },
-    {
-      "name": "C147 \u2013 Ross Ice Shelf Acceleration",
-      "status": "Black Acute",
-      "severity": "black",
-      "severityFactor": 4,
-      "mortalityWeight": 7,
-      "recency": 2,
-      "chronicClass": 2,
-      "compoundAlert": false,
-      "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
-      "source": "Cathedral Engine",
-      "score": 447.02
-    },
-    {
-      "name": "C100 \u2013 Arctic Sea Ice Loss",
-      "status": "Black Acute",
-      "severity": "black",
-      "severityFactor": 4,
-      "mortalityWeight": 7,
-      "recency": 2,
-      "chronicClass": 2,
-      "compoundAlert": false,
-      "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
-      "source": "Cathedral Engine",
-      "score": 446.74
+      "score": 475.2
     },
     {
       "name": "A03 \u2013 Ethiopia Tigray famine relapse",
@@ -130,7 +104,33 @@
       "compoundAlert": false,
       "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
       "source": "Cathedral Engine",
-      "score": 445.82
+      "score": 475.2
+    },
+    {
+      "name": "A04 \u2013 Somalia Shabelle floods + famine",
+      "status": "Black Acute",
+      "severity": "black",
+      "severityFactor": 4,
+      "mortalityWeight": 7,
+      "recency": 2,
+      "chronicClass": 2,
+      "compoundAlert": false,
+      "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
+      "source": "Cathedral Engine",
+      "score": 475.2
+    },
+    {
+      "name": "A-STRAT-RES \u2013 Absence of strategic fertiliser reserves",
+      "status": "Black Acute",
+      "severity": "black",
+      "severityFactor": 4,
+      "mortalityWeight": 7,
+      "recency": 2,
+      "chronicClass": 2,
+      "compoundAlert": false,
+      "recommendation": "\ud83d\udea8 Immediate response required. Coordinate with humanitarian partners.",
+      "source": "Cathedral Engine",
+      "score": 475.2
     }
   ]
 }

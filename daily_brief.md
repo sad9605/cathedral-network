@@ -1,34 +1,34 @@
 # Cathedral Daily Brief – 23 Jun 2026
 
-**GSCI:** 42.95  
-**Last sweep:** 2026-06-23T12:27:58.742882
+**GSCI:** 48.14  
+**Last sweep:** 2026-06-23T12:37:23.361332
 
 ## Top Threats
 
 ### C03 – Horn of Africa Famine
 - **SCP:** 99.0%  
-- **Priority:** 113  
+- **Priority:** 129  
 - Horn of Africa Famine – a threat affecting Food. Monitor closely for escalation....
-
-### C01 – Iran‑Israel/US War / Hormuz
-- **SCP:** 99.0%  
-- **Priority:** 105  
-- Geopolitical conflict involving Iran, Israel, and the US, with potential closure of the Strait of Hormuz, disrupting glo...
 
 ### C132 – Great Power Conflict / US‑Iran Entanglement
 - **SCP:** 99.0%  
-- **Priority:** 104  
+- **Priority:** 125  
 - Great power entanglement involving the US, Iran, Russia, and China. Escalation in one theater risks drawing in multiple ...
 
-### B02 – Bundibugyo Ebola
+### C106 – Global Food Price Volatility
 - **SCP:** 99.0%  
-- **Priority:** 104  
-- Bundibugyo Ebola – a threat affecting Biosecurity. Monitor closely for escalation....
+- **Priority:** 117  
+- Global Food Price Volatility – a threat affecting Food, Financial. Monitor closely for escalation....
 
-### C78 – Sovereign Debt Crisis
+### C‑MALWARE – Miasma Supply‑Chain Worm
 - **SCP:** 99.0%  
-- **Priority:** 103  
-- Sovereign Debt Crisis – a threat affecting Financial. Monitor closely for escalation....
+- **Priority:** 116  
+- Miasma Supply‑Chain Worm – a threat affecting Technology, Supply Chains. Monitor closely for escalation....
+
+### C01 – Iran‑Israel/US War / Hormuz
+- **SCP:** 99.0%  
+- **Priority:** 113  
+- Geopolitical conflict involving Iran, Israel, and the US, with potential closure of the Strait of Hormuz, disrupting glo...
 
 ## Recent Events
 

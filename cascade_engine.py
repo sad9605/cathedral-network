@@ -180,7 +180,7 @@ def run_cascade_engine(
                  source_weights = [0.5 for _ in sources]
         if source_weights:
             cred_weight = source_credibility_weighting(source_weights)
-             lrs.append(1.0 + (cred_weight - 0.5) * 0.5)
+            lrs.append(1.0 + (cred_weight - 0.5) * 0.5)
 
         # Bayesian fusion
         if not lrs:
