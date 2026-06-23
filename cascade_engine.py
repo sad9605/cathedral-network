@@ -174,10 +174,10 @@ def run_cascade_engine(
         if sources and isinstance(sources, list):
             # Check if sources are dicts or strings
             if sources and isinstance(sources[0], dict):
-            source_weights = [s.get('credibility', 0.5) for s in sources]
-        else:
+                source_weights = [s.get('credibility', 0.5) for s in sources]
+            else:
             # Sources are just strings (feed names) – assign default credibility
-            source_weights = [0.5 for _ in sources]
+                 source_weights = [0.5 for _ in sources]
         if source_weights:
             cred_weight = source_credibility_weighting(source_weights)
              lrs.append(1.0 + (cred_weight - 0.5) * 0.5)
