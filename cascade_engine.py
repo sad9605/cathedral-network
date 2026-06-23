@@ -86,13 +86,13 @@ def normalize_rules(rules_data):
     return normalized
 
 def compute_threat_status(scp: float) -> str:
-    if scp >= 0.90:
+    if scp >= 0.95:
         return "Black Acute"
-    elif scp >= 0.80:
+    elif scp >= 0.88:
         return "Black Structural"
-    elif scp >= 0.70:
+    elif scp >= 0.75:
         return "Red"
-    elif scp >= 0.50:
+    elif scp >= 0.55:
         return "Orange"
     elif scp >= 0.30:
         return "Yellow"
