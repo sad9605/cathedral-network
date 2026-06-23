@@ -169,11 +169,18 @@ def run_cascade_engine(
                 t['ml_likelihood_ratio'] = ml_lr
 
         # Source credibility
-        if sweep_data.get('sources'):
-            source_weights = [s.get('credibility', 0.5) for s in sweep_data['sources']]
-            if source_weights:
-                cred_weight = source_credibility_weighting(source_weights)
-                lrs.append(1.0 + (cred_weight - 0.5) * 0.5)
+        source_weights = []
+        sources = sweep_data.get('sources', [])
+        if sources and isinstance(sources, list):
+            # Check if sources are dicts or strings
+            if sources and isinstance(sources[0], dict):
+            source_weights = [s.get('credibility', 0.5) for s in sources]
+        else:
+            # Sources are just strings (feed names) – assign default credibility
+            source_weights = [0.5 for _ in sources]
+        if source_weights:
+            cred_weight = source_credibility_weighting(source_weights)
+             lrs.append(1.0 + (cred_weight - 0.5) * 0.5)
 
         # Bayesian fusion
         if not lrs:
