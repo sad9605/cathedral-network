@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-24T14:26:59.302446",
+  "timestamp": "2026-06-24T14:36:52.165605",
   "threats": [
     {
       "id": "C01",
@@ -10,12 +10,12 @@
         "Financial",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.0761,
+      "status": "Orange",
+      "scp": 0.5364,
       "base_probability": 0.008398079999999999,
-      "das": 52.99,
+      "das": 4.55,
       "notes": "Direct US\u2011Iran strikes; Iran closed Strait of Hormuz; oil price spike.",
-      "priority_score": 13.61,
+      "priority_score": 61.64,
       "delta_contribution": 4.200000000000001,
       "das_band": "Anomalous",
       "description": "Geopolitical conflict involving Iran, Israel, and the US, with potential closure of the Strait of Hormuz, disrupting global oil supplies and triggering a wider regional war. Elevated risk of missile strikes and naval engagements.",
@@ -23,9 +23,10 @@
       "likelihood_ratios": [
         6.22203139861979,
         1.249999999998181,
+        14.055078496549477,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294280",
+      "last_updated": "2026-06-24T14:36:52.158338",
       "confidence": 0.95
     },
     {
@@ -34,21 +35,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.051,
+      "status": "Yellow",
+      "scp": 0.3281,
       "base_probability": 0.008062156799999998,
-      "das": 56.12,
+      "das": 21.49,
       "notes": "US third wave strikes; IRGC retaliation; direct military exchanges.",
-      "priority_score": 11.1,
+      "priority_score": 40.81,
       "das_band": "Anomalous",
       "description": "Direct US\u2011Iran Conflict \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 11.777722145358474,
       "likelihood_ratios": [
         4.233316643607543,
         1.249999999998181,
+        9.083291609018856,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294343",
+      "last_updated": "2026-06-24T14:36:52.158402",
       "confidence": 0.93
     },
     {
@@ -59,21 +61,22 @@
         "Energy",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.0567,
+      "status": "Yellow",
+      "scp": 0.372,
       "base_probability": 0.008398079999999999,
-      "das": 55.41,
+      "das": 16.0,
       "notes": "Coordinated choke\u2011point doctrine from Hormuz to Bab el\u2011Mandeb.",
-      "priority_score": 11.67,
+      "priority_score": 45.2,
       "das_band": "Anomalous",
       "description": "Iran 'Resistance Security Belt' \u2013 a threat affecting Geopolitical, Energy, Supply Chains. Monitor closely for escalation.",
       "ml_likelihood_ratio": 12.80739030381506,
       "likelihood_ratios": [
         4.5422170911445185,
         1.249999999998181,
+        9.855542727861295,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294376",
+      "last_updated": "2026-06-24T14:36:52.158435",
       "confidence": 0.95
     },
     {
@@ -83,21 +86,22 @@
         "Geopolitical",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.073,
+      "status": "Orange",
+      "scp": 0.5128,
       "base_probability": 0.008398079999999999,
-      "das": 53.37,
+      "das": 1.6,
       "notes": "Houthi total ban on Israeli shipping.",
-      "priority_score": 13.3,
+      "priority_score": 59.28,
       "das_band": "Anomalous",
       "description": "Bab el\u2011Mandeb Blockade \u2013 a threat affecting Geopolitical, Supply Chains. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.494915173863248,
       "likelihood_ratios": [
         5.948474552158975,
         1.249999999998181,
+        13.371186380397436,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294405",
+      "last_updated": "2026-06-24T14:36:52.158465",
       "confidence": 0.95
     },
     {
@@ -106,12 +110,12 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0535,
+      "status": "Yellow",
+      "scp": 0.3887,
       "base_probability": 0.007054387199999998,
-      "das": 55.81,
+      "das": 13.91,
       "notes": "Dutch frigate transit tracked by China; Taiwan HIMARS drills.",
-      "priority_score": 11.35,
+      "priority_score": 46.87,
       "delta_contribution": 18.899999999999977,
       "das_band": "Anomalous",
       "description": "Great power entanglement involving the US, Iran, Russia, and China. Escalation in one theater risks drawing in multiple major powers, potentially leading to a wider conflict beyond the Middle East.",
@@ -119,9 +123,10 @@
       "likelihood_ratios": [
         5.0957453025024675,
         1.249999999998181,
+        11.23936325625617,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294439",
+      "last_updated": "2026-06-24T14:36:52.158499",
       "confidence": 0.95
     },
     {
@@ -130,21 +135,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0558,
+      "status": "Yellow",
+      "scp": 0.4318,
       "base_probability": 0.006550502399999999,
-      "das": 55.52,
+      "das": 8.52,
       "notes": "Border clashes continue.",
-      "priority_score": 11.58,
+      "priority_score": 51.18,
       "das_band": "Anomalous",
       "description": "Renewed armed conflict between Armenia and Azerbaijan over the Nagorno-Karabakh region, risking regional instability, refugee flows, and involvement of Russia and Turkey.",
       "ml_likelihood_ratio": 16.798811287727403,
       "likelihood_ratios": [
         5.739643386318221,
         1.249999999998181,
+        12.849108465795553,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294467",
+      "last_updated": "2026-06-24T14:36:52.158527",
       "confidence": 0.95
     },
     {
@@ -153,21 +159,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0474,
+      "status": "Yellow",
+      "scp": 0.3661,
       "base_probability": 0.006046617599999999,
-      "das": 56.57,
+      "das": 16.74,
       "notes": "Russian hybrid activity.",
-      "priority_score": 10.74,
+      "priority_score": 44.61,
       "das_band": "Anomalous",
       "description": "Baltic Grey-Zone operations \u2013 Russian hybrid warfare including GPS jamming, cyber attacks, and intimidation of NATO allies. Risks triggering NATO Article 5 if incidents escalate.",
       "ml_likelihood_ratio": 15.129533582999992,
       "likelihood_ratios": [
         5.238860074899997,
         1.249999999998181,
+        11.597150187249994,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294497",
+      "last_updated": "2026-06-24T14:36:52.158556",
       "confidence": 0.95
     },
     {
@@ -177,21 +184,22 @@
         "Geopolitical",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.0547,
+      "status": "Yellow",
+      "scp": 0.408,
       "base_probability": 0.00685283328,
-      "das": 55.66,
+      "das": 11.5,
       "notes": "Chinese military exercises; HIMARS deployment.",
-      "priority_score": 11.47,
+      "priority_score": 48.8,
       "das_band": "Anomalous",
       "description": "Taiwan Strait Incident Risk \u2013 increased Chinese military activity and US naval patrols, raising the probability of a miscalculation or accidental clash that could escalate rapidly.",
       "ml_likelihood_ratio": 15.552448759632327,
       "likelihood_ratios": [
         5.365734627889698,
         1.249999999998181,
+        11.914336569724245,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294525",
+      "last_updated": "2026-06-24T14:36:52.158584",
       "confidence": 0.95
     },
     {
@@ -201,21 +209,22 @@
         "Geopolitical",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.0543,
+      "status": "Yellow",
+      "scp": 0.4389,
       "base_probability": 0.006046617599999999,
-      "das": 55.71,
+      "das": 7.64,
       "notes": "Ongoing tensions.",
-      "priority_score": 11.43,
+      "priority_score": 51.89,
       "das_band": "Anomalous",
       "description": "South China Sea Militarisation \u2013 China's expansion of artificial islands and military presence, increasing tensions with the Philippines, Vietnam, and the US. Risk of skirmishes.",
       "ml_likelihood_ratio": 17.81866771569837,
       "likelihood_ratios": [
         6.045600314709511,
         1.249999999998181,
+        13.61400078677378,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294552",
+      "last_updated": "2026-06-24T14:36:52.158611",
       "confidence": 0.95
     },
     {
@@ -226,21 +235,22 @@
         "Information",
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0644,
+      "status": "Orange",
+      "scp": 0.4907,
       "base_probability": 0.007054387199999998,
-      "das": 54.45,
+      "das": 1.16,
       "notes": "Disinformation campaigns.",
-      "priority_score": 12.44,
+      "priority_score": 57.07,
       "das_band": "Anomalous",
       "description": "AI Deepfake Operations \u2013 coordinated disinformation campaigns using generative AI to manipulate public opinion, disrupt elections, and undermine trust in democratic institutions.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294578",
+      "last_updated": "2026-06-24T14:36:52.158652",
       "confidence": 0.95
     },
     {
@@ -251,20 +261,21 @@
         "Energy"
       ],
       "status": "Green",
-      "scp": 0.0305,
+      "scp": 0.1621,
       "base_probability": 0.006550502399999999,
-      "das": 58.69,
+      "das": 42.24,
       "notes": "Single backup line remains.",
-      "priority_score": 9.05,
+      "priority_score": 24.21,
       "das_band": "Anomalous",
       "description": "Zaporizhzhia Nuclear Power Plant \u2013 ongoing shelling and military activity around Europe's largest nuclear plant, risking a radiation leak or catastrophic meltdown, with regional fallout.",
       "ml_likelihood_ratio": 7.855326794315538,
       "likelihood_ratios": [
         3.0565980382946614,
         1.249999999998181,
+        6.141495095736653,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294610",
+      "last_updated": "2026-06-24T14:36:52.158677",
       "confidence": 0.77
     },
     {
@@ -273,21 +284,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0602,
+      "status": "Orange",
+      "scp": 0.4613,
       "base_probability": 0.00685283328,
-      "das": 54.97,
+      "das": 4.84,
       "notes": "Drone strike aftermath.",
-      "priority_score": 12.02,
+      "priority_score": 54.13,
       "das_band": "Anomalous",
       "description": "NATO Article 4 (Romania) \u2013 potential activation by Romania due to Russian drone or missile incursions, bringing NATO allies into direct consultation and potentially collective defence.",
       "ml_likelihood_ratio": 17.481840784283886,
       "likelihood_ratios": [
         5.944552235285165,
         1.249999999998181,
+        13.361380588212914,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294653",
+      "last_updated": "2026-06-24T14:36:52.158706",
       "confidence": 0.95
     },
     {
@@ -296,21 +308,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0305,
+      "status": "Yellow",
+      "scp": 0.286,
       "base_probability": 0.003527193599999999,
-      "das": 58.69,
+      "das": 26.75,
       "notes": "E3 peace conditions, but fighting continues.",
-      "priority_score": 9.05,
+      "priority_score": 36.6,
       "das_band": "Anomalous",
       "description": "Ukraine-Russia Spillover \u2013 the war extends beyond Ukraine's borders, affecting neighbouring NATO states through missile strikes, drone incursions, or refugee surges.",
       "ml_likelihood_ratio": 16.633785128759275,
       "likelihood_ratios": [
         5.690135538627782,
         1.249999999998181,
+        12.725338846569457,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294680",
+      "last_updated": "2026-06-24T14:36:52.158733",
       "confidence": 0.95
     },
     {
@@ -319,12 +332,12 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0392,
+      "status": "Yellow",
+      "scp": 0.3737,
       "base_probability": 0.004031078399999999,
-      "das": 57.6,
+      "das": 15.79,
       "notes": "Militia attacks on US bases.",
-      "priority_score": 9.92,
+      "priority_score": 45.37,
       "delta_contribution": 5.25,
       "das_band": "Anomalous",
       "description": "Iraq Instability \u2013 resurgence of ISIS, Shia militias, and political deadlock, threatening oil infrastructure and regional security, and potentially drawing in US and Iranian forces.",
@@ -332,9 +345,10 @@
       "likelihood_ratios": [
         6.450137479891525,
         1.249999999998181,
+        14.625343699728814,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294718",
+      "last_updated": "2026-06-24T14:36:52.158771",
       "confidence": 0.95
     },
     {
@@ -344,21 +358,22 @@
         "Geopolitical",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0297,
+      "status": "Yellow",
+      "scp": 0.3089,
       "base_probability": 0.0030233087999999996,
-      "das": 58.79,
+      "das": 23.89,
       "notes": "Baltic Sea risks.",
-      "priority_score": 8.97,
+      "priority_score": 38.89,
       "das_band": "Anomalous",
       "description": "Underwater Infrastructure Sabotage \u2013 suspected Russian attacks on undersea cables, gas pipelines, and internet cables, disrupting global communications and energy supplies.",
       "ml_likelihood_ratio": 19.167252286426557,
       "likelihood_ratios": [
         6.450175685927967,
         1.249999999998181,
+        14.625439214819917,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294744",
+      "last_updated": "2026-06-24T14:36:52.158798",
       "confidence": 0.95
     },
     {
@@ -368,20 +383,21 @@
         "Geopolitical"
       ],
       "status": "Green",
-      "scp": 0.0214,
+      "scp": 0.2121,
       "base_probability": 0.0025194239999999997,
-      "das": 59.82,
+      "das": 35.99,
       "notes": "Estonia\u2011Russia tensions.",
-      "priority_score": 8.14,
+      "priority_score": 29.21,
       "das_band": "Anomalous",
       "description": "Narva Border Crisis \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.10686908081988,
       "likelihood_ratios": [
         5.532060724245964,
         1.249999999998181,
+        12.330151810614911,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294769",
+      "last_updated": "2026-06-24T14:36:52.158822",
       "confidence": 0.95
     },
     {
@@ -391,21 +407,22 @@
         "Geopolitical",
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0322,
+      "status": "Yellow",
+      "scp": 0.3105,
       "base_probability": 0.003527193599999999,
-      "das": 58.48,
+      "das": 23.69,
       "notes": "Humanitarian strain.",
-      "priority_score": 9.22,
+      "priority_score": 39.05,
       "das_band": "Anomalous",
       "description": "Mediterranean Migration \u2013 increased irregular migration flows from North Africa and the Middle East, straining EU border states, fuelling populism, and creating humanitarian crises.",
       "ml_likelihood_ratio": 17.71469063785107,
       "likelihood_ratios": [
         6.014407191355321,
         1.249999999998181,
+        13.536017978388303,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294795",
+      "last_updated": "2026-06-24T14:36:52.158848",
       "confidence": 0.95
     },
     {
@@ -415,21 +432,22 @@
         "Geopolitical",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0411,
+      "status": "Yellow",
+      "scp": 0.3669,
       "base_probability": 0.004534963199999999,
-      "das": 57.36,
+      "das": 16.64,
       "notes": "Spillover risk.",
-      "priority_score": 10.11,
+      "priority_score": 44.69,
       "das_band": "Anomalous",
       "description": "Cartel Violence Mexico \u2013 intensified fighting between drug cartels, leading to mass casualties, displacement, and potential spillover into the US, affecting border security.",
       "ml_likelihood_ratio": 17.71469063785107,
       "likelihood_ratios": [
         6.014407191355321,
         1.249999999998181,
+        13.536017978388303,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294821",
+      "last_updated": "2026-06-24T14:36:52.158874",
       "confidence": 0.95
     },
     {
@@ -439,21 +457,22 @@
         "Geopolitical",
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0423,
+      "status": "Yellow",
+      "scp": 0.4139,
       "base_probability": 0.004031078399999999,
-      "das": 57.21,
+      "das": 10.76,
       "notes": "Missile tests continue.",
-      "priority_score": 10.23,
+      "priority_score": 49.39,
       "das_band": "Anomalous",
       "description": "North Korea Ballistic \u2013 North Korea tests ICBMs capable of reaching the US, raising tensions, triggering sanctions, and risking military response from the US and South Korea.",
       "ml_likelihood_ratio": 20.965399772425247,
       "likelihood_ratios": [
         6.989619931727574,
         1.249999999998181,
+        15.974049829318936,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294845",
+      "last_updated": "2026-06-24T14:36:52.158899",
       "confidence": 0.95
     },
     {
@@ -463,21 +482,22 @@
         "Geopolitical",
         "Information"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "AI\u2011driven.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "das_band": "Anomalous",
       "description": "Information Warfare \u2013 state-sponsored propaganda, disinformation, and cyber campaigns targeting public trust, elections, and geopolitical narratives globally.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294870",
+      "last_updated": "2026-06-24T14:36:52.158924",
       "confidence": 0.95
     },
     {
@@ -486,21 +506,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0271,
+      "status": "Yellow",
+      "scp": 0.2681,
       "base_probability": 0.0030233087999999996,
-      "das": 59.11,
+      "das": 28.99,
       "notes": "Frozen conflict.",
-      "priority_score": 8.71,
+      "priority_score": 34.81,
       "das_band": "Anomalous",
       "description": "Moldova Transnistria escalation \u2013 Russia-backed separatists in Transnistria may provoke a crisis, threatening Moldova's security and potentially drawing in NATO and Russia.",
       "ml_likelihood_ratio": 17.23055720552877,
       "likelihood_ratios": [
         5.8691671616586305,
         1.249999999998181,
+        13.172917904146576,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294893",
+      "last_updated": "2026-06-24T14:36:52.158948",
       "confidence": 0.95
     },
     {
@@ -509,21 +530,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0341,
+      "status": "Yellow",
+      "scp": 0.3373,
       "base_probability": 0.003527193599999999,
-      "das": 58.24,
+      "das": 20.34,
       "notes": "Hybrid attacks.",
-      "priority_score": 9.41,
+      "priority_score": 41.73,
       "das_band": "Anomalous",
       "description": "Russian sabotage in Germany/Poland \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294917",
+      "last_updated": "2026-06-24T14:36:52.158972",
       "confidence": 0.95
     },
     {
@@ -532,21 +554,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0236,
+      "status": "Yellow",
+      "scp": 0.251,
       "base_probability": 0.0025194239999999997,
-      "das": 59.55,
+      "das": 31.12,
       "notes": "Tensions.",
-      "priority_score": 8.36,
+      "priority_score": 33.1,
       "das_band": "Anomalous",
       "description": "Finland\u2011Russia border closure \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.118189732040392,
       "likelihood_ratios": [
         6.135456919612118,
         1.249999999998181,
+        13.838642299030294,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294941",
+      "last_updated": "2026-06-24T14:36:52.158995",
       "confidence": 0.95
     },
     {
@@ -555,21 +578,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0388,
+      "status": "Yellow",
+      "scp": 0.3679,
       "base_probability": 0.004031078399999999,
-      "das": 57.65,
+      "das": 16.51,
       "notes": "Border crisis.",
-      "priority_score": 9.88,
+      "priority_score": 44.79,
       "das_band": "Anomalous",
       "description": "Poland\u2011Belarus migrant weaponisation \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294965",
+      "last_updated": "2026-06-24T14:36:52.159019",
       "confidence": 0.95
     },
     {
@@ -578,21 +602,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0423,
+      "status": "Yellow",
+      "scp": 0.3828,
       "base_probability": 0.004534963199999999,
-      "das": 57.21,
+      "das": 14.65,
       "notes": "Stalemate.",
-      "priority_score": 10.23,
+      "priority_score": 46.28,
       "das_band": "Anomalous",
       "description": "Ukraine frontline collapse \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.372441885076782,
       "likelihood_ratios": [
         6.211732565523034,
         1.249999999998181,
+        14.029331413807586,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.294989",
+      "last_updated": "2026-06-24T14:36:52.159043",
       "confidence": 0.95
     },
     {
@@ -602,21 +627,22 @@
         "Geopolitical",
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0437,
+      "status": "Yellow",
+      "scp": 0.371,
       "base_probability": 0.005038847999999999,
-      "das": 57.04,
+      "das": 16.12,
       "notes": "Russian threats.",
-      "priority_score": 10.37,
+      "priority_score": 45.1,
       "das_band": "Anomalous",
       "description": "Black Sea grain corridor closure \u2013 a threat affecting Geopolitical, Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.89565116307196,
       "likelihood_ratios": [
         5.768695348921588,
         1.249999999998181,
+        12.92173837230397,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295013",
+      "last_updated": "2026-06-24T14:36:52.159067",
       "confidence": 0.95
     },
     {
@@ -626,21 +652,22 @@
         "Geopolitical",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0356,
+      "status": "Yellow",
+      "scp": 0.3589,
       "base_probability": 0.003527193599999999,
-      "das": 58.05,
+      "das": 17.64,
       "notes": "Arctic risks.",
-      "priority_score": 9.56,
+      "priority_score": 43.89,
       "das_band": "Anomalous",
       "description": "Russian LNG terminal sabotage \u2013 a threat affecting Geopolitical, Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295038",
+      "last_updated": "2026-06-24T14:36:52.159092",
       "confidence": 0.95
     },
     {
@@ -650,21 +677,22 @@
         "Geopolitical",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0306,
+      "status": "Yellow",
+      "scp": 0.3242,
       "base_probability": 0.0030233087999999996,
-      "das": 58.67,
+      "das": 21.98,
       "notes": "Political pressure.",
-      "priority_score": 9.06,
+      "priority_score": 40.42,
       "das_band": "Anomalous",
       "description": "Nord Stream 2 reactivation \u2013 a threat affecting Geopolitical, Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295062",
+      "last_updated": "2026-06-24T14:36:52.159116",
       "confidence": 0.95
     },
     {
@@ -673,21 +701,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0245,
+      "status": "Yellow",
+      "scp": 0.2664,
       "base_probability": 0.0025194239999999997,
-      "das": 59.44,
+      "das": 29.2,
       "notes": "False flag risk.",
-      "priority_score": 8.45,
+      "priority_score": 34.64,
       "das_band": "Anomalous",
       "description": "Transnistria depot explosion \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295086",
+      "last_updated": "2026-06-24T14:36:52.159140",
       "confidence": 0.95
     },
     {
@@ -696,21 +725,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0293,
+      "status": "Yellow",
+      "scp": 0.3037,
       "base_probability": 0.0030233087999999996,
-      "das": 58.84,
+      "das": 24.54,
       "notes": "Russian influence.",
-      "priority_score": 8.93,
+      "priority_score": 38.37,
       "das_band": "Anomalous",
       "description": "Georgia Abkhazia freeze\u2011thaw \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295110",
+      "last_updated": "2026-06-24T14:36:52.159171",
       "confidence": 0.95
     },
     {
@@ -719,21 +749,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0325,
+      "status": "Yellow",
+      "scp": 0.2837,
       "base_probability": 0.004031078399999999,
-      "das": 58.44,
+      "das": 27.04,
       "notes": "Ongoing.",
-      "priority_score": 9.25,
+      "priority_score": 36.37,
       "das_band": "Anomalous",
       "description": "Armenia\u2011Azerbaijan peace collapse \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 15.380939266024253,
       "likelihood_ratios": [
         5.314281779807276,
         1.249999999998181,
+        11.785704449518189,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295133",
+      "last_updated": "2026-06-24T14:36:52.159195",
       "confidence": 0.95
     },
     {
@@ -743,21 +774,22 @@
         "Geopolitical",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0446,
+      "status": "Yellow",
+      "scp": 0.4103,
       "base_probability": 0.004534963199999999,
-      "das": 56.93,
+      "das": 11.21,
       "notes": "Arms transfers.",
-      "priority_score": 10.46,
+      "priority_score": 49.03,
       "das_band": "Anomalous",
       "description": "Iranian drones to Russia \u2013 a threat affecting Geopolitical, Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.532052064614824,
       "likelihood_ratios": [
         6.559615619384447,
         1.249999999998181,
+        14.899039048461118,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295157",
+      "last_updated": "2026-06-24T14:36:52.159218",
       "confidence": 0.95
     },
     {
@@ -767,21 +799,22 @@
         "Geopolitical",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0356,
+      "status": "Yellow",
+      "scp": 0.3589,
       "base_probability": 0.003527193599999999,
-      "das": 58.05,
+      "das": 17.64,
       "notes": "Nuclear risk.",
-      "priority_score": 9.56,
+      "priority_score": 43.89,
       "das_band": "Anomalous",
       "description": "Khmelnytskyi NPP shelling \u2013 a threat affecting Geopolitical, Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295180",
+      "last_updated": "2026-06-24T14:36:52.159242",
       "confidence": 0.95
     },
     {
@@ -792,21 +825,22 @@
         "Energy",
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0596,
+      "status": "Orange",
+      "scp": 0.4904,
       "base_probability": 0.006046617599999999,
-      "das": 55.05,
+      "das": 1.2,
       "notes": "Continued threat.",
-      "priority_score": 11.96,
+      "priority_score": 57.04,
       "das_band": "Anomalous",
       "description": "Radiological release (ZNPP) \u2013 a threat affecting Geopolitical, Energy, Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295203",
+      "last_updated": "2026-06-24T14:36:52.159265",
       "confidence": 0.95
     },
     {
@@ -815,21 +849,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0245,
+      "status": "Yellow",
+      "scp": 0.2664,
       "base_probability": 0.0025194239999999997,
-      "das": 59.44,
+      "das": 29.2,
       "notes": "Elite fracture.",
-      "priority_score": 8.45,
+      "priority_score": 34.64,
       "das_band": "Anomalous",
       "description": "Russian internal coup \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295227",
+      "last_updated": "2026-06-24T14:36:52.159289",
       "confidence": 0.95
     },
     {
@@ -838,21 +873,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0388,
+      "status": "Yellow",
+      "scp": 0.3679,
       "base_probability": 0.004031078399999999,
-      "das": 57.65,
+      "das": 16.51,
       "notes": "Central Africa.",
-      "priority_score": 9.88,
+      "priority_score": 44.79,
       "das_band": "Anomalous",
       "description": "Wagner resurgence in Africa \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295250",
+      "last_updated": "2026-06-24T14:36:52.159312",
       "confidence": 0.95
     },
     {
@@ -862,21 +898,22 @@
         "Geopolitical",
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0293,
+      "status": "Yellow",
+      "scp": 0.3037,
       "base_probability": 0.0030233087999999996,
-      "das": 58.84,
+      "das": 24.54,
       "notes": "New bases.",
-      "priority_score": 8.93,
+      "priority_score": 38.37,
       "das_band": "Anomalous",
       "description": "Russian Arctic militarisation \u2013 a threat affecting Geopolitical, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295274",
+      "last_updated": "2026-06-24T14:36:52.159336",
       "confidence": 0.95
     },
     {
@@ -885,21 +922,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0498,
+      "status": "Yellow",
+      "scp": 0.4148,
       "base_probability": 0.0055427327999999975,
-      "das": 56.27,
+      "das": 10.65,
       "notes": "Heightened alert.",
-      "priority_score": 10.98,
+      "priority_score": 49.48,
       "das_band": "Anomalous",
       "description": "NATO Article 5 deliberation \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.7134661854547,
       "likelihood_ratios": [
         6.014039855636409,
         1.249999999998181,
+        13.535099639091024,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295297",
+      "last_updated": "2026-06-24T14:36:52.159359",
       "confidence": 0.95
     },
     {
@@ -908,21 +946,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.048,
+      "status": "Yellow",
+      "scp": 0.4214,
       "base_probability": 0.005038847999999999,
-      "das": 56.5,
+      "das": 9.83,
       "notes": "Reinforcements.",
-      "priority_score": 10.8,
+      "priority_score": 50.14,
       "das_band": "Anomalous",
       "description": "US troop deployment to Romania \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295321",
+      "last_updated": "2026-06-24T14:36:52.159383",
       "confidence": 0.95
     },
     {
@@ -932,21 +971,22 @@
         "Geopolitical",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.0341,
+      "status": "Yellow",
+      "scp": 0.3373,
       "base_probability": 0.003527193599999999,
-      "das": 58.24,
+      "das": 20.34,
       "notes": "Montreux Convention.",
-      "priority_score": 9.41,
+      "priority_score": 41.73,
       "das_band": "Anomalous",
       "description": "Turkish Straits closure \u2013 a threat affecting Geopolitical, Supply Chains. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295344",
+      "last_updated": "2026-06-24T14:36:52.159406",
       "confidence": 0.95
     },
     {
@@ -956,21 +996,22 @@
         "Geopolitical",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0586,
+      "status": "Orange",
+      "scp": 0.4804,
       "base_probability": 0.006046617599999999,
-      "das": 55.17,
+      "das": 2.45,
       "notes": "Melting ice opens competition.",
-      "priority_score": 11.86,
+      "priority_score": 56.04,
       "das_band": "Anomalous",
       "description": "Arctic resource wars (minerals, fish, oil, shipping) \u2013 a threat affecting Geopolitical, Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.481806345400102,
       "likelihood_ratios": [
         6.54454190362003,
         1.249999999998181,
+        14.861354759050077,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295368",
+      "last_updated": "2026-06-24T14:36:52.159430",
       "confidence": 0.95
     },
     {
@@ -979,21 +1020,22 @@
       "domains": [
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0434,
+      "status": "Yellow",
+      "scp": 0.3958,
       "base_probability": 0.004534963199999999,
-      "das": 57.07,
+      "das": 13.03,
       "notes": "US threats documented.",
-      "priority_score": 10.34,
+      "priority_score": 47.58,
       "das_band": "Anomalous",
       "description": "Greenland as geopolitical flashpoint \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295391",
+      "last_updated": "2026-06-24T14:36:52.159453",
       "confidence": 0.95
     },
     {
@@ -1003,21 +1045,22 @@
         "Geopolitical",
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0586,
+      "status": "Orange",
+      "scp": 0.4583,
       "base_probability": 0.006550502399999999,
-      "das": 55.17,
+      "das": 5.21,
       "notes": "Congested orbital environment.",
-      "priority_score": 11.86,
+      "priority_score": 53.83,
       "das_band": "Anomalous",
       "description": "Weaponisation of low Earth orbit (ASAT, jamming, cyber) \u2013 a threat affecting Geopolitical, Technology. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.797821888879703,
       "likelihood_ratios": [
         6.039346566663911,
         1.249999999998181,
+        13.598366416659777,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295415",
+      "last_updated": "2026-06-24T14:36:52.159477",
       "confidence": 0.95
     },
     {
@@ -1027,21 +1070,22 @@
         "Geopolitical",
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "CFR high\u2011probability threat.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "das_band": "Anomalous",
       "description": "West Bank violent escalation (third intifada risk) \u2013 a threat affecting Geopolitical, Social. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295438",
+      "last_updated": "2026-06-24T14:36:52.159500",
       "confidence": 0.95
     },
     {
@@ -1051,21 +1095,22 @@
         "Geopolitical",
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0469,
+      "status": "Yellow",
+      "scp": 0.3833,
       "base_probability": 0.0055427327999999975,
-      "das": 56.64,
+      "das": 14.59,
       "notes": "Military action possible.",
-      "priority_score": 10.69,
+      "priority_score": 46.33,
       "das_band": "Anomalous",
       "description": "Blue Nile / GERD water war escalation \u2013 a threat affecting Geopolitical, Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.50535938538261,
       "likelihood_ratios": [
         5.651607815614783,
         1.249999999998181,
+        12.629019539036959,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295461",
+      "last_updated": "2026-06-24T14:36:52.159523",
       "confidence": 0.95
     },
     {
@@ -1075,21 +1120,22 @@
         "Energy",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0797,
+      "status": "Orange",
+      "scp": 0.5628,
       "base_probability": 0.008398079999999999,
-      "das": 52.54,
+      "das": 7.85,
       "notes": "Brent $95.40, SPR 349M barrels.",
-      "priority_score": 13.97,
+      "priority_score": 64.28,
       "das_band": "Anomalous",
       "description": "Oil Price Shock \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.481806345400102,
       "likelihood_ratios": [
         6.54454190362003,
         1.249999999998181,
+        14.861354759050077,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295486",
+      "last_updated": "2026-06-24T14:36:52.159547",
       "confidence": 0.95
     },
     {
@@ -1098,21 +1144,22 @@
       "domains": [
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0781,
+      "status": "Orange",
+      "scp": 0.5625,
       "base_probability": 0.008062156799999998,
-      "das": 52.74,
+      "das": 7.81,
       "notes": "External power vulnerable.",
-      "priority_score": 13.81,
+      "priority_score": 64.25,
       "das_band": "Anomalous",
       "description": "Zaporizhzhia NPP Single\u2011Point\u2011of\u2011Failure \u2013 a threat affecting Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295510",
+      "last_updated": "2026-06-24T14:36:52.159570",
       "confidence": 0.95
     },
     {
@@ -1122,21 +1169,22 @@
         "Energy",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0735,
+      "status": "Orange",
+      "scp": 0.5464,
       "base_probability": 0.007558271999999996,
-      "das": 53.31,
+      "das": 5.8,
       "notes": "Members exceed quotas.",
-      "priority_score": 13.35,
+      "priority_score": 62.64,
       "das_band": "Anomalous",
       "description": "OPEC Quota Compliance Collapse \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295534",
+      "last_updated": "2026-06-24T14:36:52.159593",
       "confidence": 0.95
     },
     {
@@ -1145,12 +1193,12 @@
       "domains": [
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0671,
+      "status": "Orange",
+      "scp": 0.5219,
       "base_probability": 0.00685283328,
-      "das": 54.11,
+      "das": 2.74,
       "notes": "Storage ~36%.",
-      "priority_score": 12.71,
+      "priority_score": 60.19,
       "delta_contribution": 3.149999999999999,
       "das_band": "Anomalous",
       "description": "EU Gas Security \u2013 a threat affecting Energy. Monitor closely for escalation.",
@@ -1158,9 +1206,10 @@
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295557",
+      "last_updated": "2026-06-24T14:36:52.159638",
       "confidence": 0.95
     },
     {
@@ -1170,21 +1219,22 @@
         "Energy",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0632,
+      "status": "Orange",
+      "scp": 0.5005,
       "base_probability": 0.006550502399999999,
-      "das": 54.6,
+      "das": 0.06,
       "notes": "Hormuz closure persists.",
-      "priority_score": 12.32,
+      "priority_score": 58.05,
       "das_band": "Anomalous",
       "description": "Global Oil Supply Deficit \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.481806345400102,
       "likelihood_ratios": [
         6.54454190362003,
         1.249999999998181,
+        14.861354759050077,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295581",
+      "last_updated": "2026-06-24T14:36:52.159663",
       "confidence": 0.95
     },
     {
@@ -1194,21 +1244,22 @@
         "Energy",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0615,
+      "status": "Orange",
+      "scp": 0.4986,
       "base_probability": 0.006248171519999999,
-      "das": 54.81,
+      "das": 0.18,
       "notes": "Energy import costs.",
-      "priority_score": 12.15,
+      "priority_score": 57.86,
       "das_band": "Anomalous",
       "description": "East Asia Fiscal\u2011Energy Spiral \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295609",
+      "last_updated": "2026-06-24T14:36:52.159687",
       "confidence": 0.95
     },
     {
@@ -1219,21 +1270,22 @@
         "Financial",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0596,
+      "status": "Orange",
+      "scp": 0.4904,
       "base_probability": 0.006046617599999999,
-      "das": 55.05,
+      "das": 1.2,
       "notes": "LNG dependency.",
-      "priority_score": 11.96,
+      "priority_score": 57.04,
       "das_band": "Anomalous",
       "description": "Egypt Fiscal & Political Stress \u2013 a threat affecting Energy, Financial, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295647",
+      "last_updated": "2026-06-24T14:36:52.159710",
       "confidence": 0.95
     },
     {
@@ -1243,21 +1295,22 @@
         "Energy",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0643,
+      "status": "Orange",
+      "scp": 0.5105,
       "base_probability": 0.006550502399999999,
-      "das": 54.46,
+      "das": 1.31,
       "notes": "Oil revenue volatility.",
-      "priority_score": 12.43,
+      "priority_score": 59.05,
       "das_band": "Anomalous",
       "description": "Kuwait Fiscal Collapse \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295671",
+      "last_updated": "2026-06-24T14:36:52.159733",
       "confidence": 0.95
     },
     {
@@ -1267,21 +1320,22 @@
         "Energy",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0549,
+      "status": "Orange",
+      "scp": 0.4686,
       "base_probability": 0.0055427327999999975,
-      "das": 55.64,
+      "das": 3.92,
       "notes": "Quota violations.",
-      "priority_score": 11.49,
+      "priority_score": 54.86,
       "das_band": "Anomalous",
       "description": "Kazakhstan OPEC Overproduction \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295695",
+      "last_updated": "2026-06-24T14:36:52.159756",
       "confidence": 0.95
     },
     {
@@ -1291,21 +1345,22 @@
         "Energy",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0596,
+      "status": "Orange",
+      "scp": 0.4904,
       "base_probability": 0.006046617599999999,
-      "das": 55.05,
+      "das": 1.2,
       "notes": "Russian transit.",
-      "priority_score": 11.96,
+      "priority_score": 57.04,
       "das_band": "Anomalous",
       "description": "Central Asia Energy Export Dependency \u2013 a threat affecting Energy, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295718",
+      "last_updated": "2026-06-24T14:36:52.159779",
       "confidence": 0.95
     },
     {
@@ -1315,21 +1370,22 @@
         "Energy",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0445,
+      "status": "Yellow",
+      "scp": 0.4091,
       "base_probability": 0.004534963199999999,
-      "das": 56.94,
+      "das": 11.36,
       "notes": "Downward probability.",
-      "priority_score": 10.45,
+      "priority_score": 48.91,
       "das_band": "Anomalous",
       "description": "Oil price >$150 \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.481806345400102,
       "likelihood_ratios": [
         6.54454190362003,
         1.249999999998181,
+        14.861354759050077,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295742",
+      "last_updated": "2026-06-24T14:36:52.159803",
       "confidence": 0.95
     },
     {
@@ -1339,21 +1395,22 @@
         "Energy",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0501,
+      "status": "Yellow",
+      "scp": 0.4448,
       "base_probability": 0.005038847999999999,
-      "das": 56.24,
+      "das": 6.9,
       "notes": "OPEC+ powerless.",
-      "priority_score": 11.01,
+      "priority_score": 52.48,
       "das_band": "Anomalous",
       "description": "Global deficit 7M b/d \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295765",
+      "last_updated": "2026-06-24T14:36:52.159827",
       "confidence": 0.95
     },
     {
@@ -1363,21 +1420,22 @@
         "Energy",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0549,
+      "status": "Orange",
+      "scp": 0.4686,
       "base_probability": 0.0055427327999999975,
-      "das": 55.64,
+      "das": 3.92,
       "notes": "Draining fast.",
-      "priority_score": 11.49,
+      "priority_score": 54.86,
       "das_band": "Anomalous",
       "description": "SPR release inadequacy \u2013 a threat affecting Energy, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295790",
+      "last_updated": "2026-06-24T14:36:52.159851",
       "confidence": 0.95
     },
     {
@@ -1388,20 +1446,21 @@
         "Financial"
       ],
       "status": "Green",
-      "scp": 0.0279,
+      "scp": 0.2206,
       "base_probability": 0.004031078399999999,
-      "das": 59.01,
+      "das": 34.92,
       "notes": "De\u2011dollarisation.",
-      "priority_score": 8.79,
+      "priority_score": 30.06,
       "das_band": "Anomalous",
       "description": "China\u2011Iran petroyuan \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 12.80739030381506,
       "likelihood_ratios": [
         4.5422170911445185,
         1.249999999998181,
+        9.855542727861295,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295813",
+      "last_updated": "2026-06-24T14:36:52.159874",
       "confidence": 0.95
     },
     {
@@ -1412,20 +1471,21 @@
         "Geopolitical"
       ],
       "status": "Green",
-      "scp": 0.0155,
+      "scp": 0.1931,
       "base_probability": 0.0015116543999999998,
-      "das": 60.56,
+      "das": 38.36,
       "notes": "Limited.",
-      "priority_score": 7.55,
+      "priority_score": 27.31,
       "das_band": "Anomalous",
       "description": "Russia brokering role \u2013 a threat affecting Energy, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.893113630056185,
       "likelihood_ratios": [
         6.667934089016855,
         1.249999999998181,
+        15.169835222542138,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295837",
+      "last_updated": "2026-06-24T14:36:52.159898",
       "confidence": 0.95
     },
     {
@@ -1435,21 +1495,22 @@
         "Energy",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.0501,
+      "status": "Yellow",
+      "scp": 0.4448,
       "base_probability": 0.005038847999999999,
-      "das": 56.24,
+      "das": 6.9,
       "notes": "Red Sea impacts.",
-      "priority_score": 11.01,
+      "priority_score": 52.48,
       "das_band": "Anomalous",
       "description": "Qatar LNG rerouting disruption \u2013 a threat affecting Energy, Supply Chains. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295860",
+      "last_updated": "2026-06-24T14:36:52.159922",
       "confidence": 0.95
     },
     {
@@ -1459,21 +1520,22 @@
         "Energy",
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0608,
+      "status": "Orange",
+      "scp": 0.5013,
       "base_probability": 0.006046617599999999,
-      "das": 54.9,
+      "das": 0.16,
       "notes": "50% increase in total energy demand projected.",
-      "priority_score": 12.08,
+      "priority_score": 58.13,
       "das_band": "Anomalous",
       "description": "AI data centre power demand as new energy war front \u2013 a threat affecting Energy, Technology. Monitor closely for escalation.",
       "ml_likelihood_ratio": 20.368054015050888,
       "likelihood_ratios": [
         6.810416204515266,
         1.249999999998181,
+        15.526040511288166,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295883",
+      "last_updated": "2026-06-24T14:36:52.159945",
       "confidence": 0.95
     },
     {
@@ -1482,21 +1544,22 @@
       "domains": [
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0405,
+      "status": "Yellow",
+      "scp": 0.3903,
       "base_probability": 0.004031078399999999,
-      "das": 57.44,
+      "das": 13.71,
       "notes": "Uncertain risks with decimated regulations.",
-      "priority_score": 10.05,
+      "priority_score": 47.03,
       "das_band": "Anomalous",
       "description": "Small modular reactor safety & regulatory gap \u2013 a threat affecting Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295907",
+      "last_updated": "2026-06-24T14:36:52.159969",
       "confidence": 0.95
     },
     {
@@ -1506,21 +1569,22 @@
         "Energy",
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0538,
+      "status": "Orange",
+      "scp": 0.4574,
       "base_probability": 0.0055427327999999975,
-      "das": 55.77,
+      "das": 5.33,
       "notes": "73B gal/year water by 2028.",
-      "priority_score": 11.38,
+      "priority_score": 53.74,
       "das_band": "Anomalous",
       "description": "Hyperscale AI data centre water/energy tipping point \u2013 a threat affecting Energy, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.431950176012915,
       "likelihood_ratios": [
         6.529585052803874,
         1.249999999998181,
+        14.823962632009685,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295930",
+      "last_updated": "2026-06-24T14:36:52.159992",
       "confidence": 0.95
     },
     {
@@ -1530,21 +1594,22 @@
         "Energy",
         "Cyber"
       ],
-      "status": "Green",
-      "scp": 0.0461,
+      "status": "Yellow",
+      "scp": 0.4283,
       "base_probability": 0.004534963199999999,
-      "das": 56.74,
+      "das": 8.96,
       "notes": "Decentralised grid vulnerabilities.",
-      "priority_score": 10.61,
+      "priority_score": 50.83,
       "das_band": "Anomalous",
       "description": "Critical infrastructure mini\u2011grid fragility \u2013 a threat affecting Energy, Cyber. Monitor closely for escalation.",
       "ml_likelihood_ratio": 20.317084084129682,
       "likelihood_ratios": [
         6.7951252252389045,
         1.249999999998181,
+        15.487813063097262,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295953",
+      "last_updated": "2026-06-24T14:36:52.160015",
       "confidence": 0.95
     },
     {
@@ -1554,21 +1619,22 @@
         "Energy",
         "Cyber"
       ],
-      "status": "Green",
-      "scp": 0.0501,
+      "status": "Yellow",
+      "scp": 0.4448,
       "base_probability": 0.005038847999999999,
-      "das": 56.24,
+      "das": 6.9,
       "notes": "Thousands of vulnerable inverters.",
-      "priority_score": 11.01,
+      "priority_score": 52.48,
       "das_band": "Anomalous",
       "description": "Solar inverter botnets for grid destabilisation \u2013 a threat affecting Energy, Cyber. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.295976",
+      "last_updated": "2026-06-24T14:36:52.160039",
       "confidence": 0.95
     },
     {
@@ -1577,21 +1643,22 @@
       "domains": [
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.06,
+      "status": "Orange",
+      "scp": 0.4515,
       "base_probability": 0.007054387199999998,
-      "das": 55.0,
+      "das": 6.06,
       "notes": "Record low extent.",
-      "priority_score": 12.0,
+      "priority_score": 53.15,
       "das_band": "Anomalous",
       "description": "Arctic Sea Ice Loss \u2013 a threat affecting Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.848815741752464,
       "likelihood_ratios": [
         5.754644722525739,
         1.249999999998181,
+        12.886611806314349,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296002",
+      "last_updated": "2026-06-24T14:36:52.160064",
       "confidence": 0.95
     },
     {
@@ -1600,21 +1667,22 @@
       "domains": [
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0643,
+      "status": "Orange",
+      "scp": 0.4981,
       "base_probability": 0.00685283328,
-      "das": 54.46,
+      "das": 0.24,
       "notes": "Antarctic.",
-      "priority_score": 12.43,
+      "priority_score": 57.81,
       "das_band": "Anomalous",
       "description": "Ross Ice Shelf Acceleration \u2013 a threat affecting Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296025",
+      "last_updated": "2026-06-24T14:36:52.160087",
       "confidence": 0.95
     },
     {
@@ -1624,21 +1692,22 @@
         "Climate",
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0553,
+      "status": "Yellow",
+      "scp": 0.4265,
       "base_probability": 0.006550502399999999,
-      "das": 55.59,
+      "das": 9.19,
       "notes": "Extreme temperatures.",
-      "priority_score": 11.53,
+      "priority_score": 50.65,
       "das_band": "Anomalous",
       "description": "Delhi Heatwave \u2013 a threat affecting Climate, Social. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.606553955867888,
       "likelihood_ratios": [
         5.681966186760366,
         1.249999999998181,
+        12.704915466900916,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296049",
+      "last_updated": "2026-06-24T14:36:52.160111",
       "confidence": 0.95
     },
     {
@@ -1648,21 +1717,22 @@
         "Climate",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0555,
+      "status": "Yellow",
+      "scp": 0.4281,
       "base_probability": 0.006550502399999999,
-      "das": 55.56,
+      "das": 8.99,
       "notes": "FEMA strained.",
-      "priority_score": 11.55,
+      "priority_score": 50.81,
       "das_band": "Anomalous",
       "description": "U.S. Hurricane Season \u2013 a threat affecting Climate, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.664359929884956,
       "likelihood_ratios": [
         5.699307978965487,
         1.249999999998181,
+        12.748269947413718,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296072",
+      "last_updated": "2026-06-24T14:36:52.160134",
       "confidence": 0.95
     },
     {
@@ -1673,21 +1743,22 @@
         "Food",
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0649,
+      "status": "Orange",
+      "scp": 0.5033,
       "base_probability": 0.00685283328,
-      "das": 54.39,
+      "das": 0.41,
       "notes": "Central America.",
-      "priority_score": 12.49,
+      "priority_score": 58.33,
       "das_band": "Anomalous",
       "description": "Dry Corridor Famine\u2011Migration \u2013 a threat affecting Climate, Food, Social. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.130656990345802,
       "likelihood_ratios": [
         6.43919709710374,
         1.249999999998181,
+        14.597992742759352,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296097",
+      "last_updated": "2026-06-24T14:36:52.160166",
       "confidence": 0.95
     },
     {
@@ -1697,21 +1768,22 @@
         "Climate",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "Water levels low.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "das_band": "Anomalous",
       "description": "Panama Canal Logistics Shock \u2013 a threat affecting Climate, Supply Chains. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296121",
+      "last_updated": "2026-06-24T14:36:52.160190",
       "confidence": 0.95
     },
     {
@@ -1720,21 +1792,22 @@
       "domains": [
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0526,
+      "status": "Yellow",
+      "scp": 0.4449,
       "base_probability": 0.0055427327999999975,
-      "das": 55.93,
+      "das": 6.89,
       "notes": "Permafrost.",
-      "priority_score": 11.26,
+      "priority_score": 52.49,
       "das_band": "Anomalous",
       "description": "Yamal Methane Anomaly \u2013 a threat affecting Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296145",
+      "last_updated": "2026-06-24T14:36:52.160213",
       "confidence": 0.95
     },
     {
@@ -1743,21 +1816,22 @@
       "domains": [
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0341,
+      "status": "Yellow",
+      "scp": 0.3373,
       "base_probability": 0.003527193599999999,
-      "das": 58.24,
+      "das": 20.34,
       "notes": "Ocean circulation.",
-      "priority_score": 9.41,
+      "priority_score": 41.73,
       "das_band": "Anomalous",
       "description": "AMOC Slowdown \u2013 a threat affecting Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296169",
+      "last_updated": "2026-06-24T14:36:52.160237",
       "confidence": 0.95
     },
     {
@@ -1767,21 +1841,22 @@
         "Climate",
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0434,
+      "status": "Yellow",
+      "scp": 0.3958,
       "base_probability": 0.004534963199999999,
-      "das": 57.07,
+      "das": 13.03,
       "notes": "Seasonal.",
-      "priority_score": 10.34,
+      "priority_score": 47.58,
       "das_band": "Anomalous",
       "description": "Bangladesh Monsoon Flood \u2013 a threat affecting Climate, Social. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296192",
+      "last_updated": "2026-06-24T14:36:52.160261",
       "confidence": 0.95
     },
     {
@@ -1790,21 +1865,22 @@
       "domains": [
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "80\u201190% probability strong event.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "das_band": "Anomalous",
       "description": "El Ni\u00f1o \u2013 a threat affecting Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296216",
+      "last_updated": "2026-06-24T14:36:52.160284",
       "confidence": 0.95
     },
     {
@@ -1814,20 +1890,21 @@
         "Climate"
       ],
       "status": "Green",
-      "scp": 0.0149,
+      "scp": 0.1788,
       "base_probability": 0.0015116543999999998,
-      "das": 60.64,
+      "das": 40.15,
       "notes": "Hurricane relief.",
-      "priority_score": 7.49,
+      "priority_score": 25.88,
       "das_band": "Anomalous",
       "description": "NOAA below\u2011avg forecast \u2013 a threat affecting Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296239",
+      "last_updated": "2026-06-24T14:36:52.160307",
       "confidence": 0.95
     },
     {
@@ -1837,21 +1914,22 @@
         "Climate",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0341,
+      "status": "Yellow",
+      "scp": 0.3373,
       "base_probability": 0.003527193599999999,
-      "das": 58.24,
+      "das": 20.34,
       "notes": "Atmospheric river.",
-      "priority_score": 9.41,
+      "priority_score": 41.73,
       "das_band": "Anomalous",
       "description": "California flood risk \u2013 a threat affecting Climate, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296262",
+      "last_updated": "2026-06-24T14:36:52.160330",
       "confidence": 0.95
     },
     {
@@ -1861,21 +1939,22 @@
         "Climate",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0366,
+      "status": "Yellow",
+      "scp": 0.3399,
       "base_probability": 0.004031078399999999,
-      "das": 57.92,
+      "das": 20.01,
       "notes": "Early fires.",
-      "priority_score": 9.66,
+      "priority_score": 41.99,
       "das_band": "Anomalous",
       "description": "Canada wildfire season \u2013 a threat affecting Climate, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.714113382898727,
       "likelihood_ratios": [
         6.014234014869618,
         1.249999999998181,
+        13.535585037174044,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296286",
+      "last_updated": "2026-06-24T14:36:52.160354",
       "confidence": 0.95
     },
     {
@@ -1885,21 +1964,22 @@
         "Climate",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0436,
+      "status": "Yellow",
+      "scp": 0.3699,
       "base_probability": 0.005038847999999999,
-      "das": 57.05,
+      "das": 16.26,
       "notes": "Georgia.",
-      "priority_score": 10.36,
+      "priority_score": 44.99,
       "das_band": "Anomalous",
       "description": "Caucasus frozen conflict \u2013 a threat affecting Climate, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.85168438089604,
       "likelihood_ratios": [
         5.755505314268811,
         1.249999999998181,
+        12.88876328567203,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296308",
+      "last_updated": "2026-06-24T14:36:52.160377",
       "confidence": 0.95
     },
     {
@@ -1909,21 +1989,22 @@
         "Climate",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0293,
+      "status": "Yellow",
+      "scp": 0.3037,
       "base_probability": 0.0030233087999999996,
-      "das": 58.84,
+      "das": 24.54,
       "notes": "Russian influence.",
-      "priority_score": 8.93,
+      "priority_score": 38.37,
       "das_band": "Anomalous",
       "description": "Georgia destabilisation \u2013 a threat affecting Climate, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296332",
+      "last_updated": "2026-06-24T14:36:52.160400",
       "confidence": 0.95
     },
     {
@@ -1933,21 +2014,22 @@
         "Climate",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0526,
+      "status": "Yellow",
+      "scp": 0.4449,
       "base_probability": 0.0055427327999999975,
-      "das": 55.93,
+      "das": 6.89,
       "notes": "Island nations.",
-      "priority_score": 11.26,
+      "priority_score": 52.49,
       "das_band": "Anomalous",
       "description": "Pacific strategic \u2013 a threat affecting Climate, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296355",
+      "last_updated": "2026-06-24T14:36:52.160424",
       "confidence": 0.95
     },
     {
@@ -1957,21 +2039,22 @@
         "Climate",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0454,
+      "status": "Yellow",
+      "scp": 0.3918,
       "base_probability": 0.005038847999999999,
-      "das": 56.82,
+      "das": 13.53,
       "notes": "Caribbean.",
-      "priority_score": 10.54,
+      "priority_score": 47.18,
       "das_band": "Anomalous",
       "description": "Hurricane\u2011debt spiral \u2013 a threat affecting Climate, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.714113382898727,
       "likelihood_ratios": [
         6.014234014869618,
         1.249999999998181,
+        13.535585037174044,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296378",
+      "last_updated": "2026-06-24T14:36:52.160447",
       "confidence": 0.95
     },
     {
@@ -1981,21 +2064,22 @@
         "Climate",
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0579,
+      "status": "Orange",
+      "scp": 0.4522,
       "base_probability": 0.006550502399999999,
-      "das": 55.26,
+      "das": 5.98,
       "notes": "Wildfires.",
-      "priority_score": 11.79,
+      "priority_score": 53.22,
       "das_band": "Anomalous",
       "description": "Amazon tipping point \u2013 a threat affecting Climate, Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.562435370283524,
       "likelihood_ratios": [
         5.968730611085057,
         1.249999999998181,
+        13.421826527712643,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296402",
+      "last_updated": "2026-06-24T14:36:52.160470",
       "confidence": 0.95
     },
     {
@@ -2005,21 +2089,22 @@
         "Climate",
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0561,
+      "status": "Yellow",
+      "scp": 0.4344,
       "base_probability": 0.006550502399999999,
-      "das": 55.49,
+      "das": 8.2,
       "notes": "UNU report: 2.2B without safe water.",
-      "priority_score": 11.61,
+      "priority_score": 51.44,
       "das_band": "Anomalous",
       "description": "Global water bankruptcy \u2013 a threat affecting Climate, Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.896130536841504,
       "likelihood_ratios": [
         5.768839161052451,
         1.249999999998181,
+        12.922097902631128,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296426",
+      "last_updated": "2026-06-24T14:36:52.160493",
       "confidence": 0.95
     },
     {
@@ -2028,21 +2113,22 @@
       "domains": [
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0434,
+      "status": "Yellow",
+      "scp": 0.3958,
       "base_probability": 0.004534963199999999,
-      "das": 57.07,
+      "das": 13.03,
       "notes": "6M km\u00b2 sinking, 2B people affected.",
-      "priority_score": 10.34,
+      "priority_score": 47.58,
       "das_band": "Anomalous",
       "description": "Widespread land subsidence from groundwater depletion \u2013 a threat affecting Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296449",
+      "last_updated": "2026-06-24T14:36:52.160517",
       "confidence": 0.95
     },
     {
@@ -2051,21 +2137,22 @@
       "domains": [
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0536,
+      "status": "Yellow",
+      "scp": 0.4316,
       "base_probability": 0.006046617599999999,
-      "das": 55.8,
+      "das": 8.55,
       "notes": "Low\u2011mid latitude glaciers disappearing.",
-      "priority_score": 11.36,
+      "priority_score": 51.16,
       "das_band": "Anomalous",
       "description": "Accelerating glacier mass loss (functional extinction) \u2013 a threat affecting Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.534720485596562,
       "likelihood_ratios": [
         5.960416145678969,
         1.249999999998181,
+        13.40104036419742,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296472",
+      "last_updated": "2026-06-24T14:36:52.160540",
       "confidence": 0.95
     },
     {
@@ -2075,21 +2162,22 @@
         "Climate",
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0422,
+      "status": "Yellow",
+      "scp": 0.3531,
       "base_probability": 0.005038847999999999,
-      "das": 57.22,
+      "das": 18.36,
       "notes": "Reduced moisture retention.",
-      "priority_score": 10.22,
+      "priority_score": 43.31,
       "das_band": "Anomalous",
       "description": "Severe soil degradation (>50% agricultural land) \u2013 a threat affecting Climate, Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.205918267935346,
       "likelihood_ratios": [
         5.561775480380604,
         1.249999999998181,
+        12.40443870095151,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296495",
+      "last_updated": "2026-06-24T14:36:52.160563",
       "confidence": 0.95
     },
     {
@@ -2099,21 +2187,22 @@
         "Climate",
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0478,
+      "status": "Yellow",
+      "scp": 0.3936,
       "base_probability": 0.0055427327999999975,
-      "das": 56.52,
+      "das": 13.3,
       "notes": "3B people in areas of terminal decline.",
-      "priority_score": 10.78,
+      "priority_score": 47.36,
       "das_band": "Anomalous",
       "description": "Collapse of agricultural water storage \u2013 a threat affecting Climate, Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.896130536841504,
       "likelihood_ratios": [
         5.768839161052451,
         1.249999999998181,
+        12.922097902631128,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296518",
+      "last_updated": "2026-06-24T14:36:52.160586",
       "confidence": 0.95
     },
     {
@@ -2122,12 +2211,12 @@
       "domains": [
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0686,
+      "status": "Orange",
+      "scp": 0.4778,
       "base_probability": 0.008398079999999999,
-      "das": 53.92,
+      "das": 2.77,
       "notes": "Global debt 94% GDP.",
-      "priority_score": 12.86,
+      "priority_score": 55.78,
       "delta_contribution": 6.300000000000001,
       "das_band": "Anomalous",
       "description": "Sovereign Debt Crisis \u2013 a threat affecting Financial. Monitor closely for escalation.",
@@ -2135,9 +2224,10 @@
       "likelihood_ratios": [
         5.567500054714999,
         1.249999999998181,
+        12.418750136787498,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296542",
+      "last_updated": "2026-06-24T14:36:52.160609",
       "confidence": 0.95
     },
     {
@@ -2146,12 +2236,12 @@
       "domains": [
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "De\u2011dollarisation.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "delta_contribution": 2.1000000000000005,
       "das_band": "Anomalous",
       "description": "USD Reserve Erosion \u2013 a threat affecting Financial. Monitor closely for escalation.",
@@ -2159,9 +2249,10 @@
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296565",
+      "last_updated": "2026-06-24T14:36:52.160651",
       "confidence": 0.95
     },
     {
@@ -2170,12 +2261,12 @@
       "domains": [
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0731,
+      "status": "Orange",
+      "scp": 0.5326,
       "base_probability": 0.007860602879999998,
-      "das": 53.36,
+      "das": 4.07,
       "notes": "IMF warning.",
-      "priority_score": 13.31,
+      "priority_score": 61.26,
       "delta_contribution": 3.149999999999999,
       "das_band": "Anomalous",
       "description": "Global debt 100% by 2029 \u2013 a threat affecting Financial. Monitor closely for escalation.",
@@ -2183,9 +2274,10 @@
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296592",
+      "last_updated": "2026-06-24T14:36:52.160675",
       "confidence": 0.95
     },
     {
@@ -2194,21 +2286,22 @@
       "domains": [
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0542,
+      "status": "Yellow",
+      "scp": 0.416,
       "base_probability": 0.006550502399999999,
-      "das": 55.72,
+      "das": 10.5,
       "notes": "Funds depleted.",
-      "priority_score": 11.42,
+      "priority_score": 49.6,
       "das_band": "Anomalous",
       "description": "IMF lending capacity crisis \u2013 a threat affecting Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.22500018238333,
       "likelihood_ratios": [
         5.567500054714999,
         1.249999999998181,
+        12.418750136787498,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296633",
+      "last_updated": "2026-06-24T14:36:52.160699",
       "confidence": 0.95
     },
     {
@@ -2218,21 +2311,22 @@
         "Financial",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0526,
+      "status": "Yellow",
+      "scp": 0.4449,
       "base_probability": 0.0055427327999999975,
-      "das": 55.93,
+      "das": 6.89,
       "notes": "El Salvador.",
-      "priority_score": 11.26,
+      "priority_score": 52.49,
       "das_band": "Anomalous",
       "description": "N. Triangle Cartel Violence \u2013 a threat affecting Financial, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296659",
+      "last_updated": "2026-06-24T14:36:52.160722",
       "confidence": 0.95
     },
     {
@@ -2242,21 +2336,22 @@
         "Financial",
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0556,
+      "status": "Orange",
+      "scp": 0.4515,
       "base_probability": 0.006046617599999999,
-      "das": 55.55,
+      "das": 6.06,
       "notes": "Remittances.",
-      "priority_score": 11.56,
+      "priority_score": 53.15,
       "das_band": "Anomalous",
       "description": "Central America Food Supply Shock \u2013 a threat affecting Financial, Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.30867505010027,
       "likelihood_ratios": [
         6.192602515030081,
         1.249999999998181,
+        13.981506287575202,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296683",
+      "last_updated": "2026-06-24T14:36:52.160745",
       "confidence": 0.95
     },
     {
@@ -2266,21 +2361,22 @@
         "Financial",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.048,
+      "status": "Yellow",
+      "scp": 0.4214,
       "base_probability": 0.005038847999999999,
-      "das": 56.5,
+      "das": 9.83,
       "notes": "China vs US.",
-      "priority_score": 10.8,
+      "priority_score": 50.14,
       "das_band": "Anomalous",
       "description": "Great\u2011Power Competition \u2192 Aid Diversion \u2013 a threat affecting Financial, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296707",
+      "last_updated": "2026-06-24T14:36:52.160769",
       "confidence": 0.95
     },
     {
@@ -2290,21 +2386,22 @@
         "Financial",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0526,
+      "status": "Yellow",
+      "scp": 0.4449,
       "base_probability": 0.0055427327999999975,
-      "das": 55.93,
+      "das": 6.89,
       "notes": "Hyperinflation.",
-      "priority_score": 11.26,
+      "priority_score": 52.49,
       "das_band": "Anomalous",
       "description": "Argentina peso collapse \u2013 a threat affecting Financial, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296732",
+      "last_updated": "2026-06-24T14:36:52.160793",
       "confidence": 0.95
     },
     {
@@ -2314,21 +2411,22 @@
         "Financial",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0661,
+      "status": "Orange",
+      "scp": 0.5053,
       "base_probability": 0.007054387199999998,
-      "das": 54.24,
+      "das": 0.66,
       "notes": "125% GDP.",
-      "priority_score": 12.61,
+      "priority_score": 58.53,
       "das_band": "Anomalous",
       "description": "US sovereign debt \u2013 a threat affecting Financial, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296755",
+      "last_updated": "2026-06-24T14:36:52.160816",
       "confidence": 0.95
     },
     {
@@ -2337,21 +2435,22 @@
       "domains": [
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0322,
+      "status": "Yellow",
+      "scp": 0.3105,
       "base_probability": 0.003527193599999999,
-      "das": 58.48,
+      "das": 23.69,
       "notes": "Sticky inflation.",
-      "priority_score": 9.22,
+      "priority_score": 39.05,
       "das_band": "Anomalous",
       "description": "Fed rate hold into 2027 \u2013 a threat affecting Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.714113382898727,
       "likelihood_ratios": [
         6.014234014869618,
         1.249999999998181,
+        13.535585037174044,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296779",
+      "last_updated": "2026-06-24T14:36:52.160840",
       "confidence": 0.95
     },
     {
@@ -2360,21 +2459,22 @@
       "domains": [
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0616,
+      "status": "Orange",
+      "scp": 0.4867,
       "base_probability": 0.006550502399999999,
-      "das": 54.8,
+      "das": 1.66,
       "notes": "Zambia, Ghana.",
-      "priority_score": 12.16,
+      "priority_score": 56.67,
       "das_band": "Anomalous",
       "description": "African debt + private credit \u2013 a threat affecting Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296802",
+      "last_updated": "2026-06-24T14:36:52.160863",
       "confidence": 0.95
     },
     {
@@ -2384,21 +2484,22 @@
         "Financial",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0542,
+      "status": "Yellow",
+      "scp": 0.4378,
       "base_probability": 0.006046617599999999,
-      "das": 55.72,
+      "das": 7.77,
       "notes": "Saudi shift.",
-      "priority_score": 11.42,
+      "priority_score": 51.78,
       "das_band": "Anomalous",
       "description": "Petrodollar crisis + US fiscal \u2013 a threat affecting Financial, Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.776198387248833,
       "likelihood_ratios": [
         6.03285951617465,
         1.249999999998181,
+        13.582148790436625,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296825",
+      "last_updated": "2026-06-24T14:36:52.160886",
       "confidence": 0.95
     },
     {
@@ -2408,21 +2509,22 @@
         "Financial",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.0589,
+      "status": "Orange",
+      "scp": 0.4748,
       "base_probability": 0.006248171519999999,
-      "das": 55.14,
+      "das": 3.15,
       "notes": "Slowdown.",
-      "priority_score": 11.89,
+      "priority_score": 55.48,
       "das_band": "Anomalous",
       "description": "China malaise + trade fragmentation \u2013 a threat affecting Financial, Supply Chains. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296848",
+      "last_updated": "2026-06-24T14:36:52.160910",
       "confidence": 0.95
     },
     {
@@ -2432,21 +2534,22 @@
         "Financial",
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0493,
+      "status": "Yellow",
+      "scp": 0.4092,
       "base_probability": 0.0055427327999999975,
-      "das": 56.34,
+      "das": 11.35,
       "notes": "Recession.",
-      "priority_score": 10.93,
+      "priority_score": 48.92,
       "das_band": "Anomalous",
       "description": "Demand destruction + frozen labour \u2013 a threat affecting Financial, Social. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.494356906699995,
       "likelihood_ratios": [
         5.948307072009999,
         1.249999999998181,
+        13.370767680024997,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296871",
+      "last_updated": "2026-06-24T14:36:52.160933",
       "confidence": 0.95
     },
     {
@@ -2455,21 +2558,22 @@
       "domains": [
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.061,
+      "status": "Orange",
+      "scp": 0.4807,
       "base_probability": 0.006550502399999999,
-      "das": 54.87,
+      "das": 2.41,
       "notes": "Oil shock.",
-      "priority_score": 12.1,
+      "priority_score": 56.07,
       "das_band": "Anomalous",
       "description": "Global recession from oil \u2013 a threat affecting Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.67332150240578,
       "likelihood_ratios": [
         6.301996450721734,
         1.249999999998181,
+        14.254991126804335,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296895",
+      "last_updated": "2026-06-24T14:36:52.160957",
       "confidence": 0.95
     },
     {
@@ -2479,21 +2583,22 @@
         "Financial",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.048,
+      "status": "Yellow",
+      "scp": 0.4214,
       "base_probability": 0.005038847999999999,
-      "das": 56.5,
+      "das": 9.83,
       "notes": "Bolsonaro.",
-      "priority_score": 10.8,
+      "priority_score": 50.14,
       "das_band": "Anomalous",
       "description": "Brazil coup risk \u2013 a threat affecting Financial, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296918",
+      "last_updated": "2026-06-24T14:36:52.160980",
       "confidence": 0.95
     },
     {
@@ -2503,21 +2608,22 @@
         "Financial",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0412,
+      "status": "Yellow",
+      "scp": 0.4002,
       "base_probability": 0.004031078399999999,
-      "das": 57.35,
+      "das": 12.47,
       "notes": "Uncertain.",
-      "priority_score": 10.12,
+      "priority_score": 48.02,
       "das_band": "Anomalous",
       "description": "Venezuela oil sanctions relief \u2013 a threat affecting Financial, Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 20.34338119106778,
       "likelihood_ratios": [
         6.803014357320334,
         1.249999999998181,
+        15.507535893300837,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296942",
+      "last_updated": "2026-06-24T14:36:52.161004",
       "confidence": 0.95
     },
     {
@@ -2526,21 +2632,22 @@
       "domains": [
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "IMF program.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "das_band": "Anomalous",
       "description": "Angola debt default risk \u2013 a threat affecting Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296965",
+      "last_updated": "2026-06-24T14:36:52.161122",
       "confidence": 0.95
     },
     {
@@ -2550,21 +2657,22 @@
         "Financial",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0532,
+      "status": "Yellow",
+      "scp": 0.3566,
       "base_probability": 0.007860602879999998,
-      "das": 55.85,
+      "das": 17.93,
       "notes": "Permanent fee.",
-      "priority_score": 11.32,
+      "priority_score": 43.66,
       "das_band": "Anomalous",
       "description": "Iran\u2011Oman transit fee precedent \u2013 a threat affecting Financial, Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 12.80739030381506,
       "likelihood_ratios": [
         4.5422170911445185,
         1.249999999998181,
+        9.855542727861295,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.296989",
+      "last_updated": "2026-06-24T14:36:52.161154",
       "confidence": 0.95
     },
     {
@@ -2574,21 +2682,22 @@
         "Financial",
         "Cyber"
       ],
-      "status": "Green",
-      "scp": 0.0545,
+      "status": "Yellow",
+      "scp": 0.4182,
       "base_probability": 0.006550502399999999,
-      "das": 55.69,
+      "das": 10.22,
       "notes": "IMF warning.",
-      "priority_score": 11.45,
+      "priority_score": 49.82,
       "das_band": "Anomalous",
       "description": "AI\u2011driven systemic cyber\u2011financial crisis \u2013 a threat affecting Financial, Cyber. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.3024450247802,
       "likelihood_ratios": [
         5.59073350743406,
         1.249999999998181,
+        12.476833768585152,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297012",
+      "last_updated": "2026-06-24T14:36:52.161178",
       "confidence": 0.95
     },
     {
@@ -2597,21 +2706,22 @@
       "domains": [
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0512,
+      "status": "Yellow",
+      "scp": 0.4304,
       "base_probability": 0.0055427327999999975,
-      "das": 56.1,
+      "das": 8.7,
       "notes": "HFT withdrawal.",
-      "priority_score": 11.12,
+      "priority_score": 51.04,
       "das_band": "Anomalous",
       "description": "AI\u2011triggered flash crashes & liquidity evaporation \u2013 a threat affecting Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297035",
+      "last_updated": "2026-06-24T14:36:52.161201",
       "confidence": 0.95
     },
     {
@@ -2620,21 +2730,22 @@
       "domains": [
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0468,
+      "status": "Yellow",
+      "scp": 0.4071,
       "base_probability": 0.005038847999999999,
-      "das": 56.65,
+      "das": 11.61,
       "notes": "Trillions at risk.",
-      "priority_score": 10.68,
+      "priority_score": 48.71,
       "das_band": "Anomalous",
       "description": "Repo market freeze exacerbated by AI/cyber \u2013 a threat affecting Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297058",
+      "last_updated": "2026-06-24T14:36:52.161225",
       "confidence": 0.95
     },
     {
@@ -2643,21 +2754,22 @@
       "domains": [
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0408,
+      "status": "Yellow",
+      "scp": 0.3634,
       "base_probability": 0.004534963199999999,
-      "das": 57.4,
+      "das": 17.07,
       "notes": "Instantaneous digital bank runs.",
-      "priority_score": 10.08,
+      "priority_score": 44.34,
       "das_band": "Anomalous",
       "description": "CBDC\u2011driven disintermediation & bank runs \u2013 a threat affecting Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.570716321948538,
       "likelihood_ratios": [
         5.971214896584561,
         1.249999999998181,
+        13.428037241461404,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297082",
+      "last_updated": "2026-06-24T14:36:52.161249",
       "confidence": 0.95
     },
     {
@@ -2668,20 +2780,21 @@
         "Climate"
       ],
       "status": "Green",
-      "scp": 0.02,
+      "scp": 0.0734,
       "base_probability": 0.006046617599999999,
-      "das": 60.0,
+      "das": 53.32,
       "notes": "Uninsurable property.",
-      "priority_score": 8.0,
+      "priority_score": 15.34,
       "das_band": "Anomalous",
       "description": "Climate\u2011driven insurance withdrawal spiral \u2013 a threat affecting Financial, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 4.833787193480461,
       "likelihood_ratios": [
         2.1501361580441385,
         1.249999999998181,
+        3.875340395110346,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297105",
+      "last_updated": "2026-06-24T14:36:52.161272",
       "confidence": 0.65
     },
     {
@@ -2691,12 +2804,12 @@
         "Supply Chains",
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0778,
+      "status": "Orange",
+      "scp": 0.5491,
       "base_probability": 0.008398079999999999,
-      "das": 52.77,
+      "das": 6.14,
       "notes": "TSMC dominance; Huawei/SMIC blacklist.",
-      "priority_score": 13.78,
+      "priority_score": 62.91,
       "delta_contribution": 4.200000000000001,
       "das_band": "Anomalous",
       "description": "Taiwan Semiconductor Chokepoint \u2013 a threat affecting Supply Chains, Technology. Monitor closely for escalation.",
@@ -2704,9 +2817,10 @@
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297128",
+      "last_updated": "2026-06-24T14:36:52.161295",
       "confidence": 0.95
     },
     {
@@ -2716,21 +2830,22 @@
         "Supply Chains",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0616,
+      "status": "Orange",
+      "scp": 0.4867,
       "base_probability": 0.006550502399999999,
-      "das": 54.8,
+      "das": 1.66,
       "notes": "Chip subsidies.",
-      "priority_score": 12.16,
+      "priority_score": 56.67,
       "das_band": "Anomalous",
       "description": "East Asia Semiconductor\u2011Fiscal Contagion \u2013 a threat affecting Supply Chains, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297151",
+      "last_updated": "2026-06-24T14:36:52.161318",
       "confidence": 0.95
     },
     {
@@ -2740,21 +2855,22 @@
         "Supply Chains",
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0643,
+      "status": "Orange",
+      "scp": 0.4981,
       "base_probability": 0.00685283328,
-      "das": 54.46,
+      "das": 0.24,
       "notes": "US\u2011China tech war.",
-      "priority_score": 12.43,
+      "priority_score": 57.81,
       "das_band": "Anomalous",
       "description": "Taiwan semiconductor cascade \u2013 a threat affecting Supply Chains, Technology. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297175",
+      "last_updated": "2026-06-24T14:36:52.161342",
       "confidence": 0.95
     },
     {
@@ -2764,21 +2880,22 @@
         "Supply Chains",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0434,
+      "status": "Yellow",
+      "scp": 0.3958,
       "base_probability": 0.004534963199999999,
-      "das": 57.07,
+      "das": 13.03,
       "notes": "CHIPS Act.",
-      "priority_score": 10.34,
+      "priority_score": 47.58,
       "das_band": "Anomalous",
       "description": "Semiconductor\u2011fiscal \u2013 a threat affecting Supply Chains, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297198",
+      "last_updated": "2026-06-24T14:36:52.161365",
       "confidence": 0.95
     },
     {
@@ -2788,21 +2905,22 @@
         "Supply Chains",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0623,
+      "status": "Orange",
+      "scp": 0.453,
       "base_probability": 0.007558271999999996,
-      "das": 54.71,
+      "das": 5.87,
       "notes": "Houthi attacks.",
-      "priority_score": 12.23,
+      "priority_score": 53.3,
       "das_band": "Anomalous",
       "description": "Red Sea Shipping Chokepoint \u2013 a threat affecting Supply Chains, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.281417392463673,
       "likelihood_ratios": [
         5.584425217739102,
         1.249999999998181,
+        12.461063044347755,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297221",
+      "last_updated": "2026-06-24T14:36:52.161388",
       "confidence": 0.95
     },
     {
@@ -2812,21 +2930,22 @@
         "Supply Chains",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0769,
+      "status": "Orange",
+      "scp": 0.5539,
       "base_probability": 0.008062156799999998,
-      "das": 52.89,
+      "das": 6.74,
       "notes": "Hormuz.",
-      "priority_score": 13.69,
+      "priority_score": 63.39,
       "das_band": "Anomalous",
       "description": "Gulf shipping chokepoint \u2013 a threat affecting Supply Chains, Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.536192507265987,
       "likelihood_ratios": [
         6.560857752179796,
         1.249999999998181,
+        14.90214438044949,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297244",
+      "last_updated": "2026-06-24T14:36:52.161412",
       "confidence": 0.95
     },
     {
@@ -2836,21 +2955,22 @@
         "Supply Chains",
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "Water restrictions.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "das_band": "Anomalous",
       "description": "Panama Canal Logistics Shock \u2013 a threat affecting Supply Chains, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297267",
+      "last_updated": "2026-06-24T14:36:52.161435",
       "confidence": 0.95
     },
     {
@@ -2860,21 +2980,22 @@
         "Supply Chains",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.038,
+      "status": "Yellow",
+      "scp": 0.2599,
       "base_probability": 0.006046617599999999,
-      "das": 57.75,
+      "das": 30.01,
       "notes": "Critical vulnerability.",
-      "priority_score": 9.8,
+      "priority_score": 33.99,
       "das_band": "Anomalous",
       "description": "Nuclear fuel supply chain (Russia\u2011dominated HALEU) \u2013 a threat affecting Supply Chains, Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 11.52014277612679,
       "likelihood_ratios": [
         4.156042832838036,
         1.249999999998181,
+        8.890107082095092,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297291",
+      "last_updated": "2026-06-24T14:36:52.161460",
       "confidence": 0.92
     },
     {
@@ -2884,21 +3005,22 @@
         "Supply Chains",
         "Cyber"
       ],
-      "status": "Green",
-      "scp": 0.0501,
+      "status": "Yellow",
+      "scp": 0.4448,
       "base_probability": 0.005038847999999999,
-      "das": 56.24,
+      "das": 6.9,
       "notes": "Backdoors embedded.",
-      "priority_score": 11.01,
+      "priority_score": 52.48,
       "das_band": "Anomalous",
       "description": "Counterfeit network gear in critical infrastructure \u2013 a threat affecting Supply Chains, Cyber. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.902409678825347,
       "likelihood_ratios": [
         6.6707229036476035,
         1.249999999998181,
+        15.176807259119009,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297315",
+      "last_updated": "2026-06-24T14:36:52.161484",
       "confidence": 0.95
     },
     {
@@ -2907,21 +3029,22 @@
       "domains": [
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.0545,
+      "status": "Yellow",
+      "scp": 0.4185,
       "base_probability": 0.006550502399999999,
-      "das": 55.69,
+      "das": 10.19,
       "notes": "Single\u2011point failure.",
-      "priority_score": 11.45,
+      "priority_score": 49.85,
       "das_band": "Anomalous",
       "description": "Rare earth refining choke point (China >85%) \u2013 a threat affecting Supply Chains. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.315741851213275,
       "likelihood_ratios": [
         5.594722555363982,
         1.249999999998181,
+        12.486806388409956,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297338",
+      "last_updated": "2026-06-24T14:36:52.161507",
       "confidence": 0.95
     },
     {
@@ -2931,21 +3054,22 @@
         "Supply Chains",
         "Cyber"
       ],
-      "status": "Green",
-      "scp": 0.0526,
+      "status": "Yellow",
+      "scp": 0.4449,
       "base_probability": 0.0055427327999999975,
-      "das": 55.93,
+      "das": 6.89,
       "notes": "Poisoning before source control.",
-      "priority_score": 11.26,
+      "priority_score": 52.49,
       "das_band": "Anomalous",
       "description": "Third\u2011party device compromise in CI/CD pipelines \u2013 a threat affecting Supply Chains, Cyber. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297360",
+      "last_updated": "2026-06-24T14:36:52.161529",
       "confidence": 0.95
     },
     {
@@ -2955,21 +3079,22 @@
         "Supply Chains",
         "Energy"
       ],
-      "status": "Green",
-      "scp": 0.0476,
+      "status": "Yellow",
+      "scp": 0.4161,
       "base_probability": 0.005038847999999999,
-      "das": 56.55,
+      "das": 10.49,
       "notes": "Galvanised steel shortage.",
-      "priority_score": 10.76,
+      "priority_score": 49.61,
       "das_band": "Anomalous",
       "description": "Zinc smelting closure cascade (European energy crisis) \u2013 a threat affecting Supply Chains, Energy. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.69943400441686,
       "likelihood_ratios": [
         6.309830201325059,
         1.249999999998181,
+        14.274575503312647,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297383",
+      "last_updated": "2026-06-24T14:36:52.161553",
       "confidence": 0.95
     },
     {
@@ -2978,12 +3103,12 @@
       "domains": [
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.073,
+      "status": "Orange",
+      "scp": 0.5129,
       "base_probability": 0.008398079999999999,
-      "das": 53.37,
+      "das": 1.61,
       "notes": "19.5M acutely food insecure.",
-      "priority_score": 13.3,
+      "priority_score": 59.29,
       "delta_contribution": 19.94999999999998,
       "das_band": "Anomalous",
       "description": "Horn of Africa Famine \u2013 a threat affecting Food. Monitor closely for escalation.",
@@ -2991,9 +3116,10 @@
       "likelihood_ratios": [
         5.949211590631928,
         1.249999999998181,
+        13.373028976579821,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297419",
+      "last_updated": "2026-06-24T14:36:52.161592",
       "confidence": 0.95
     },
     {
@@ -3002,21 +3128,22 @@
       "domains": [
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0732,
+      "status": "Orange",
+      "scp": 0.5146,
       "base_probability": 0.008398079999999999,
-      "das": 53.35,
+      "das": 1.82,
       "notes": "Wheat imports.",
-      "priority_score": 13.32,
+      "priority_score": 59.46,
       "das_band": "Anomalous",
       "description": "North Africa Food Security Collapse \u2013 a threat affecting Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.562435370283524,
       "likelihood_ratios": [
         5.968730611085057,
         1.249999999998181,
+        13.421826527712643,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297446",
+      "last_updated": "2026-06-24T14:36:52.161641",
       "confidence": 0.95
     },
     {
@@ -3026,21 +3153,22 @@
         "Food",
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0577,
+      "status": "Yellow",
+      "scp": 0.4379,
       "base_probability": 0.00685283328,
-      "das": 55.29,
+      "das": 7.76,
       "notes": "Ethiopia filling.",
-      "priority_score": 11.77,
+      "priority_score": 51.79,
       "das_band": "Anomalous",
       "description": "Nile Water Conflict / GERD \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.614299188914735,
       "likelihood_ratios": [
         5.684289756674421,
         1.249999999998181,
+        12.710724391686052,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297470",
+      "last_updated": "2026-06-24T14:36:52.161667",
       "confidence": 0.95
     },
     {
@@ -3050,21 +3178,22 @@
         "Food",
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0564,
+      "status": "Yellow",
+      "scp": 0.4371,
       "base_probability": 0.006550502399999999,
-      "das": 55.45,
+      "das": 7.86,
       "notes": "India\u2011Pakistan.",
-      "priority_score": 11.64,
+      "priority_score": 51.71,
       "das_band": "Anomalous",
       "description": "Indus Water\u2011Food\u2011Conflict \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.994648336933427,
       "likelihood_ratios": [
         5.798394501080028,
         1.249999999998181,
+        12.995986252700071,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297494",
+      "last_updated": "2026-06-24T14:36:52.161691",
       "confidence": 0.95
     },
     {
@@ -3074,12 +3203,12 @@
         "Food",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0638,
+      "status": "Orange",
+      "scp": 0.4778,
       "base_probability": 0.007255941119999999,
-      "das": 54.52,
+      "das": 2.77,
       "notes": "FAO index elevated.",
-      "priority_score": 12.38,
+      "priority_score": 55.78,
       "delta_contribution": 9.45,
       "das_band": "Anomalous",
       "description": "Global Food Price Volatility \u2013 a threat affecting Food, Financial. Monitor closely for escalation.",
@@ -3087,9 +3216,10 @@
       "likelihood_ratios": [
         5.968730611085057,
         1.249999999998181,
+        13.421826527712643,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297520",
+      "last_updated": "2026-06-24T14:36:52.161718",
       "confidence": 0.95
     },
     {
@@ -3099,21 +3229,22 @@
         "Food",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0556,
+      "status": "Orange",
+      "scp": 0.4515,
       "base_probability": 0.006046617599999999,
-      "das": 55.55,
+      "das": 6.06,
       "notes": "Dry corridor.",
-      "priority_score": 11.56,
+      "priority_score": 53.15,
       "das_band": "Anomalous",
       "description": "Central America Food Supply Shock \u2013 a threat affecting Food, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.30867505010027,
       "likelihood_ratios": [
         6.192602515030081,
         1.249999999998181,
+        13.981506287575202,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297543",
+      "last_updated": "2026-06-24T14:36:52.161741",
       "confidence": 0.95
     },
     {
@@ -3122,21 +3253,22 @@
       "domains": [
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0782,
+      "status": "Orange",
+      "scp": 0.5519,
       "base_probability": 0.008398079999999999,
-      "das": 52.73,
+      "das": 6.49,
       "notes": "135k phase 5.",
-      "priority_score": 13.82,
+      "priority_score": 63.19,
       "das_band": "Anomalous",
       "description": "Sudan IPC5 famine \u2013 a threat affecting Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.030146061946713,
       "likelihood_ratios": [
         6.4090438185840135,
         1.249999999998181,
+        14.522609546460036,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297566",
+      "last_updated": "2026-06-24T14:36:52.161765",
       "confidence": 0.95
     },
     {
@@ -3145,21 +3277,22 @@
       "domains": [
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0693,
+      "status": "Orange",
+      "scp": 0.5019,
       "base_probability": 0.007860602879999998,
-      "das": 53.84,
+      "das": 0.24,
       "notes": "Acute malnutrition.",
-      "priority_score": 12.93,
+      "priority_score": 58.19,
       "das_band": "Anomalous",
       "description": "Kenya AMN Phase 5 \u2013 a threat affecting Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.712590608251844,
       "likelihood_ratios": [
         6.013777182475553,
         1.249999999998181,
+        13.534442956188883,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297594",
+      "last_updated": "2026-06-24T14:36:52.161788",
       "confidence": 0.95
     },
     {
@@ -3168,21 +3301,22 @@
       "domains": [
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0675,
+      "status": "Orange",
+      "scp": 0.5375,
       "base_probability": 0.006550502399999999,
-      "das": 54.06,
+      "das": 4.69,
       "notes": "Conflict blocks aid.",
-      "priority_score": 12.75,
+      "priority_score": 61.75,
       "das_band": "Anomalous",
       "description": "Ethiopia Tigray famine relapse \u2013 a threat affecting Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 21.079986707836888,
       "likelihood_ratios": [
         7.023996012351066,
         1.249999999998181,
+        16.059990030877664,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297630",
+      "last_updated": "2026-06-24T14:36:52.161812",
       "confidence": 0.95
     },
     {
@@ -3192,21 +3326,22 @@
         "Food",
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0648,
+      "status": "Orange",
+      "scp": 0.5149,
       "base_probability": 0.006550502399999999,
-      "das": 54.4,
+      "das": 1.86,
       "notes": "Compound crisis.",
-      "priority_score": 12.48,
+      "priority_score": 59.49,
       "das_band": "Anomalous",
       "description": "Somalia Shabelle floods + famine \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 20.08905894936036,
       "likelihood_ratios": [
         6.726717684808108,
         1.249999999998181,
+        15.31679421202027,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297655",
+      "last_updated": "2026-06-24T14:36:52.161836",
       "confidence": 0.95
     },
     {
@@ -3215,21 +3350,22 @@
       "domains": [
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0537,
+      "status": "Yellow",
+      "scp": 0.4323,
       "base_probability": 0.006046617599999999,
-      "das": 55.79,
+      "das": 8.46,
       "notes": "El Ni\u00f1o drought.",
-      "priority_score": 11.37,
+      "priority_score": 51.23,
       "das_band": "Anomalous",
       "description": "Zimbabwe grain deficit \u2013 a threat affecting Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.562435370283524,
       "likelihood_ratios": [
         5.968730611085057,
         1.249999999998181,
+        13.421826527712643,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297679",
+      "last_updated": "2026-06-24T14:36:52.161859",
       "confidence": 0.95
     },
     {
@@ -3239,21 +3375,22 @@
         "Food",
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0549,
+      "status": "Orange",
+      "scp": 0.4687,
       "base_probability": 0.0055427327999999975,
-      "das": 55.64,
+      "das": 3.91,
       "notes": "Hydro cuts.",
-      "priority_score": 11.49,
+      "priority_score": 54.87,
       "das_band": "Anomalous",
       "description": "Zambia drought emergency \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.909103531383277,
       "likelihood_ratios": [
         6.672731059414983,
         1.249999999998181,
+        15.181827648537457,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297703",
+      "last_updated": "2026-06-24T14:36:52.161882",
       "confidence": 0.95
     },
     {
@@ -3263,21 +3400,22 @@
         "Food",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.0564,
+      "status": "Yellow",
+      "scp": 0.4378,
       "base_probability": 0.006550502399999999,
-      "das": 55.45,
+      "das": 7.77,
       "notes": "Single point of failure at planting.",
-      "priority_score": 11.64,
+      "priority_score": 51.78,
       "das_band": "Anomalous",
       "description": "Urea fertiliser supply chain timing window \u2013 a threat affecting Food, Supply Chains. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.020936948630485,
       "likelihood_ratios": [
         5.806281084589146,
         1.249999999998181,
+        13.015702711472864,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297726",
+      "last_updated": "2026-06-24T14:36:52.161906",
       "confidence": 0.95
     },
     {
@@ -3287,21 +3425,22 @@
         "Food",
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0537,
+      "status": "Yellow",
+      "scp": 0.4323,
       "base_probability": 0.006046617599999999,
-      "das": 55.79,
+      "das": 8.46,
       "notes": "Uneven yield shocks.",
-      "priority_score": 11.37,
+      "priority_score": 51.23,
       "das_band": "Anomalous",
       "description": "El Ni\u00f1o\u2019s asynchronous global crop impact \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.562435370283524,
       "likelihood_ratios": [
         5.968730611085057,
         1.249999999998181,
+        13.421826527712643,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297749",
+      "last_updated": "2026-06-24T14:36:52.161929",
       "confidence": 0.95
     },
     {
@@ -3311,21 +3450,22 @@
         "Food",
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0437,
+      "status": "Yellow",
+      "scp": 0.3714,
       "base_probability": 0.005038847999999999,
-      "das": 57.04,
+      "das": 16.07,
       "notes": "Slow\u2011moving but irreversible.",
-      "priority_score": 10.37,
+      "priority_score": 45.14,
       "das_band": "Anomalous",
       "description": "Loss of soil biodiversity (microbiome collapse) \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.90949641181444,
       "likelihood_ratios": [
         5.772848923544332,
         1.249999999998181,
+        12.93212230886083,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297773",
+      "last_updated": "2026-06-24T14:36:52.161953",
       "confidence": 0.95
     },
     {
@@ -3334,21 +3474,22 @@
       "domains": [
         "Food"
       ],
-      "status": "Green",
-      "scp": 0.0638,
+      "status": "Orange",
+      "scp": 0.4778,
       "base_probability": 0.007255941119999999,
-      "das": 54.52,
+      "das": 2.77,
       "notes": "No strategic stockpile.",
-      "priority_score": 12.38,
+      "priority_score": 55.78,
       "das_band": "Anomalous",
       "description": "Absence of strategic fertiliser reserves \u2013 a threat affecting Food. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.562435370283524,
       "likelihood_ratios": [
         5.968730611085057,
         1.249999999998181,
+        13.421826527712643,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297796",
+      "last_updated": "2026-06-24T14:36:52.161976",
       "confidence": 0.95
     },
     {
@@ -3358,21 +3499,22 @@
         "Food",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0494,
+      "status": "Yellow",
+      "scp": 0.411,
       "base_probability": 0.0055427327999999975,
-      "das": 56.32,
+      "das": 11.13,
       "notes": "Pre\u2011borrowing risk.",
-      "priority_score": 10.94,
+      "priority_score": 49.1,
       "das_band": "Anomalous",
       "description": "Farm debt\u2011fertiliser price trap \u2013 a threat affecting Food, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.562435370283524,
       "likelihood_ratios": [
         5.968730611085057,
         1.249999999998181,
+        13.421826527712643,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297819",
+      "last_updated": "2026-06-24T14:36:52.161999",
       "confidence": 0.95
     },
     {
@@ -3382,21 +3524,22 @@
         "Domestic",
         "Information"
       ],
-      "status": "Green",
-      "scp": 0.0817,
+      "status": "Orange",
+      "scp": 0.5813,
       "base_probability": 0.008263710719999996,
-      "das": 52.29,
+      "das": 10.16,
       "notes": "Deepfake risk.",
-      "priority_score": 14.17,
+      "priority_score": 66.13,
       "das_band": "Anomalous",
       "description": "U.S. Electoral Integrity Breach \u2013 a threat affecting Domestic, Information. Monitor closely for escalation.",
       "ml_likelihood_ratio": 20.459902014660756,
       "likelihood_ratios": [
         6.837970604398227,
         1.249999999998181,
+        15.594926510995567,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297843",
+      "last_updated": "2026-06-24T14:36:52.162023",
       "confidence": 0.95
     },
     {
@@ -3406,12 +3549,12 @@
         "Domestic",
         "Information"
       ],
-      "status": "Green",
-      "scp": 0.0713,
+      "status": "Orange",
+      "scp": 0.5044,
       "base_probability": 0.008263710719999996,
-      "das": 53.59,
+      "das": 0.55,
       "notes": "2026 midterms.",
-      "priority_score": 13.13,
+      "priority_score": 58.44,
       "delta_contribution": 3.149999999999999,
       "das_band": "Anomalous",
       "description": "AI Deepfake Election \u2013 a threat affecting Domestic, Information. Monitor closely for escalation.",
@@ -3419,9 +3562,10 @@
       "likelihood_ratios": [
         5.900052006504583,
         1.249999999998181,
+        13.250130016261458,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297866",
+      "last_updated": "2026-06-24T14:36:52.162047",
       "confidence": 0.95
     },
     {
@@ -3431,21 +3575,22 @@
         "Domestic",
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "US border.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "das_band": "Anomalous",
       "description": "Asylum System Collapse \u2013 a threat affecting Domestic, Social. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297889",
+      "last_updated": "2026-06-24T14:36:52.162070",
       "confidence": 0.95
     },
     {
@@ -3454,21 +3599,22 @@
       "domains": [
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.048,
+      "status": "Yellow",
+      "scp": 0.4214,
       "base_probability": 0.005038847999999999,
-      "das": 56.5,
+      "das": 9.83,
       "notes": "DOJ.",
-      "priority_score": 10.8,
+      "priority_score": 50.14,
       "das_band": "Anomalous",
       "description": "US Jan 6 records erased \u2013 a threat affecting Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297913",
+      "last_updated": "2026-06-24T14:36:52.162093",
       "confidence": 0.95
     },
     {
@@ -3478,21 +3624,22 @@
         "Domestic",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0493,
+      "status": "Yellow",
+      "scp": 0.4102,
       "base_probability": 0.0055427327999999975,
-      "das": 56.34,
+      "das": 11.22,
       "notes": "Untraceable.",
-      "priority_score": 10.93,
+      "priority_score": 49.02,
       "das_band": "Anomalous",
       "description": "$1.776B dark election fund \u2013 a threat affecting Domestic, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.534720485596562,
       "likelihood_ratios": [
         5.960416145678969,
         1.249999999998181,
+        13.40104036419742,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297936",
+      "last_updated": "2026-06-24T14:36:52.162117",
       "confidence": 0.95
     },
     {
@@ -3502,21 +3649,22 @@
         "Domestic",
         "Information"
       ],
-      "status": "Green",
-      "scp": 0.0506,
+      "status": "Yellow",
+      "scp": 0.3785,
       "base_probability": 0.006550502399999999,
-      "das": 56.17,
+      "das": 15.19,
       "notes": "AI content.",
-      "priority_score": 11.06,
+      "priority_score": 45.85,
       "das_band": "Anomalous",
       "description": "2026 midterm integrity breaches \u2013 a threat affecting Domestic, Information. Monitor closely for escalation.",
       "ml_likelihood_ratio": 14.90569215309584,
       "likelihood_ratios": [
         5.171707645928752,
         1.249999999998181,
+        11.42926911482188,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297960",
+      "last_updated": "2026-06-24T14:36:52.162141",
       "confidence": 0.95
     },
     {
@@ -3525,12 +3673,12 @@
       "domains": [
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "Violence risk.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "delta_contribution": 3.149999999999999,
       "das_band": "Anomalous",
       "description": "Far\u2011right militia coordination \u2013 a threat affecting Domestic. Monitor closely for escalation.",
@@ -3538,9 +3686,10 @@
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.297983",
+      "last_updated": "2026-06-24T14:36:52.162169",
       "confidence": 0.95
     },
     {
@@ -3550,21 +3699,22 @@
         "Domestic",
         "Institutional"
       ],
-      "status": "Green",
-      "scp": 0.0359,
+      "status": "Yellow",
+      "scp": 0.3301,
       "base_probability": 0.004031078399999999,
-      "das": 58.01,
+      "das": 21.24,
       "notes": "Constitutional crisis scenario.",
-      "priority_score": 9.59,
+      "priority_score": 41.01,
       "das_band": "Anomalous",
       "description": "Governor\u2011federal military standoff (state vs. national guard) \u2013 a threat affecting Domestic, Institutional. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.301765666726062,
       "likelihood_ratios": [
         5.890529700017819,
         1.249999999998181,
+        13.226324250044547,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298006",
+      "last_updated": "2026-06-24T14:36:52.162192",
       "confidence": 0.95
     },
     {
@@ -3574,21 +3724,22 @@
         "Domestic",
         "Institutional"
       ],
-      "status": "Green",
-      "scp": 0.0423,
+      "status": "Yellow",
+      "scp": 0.3818,
       "base_probability": 0.004534963199999999,
-      "das": 57.21,
+      "das": 14.78,
       "notes": "Legal paralysis.",
-      "priority_score": 10.23,
+      "priority_score": 46.18,
       "das_band": "Anomalous",
       "description": "Collapse of AI liability frameworks \u2013 a threat affecting Domestic, Institutional. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298029",
+      "last_updated": "2026-06-24T14:36:52.162215",
       "confidence": 0.95
     },
     {
@@ -3598,21 +3749,22 @@
         "Domestic",
         "Institutional"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "WEF 2026.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "das_band": "Anomalous",
       "description": "Compound erosion of trust in all institutions \u2013 a threat affecting Domestic, Institutional. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298053",
+      "last_updated": "2026-06-24T14:36:52.162238",
       "confidence": 0.95
     },
     {
@@ -3622,21 +3774,22 @@
         "Domestic",
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0451,
+      "status": "Yellow",
+      "scp": 0.3882,
       "base_probability": 0.005038847999999999,
-      "das": 56.86,
+      "das": 13.98,
       "notes": "57% need reskilling.",
-      "priority_score": 10.51,
+      "priority_score": 46.82,
       "das_band": "Anomalous",
       "description": "Massive technological deskilling & workforce mismatch \u2013 a threat affecting Domestic, Social. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.57271064602431,
       "likelihood_ratios": [
         5.971813193807292,
         1.249999999998181,
+        13.429532984518232,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298075",
+      "last_updated": "2026-06-24T14:36:52.162261",
       "confidence": 0.95
     },
     {
@@ -3646,21 +3799,22 @@
         "Domestic",
         "Institutional"
       ],
-      "status": "Green",
-      "scp": 0.0423,
+      "status": "Yellow",
+      "scp": 0.3818,
       "base_probability": 0.004534963199999999,
-      "das": 57.21,
+      "das": 14.78,
       "notes": "Enforcement gaps.",
-      "priority_score": 10.23,
+      "priority_score": 46.18,
       "das_band": "Anomalous",
       "description": "Fragmentation of global privacy & AI governance \u2013 a threat affecting Domestic, Institutional. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298099",
+      "last_updated": "2026-06-24T14:36:52.162284",
       "confidence": 0.95
     },
     {
@@ -3669,12 +3823,12 @@
       "domains": [
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0705,
+      "status": "Orange",
+      "scp": 0.5227,
       "base_probability": 0.007558271999999996,
-      "das": 53.69,
+      "das": 2.84,
       "notes": "9M IDPs in Sudan.",
-      "priority_score": 13.05,
+      "priority_score": 60.27,
       "delta_contribution": 6.300000000000004,
       "das_band": "Anomalous",
       "description": "Mass Displacement \u2013 a threat affecting Social. Monitor closely for escalation.",
@@ -3682,9 +3836,10 @@
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298124",
+      "last_updated": "2026-06-24T14:36:52.162309",
       "confidence": 0.95
     },
     {
@@ -3694,21 +3849,22 @@
         "Social",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0778,
+      "status": "Orange",
+      "scp": 0.5491,
       "base_probability": 0.008398079999999999,
-      "das": 52.77,
+      "das": 6.14,
       "notes": "Siege continues.",
-      "priority_score": 13.78,
+      "priority_score": 62.91,
       "das_band": "Anomalous",
       "description": "Gaza Structural Atrocity \u2013 a threat affecting Social, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298147",
+      "last_updated": "2026-06-24T14:36:52.162333",
       "confidence": 0.95
     },
     {
@@ -3717,21 +3873,22 @@
       "domains": [
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0293,
+      "status": "Yellow",
+      "scp": 0.3037,
       "base_probability": 0.0030233087999999996,
-      "das": 58.84,
+      "das": 24.54,
       "notes": "Occasional.",
-      "priority_score": 8.93,
+      "priority_score": 38.37,
       "das_band": "Anomalous",
       "description": "Left\u2011wing protest violence \u2013 a threat affecting Social. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298171",
+      "last_updated": "2026-06-24T14:36:52.162356",
       "confidence": 0.95
     },
     {
@@ -3741,21 +3898,22 @@
         "Social",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0616,
+      "status": "Orange",
+      "scp": 0.4867,
       "base_probability": 0.006550502399999999,
-      "das": 54.8,
+      "das": 1.66,
       "notes": "US border.",
-      "priority_score": 12.16,
+      "priority_score": 56.67,
       "das_band": "Anomalous",
       "description": "Mexico cartel violence spillover \u2013 a threat affecting Social, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298195",
+      "last_updated": "2026-06-24T14:36:52.162380",
       "confidence": 0.95
     },
     {
@@ -3765,21 +3923,22 @@
         "Social",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0577,
+      "status": "Orange",
+      "scp": 0.4961,
       "base_probability": 0.0055427327999999975,
-      "das": 55.29,
+      "das": 0.49,
       "notes": "Push factors.",
-      "priority_score": 11.77,
+      "priority_score": 57.61,
       "das_band": "Anomalous",
       "description": "Central America migration surge \u2013 a threat affecting Social, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 21.10287759831477,
       "likelihood_ratios": [
         7.03086327949443,
         1.249999999998181,
+        16.07715819873608,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298218",
+      "last_updated": "2026-06-24T14:36:52.162403",
       "confidence": 0.95
     },
     {
@@ -3789,21 +3948,22 @@
         "Social",
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0553,
+      "status": "Yellow",
+      "scp": 0.4265,
       "base_probability": 0.006550502399999999,
-      "das": 55.59,
+      "das": 9.19,
       "notes": "Labour unrest.",
-      "priority_score": 11.53,
+      "priority_score": 50.65,
       "das_band": "Anomalous",
       "description": "Delhi Heatwave \u2013 social collapse \u2013 a threat affecting Social, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.606553955867888,
       "likelihood_ratios": [
         5.681966186760366,
         1.249999999998181,
+        12.704915466900916,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298241",
+      "last_updated": "2026-06-24T14:36:52.162427",
       "confidence": 0.95
     },
     {
@@ -3813,21 +3973,22 @@
         "Social",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0388,
+      "status": "Yellow",
+      "scp": 0.3679,
       "base_probability": 0.004031078399999999,
-      "das": 57.65,
+      "das": 16.51,
       "notes": "EU strain.",
-      "priority_score": 9.88,
+      "priority_score": 44.79,
       "das_band": "Anomalous",
       "description": "Mediterranean Migration \u2013 a threat affecting Social, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298264",
+      "last_updated": "2026-06-24T14:36:52.162450",
       "confidence": 0.95
     },
     {
@@ -3837,21 +3998,22 @@
         "Social",
         "Financial"
       ],
-      "status": "Green",
-      "scp": 0.0493,
+      "status": "Yellow",
+      "scp": 0.4092,
       "base_probability": 0.0055427327999999975,
-      "das": 56.34,
+      "das": 11.35,
       "notes": "Unemployment.",
-      "priority_score": 10.93,
+      "priority_score": 48.92,
       "das_band": "Anomalous",
       "description": "Demand destruction + frozen labour \u2013 a threat affecting Social, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.494356906699995,
       "likelihood_ratios": [
         5.948307072009999,
         1.249999999998181,
+        13.370767680024997,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298288",
+      "last_updated": "2026-06-24T14:36:52.162473",
       "confidence": 0.95
     },
     {
@@ -3861,21 +4023,22 @@
         "Social",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0446,
+      "status": "Yellow",
+      "scp": 0.3818,
       "base_probability": 0.005038847999999999,
-      "das": 56.93,
+      "das": 14.78,
       "notes": "Violent backlash against AI.",
-      "priority_score": 10.46,
+      "priority_score": 46.18,
       "das_band": "Anomalous",
       "description": "Anti\u2011tech extremism (FBI/DHS tracked) \u2013 a threat affecting Social, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.318552331562252,
       "likelihood_ratios": [
         5.895565699468675,
         1.249999999998181,
+        13.238914248671689,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298311",
+      "last_updated": "2026-06-24T14:36:52.162496",
       "confidence": 0.95
     },
     {
@@ -3885,21 +4048,22 @@
         "Social",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0434,
+      "status": "Yellow",
+      "scp": 0.3958,
       "base_probability": 0.004534963199999999,
-      "das": 57.07,
+      "das": 13.03,
       "notes": "Recruitment through online games.",
-      "priority_score": 10.34,
+      "priority_score": 47.58,
       "das_band": "Anomalous",
       "description": "Nihilistic Violent Extremists targeting children \u2013 a threat affecting Social, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298334",
+      "last_updated": "2026-06-24T14:36:52.162519",
       "confidence": 0.95
     },
     {
@@ -3909,21 +4073,22 @@
         "Social",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0388,
+      "status": "Yellow",
+      "scp": 0.3679,
       "base_probability": 0.004031078399999999,
-      "das": 57.65,
+      "das": 16.51,
       "notes": "Economic grievance motivation.",
-      "priority_score": 9.88,
+      "priority_score": 44.79,
       "das_band": "Anomalous",
       "description": "Class\u2011based domestic terrorism (DHS) \u2013 a threat affecting Social, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298357",
+      "last_updated": "2026-06-24T14:36:52.162543",
       "confidence": 0.95
     },
     {
@@ -3933,21 +4098,22 @@
         "Social",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0583,
+      "status": "Orange",
+      "scp": 0.456,
       "base_probability": 0.006550502399999999,
-      "das": 55.21,
+      "das": 5.5,
       "notes": "Doxing, harassment, assaults.",
-      "priority_score": 11.83,
+      "priority_score": 53.6,
       "das_band": "Anomalous",
       "description": "8,000% rise in threats against federal law enforcement \u2013 a threat affecting Social, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.71059824543119,
       "likelihood_ratios": [
         6.013179473629356,
         1.249999999998181,
+        13.532948684073393,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298380",
+      "last_updated": "2026-06-24T14:36:52.162566",
       "confidence": 0.95
     },
     {
@@ -3956,21 +4122,22 @@
       "domains": [
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0341,
+      "status": "Yellow",
+      "scp": 0.3373,
       "base_probability": 0.003527193599999999,
-      "das": 58.24,
+      "das": 20.34,
       "notes": "Radicalisation multiplier.",
-      "priority_score": 9.41,
+      "priority_score": 41.73,
       "das_band": "Anomalous",
       "description": "Epidemic of loneliness as national security risk \u2013 a threat affecting Social. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298403",
+      "last_updated": "2026-06-24T14:36:52.162589",
       "confidence": 0.95
     },
     {
@@ -3979,21 +4146,22 @@
       "domains": [
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0512,
+      "status": "Yellow",
+      "scp": 0.4304,
       "base_probability": 0.0055427327999999975,
-      "das": 56.1,
+      "das": 8.7,
       "notes": "Anthropic Mythos escape.",
-      "priority_score": 11.12,
+      "priority_score": 51.04,
       "das_band": "Anomalous",
       "description": "AI Containment Escape \u2013 a threat affecting Technology. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298427",
+      "last_updated": "2026-06-24T14:36:52.162612",
       "confidence": 0.95
     },
     {
@@ -4003,21 +4171,22 @@
         "Technology",
         "Cyber"
       ],
-      "status": "Green",
-      "scp": 0.0488,
+      "status": "Yellow",
+      "scp": 0.3902,
       "base_probability": 0.0058450636799999975,
-      "das": 56.4,
+      "das": 13.73,
       "notes": "First case May 2026.",
-      "priority_score": 10.88,
+      "priority_score": 47.02,
       "das_band": "Anomalous",
       "description": "AI\u2011Generated Zero\u2011Day Exploits \u2013 a threat affecting Technology, Cyber. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.288306041479025,
       "likelihood_ratios": [
         5.5864918124437075,
         1.249999999998181,
+        12.466229531109269,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298450",
+      "last_updated": "2026-06-24T14:36:52.162646",
       "confidence": 0.95
     },
     {
@@ -4027,21 +4196,22 @@
         "Technology",
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0423,
+      "status": "Yellow",
+      "scp": 0.3818,
       "base_probability": 0.004534963199999999,
-      "das": 57.21,
+      "das": 14.78,
       "notes": "MIT/Stanford.",
-      "priority_score": 10.23,
+      "priority_score": 46.18,
       "das_band": "Anomalous",
       "description": "AI\u2011Generated Bioweapon Instructions \u2013 a threat affecting Technology, Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298474",
+      "last_updated": "2026-06-24T14:36:52.162670",
       "confidence": 0.95
     },
     {
@@ -4050,21 +4220,22 @@
       "domains": [
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0359,
+      "status": "Yellow",
+      "scp": 0.3426,
       "base_probability": 0.003829524479999999,
-      "das": 58.01,
+      "das": 19.67,
       "notes": "AI\u2011Gram, Moltbook.",
-      "priority_score": 9.59,
+      "priority_score": 42.26,
       "das_band": "Anomalous",
       "description": "Autonomous AI Social Networks \u2013 a threat affecting Technology. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298497",
+      "last_updated": "2026-06-24T14:36:52.162693",
       "confidence": 0.95
     },
     {
@@ -4074,21 +4245,22 @@
         "Technology",
         "Climate"
       ],
-      "status": "Green",
-      "scp": 0.0393,
+      "status": "Yellow",
+      "scp": 0.3757,
       "base_probability": 0.004031078399999999,
-      "das": 57.59,
+      "das": 15.54,
       "notes": "Water/energy strain.",
-      "priority_score": 9.93,
+      "priority_score": 45.57,
       "das_band": "Anomalous",
       "description": "AI Infrastructure Resource Tipping Point \u2013 a threat affecting Technology, Climate. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.256862821310044,
       "likelihood_ratios": [
         6.477058846393013,
         1.249999999998181,
+        14.692647115982533,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298521",
+      "last_updated": "2026-06-24T14:36:52.162717",
       "confidence": 0.95
     },
     {
@@ -4098,12 +4270,12 @@
         "Technology",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.048,
+      "status": "Yellow",
+      "scp": 0.4214,
       "base_probability": 0.005038847999999999,
-      "das": 56.5,
+      "das": 9.83,
       "notes": "57 npm packages.",
-      "priority_score": 10.8,
+      "priority_score": 50.14,
       "delta_contribution": 5.25,
       "das_band": "Anomalous",
       "description": "Miasma Supply\u2011Chain Worm \u2013 a threat affecting Technology, Supply Chains. Monitor closely for escalation.",
@@ -4111,9 +4283,10 @@
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298544",
+      "last_updated": "2026-06-24T14:36:52.162740",
       "confidence": 0.95
     },
     {
@@ -4123,21 +4296,22 @@
         "Technology",
         "Supply Chains"
       ],
-      "status": "Green",
-      "scp": 0.0778,
+      "status": "Orange",
+      "scp": 0.5491,
       "base_probability": 0.008398079999999999,
-      "das": 52.77,
+      "das": 6.14,
       "notes": "Huawei/SMIC.",
-      "priority_score": 13.78,
+      "priority_score": 62.91,
       "das_band": "Anomalous",
       "description": "Taiwan Semiconductor Chokepoint \u2013 a threat affecting Technology, Supply Chains. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298567",
+      "last_updated": "2026-06-24T14:36:52.162764",
       "confidence": 0.95
     },
     {
@@ -4147,21 +4321,22 @@
         "Technology",
         "Information"
       ],
-      "status": "Green",
-      "scp": 0.0626,
+      "status": "Orange",
+      "scp": 0.4834,
       "base_probability": 0.00685283328,
-      "das": 54.67,
+      "das": 2.08,
       "notes": "Election disinfo.",
-      "priority_score": 12.26,
+      "priority_score": 56.34,
       "das_band": "Anomalous",
       "description": "AI Deepfake Ops \u2013 a threat affecting Technology, Information. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298594",
+      "last_updated": "2026-06-24T14:36:52.162787",
       "confidence": 0.95
     },
     {
@@ -4170,21 +4345,22 @@
       "domains": [
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0522,
+      "status": "Yellow",
+      "scp": 0.4173,
       "base_probability": 0.006046617599999999,
-      "das": 55.97,
+      "das": 10.34,
       "notes": "Black Sea region.",
-      "priority_score": 11.22,
+      "priority_score": 49.73,
       "das_band": "Anomalous",
       "description": "GPS Spoofing (Civil Aviation) \u2013 a threat affecting Technology. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.993600765766278,
       "likelihood_ratios": [
         5.798080229729883,
         1.249999999998181,
+        12.99520057432471,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298629",
+      "last_updated": "2026-06-24T14:36:52.162822",
       "confidence": 0.95
     },
     {
@@ -4194,21 +4370,22 @@
         "Technology",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0616,
+      "status": "Orange",
+      "scp": 0.4867,
       "base_probability": 0.006550502399999999,
-      "das": 54.8,
+      "das": 1.66,
       "notes": "Space weapons.",
-      "priority_score": 12.16,
+      "priority_score": 56.67,
       "das_band": "Anomalous",
       "description": "Co\u2011orbital ASAT Threat \u2013 a threat affecting Technology, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298655",
+      "last_updated": "2026-06-24T14:36:52.162846",
       "confidence": 0.95
     },
     {
@@ -4218,21 +4395,22 @@
         "Technology",
         "Information"
       ],
-      "status": "Green",
-      "scp": 0.0423,
+      "status": "Yellow",
+      "scp": 0.3818,
       "base_probability": 0.004534963199999999,
-      "das": 57.21,
+      "das": 14.78,
       "notes": "Generative.",
-      "priority_score": 10.23,
+      "priority_score": 46.18,
       "das_band": "Anomalous",
       "description": "AI disinformation supercycle \u2013 a threat affecting Technology, Information. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298678",
+      "last_updated": "2026-06-24T14:36:52.162870",
       "confidence": 0.95
     },
     {
@@ -4242,21 +4420,22 @@
         "Technology",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0526,
+      "status": "Yellow",
+      "scp": 0.4449,
       "base_probability": 0.0055427327999999975,
-      "das": 55.93,
+      "das": 6.89,
       "notes": "Escalation.",
-      "priority_score": 11.26,
+      "priority_score": 52.49,
       "das_band": "Anomalous",
       "description": "Deepfake WMD false flag risk \u2013 a threat affecting Technology, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298702",
+      "last_updated": "2026-06-24T14:36:52.162893",
       "confidence": 0.95
     },
     {
@@ -4266,21 +4445,22 @@
         "Technology",
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0423,
+      "status": "Yellow",
+      "scp": 0.3818,
       "base_probability": 0.004534963199999999,
-      "das": 57.21,
+      "das": 14.78,
       "notes": "Integrity of biological data systems.",
-      "priority_score": 10.23,
+      "priority_score": 46.18,
       "das_band": "Anomalous",
       "description": "AI\u2011powered bioinformatics as national security vulnerability \u2013 a threat affecting Technology, Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298725",
+      "last_updated": "2026-06-24T14:36:52.162917",
       "confidence": 0.95
     },
     {
@@ -4290,21 +4470,22 @@
         "Technology",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0616,
+      "status": "Orange",
+      "scp": 0.4867,
       "base_probability": 0.006550502399999999,
-      "das": 54.8,
+      "das": 1.66,
       "notes": "No binding treaty.",
-      "priority_score": 12.16,
+      "priority_score": 56.67,
       "das_band": "Anomalous",
       "description": "Lethal autonomous weapons (LAWS) normative collapse \u2013 a threat affecting Technology, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298748",
+      "last_updated": "2026-06-24T14:36:52.162940",
       "confidence": 0.95
     },
     {
@@ -4314,21 +4495,22 @@
         "Technology",
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.048,
+      "status": "Yellow",
+      "scp": 0.4214,
       "base_probability": 0.005038847999999999,
-      "das": 56.5,
+      "das": 9.83,
       "notes": "Critical biosecurity gap.",
-      "priority_score": 10.8,
+      "priority_score": 50.14,
       "das_band": "Anomalous",
       "description": "DNA synthesis screening gap (voluntary only) \u2013 a threat affecting Technology, Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298771",
+      "last_updated": "2026-06-24T14:36:52.162963",
       "confidence": 0.95
     },
     {
@@ -4338,21 +4520,22 @@
         "Technology",
         "Cyber"
       ],
-      "status": "Green",
-      "scp": 0.0534,
+      "status": "Yellow",
+      "scp": 0.4297,
       "base_probability": 0.006046617599999999,
-      "das": 55.82,
+      "das": 8.79,
       "notes": "Persistent backdoors.",
-      "priority_score": 11.34,
+      "priority_score": 50.97,
       "das_band": "Anomalous",
       "description": "Autonomous AI agents as persistence mechanism (Miasma variant) \u2013 a threat affecting Technology, Cyber. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.46365433071709,
       "likelihood_ratios": [
         5.9390962992151275,
         1.249999999998181,
+        13.347740748037818,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298794",
+      "last_updated": "2026-06-24T14:36:52.162986",
       "confidence": 0.95
     },
     {
@@ -4362,21 +4545,22 @@
         "Technology",
         "Information"
       ],
-      "status": "Green",
-      "scp": 0.0616,
+      "status": "Orange",
+      "scp": 0.4867,
       "base_probability": 0.006550502399999999,
-      "das": 54.8,
+      "das": 1.66,
       "notes": "Accelerated by AI.",
-      "priority_score": 12.16,
+      "priority_score": 56.67,
       "das_band": "Anomalous",
       "description": "Information ecosystem collapse as national security threat \u2013 a threat affecting Technology, Information. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298817",
+      "last_updated": "2026-06-24T14:36:52.163009",
       "confidence": 0.95
     },
     {
@@ -4385,21 +4569,22 @@
       "domains": [
         "Institutional"
       ],
-      "status": "Green",
-      "scp": 0.0696,
+      "status": "Orange",
+      "scp": 0.5047,
       "base_probability": 0.007860602879999998,
-      "das": 53.8,
+      "das": 0.59,
       "notes": "Sudan, Gaza.",
-      "priority_score": 12.96,
+      "priority_score": 58.47,
       "das_band": "Anomalous",
       "description": "IHL collapse \u2013 starvation as weapon \u2013 a threat affecting Institutional. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.821034961601132,
       "likelihood_ratios": [
         6.04631048848034,
         1.249999999998181,
+        13.61577622120085,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298840",
+      "last_updated": "2026-06-24T14:36:52.163032",
       "confidence": 0.95
     },
     {
@@ -4409,21 +4594,22 @@
         "Information",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "Russia/China.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "das_band": "Anomalous",
       "description": "Information Warfare \u2013 a threat affecting Information, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298863",
+      "last_updated": "2026-06-24T14:36:52.163055",
       "confidence": 0.95
     },
     {
@@ -4433,21 +4619,22 @@
         "Institutional",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0817,
+      "status": "Orange",
+      "scp": 0.5813,
       "base_probability": 0.008263710719999996,
-      "das": 52.29,
+      "das": 10.16,
       "notes": "Systemic.",
-      "priority_score": 14.17,
+      "priority_score": 66.13,
       "das_band": "Anomalous",
       "description": "U.S. Electoral Integrity Breach \u2013 a threat affecting Institutional, Domestic. Monitor closely for escalation.",
       "ml_likelihood_ratio": 20.459902014660756,
       "likelihood_ratios": [
         6.837970604398227,
         1.249999999998181,
+        15.594926510995567,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298887",
+      "last_updated": "2026-06-24T14:36:52.163079",
       "confidence": 0.95
     },
     {
@@ -4457,20 +4644,21 @@
         "Information"
       ],
       "status": "Green",
-      "scp": 0.01,
+      "scp": 0.0428,
       "base_probability": 0.0025194239999999997,
-      "das": 61.25,
+      "das": 57.15,
       "notes": "DVI.",
-      "priority_score": 7.0,
+      "priority_score": 12.28,
       "das_band": "Anomalous",
       "description": "Trump 'imminent deal' narrative \u2013 a threat affecting Information. Monitor closely for escalation.",
       "ml_likelihood_ratio": 5.8288468484804765,
       "likelihood_ratios": [
         2.448654054544143,
         1.249999999998181,
+        4.621635136360357,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298911",
+      "last_updated": "2026-06-24T14:36:52.163102",
       "confidence": 0.69
     },
     {
@@ -4480,21 +4668,22 @@
         "Information",
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0423,
+      "status": "Yellow",
+      "scp": 0.3818,
       "base_probability": 0.004534963199999999,
-      "das": 57.21,
+      "das": 14.78,
       "notes": "Scale.",
-      "priority_score": 10.23,
+      "priority_score": 46.18,
       "das_band": "Anomalous",
       "description": "AI disinformation supercycle \u2013 a threat affecting Information, Technology. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298935",
+      "last_updated": "2026-06-24T14:36:52.163126",
       "confidence": 0.95
     },
     {
@@ -4504,21 +4693,22 @@
         "Information",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0526,
+      "status": "Yellow",
+      "scp": 0.4449,
       "base_probability": 0.0055427327999999975,
-      "das": 55.93,
+      "das": 6.89,
       "notes": "Risk.",
-      "priority_score": 11.26,
+      "priority_score": 52.49,
       "das_band": "Anomalous",
       "description": "Deepfake WMD false flag \u2013 a threat affecting Information, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298959",
+      "last_updated": "2026-06-24T14:36:52.163154",
       "confidence": 0.95
     },
     {
@@ -4528,21 +4718,22 @@
         "Information",
         "Social"
       ],
-      "status": "Green",
-      "scp": 0.0485,
+      "status": "Yellow",
+      "scp": 0.4272,
       "base_probability": 0.005038847999999999,
-      "das": 56.44,
+      "das": 9.1,
       "notes": "Viral rumours.",
-      "priority_score": 10.85,
+      "priority_score": 50.72,
       "das_band": "Anomalous",
       "description": "Info\u2011civil unrest \u2013 a threat affecting Information, Social. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.1588462292141,
       "likelihood_ratios": [
         6.447653868764229,
         1.249999999998181,
+        14.619134671910574,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.298982",
+      "last_updated": "2026-06-24T14:36:52.163178",
       "confidence": 0.95
     },
     {
@@ -4551,12 +4742,12 @@
       "domains": [
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0831,
+      "status": "Orange",
+      "scp": 0.5858,
       "base_probability": 0.008398079999999999,
-      "das": 52.11,
+      "das": 10.72,
       "notes": "515 cases, 91 deaths.",
-      "priority_score": 14.31,
+      "priority_score": 66.58,
       "delta_contribution": 5.25,
       "das_band": "Anomalous",
       "description": "Bundibugyo Ebola \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
@@ -4564,9 +4755,10 @@
       "likelihood_ratios": [
         6.844852949331044,
         1.249999999998181,
+        15.612132373327611,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299005",
+      "last_updated": "2026-06-24T14:36:52.163201",
       "confidence": 0.95
     },
     {
@@ -4575,21 +4767,22 @@
       "domains": [
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0831,
+      "status": "Orange",
+      "scp": 0.5858,
       "base_probability": 0.008398079999999999,
-      "das": 52.11,
+      "das": 10.72,
       "notes": "Same.",
-      "priority_score": 14.31,
+      "priority_score": 66.58,
       "das_band": "Anomalous",
       "description": "Bundibugyo Ebola (duplicate) \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 20.482843164436815,
       "likelihood_ratios": [
         6.844852949331044,
         1.249999999998181,
+        15.612132373327611,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299028",
+      "last_updated": "2026-06-24T14:36:52.163224",
       "confidence": 0.95
     },
     {
@@ -4598,21 +4791,22 @@
       "domains": [
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0334,
+      "status": "Yellow",
+      "scp": 0.296,
       "base_probability": 0.004031078399999999,
-      "das": 58.32,
+      "das": 25.5,
       "notes": "No H2H.",
-      "priority_score": 9.34,
+      "priority_score": 37.6,
       "das_band": "Anomalous",
       "description": "H5N1 Mammalian Adaptation \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 15.885390626175656,
       "likelihood_ratios": [
         5.465617187852697,
         1.249999999998181,
+        12.164042969631742,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299051",
+      "last_updated": "2026-06-24T14:36:52.163248",
       "confidence": 0.95
     },
     {
@@ -4622,12 +4816,12 @@
         "Biosecurity",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0616,
+      "status": "Orange",
+      "scp": 0.4867,
       "base_probability": 0.006550502399999999,
-      "das": 54.8,
+      "das": 1.66,
       "notes": "Funding.",
-      "priority_score": 12.16,
+      "priority_score": 56.67,
       "delta_contribution": 2.1000000000000005,
       "das_band": "Anomalous",
       "description": "U.S. Health Security Gaps \u2013 a threat affecting Biosecurity, Domestic. Monitor closely for escalation.",
@@ -4635,9 +4829,10 @@
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299075",
+      "last_updated": "2026-06-24T14:36:52.163272",
       "confidence": 0.95
     },
     {
@@ -4646,21 +4841,22 @@
       "domains": [
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0831,
+      "status": "Orange",
+      "scp": 0.5858,
       "base_probability": 0.008398079999999999,
-      "das": 52.11,
+      "das": 10.72,
       "notes": "PHEIC.",
-      "priority_score": 14.31,
+      "priority_score": 66.58,
       "das_band": "Anomalous",
       "description": "Ebola \u2013 Bundibugyo \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 20.482843164436815,
       "likelihood_ratios": [
         6.844852949331044,
         1.249999999998181,
+        15.612132373327611,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299098",
+      "last_updated": "2026-06-24T14:36:52.163296",
       "confidence": 0.95
     },
     {
@@ -4669,21 +4865,22 @@
       "domains": [
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0576,
+      "status": "Orange",
+      "scp": 0.4707,
       "base_probability": 0.006046617599999999,
-      "das": 55.3,
+      "das": 3.66,
       "notes": "Uganda.",
-      "priority_score": 11.76,
+      "priority_score": 55.07,
       "das_band": "Anomalous",
       "description": "Ebola cross\u2011border \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 19.082589052813585,
       "likelihood_ratios": [
         6.424776715844075,
         1.249999999998181,
+        14.561941789610188,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299121",
+      "last_updated": "2026-06-24T14:36:52.163329",
       "confidence": 0.95
     },
     {
@@ -4692,21 +4889,22 @@
       "domains": [
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0369,
+      "status": "Yellow",
+      "scp": 0.3775,
       "base_probability": 0.003527193599999999,
-      "das": 57.89,
+      "das": 15.31,
       "notes": "DRC.",
-      "priority_score": 9.69,
+      "priority_score": 45.75,
       "das_band": "Anomalous",
       "description": "Mpox resurgence \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 20.762943753343674,
       "likelihood_ratios": [
         6.928883126003102,
         1.249999999998181,
+        15.822207815007754,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299145",
+      "last_updated": "2026-06-24T14:36:52.163352",
       "confidence": 0.95
     },
     {
@@ -4715,21 +4913,22 @@
       "domains": [
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0333,
+      "status": "Yellow",
+      "scp": 0.3654,
       "base_probability": 0.0030233087999999996,
-      "das": 58.34,
+      "das": 16.82,
       "notes": "Tanzania.",
-      "priority_score": 9.33,
+      "priority_score": 44.54,
       "das_band": "Anomalous",
       "description": "Marburg outbreak \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 21.926960978574794,
       "likelihood_ratios": [
         7.278088293572438,
         1.249999999998181,
+        16.695220733931095,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299168",
+      "last_updated": "2026-06-24T14:36:52.163375",
       "confidence": 0.95
     },
     {
@@ -4739,21 +4938,22 @@
         "Biosecurity",
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0293,
+      "status": "Yellow",
+      "scp": 0.3037,
       "base_probability": 0.0030233087999999996,
-      "das": 58.84,
+      "das": 24.54,
       "notes": "Synthetic bio + AI + cyber convergence.",
-      "priority_score": 8.93,
+      "priority_score": 38.37,
       "das_band": "Anomalous",
       "description": "Convergent bio\u2011cyber threats (meta\u2011biothreats) \u2013 a threat affecting Biosecurity, Technology. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299191",
+      "last_updated": "2026-06-24T14:36:52.163399",
       "confidence": 0.95
     },
     {
@@ -4762,21 +4962,22 @@
       "domains": [
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "Pan\u2011resistant, detected in 16+ countries.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "das_band": "Anomalous",
       "description": "Hypervirulent carbapenem\u2011resistant Klebsiella pneumoniae (hvKp ST23) \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299214",
+      "last_updated": "2026-06-24T14:36:52.163422",
       "confidence": 0.95
     },
     {
@@ -4786,21 +4987,22 @@
         "Biosecurity",
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0423,
+      "status": "Yellow",
+      "scp": 0.3818,
       "base_probability": 0.004534963199999999,
-      "das": 57.21,
+      "das": 14.78,
       "notes": "AI can design ricin\u2011level toxins.",
-      "priority_score": 10.23,
+      "priority_score": 46.18,
       "das_band": "Anomalous",
       "description": "AI\u2011designed undetectable toxins \u2013 a threat affecting Biosecurity, Technology. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299238",
+      "last_updated": "2026-06-24T14:36:52.163445",
       "confidence": 0.95
     },
     {
@@ -4809,21 +5011,22 @@
       "domains": [
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0341,
+      "status": "Yellow",
+      "scp": 0.3373,
       "base_probability": 0.003527193599999999,
-      "das": 58.24,
+      "das": 20.34,
       "notes": "ISS origin, causing bacteremia.",
-      "priority_score": 9.41,
+      "priority_score": 41.73,
       "das_band": "Anomalous",
       "description": "Pantoea piersonii \u2013 emerging pathogen \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299261",
+      "last_updated": "2026-06-24T14:36:52.163468",
       "confidence": 0.95
     },
     {
@@ -4833,21 +5036,22 @@
         "Biosecurity",
         "Technology"
       ],
-      "status": "Green",
-      "scp": 0.0377,
+      "status": "Yellow",
+      "scp": 0.3543,
       "base_probability": 0.004031078399999999,
-      "das": 57.79,
+      "das": 18.21,
       "notes": "Multi\u2011agent systems can design evasive viruses.",
-      "priority_score": 9.77,
+      "priority_score": 43.43,
       "das_band": "Anomalous",
       "description": "AI\u2011generated vaccine\u2011evading pathogens \u2013 a threat affecting Biosecurity, Technology. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.330890640768345,
       "likelihood_ratios": [
         6.199267192230503,
         1.249999999998181,
+        13.998167980576259,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299284",
+      "last_updated": "2026-06-24T14:36:52.163491",
       "confidence": 0.95
     },
     {
@@ -4856,21 +5060,22 @@
       "domains": [
         "Institutional"
       ],
-      "status": "Green",
-      "scp": 0.0713,
+      "status": "Orange",
+      "scp": 0.5111,
       "base_probability": 0.008062156799999998,
-      "das": 53.59,
+      "das": 1.39,
       "notes": "Starvation as weapon.",
-      "priority_score": 13.13,
+      "priority_score": 59.11,
       "das_band": "Anomalous",
       "description": "IHL Framework Collapse \u2013 a threat affecting Institutional. Monitor closely for escalation.",
       "ml_likelihood_ratio": 17.821034961601132,
       "likelihood_ratios": [
         6.04631048848034,
         1.249999999998181,
+        13.61577622120085,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299307",
+      "last_updated": "2026-06-24T14:36:52.163515",
       "confidence": 0.95
     },
     {
@@ -4880,21 +5085,22 @@
         "Institutional",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0563,
+      "status": "Yellow",
+      "scp": 0.397,
       "base_probability": 0.007558271999999996,
-      "das": 55.46,
+      "das": 12.87,
       "notes": "Iran claims permanent control.",
-      "priority_score": 11.63,
+      "priority_score": 47.7,
       "das_band": "Anomalous",
       "description": "Strait of Hormuz Legal Regime Erosion \u2013 a threat affecting Institutional, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 14.380680207755836,
       "likelihood_ratios": [
         5.01420406232675,
         1.249999999998181,
+        11.035510155816876,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299331",
+      "last_updated": "2026-06-24T14:36:52.163538",
       "confidence": 0.95
     },
     {
@@ -4904,21 +5110,22 @@
         "Institutional",
         "Geopolitical"
       ],
-      "status": "Green",
-      "scp": 0.0679,
+      "status": "Orange",
+      "scp": 0.5124,
       "base_probability": 0.007255941119999999,
-      "das": 54.01,
+      "das": 1.55,
       "notes": "Non\u2011proliferation breakdown.",
-      "priority_score": 12.79,
+      "priority_score": 59.24,
       "das_band": "Anomalous",
       "description": "NPT Review Conference Regime Failure \u2013 a threat affecting Institutional, Geopolitical. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299354",
+      "last_updated": "2026-06-24T14:36:52.163561",
       "confidence": 0.95
     },
     {
@@ -4928,21 +5135,22 @@
         "Institutional",
         "Biosecurity"
       ],
-      "status": "Green",
-      "scp": 0.0616,
+      "status": "Orange",
+      "scp": 0.4867,
       "base_probability": 0.006550502399999999,
-      "das": 54.8,
+      "das": 1.66,
       "notes": "CDC underfunded.",
-      "priority_score": 12.16,
+      "priority_score": 56.67,
       "das_band": "Anomalous",
       "description": "U.S. Health Security Gaps \u2013 a threat affecting Institutional, Biosecurity. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299377",
+      "last_updated": "2026-06-24T14:36:52.163584",
       "confidence": 0.95
     },
     {
@@ -4951,21 +5159,22 @@
       "domains": [
         "Institutional"
       ],
-      "status": "Green",
-      "scp": 0.0429,
+      "status": "Yellow",
+      "scp": 0.3626,
       "base_probability": 0.005038847999999999,
-      "das": 57.14,
+      "das": 17.18,
       "notes": "Hormuz.",
-      "priority_score": 10.29,
+      "priority_score": 44.26,
       "das_band": "Anomalous",
       "description": "War crime designation for ship attacks \u2013 a threat affecting Institutional. Monitor closely for escalation.",
       "ml_likelihood_ratio": 16.568377003563064,
       "likelihood_ratios": [
         5.670513101068919,
         1.249999999998181,
+        12.676282752672298,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299401",
+      "last_updated": "2026-06-24T14:36:52.163607",
       "confidence": 0.95
     },
     {
@@ -4974,21 +5183,22 @@
       "domains": [
         "Institutional"
       ],
-      "status": "Green",
-      "scp": 0.0705,
+      "status": "Orange",
+      "scp": 0.5227,
       "base_probability": 0.007558271999999996,
-      "das": 53.69,
+      "das": 2.84,
       "notes": "Iran, NK.",
-      "priority_score": 13.05,
+      "priority_score": 60.27,
       "das_band": "Anomalous",
       "description": "NPT failure \u2013 third consecutive \u2013 a threat affecting Institutional. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299424",
+      "last_updated": "2026-06-24T14:36:52.163639",
       "confidence": 0.95
     },
     {
@@ -4997,21 +5207,22 @@
       "domains": [
         "Institutional"
       ],
-      "status": "Green",
-      "scp": 0.0571,
+      "status": "Orange",
+      "scp": 0.4666,
       "base_probability": 0.006046617599999999,
-      "das": 55.36,
+      "das": 4.17,
       "notes": "Russia veto.",
-      "priority_score": 11.71,
+      "priority_score": 54.66,
       "das_band": "Anomalous",
       "description": "UN Security Council paralysis \u2013 a threat affecting Institutional. Monitor closely for escalation.",
       "ml_likelihood_ratio": 18.91592197618304,
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299447",
+      "last_updated": "2026-06-24T14:36:52.163663",
       "confidence": 0.95
     },
     {
@@ -5022,20 +5233,21 @@
         "Financial"
       ],
       "status": "Green",
-      "scp": 0.038,
+      "scp": 0.2039,
       "base_probability": 0.007860602879999998,
-      "das": 57.75,
+      "das": 37.01,
       "notes": "Legal erosion.",
-      "priority_score": 9.8,
+      "priority_score": 28.39,
       "das_band": "Anomalous",
       "description": "Iran\u2011Oman transit fee precedent \u2013 a threat affecting Institutional, Financial. Monitor closely for escalation.",
       "ml_likelihood_ratio": 8.306908738398839,
       "likelihood_ratios": [
         3.1920726215196518,
         1.249999999998181,
+        6.480181553799129,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299471",
+      "last_updated": "2026-06-24T14:36:52.163687",
       "confidence": 0.79
     },
     {
@@ -5045,12 +5257,12 @@
         "Institutional",
         "Domestic"
       ],
-      "status": "Green",
-      "scp": 0.0705,
+      "status": "Orange",
+      "scp": 0.5227,
       "base_probability": 0.007558271999999996,
-      "das": 53.69,
+      "das": 2.84,
       "notes": "WaPo layoffs, CBS turmoil.",
-      "priority_score": 13.05,
+      "priority_score": 60.27,
       "delta_contribution": 3.149999999999999,
       "das_band": "Anomalous",
       "description": "US Media Collapse \u2013 a threat affecting Institutional, Domestic. Monitor closely for escalation.",
@@ -5058,25 +5270,26 @@
       "likelihood_ratios": [
         6.374776592854912,
         1.249999999998181,
+        14.436941482137279,
         1.249999999998181
       ],
-      "last_updated": "2026-06-24T14:26:59.299494",
+      "last_updated": "2026-06-24T14:36:52.163711",
       "confidence": 0.95
     }
   ],
-  "gsci": 2.52,
-  "ssi": 0.0,
+  "gsci": 20.58,
+  "ssi": 27.04,
   "ds": 0,
   "sca_tier": {
-    "tier": 0,
-    "label": "Normal",
-    "count": 0
+    "tier": 4,
+    "label": "Critical",
+    "count": 34
   },
-  "anomaly_count": 213,
+  "anomaly_count": 2,
   "convergence_alert": {
     "level": "Normal",
     "weighted_score": 0
   },
-  "active_cascades": 0,
-  "last_updated": "2026-06-24T14:26:59.302947"
+  "active_cascades": 34,
+  "last_updated": "2026-06-24T14:36:52.165671"
 }

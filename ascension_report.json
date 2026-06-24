@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-06-24T14:27:03.470788",
-  "resilience_score": 58.47,
+  "timestamp": "2026-06-24T14:36:56.561188",
+  "resilience_score": 47.44,
   "recovery_probabilities": {
     "C01": {
-      "recovery_probability": 0.577,
+      "recovery_probability": 0.439,
       "region": "Global",
-      "scp": 0.0761,
+      "scp": 0.5364,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -38,9 +38,9 @@
       ]
     },
     "C\u2011USIRAN": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.502,
       "region": "Global",
-      "scp": 0.051,
+      "scp": 0.3281,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -73,9 +73,9 @@
       ]
     },
     "C\u2011BELT": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.488,
       "region": "Global",
-      "scp": 0.0567,
+      "scp": 0.372,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -108,9 +108,9 @@
       ]
     },
     "C\u2011RED\u2011BLOCK": {
-      "recovery_probability": 0.578,
+      "recovery_probability": 0.446,
       "region": "Global",
-      "scp": 0.073,
+      "scp": 0.5128,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -143,9 +143,9 @@
       ]
     },
     "C132": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.483,
       "region": "Global",
-      "scp": 0.0535,
+      "scp": 0.3887,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -178,9 +178,9 @@
       ]
     },
     "C129": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.47,
       "region": "Global",
-      "scp": 0.0558,
+      "scp": 0.4318,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -213,9 +213,9 @@
       ]
     },
     "C54": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.49,
       "region": "Global",
-      "scp": 0.0474,
+      "scp": 0.3661,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -248,9 +248,9 @@
       ]
     },
     "C88": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.478,
       "region": "Global",
-      "scp": 0.0547,
+      "scp": 0.408,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -283,9 +283,9 @@
       ]
     },
     "C90": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.468,
       "region": "Global",
-      "scp": 0.0543,
+      "scp": 0.4389,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -318,9 +318,9 @@
       ]
     },
     "C48": {
-      "recovery_probability": 0.581,
+      "recovery_probability": 0.453,
       "region": "Global",
-      "scp": 0.0644,
+      "scp": 0.4907,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -353,9 +353,9 @@
       ]
     },
     "C19": {
-      "recovery_probability": 0.591,
+      "recovery_probability": 0.551,
       "region": "Global",
-      "scp": 0.0305,
+      "scp": 0.1621,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -388,9 +388,9 @@
       ]
     },
     "C25": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.462,
       "region": "Global",
-      "scp": 0.0602,
+      "scp": 0.4613,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -423,9 +423,9 @@
       ]
     },
     "C3": {
-      "recovery_probability": 0.591,
+      "recovery_probability": 0.514,
       "region": "Global",
-      "scp": 0.0305,
+      "scp": 0.286,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -458,9 +458,9 @@
       ]
     },
     "C11": {
-      "recovery_probability": 0.588,
+      "recovery_probability": 0.488,
       "region": "Global",
-      "scp": 0.0392,
+      "scp": 0.3737,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -493,9 +493,9 @@
       ]
     },
     "C58": {
-      "recovery_probability": 0.591,
+      "recovery_probability": 0.507,
       "region": "Global",
-      "scp": 0.0297,
+      "scp": 0.3089,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -528,9 +528,9 @@
       ]
     },
     "C60": {
-      "recovery_probability": 0.594,
+      "recovery_probability": 0.536,
       "region": "Global",
-      "scp": 0.0214,
+      "scp": 0.2121,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -563,9 +563,9 @@
       ]
     },
     "C64": {
-      "recovery_probability": 0.59,
+      "recovery_probability": 0.507,
       "region": "Global",
-      "scp": 0.0322,
+      "scp": 0.3105,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -598,9 +598,9 @@
       ]
     },
     "C85": {
-      "recovery_probability": 0.588,
+      "recovery_probability": 0.49,
       "region": "Global",
-      "scp": 0.0411,
+      "scp": 0.3669,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -633,9 +633,9 @@
       ]
     },
     "C122": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.476,
       "region": "Global",
-      "scp": 0.0423,
+      "scp": 0.4139,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -668,9 +668,9 @@
       ]
     },
     "C2": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -703,9 +703,9 @@
       ]
     },
     "C4": {
-      "recovery_probability": 0.592,
+      "recovery_probability": 0.52,
       "region": "Global",
-      "scp": 0.0271,
+      "scp": 0.2681,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -738,9 +738,9 @@
       ]
     },
     "C6": {
-      "recovery_probability": 0.59,
+      "recovery_probability": 0.499,
       "region": "Global",
-      "scp": 0.0341,
+      "scp": 0.3373,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -773,9 +773,9 @@
       ]
     },
     "C7": {
-      "recovery_probability": 0.593,
+      "recovery_probability": 0.525,
       "region": "Global",
-      "scp": 0.0236,
+      "scp": 0.251,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -808,9 +808,9 @@
       ]
     },
     "C9": {
-      "recovery_probability": 0.588,
+      "recovery_probability": 0.49,
       "region": "Global",
-      "scp": 0.0388,
+      "scp": 0.3679,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -843,9 +843,9 @@
       ]
     },
     "C10": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.485,
       "region": "Global",
-      "scp": 0.0423,
+      "scp": 0.3828,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -878,9 +878,9 @@
       ]
     },
     "C12": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.489,
       "region": "Global",
-      "scp": 0.0437,
+      "scp": 0.371,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -913,9 +913,9 @@
       ]
     },
     "C13": {
-      "recovery_probability": 0.589,
+      "recovery_probability": 0.492,
       "region": "Global",
-      "scp": 0.0356,
+      "scp": 0.3589,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -948,9 +948,9 @@
       ]
     },
     "C14": {
-      "recovery_probability": 0.591,
+      "recovery_probability": 0.503,
       "region": "Global",
-      "scp": 0.0306,
+      "scp": 0.3242,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -983,9 +983,9 @@
       ]
     },
     "C15": {
-      "recovery_probability": 0.593,
+      "recovery_probability": 0.52,
       "region": "Global",
-      "scp": 0.0245,
+      "scp": 0.2664,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1018,9 +1018,9 @@
       ]
     },
     "C16": {
-      "recovery_probability": 0.591,
+      "recovery_probability": 0.509,
       "region": "Global",
-      "scp": 0.0293,
+      "scp": 0.3037,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1053,9 +1053,9 @@
       ]
     },
     "C17": {
-      "recovery_probability": 0.59,
+      "recovery_probability": 0.515,
       "region": "Global",
-      "scp": 0.0325,
+      "scp": 0.2837,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1088,9 +1088,9 @@
       ]
     },
     "C18": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.477,
       "region": "Global",
-      "scp": 0.0446,
+      "scp": 0.4103,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1123,9 +1123,9 @@
       ]
     },
     "C20": {
-      "recovery_probability": 0.589,
+      "recovery_probability": 0.492,
       "region": "Global",
-      "scp": 0.0356,
+      "scp": 0.3589,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1158,9 +1158,9 @@
       ]
     },
     "C21": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.453,
       "region": "Global",
-      "scp": 0.0596,
+      "scp": 0.4904,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1193,9 +1193,9 @@
       ]
     },
     "C22": {
-      "recovery_probability": 0.593,
+      "recovery_probability": 0.52,
       "region": "Global",
-      "scp": 0.0245,
+      "scp": 0.2664,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1228,9 +1228,9 @@
       ]
     },
     "C23": {
-      "recovery_probability": 0.588,
+      "recovery_probability": 0.49,
       "region": "Global",
-      "scp": 0.0388,
+      "scp": 0.3679,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1263,9 +1263,9 @@
       ]
     },
     "C24": {
-      "recovery_probability": 0.591,
+      "recovery_probability": 0.509,
       "region": "Global",
-      "scp": 0.0293,
+      "scp": 0.3037,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1298,9 +1298,9 @@
       ]
     },
     "C26": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.476,
       "region": "Global",
-      "scp": 0.0498,
+      "scp": 0.4148,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1333,9 +1333,9 @@
       ]
     },
     "C27": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.474,
       "region": "Global",
-      "scp": 0.048,
+      "scp": 0.4214,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1368,9 +1368,9 @@
       ]
     },
     "C28": {
-      "recovery_probability": 0.59,
+      "recovery_probability": 0.499,
       "region": "Global",
-      "scp": 0.0341,
+      "scp": 0.3373,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1403,9 +1403,9 @@
       ]
     },
     "G-ARCTIC": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.456,
       "region": "Global",
-      "scp": 0.0586,
+      "scp": 0.4804,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1438,9 +1438,9 @@
       ]
     },
     "G-GREENLAND": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.481,
       "region": "Global",
-      "scp": 0.0434,
+      "scp": 0.3958,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1473,9 +1473,9 @@
       ]
     },
     "G-SPACE": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.463,
       "region": "Global",
-      "scp": 0.0586,
+      "scp": 0.4583,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1508,9 +1508,9 @@
       ]
     },
     "G-WEST-BANK": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1543,9 +1543,9 @@
       ]
     },
     "G-SUD-BLUE": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.485,
       "region": "Global",
-      "scp": 0.0469,
+      "scp": 0.3833,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1578,9 +1578,9 @@
       ]
     },
     "C11E": {
-      "recovery_probability": 0.576,
+      "recovery_probability": 0.431,
       "region": "Global",
-      "scp": 0.0797,
+      "scp": 0.5628,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1613,9 +1613,9 @@
       ]
     },
     "C141": {
-      "recovery_probability": 0.577,
+      "recovery_probability": 0.431,
       "region": "Global",
-      "scp": 0.0781,
+      "scp": 0.5625,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1648,9 +1648,9 @@
       ]
     },
     "C143": {
-      "recovery_probability": 0.578,
+      "recovery_probability": 0.436,
       "region": "Global",
-      "scp": 0.0735,
+      "scp": 0.5464,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1683,9 +1683,9 @@
       ]
     },
     "C62": {
-      "recovery_probability": 0.58,
+      "recovery_probability": 0.443,
       "region": "Global",
-      "scp": 0.0671,
+      "scp": 0.5219,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1718,9 +1718,9 @@
       ]
     },
     "C63": {
-      "recovery_probability": 0.581,
+      "recovery_probability": 0.45,
       "region": "Global",
-      "scp": 0.0632,
+      "scp": 0.5005,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1753,9 +1753,9 @@
       ]
     },
     "C123": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.45,
       "region": "Global",
-      "scp": 0.0615,
+      "scp": 0.4986,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1788,9 +1788,9 @@
       ]
     },
     "C127": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.453,
       "region": "Global",
-      "scp": 0.0596,
+      "scp": 0.4904,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1823,9 +1823,9 @@
       ]
     },
     "C144": {
-      "recovery_probability": 0.581,
+      "recovery_probability": 0.447,
       "region": "Global",
-      "scp": 0.0643,
+      "scp": 0.5105,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1858,9 +1858,9 @@
       ]
     },
     "C143-KZ": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.459,
       "region": "Global",
-      "scp": 0.0549,
+      "scp": 0.4686,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1893,9 +1893,9 @@
       ]
     },
     "CA4": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.453,
       "region": "Global",
-      "scp": 0.0596,
+      "scp": 0.4904,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1928,9 +1928,9 @@
       ]
     },
     "G16": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.477,
       "region": "Global",
-      "scp": 0.0445,
+      "scp": 0.4091,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1963,9 +1963,9 @@
       ]
     },
     "G17": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.467,
       "region": "Global",
-      "scp": 0.0501,
+      "scp": 0.4448,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -1998,9 +1998,9 @@
       ]
     },
     "G18": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.459,
       "region": "Global",
-      "scp": 0.0549,
+      "scp": 0.4686,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2033,9 +2033,9 @@
       ]
     },
     "G19": {
-      "recovery_probability": 0.592,
+      "recovery_probability": 0.534,
       "region": "Global",
-      "scp": 0.0279,
+      "scp": 0.2206,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2068,9 +2068,9 @@
       ]
     },
     "G20": {
-      "recovery_probability": 0.595,
+      "recovery_probability": 0.542,
       "region": "Global",
-      "scp": 0.0155,
+      "scp": 0.1931,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2103,9 +2103,9 @@
       ]
     },
     "G24": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.467,
       "region": "Global",
-      "scp": 0.0501,
+      "scp": 0.4448,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2138,9 +2138,9 @@
       ]
     },
     "E-AI-GRID": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.45,
       "region": "Global",
-      "scp": 0.0608,
+      "scp": 0.5013,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2173,9 +2173,9 @@
       ]
     },
     "E-SMR": {
-      "recovery_probability": 0.588,
+      "recovery_probability": 0.483,
       "region": "Global",
-      "scp": 0.0405,
+      "scp": 0.3903,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2208,9 +2208,9 @@
       ]
     },
     "E-HYPER-SCALE": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.463,
       "region": "Global",
-      "scp": 0.0538,
+      "scp": 0.4574,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2243,9 +2243,9 @@
       ]
     },
     "E-MINI-GRID": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.472,
       "region": "Global",
-      "scp": 0.0461,
+      "scp": 0.4283,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2278,9 +2278,9 @@
       ]
     },
     "E-SOLAR-CYBER": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.467,
       "region": "Global",
-      "scp": 0.0501,
+      "scp": 0.4448,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2313,9 +2313,9 @@
       ]
     },
     "C100": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.465,
       "region": "Global",
-      "scp": 0.06,
+      "scp": 0.4515,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2348,9 +2348,9 @@
       ]
     },
     "C147": {
-      "recovery_probability": 0.581,
+      "recovery_probability": 0.451,
       "region": "Global",
-      "scp": 0.0643,
+      "scp": 0.4981,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2383,9 +2383,9 @@
       ]
     },
     "C44": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.472,
       "region": "Global",
-      "scp": 0.0553,
+      "scp": 0.4265,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2418,9 +2418,9 @@
       ]
     },
     "C80": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.472,
       "region": "Global",
-      "scp": 0.0555,
+      "scp": 0.4281,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2453,9 +2453,9 @@
       ]
     },
     "C134": {
-      "recovery_probability": 0.581,
+      "recovery_probability": 0.449,
       "region": "Global",
-      "scp": 0.0649,
+      "scp": 0.5033,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2488,9 +2488,9 @@
       ]
     },
     "C135": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2523,9 +2523,9 @@
       ]
     },
     "C99": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.467,
       "region": "Global",
-      "scp": 0.0526,
+      "scp": 0.4449,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2558,9 +2558,9 @@
       ]
     },
     "C41": {
-      "recovery_probability": 0.59,
+      "recovery_probability": 0.499,
       "region": "Global",
-      "scp": 0.0341,
+      "scp": 0.3373,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2593,9 +2593,9 @@
       ]
     },
     "C46": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.481,
       "region": "Global",
-      "scp": 0.0434,
+      "scp": 0.3958,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2628,9 +2628,9 @@
       ]
     },
     "E11": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2663,9 +2663,9 @@
       ]
     },
     "U10": {
-      "recovery_probability": 0.596,
+      "recovery_probability": 0.546,
       "region": "Global",
-      "scp": 0.0149,
+      "scp": 0.1788,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2698,9 +2698,9 @@
       ]
     },
     "U11": {
-      "recovery_probability": 0.59,
+      "recovery_probability": 0.499,
       "region": "Global",
-      "scp": 0.0341,
+      "scp": 0.3373,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2733,9 +2733,9 @@
       ]
     },
     "U12": {
-      "recovery_probability": 0.589,
+      "recovery_probability": 0.498,
       "region": "Global",
-      "scp": 0.0366,
+      "scp": 0.3399,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2768,9 +2768,9 @@
       ]
     },
     "CC1": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.489,
       "region": "Global",
-      "scp": 0.0436,
+      "scp": 0.3699,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2803,9 +2803,9 @@
       ]
     },
     "CC2": {
-      "recovery_probability": 0.591,
+      "recovery_probability": 0.509,
       "region": "Global",
-      "scp": 0.0293,
+      "scp": 0.3037,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2838,9 +2838,9 @@
       ]
     },
     "OC1": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.467,
       "region": "Global",
-      "scp": 0.0526,
+      "scp": 0.4449,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2873,9 +2873,9 @@
       ]
     },
     "CB2": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.482,
       "region": "Global",
-      "scp": 0.0454,
+      "scp": 0.3918,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2908,9 +2908,9 @@
       ]
     },
     "LA2": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.464,
       "region": "Global",
-      "scp": 0.0579,
+      "scp": 0.4522,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2943,9 +2943,9 @@
       ]
     },
     "C-WATER-BANK": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.47,
       "region": "Global",
-      "scp": 0.0561,
+      "scp": 0.4344,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -2978,9 +2978,9 @@
       ]
     },
     "C-SUBSIDENCE": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.481,
       "region": "Global",
-      "scp": 0.0434,
+      "scp": 0.3958,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3013,9 +3013,9 @@
       ]
     },
     "C-CRYO": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.471,
       "region": "Global",
-      "scp": 0.0536,
+      "scp": 0.4316,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3048,9 +3048,9 @@
       ]
     },
     "C-SOIL-DEG": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.494,
       "region": "Global",
-      "scp": 0.0422,
+      "scp": 0.3531,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3083,9 +3083,9 @@
       ]
     },
     "C-AG-STORAGE": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.482,
       "region": "Global",
-      "scp": 0.0478,
+      "scp": 0.3936,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3118,9 +3118,9 @@
       ]
     },
     "C78": {
-      "recovery_probability": 0.579,
+      "recovery_probability": 0.457,
       "region": "Global",
-      "scp": 0.0686,
+      "scp": 0.4778,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3153,9 +3153,9 @@
       ]
     },
     "C133": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3188,9 +3188,9 @@
       ]
     },
     "I08": {
-      "recovery_probability": 0.578,
+      "recovery_probability": 0.44,
       "region": "Global",
-      "scp": 0.0731,
+      "scp": 0.5326,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3223,9 +3223,9 @@
       ]
     },
     "I09": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.475,
       "region": "Global",
-      "scp": 0.0542,
+      "scp": 0.416,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3258,9 +3258,9 @@
       ]
     },
     "C136": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.467,
       "region": "Global",
-      "scp": 0.0526,
+      "scp": 0.4449,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3293,9 +3293,9 @@
       ]
     },
     "C137": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.465,
       "region": "Global",
-      "scp": 0.0556,
+      "scp": 0.4515,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3328,9 +3328,9 @@
       ]
     },
     "C138": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.474,
       "region": "Global",
-      "scp": 0.048,
+      "scp": 0.4214,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3363,9 +3363,9 @@
       ]
     },
     "U16": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.467,
       "region": "Global",
-      "scp": 0.0526,
+      "scp": 0.4449,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3398,9 +3398,9 @@
       ]
     },
     "U18": {
-      "recovery_probability": 0.58,
+      "recovery_probability": 0.448,
       "region": "Global",
-      "scp": 0.0661,
+      "scp": 0.5053,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3433,9 +3433,9 @@
       ]
     },
     "U19": {
-      "recovery_probability": 0.59,
+      "recovery_probability": 0.507,
       "region": "Global",
-      "scp": 0.0322,
+      "scp": 0.3105,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3468,9 +3468,9 @@
       ]
     },
     "C17*": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.454,
       "region": "Global",
-      "scp": 0.0616,
+      "scp": 0.4867,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3503,9 +3503,9 @@
       ]
     },
     "C18*": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.469,
       "region": "Global",
-      "scp": 0.0542,
+      "scp": 0.4378,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3538,9 +3538,9 @@
       ]
     },
     "C19*": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.458,
       "region": "Global",
-      "scp": 0.0589,
+      "scp": 0.4748,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3573,9 +3573,9 @@
       ]
     },
     "C20*": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.477,
       "region": "Global",
-      "scp": 0.0493,
+      "scp": 0.4092,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3608,9 +3608,9 @@
       ]
     },
     "G30": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.456,
       "region": "Global",
-      "scp": 0.061,
+      "scp": 0.4807,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3643,9 +3643,9 @@
       ]
     },
     "U15": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.474,
       "region": "Global",
-      "scp": 0.048,
+      "scp": 0.4214,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3678,9 +3678,9 @@
       ]
     },
     "U17": {
-      "recovery_probability": 0.588,
+      "recovery_probability": 0.48,
       "region": "Global",
-      "scp": 0.0412,
+      "scp": 0.4002,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3713,9 +3713,9 @@
       ]
     },
     "A24": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3748,9 +3748,9 @@
       ]
     },
     "C145": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.493,
       "region": "Global",
-      "scp": 0.0532,
+      "scp": 0.3566,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3783,9 +3783,9 @@
       ]
     },
     "F-AI-CYBER-SYS": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.475,
       "region": "Global",
-      "scp": 0.0545,
+      "scp": 0.4182,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3818,9 +3818,9 @@
       ]
     },
     "F-AI-LIQ": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.471,
       "region": "Global",
-      "scp": 0.0512,
+      "scp": 0.4304,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3853,9 +3853,9 @@
       ]
     },
     "F-REPO-2026": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.478,
       "region": "Global",
-      "scp": 0.0468,
+      "scp": 0.4071,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3888,9 +3888,9 @@
       ]
     },
     "F-CBDC": {
-      "recovery_probability": 0.588,
+      "recovery_probability": 0.491,
       "region": "Global",
-      "scp": 0.0408,
+      "scp": 0.3634,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3923,9 +3923,9 @@
       ]
     },
     "F-INSUR-SPIRAL": {
-      "recovery_probability": 0.594,
+      "recovery_probability": 0.578,
       "region": "Global",
-      "scp": 0.02,
+      "scp": 0.0734,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3958,9 +3958,9 @@
       ]
     },
     "C121": {
-      "recovery_probability": 0.577,
+      "recovery_probability": 0.435,
       "region": "Global",
-      "scp": 0.0778,
+      "scp": 0.5491,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -3993,9 +3993,9 @@
       ]
     },
     "C124": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.454,
       "region": "Global",
-      "scp": 0.0616,
+      "scp": 0.4867,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4028,9 +4028,9 @@
       ]
     },
     "C36": {
-      "recovery_probability": 0.581,
+      "recovery_probability": 0.451,
       "region": "Global",
-      "scp": 0.0643,
+      "scp": 0.4981,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4063,9 +4063,9 @@
       ]
     },
     "C39": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.481,
       "region": "Global",
-      "scp": 0.0434,
+      "scp": 0.3958,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4098,9 +4098,9 @@
       ]
     },
     "C8": {
-      "recovery_probability": 0.581,
+      "recovery_probability": 0.464,
       "region": "Global",
-      "scp": 0.0623,
+      "scp": 0.453,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4133,9 +4133,9 @@
       ]
     },
     "C29": {
-      "recovery_probability": 0.577,
+      "recovery_probability": 0.434,
       "region": "Global",
-      "scp": 0.0769,
+      "scp": 0.5539,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4168,9 +4168,9 @@
       ]
     },
     "C135S": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4203,9 +4203,9 @@
       ]
     },
     "SC-NUCLEAR": {
-      "recovery_probability": 0.589,
+      "recovery_probability": 0.522,
       "region": "Global",
-      "scp": 0.038,
+      "scp": 0.2599,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4238,9 +4238,9 @@
       ]
     },
     "SC-COUNTER": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.467,
       "region": "Global",
-      "scp": 0.0501,
+      "scp": 0.4448,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4273,9 +4273,9 @@
       ]
     },
     "SC-RARE": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.474,
       "region": "Global",
-      "scp": 0.0545,
+      "scp": 0.4185,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4308,9 +4308,9 @@
       ]
     },
     "SC-DEVICE": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.467,
       "region": "Global",
-      "scp": 0.0526,
+      "scp": 0.4449,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4343,9 +4343,9 @@
       ]
     },
     "SC-ZINC": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.475,
       "region": "Global",
-      "scp": 0.0476,
+      "scp": 0.4161,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4378,9 +4378,9 @@
       ]
     },
     "C03": {
-      "recovery_probability": 0.578,
+      "recovery_probability": 0.446,
       "region": "Global",
-      "scp": 0.073,
+      "scp": 0.5129,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4413,9 +4413,9 @@
       ]
     },
     "C126": {
-      "recovery_probability": 0.578,
+      "recovery_probability": 0.446,
       "region": "Global",
-      "scp": 0.0732,
+      "scp": 0.5146,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4448,9 +4448,9 @@
       ]
     },
     "C125": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.469,
       "region": "Global",
-      "scp": 0.0577,
+      "scp": 0.4379,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4483,9 +4483,9 @@
       ]
     },
     "C43": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.469,
       "region": "Global",
-      "scp": 0.0564,
+      "scp": 0.4371,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4518,9 +4518,9 @@
       ]
     },
     "C106": {
-      "recovery_probability": 0.581,
+      "recovery_probability": 0.457,
       "region": "Global",
-      "scp": 0.0638,
+      "scp": 0.4778,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4553,9 +4553,9 @@
       ]
     },
     "C137F": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.465,
       "region": "Global",
-      "scp": 0.0556,
+      "scp": 0.4515,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4588,9 +4588,9 @@
       ]
     },
     "A01": {
-      "recovery_probability": 0.577,
+      "recovery_probability": 0.434,
       "region": "Global",
-      "scp": 0.0782,
+      "scp": 0.5519,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4623,9 +4623,9 @@
       ]
     },
     "A02": {
-      "recovery_probability": 0.579,
+      "recovery_probability": 0.449,
       "region": "Global",
-      "scp": 0.0693,
+      "scp": 0.5019,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4658,9 +4658,9 @@
       ]
     },
     "A03": {
-      "recovery_probability": 0.58,
+      "recovery_probability": 0.439,
       "region": "Global",
-      "scp": 0.0675,
+      "scp": 0.5375,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4693,9 +4693,9 @@
       ]
     },
     "A04": {
-      "recovery_probability": 0.581,
+      "recovery_probability": 0.446,
       "region": "Global",
-      "scp": 0.0648,
+      "scp": 0.5149,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4728,9 +4728,9 @@
       ]
     },
     "A22": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.47,
       "region": "Global",
-      "scp": 0.0537,
+      "scp": 0.4323,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4763,9 +4763,9 @@
       ]
     },
     "A23": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.459,
       "region": "Global",
-      "scp": 0.0549,
+      "scp": 0.4687,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4798,9 +4798,9 @@
       ]
     },
     "A-UREA": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.469,
       "region": "Global",
-      "scp": 0.0564,
+      "scp": 0.4378,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4833,9 +4833,9 @@
       ]
     },
     "A-EL-NINO": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.47,
       "region": "Global",
-      "scp": 0.0537,
+      "scp": 0.4323,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4868,9 +4868,9 @@
       ]
     },
     "A-SOIL-BIO": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.489,
       "region": "Global",
-      "scp": 0.0437,
+      "scp": 0.3714,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4903,9 +4903,9 @@
       ]
     },
     "A-STRAT-RES": {
-      "recovery_probability": 0.581,
+      "recovery_probability": 0.457,
       "region": "Global",
-      "scp": 0.0638,
+      "scp": 0.4778,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4938,9 +4938,9 @@
       ]
     },
     "A-AG-DEBT": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.477,
       "region": "Global",
-      "scp": 0.0494,
+      "scp": 0.411,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -4973,9 +4973,9 @@
       ]
     },
     "C84": {
-      "recovery_probability": 0.575,
+      "recovery_probability": 0.426,
       "region": "Global",
-      "scp": 0.0817,
+      "scp": 0.5813,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5008,9 +5008,9 @@
       ]
     },
     "I01": {
-      "recovery_probability": 0.579,
+      "recovery_probability": 0.449,
       "region": "Global",
-      "scp": 0.0713,
+      "scp": 0.5044,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5043,9 +5043,9 @@
       ]
     },
     "C67": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5078,9 +5078,9 @@
       ]
     },
     "U01": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.474,
       "region": "Global",
-      "scp": 0.048,
+      "scp": 0.4214,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5113,9 +5113,9 @@
       ]
     },
     "U02": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.477,
       "region": "Global",
-      "scp": 0.0493,
+      "scp": 0.4102,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5148,9 +5148,9 @@
       ]
     },
     "U03": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.486,
       "region": "Global",
-      "scp": 0.0506,
+      "scp": 0.3785,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5183,9 +5183,9 @@
       ]
     },
     "U06": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5218,9 +5218,9 @@
       ]
     },
     "D-IMM-WAR": {
-      "recovery_probability": 0.589,
+      "recovery_probability": 0.501,
       "region": "Global",
-      "scp": 0.0359,
+      "scp": 0.3301,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5253,9 +5253,9 @@
       ]
     },
     "D-AI-LIAB": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.485,
       "region": "Global",
-      "scp": 0.0423,
+      "scp": 0.3818,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5288,9 +5288,9 @@
       ]
     },
     "D-TRUST": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5323,9 +5323,9 @@
       ]
     },
     "D-DESKILL": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.484,
       "region": "Global",
-      "scp": 0.0451,
+      "scp": 0.3882,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5358,9 +5358,9 @@
       ]
     },
     "D-GDPR": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.485,
       "region": "Global",
-      "scp": 0.0423,
+      "scp": 0.3818,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5393,9 +5393,9 @@
       ]
     },
     "C139": {
-      "recovery_probability": 0.579,
+      "recovery_probability": 0.443,
       "region": "Global",
-      "scp": 0.0705,
+      "scp": 0.5227,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5428,9 +5428,9 @@
       ]
     },
     "C5": {
-      "recovery_probability": 0.577,
+      "recovery_probability": 0.435,
       "region": "Global",
-      "scp": 0.0778,
+      "scp": 0.5491,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5463,9 +5463,9 @@
       ]
     },
     "U07": {
-      "recovery_probability": 0.591,
+      "recovery_probability": 0.509,
       "region": "Global",
-      "scp": 0.0293,
+      "scp": 0.3037,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5498,9 +5498,9 @@
       ]
     },
     "U13": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.454,
       "region": "Global",
-      "scp": 0.0616,
+      "scp": 0.4867,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5533,9 +5533,9 @@
       ]
     },
     "U14": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.451,
       "region": "Global",
-      "scp": 0.0577,
+      "scp": 0.4961,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5568,9 +5568,9 @@
       ]
     },
     "C44S": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.472,
       "region": "Global",
-      "scp": 0.0553,
+      "scp": 0.4265,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5603,9 +5603,9 @@
       ]
     },
     "C64S": {
-      "recovery_probability": 0.588,
+      "recovery_probability": 0.49,
       "region": "Global",
-      "scp": 0.0388,
+      "scp": 0.3679,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5638,9 +5638,9 @@
       ]
     },
     "C20*S": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.477,
       "region": "Global",
-      "scp": 0.0493,
+      "scp": 0.4092,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5673,9 +5673,9 @@
       ]
     },
     "S-ANTI-TECH": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.485,
       "region": "Global",
-      "scp": 0.0446,
+      "scp": 0.3818,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5708,9 +5708,9 @@
       ]
     },
     "S-NVE": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.481,
       "region": "Global",
-      "scp": 0.0434,
+      "scp": 0.3958,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5743,9 +5743,9 @@
       ]
     },
     "S-CLASS": {
-      "recovery_probability": 0.588,
+      "recovery_probability": 0.49,
       "region": "Global",
-      "scp": 0.0388,
+      "scp": 0.3679,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5778,9 +5778,9 @@
       ]
     },
     "S-FED-8000": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.463,
       "region": "Global",
-      "scp": 0.0583,
+      "scp": 0.456,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5813,9 +5813,9 @@
       ]
     },
     "S-LONELY": {
-      "recovery_probability": 0.59,
+      "recovery_probability": 0.499,
       "region": "Global",
-      "scp": 0.0341,
+      "scp": 0.3373,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5848,9 +5848,9 @@
       ]
     },
     "C\u2011ESCAPE": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.471,
       "region": "Global",
-      "scp": 0.0512,
+      "scp": 0.4304,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5883,9 +5883,9 @@
       ]
     },
     "C\u2011ZERODAY": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.483,
       "region": "Global",
-      "scp": 0.0488,
+      "scp": 0.3902,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5918,9 +5918,9 @@
       ]
     },
     "C\u2011BIOWPN": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.485,
       "region": "Global",
-      "scp": 0.0423,
+      "scp": 0.3818,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5953,9 +5953,9 @@
       ]
     },
     "C\u2011AILANG": {
-      "recovery_probability": 0.589,
+      "recovery_probability": 0.497,
       "region": "Global",
-      "scp": 0.0359,
+      "scp": 0.3426,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -5988,9 +5988,9 @@
       ]
     },
     "C\u2011DATACENTER\u2011RES": {
-      "recovery_probability": 0.588,
+      "recovery_probability": 0.487,
       "region": "Global",
-      "scp": 0.0393,
+      "scp": 0.3757,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6023,9 +6023,9 @@
       ]
     },
     "C\u2011MALWARE": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.474,
       "region": "Global",
-      "scp": 0.048,
+      "scp": 0.4214,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6058,9 +6058,9 @@
       ]
     },
     "C121T": {
-      "recovery_probability": 0.577,
+      "recovery_probability": 0.435,
       "region": "Global",
-      "scp": 0.0778,
+      "scp": 0.5491,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6093,9 +6093,9 @@
       ]
     },
     "C48T": {
-      "recovery_probability": 0.581,
+      "recovery_probability": 0.455,
       "region": "Global",
-      "scp": 0.0626,
+      "scp": 0.4834,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6128,9 +6128,9 @@
       ]
     },
     "C96": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.475,
       "region": "Global",
-      "scp": 0.0522,
+      "scp": 0.4173,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6163,9 +6163,9 @@
       ]
     },
     "C97": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.454,
       "region": "Global",
-      "scp": 0.0616,
+      "scp": 0.4867,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6198,9 +6198,9 @@
       ]
     },
     "I11": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.485,
       "region": "Global",
-      "scp": 0.0423,
+      "scp": 0.3818,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6233,9 +6233,9 @@
       ]
     },
     "I12": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.467,
       "region": "Global",
-      "scp": 0.0526,
+      "scp": 0.4449,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6268,9 +6268,9 @@
       ]
     },
     "T-BIO-INF": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.485,
       "region": "Global",
-      "scp": 0.0423,
+      "scp": 0.3818,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6303,9 +6303,9 @@
       ]
     },
     "T-LAWS": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.454,
       "region": "Global",
-      "scp": 0.0616,
+      "scp": 0.4867,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6338,9 +6338,9 @@
       ]
     },
     "T-SYN-DNA": {
-      "recovery_probability": 0.586,
+      "recovery_probability": 0.474,
       "region": "Global",
-      "scp": 0.048,
+      "scp": 0.4214,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6373,9 +6373,9 @@
       ]
     },
     "T-AGENT": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.471,
       "region": "Global",
-      "scp": 0.0534,
+      "scp": 0.4297,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6408,9 +6408,9 @@
       ]
     },
     "T-MISINFO": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.454,
       "region": "Global",
-      "scp": 0.0616,
+      "scp": 0.4867,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6443,9 +6443,9 @@
       ]
     },
     "I01I": {
-      "recovery_probability": 0.579,
+      "recovery_probability": 0.449,
       "region": "Global",
-      "scp": 0.0696,
+      "scp": 0.5047,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6478,9 +6478,9 @@
       ]
     },
     "C2I": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6513,9 +6513,9 @@
       ]
     },
     "C84I": {
-      "recovery_probability": 0.575,
+      "recovery_probability": 0.426,
       "region": "Global",
-      "scp": 0.0817,
+      "scp": 0.5813,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6548,9 +6548,9 @@
       ]
     },
     "G14": {
-      "recovery_probability": 0.597,
+      "recovery_probability": 0.587,
       "region": "Global",
-      "scp": 0.01,
+      "scp": 0.0428,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6583,9 +6583,9 @@
       ]
     },
     "I11I": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.485,
       "region": "Global",
-      "scp": 0.0423,
+      "scp": 0.3818,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6618,9 +6618,9 @@
       ]
     },
     "I12I": {
-      "recovery_probability": 0.584,
+      "recovery_probability": 0.467,
       "region": "Global",
-      "scp": 0.0526,
+      "scp": 0.4449,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6653,9 +6653,9 @@
       ]
     },
     "C19I": {
-      "recovery_probability": 0.585,
+      "recovery_probability": 0.472,
       "region": "Global",
-      "scp": 0.0485,
+      "scp": 0.4272,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6688,9 +6688,9 @@
       ]
     },
     "B02": {
-      "recovery_probability": 0.575,
+      "recovery_probability": 0.424,
       "region": "Global",
-      "scp": 0.0831,
+      "scp": 0.5858,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6723,9 +6723,9 @@
       ]
     },
     "C148": {
-      "recovery_probability": 0.575,
+      "recovery_probability": 0.424,
       "region": "Global",
-      "scp": 0.0831,
+      "scp": 0.5858,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6758,9 +6758,9 @@
       ]
     },
     "C94": {
-      "recovery_probability": 0.59,
+      "recovery_probability": 0.511,
       "region": "Global",
-      "scp": 0.0334,
+      "scp": 0.296,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6793,9 +6793,9 @@
       ]
     },
     "C77": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.454,
       "region": "Global",
-      "scp": 0.0616,
+      "scp": 0.4867,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6828,9 +6828,9 @@
       ]
     },
     "A12": {
-      "recovery_probability": 0.575,
+      "recovery_probability": 0.424,
       "region": "Global",
-      "scp": 0.0831,
+      "scp": 0.5858,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6863,9 +6863,9 @@
       ]
     },
     "A13": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.459,
       "region": "Global",
-      "scp": 0.0576,
+      "scp": 0.4707,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6898,9 +6898,9 @@
       ]
     },
     "A14": {
-      "recovery_probability": 0.589,
+      "recovery_probability": 0.487,
       "region": "Global",
-      "scp": 0.0369,
+      "scp": 0.3775,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6933,9 +6933,9 @@
       ]
     },
     "A15": {
-      "recovery_probability": 0.59,
+      "recovery_probability": 0.49,
       "region": "Global",
-      "scp": 0.0333,
+      "scp": 0.3654,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -6968,9 +6968,9 @@
       ]
     },
     "B-METABIO": {
-      "recovery_probability": 0.591,
+      "recovery_probability": 0.509,
       "region": "Global",
-      "scp": 0.0293,
+      "scp": 0.3037,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7003,9 +7003,9 @@
       ]
     },
     "B-AMR-KLEB": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7038,9 +7038,9 @@
       ]
     },
     "B-DARK-PROTEIN": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.485,
       "region": "Global",
-      "scp": 0.0423,
+      "scp": 0.3818,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7073,9 +7073,9 @@
       ]
     },
     "B-PANT-PIE": {
-      "recovery_probability": 0.59,
+      "recovery_probability": 0.499,
       "region": "Global",
-      "scp": 0.0341,
+      "scp": 0.3373,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7108,9 +7108,9 @@
       ]
     },
     "B-RNA": {
-      "recovery_probability": 0.589,
+      "recovery_probability": 0.494,
       "region": "Global",
-      "scp": 0.0377,
+      "scp": 0.3543,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7143,9 +7143,9 @@
       ]
     },
     "C120": {
-      "recovery_probability": 0.579,
+      "recovery_probability": 0.447,
       "region": "Global",
-      "scp": 0.0713,
+      "scp": 0.5111,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7178,9 +7178,9 @@
       ]
     },
     "C140": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.481,
       "region": "Global",
-      "scp": 0.0563,
+      "scp": 0.397,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7213,9 +7213,9 @@
       ]
     },
     "C142": {
-      "recovery_probability": 0.58,
+      "recovery_probability": 0.446,
       "region": "Global",
-      "scp": 0.0679,
+      "scp": 0.5124,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7248,9 +7248,9 @@
       ]
     },
     "C77I": {
-      "recovery_probability": 0.582,
+      "recovery_probability": 0.454,
       "region": "Global",
-      "scp": 0.0616,
+      "scp": 0.4867,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7283,9 +7283,9 @@
       ]
     },
     "I02": {
-      "recovery_probability": 0.587,
+      "recovery_probability": 0.491,
       "region": "Global",
-      "scp": 0.0429,
+      "scp": 0.3626,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7318,9 +7318,9 @@
       ]
     },
     "I03": {
-      "recovery_probability": 0.579,
+      "recovery_probability": 0.443,
       "region": "Global",
-      "scp": 0.0705,
+      "scp": 0.5227,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7353,9 +7353,9 @@
       ]
     },
     "I17": {
-      "recovery_probability": 0.583,
+      "recovery_probability": 0.46,
       "region": "Global",
-      "scp": 0.0571,
+      "scp": 0.4666,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7388,9 +7388,9 @@
       ]
     },
     "C145I": {
-      "recovery_probability": 0.589,
+      "recovery_probability": 0.539,
       "region": "Global",
-      "scp": 0.038,
+      "scp": 0.2039,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7423,9 +7423,9 @@
       ]
     },
     "I10": {
-      "recovery_probability": 0.579,
+      "recovery_probability": 0.443,
       "region": "Global",
-      "scp": 0.0705,
+      "scp": 0.5227,
       "signal_count": 27,
       "signals": [
         "positive_signal",
@@ -7462,221 +7462,221 @@
     {
       "threat_id": "C11E",
       "name": "Oil Price Shock",
-      "impact": 0.041,
-      "effort": 0.556,
-      "score": 0.072,
-      "recovery_probability": 0.576,
-      "scp": 0.0797,
+      "impact": 0.384,
+      "effort": 0.151,
+      "score": 2.389,
+      "recovery_probability": 0.431,
+      "scp": 0.5628,
       "domain": "Energy",
       "current_signals": 27
     },
     {
       "threat_id": "C141",
       "name": "Zaporizhzhia NPP Single\u2011Point\u2011of\u2011Failure",
-      "impact": 0.04,
-      "effort": 0.561,
-      "score": 0.069,
-      "recovery_probability": 0.577,
-      "scp": 0.0781,
+      "impact": 0.384,
+      "effort": 0.151,
+      "score": 2.386,
+      "recovery_probability": 0.431,
+      "scp": 0.5625,
       "domain": "Energy",
       "current_signals": 27
     },
     {
-      "threat_id": "C01",
-      "name": "Iran\u2011Israel/US War / Hormuz",
-      "impact": 0.039,
-      "effort": 0.568,
-      "score": 0.067,
-      "recovery_probability": 0.577,
-      "scp": 0.0761,
-      "domain": "Geopolitical",
-      "current_signals": 27
-    },
-    {
-      "threat_id": "A01",
-      "name": "Sudan IPC5 famine",
-      "impact": 0.036,
-      "effort": 0.561,
-      "score": 0.064,
-      "recovery_probability": 0.577,
-      "scp": 0.0782,
-      "domain": "Food",
+      "threat_id": "C143",
+      "name": "OPEC Quota Compliance Collapse",
+      "impact": 0.37,
+      "effort": 0.155,
+      "score": 2.245,
+      "recovery_probability": 0.436,
+      "scp": 0.5464,
+      "domain": "Energy",
       "current_signals": 27
     },
     {
       "threat_id": "B02",
       "name": "Bundibugyo Ebola",
-      "impact": 0.035,
-      "effort": 0.546,
-      "score": 0.064,
-      "recovery_probability": 0.575,
-      "scp": 0.0831,
+      "impact": 0.337,
+      "effort": 0.146,
+      "score": 2.166,
+      "recovery_probability": 0.424,
+      "scp": 0.5858,
       "domain": "Biosecurity",
       "current_signals": 27
     },
     {
       "threat_id": "C148",
       "name": "Bundibugyo Ebola (duplicate)",
-      "impact": 0.035,
-      "effort": 0.546,
-      "score": 0.064,
-      "recovery_probability": 0.575,
-      "scp": 0.0831,
+      "impact": 0.337,
+      "effort": 0.146,
+      "score": 2.166,
+      "recovery_probability": 0.424,
+      "scp": 0.5858,
       "domain": "Biosecurity",
       "current_signals": 27
     },
     {
       "threat_id": "A12",
       "name": "Ebola \u2013 Bundibugyo",
-      "impact": 0.035,
-      "effort": 0.546,
-      "score": 0.064,
-      "recovery_probability": 0.575,
-      "scp": 0.0831,
+      "impact": 0.337,
+      "effort": 0.146,
+      "score": 2.166,
+      "recovery_probability": 0.424,
+      "scp": 0.5858,
       "domain": "Biosecurity",
       "current_signals": 27
     },
     {
-      "threat_id": "C\u2011RED\u2011BLOCK",
-      "name": "Bab el\u2011Mandeb Blockade",
-      "impact": 0.037,
-      "effort": 0.578,
-      "score": 0.063,
-      "recovery_probability": 0.578,
-      "scp": 0.073,
+      "threat_id": "C01",
+      "name": "Iran\u2011Israel/US War / Hormuz",
+      "impact": 0.361,
+      "effort": 0.157,
+      "score": 2.161,
+      "recovery_probability": 0.439,
+      "scp": 0.5364,
       "domain": "Geopolitical",
-      "current_signals": 27
-    },
-    {
-      "threat_id": "C143",
-      "name": "OPEC Quota Compliance Collapse",
-      "impact": 0.037,
-      "effort": 0.576,
-      "score": 0.063,
-      "recovery_probability": 0.578,
-      "scp": 0.0735,
-      "domain": "Energy",
       "current_signals": 27
     },
     {
       "threat_id": "C84",
       "name": "U.S. Electoral Integrity Breach",
-      "impact": 0.035,
-      "effort": 0.55,
-      "score": 0.062,
-      "recovery_probability": 0.575,
-      "scp": 0.0817,
+      "impact": 0.334,
+      "effort": 0.147,
+      "score": 2.128,
+      "recovery_probability": 0.426,
+      "scp": 0.5813,
       "domain": "Domestic",
       "current_signals": 27
     },
     {
       "threat_id": "C84I",
       "name": "U.S. Electoral Integrity Breach",
-      "impact": 0.035,
-      "effort": 0.55,
-      "score": 0.062,
-      "recovery_probability": 0.575,
-      "scp": 0.0817,
+      "impact": 0.334,
+      "effort": 0.147,
+      "score": 2.128,
+      "recovery_probability": 0.426,
+      "scp": 0.5813,
       "domain": "Institutional",
       "current_signals": 27
     },
     {
-      "threat_id": "C03",
-      "name": "Horn of Africa Famine",
-      "impact": 0.034,
-      "effort": 0.578,
-      "score": 0.058,
-      "recovery_probability": 0.578,
-      "scp": 0.073,
+      "threat_id": "A01",
+      "name": "Sudan IPC5 famine",
+      "impact": 0.344,
+      "effort": 0.153,
+      "score": 2.103,
+      "recovery_probability": 0.434,
+      "scp": 0.5519,
       "domain": "Food",
       "current_signals": 27
     },
     {
-      "threat_id": "C126",
-      "name": "North Africa Food Security Collapse",
-      "impact": 0.034,
-      "effort": 0.577,
-      "score": 0.058,
-      "recovery_probability": 0.578,
-      "scp": 0.0732,
+      "threat_id": "C62",
+      "name": "EU Gas Security",
+      "impact": 0.349,
+      "effort": 0.161,
+      "score": 2.042,
+      "recovery_probability": 0.443,
+      "scp": 0.5219,
+      "domain": "Energy",
+      "current_signals": 27
+    },
+    {
+      "threat_id": "A03",
+      "name": "Ethiopia Tigray famine relapse",
+      "impact": 0.332,
+      "effort": 0.157,
+      "score": 1.988,
+      "recovery_probability": 0.439,
+      "scp": 0.5375,
       "domain": "Food",
       "current_signals": 27
     },
     {
-      "threat_id": "C121",
-      "name": "Taiwan Semiconductor Chokepoint",
-      "impact": 0.033,
-      "effort": 0.562,
-      "score": 0.057,
-      "recovery_probability": 0.577,
-      "scp": 0.0778,
-      "domain": "Supply Chains",
+      "threat_id": "C\u2011RED\u2011BLOCK",
+      "name": "Bab el\u2011Mandeb Blockade",
+      "impact": 0.341,
+      "effort": 0.163,
+      "score": 1.968,
+      "recovery_probability": 0.446,
+      "scp": 0.5128,
+      "domain": "Geopolitical",
+      "current_signals": 27
+    },
+    {
+      "threat_id": "C144",
+      "name": "Kuwait Fiscal Collapse",
+      "impact": 0.339,
+      "effort": 0.164,
+      "score": 1.949,
+      "recovery_probability": 0.447,
+      "scp": 0.5105,
+      "domain": "Energy",
       "current_signals": 27
     },
     {
       "threat_id": "C29",
       "name": "Gulf shipping chokepoint",
-      "impact": 0.033,
-      "effort": 0.565,
-      "score": 0.057,
-      "recovery_probability": 0.577,
-      "scp": 0.0769,
+      "impact": 0.314,
+      "effort": 0.153,
+      "score": 1.924,
+      "recovery_probability": 0.434,
+      "scp": 0.5539,
+      "domain": "Supply Chains",
+      "current_signals": 27
+    },
+    {
+      "threat_id": "C121",
+      "name": "Taiwan Semiconductor Chokepoint",
+      "impact": 0.31,
+      "effort": 0.154,
+      "score": 1.891,
+      "recovery_probability": 0.435,
+      "scp": 0.5491,
       "domain": "Supply Chains",
       "current_signals": 27
     },
     {
       "threat_id": "C5",
       "name": "Gaza Structural Atrocity",
-      "impact": 0.033,
-      "effort": 0.562,
-      "score": 0.057,
-      "recovery_probability": 0.577,
-      "scp": 0.0778,
+      "impact": 0.31,
+      "effort": 0.154,
+      "score": 1.891,
+      "recovery_probability": 0.435,
+      "scp": 0.5491,
       "domain": "Social",
       "current_signals": 27
     },
     {
       "threat_id": "C121T",
       "name": "Taiwan Semiconductor Chokepoint",
-      "impact": 0.033,
-      "effort": 0.562,
-      "score": 0.057,
-      "recovery_probability": 0.577,
-      "scp": 0.0778,
+      "impact": 0.31,
+      "effort": 0.154,
+      "score": 1.891,
+      "recovery_probability": 0.435,
+      "scp": 0.5491,
       "domain": "Technology",
       "current_signals": 27
     },
     {
-      "threat_id": "C62",
-      "name": "EU Gas Security",
-      "impact": 0.034,
-      "effort": 0.598,
-      "score": 0.056,
-      "recovery_probability": 0.58,
-      "scp": 0.0671,
+      "threat_id": "E-AI-GRID",
+      "name": "AI data centre power demand as new energy war front",
+      "impact": 0.331,
+      "effort": 0.166,
+      "score": 1.877,
+      "recovery_probability": 0.45,
+      "scp": 0.5013,
       "domain": "Energy",
       "current_signals": 27
     },
     {
-      "threat_id": "A02",
-      "name": "Kenya AMN Phase 5",
-      "impact": 0.032,
-      "effort": 0.591,
-      "score": 0.053,
-      "recovery_probability": 0.579,
-      "scp": 0.0693,
-      "domain": "Food",
-      "current_signals": 27
-    },
-    {
-      "threat_id": "C48",
-      "name": "AI Deepfake Ops",
-      "impact": 0.032,
-      "effort": 0.608,
-      "score": 0.052,
-      "recovery_probability": 0.581,
-      "scp": 0.0644,
-      "domain": "Geopolitical",
+      "threat_id": "C63",
+      "name": "Global Oil Supply Deficit",
+      "impact": 0.33,
+      "effort": 0.167,
+      "score": 1.871,
+      "recovery_probability": 0.45,
+      "scp": 0.5005,
+      "domain": "Energy",
       "current_signals": 27
     }
   ],
@@ -7848,6 +7848,6 @@
   "summary": {
     "total_threats": 213,
     "threats_with_recovery_signals": 213,
-    "average_recovery_probability": 0.585
+    "average_recovery_probability": 0.474
   }
 }

@@ -29,7 +29,7 @@ from cathedral_math import (
 # ---------- constants ----------
 DEFAULT_PRIOR = 0.12
 DECAY_FACTOR = 0.95
-ML_WEIGHT = 0.3
+ML_WEIGHT = 0.5
 
 # ---------- helper functions ----------
 def load_json(filepath, default=None):
@@ -132,7 +132,7 @@ def run_cascade_engine(
         current_scp = t.get('scp', 0.5)
         base_prob = t.get('base_probability', DEFAULT_PRIOR)
         # Scale down high base probabilities to prevent saturation
-        base_prob = min(0.50, base_prob * 0.6)
+        base_prob = min(0.50, base_prob * 1.0)
 
         # Apply decay
         last_updated = t.get('last_updated')
@@ -166,7 +166,7 @@ def run_cascade_engine(
         if tid in ml_lrs:
             ml_lr = ml_lrs[tid]
             if isinstance(ml_lr, (int, float)):
-                weighted_lr = 1.0 + (ml_lr - 1.0) * ML_WEIGHT
+                weighted_lr = 1.0 + (ml_lr - 1.0) * ML_WEIGHT * 1.5
                 lrs.append(weighted_lr)
                 t['ml_likelihood_ratio'] = ml_lr
 

@@ -1,41 +1,41 @@
 # Cathedral Daily Brief – 24 Jun 2026
 
-**GSCI:** 2.52  
-**Last sweep:** 2026-06-24T14:26:44.121491
+**GSCI:** 20.58  
+**Last sweep:** 2026-06-24T14:36:37.386971
 
 ## Top Threats
 
 ### B02 – Bundibugyo Ebola
-- **SCP:** 8.3%  
-- **Priority:** 14  
+- **SCP:** 58.6%  
+- **Priority:** 67  
 - Bundibugyo Ebola – a threat affecting Biosecurity. Monitor closely for escalation....
 
 ### C148 – Bundibugyo Ebola (duplicate)
-- **SCP:** 8.3%  
-- **Priority:** 14  
+- **SCP:** 58.6%  
+- **Priority:** 67  
 - Bundibugyo Ebola (duplicate) – a threat affecting Biosecurity. Monitor closely for escalation....
 
 ### A12 – Ebola – Bundibugyo
-- **SCP:** 8.3%  
-- **Priority:** 14  
+- **SCP:** 58.6%  
+- **Priority:** 67  
 - Ebola – Bundibugyo – a threat affecting Biosecurity. Monitor closely for escalation....
 
 ### C84 – U.S. Electoral Integrity Breach
-- **SCP:** 8.2%  
-- **Priority:** 14  
+- **SCP:** 58.1%  
+- **Priority:** 66  
 - U.S. Electoral Integrity Breach – a threat affecting Domestic, Information. Monitor closely for escalation....
 
 ### C84I – U.S. Electoral Integrity Breach
-- **SCP:** 8.2%  
-- **Priority:** 14  
+- **SCP:** 58.1%  
+- **Priority:** 66  
 - U.S. Electoral Integrity Breach – a threat affecting Institutional, Domestic. Monitor closely for escalation....
 
 ## Recent Events
 
 - On 28/06/2026, a flood started in Türkiye, lasting until 30/06/2026 (last update). The flood caused 
 - On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 7 thousand (i
-- On 23/06/2026, a forest fire started in Australia,  until 24/06/2026.
 - On 23/06/2026, a forest fire started in Syrian Arab Republic,  until 23/06/2026.
+- On 23/06/2026, a forest fire started in Australia,  until 24/06/2026.
 - On 23/06/2026, a forest fire started in Australia,  until 24/06/2026.
 
 ---
