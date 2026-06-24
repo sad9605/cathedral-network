@@ -297,7 +297,7 @@ for rule in cascade_rules:
     print(f"   🔥 Active cascades: {active_cascades}, SCA Tier: {sca_tier['label']}")
     print(f"   ⚠️ Anomalies: {anomaly_count}, CAP: {cap['level']}")
 
-    return output_data
+ return output_data
 
 # ---------- CLI entry point ----------
 if __name__ == "__main__":
