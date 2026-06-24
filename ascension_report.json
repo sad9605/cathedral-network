@@ -1,13 +1,14 @@
 {
-  "timestamp": "2026-06-24T10:25:17.672531",
+  "timestamp": "2026-06-24T10:32:51.109645",
   "resilience_score": 34.2,
   "recovery_probabilities": {
     "C01": {
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -40,8 +41,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -74,8 +76,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -108,8 +111,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -142,8 +146,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -176,8 +181,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -210,8 +216,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -244,8 +251,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -278,8 +286,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -312,8 +321,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -346,8 +356,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -380,8 +391,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -414,8 +426,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -448,8 +461,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -482,8 +496,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -516,8 +531,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -550,8 +566,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -584,8 +601,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -618,8 +636,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -652,8 +671,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -686,8 +706,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -720,8 +741,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -754,8 +776,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -788,8 +811,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -822,8 +846,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -856,8 +881,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -890,8 +916,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -924,8 +951,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -958,8 +986,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -992,8 +1021,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1026,8 +1056,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1060,8 +1091,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1094,8 +1126,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1128,8 +1161,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1162,8 +1196,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1196,8 +1231,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1230,8 +1266,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1264,8 +1301,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1298,8 +1336,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1332,8 +1371,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1366,8 +1406,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1400,8 +1441,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1434,8 +1476,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1468,8 +1511,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1502,8 +1546,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1536,8 +1581,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1570,8 +1616,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1604,8 +1651,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1638,8 +1686,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1672,8 +1721,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1706,8 +1756,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1740,8 +1791,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1774,8 +1826,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1808,8 +1861,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1842,8 +1896,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1876,8 +1931,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1910,8 +1966,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1944,8 +2001,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -1978,8 +2036,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2012,8 +2071,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2046,8 +2106,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2080,8 +2141,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2114,8 +2176,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2148,8 +2211,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2182,8 +2246,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2216,8 +2281,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2250,8 +2316,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2284,8 +2351,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2318,8 +2386,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2352,8 +2421,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2386,8 +2456,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2420,8 +2491,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2454,8 +2526,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2488,8 +2561,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2522,8 +2596,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2556,8 +2631,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2590,8 +2666,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2624,8 +2701,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2658,8 +2736,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2692,8 +2771,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2726,8 +2806,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2760,8 +2841,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2794,8 +2876,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2828,8 +2911,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2862,8 +2946,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2896,8 +2981,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2930,8 +3016,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2964,8 +3051,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -2998,8 +3086,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3032,8 +3121,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3066,8 +3156,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3100,8 +3191,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3134,8 +3226,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3168,8 +3261,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3202,8 +3296,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3236,8 +3331,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3270,8 +3366,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3304,8 +3401,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3338,8 +3436,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3372,8 +3471,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3406,8 +3506,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3440,8 +3541,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3474,8 +3576,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3508,8 +3611,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3542,8 +3646,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3576,8 +3681,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3610,8 +3716,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3644,8 +3751,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3678,8 +3786,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3712,8 +3821,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3746,8 +3856,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3780,8 +3891,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3814,8 +3926,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3848,8 +3961,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3882,8 +3996,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3916,8 +4031,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3950,8 +4066,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -3984,8 +4101,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4018,8 +4136,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4052,8 +4171,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4086,8 +4206,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4120,8 +4241,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4154,8 +4276,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4188,8 +4311,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4222,8 +4346,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4256,8 +4381,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4290,8 +4416,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4324,8 +4451,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4358,8 +4486,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4392,8 +4521,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4426,8 +4556,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4460,8 +4591,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4494,8 +4626,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4528,8 +4661,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4562,8 +4696,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4596,8 +4731,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4630,8 +4766,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4664,8 +4801,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4698,8 +4836,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4732,8 +4871,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4766,8 +4906,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4800,8 +4941,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4834,8 +4976,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4868,8 +5011,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4902,8 +5046,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4936,8 +5081,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -4970,8 +5116,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5004,8 +5151,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5038,8 +5186,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5072,8 +5221,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5106,8 +5256,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5140,8 +5291,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5174,8 +5326,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5208,8 +5361,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5242,8 +5396,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5276,8 +5431,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5310,8 +5466,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5344,8 +5501,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5378,8 +5536,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5412,8 +5571,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5446,8 +5606,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5480,8 +5641,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5514,8 +5676,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5548,8 +5711,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5582,8 +5746,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5616,8 +5781,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5650,8 +5816,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5684,8 +5851,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5718,8 +5886,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5752,8 +5921,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5786,8 +5956,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5820,8 +5991,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5854,8 +6026,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5888,8 +6061,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5922,8 +6096,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5956,8 +6131,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -5990,8 +6166,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6024,8 +6201,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6058,8 +6236,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6092,8 +6271,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6126,8 +6306,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6160,8 +6341,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6194,8 +6376,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6228,8 +6411,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6262,8 +6446,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6296,8 +6481,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6330,8 +6516,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6364,8 +6551,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6398,8 +6586,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6432,8 +6621,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6466,8 +6656,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6500,8 +6691,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6534,8 +6726,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6568,8 +6761,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6602,8 +6796,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6636,8 +6831,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6670,8 +6866,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6704,8 +6901,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6738,8 +6936,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6772,8 +6971,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6806,8 +7006,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6840,8 +7041,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6874,8 +7076,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6908,8 +7111,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6942,8 +7146,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -6976,8 +7181,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -7010,8 +7216,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -7044,8 +7251,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -7078,8 +7286,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -7112,8 +7321,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -7146,8 +7356,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -7180,8 +7391,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -7214,8 +7426,9 @@
       "recovery_probability": 0.342,
       "region": "Global",
       "scp": 0.8,
-      "signal_count": 26,
+      "signal_count": 27,
       "signals": [
+        "positive_signal",
         "positive_signal",
         "positive_signal",
         "positive_signal",
@@ -7255,7 +7468,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C\u2011USIRAN",
@@ -7266,7 +7479,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C\u2011BELT",
@@ -7277,7 +7490,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C\u2011RED\u2011BLOCK",
@@ -7288,7 +7501,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C132",
@@ -7299,7 +7512,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C129",
@@ -7310,7 +7523,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C54",
@@ -7321,7 +7534,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C88",
@@ -7332,7 +7545,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C90",
@@ -7343,7 +7556,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C48",
@@ -7354,7 +7567,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C19",
@@ -7365,7 +7578,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C25",
@@ -7376,7 +7589,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C3",
@@ -7387,7 +7600,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C11",
@@ -7398,7 +7611,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C58",
@@ -7409,7 +7622,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C60",
@@ -7420,7 +7633,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C64",
@@ -7431,7 +7644,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C85",
@@ -7442,7 +7655,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C122",
@@ -7453,7 +7666,7 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     },
     {
       "threat_id": "C2",
@@ -7464,10 +7677,10 @@
       "recovery_probability": 0.342,
       "scp": 0.8,
       "domain": "Geopolitical",
-      "current_signals": 26
+      "current_signals": 27
     }
   ],
-  "positive_signals_count": 26,
+  "positive_signals_count": 27,
   "signals": [
     {
       "type": "positive_signal",
@@ -7552,6 +7765,12 @@
       "region": "Global",
       "date": "2026-06-24",
       "description": "The Japanese nationals were detained in May in the northeastern Chinese city of Dalian, Japan\u2019s government said, amid tensions between the two countries."
+    },
+    {
+      "type": "positive_signal",
+      "region": "Global",
+      "date": "2026-06-24",
+      "description": "The International Maritime Organization, working with multiple countries, said it has ensured that vessels can sail safely through the Strait of Hormuz after months of being idled."
     },
     {
       "type": "positive_signal",

@@ -194,7 +194,6 @@ def run_cascade_engine(
         else:
             posterior = bayesian_log_odds(base_prob, lrs)
 
-        posterior = min(0.80, posterior)
 
         t['scp'] = round(posterior, 4)
         t['status'] = compute_threat_status(posterior)

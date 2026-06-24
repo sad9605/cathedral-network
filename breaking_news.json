@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-24T10:25:08.031822",
+  "timestamp": "2026-06-24T10:32:41.094900",
   "items": [
     {
       "title": "Green flood alert in T\u00fcrkiye",
@@ -9,6 +9,15 @@
       "source": "GDACS",
       "category": "Negative",
       "impact": "Medium"
+    },
+    {
+      "title": "Green earthquake (Magnitude 5.57M, Depth:8.06999969482422km) in United States 24/06/2026 15:10 UTC, 10 thousand (in MMI>=VII).",
+      "description": "On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 10 thousand (in MMI>=VII). The earthquake had Magnitude 5.57M, Depth:8.06999969482422km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548310",
+      "date": "Wed, 24 Jun 2026 15:15:23 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
     },
     {
       "title": "Green flood alert in Hungary",
@@ -33,15 +42,6 @@
       "description": "On 6/20/2026 6:43:17 AM, an earthquake occurred in St. Helena potentially affecting Few people affected in MMI III. The earthquake had Magnitude 5.5M, Depth:10km.",
       "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1547584",
       "date": "Sat, 20 Jun 2026 07:03:56 GMT",
-      "source": "GDACS",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Green earthquake (Magnitude 5.8M, Depth:35km) in Russia 20/06/2026 03:49 UTC, 250 thousand in MMI>=III.",
-      "description": "On 6/20/2026 3:49:06 AM, an earthquake occurred in Russia potentially affecting 250 thousand in MMI>=III. The earthquake had Magnitude 5.8M, Depth:35km.",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1547571",
-      "date": "Sat, 20 Jun 2026 04:09:00 GMT",
       "source": "GDACS",
       "category": "Negative",
       "impact": "Critical"
@@ -171,15 +171,6 @@
       "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Critical"
-    },
-    {
-      "title": "Four Gaza aid flotilla activists released from Libya detention",
-      "description": "Global Sumud Flotilla group says six others remain in detention and are expected to be released within 24 hours.",
-      "link": "https://www.aljazeera.com/news/2026/6/24/four-gaza-aid-flotilla-activists-released-from-libya-detention?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 09:39:49 +0000",
-      "source": "Al Jazeera",
-      "category": "Positive",
-      "impact": "High"
     }
   ]
 }
