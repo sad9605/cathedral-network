@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-24T13:58:20.270083",
+  "timestamp": "2026-06-24T14:10:48.241910",
   "items": [
     {
       "title": "Green flood alert in T\u00fcrkiye",
@@ -36,15 +36,6 @@
       "source": "GDACS",
       "category": "Negative",
       "impact": "Medium"
-    },
-    {
-      "title": "Green earthquake (Magnitude 5.5M, Depth:10km) in St. Helena 20/06/2026 06:43 UTC, Few people affected in MMI III.",
-      "description": "On 6/20/2026 6:43:17 AM, an earthquake occurred in St. Helena potentially affecting Few people affected in MMI III. The earthquake had Magnitude 5.5M, Depth:10km.",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1547584",
-      "date": "Sat, 20 Jun 2026 07:03:56 GMT",
-      "source": "GDACS",
-      "category": "Negative",
-      "impact": "Critical"
     },
     {
       "title": "UN nuclear chief says inspectors will visit Iran sites as part of war deal",
@@ -180,6 +171,15 @@
       "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Medium"
+    },
+    {
+      "title": "Rubio says Iran cannot charge tolls in Hormuz: What we know",
+      "description": "Tehran says the strait &#039;will never return&#039; to its prewar conditions and claims it can charge fees for services.",
+      "link": "https://www.aljazeera.com/news/2026/6/24/rubio-says-iran-cannot-charge-tolls-in-hormuz-what-we-know?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 14:27:55 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Critical"
     }
   ]
 }
