@@ -430,6 +430,24 @@
       .stats-grid { grid-template-columns: 1fr; }
       .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
     }
+
+    /* Violet pulse animation */
+    .violet-pulse {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: #7c4dff;
+      border-radius: 50%;
+      animation: pulse-violet 1.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-violet {
+      0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0.4); }
+      50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124, 77, 255, 0); }
+      100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0); }
+    }
+
   </style>
 </head>
 <body>
@@ -464,6 +482,15 @@
 
   <h1>🗺️ Full Threat Matrix</h1>
   <div class="date" id="lastUpdated">Loading threat data…</div>
+ 
+   <!-- Violet Warning Alert -->
+   <div id="violet-alert" style="display:none; background: #7c4dff20; border-left: 4px solid #7c4dff; padding: 0.8rem 1rem; border-radius: 12px; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
+     <span class="violet-pulse"></span>
+     <div>
+       <strong style="color: #7c4dff;">⚠️ Critical System Warning</strong>
+       <span id="alert-reason" style="font-size:0.85rem; opacity:0.8;">SCA Tier 5 – Unprecedented</span>
+     </div>
+   </div>
 
   <!-- Stats -->
   <div class="stats-grid">
