@@ -1,33 +1,33 @@
 # Cathedral Daily Brief – 24 Jun 2026
 
-**GSCI:** 4.06  
-**Last sweep:** 2026-06-24T14:19:46.390249
+**GSCI:** 2.52  
+**Last sweep:** 2026-06-24T14:26:44.121491
 
 ## Top Threats
 
 ### B02 – Bundibugyo Ebola
-- **SCP:** 13.2%  
-- **Priority:** 19  
+- **SCP:** 8.3%  
+- **Priority:** 14  
 - Bundibugyo Ebola – a threat affecting Biosecurity. Monitor closely for escalation....
 
 ### C148 – Bundibugyo Ebola (duplicate)
-- **SCP:** 13.2%  
-- **Priority:** 19  
+- **SCP:** 8.3%  
+- **Priority:** 14  
 - Bundibugyo Ebola (duplicate) – a threat affecting Biosecurity. Monitor closely for escalation....
 
 ### A12 – Ebola – Bundibugyo
-- **SCP:** 13.2%  
-- **Priority:** 19  
+- **SCP:** 8.3%  
+- **Priority:** 14  
 - Ebola – Bundibugyo – a threat affecting Biosecurity. Monitor closely for escalation....
 
 ### C84 – U.S. Electoral Integrity Breach
-- **SCP:** 13.0%  
-- **Priority:** 19  
+- **SCP:** 8.2%  
+- **Priority:** 14  
 - U.S. Electoral Integrity Breach – a threat affecting Domestic, Information. Monitor closely for escalation....
 
 ### C84I – U.S. Electoral Integrity Breach
-- **SCP:** 13.0%  
-- **Priority:** 19  
+- **SCP:** 8.2%  
+- **Priority:** 14  
 - U.S. Electoral Integrity Breach – a threat affecting Institutional, Domestic. Monitor closely for escalation....
 
 ## Recent Events
