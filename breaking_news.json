@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-24T11:12:26.112245",
+  "timestamp": "2026-06-24T13:49:48.809365",
   "items": [
     {
       "title": "Green flood alert in T\u00fcrkiye",
@@ -11,8 +11,8 @@
       "impact": "Medium"
     },
     {
-      "title": "Green earthquake (Magnitude 5.57M, Depth:8.06999969482422km) in United States 24/06/2026 15:10 UTC, 10 thousand (in MMI>=VII).",
-      "description": "On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 10 thousand (in MMI>=VII). The earthquake had Magnitude 5.57M, Depth:8.06999969482422km.",
+      "title": "Green earthquake (Magnitude 5.57M, Depth:8.06999969482422km) in United States 24/06/2026 15:10 UTC, 7 thousand (in MMI>=VII).",
+      "description": "On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 7 thousand (in MMI>=VII). The earthquake had Magnitude 5.57M, Depth:8.06999969482422km.",
       "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548310",
       "date": "Wed, 24 Jun 2026 15:15:23 GMT",
       "source": "GDACS",
@@ -50,7 +50,7 @@
       "title": "UN nuclear chief says inspectors will visit Iran sites as part of war deal",
       "description": "Rafael Grossi says the IAEA is \"working on modalities\" but an Iranian  minister says such access would only be part of a final deal with the US.",
       "link": "https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&at_campaign=rss",
-      "date": "Wed, 24 Jun 2026 12:32:00 GMT",
+      "date": "Wed, 24 Jun 2026 17:31:48 GMT",
       "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
@@ -128,49 +128,58 @@
       "impact": "Critical"
     },
     {
-      "title": "Rubio says Iran cannot charge tolls in Hormuz: What we know",
-      "description": "Tehran says the strait &#039;will never return&#039; to its prewar conditions and claims it can charge fees for services.",
-      "link": "https://www.aljazeera.com/news/2026/6/24/rubio-says-iran-cannot-charge-tolls-in-hormuz-what-we-know?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 14:27:55 +0000",
-      "source": "Al Jazeera",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Deaths, disruptions across Europe: What you should know about the heatwave",
-      "description": "Experts say the climate crisis is making Europe&#039;s heatwaves more frequent and more intense.",
-      "link": "https://www.aljazeera.com/news/2026/6/24/deaths-disruptions-across-europe-what-you-should-know-about-the-heatwave?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 13:07:31 +0000",
-      "source": "Al Jazeera",
-      "category": "Negative",
-      "impact": "Medium"
-    },
-    {
-      "title": "Japan weighs deploying forces to demine the Strait of Hormuz",
-      "description": "Japan is considering sending its navy to help clear mines in the Strait of Hormuz following the US-Iran ceasefire.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/24/japan-weighs-deploying-forces-to-demine-the-strait-of-hormuz?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 12:31:35 +0000",
+      "title": "Our life stops\u2019: West Bank childhood shattered by Israeli military raids",
+      "description": "A new UN report documents killings, detentions and lasting psychological harm to Palestinian children.",
+      "link": "https://www.aljazeera.com/features/2026/6/24/our-life-stops-west-bank-childhood-shattered-by-israeli-military-raids?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 18:20:11 +0000",
       "source": "Al Jazeera",
       "category": "Positive",
       "impact": "High"
     },
     {
-      "title": "US Senate approves Iran war powers resolution: What that means for Trump",
-      "description": "Four Republicans cross party lines to vote in favour of the measure.",
-      "link": "https://www.aljazeera.com/news/2026/6/24/us-senate-approves-iran-war-powers-resolution-what-that-means-for-trump?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 11:25:40 +0000",
+      "title": "What to know about the Israeli-developed chip in Apple\u2019s iPhone 17e",
+      "description": "There\u2019s more to the iPhone 17e than meets the eye. Like an advanced silicon chip that is said to be developed in Israel.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/24/what-to-know-about-the-israeli-developed-chip-in-apples-iphone-17e?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 18:00:33 +0000",
+      "source": "Al Jazeera",
+      "category": "Positive",
+      "impact": "High"
+    },
+    {
+      "title": "Flash floods hit India\u2019s Arunachal Pradesh",
+      "description": "Torrential rain has triggered flash floods and landslides in India&#039;s northeastern state of Arunachal Pradesh.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/24/flash-floods-hit-indias-arunachal-pradesh?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 17:56:36 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Medium"
+    },
+    {
+      "title": "Iran\u2019s president awarded honorary doctorate in Pakistan",
+      "description": "Iran\u2019s President Masoud Pezeshkian was awarded an honorary medical fellowship in cardiac surgery.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/24/irans-president-awarded-honorary-doctorate-in-pakistan?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 17:33:37 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "North Korea commissions warship as Kim eyes nuclear navy",
-      "description": "Kim Jong Un vows to equip North Korea&#039;s navy with nuclear weapons, signaling a strategic shift in military capabilities.",
-      "link": "https://www.aljazeera.com/gallery/2026/6/24/north-korea-commissions-warship-as-kim-eyes-nuclear-navy?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 11:24:15 +0000",
+      "title": "Has the worst of the Hormuz crisis passed?",
+      "description": "Ships are moving again through the Strait of Hormuz, with oil prices falling. But relief for consumers may take longer.",
+      "link": "https://www.aljazeera.com/video/counting-the-cost/2026/6/24/has-the-worst-of-the-hormuz-crisis-passed?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 16:50:57 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
-      "impact": "Critical"
+      "impact": "Medium"
+    },
+    {
+      "title": "What The Elephant Knows | Ep 7 \u2013 Sri Lanka",
+      "description": "In rural Sri Lanka, families face deadly human-elephant conflict while seeking a fragile path to co-existence.",
+      "link": "https://www.aljazeera.com/video/making-peace/2026/6/24/what-the-elephant-knows-ep-7-sri?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 16:00:00 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Medium"
     }
   ]
 }

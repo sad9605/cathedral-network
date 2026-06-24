@@ -205,7 +205,7 @@ def run_cascade_engine(
         updated_count += 1
 
     # ---------- 2. Propagate cascades ----------
-    propagation_threshold = 0.6
+    propagation_threshold = 0.7
     for rule in cascade_rules:
         source_id = rule.get('source')
         target_id = rule.get('target')
@@ -228,7 +228,7 @@ def run_cascade_engine(
 
             if source_scp > propagation_threshold:
                 target_scp = target_threat.get('scp', 0.5)
-                boost = delta * (source_scp - propagation_threshold) * 0.5
+                boost = delta * (source_scp - propagation_threshold) * 0.05
 
                 # ---- Dampening factor ----
                 dampening = 1 - (target_scp * 0.7)

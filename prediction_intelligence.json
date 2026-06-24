@@ -2008,7 +2008,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2026,7 +2026,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "95%"
       },
@@ -2174,7 +2174,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.054431999999999994,
+        "value": 0.03265919999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2192,7 +2192,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "70%"
       },
@@ -2220,7 +2220,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2238,7 +2238,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -2266,7 +2266,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2284,7 +2284,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -2312,7 +2312,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.052876799999999995,
+        "value": 0.03172608,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2330,7 +2330,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "68%"
       },
@@ -2358,7 +2358,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2376,7 +2376,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -2404,7 +2404,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.054431999999999994,
+        "value": 0.03265919999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2422,7 +2422,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "70%"
       },
@@ -2450,7 +2450,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2468,7 +2468,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -2496,7 +2496,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.052876799999999995,
+        "value": 0.03172608,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2514,7 +2514,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "68%"
       },
@@ -2542,7 +2542,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2560,7 +2560,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -2588,7 +2588,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.062207999999999986,
+        "value": 0.03732479999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2600,7 +2600,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "80%"
       },
@@ -2628,7 +2628,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2640,7 +2640,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "90%"
       },
@@ -2668,7 +2668,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2680,7 +2680,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "88%"
       },
@@ -2708,7 +2708,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2720,7 +2720,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -2748,7 +2748,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2760,7 +2760,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -2788,7 +2788,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2800,7 +2800,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -2828,7 +2828,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2840,7 +2840,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -2868,7 +2868,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2880,7 +2880,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -2908,7 +2908,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2920,7 +2920,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -2948,7 +2948,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -2960,7 +2960,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -2988,7 +2988,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3000,7 +3000,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -3028,7 +3028,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3046,7 +3046,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "90%"
       },
@@ -3074,7 +3074,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.062207999999999986,
+        "value": 0.03732479999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3086,7 +3086,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "80%"
       },
@@ -3114,7 +3114,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.05831999999999998,
+        "value": 0.03499199999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3126,7 +3126,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "75%"
       },
@@ -3154,7 +3154,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.052876799999999995,
+        "value": 0.03172608,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3166,7 +3166,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "68%"
       },
@@ -3194,7 +3194,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3206,7 +3206,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -3234,7 +3234,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.048211199999999996,
+        "value": 0.028926719999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3246,7 +3246,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "62%"
       },
@@ -3274,7 +3274,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3286,7 +3286,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -3314,7 +3314,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3326,7 +3326,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -3354,7 +3354,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3366,7 +3366,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -3394,7 +3394,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3406,7 +3406,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -3434,7 +3434,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3446,7 +3446,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -3474,7 +3474,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3486,7 +3486,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -3514,7 +3514,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3526,7 +3526,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -3554,7 +3554,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3566,7 +3566,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -3594,7 +3594,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3606,7 +3606,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -3634,7 +3634,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3646,7 +3646,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -3674,7 +3674,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.054431999999999994,
+        "value": 0.03265919999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3692,7 +3692,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "70%"
       },
@@ -3720,7 +3720,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.052876799999999995,
+        "value": 0.03172608,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3738,7 +3738,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "68%"
       },
@@ -3766,7 +3766,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3778,7 +3778,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -3806,7 +3806,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3818,7 +3818,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -3846,7 +3846,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.052876799999999995,
+        "value": 0.03172608,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3864,7 +3864,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "68%"
       },
@@ -3892,7 +3892,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3904,7 +3904,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -3932,7 +3932,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3944,7 +3944,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -3972,7 +3972,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -3984,7 +3984,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -4012,7 +4012,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4024,7 +4024,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -4052,7 +4052,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4064,7 +4064,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -4092,7 +4092,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4104,7 +4104,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -4132,7 +4132,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4144,7 +4144,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -4172,7 +4172,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4184,7 +4184,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -4212,7 +4212,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4224,7 +4224,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -4252,7 +4252,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4264,7 +4264,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -4292,7 +4292,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4304,7 +4304,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -4332,7 +4332,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4344,7 +4344,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "85%"
       },
@@ -4372,7 +4372,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4384,7 +4384,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -4412,7 +4412,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.06065279999999999,
+        "value": 0.036391679999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4424,7 +4424,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "78%"
       },
@@ -4452,7 +4452,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4464,7 +4464,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -4492,7 +4492,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4504,7 +4504,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -4532,7 +4532,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4544,7 +4544,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -4572,7 +4572,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4584,7 +4584,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -4612,7 +4612,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4624,7 +4624,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -4652,7 +4652,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.054431999999999994,
+        "value": 0.03265919999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4664,7 +4664,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "70%"
       },
@@ -4692,7 +4692,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4704,7 +4704,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -4732,7 +4732,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4744,7 +4744,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -4772,7 +4772,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.048211199999999996,
+        "value": 0.028926719999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4784,7 +4784,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "62%"
       },
@@ -4812,7 +4812,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4824,7 +4824,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -4852,7 +4852,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4864,7 +4864,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -4892,7 +4892,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4904,7 +4904,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -4932,7 +4932,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4944,7 +4944,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -4972,7 +4972,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.06065279999999999,
+        "value": 0.036391679999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -4984,7 +4984,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "78%"
       },
@@ -5012,7 +5012,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5024,7 +5024,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -5052,7 +5052,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5064,7 +5064,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -5092,7 +5092,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5104,7 +5104,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -5132,7 +5132,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5144,7 +5144,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -5172,7 +5172,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5184,7 +5184,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "85%"
       },
@@ -5212,7 +5212,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5224,7 +5224,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -5252,7 +5252,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.052876799999999995,
+        "value": 0.03172608,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5264,7 +5264,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "68%"
       },
@@ -5292,7 +5292,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.05831999999999998,
+        "value": 0.03499199999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5304,7 +5304,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "75%"
       },
@@ -5332,7 +5332,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.062207999999999986,
+        "value": 0.03732479999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5344,7 +5344,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "80%"
       },
@@ -5372,7 +5372,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5384,7 +5384,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -5412,7 +5412,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5424,7 +5424,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -5452,7 +5452,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5464,7 +5464,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -5492,7 +5492,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5504,7 +5504,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -5532,7 +5532,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5544,7 +5544,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -5572,7 +5572,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5584,7 +5584,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -5612,7 +5612,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5630,7 +5630,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "92%"
       },
@@ -5658,7 +5658,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5676,7 +5676,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "85%"
       },
@@ -5704,7 +5704,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.052876799999999995,
+        "value": 0.03172608,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5716,7 +5716,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "68%"
       },
@@ -5744,7 +5744,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5756,7 +5756,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -5784,7 +5784,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.055987199999999994,
+        "value": 0.033592319999999995,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5802,7 +5802,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "72%"
       },
@@ -5830,7 +5830,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5842,7 +5842,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -5870,7 +5870,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5882,7 +5882,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "92%"
       },
@@ -5910,7 +5910,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.06065279999999999,
+        "value": 0.036391679999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5922,7 +5922,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "78%"
       },
@@ -5950,7 +5950,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -5962,7 +5962,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -5990,7 +5990,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6002,7 +6002,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -6030,7 +6030,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6042,7 +6042,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -6070,7 +6070,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6082,7 +6082,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -6110,7 +6110,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6122,7 +6122,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -6150,7 +6150,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6162,7 +6162,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -6190,7 +6190,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6202,7 +6202,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -6230,7 +6230,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.055987199999999994,
+        "value": 0.033592319999999995,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6248,7 +6248,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "72%"
       },
@@ -6276,7 +6276,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6288,7 +6288,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -6316,7 +6316,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.06376319999999998,
+        "value": 0.03825791999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6328,7 +6328,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "82%"
       },
@@ -6356,7 +6356,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.06376319999999998,
+        "value": 0.03825791999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6368,7 +6368,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "82%"
       },
@@ -6396,7 +6396,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6408,7 +6408,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -6436,7 +6436,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6448,7 +6448,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -6476,7 +6476,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6488,7 +6488,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -6516,7 +6516,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6528,7 +6528,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -6556,7 +6556,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6568,7 +6568,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -6596,7 +6596,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6608,7 +6608,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -6636,7 +6636,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6648,7 +6648,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -6676,7 +6676,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.05831999999999998,
+        "value": 0.03499199999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6694,7 +6694,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "75%"
       },
@@ -6722,7 +6722,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6734,7 +6734,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "88%"
       },
@@ -6762,7 +6762,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6774,7 +6774,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -6802,7 +6802,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6814,7 +6814,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -6842,7 +6842,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6854,7 +6854,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -6882,7 +6882,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6894,7 +6894,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -6922,7 +6922,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6934,7 +6934,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -6962,7 +6962,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -6974,7 +6974,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -7002,7 +7002,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7014,7 +7014,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -7042,7 +7042,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.04510079999999999,
+        "value": 0.027060479999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7054,7 +7054,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "58%"
       },
@@ -7082,7 +7082,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7094,7 +7094,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -7122,7 +7122,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7134,7 +7134,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "85%"
       },
@@ -7162,7 +7162,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.052876799999999995,
+        "value": 0.03172608,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7174,7 +7174,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "68%"
       },
@@ -7202,7 +7202,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7214,7 +7214,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -7242,7 +7242,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7254,7 +7254,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -7282,7 +7282,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7294,7 +7294,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -7322,7 +7322,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7334,7 +7334,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -7362,7 +7362,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7374,7 +7374,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -7402,7 +7402,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7414,7 +7414,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -7442,7 +7442,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7454,7 +7454,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -7482,7 +7482,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.06065279999999999,
+        "value": 0.036391679999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7494,7 +7494,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "78%"
       },
@@ -7522,7 +7522,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7534,7 +7534,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -7562,7 +7562,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.06376319999999998,
+        "value": 0.03825791999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7574,7 +7574,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "82%"
       },
@@ -7602,7 +7602,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.042767999999999994,
+        "value": 0.025660799999999994,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7614,7 +7614,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "55%"
       },
@@ -7642,7 +7642,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7654,7 +7654,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -7682,7 +7682,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7694,7 +7694,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "88%"
       },
@@ -7722,7 +7722,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7734,7 +7734,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "88%"
       },
@@ -7762,7 +7762,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7774,7 +7774,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -7802,7 +7802,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.0648,
+        "value": 0.03888,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7814,7 +7814,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "88%"
       },
@@ -7842,7 +7842,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7854,7 +7854,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -7882,7 +7882,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7894,7 +7894,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -7922,7 +7922,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.062207999999999986,
+        "value": 0.03732479999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7934,7 +7934,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.07",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "80%"
       },
@@ -7962,7 +7962,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.05831999999999998,
+        "value": 0.03499199999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -7974,7 +7974,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "75%"
       },
@@ -8002,7 +8002,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.055987199999999994,
+        "value": 0.033592319999999995,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -8014,7 +8014,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "72%"
       },
@@ -8042,7 +8042,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.050544,
+        "value": 0.030326399999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -8054,7 +8054,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "65%"
       },
@@ -8082,7 +8082,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.03888,
+        "value": 0.023327999999999998,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -8094,7 +8094,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.04 / 0.96 = 0.04",
+        "prior_odds": "0.02 / 0.98 = 0.02",
         "posterior_odds": "N/A",
         "posterior_probability": "50%"
       },
@@ -8122,7 +8122,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.05831999999999998,
+        "value": 0.03499199999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -8134,7 +8134,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "75%"
       },
@@ -8162,7 +8162,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.046655999999999996,
+        "value": 0.027993599999999997,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -8174,7 +8174,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.05 / 0.95 = 0.05",
+        "prior_odds": "0.03 / 0.97 = 0.03",
         "posterior_odds": "N/A",
         "posterior_probability": "60%"
       },
@@ -8202,7 +8202,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.06065279999999999,
+        "value": 0.036391679999999996,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -8214,7 +8214,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.04 / 0.96 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "78%"
       },
@@ -8242,7 +8242,7 @@
     "status": "Pending",
     "reasoning": {
       "prior": {
-        "value": 0.05831999999999998,
+        "value": 0.03499199999999999,
         "source": "Historical baseline from threats.json"
       },
       "evidence": [
@@ -8254,7 +8254,7 @@
         }
       ],
       "calculation": {
-        "prior_odds": "0.06 / 0.94 = 0.06",
+        "prior_odds": "0.03 / 0.97 = 0.04",
         "posterior_odds": "N/A",
         "posterior_probability": "75%"
       },

@@ -1,39 +1,39 @@
 # Cathedral Daily Brief – 24 Jun 2026
 
 **GSCI:** 48.71  
-**Last sweep:** 2026-06-24T11:12:17.485139
+**Last sweep:** 2026-06-24T13:49:40.867811
 
 ## Top Threats
 
 ### C03 – Horn of Africa Famine
 - **SCP:** 99.0%  
-- **Priority:** 201  
+- **Priority:** 213  
 - Horn of Africa Famine – a threat affecting Food. Monitor closely for escalation....
 
 ### C132 – Great Power Conflict / US‑Iran Entanglement
 - **SCP:** 99.0%  
-- **Priority:** 197  
+- **Priority:** 209  
 - Great power entanglement involving the US, Iran, Russia, and China. Escalation in one theater risks drawing in multiple ...
 
 ### C11 – Iraq Instability
 - **SCP:** 99.0%  
-- **Priority:** 181  
+- **Priority:** 193  
 - Iraq Instability – resurgence of ISIS, Shia militias, and political deadlock, threatening oil infrastructure and regiona...
 
 ### C106 – Global Food Price Volatility
 - **SCP:** 99.0%  
-- **Priority:** 177  
+- **Priority:** 187  
 - Global Food Price Volatility – a threat affecting Food, Financial. Monitor closely for escalation....
 
 ### C54 – Baltic Grey‑Zone
 - **SCP:** 99.0%  
-- **Priority:** 165  
+- **Priority:** 175  
 - Baltic Grey-Zone operations – Russian hybrid warfare including GPS jamming, cyber attacks, and intimidation of NATO alli...
 
 ## Recent Events
 
 - On 28/06/2026, a flood started in Türkiye, lasting until 30/06/2026 (last update). The flood caused 
-- On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 10 thousand (
+- On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 7 thousand (i
 - On 23/06/2026, a forest fire started in Australia,  until 24/06/2026.
 - On 23/06/2026, a forest fire started in Australia,  until 24/06/2026.
 - On 23/06/2026, a forest fire started in Australia,  until 24/06/2026.
