@@ -378,6 +378,15 @@
   </div>
   <div class="date" id="lastUpdateDate">Loading latest sweep…</div>
 
+  <!-- Violet Warning Alert -->
+  <div id="violet-alert" style="display:none; background: #7c4dff20; border-left: 4px solid #7c4dff; padding: 0.8rem 1rem; border-radius: 12px; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
+    <span class="violet-pulse"></span>
+    <div>
+      <strong style="color: #7c4dff;">⚠️ Critical System Warning</strong>
+      <span id="alert-reason" style="font-size:0.85rem; opacity:0.8;">SCA Tier 5 – Unprecedented</span>
+    </div>
+  </div>
+
   <!-- Metric tiles -->
   <div class="stats-grid">
     <a href="glossary.html#gsci" class="stat-card">
@@ -632,6 +641,39 @@
       ssi = gsci ? Math.round(gsci + (threats.length / 10)) : Math.round(25 + (threats.length / 10));
     }
     document.getElementById('ssiValue').innerText = ssi;
+    // ---- Violet Warning Alert ----
+    function checkVioletAlert() {
+        const alertEl = document.getElementById('violet-alert');
+        const reasonEl = document.getElementById('alert-reason');
+        if (!alertEl) return;
+
+        // Get SCA tier and GSCI from threatData
+        const scaTier = threatData?.sca_tier?.tier || 0;
+        const scaLabel = threatData?.sca_tier?.label || 'Normal';
+        const gsci = threatData?.gsci || 0;
+
+        let alertActive = false;
+        let reason = '';
+
+        if (scaTier >= 4) {
+            alertActive = true;
+            reason = `SCA Tier ${scaTier} – ${scaLabel}`;
+        } else if (gsci > 70) {
+            alertActive = true;
+            reason = `GSCI ${Math.round(gsci)} – Critical`;
+        }
+
+        if (alertActive) {
+            alertEl.style.display = 'flex';
+            reasonEl.textContent = reason;
+        } else {
+            alertEl.style.display = 'none';
+        }
+    }
+
+    // Call it after loading threats
+    checkVioletAlert();
+
 
     // Predictions for hit rate
     const preds = await fetchJson('predictions.json');

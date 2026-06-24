@@ -169,6 +169,50 @@ body.dark .card {
 
 .card-content { padding: 1.2rem; }
 
+/* ============================================================
+   VIOLET WARNING ALERT
+   ============================================================ */
+
+/* Violet pulse animation */
+.violet-pulse {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #7c4dff;
+  border-radius: 50%;
+  animation: pulse-violet 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-violet {
+  0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0.4); }
+  50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124, 77, 255, 0); }
+  100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0); }
+}
+
+/* Alert banner */
+#violet-alert {
+  background: #7c4dff20;
+  border-left: 4px solid #7c4dff;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  display: none;
+  align-items: center;
+  gap: 0.8rem;
+}
+body.dark #violet-alert {
+  background: #7c4dff15;
+}
+
+#violet-alert strong {
+  color: #7c4dff;
+}
+#violet-alert #alert-reason {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
 /* ---------- METRIC TILES ---------- */
 .metrics {
   display: flex;
