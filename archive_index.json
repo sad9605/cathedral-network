@@ -1,130 +1,138 @@
 {
-  "timestamp": "2026-06-23T14:16:40.324029",
-  "total": 21,
+  "timestamp": "2026-06-24T09:51:31.296583",
+  "total": 22,
   "archives": [
     {
-      "date": "2026-06-23T00:00:00",
-      "file": "2026-06-23.html",
+      "date": "2026-06-24T00:00:00",
+      "file": "2026-06-24.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-05-26.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-05-27-2.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-05-27.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-05-28-2.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-05-28.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-05-29.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-05-30.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-05-31.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-06-03.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-06-04.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-06-05.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-06-07.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-06-08.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
     },
     {
-      "date": "2026-06-23T00:00:00",
+      "date": "2026-06-24T00:00:00",
       "file": "ground-truth-2026-06-09.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,
-      "summary": "Archive from 23 Jun 2026"
+      "summary": "Archive from 24 Jun 2026"
+    },
+    {
+      "date": "2026-06-24T00:00:00",
+      "file": "ground-truth-2026-06-10-1.html",
+      "threats": 0,
+      "gsci": null,
+      "predictions": 0,
+      "summary": "Archive from 24 Jun 2026"
     },
     {
       "date": "2026-06-23T00:00:00",
-      "file": "ground-truth-2026-06-10-1.html",
+      "file": "2026-06-23.html",
       "threats": 0,
       "gsci": null,
       "predictions": 0,

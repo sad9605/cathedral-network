@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-23T14:16:28.991527",
+  "timestamp": "2026-06-24T09:51:19.917781",
   "items": [
     {
       "title": "Green flood alert in T\u00fcrkiye",
@@ -47,49 +47,67 @@
       "impact": "Critical"
     },
     {
-      "title": "Green earthquake (Magnitude 5.7M, Depth:10km) in West Of Macquarie Island 20/06/2026 01:46 UTC, [unknown].",
-      "description": "On 6/20/2026 1:46:32 AM, an earthquake occurred in West Of Macquarie Island potentially affecting [unknown]. The earthquake had Magnitude 5.7M, Depth:10km.",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1547547",
-      "date": "Sat, 20 Jun 2026 02:02:58 GMT",
-      "source": "GDACS",
+      "title": "UN nuclear chief says inspectors will visit Iran sites as part of war deal",
+      "description": "Rafael Grossi says the IAEA is \"working on modalities\" but an Iranian  minister says such access would only be part of a final deal with the US.",
+      "link": "https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 24 Jun 2026 12:32:00 GMT",
+      "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "Green flood alert in Canada",
-      "description": "On 20/06/2026, a flood started in Canada, lasting until 22/06/2026 (last update). The flood caused 0 deaths and 10 displaced .",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103963",
-      "date": "Mon, 22 Jun 2026 06:02:59 GMT",
-      "source": "GDACS",
+      "title": "Clean sweep for Mamdani-backed candidates in New York's Democratic primary",
+      "description": "Brad Lander unseats Dan Goldman in a race that laid bare the city's divisions over the Israel-Gaza war.",
+      "link": "https://www.bbc.co.uk/news/articles/clye652m41po?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 24 Jun 2026 13:03:35 GMT",
+      "source": "BBC News",
+      "category": "Neutral",
+      "impact": "Critical"
+    },
+    {
+      "title": "Biggest city in Crimea without power after Ukraine strikes",
+      "description": "Sevastopol's Moscow-installed governor warns there will be no electricity in some areas until the evening.",
+      "link": "https://www.bbc.co.uk/news/articles/c3ryv72pjqno?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 24 Jun 2026 09:48:24 GMT",
+      "source": "BBC News",
       "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "French woman allegedly held captive by husband for 12 years rescued in Pakistan",
+      "description": "Yasmina alleges she was held along with her five children, and they were all cut off from the outside world.",
+      "link": "https://www.bbc.co.uk/news/articles/cj0g71pnv3no?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 24 Jun 2026 08:29:06 GMT",
+      "source": "BBC News",
+      "category": "Positive",
       "impact": "Medium"
     },
     {
-      "title": "Green flood alert in Czech Republic",
-      "description": "On 20/06/2026, a flood started in Czech Republic, lasting until 22/06/2026 (last update). The flood caused 0 deaths and 0 displaced .",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103964",
-      "date": "Mon, 22 Jun 2026 06:18:54 GMT",
-      "source": "GDACS",
+      "title": "Sydney woman wakes from induced coma more than a week after shark attack",
+      "description": "Leah Stewart, 34, had one of her arms amputated after she was bitten while swimming at Coogee Beach.",
+      "link": "https://www.bbc.co.uk/news/articles/cy8drk2dk3no?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 24 Jun 2026 01:42:43 GMT",
+      "source": "BBC News",
       "category": "Negative",
-      "impact": "Medium"
+      "impact": "Critical"
     },
     {
-      "title": "Green flood alert in Belgium",
-      "description": "On 20/06/2026, a flood started in Belgium, lasting until 22/06/2026 (last update). The flood caused 0 deaths and 0 displaced .",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103965",
-      "date": "Tue, 23 Jun 2026 06:07:01 GMT",
-      "source": "GDACS",
-      "category": "Negative",
-      "impact": "Medium"
-    },
-    {
-      "title": "Israeli troops kill two in south Lebanon after lull in fighting, authorities say",
-      "description": "Israel's military says the two men were Hezbollah operatives, but the Iran-backed group accuses it of a ceasefire violation.",
-      "link": "https://www.bbc.co.uk/news/articles/c36ykpw0yego?at_medium=RSS&at_campaign=rss",
-      "date": "Tue, 23 Jun 2026 16:47:45 GMT",
+      "title": "Eight sentenced to 450 years in prison over anti-ICE riot where officer was shot",
+      "description": "An officer was shot in the neck during the Texas disorder by \"Antifa Cell operatives\", prosecutors said.",
+      "link": "https://www.bbc.co.uk/news/articles/clyedgnyn4mo?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 24 Jun 2026 00:00:06 GMT",
       "source": "BBC News",
       "category": "Positive",
       "impact": "High"
+    },
+    {
+      "title": "Congress passes war powers measure for first time, breaking with Trump over Iran",
+      "description": "The resolution passed on Tuesday was largely symbolic, but it adds to pressure on the White House to end the conflict once and for all.",
+      "link": "https://www.bbc.co.uk/news/articles/ce8j6g3v3r4o?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 24 Jun 2026 03:57:59 GMT",
+      "source": "BBC News",
+      "category": "Negative",
+      "impact": "Critical"
     },
     {
       "title": "Dozens of ships head through Strait of Hormuz after US-Iran deal",
@@ -101,67 +119,67 @@
       "impact": "Critical"
     },
     {
-      "title": "Montreal shooting leaves officer, civilian and suspect dead",
-      "description": "It was the first time in 24 years that a Montreal police officer was  killed in the line of duty, the city's police chief said.",
-      "link": "https://www.bbc.co.uk/news/articles/c5yz3lv015qo?at_medium=RSS&at_campaign=rss",
-      "date": "Tue, 23 Jun 2026 08:36:38 GMT",
-      "source": "BBC News",
-      "category": "Neutral",
-      "impact": "High"
-    },
-    {
-      "title": "Ransom note claims Nancy Guthrie died after abduction",
-      "description": "On Tuesday, Today show presenter Savannah Guthrie begged anyone with information to come forward, saying, \"We are in agony.\"",
-      "link": "https://www.bbc.co.uk/news/articles/cvgm0mgzl33o?at_medium=RSS&at_campaign=rss",
-      "date": "Tue, 23 Jun 2026 17:59:22 GMT",
+      "title": "Why are there holiday delay warnings over the EU's new border system?",
+      "description": "The EU's much-delayed Entry/Exit System will change the way UK passengers travel to 29 countries.",
+      "link": "https://www.bbc.co.uk/news/articles/c39rkpe8mj2o?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 24 Jun 2026 09:47:35 GMT",
       "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "Inquiry ordered after building fire kills 15 in north India city",
-      "description": "Witnesses described people jumping from windows to escape, while rescue teams broke through a wall to save lives.",
-      "link": "https://www.bbc.co.uk/news/articles/cwyde73w680o?at_medium=RSS&at_campaign=rss",
-      "date": "Tue, 23 Jun 2026 06:37:24 GMT",
-      "source": "BBC News",
-      "category": "Positive",
-      "impact": "Medium"
-    },
-    {
-      "title": "Russian troop build-up threatens city seen as key to seizing Ukraine's Donbas",
-      "description": "If Kostyantynivka falls, Russian forces would be able push towards Ukraine's last remaining strongholds in the east.",
-      "link": "https://www.bbc.co.uk/news/articles/c9w2g0ewk95o?at_medium=RSS&at_campaign=rss",
-      "date": "Sun, 21 Jun 2026 23:57:59 GMT",
-      "source": "BBC News",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Tesla crash that killed a woman under US federal investigation",
-      "description": "A Tesla driver on Friday said he was using \u2018self-driving\u2019 technology after his vehicle sped into a Texas home.",
-      "link": "https://www.bbc.co.uk/news/articles/c07yp02mxyjo?at_medium=RSS&at_campaign=rss",
-      "date": "Mon, 22 Jun 2026 22:20:07 GMT",
-      "source": "BBC News",
-      "category": "Neutral",
-      "impact": "High"
-    },
-    {
-      "title": "Largest ever cocaine bust in Australia after police raid underground bunker",
-      "description": "Police seized 2.7 tonnes of cocaine worth an estimated A$816m after searching a property in western Sydney.",
-      "link": "https://www.bbc.co.uk/news/articles/c14ygjzr8j7o?at_medium=RSS&at_campaign=rss",
-      "date": "Mon, 22 Jun 2026 01:40:00 GMT",
-      "source": "BBC News",
-      "category": "Positive",
-      "impact": "High"
-    },
-    {
-      "title": "Missile strike kills three in Ukraine as Russia feels war\u2019s economic strain",
-      "description": "Kyiv has previously accused Moscow of using cluster munitions, which, when dropped, scatter into smaller munitions.",
-      "link": "https://www.aljazeera.com/news/2026/6/23/missile-strike-kills-three-in-ukraine-as-russia-feels-wars-economic-strain?traffic_source=rss",
-      "date": "Tue, 23 Jun 2026 16:29:28 +0000",
+      "title": "Rubio says Iran cannot charge tolls in Hormuz: What we know",
+      "description": "Tehran says the strait &#039;will never return&#039; to its prewar conditions and claims it can charge fees for services.",
+      "link": "https://www.aljazeera.com/news/2026/6/24/rubio-says-iran-cannot-charge-tolls-in-hormuz-what-we-know?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 14:27:55 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Critical"
+    },
+    {
+      "title": "Deaths, disruptions across Europe: What you should know about the heatwave",
+      "description": "Experts say the climate crisis is making Europe&#039;s heatwaves more frequent and more intense.",
+      "link": "https://www.aljazeera.com/news/2026/6/24/deaths-disruptions-across-europe-what-you-should-know-about-the-heatwave?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 13:07:31 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Medium"
+    },
+    {
+      "title": "Japan weighs deploying forces to demine the Strait of Hormuz",
+      "description": "Japan is considering sending its navy to help clear mines in the Strait of Hormuz following the US-Iran ceasefire.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/24/japan-weighs-deploying-forces-to-demine-the-strait-of-hormuz?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 12:31:35 +0000",
+      "source": "Al Jazeera",
+      "category": "Positive",
+      "impact": "High"
+    },
+    {
+      "title": "US Senate approves Iran war powers resolution: What that means for Trump",
+      "description": "Four Republicans cross party lines to vote in favour of the measure.",
+      "link": "https://www.aljazeera.com/news/2026/6/24/us-senate-approves-iran-war-powers-resolution-what-that-means-for-trump?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 11:25:40 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "North Korea commissions warship as Kim eyes nuclear navy",
+      "description": "Kim Jong Un vows to equip North Korea&#039;s navy with nuclear weapons, signaling a strategic shift in military capabilities.",
+      "link": "https://www.aljazeera.com/gallery/2026/6/24/north-korea-commissions-warship-as-kim-eyes-nuclear-navy?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 11:24:15 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Four Gaza aid flotilla activists released from Libya detention",
+      "description": "Global Sumud Flotilla group says six others remain in detention and are expected to be released within 24 hours.",
+      "link": "https://www.aljazeera.com/news/2026/6/24/four-gaza-aid-flotilla-activists-released-from-libya-detention?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 09:39:49 +0000",
+      "source": "Al Jazeera",
+      "category": "Positive",
+      "impact": "High"
     }
   ]
 }
