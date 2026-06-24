@@ -1,34 +1,34 @@
 # Cathedral Daily Brief – 24 Jun 2026
 
-**GSCI:** 48.71  
-**Last sweep:** 2026-06-24T14:10:37.100032
+**GSCI:** 4.06  
+**Last sweep:** 2026-06-24T14:19:46.390249
 
 ## Top Threats
 
-### C03 – Horn of Africa Famine
-- **SCP:** 99.0%  
-- **Priority:** 225  
-- Horn of Africa Famine – a threat affecting Food. Monitor closely for escalation....
+### B02 – Bundibugyo Ebola
+- **SCP:** 13.2%  
+- **Priority:** 19  
+- Bundibugyo Ebola – a threat affecting Biosecurity. Monitor closely for escalation....
 
-### C132 – Great Power Conflict / US‑Iran Entanglement
-- **SCP:** 99.0%  
-- **Priority:** 221  
-- Great power entanglement involving the US, Iran, Russia, and China. Escalation in one theater risks drawing in multiple ...
+### C148 – Bundibugyo Ebola (duplicate)
+- **SCP:** 13.2%  
+- **Priority:** 19  
+- Bundibugyo Ebola (duplicate) – a threat affecting Biosecurity. Monitor closely for escalation....
 
-### C11 – Iraq Instability
-- **SCP:** 99.0%  
-- **Priority:** 205  
-- Iraq Instability – resurgence of ISIS, Shia militias, and political deadlock, threatening oil infrastructure and regiona...
+### A12 – Ebola – Bundibugyo
+- **SCP:** 13.2%  
+- **Priority:** 19  
+- Ebola – Bundibugyo – a threat affecting Biosecurity. Monitor closely for escalation....
 
-### C106 – Global Food Price Volatility
-- **SCP:** 99.0%  
-- **Priority:** 197  
-- Global Food Price Volatility – a threat affecting Food, Financial. Monitor closely for escalation....
+### C84 – U.S. Electoral Integrity Breach
+- **SCP:** 13.0%  
+- **Priority:** 19  
+- U.S. Electoral Integrity Breach – a threat affecting Domestic, Information. Monitor closely for escalation....
 
-### C54 – Baltic Grey‑Zone
-- **SCP:** 99.0%  
-- **Priority:** 185  
-- Baltic Grey-Zone operations – Russian hybrid warfare including GPS jamming, cyber attacks, and intimidation of NATO alli...
+### C84I – U.S. Electoral Integrity Breach
+- **SCP:** 13.0%  
+- **Priority:** 19  
+- U.S. Electoral Integrity Breach – a threat affecting Institutional, Domestic. Monitor closely for escalation....
 
 ## Recent Events
 

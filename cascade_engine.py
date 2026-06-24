@@ -175,6 +175,19 @@ def run_cascade_engine(
         confidence = min(0.95, 0.50 + (ml_lr - 1.0) * 0.04)
         t['confidence'] = round(confidence, 2)
 
+        # ---- Deduplicate and filter LRs ----
+        # Remove duplicate LRs (keep first occurrence)
+        seen = set()
+        unique_lrs = []
+        for lr in lrs:
+            key = round(lr, 3)  # round to 3 decimals for comparison
+            if key not in seen:
+                seen.add(key)
+                unique_lrs.append(lr)
+
+        # Remove neutral LRs (close to 1.0) – these don't affect the outcome
+        lrs = [lr for lr in unique_lrs if abs(lr - 1.0) > 0.01]
+
         # Source credibility
         source_weights = []
         sources = sweep_data.get('sources', [])
