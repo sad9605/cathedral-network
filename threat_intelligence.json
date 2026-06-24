@@ -30,10 +30,12 @@
       ],
       "2026-06-24": [
         "C01 \u2192 C11 (boost 0.00)",
+        "C01 \u2192 C132 (boost 0.01)",
+        "C01 \u2192 C11 (boost 0.00)",
         "C01 \u2192 C132 (boost 0.01)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 118",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 124",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -80,7 +82,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.763319"
+    "last_updated": "2026-06-24T09:59:10.961150"
   },
   "C\u2011USIRAN": {
     "id": "C\u2011USIRAN",
@@ -100,7 +102,7 @@
         "C\u2011USIRAN \u2192 C132 (boost 0.04)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -147,14 +149,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.763421"
+    "last_updated": "2026-06-24T09:59:10.961278"
   },
   "C\u2011BELT": {
     "id": "C\u2011BELT",
     "name": "Iran 'Resistance Security Belt'",
     "narrative": "Iran 'Resistance Security Belt' \u2013 a threat affecting Geopolitical, Energy, Supply Chains. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -175,14 +177,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.763479"
+    "last_updated": "2026-06-24T09:59:10.961344"
   },
   "C\u2011RED\u2011BLOCK": {
     "id": "C\u2011RED\u2011BLOCK",
     "name": "Bab el\u2011Mandeb Blockade",
     "narrative": "Bab el\u2011Mandeb Blockade \u2013 a threat affecting Geopolitical, Supply Chains. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -203,7 +205,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.763536"
+    "last_updated": "2026-06-24T09:59:10.961407"
   },
   "C132": {
     "id": "C132",
@@ -255,10 +257,16 @@
         "C132 \u2192 C90 (boost 0.00)",
         "C88 \u2192 C132 affected C132",
         "C90 \u2192 C132 affected C132",
+        "C122 \u2192 C132 affected C132",
+        "C01 \u2192 C132 affected C132",
+        "C132 \u2192 C88 (boost 0.01)",
+        "C132 \u2192 C90 (boost 0.00)",
+        "C88 \u2192 C132 affected C132",
+        "C90 \u2192 C132 affected C132",
         "C122 \u2192 C132 affected C132"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 154",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 166",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -305,7 +313,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.763659"
+    "last_updated": "2026-06-24T09:59:10.961544"
   },
   "C129": {
     "id": "C129",
@@ -322,10 +330,12 @@
       ],
       "2026-06-24": [
         "C129 \u2192 C3 (boost 0.00)",
+        "C129 \u2192 C11 (boost 0.00)",
+        "C129 \u2192 C3 (boost 0.00)",
         "C129 \u2192 C11 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -372,7 +382,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.763734"
+    "last_updated": "2026-06-24T09:59:10.961633"
   },
   "C54": {
     "id": "C54",
@@ -397,10 +407,14 @@
         "C19 \u2192 C54 affected C54",
         "C54 \u2192 C25 (boost 0.00)",
         "C58 \u2192 C54 affected C54",
+        "C4 \u2192 C54 affected C54",
+        "C19 \u2192 C54 affected C54",
+        "C54 \u2192 C25 (boost 0.00)",
+        "C58 \u2192 C54 affected C54",
         "C4 \u2192 C54 affected C54"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 126",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 136",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -422,6 +436,11 @@
         "target": "C25",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.003
+      },
+      {
+        "target": "C25",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.003
       }
     ],
     "human_cost": {
@@ -442,7 +461,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.763837"
+    "last_updated": "2026-06-24T09:59:10.961742"
   },
   "C88": {
     "id": "C88",
@@ -459,10 +478,12 @@
       ],
       "2026-06-24": [
         "C132 \u2192 C88 affected C88",
+        "C88 \u2192 C132 (boost 0.00)",
+        "C132 \u2192 C88 affected C88",
         "C88 \u2192 C132 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 116",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -484,6 +505,11 @@
         "target": "C132",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.003
+      },
+      {
+        "target": "C132",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.003
       }
     ],
     "human_cost": {
@@ -504,7 +530,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.763946"
+    "last_updated": "2026-06-24T09:59:10.961829"
   },
   "C90": {
     "id": "C90",
@@ -521,10 +547,12 @@
       ],
       "2026-06-24": [
         "C132 \u2192 C90 affected C90",
+        "C90 \u2192 C132 (boost 0.00)",
+        "C132 \u2192 C90 affected C90",
         "C90 \u2192 C132 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 116",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -546,6 +574,11 @@
         "target": "C132",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.002
+      },
+      {
+        "target": "C132",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.002
       }
     ],
     "human_cost": {
@@ -566,7 +599,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764018"
+    "last_updated": "2026-06-24T09:59:10.961940"
   },
   "C48": {
     "id": "C48",
@@ -583,10 +616,12 @@
       ],
       "2026-06-24": [
         "C48 \u2192 C2 (boost 0.00)",
+        "C2 \u2192 C48 affected C48",
+        "C48 \u2192 C2 (boost 0.00)",
         "C2 \u2192 C48 affected C48"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 116",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -608,6 +643,11 @@
         "target": "C2",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.004
+      },
+      {
+        "target": "C2",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.004
       }
     ],
     "human_cost": {
@@ -628,7 +668,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764092"
+    "last_updated": "2026-06-24T09:59:10.962035"
   },
   "C19": {
     "id": "C19",
@@ -641,10 +681,11 @@
         "C19 \u2192 C54 (boost 0.00)"
       ],
       "2026-06-24": [
+        "C19 \u2192 C54 (boost 0.00)",
         "C19 \u2192 C54 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -656,6 +697,11 @@
         "target": "C54",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.0039
+      },
+      {
+        "target": "C54",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.002
       },
       {
         "target": "C54",
@@ -686,7 +732,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764168"
+    "last_updated": "2026-06-24T09:59:10.962223"
   },
   "C25": {
     "id": "C25",
@@ -711,10 +757,14 @@
         "C54 \u2192 C25 affected C25",
         "C25 \u2192 C3 (boost 0.00)",
         "C3 \u2192 C25 affected C25",
+        "C4 \u2192 C25 affected C25",
+        "C54 \u2192 C25 affected C25",
+        "C25 \u2192 C3 (boost 0.00)",
+        "C3 \u2192 C25 affected C25",
         "C4 \u2192 C25 affected C25"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 126",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 136",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -726,6 +776,11 @@
         "target": "C3",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.0039
+      },
+      {
+        "target": "C3",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.002
       },
       {
         "target": "C3",
@@ -756,7 +811,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764261"
+    "last_updated": "2026-06-24T09:59:10.962314"
   },
   "C3": {
     "id": "C3",
@@ -777,10 +832,13 @@
       "2026-06-24": [
         "C25 \u2192 C3 affected C3",
         "C3 \u2192 C25 (boost 0.00)",
+        "C129 \u2192 C3 affected C3",
+        "C25 \u2192 C3 affected C3",
+        "C3 \u2192 C25 (boost 0.00)",
         "C129 \u2192 C3 affected C3"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 118",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 126",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -792,6 +850,11 @@
         "target": "C25",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.0039
+      },
+      {
+        "target": "C25",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.002
       },
       {
         "target": "C25",
@@ -822,7 +885,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764337"
+    "last_updated": "2026-06-24T09:59:10.962418"
   },
   "C11": {
     "id": "C11",
@@ -867,10 +930,15 @@
         "C11 \u2192 C03 (boost 0.00)",
         "C11 \u2192 C106 (boost 0.00)",
         "C129 \u2192 C11 affected C11",
+        "C11 \u2192 C85 (boost 0.00)",
+        "C01 \u2192 C11 affected C11",
+        "C11 \u2192 C03 (boost 0.00)",
+        "C11 \u2192 C106 (boost 0.00)",
+        "C129 \u2192 C11 affected C11",
         "C11 \u2192 C85 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 138",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 150",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -917,7 +985,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764464"
+    "last_updated": "2026-06-24T09:59:10.962567"
   },
   "C58": {
     "id": "C58",
@@ -930,10 +998,11 @@
         "C58 \u2192 C54 (boost 0.00)"
       ],
       "2026-06-24": [
+        "C58 \u2192 C54 (boost 0.00)",
         "C58 \u2192 C54 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -945,6 +1014,11 @@
         "target": "C54",
         "impact": "SCP boost of 0.01",
         "scp_boost": 0.0059
+      },
+      {
+        "target": "C54",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.003
       },
       {
         "target": "C54",
@@ -975,14 +1049,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764533"
+    "last_updated": "2026-06-24T09:59:10.962646"
   },
   "C60": {
     "id": "C60",
     "name": "Narva Border Crisis",
     "narrative": "Narva Border Crisis \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1003,7 +1077,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764602"
+    "last_updated": "2026-06-24T09:59:10.962723"
   },
   "C64": {
     "id": "C64",
@@ -1020,10 +1094,12 @@
       ],
       "2026-06-24": [
         "C85 \u2192 C64 affected C64",
+        "C64 \u2192 C85 (boost 0.00)",
+        "C85 \u2192 C64 affected C64",
         "C64 \u2192 C85 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 116",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -1035,6 +1111,11 @@
         "target": "C85",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.0039
+      },
+      {
+        "target": "C85",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.002
       },
       {
         "target": "C85",
@@ -1065,7 +1146,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764681"
+    "last_updated": "2026-06-24T09:59:10.962803"
   },
   "C85": {
     "id": "C85",
@@ -1086,10 +1167,13 @@
       "2026-06-24": [
         "C11 \u2192 C85 affected C85",
         "C85 \u2192 C64 (boost 0.00)",
+        "C64 \u2192 C85 affected C85",
+        "C11 \u2192 C85 affected C85",
+        "C85 \u2192 C64 (boost 0.00)",
         "C64 \u2192 C85 affected C85"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 118",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 126",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -1111,6 +1195,11 @@
         "target": "C64",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.002
+      },
+      {
+        "target": "C64",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.002
       }
     ],
     "human_cost": {
@@ -1131,7 +1220,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764773"
+    "last_updated": "2026-06-24T09:59:10.962905"
   },
   "C122": {
     "id": "C122",
@@ -1144,10 +1233,11 @@
         "C122 \u2192 C132 (boost 0.00)"
       ],
       "2026-06-24": [
+        "C122 \u2192 C132 (boost 0.00)",
         "C122 \u2192 C132 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -1169,6 +1259,11 @@
         "target": "C132",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.003
+      },
+      {
+        "target": "C132",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.003
       }
     ],
     "human_cost": {
@@ -1189,7 +1284,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764838"
+    "last_updated": "2026-06-24T09:59:10.962994"
   },
   "C2": {
     "id": "C2",
@@ -1206,10 +1301,12 @@
       ],
       "2026-06-24": [
         "C48 \u2192 C2 affected C2",
+        "C2 \u2192 C48 (boost 0.00)",
+        "C48 \u2192 C2 affected C2",
         "C2 \u2192 C48 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 116",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -1221,6 +1318,11 @@
         "target": "C48",
         "impact": "SCP boost of 0.01",
         "scp_boost": 0.0059
+      },
+      {
+        "target": "C48",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.003
       },
       {
         "target": "C48",
@@ -1251,7 +1353,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.764902"
+    "last_updated": "2026-06-24T09:59:10.963067"
   },
   "C4": {
     "id": "C4",
@@ -1268,10 +1370,12 @@
       ],
       "2026-06-24": [
         "C4 \u2192 C54 (boost 0.00)",
+        "C4 \u2192 C25 (boost 0.00)",
+        "C4 \u2192 C54 (boost 0.00)",
         "C4 \u2192 C25 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -1318,14 +1422,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765004"
+    "last_updated": "2026-06-24T09:59:10.963166"
   },
   "C6": {
     "id": "C6",
     "name": "Russian sabotage in Germany/Poland",
     "narrative": "Russian sabotage in Germany/Poland \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1346,14 +1450,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765065"
+    "last_updated": "2026-06-24T09:59:10.963237"
   },
   "C7": {
     "id": "C7",
     "name": "Finland\u2011Russia border closure",
     "narrative": "Finland\u2011Russia border closure \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1374,14 +1478,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765120"
+    "last_updated": "2026-06-24T09:59:10.963300"
   },
   "C9": {
     "id": "C9",
     "name": "Poland\u2011Belarus migrant weaponisation",
     "narrative": "Poland\u2011Belarus migrant weaponisation \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1402,14 +1506,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765173"
+    "last_updated": "2026-06-24T09:59:10.963362"
   },
   "C10": {
     "id": "C10",
     "name": "Ukraine frontline collapse",
     "narrative": "Ukraine frontline collapse \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1430,14 +1534,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765230"
+    "last_updated": "2026-06-24T09:59:10.963429"
   },
   "C12": {
     "id": "C12",
     "name": "Black Sea grain corridor closure",
     "narrative": "Black Sea grain corridor closure \u2013 a threat affecting Geopolitical, Food. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1458,14 +1562,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765287"
+    "last_updated": "2026-06-24T09:59:10.963496"
   },
   "C13": {
     "id": "C13",
     "name": "Russian LNG terminal sabotage",
     "narrative": "Russian LNG terminal sabotage \u2013 a threat affecting Geopolitical, Energy. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1486,14 +1590,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765356"
+    "last_updated": "2026-06-24T09:59:10.963581"
   },
   "C14": {
     "id": "C14",
     "name": "Nord Stream 2 reactivation",
     "narrative": "Nord Stream 2 reactivation \u2013 a threat affecting Geopolitical, Energy. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1514,14 +1618,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765421"
+    "last_updated": "2026-06-24T09:59:10.963656"
   },
   "C15": {
     "id": "C15",
     "name": "Transnistria depot explosion",
     "narrative": "Transnistria depot explosion \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1542,14 +1646,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765484"
+    "last_updated": "2026-06-24T09:59:10.963728"
   },
   "C16": {
     "id": "C16",
     "name": "Georgia Abkhazia freeze\u2011thaw",
     "narrative": "Georgia Abkhazia freeze\u2011thaw \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1570,14 +1674,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765541"
+    "last_updated": "2026-06-24T09:59:10.963793"
   },
   "C17": {
     "id": "C17",
     "name": "Armenia\u2011Azerbaijan peace collapse",
     "narrative": "Armenia\u2011Azerbaijan peace collapse \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1598,14 +1702,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765598"
+    "last_updated": "2026-06-24T09:59:10.963859"
   },
   "C18": {
     "id": "C18",
     "name": "Iranian drones to Russia",
     "narrative": "Iranian drones to Russia \u2013 a threat affecting Geopolitical, Energy. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1626,14 +1730,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765655"
+    "last_updated": "2026-06-24T09:59:10.963935"
   },
   "C20": {
     "id": "C20",
     "name": "Khmelnytskyi NPP shelling",
     "narrative": "Khmelnytskyi NPP shelling \u2013 a threat affecting Geopolitical, Energy. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1654,14 +1758,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765712"
+    "last_updated": "2026-06-24T09:59:10.964002"
   },
   "C21": {
     "id": "C21",
     "name": "Radiological release (ZNPP)",
     "narrative": "Radiological release (ZNPP) \u2013 a threat affecting Geopolitical, Energy, Biosecurity. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1682,14 +1786,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765769"
+    "last_updated": "2026-06-24T09:59:10.964068"
   },
   "C22": {
     "id": "C22",
     "name": "Russian internal coup",
     "narrative": "Russian internal coup \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1710,14 +1814,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765826"
+    "last_updated": "2026-06-24T09:59:10.964150"
   },
   "C23": {
     "id": "C23",
     "name": "Wagner resurgence in Africa",
     "narrative": "Wagner resurgence in Africa \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1738,14 +1842,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765884"
+    "last_updated": "2026-06-24T09:59:10.964226"
   },
   "C24": {
     "id": "C24",
     "name": "Russian Arctic militarisation",
     "narrative": "Russian Arctic militarisation \u2013 a threat affecting Geopolitical, Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1766,14 +1870,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.765968"
+    "last_updated": "2026-06-24T09:59:10.964305"
   },
   "C26": {
     "id": "C26",
     "name": "NATO Article 5 deliberation",
     "narrative": "NATO Article 5 deliberation \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1794,14 +1898,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766048"
+    "last_updated": "2026-06-24T09:59:10.964385"
   },
   "C27": {
     "id": "C27",
     "name": "US troop deployment to Romania",
     "narrative": "US troop deployment to Romania \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1822,14 +1926,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766107"
+    "last_updated": "2026-06-24T09:59:10.964449"
   },
   "C28": {
     "id": "C28",
     "name": "Turkish Straits closure",
     "narrative": "Turkish Straits closure \u2013 a threat affecting Geopolitical, Supply Chains. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1850,7 +1954,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766165"
+    "last_updated": "2026-06-24T09:59:10.964514"
   },
   "G-ARCTIC": {
     "id": "G-ARCTIC",
@@ -1867,7 +1971,7 @@
         "G-ARCTIC \u2192 C132 (boost 0.03)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -1904,14 +2008,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766234"
+    "last_updated": "2026-06-24T09:59:10.964592"
   },
   "G-GREENLAND": {
     "id": "G-GREENLAND",
     "name": "Greenland as geopolitical flashpoint",
     "narrative": "Greenland as geopolitical flashpoint \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -1932,7 +2036,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766292"
+    "last_updated": "2026-06-24T09:59:10.964658"
   },
   "G-SPACE": {
     "id": "G-SPACE",
@@ -1949,7 +2053,7 @@
         "G-SPACE \u2192 C132 (boost 0.04)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -1986,7 +2090,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766360"
+    "last_updated": "2026-06-24T09:59:10.964737"
   },
   "G-WEST-BANK": {
     "id": "G-WEST-BANK",
@@ -2003,7 +2107,7 @@
         "G-WEST-BANK \u2192 C01 (boost 0.02)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -2040,7 +2144,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766426"
+    "last_updated": "2026-06-24T09:59:10.964834"
   },
   "G-SUD-BLUE": {
     "id": "G-SUD-BLUE",
@@ -2057,7 +2161,7 @@
         "G-SUD-BLUE \u2192 C03 (boost 0.03)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -2094,7 +2198,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766496"
+    "last_updated": "2026-06-24T09:59:10.964904"
   },
   "C11E": {
     "id": "C11E",
@@ -2111,10 +2215,12 @@
       ],
       "2026-06-24": [
         "C11E \u2192 C106 (boost 0.00)",
+        "C11E \u2192 C03 (boost 0.00)",
+        "C11E \u2192 C106 (boost 0.00)",
         "C11E \u2192 C03 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -2161,79 +2267,13 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766579"
+    "last_updated": "2026-06-24T09:59:10.965048"
   },
   "C141": {
     "id": "C141",
     "name": "Zaporizhzhia NPP Single\u2011Point\u2011of\u2011Failure",
     "narrative": "Zaporizhzhia NPP Single\u2011Point\u2011of\u2011Failure \u2013 a threat affecting Energy. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "Potential oil price spike",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.766649"
-  },
-  "C143": {
-    "id": "C143",
-    "name": "OPEC Quota Compliance Collapse",
-    "narrative": "OPEC Quota Compliance Collapse \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "Potential oil price spike",
-      "global_gdp": "N/A",
-      "estimated_loss": "Billions of dollars"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.766707"
-  },
-  "C62": {
-    "id": "C62",
-    "name": "EU Gas Security",
-    "narrative": "EU Gas Security \u2013 a threat affecting Energy. Monitor closely for escalation.",
-    "timeline": {
-      "2026-06-20": [
-        "SC-NUCLEAR \u2192 C62 affected C62"
-      ],
-      "2026-06-21": [
-        "SC-NUCLEAR \u2192 C62 affected C62"
-      ],
-      "2026-06-23": [
-        "SC-NUCLEAR \u2192 C62 affected C62"
-      ]
-    },
     "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
@@ -2255,14 +2295,80 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766767"
+    "last_updated": "2026-06-24T09:59:10.965130"
+  },
+  "C143": {
+    "id": "C143",
+    "name": "OPEC Quota Compliance Collapse",
+    "narrative": "OPEC Quota Compliance Collapse \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
+    "timeline": {},
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "Potential oil price spike",
+      "global_gdp": "N/A",
+      "estimated_loss": "Billions of dollars"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.965197"
+  },
+  "C62": {
+    "id": "C62",
+    "name": "EU Gas Security",
+    "narrative": "EU Gas Security \u2013 a threat affecting Energy. Monitor closely for escalation.",
+    "timeline": {
+      "2026-06-20": [
+        "SC-NUCLEAR \u2192 C62 affected C62"
+      ],
+      "2026-06-21": [
+        "SC-NUCLEAR \u2192 C62 affected C62"
+      ],
+      "2026-06-23": [
+        "SC-NUCLEAR \u2192 C62 affected C62"
+      ]
+    },
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "Potential oil price spike",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.965285"
   },
   "C63": {
     "id": "C63",
     "name": "Global Oil Supply Deficit",
     "narrative": "Global Oil Supply Deficit \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2283,14 +2389,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766824"
+    "last_updated": "2026-06-24T09:59:10.965354"
   },
   "C123": {
     "id": "C123",
     "name": "East Asia Fiscal\u2011Energy Spiral",
     "narrative": "East Asia Fiscal\u2011Energy Spiral \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2311,14 +2417,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.766882"
+    "last_updated": "2026-06-24T09:59:10.965421"
   },
   "C127": {
     "id": "C127",
     "name": "Egypt Fiscal & Political Stress",
     "narrative": "Egypt Fiscal & Political Stress \u2013 a threat affecting Energy, Financial, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2339,14 +2445,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767032"
+    "last_updated": "2026-06-24T09:59:10.965489"
   },
   "C144": {
     "id": "C144",
     "name": "Kuwait Fiscal Collapse",
     "narrative": "Kuwait Fiscal Collapse \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2367,14 +2473,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767098"
+    "last_updated": "2026-06-24T09:59:10.965564"
   },
   "C143-KZ": {
     "id": "C143-KZ",
     "name": "Kazakhstan OPEC Overproduction",
     "narrative": "Kazakhstan OPEC Overproduction \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2395,14 +2501,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767156"
+    "last_updated": "2026-06-24T09:59:10.965633"
   },
   "CA4": {
     "id": "CA4",
     "name": "Central Asia Energy Export Dependency",
     "narrative": "Central Asia Energy Export Dependency \u2013 a threat affecting Energy, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2423,14 +2529,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767239"
+    "last_updated": "2026-06-24T09:59:10.965710"
   },
   "G16": {
     "id": "G16",
     "name": "Oil price >$150",
     "narrative": "Oil price >$150 \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2451,14 +2557,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767306"
+    "last_updated": "2026-06-24T09:59:10.965780"
   },
   "G17": {
     "id": "G17",
     "name": "Global deficit 7M b/d",
     "narrative": "Global deficit 7M b/d \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2479,14 +2585,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767384"
+    "last_updated": "2026-06-24T09:59:10.965857"
   },
   "G18": {
     "id": "G18",
     "name": "SPR release inadequacy",
     "narrative": "SPR release inadequacy \u2013 a threat affecting Energy, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2507,14 +2613,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767548"
+    "last_updated": "2026-06-24T09:59:10.965946"
   },
   "G19": {
     "id": "G19",
     "name": "China\u2011Iran petroyuan",
     "narrative": "China\u2011Iran petroyuan \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2535,14 +2641,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767619"
+    "last_updated": "2026-06-24T09:59:10.966015"
   },
   "G20": {
     "id": "G20",
     "name": "Russia brokering role",
     "narrative": "Russia brokering role \u2013 a threat affecting Energy, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2563,14 +2669,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767682"
+    "last_updated": "2026-06-24T09:59:10.966081"
   },
   "G24": {
     "id": "G24",
     "name": "Qatar LNG rerouting disruption",
     "narrative": "Qatar LNG rerouting disruption \u2013 a threat affecting Energy, Supply Chains. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2591,14 +2697,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767745"
+    "last_updated": "2026-06-24T09:59:10.966148"
   },
   "E-AI-GRID": {
     "id": "E-AI-GRID",
     "name": "AI data centre power demand as new energy war front",
     "narrative": "AI data centre power demand as new energy war front \u2013 a threat affecting Energy, Technology. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2619,14 +2725,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767802"
+    "last_updated": "2026-06-24T09:59:10.966216"
   },
   "E-SMR": {
     "id": "E-SMR",
     "name": "Small modular reactor safety & regulatory gap",
     "narrative": "Small modular reactor safety & regulatory gap \u2013 a threat affecting Energy. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2647,14 +2753,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.767862"
+    "last_updated": "2026-06-24T09:59:10.966277"
   },
   "E-HYPER-SCALE": {
     "id": "E-HYPER-SCALE",
     "name": "Hyperscale AI data centre water/energy tipping point",
     "narrative": "Hyperscale AI data centre water/energy tipping point \u2013 a threat affecting Energy, Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2675,14 +2781,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768023"
+    "last_updated": "2026-06-24T09:59:10.966355"
   },
   "E-MINI-GRID": {
     "id": "E-MINI-GRID",
     "name": "Critical infrastructure mini\u2011grid fragility",
     "narrative": "Critical infrastructure mini\u2011grid fragility \u2013 a threat affecting Energy, Cyber. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2703,14 +2809,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768104"
+    "last_updated": "2026-06-24T09:59:10.966509"
   },
   "E-SOLAR-CYBER": {
     "id": "E-SOLAR-CYBER",
     "name": "Solar inverter botnets for grid destabilisation",
     "narrative": "Solar inverter botnets for grid destabilisation \u2013 a threat affecting Energy, Cyber. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2731,7 +2837,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768163"
+    "last_updated": "2026-06-24T09:59:10.966578"
   },
   "C100": {
     "id": "C100",
@@ -2748,10 +2854,12 @@
       ],
       "2026-06-24": [
         "C147 \u2192 C100 affected C100",
+        "C100 \u2192 C134 (boost 0.00)",
+        "C147 \u2192 C100 affected C100",
         "C100 \u2192 C134 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 116",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -2773,6 +2881,11 @@
         "target": "C134",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.002
+      },
+      {
+        "target": "C134",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.002
       }
     ],
     "human_cost": {
@@ -2793,7 +2906,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768271"
+    "last_updated": "2026-06-24T09:59:10.966672"
   },
   "C147": {
     "id": "C147",
@@ -2806,10 +2919,11 @@
         "C147 \u2192 C100 (boost 0.00)"
       ],
       "2026-06-24": [
+        "C147 \u2192 C100 (boost 0.00)",
         "C147 \u2192 C100 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -2831,6 +2945,11 @@
         "target": "C100",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.003
+      },
+      {
+        "target": "C100",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.003
       }
     ],
     "human_cost": {
@@ -2851,14 +2970,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768348"
+    "last_updated": "2026-06-24T09:59:10.966749"
   },
   "C44": {
     "id": "C44",
     "name": "Delhi Heatwave",
     "narrative": "Delhi Heatwave \u2013 a threat affecting Climate, Social. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2879,14 +2998,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768419"
+    "last_updated": "2026-06-24T09:59:10.966839"
   },
   "C80": {
     "id": "C80",
     "name": "U.S. Hurricane Season",
     "narrative": "U.S. Hurricane Season \u2013 a threat affecting Climate, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -2907,7 +3026,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768499"
+    "last_updated": "2026-06-24T09:59:10.966930"
   },
   "C134": {
     "id": "C134",
@@ -2928,10 +3047,13 @@
       "2026-06-24": [
         "C106 \u2192 C134 affected C134",
         "C100 \u2192 C134 affected C134",
+        "C134 \u2192 C126 (boost 0.00)",
+        "C106 \u2192 C134 affected C134",
+        "C100 \u2192 C134 affected C134",
         "C134 \u2192 C126 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 118",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 126",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -2943,6 +3065,11 @@
         "target": "C126",
         "impact": "SCP boost of 0.01",
         "scp_boost": 0.0059
+      },
+      {
+        "target": "C126",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.003
       },
       {
         "target": "C126",
@@ -2973,14 +3100,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768578"
+    "last_updated": "2026-06-24T09:59:10.967038"
   },
   "C135": {
     "id": "C135",
     "name": "Panama Canal Logistics Shock",
     "narrative": "Panama Canal Logistics Shock \u2013 a threat affecting Climate, Supply Chains. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3001,14 +3128,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768635"
+    "last_updated": "2026-06-24T09:59:10.967127"
   },
   "C99": {
     "id": "C99",
     "name": "Yamal Methane Anomaly",
     "narrative": "Yamal Methane Anomaly \u2013 a threat affecting Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3029,14 +3156,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768693"
+    "last_updated": "2026-06-24T09:59:10.967224"
   },
   "C41": {
     "id": "C41",
     "name": "AMOC Slowdown",
     "narrative": "AMOC Slowdown \u2013 a threat affecting Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3057,14 +3184,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768754"
+    "last_updated": "2026-06-24T09:59:10.967301"
   },
   "C46": {
     "id": "C46",
     "name": "Bangladesh Monsoon Flood",
     "narrative": "Bangladesh Monsoon Flood \u2013 a threat affecting Climate, Social. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3085,7 +3212,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768812"
+    "last_updated": "2026-06-24T09:59:10.967376"
   },
   "E11": {
     "id": "E11",
@@ -3105,7 +3232,7 @@
         "E11 \u2192 C106 (boost 0.02)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -3152,14 +3279,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.768911"
+    "last_updated": "2026-06-24T09:59:10.967481"
   },
   "U10": {
     "id": "U10",
     "name": "NOAA below\u2011avg forecast",
     "narrative": "NOAA below\u2011avg forecast \u2013 a threat affecting Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3180,14 +3307,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769009"
+    "last_updated": "2026-06-24T09:59:10.967571"
   },
   "U11": {
     "id": "U11",
     "name": "California flood risk",
     "narrative": "California flood risk \u2013 a threat affecting Climate, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3208,14 +3335,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769080"
+    "last_updated": "2026-06-24T09:59:10.967645"
   },
   "U12": {
     "id": "U12",
     "name": "Canada wildfire season",
     "narrative": "Canada wildfire season \u2013 a threat affecting Climate, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3236,14 +3363,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769140"
+    "last_updated": "2026-06-24T09:59:10.967714"
   },
   "CC1": {
     "id": "CC1",
     "name": "Caucasus frozen conflict",
     "narrative": "Caucasus frozen conflict \u2013 a threat affecting Climate, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3264,14 +3391,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769197"
+    "last_updated": "2026-06-24T09:59:10.967785"
   },
   "CC2": {
     "id": "CC2",
     "name": "Georgia destabilisation",
     "narrative": "Georgia destabilisation \u2013 a threat affecting Climate, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3292,14 +3419,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769256"
+    "last_updated": "2026-06-24T09:59:10.967857"
   },
   "OC1": {
     "id": "OC1",
     "name": "Pacific strategic",
     "narrative": "Pacific strategic \u2013 a threat affecting Climate, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3320,14 +3447,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769319"
+    "last_updated": "2026-06-24T09:59:10.967940"
   },
   "CB2": {
     "id": "CB2",
     "name": "Hurricane\u2011debt spiral",
     "narrative": "Hurricane\u2011debt spiral \u2013 a threat affecting Climate, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3348,14 +3475,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769382"
+    "last_updated": "2026-06-24T09:59:10.968031"
   },
   "LA2": {
     "id": "LA2",
     "name": "Amazon tipping point",
     "narrative": "Amazon tipping point \u2013 a threat affecting Climate, Food. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3376,7 +3503,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769461"
+    "last_updated": "2026-06-24T09:59:10.968112"
   },
   "C-WATER-BANK": {
     "id": "C-WATER-BANK",
@@ -3396,7 +3523,7 @@
         "C-WATER-BANK \u2192 C139 (boost 0.03)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -3443,14 +3570,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769544"
+    "last_updated": "2026-06-24T09:59:10.968190"
   },
   "C-SUBSIDENCE": {
     "id": "C-SUBSIDENCE",
     "name": "Widespread land subsidence from groundwater depletion",
     "narrative": "Widespread land subsidence from groundwater depletion \u2013 a threat affecting Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3471,14 +3598,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769599"
+    "last_updated": "2026-06-24T09:59:10.968261"
   },
   "C-CRYO": {
     "id": "C-CRYO",
     "name": "Accelerating glacier mass loss (functional extinction)",
     "narrative": "Accelerating glacier mass loss (functional extinction) \u2013 a threat affecting Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3499,14 +3626,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769668"
+    "last_updated": "2026-06-24T09:59:10.968343"
   },
   "C-SOIL-DEG": {
     "id": "C-SOIL-DEG",
     "name": "Severe soil degradation (>50% agricultural land)",
     "narrative": "Severe soil degradation (>50% agricultural land) \u2013 a threat affecting Climate, Food. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3527,14 +3654,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769731"
+    "last_updated": "2026-06-24T09:59:10.968410"
   },
   "C-AG-STORAGE": {
     "id": "C-AG-STORAGE",
     "name": "Collapse of agricultural water storage",
     "narrative": "Collapse of agricultural water storage \u2013 a threat affecting Climate, Food. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3555,7 +3682,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769788"
+    "last_updated": "2026-06-24T09:59:10.968472"
   },
   "C78": {
     "id": "C78",
@@ -3573,6 +3700,44 @@
       "2026-06-23": [
         "F-AI-CYBER-SYS \u2192 C78 affected C78",
         "F-INSUR-SPIRAL \u2192 C78 affected C78"
+      ]
+    },
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 114",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "Billions of dollars"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.968559"
+  },
+  "C133": {
+    "id": "C133",
+    "name": "USD Reserve Erosion",
+    "narrative": "USD Reserve Erosion \u2013 a threat affecting Financial. Monitor closely for escalation.",
+    "timeline": {
+      "2026-06-20": [
+        "C11 \u2192 C133 affected C133"
+      ],
+      "2026-06-21": [
+        "C11 \u2192 C133 affected C133"
+      ],
+      "2026-06-23": [
+        "C11 \u2192 C133 affected C133"
       ]
     },
     "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
@@ -3596,45 +3761,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.769869"
-  },
-  "C133": {
-    "id": "C133",
-    "name": "USD Reserve Erosion",
-    "narrative": "USD Reserve Erosion \u2013 a threat affecting Financial. Monitor closely for escalation.",
-    "timeline": {
-      "2026-06-20": [
-        "C11 \u2192 C133 affected C133"
-      ],
-      "2026-06-21": [
-        "C11 \u2192 C133 affected C133"
-      ],
-      "2026-06-23": [
-        "C11 \u2192 C133 affected C133"
-      ]
-    },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "Billions of dollars"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.769942"
+    "last_updated": "2026-06-24T09:59:10.968642"
   },
   "I08": {
     "id": "I08",
@@ -3651,6 +3778,34 @@
         "F-CBDC \u2192 I08 affected I08"
       ]
     },
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "Billions of dollars"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.968713"
+  },
+  "I09": {
+    "id": "I09",
+    "name": "IMF lending capacity crisis",
+    "narrative": "IMF lending capacity crisis \u2013 a threat affecting Financial. Monitor closely for escalation.",
+    "timeline": {},
     "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
@@ -3672,42 +3827,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770002"
-  },
-  "I09": {
-    "id": "I09",
-    "name": "IMF lending capacity crisis",
-    "narrative": "IMF lending capacity crisis \u2013 a threat affecting Financial. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "Billions of dollars"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.770065"
+    "last_updated": "2026-06-24T09:59:10.968781"
   },
   "C136": {
     "id": "C136",
     "name": "N. Triangle Cartel Violence",
     "narrative": "N. Triangle Cartel Violence \u2013 a threat affecting Financial, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3728,14 +3855,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770140"
+    "last_updated": "2026-06-24T09:59:10.968847"
   },
   "C137": {
     "id": "C137",
     "name": "Central America Food Supply Shock",
     "narrative": "Central America Food Supply Shock \u2013 a threat affecting Financial, Food. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3756,14 +3883,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770200"
+    "last_updated": "2026-06-24T09:59:10.968923"
   },
   "C138": {
     "id": "C138",
     "name": "Great\u2011Power Competition \u2192 Aid Diversion",
     "narrative": "Great\u2011Power Competition \u2192 Aid Diversion \u2013 a threat affecting Financial, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3784,14 +3911,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770258"
+    "last_updated": "2026-06-24T09:59:10.969005"
   },
   "U16": {
     "id": "U16",
     "name": "Argentina peso collapse",
     "narrative": "Argentina peso collapse \u2013 a threat affecting Financial, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3812,14 +3939,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770336"
+    "last_updated": "2026-06-24T09:59:10.969094"
   },
   "U18": {
     "id": "U18",
     "name": "US sovereign debt",
     "narrative": "US sovereign debt \u2013 a threat affecting Financial, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3840,14 +3967,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770399"
+    "last_updated": "2026-06-24T09:59:10.969167"
   },
   "U19": {
     "id": "U19",
     "name": "Fed rate hold into 2027",
     "narrative": "Fed rate hold into 2027 \u2013 a threat affecting Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3868,14 +3995,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770457"
+    "last_updated": "2026-06-24T09:59:10.969240"
   },
   "C17*": {
     "id": "C17*",
     "name": "African debt + private credit",
     "narrative": "African debt + private credit \u2013 a threat affecting Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3896,14 +4023,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770513"
+    "last_updated": "2026-06-24T09:59:10.969304"
   },
   "C18*": {
     "id": "C18*",
     "name": "Petrodollar crisis + US fiscal",
     "narrative": "Petrodollar crisis + US fiscal \u2013 a threat affecting Financial, Energy. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3924,14 +4051,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770570"
+    "last_updated": "2026-06-24T09:59:10.969370"
   },
   "C19*": {
     "id": "C19*",
     "name": "China malaise + trade fragmentation",
     "narrative": "China malaise + trade fragmentation \u2013 a threat affecting Financial, Supply Chains. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3952,14 +4079,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770626"
+    "last_updated": "2026-06-24T09:59:10.969435"
   },
   "C20*": {
     "id": "C20*",
     "name": "Demand destruction + frozen labour",
     "narrative": "Demand destruction + frozen labour \u2013 a threat affecting Financial, Social. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -3980,14 +4107,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770683"
+    "last_updated": "2026-06-24T09:59:10.969571"
   },
   "G30": {
     "id": "G30",
     "name": "Global recession from oil",
     "narrative": "Global recession from oil \u2013 a threat affecting Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4008,14 +4135,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770740"
+    "last_updated": "2026-06-24T09:59:10.969642"
   },
   "U15": {
     "id": "U15",
     "name": "Brazil coup risk",
     "narrative": "Brazil coup risk \u2013 a threat affecting Financial, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4036,14 +4163,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770796"
+    "last_updated": "2026-06-24T09:59:10.969735"
   },
   "U17": {
     "id": "U17",
     "name": "Venezuela oil sanctions relief",
     "narrative": "Venezuela oil sanctions relief \u2013 a threat affecting Financial, Energy. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4064,14 +4191,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770860"
+    "last_updated": "2026-06-24T09:59:10.969822"
   },
   "A24": {
     "id": "A24",
     "name": "Angola debt default risk",
     "narrative": "Angola debt default risk \u2013 a threat affecting Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4092,14 +4219,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770939"
+    "last_updated": "2026-06-24T09:59:10.969902"
   },
   "C145": {
     "id": "C145",
     "name": "Iran\u2011Oman transit fee precedent",
     "narrative": "Iran\u2011Oman transit fee precedent \u2013 a threat affecting Financial, Energy. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4120,7 +4247,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.770997"
+    "last_updated": "2026-06-24T09:59:10.969984"
   },
   "F-AI-CYBER-SYS": {
     "id": "F-AI-CYBER-SYS",
@@ -4137,7 +4264,7 @@
         "F-AI-CYBER-SYS \u2192 C78 (boost 0.04)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -4174,14 +4301,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771074"
+    "last_updated": "2026-06-24T09:59:10.970056"
   },
   "F-AI-LIQ": {
     "id": "F-AI-LIQ",
     "name": "AI\u2011triggered flash crashes & liquidity evaporation",
     "narrative": "AI\u2011triggered flash crashes & liquidity evaporation \u2013 a threat affecting Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4202,14 +4329,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771129"
+    "last_updated": "2026-06-24T09:59:10.970118"
   },
   "F-REPO-2026": {
     "id": "F-REPO-2026",
     "name": "Repo market freeze exacerbated by AI/cyber",
     "narrative": "Repo market freeze exacerbated by AI/cyber \u2013 a threat affecting Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4230,7 +4357,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771183"
+    "last_updated": "2026-06-24T09:59:10.970180"
   },
   "F-CBDC": {
     "id": "F-CBDC",
@@ -4247,7 +4374,7 @@
         "F-CBDC \u2192 I08 (boost 0.03)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -4284,7 +4411,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771263"
+    "last_updated": "2026-06-24T09:59:10.970281"
   },
   "F-INSUR-SPIRAL": {
     "id": "F-INSUR-SPIRAL",
@@ -4301,7 +4428,7 @@
         "F-INSUR-SPIRAL \u2192 C78 (boost 0.01)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -4338,7 +4465,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771325"
+    "last_updated": "2026-06-24T09:59:10.970388"
   },
   "C121": {
     "id": "C121",
@@ -4355,6 +4482,62 @@
         "SC-RARE \u2192 C121 affected C121"
       ]
     },
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.970464"
+  },
+  "C124": {
+    "id": "C124",
+    "name": "East Asia Semiconductor\u2011Fiscal Contagion",
+    "narrative": "East Asia Semiconductor\u2011Fiscal Contagion \u2013 a threat affecting Supply Chains, Financial. Monitor closely for escalation.",
+    "timeline": {},
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "Billions of dollars"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.970529"
+  },
+  "C36": {
+    "id": "C36",
+    "name": "Taiwan semiconductor cascade",
+    "narrative": "Taiwan semiconductor cascade \u2013 a threat affecting Supply Chains, Technology. Monitor closely for escalation.",
+    "timeline": {},
     "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
@@ -4376,70 +4559,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771384"
-  },
-  "C124": {
-    "id": "C124",
-    "name": "East Asia Semiconductor\u2011Fiscal Contagion",
-    "narrative": "East Asia Semiconductor\u2011Fiscal Contagion \u2013 a threat affecting Supply Chains, Financial. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "Billions of dollars"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.771452"
-  },
-  "C36": {
-    "id": "C36",
-    "name": "Taiwan semiconductor cascade",
-    "narrative": "Taiwan semiconductor cascade \u2013 a threat affecting Supply Chains, Technology. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.771512"
+    "last_updated": "2026-06-24T09:59:10.970597"
   },
   "C39": {
     "id": "C39",
     "name": "Semiconductor\u2011fiscal",
     "narrative": "Semiconductor\u2011fiscal \u2013 a threat affecting Supply Chains, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4460,14 +4587,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771580"
+    "last_updated": "2026-06-24T09:59:10.970677"
   },
   "C8": {
     "id": "C8",
     "name": "Red Sea Shipping Chokepoint",
     "narrative": "Red Sea Shipping Chokepoint \u2013 a threat affecting Supply Chains, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4488,14 +4615,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771636"
+    "last_updated": "2026-06-24T09:59:10.970753"
   },
   "C29": {
     "id": "C29",
     "name": "Gulf shipping chokepoint",
     "narrative": "Gulf shipping chokepoint \u2013 a threat affecting Supply Chains, Energy. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4516,14 +4643,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771705"
+    "last_updated": "2026-06-24T09:59:10.970821"
   },
   "C135S": {
     "id": "C135S",
     "name": "Panama Canal Logistics Shock",
     "narrative": "Panama Canal Logistics Shock \u2013 a threat affecting Supply Chains, Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4544,7 +4671,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771758"
+    "last_updated": "2026-06-24T09:59:10.970882"
   },
   "SC-NUCLEAR": {
     "id": "SC-NUCLEAR",
@@ -4561,7 +4688,7 @@
         "SC-NUCLEAR \u2192 C62 (boost 0.03)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -4598,14 +4725,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771819"
+    "last_updated": "2026-06-24T09:59:10.970966"
   },
   "SC-COUNTER": {
     "id": "SC-COUNTER",
     "name": "Counterfeit network gear in critical infrastructure",
     "narrative": "Counterfeit network gear in critical infrastructure \u2013 a threat affecting Supply Chains, Cyber. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4626,7 +4753,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771872"
+    "last_updated": "2026-06-24T09:59:10.971031"
   },
   "SC-RARE": {
     "id": "SC-RARE",
@@ -4643,7 +4770,7 @@
         "SC-RARE \u2192 C121 (boost 0.04)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -4680,14 +4807,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.771940"
+    "last_updated": "2026-06-24T09:59:10.971124"
   },
   "SC-DEVICE": {
     "id": "SC-DEVICE",
     "name": "Third\u2011party device compromise in CI/CD pipelines",
     "narrative": "Third\u2011party device compromise in CI/CD pipelines \u2013 a threat affecting Supply Chains, Cyber. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4708,14 +4835,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772001"
+    "last_updated": "2026-06-24T09:59:10.971191"
   },
   "SC-ZINC": {
     "id": "SC-ZINC",
     "name": "Zinc smelting closure cascade (European energy crisis)",
     "narrative": "Zinc smelting closure cascade (European energy crisis) \u2013 a threat affecting Supply Chains, Energy. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4736,7 +4863,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772072"
+    "last_updated": "2026-06-24T09:59:10.971260"
   },
   "C03": {
     "id": "C03",
@@ -4794,10 +4921,16 @@
         "C03 \u2192 C126 (boost 0.00)",
         "C106 \u2192 C03 affected C03",
         "C11E \u2192 C03 affected C03",
+        "C126 \u2192 C03 affected C03",
+        "C11 \u2192 C03 affected C03",
+        "C03 \u2192 C139 (boost 0.00)",
+        "C03 \u2192 C126 (boost 0.00)",
+        "C106 \u2192 C03 affected C03",
+        "C11E \u2192 C03 affected C03",
         "C126 \u2192 C03 affected C03"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 158",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 170",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -4844,7 +4977,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772188"
+    "last_updated": "2026-06-24T09:59:10.971402"
   },
   "C126": {
     "id": "C126",
@@ -4865,10 +4998,13 @@
       "2026-06-24": [
         "C03 \u2192 C126 affected C126",
         "C134 \u2192 C126 affected C126",
+        "C126 \u2192 C03 (boost 0.00)",
+        "C03 \u2192 C126 affected C126",
+        "C134 \u2192 C126 affected C126",
         "C126 \u2192 C03 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 118",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 126",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -4880,6 +5016,11 @@
         "target": "C03",
         "impact": "SCP boost of 0.01",
         "scp_boost": 0.0078
+      },
+      {
+        "target": "C03",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.004
       },
       {
         "target": "C03",
@@ -4910,14 +5051,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772276"
+    "last_updated": "2026-06-24T09:59:10.971516"
   },
   "C125": {
     "id": "C125",
     "name": "Nile Water Conflict / GERD",
     "narrative": "Nile Water Conflict / GERD \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4938,14 +5079,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772334"
+    "last_updated": "2026-06-24T09:59:10.971583"
   },
   "C43": {
     "id": "C43",
     "name": "Indus Water\u2011Food\u2011Conflict",
     "narrative": "Indus Water\u2011Food\u2011Conflict \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -4966,7 +5107,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772403"
+    "last_updated": "2026-06-24T09:59:10.971652"
   },
   "C106": {
     "id": "C106",
@@ -5011,10 +5152,15 @@
         "C106 \u2192 C03 (boost 0.00)",
         "C106 \u2192 C134 (boost 0.00)",
         "C11E \u2192 C106 affected C106",
+        "A-STRAT-RES \u2192 C106 affected C106",
+        "C11 \u2192 C106 affected C106",
+        "C106 \u2192 C03 (boost 0.00)",
+        "C106 \u2192 C134 (boost 0.00)",
+        "C11E \u2192 C106 affected C106",
         "A-STRAT-RES \u2192 C106 affected C106"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 138",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 148",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -5061,14 +5207,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772510"
+    "last_updated": "2026-06-24T09:59:10.971771"
   },
   "C137F": {
     "id": "C137F",
     "name": "Central America Food Supply Shock",
     "narrative": "Central America Food Supply Shock \u2013 a threat affecting Food, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5089,14 +5235,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772566"
+    "last_updated": "2026-06-24T09:59:10.971842"
   },
   "A01": {
     "id": "A01",
     "name": "Sudan IPC5 famine",
     "narrative": "Sudan IPC5 famine \u2013 a threat affecting Food. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5117,14 +5263,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772624"
+    "last_updated": "2026-06-24T09:59:10.971924"
   },
   "A02": {
     "id": "A02",
     "name": "Kenya AMN Phase 5",
     "narrative": "Kenya AMN Phase 5 \u2013 a threat affecting Food. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5145,14 +5291,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772681"
+    "last_updated": "2026-06-24T09:59:10.971991"
   },
   "A03": {
     "id": "A03",
     "name": "Ethiopia Tigray famine relapse",
     "narrative": "Ethiopia Tigray famine relapse \u2013 a threat affecting Food. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5173,14 +5319,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772738"
+    "last_updated": "2026-06-24T09:59:10.972072"
   },
   "A04": {
     "id": "A04",
     "name": "Somalia Shabelle floods + famine",
     "narrative": "Somalia Shabelle floods + famine \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5201,14 +5347,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772807"
+    "last_updated": "2026-06-24T09:59:10.972141"
   },
   "A22": {
     "id": "A22",
     "name": "Zimbabwe grain deficit",
     "narrative": "Zimbabwe grain deficit \u2013 a threat affecting Food. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5229,14 +5375,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772867"
+    "last_updated": "2026-06-24T09:59:10.972212"
   },
   "A23": {
     "id": "A23",
     "name": "Zambia drought emergency",
     "narrative": "Zambia drought emergency \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5257,7 +5403,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.772954"
+    "last_updated": "2026-06-24T09:59:10.972303"
   },
   "A-UREA": {
     "id": "A-UREA",
@@ -5277,7 +5423,7 @@
         "A-UREA \u2192 C106 (boost 0.03)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -5324,14 +5470,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773031"
+    "last_updated": "2026-06-24T09:59:10.972382"
   },
   "A-EL-NINO": {
     "id": "A-EL-NINO",
     "name": "El Ni\u00f1o\u2019s asynchronous global crop impact",
     "narrative": "El Ni\u00f1o\u2019s asynchronous global crop impact \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5352,14 +5498,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773112"
+    "last_updated": "2026-06-24T09:59:10.972445"
   },
   "A-SOIL-BIO": {
     "id": "A-SOIL-BIO",
     "name": "Loss of soil biodiversity (microbiome collapse)",
     "narrative": "Loss of soil biodiversity (microbiome collapse) \u2013 a threat affecting Food, Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5380,7 +5526,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773188"
+    "last_updated": "2026-06-24T09:59:10.972507"
   },
   "A-STRAT-RES": {
     "id": "A-STRAT-RES",
@@ -5393,10 +5539,11 @@
         "A-STRAT-RES \u2192 C106 (boost 0.00)"
       ],
       "2026-06-24": [
+        "A-STRAT-RES \u2192 C106 (boost 0.00)",
         "A-STRAT-RES \u2192 C106 (boost 0.00)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -5408,6 +5555,11 @@
         "target": "C106",
         "impact": "SCP boost of 0.00",
         "scp_boost": 0.0039
+      },
+      {
+        "target": "C106",
+        "impact": "SCP boost of 0.00",
+        "scp_boost": 0.002
       },
       {
         "target": "C106",
@@ -5438,14 +5590,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773265"
+    "last_updated": "2026-06-24T09:59:10.972593"
   },
   "A-AG-DEBT": {
     "id": "A-AG-DEBT",
     "name": "Farm debt\u2011fertiliser price trap",
     "narrative": "Farm debt\u2011fertiliser price trap \u2013 a threat affecting Food, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5466,51 +5618,13 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773321"
+    "last_updated": "2026-06-24T09:59:10.972656"
   },
   "C84": {
     "id": "C84",
     "name": "U.S. Electoral Integrity Breach",
     "narrative": "U.S. Electoral Integrity Breach \u2013 a threat affecting Domestic, Information. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.773378"
-  },
-  "I01": {
-    "id": "I01",
-    "name": "AI Deepfake Election",
-    "narrative": "AI Deepfake Election \u2013 a threat affecting Domestic, Information. Monitor closely for escalation.",
-    "timeline": {
-      "2026-06-20": [
-        "D-TRUST \u2192 I01 affected I01"
-      ],
-      "2026-06-21": [
-        "D-TRUST \u2192 I01 affected I01"
-      ],
-      "2026-06-23": [
-        "D-TRUST \u2192 I01 affected I01"
-      ]
-    },
     "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
@@ -5532,14 +5646,52 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773438"
+    "last_updated": "2026-06-24T09:59:10.972724"
+  },
+  "I01": {
+    "id": "I01",
+    "name": "AI Deepfake Election",
+    "narrative": "AI Deepfake Election \u2013 a threat affecting Domestic, Information. Monitor closely for escalation.",
+    "timeline": {
+      "2026-06-20": [
+        "D-TRUST \u2192 I01 affected I01"
+      ],
+      "2026-06-21": [
+        "D-TRUST \u2192 I01 affected I01"
+      ],
+      "2026-06-23": [
+        "D-TRUST \u2192 I01 affected I01"
+      ]
+    },
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.972804"
   },
   "C67": {
     "id": "C67",
     "name": "Asylum System Collapse",
     "narrative": "Asylum System Collapse \u2013 a threat affecting Domestic, Social. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5560,14 +5712,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773496"
+    "last_updated": "2026-06-24T09:59:10.972875"
   },
   "U01": {
     "id": "U01",
     "name": "US Jan 6 records erased",
     "narrative": "US Jan 6 records erased \u2013 a threat affecting Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5588,14 +5740,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773554"
+    "last_updated": "2026-06-24T09:59:10.972956"
   },
   "U02": {
     "id": "U02",
     "name": "$1.776B dark election fund",
     "narrative": "$1.776B dark election fund \u2013 a threat affecting Domestic, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5616,51 +5768,13 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773622"
+    "last_updated": "2026-06-24T09:59:10.973046"
   },
   "U03": {
     "id": "U03",
     "name": "2026 midterm integrity breaches",
     "narrative": "2026 midterm integrity breaches \u2013 a threat affecting Domestic, Information. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.773680"
-  },
-  "U06": {
-    "id": "U06",
-    "name": "Far\u2011right militia coordination",
-    "narrative": "Far\u2011right militia coordination \u2013 a threat affecting Domestic. Monitor closely for escalation.",
-    "timeline": {
-      "2026-06-20": [
-        "S-FED-8000 \u2192 U06 affected U06"
-      ],
-      "2026-06-21": [
-        "S-FED-8000 \u2192 U06 affected U06"
-      ],
-      "2026-06-23": [
-        "S-FED-8000 \u2192 U06 affected U06"
-      ]
-    },
     "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
@@ -5682,14 +5796,52 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773757"
+    "last_updated": "2026-06-24T09:59:10.973115"
+  },
+  "U06": {
+    "id": "U06",
+    "name": "Far\u2011right militia coordination",
+    "narrative": "Far\u2011right militia coordination \u2013 a threat affecting Domestic. Monitor closely for escalation.",
+    "timeline": {
+      "2026-06-20": [
+        "S-FED-8000 \u2192 U06 affected U06"
+      ],
+      "2026-06-21": [
+        "S-FED-8000 \u2192 U06 affected U06"
+      ],
+      "2026-06-23": [
+        "S-FED-8000 \u2192 U06 affected U06"
+      ]
+    },
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.973197"
   },
   "D-IMM-WAR": {
     "id": "D-IMM-WAR",
     "name": "Governor\u2011federal military standoff (state vs. national guard)",
     "narrative": "Governor\u2011federal military standoff (state vs. national guard) \u2013 a threat affecting Domestic, Institutional. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5710,14 +5862,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773819"
+    "last_updated": "2026-06-24T09:59:10.973266"
   },
   "D-AI-LIAB": {
     "id": "D-AI-LIAB",
     "name": "Collapse of AI liability frameworks",
     "narrative": "Collapse of AI liability frameworks \u2013 a threat affecting Domestic, Institutional. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5738,7 +5890,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773872"
+    "last_updated": "2026-06-24T09:59:10.973327"
   },
   "D-TRUST": {
     "id": "D-TRUST",
@@ -5758,7 +5910,7 @@
         "D-TRUST \u2192 I10 (boost 0.03)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -5805,14 +5957,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.773948"
+    "last_updated": "2026-06-24T09:59:10.973413"
   },
   "D-DESKILL": {
     "id": "D-DESKILL",
     "name": "Massive technological deskilling & workforce mismatch",
     "narrative": "Massive technological deskilling & workforce mismatch \u2013 a threat affecting Domestic, Social. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5833,14 +5985,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774002"
+    "last_updated": "2026-06-24T09:59:10.973487"
   },
   "D-GDPR": {
     "id": "D-GDPR",
     "name": "Fragmentation of global privacy & AI governance",
     "narrative": "Fragmentation of global privacy & AI governance \u2013 a threat affecting Domestic, Institutional. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5861,7 +6013,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774077"
+    "last_updated": "2026-06-24T09:59:10.973580"
   },
   "C139": {
     "id": "C139",
@@ -5884,10 +6036,11 @@
         "C03 \u2192 C139 affected C139"
       ],
       "2026-06-24": [
+        "C03 \u2192 C139 affected C139",
         "C03 \u2192 C139 affected C139"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 118",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 124",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5908,14 +6061,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774146"
+    "last_updated": "2026-06-24T09:59:10.973677"
   },
   "C5": {
     "id": "C5",
     "name": "Gaza Structural Atrocity",
     "narrative": "Gaza Structural Atrocity \u2013 a threat affecting Social, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5936,14 +6089,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774201"
+    "last_updated": "2026-06-24T09:59:10.973752"
   },
   "U07": {
     "id": "U07",
     "name": "Left\u2011wing protest violence",
     "narrative": "Left\u2011wing protest violence \u2013 a threat affecting Social. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5964,14 +6117,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774270"
+    "last_updated": "2026-06-24T09:59:10.973839"
   },
   "U13": {
     "id": "U13",
     "name": "Mexico cartel violence spillover",
     "narrative": "Mexico cartel violence spillover \u2013 a threat affecting Social, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -5992,14 +6145,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774329"
+    "last_updated": "2026-06-24T09:59:10.974072"
   },
   "U14": {
     "id": "U14",
     "name": "Central America migration surge",
     "narrative": "Central America migration surge \u2013 a threat affecting Social, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6020,14 +6173,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774387"
+    "last_updated": "2026-06-24T09:59:10.974145"
   },
   "C44S": {
     "id": "C44S",
     "name": "Delhi Heatwave \u2013 social collapse",
     "narrative": "Delhi Heatwave \u2013 social collapse \u2013 a threat affecting Social, Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6048,14 +6201,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774458"
+    "last_updated": "2026-06-24T09:59:10.974220"
   },
   "C64S": {
     "id": "C64S",
     "name": "Mediterranean Migration",
     "narrative": "Mediterranean Migration \u2013 a threat affecting Social, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6076,14 +6229,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774518"
+    "last_updated": "2026-06-24T09:59:10.974318"
   },
   "C20*S": {
     "id": "C20*S",
     "name": "Demand destruction + frozen labour",
     "narrative": "Demand destruction + frozen labour \u2013 a threat affecting Social, Financial. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6104,14 +6257,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774581"
+    "last_updated": "2026-06-24T09:59:10.974385"
   },
   "S-ANTI-TECH": {
     "id": "S-ANTI-TECH",
     "name": "Anti\u2011tech extremism (FBI/DHS tracked)",
     "narrative": "Anti\u2011tech extremism (FBI/DHS tracked) \u2013 a threat affecting Social, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6132,14 +6285,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774636"
+    "last_updated": "2026-06-24T09:59:10.974448"
   },
   "S-NVE": {
     "id": "S-NVE",
     "name": "Nihilistic Violent Extremists targeting children",
     "narrative": "Nihilistic Violent Extremists targeting children \u2013 a threat affecting Social, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6160,14 +6313,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774689"
+    "last_updated": "2026-06-24T09:59:10.974510"
   },
   "S-CLASS": {
     "id": "S-CLASS",
     "name": "Class\u2011based domestic terrorism (DHS)",
     "narrative": "Class\u2011based domestic terrorism (DHS) \u2013 a threat affecting Social, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6188,7 +6341,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774858"
+    "last_updated": "2026-06-24T09:59:10.974577"
   },
   "S-FED-8000": {
     "id": "S-FED-8000",
@@ -6205,7 +6358,7 @@
         "S-FED-8000 \u2192 U06 (boost 0.03)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -6242,14 +6395,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.774937"
+    "last_updated": "2026-06-24T09:59:10.974674"
   },
   "S-LONELY": {
     "id": "S-LONELY",
     "name": "Epidemic of loneliness as national security risk",
     "narrative": "Epidemic of loneliness as national security risk \u2013 a threat affecting Social. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6270,7 +6423,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775005"
+    "last_updated": "2026-06-24T09:59:10.974751"
   },
   "C\u2011ESCAPE": {
     "id": "C\u2011ESCAPE",
@@ -6287,7 +6440,7 @@
         "C\u2011ESCAPE \u2192 C\u2011MALWARE (boost 0.03)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -6324,7 +6477,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775092"
+    "last_updated": "2026-06-24T09:59:10.974844"
   },
   "C\u2011ZERODAY": {
     "id": "C\u2011ZERODAY",
@@ -6341,7 +6494,7 @@
         "C\u2011ZERODAY \u2192 C\u2011MALWARE (boost 0.02)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -6378,14 +6531,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775165"
+    "last_updated": "2026-06-24T09:59:10.974994"
   },
   "C\u2011BIOWPN": {
     "id": "C\u2011BIOWPN",
     "name": "AI\u2011Generated Bioweapon Instructions",
     "narrative": "AI\u2011Generated Bioweapon Instructions \u2013 a threat affecting Technology, Biosecurity. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6406,14 +6559,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775223"
+    "last_updated": "2026-06-24T09:59:10.975064"
   },
   "C\u2011AILANG": {
     "id": "C\u2011AILANG",
     "name": "Autonomous AI Social Networks",
     "narrative": "Autonomous AI Social Networks \u2013 a threat affecting Technology. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6434,14 +6587,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775282"
+    "last_updated": "2026-06-24T09:59:10.975125"
   },
   "C\u2011DATACENTER\u2011RES": {
     "id": "C\u2011DATACENTER\u2011RES",
     "name": "AI Infrastructure Resource Tipping Point",
     "narrative": "AI Infrastructure Resource Tipping Point \u2013 a threat affecting Technology, Climate. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6462,7 +6615,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775343"
+    "last_updated": "2026-06-24T09:59:10.975192"
   },
   "C\u2011MALWARE": {
     "id": "C\u2011MALWARE",
@@ -6482,7 +6635,7 @@
         "C\u2011ZERODAY \u2192 C\u2011MALWARE affected C\u2011MALWARE"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 114",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 118",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6503,14 +6656,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775401"
+    "last_updated": "2026-06-24T09:59:10.975289"
   },
   "C121T": {
     "id": "C121T",
     "name": "Taiwan Semiconductor Chokepoint",
     "narrative": "Taiwan Semiconductor Chokepoint \u2013 a threat affecting Technology, Supply Chains. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6531,14 +6684,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775454"
+    "last_updated": "2026-06-24T09:59:10.975351"
   },
   "C48T": {
     "id": "C48T",
     "name": "AI Deepfake Ops",
     "narrative": "AI Deepfake Ops \u2013 a threat affecting Technology, Information. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6559,14 +6712,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775526"
+    "last_updated": "2026-06-24T09:59:10.975415"
   },
   "C96": {
     "id": "C96",
     "name": "GPS Spoofing (Civil Aviation)",
     "narrative": "GPS Spoofing (Civil Aviation) \u2013 a threat affecting Technology. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6587,14 +6740,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775590"
+    "last_updated": "2026-06-24T09:59:10.975494"
   },
   "C97": {
     "id": "C97",
     "name": "Co\u2011orbital ASAT Threat",
     "narrative": "Co\u2011orbital ASAT Threat \u2013 a threat affecting Technology, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6615,14 +6768,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775661"
+    "last_updated": "2026-06-24T09:59:10.975579"
   },
   "I11": {
     "id": "I11",
     "name": "AI disinformation supercycle",
     "narrative": "AI disinformation supercycle \u2013 a threat affecting Technology, Information. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6643,14 +6796,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775720"
+    "last_updated": "2026-06-24T09:59:10.975648"
   },
   "I12": {
     "id": "I12",
     "name": "Deepfake WMD false flag risk",
     "narrative": "Deepfake WMD false flag risk \u2013 a threat affecting Technology, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6671,14 +6824,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775777"
+    "last_updated": "2026-06-24T09:59:10.975718"
   },
   "T-BIO-INF": {
     "id": "T-BIO-INF",
     "name": "AI\u2011powered bioinformatics as national security vulnerability",
     "narrative": "AI\u2011powered bioinformatics as national security vulnerability \u2013 a threat affecting Technology, Biosecurity. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6699,7 +6852,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775829"
+    "last_updated": "2026-06-24T09:59:10.975783"
   },
   "T-LAWS": {
     "id": "T-LAWS",
@@ -6716,7 +6869,7 @@
         "T-LAWS \u2192 C132 (boost 0.04)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -6753,14 +6906,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775902"
+    "last_updated": "2026-06-24T09:59:10.975874"
   },
   "T-SYN-DNA": {
     "id": "T-SYN-DNA",
     "name": "DNA synthesis screening gap (voluntary only)",
     "narrative": "DNA synthesis screening gap (voluntary only) \u2013 a threat affecting Technology, Biosecurity. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6781,14 +6934,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.775976"
+    "last_updated": "2026-06-24T09:59:10.975951"
   },
   "T-AGENT": {
     "id": "T-AGENT",
     "name": "Autonomous AI agents as persistence mechanism (Miasma variant)",
     "narrative": "Autonomous AI agents as persistence mechanism (Miasma variant) \u2013 a threat affecting Technology, Cyber. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6809,14 +6962,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776044"
+    "last_updated": "2026-06-24T09:59:10.976025"
   },
   "T-MISINFO": {
     "id": "T-MISINFO",
     "name": "Information ecosystem collapse as national security threat",
     "narrative": "Information ecosystem collapse as national security threat \u2013 a threat affecting Technology, Information. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6837,14 +6990,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776109"
+    "last_updated": "2026-06-24T09:59:10.976093"
   },
   "I01I": {
     "id": "I01I",
     "name": "IHL collapse \u2013 starvation as weapon",
     "narrative": "IHL collapse \u2013 starvation as weapon \u2013 a threat affecting Institutional. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6865,14 +7018,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776168"
+    "last_updated": "2026-06-24T09:59:10.976160"
   },
   "C2I": {
     "id": "C2I",
     "name": "Information Warfare",
     "narrative": "Information Warfare \u2013 a threat affecting Information, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6893,14 +7046,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776225"
+    "last_updated": "2026-06-24T09:59:10.976233"
   },
   "C84I": {
     "id": "C84I",
     "name": "U.S. Electoral Integrity Breach",
     "narrative": "U.S. Electoral Integrity Breach \u2013 a threat affecting Institutional, Domestic. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6921,14 +7074,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776294"
+    "last_updated": "2026-06-24T09:59:10.976325"
   },
   "G14": {
     "id": "G14",
     "name": "Trump 'imminent deal' narrative",
     "narrative": "Trump 'imminent deal' narrative \u2013 a threat affecting Information. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6949,14 +7102,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776352"
+    "last_updated": "2026-06-24T09:59:10.976395"
   },
   "I11I": {
     "id": "I11I",
     "name": "AI disinformation supercycle",
     "narrative": "AI disinformation supercycle \u2013 a threat affecting Information, Technology. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -6977,14 +7130,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776409"
+    "last_updated": "2026-06-24T09:59:10.976462"
   },
   "I12I": {
     "id": "I12I",
     "name": "Deepfake WMD false flag",
     "narrative": "Deepfake WMD false flag \u2013 a threat affecting Information, Geopolitical. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -7005,14 +7158,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776476"
+    "last_updated": "2026-06-24T09:59:10.976542"
   },
   "C19I": {
     "id": "C19I",
     "name": "Info\u2011civil unrest",
     "narrative": "Info\u2011civil unrest \u2013 a threat affecting Information, Social. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -7033,7 +7186,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776545"
+    "last_updated": "2026-06-24T09:59:10.976612"
   },
   "B02": {
     "id": "B02",
@@ -7056,7 +7209,7 @@
         "B-DARK-PROTEIN \u2192 B02 affected B02"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 114",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -7093,14 +7246,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776635"
+    "last_updated": "2026-06-24T09:59:10.976695"
   },
   "C148": {
     "id": "C148",
     "name": "Bundibugyo Ebola (duplicate)",
     "narrative": "Bundibugyo Ebola (duplicate) \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -7121,51 +7274,13 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776694"
+    "last_updated": "2026-06-24T09:59:10.976762"
   },
   "C94": {
     "id": "C94",
     "name": "H5N1 Mammalian Adaptation",
     "narrative": "H5N1 Mammalian Adaptation \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.776751"
-  },
-  "C77": {
-    "id": "C77",
-    "name": "U.S. Health Security Gaps",
-    "narrative": "U.S. Health Security Gaps \u2013 a threat affecting Biosecurity, Domestic. Monitor closely for escalation.",
-    "timeline": {
-      "2026-06-20": [
-        "B02 \u2192 C77 affected C77"
-      ],
-      "2026-06-21": [
-        "B02 \u2192 C77 affected C77"
-      ],
-      "2026-06-23": [
-        "B02 \u2192 C77 affected C77"
-      ]
-    },
     "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
@@ -7187,14 +7302,52 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776811"
+    "last_updated": "2026-06-24T09:59:10.976831"
+  },
+  "C77": {
+    "id": "C77",
+    "name": "U.S. Health Security Gaps",
+    "narrative": "U.S. Health Security Gaps \u2013 a threat affecting Biosecurity, Domestic. Monitor closely for escalation.",
+    "timeline": {
+      "2026-06-20": [
+        "B02 \u2192 C77 affected C77"
+      ],
+      "2026-06-21": [
+        "B02 \u2192 C77 affected C77"
+      ],
+      "2026-06-23": [
+        "B02 \u2192 C77 affected C77"
+      ]
+    },
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.976902"
   },
   "A12": {
     "id": "A12",
     "name": "Ebola \u2013 Bundibugyo",
     "narrative": "Ebola \u2013 Bundibugyo \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -7215,14 +7368,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776868"
+    "last_updated": "2026-06-24T09:59:10.976998"
   },
   "A13": {
     "id": "A13",
     "name": "Ebola cross\u2011border",
     "narrative": "Ebola cross\u2011border \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -7243,14 +7396,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.776946"
+    "last_updated": "2026-06-24T09:59:10.977087"
   },
   "A14": {
     "id": "A14",
     "name": "Mpox resurgence",
     "narrative": "Mpox resurgence \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -7271,14 +7424,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.777017"
+    "last_updated": "2026-06-24T09:59:10.977155"
   },
   "A15": {
     "id": "A15",
     "name": "Marburg outbreak",
     "narrative": "Marburg outbreak \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -7299,14 +7452,14 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.777080"
+    "last_updated": "2026-06-24T09:59:10.977242"
   },
   "B-METABIO": {
     "id": "B-METABIO",
     "name": "Convergent bio\u2011cyber threats (meta\u2011biothreats)",
     "narrative": "Convergent bio\u2011cyber threats (meta\u2011biothreats) \u2013 a threat affecting Biosecurity, Technology. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
     "human_cost": {
@@ -7327,7 +7480,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.777134"
+    "last_updated": "2026-06-24T09:59:10.977306"
   },
   "B-AMR-KLEB": {
     "id": "B-AMR-KLEB",
@@ -7344,7 +7497,7 @@
         "B-AMR-KLEB \u2192 B02 (boost 0.03)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -7381,7 +7534,7 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.777205"
+    "last_updated": "2026-06-24T09:59:10.977380"
   },
   "B-DARK-PROTEIN": {
     "id": "B-DARK-PROTEIN",
@@ -7398,7 +7551,7 @@
         "B-DARK-PROTEIN \u2192 B02 (boost 0.02)"
       ]
     },
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [
       {
@@ -7435,303 +7588,13 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.777267"
+    "last_updated": "2026-06-24T09:59:10.977469"
   },
   "B-PANT-PIE": {
     "id": "B-PANT-PIE",
     "name": "Pantoea piersonii \u2013 emerging pathogen",
     "narrative": "Pantoea piersonii \u2013 emerging pathogen \u2013 a threat affecting Biosecurity. Monitor closely for escalation.",
     "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.777330"
-  },
-  "B-RNA": {
-    "id": "B-RNA",
-    "name": "AI\u2011generated vaccine\u2011evading pathogens",
-    "narrative": "AI\u2011generated vaccine\u2011evading pathogens \u2013 a threat affecting Biosecurity, Technology. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.777394"
-  },
-  "C120": {
-    "id": "C120",
-    "name": "IHL Framework Collapse",
-    "narrative": "IHL Framework Collapse \u2013 a threat affecting Institutional. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.777455"
-  },
-  "C140": {
-    "id": "C140",
-    "name": "Strait of Hormuz Legal Regime Erosion",
-    "narrative": "Strait of Hormuz Legal Regime Erosion \u2013 a threat affecting Institutional, Geopolitical. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Hundreds of thousands",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.777512"
-  },
-  "C142": {
-    "id": "C142",
-    "name": "NPT Review Conference Regime Failure",
-    "narrative": "NPT Review Conference Regime Failure \u2013 a threat affecting Institutional, Geopolitical. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Hundreds of thousands",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.777580"
-  },
-  "C77I": {
-    "id": "C77I",
-    "name": "U.S. Health Security Gaps",
-    "narrative": "U.S. Health Security Gaps \u2013 a threat affecting Institutional, Biosecurity. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.777645"
-  },
-  "I02": {
-    "id": "I02",
-    "name": "War crime designation for ship attacks",
-    "narrative": "War crime designation for ship attacks \u2013 a threat affecting Institutional. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Hundreds of thousands",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.777716"
-  },
-  "I03": {
-    "id": "I03",
-    "name": "NPT failure \u2013 third consecutive",
-    "narrative": "NPT failure \u2013 third consecutive \u2013 a threat affecting Institutional. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.777784"
-  },
-  "I17": {
-    "id": "I17",
-    "name": "UN Security Council paralysis",
-    "narrative": "UN Security Council paralysis \u2013 a threat affecting Institutional. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "N/A"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.95,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.777843"
-  },
-  "C145I": {
-    "id": "C145I",
-    "name": "Iran\u2011Oman transit fee precedent",
-    "narrative": "Iran\u2011Oman transit fee precedent \u2013 a threat affecting Institutional, Financial. Monitor closely for escalation.",
-    "timeline": {},
-    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 102",
-    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
-    "cascade_effects": [],
-    "human_cost": {
-      "casualties": "Unknown",
-      "displaced": "Unknown",
-      "affected": "Unknown"
-    },
-    "economic_cost": {
-      "oil_impact": "N/A",
-      "global_gdp": "N/A",
-      "estimated_loss": "Billions of dollars"
-    },
-    "recommendations": [
-      "Immediate humanitarian response required.",
-      "Coordinate with Warden Corps and local authorities."
-    ],
-    "confidence": 0.79,
-    "sources": [
-      "Cascade Engine"
-    ],
-    "last_updated": "2026-06-24T09:51:29.777924"
-  },
-  "I10": {
-    "id": "I10",
-    "name": "US Media Collapse",
-    "narrative": "US Media Collapse \u2013 a threat affecting Institutional, Domestic. Monitor closely for escalation.",
-    "timeline": {
-      "2026-06-20": [
-        "D-TRUST \u2192 I10 affected I10"
-      ],
-      "2026-06-21": [
-        "D-TRUST \u2192 I10 affected I10"
-      ],
-      "2026-06-23": [
-        "D-TRUST \u2192 I10 affected I10"
-      ]
-    },
     "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
     "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
     "cascade_effects": [],
@@ -7753,6 +7616,296 @@
     "sources": [
       "Cascade Engine"
     ],
-    "last_updated": "2026-06-24T09:51:29.777999"
+    "last_updated": "2026-06-24T09:59:10.977535"
+  },
+  "B-RNA": {
+    "id": "B-RNA",
+    "name": "AI\u2011generated vaccine\u2011evading pathogens",
+    "narrative": "AI\u2011generated vaccine\u2011evading pathogens \u2013 a threat affecting Biosecurity, Technology. Monitor closely for escalation.",
+    "timeline": {},
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.977607"
+  },
+  "C120": {
+    "id": "C120",
+    "name": "IHL Framework Collapse",
+    "narrative": "IHL Framework Collapse \u2013 a threat affecting Institutional. Monitor closely for escalation.",
+    "timeline": {},
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.977679"
+  },
+  "C140": {
+    "id": "C140",
+    "name": "Strait of Hormuz Legal Regime Erosion",
+    "narrative": "Strait of Hormuz Legal Regime Erosion \u2013 a threat affecting Institutional, Geopolitical. Monitor closely for escalation.",
+    "timeline": {},
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Hundreds of thousands",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.977765"
+  },
+  "C142": {
+    "id": "C142",
+    "name": "NPT Review Conference Regime Failure",
+    "narrative": "NPT Review Conference Regime Failure \u2013 a threat affecting Institutional, Geopolitical. Monitor closely for escalation.",
+    "timeline": {},
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Hundreds of thousands",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.977844"
+  },
+  "C77I": {
+    "id": "C77I",
+    "name": "U.S. Health Security Gaps",
+    "narrative": "U.S. Health Security Gaps \u2013 a threat affecting Institutional, Biosecurity. Monitor closely for escalation.",
+    "timeline": {},
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.977924"
+  },
+  "I02": {
+    "id": "I02",
+    "name": "War crime designation for ship attacks",
+    "narrative": "War crime designation for ship attacks \u2013 a threat affecting Institutional. Monitor closely for escalation.",
+    "timeline": {},
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Hundreds of thousands",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.977994"
+  },
+  "I03": {
+    "id": "I03",
+    "name": "NPT failure \u2013 third consecutive",
+    "narrative": "NPT failure \u2013 third consecutive \u2013 a threat affecting Institutional. Monitor closely for escalation.",
+    "timeline": {},
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.978060"
+  },
+  "I17": {
+    "id": "I17",
+    "name": "UN Security Council paralysis",
+    "narrative": "UN Security Council paralysis \u2013 a threat affecting Institutional. Monitor closely for escalation.",
+    "timeline": {},
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.978140"
+  },
+  "C145I": {
+    "id": "C145I",
+    "name": "Iran\u2011Oman transit fee precedent",
+    "narrative": "Iran\u2011Oman transit fee precedent \u2013 a threat affecting Institutional, Financial. Monitor closely for escalation.",
+    "timeline": {},
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 106",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "Billions of dollars"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.79,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.978204"
+  },
+  "I10": {
+    "id": "I10",
+    "name": "US Media Collapse",
+    "narrative": "US Media Collapse \u2013 a threat affecting Institutional, Domestic. Monitor closely for escalation.",
+    "timeline": {
+      "2026-06-20": [
+        "D-TRUST \u2192 I10 affected I10"
+      ],
+      "2026-06-21": [
+        "D-TRUST \u2192 I10 affected I10"
+      ],
+      "2026-06-23": [
+        "D-TRUST \u2192 I10 affected I10"
+      ]
+    },
+    "current_status": "Black Structural \u2013 SCP: 0.80, Priority: 110",
+    "forecast": "Based on current trends, this threat is expected to remain active. Monitor cascade activations.",
+    "cascade_effects": [],
+    "human_cost": {
+      "casualties": "Unknown",
+      "displaced": "Unknown",
+      "affected": "Unknown"
+    },
+    "economic_cost": {
+      "oil_impact": "N/A",
+      "global_gdp": "N/A",
+      "estimated_loss": "N/A"
+    },
+    "recommendations": [
+      "Immediate humanitarian response required.",
+      "Coordinate with Warden Corps and local authorities."
+    ],
+    "confidence": 0.95,
+    "sources": [
+      "Cascade Engine"
+    ],
+    "last_updated": "2026-06-24T09:59:10.978295"
   }
 }

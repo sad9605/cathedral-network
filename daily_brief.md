@@ -1,33 +1,33 @@
 # Cathedral Daily Brief – 24 Jun 2026
 
 **GSCI:** 39.37  
-**Last sweep:** 2026-06-24T09:51:11.162573
+**Last sweep:** 2026-06-24T09:58:52.088339
 
 ## Top Threats
 
 ### C03 – Horn of Africa Famine
 - **SCP:** 80.0%  
-- **Priority:** 158  
+- **Priority:** 170  
 - Horn of Africa Famine – a threat affecting Food. Monitor closely for escalation....
 
 ### C132 – Great Power Conflict / US‑Iran Entanglement
 - **SCP:** 80.0%  
-- **Priority:** 154  
+- **Priority:** 166  
 - Great power entanglement involving the US, Iran, Russia, and China. Escalation in one theater risks drawing in multiple ...
 
 ### C11 – Iraq Instability
 - **SCP:** 80.0%  
-- **Priority:** 138  
+- **Priority:** 150  
 - Iraq Instability – resurgence of ISIS, Shia militias, and political deadlock, threatening oil infrastructure and regiona...
 
 ### C106 – Global Food Price Volatility
 - **SCP:** 80.0%  
-- **Priority:** 138  
+- **Priority:** 148  
 - Global Food Price Volatility – a threat affecting Food, Financial. Monitor closely for escalation....
 
 ### C54 – Baltic Grey‑Zone
 - **SCP:** 80.0%  
-- **Priority:** 126  
+- **Priority:** 136  
 - Baltic Grey-Zone operations – Russian hybrid warfare including GPS jamming, cyber attacks, and intimidation of NATO alli...
 
 ## Recent Events
