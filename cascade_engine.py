@@ -231,16 +231,16 @@ for rule in cascade_rules:
         target_scp = target_threat.get('scp', 0.5)
         boost = delta * (source_scp - propagation_threshold) * 0.5
 
-    # ---- Dampening factor ----
-    dampening = 1 - (target_scp * 0.7)   # 0.7 is tunable
-    dampening = max(0.1, dampening)      # ensure at least 10% of boost
-    new_scp = target_scp + boost * dampening
-    new_scp = min(0.99, new_scp)         # safe ceiling, not a cap
+        # ---- Dampening factor ----
+        dampening = 1 - (target_scp * 0.7)   # 0.7 is tunable
+        dampening = max(0.1, dampening)      # ensure at least 10% of boost
+        new_scp = target_scp + boost * dampening
+        new_scp = min(0.99, new_scp)         # safe ceiling, not a cap
 
-    target_threat['scp'] = round(new_scp, 4)
-    target_threat['status'] = compute_threat_status(new_scp)
-    target_threat['last_updated'] = datetime.now().isoformat()
-    # ... log cascade
+        target_threat['scp'] = round(new_scp, 4)
+        target_threat['status'] = compute_threat_status(new_scp)
+        target_threat['last_updated'] = datetime.now().isoformat()
+        # ... log cascade
 
             cascade_log = load_json("cascade_log.json", [])
             cascade_log.append({
