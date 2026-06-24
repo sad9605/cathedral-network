@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-24T09:51:53.391034",
+  "timestamp": "2026-06-24T10:00:02.094406",
   "status": "warning",
-  "last_sweep": "2026-06-24T09:51:11.162573",
+  "last_sweep": "2026-06-24T09:58:52.088339",
   "threats": 213,
   "errors": [
     "cron.log not updated in 12 hours"

@@ -206,35 +206,46 @@ def run_cascade_engine(
         updated_count += 1
 
     # ---------- 2. Propagate cascades ----------
-    propagation_threshold = 0.6
-    for rule in cascade_rules:
-        source_id = rule.get('source')
-        target_id = rule.get('target')
-        delta = rule.get('delta', 0.15)
+    # Cascade propagation
+propagation_threshold = 0.6
+for rule in cascade_rules:
+    source_id = rule.get('source')
+    target_id = rule.get('target')
+    delta = rule.get('delta', 0.15)
+    rule_domains = rule.get('domains', [])
 
-        source_threat = next((t for t in threats if t.get('id') == source_id), None)
-        target_threat = next((t for t in threats if t.get('id') == target_id), None)
+    source_threat = next((t for t in threats if t.get('id') == source_id), None)
+    target_threat = next((t for t in threats if t.get('id') == target_id), None)
 
-        if source_threat and target_threat:
-            source_scp = source_threat.get('scp', 0.0)
-            if source_scp > propagation_threshold:
-                target_scp = target_threat.get('scp', 0.5)
-                boost = delta * (source_scp - propagation_threshold) * 0.5
-                new_scp = min(0.80, target_scp + boost)
-                target_threat['scp'] = round(new_scp, 4)
-                target_threat['status'] = compute_threat_status(new_scp)
-                target_threat['last_updated'] = datetime.now().isoformat()
+    if source_threat and target_threat:
+        source_scp = source_threat.get('scp', 0.0)
 
-                cascade_log = load_json("cascade_log.json", [])
-                cascade_log.append({
-                    "timestamp": datetime.now().isoformat(),
-                    "source": source_id,
-                    "target": target_id,
-                    "source_scp": round(source_scp, 4),
-                    "target_scp": round(new_scp, 4),
-                    "boost": round(boost, 4)
-                })
-                save_json(cascade_log, "cascade_log.json")
+        # ---- DOMAIN CHECK ----
+        if rule_domains:
+            source_domains = source_threat.get('domains', [])
+            target_domains = target_threat.get('domains', [])
+            # Check if source OR target shares at least one domain with the rule
+            if not (set(source_domains) & set(rule_domains) or set(target_domains) & set(rule_domains)):
+                continue  # Skip this cascade – domains don't match
+
+        if source_scp > propagation_threshold:
+            target_scp = target_threat.get('scp', 0.5)
+            boost = delta * (source_scp - propagation_threshold) * 0.5
+            new_scp = min(0.80, target_scp + boost)
+            target_threat['scp'] = round(new_scp, 4)
+            target_threat['status'] = compute_threat_status(new_scp)
+            target_threat['last_updated'] = datetime.now().isoformat()
+
+            cascade_log = load_json("cascade_log.json", [])
+            cascade_log.append({
+                "timestamp": datetime.now().isoformat(),
+                "source": source_id,
+                "target": target_id,
+                "source_scp": round(source_scp, 4),
+                "target_scp": round(new_scp, 4),
+                "boost": round(boost, 4)
+            })
+            save_json(cascade_log, "cascade_log.json")
 
     # ---------- 3. Compute global metrics ----------
     gsci = compute_gsci(threats)
