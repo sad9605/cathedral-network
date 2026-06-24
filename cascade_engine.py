@@ -148,6 +148,9 @@ def run_cascade_engine(
         # Build likelihood ratios
         lrs = []
 
+        if tid in ['C01', 'C03', 'C11']:
+            print(f"DEBUG: {tid} base={base_prob:.3f}, lrs={lrs}, posterior={posterior:.3f}")
+
         # Existing LRs
         existing_lrs = t.get('likelihood_ratios', [])
         if isinstance(existing_lrs, list):

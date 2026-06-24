@@ -1,7 +1,7 @@
 # Cathedral Daily Brief – 24 Jun 2026
 
 **GSCI:** 48.71  
-**Last sweep:** 2026-06-24T13:49:40.867811
+**Last sweep:** 2026-06-24T13:58:07.651187
 
 ## Top Threats
 
