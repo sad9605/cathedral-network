@@ -7,7 +7,7 @@
         {
           "name": "GDACS",
           "type": "API/RSS",
-          "description": "Global Disaster Alert and Coordination System – real‑time alerts for earthquakes, floods, tropical cyclones, and other natural disasters. Provided by the UN OCHA and European Commission.",
+          "description": "Global Disaster Alert and Coordination System \u2013 real\u2011time alerts for earthquakes, floods, tropical cyclones, and other natural disasters. Provided by the UN OCHA and European Commission.",
           "link": "https://www.gdacs.org/"
         },
         {
@@ -19,31 +19,31 @@
         {
           "name": "NASA FIRMS",
           "type": "API/RSS",
-          "description": "Fire Information for Resource Management System – real‑time global fire data from MODIS and VIIRS satellites. Public domain.",
+          "description": "Fire Information for Resource Management System \u2013 real\u2011time global fire data from MODIS and VIIRS satellites. Public domain.",
           "link": "https://firms.modaps.eosdis.nasa.gov/"
         },
         {
           "name": "ReliefWeb",
           "type": "API/RSS",
-          "description": "UN OCHA's humanitarian information portal – provides situation reports, maps, and infographics on global crises. Authoritative source for humanitarian operations.",
+          "description": "UN OCHA's humanitarian information portal \u2013 provides situation reports, maps, and infographics on global crises. Authoritative source for humanitarian operations.",
           "link": "https://reliefweb.int/"
         },
         {
           "name": "HDX HAPI",
           "type": "API",
-          "description": "Humanitarian Data Exchange – Humanitarian API. Provides harmonised data on food security, conflict, displacement, and health from OCHA and partner organisations.",
+          "description": "Humanitarian Data Exchange \u2013 Humanitarian API. Provides harmonised data on food security, conflict, displacement, and health from OCHA and partner organisations.",
           "link": "https://data.humdata.org/"
         },
         {
           "name": "NOAA Storm Events",
           "type": "RSS",
-          "description": "National Oceanic and Atmospheric Administration – storm and extreme weather events database.",
+          "description": "National Oceanic and Atmospheric Administration \u2013 storm and extreme weather events database.",
           "link": "https://www.ncdc.noaa.gov/stormevents/"
         },
         {
           "name": "Open-Meteo",
           "type": "API",
-          "description": "Open‑source weather API providing historical, current, and forecast climate data including ERA5 reanalysis for climate anomaly detection.",
+          "description": "Open\u2011source weather API providing historical, current, and forecast climate data including ERA5 reanalysis for climate anomaly detection.",
           "link": "https://open-meteo.com/"
         },
         {
@@ -56,55 +56,55 @@
     },
     {
       "category": "Geopolitical & Conflict",
-      "disclaimer": "Conflict data sources are based on open‑source reporting and may have varying degrees of bias. The Cathedral applies source credibility weighting (see Methodology) to mitigate this.",
+      "disclaimer": "Conflict data sources are based on open\u2011source reporting and may have varying degrees of bias. The Cathedral applies source credibility weighting (see Methodology) to mitigate this.",
       "sources": [
         {
           "name": "ACLED",
           "type": "API",
-          "description": "Armed Conflict Location & Event Data Project – real‑time and historical conflict event data (Africa, Asia, Europe, Latin America, Middle East).",
+          "description": "Armed Conflict Location & Event Data Project \u2013 real\u2011time and historical conflict event data (Africa, Asia, Europe, Latin America, Middle East).",
           "link": "https://acleddata.com/"
         },
         {
           "name": "CFR Global Conflict Tracker",
           "type": "Web/Scraper",
-          "description": "Council on Foreign Relations – interactive guide to ongoing armed conflicts worldwide, updated daily. Scraped by the CFR Agent.",
+          "description": "Council on Foreign Relations \u2013 interactive guide to ongoing armed conflicts worldwide, updated daily. Scraped by the CFR Agent.",
           "link": "https://www.cfr.org/global-conflict-tracker"
         },
         {
           "name": "UCDP",
           "type": "API",
-          "description": "Uppsala Conflict Data Program – conflict data for research and analysis, including one‑sided violence and battle‑related deaths.",
+          "description": "Uppsala Conflict Data Program \u2013 conflict data for research and analysis, including one\u2011sided violence and battle\u2011related deaths.",
           "link": "https://ucdp.uu.se/"
         },
         {
           "name": "GDELT",
           "type": "API",
-          "description": "Global Database of Events, Language, and Tone – monitors broadcast, print, and web news from nearly every country worldwide.",
+          "description": "Global Database of Events, Language, and Tone \u2013 monitors broadcast, print, and web news from nearly every country worldwide.",
           "link": "https://www.gdeltproject.org/"
         },
         {
           "name": "CrisisWatch",
           "type": "RSS",
-          "description": "International Crisis Group – monthly early warning bulletin tracking conflict escalation and de‑escalation globally.",
+          "description": "International Crisis Group \u2013 monthly early warning bulletin tracking conflict escalation and de\u2011escalation globally.",
           "link": "https://www.crisisgroup.org/crisiswatch"
         },
         {
           "name": "Bellingcat",
           "type": "RSS",
-          "description": "Investigative journalism and open‑source research – used for verifications and geolocation of incidents. Editorial independence noted.",
+          "description": "Investigative journalism and open\u2011source research \u2013 used for verifications and geolocation of incidents. Editorial independence noted.",
           "link": "https://www.bellingcat.com/"
         },
         {
           "name": "WarTranslated",
           "type": "RSS",
-          "description": "Open‑source intelligence translations of Russian/Ukrainian military communications, used for conflict intelligence.",
+          "description": "Open\u2011source intelligence translations of Russian/Ukrainian military communications, used for conflict intelligence.",
           "link": "https://wartranslated.com/"
         }
       ]
     },
     {
       "category": "Economic & Financial",
-      "disclaimer": "Financial data is sourced from public and commercial APIs. The Cathedral does not provide financial advice; all data is for early‑warning research only.",
+      "disclaimer": "Financial data is sourced from public and commercial APIs. The Cathedral does not provide financial advice; all data is for early\u2011warning research only.",
       "sources": [
         {
           "name": "World Bank API",
@@ -115,7 +115,7 @@
         {
           "name": "IMF Data",
           "type": "API/RSS",
-          "description": "International Monetary Fund – economic forecasts, global growth, and financial stability indicators.",
+          "description": "International Monetary Fund \u2013 economic forecasts, global growth, and financial stability indicators.",
           "link": "https://www.imf.org/en/Data"
         },
         {
@@ -127,7 +127,7 @@
         {
           "name": "OECD Data",
           "type": "RSS",
-          "description": "Organisation for Economic Co‑operation and Development – economic, social, and environmental data.",
+          "description": "Organisation for Economic Co\u2011operation and Development \u2013 economic, social, and environmental data.",
           "link": "https://www.oecd.org/"
         },
         {
@@ -138,20 +138,20 @@
         },
         {
           "name": "yfinance",
-          "type": "Open‑Source Library",
+          "type": "Open\u2011Source Library",
           "description": "Python library for fetching historical stock, ETF, and commodity data from Yahoo Finance. Used for oil price tracking and financial stress indicators.",
           "link": "https://github.com/ranaroussi/yfinance"
         },
         {
           "name": "FAO GIEWS",
           "type": "API/RSS",
-          "description": "Food and Agriculture Organization – Global Information and Early Warning System on food prices and crop prospects.",
+          "description": "Food and Agriculture Organization \u2013 Global Information and Early Warning System on food prices and crop prospects.",
           "link": "https://www.fao.org/giews/"
         },
         {
           "name": "IPC Global",
           "type": "API/Web",
-          "description": "Integrated Food Security Phase Classification – acute food insecurity data for famine early warning.",
+          "description": "Integrated Food Security Phase Classification \u2013 acute food insecurity data for famine early warning.",
           "link": "https://www.ipcinfo.org/"
         }
       ]
@@ -169,11 +169,11 @@
         {
           "name": "Associated Press (AP)",
           "type": "RSS",
-          "description": "Independent global news agency. Used for fact‑based reporting on conflicts, disasters, and politics.",
+          "description": "Independent global news agency. Used for fact\u2011based reporting on conflicts, disasters, and politics.",
           "link": "https://www.ap.org/"
         },
         {
-          "name": "Agence France‑Presse (AFP)",
+          "name": "Agence France\u2011Presse (AFP)",
           "type": "RSS",
           "description": "French global news agency. Provides coverage of international events, including war zones and humanitarian crises.",
           "link": "https://www.afp.com/"
@@ -181,7 +181,7 @@
         {
           "name": "Al Jazeera",
           "type": "RSS",
-          "description": "Qatari‑based news network. Includes extensive coverage of Middle East, Africa, and Asia. Editorial line is noted but weighted accordingly.",
+          "description": "Qatari\u2011based news network. Includes extensive coverage of Middle East, Africa, and Asia. Editorial line is noted but weighted accordingly.",
           "link": "https://www.aljazeera.com/"
         },
         {
@@ -199,7 +199,7 @@
         {
           "name": "The New York Times",
           "type": "RSS",
-          "description": "American newspaper. Used for in‑depth reporting on politics, technology, and international relations.",
+          "description": "American newspaper. Used for in\u2011depth reporting on politics, technology, and international relations.",
           "link": "https://www.nytimes.com/"
         },
         {
@@ -211,7 +211,7 @@
         {
           "name": "South China Morning Post",
           "type": "RSS",
-          "description": "Hong‑Kong based newspaper. Used for Asian geopolitical and economic news.",
+          "description": "Hong\u2011Kong based newspaper. Used for Asian geopolitical and economic news.",
           "link": "https://www.scmp.com/"
         },
         {
@@ -229,19 +229,19 @@
         {
           "name": "Twitter/X",
           "type": "API/RSS",
-          "description": "Real‑time social media feed for breaking news, official announcements, and citizen reports. Filtered by verified accounts and keywords.",
+          "description": "Real\u2011time social media feed for breaking news, official announcements, and citizen reports. Filtered by verified accounts and keywords.",
           "link": "https://twitter.com/"
         },
         {
           "name": "Reddit",
           "type": "API/RSS",
-          "description": "Crowdsourced discussion and reporting, especially from r/OSINT, r/geopolitics, and disaster‑specific subreddits.",
+          "description": "Crowdsourced discussion and reporting, especially from r/OSINT, r/geopolitics, and disaster\u2011specific subreddits.",
           "link": "https://www.reddit.com/"
         },
         {
           "name": "Telegram",
           "type": "API",
-          "description": "Encrypted messaging app used by state and non‑state actors for announcements and intelligence sharing. Selected public channels monitored.",
+          "description": "Encrypted messaging app used by state and non\u2011state actors for announcements and intelligence sharing. Selected public channels monitored.",
           "link": "https://telegram.org/"
         },
         {
@@ -254,18 +254,18 @@
     },
     {
       "category": "Cyber Threat Intelligence",
-      "disclaimer": "Cyber threat sources are derived from open‑source and free security feeds. The Cathedral uses them for early warning of cyber attacks, ransomware, and infrastructure targeting.",
+      "disclaimer": "Cyber threat sources are derived from open\u2011source and free security feeds. The Cathedral uses them for early warning of cyber attacks, ransomware, and infrastructure targeting.",
       "sources": [
         {
           "name": "Feodo Tracker",
           "type": "API/TXT",
-          "description": "Abuse.ch C2 IP tracker – command‑and‑control server IPs used by malware families.",
+          "description": "Abuse.ch C2 IP tracker \u2013 command\u2011and\u2011control server IPs used by malware families.",
           "link": "https://feodotracker.abuse.ch/"
         },
         {
           "name": "URLhaus",
           "type": "API/CSV",
-          "description": "Malware URL repository – tracks malicious URLs, phishing sites, and malware distribution.",
+          "description": "Malware URL repository \u2013 tracks malicious URLs, phishing sites, and malware distribution.",
           "link": "https://urlhaus.abuse.ch/"
         },
         {
@@ -277,19 +277,19 @@
         {
           "name": "CVE Database",
           "type": "API",
-          "description": "Common Vulnerabilities and Exposures – official repository of publicly disclosed cybersecurity vulnerabilities.",
+          "description": "Common Vulnerabilities and Exposures \u2013 official repository of publicly disclosed cybersecurity vulnerabilities.",
           "link": "https://cve.circl.lu/"
         },
         {
           "name": "Shadowserver",
           "type": "RSS",
-          "description": "Internet threat monitoring – reports on botnets, DDoS attacks, and vulnerable systems.",
+          "description": "Internet threat monitoring \u2013 reports on botnets, DDoS attacks, and vulnerable systems.",
           "link": "https://www.shadowserver.org/"
         },
         {
           "name": "Spamhaus",
           "type": "RSS",
-          "description": "Real‑time threat intelligence on spam, phishing, and malware distribution networks.",
+          "description": "Real\u2011time threat intelligence on spam, phishing, and malware distribution networks.",
           "link": "https://www.spamhaus.org/"
         }
       ]
@@ -301,13 +301,13 @@
         {
           "name": "US State Dept Travel Advisories",
           "type": "RSS",
-          "description": "US Department of State – official travel advisories, alerts, and country-specific security information.",
+          "description": "US Department of State \u2013 official travel advisories, alerts, and country-specific security information.",
           "link": "https://travel.state.gov/"
         },
         {
           "name": "UK FCDO Travel Advice",
           "type": "RSS",
-          "description": "UK Foreign, Commonwealth & Development Office – travel advice and security updates for British nationals.",
+          "description": "UK Foreign, Commonwealth & Development Office \u2013 travel advice and security updates for British nationals.",
           "link": "https://www.gov.uk/foreign-travel-advice"
         }
       ]
@@ -317,34 +317,34 @@
       "disclaimer": "Satellite data is sourced from open and commercial providers. The Cathedral does not store or share raw imagery; only derived threat indicators.",
       "sources": [
         {
-          "name": "Sentinel‑2 (ESA)",
+          "name": "Sentinel\u20112 (ESA)",
           "type": "API",
-          "description": "European Space Agency – multispectral satellite imagery for agriculture, forests, and disaster monitoring.",
+          "description": "European Space Agency \u2013 multispectral satellite imagery for agriculture, forests, and disaster monitoring.",
           "link": "https://scihub.copernicus.eu/"
         },
         {
           "name": "Landsat (NASA/USGS)",
           "type": "API",
-          "description": "USGS/NASA – longest‑running satellite observation program. Used for land cover change and environmental monitoring.",
+          "description": "USGS/NASA \u2013 longest\u2011running satellite observation program. Used for land cover change and environmental monitoring.",
           "link": "https://www.usgs.gov/landsat-missions"
         },
         {
           "name": "OpenSky Network",
           "type": "API",
-          "description": "Open‑source flight tracking and air traffic data for aviation and conflict monitoring.",
+          "description": "Open\u2011source flight tracking and air traffic data for aviation and conflict monitoring.",
           "link": "https://opensky-network.org/"
         },
         {
           "name": "GPS Jamming Data (gpsjam.org)",
           "type": "API/CSV",
-          "description": "GPS interference and jamming data – tracks areas with high GPS signal degradation. Used for electronic warfare monitoring.",
+          "description": "GPS interference and jamming data \u2013 tracks areas with high GPS signal degradation. Used for electronic warfare monitoring.",
           "link": "https://www.gpsjam.org/"
         }
       ]
     },
     {
-      "category": "Open‑Source Tools & Libraries",
-      "disclaimer": "These open‑source libraries are used in the Cathedral's backend and frontend. Each is credited per its license; full attributions are in the Credits page.",
+      "category": "Open\u2011Source Tools & Libraries",
+      "disclaimer": "These open\u2011source libraries are used in the Cathedral's backend and frontend. Each is credited per its license; full attributions are in the Credits page.",
       "sources": [
         {
           "name": "Python 3",
@@ -354,68 +354,68 @@
         },
         {
           "name": "NumPy",
-          "type": "Open‑Source Library",
+          "type": "Open\u2011Source Library",
           "description": "Numerical computing for the mathematical compendium.",
           "link": "https://numpy.org/"
         },
         {
           "name": "SciPy",
-          "type": "Open‑Source Library",
+          "type": "Open\u2011Source Library",
           "description": "Scientific computing for statistics and signal processing.",
           "link": "https://scipy.org/"
         },
         {
           "name": "Pandas",
-          "type": "Open‑Source Library",
+          "type": "Open\u2011Source Library",
           "description": "Data manipulation and analysis for sweep reports.",
           "link": "https://pandas.pydata.org/"
         },
         {
           "name": "Statsmodels",
-          "type": "Open‑Source Library",
-          "description": "Statistical modelling for time‑series and regression analysis.",
+          "type": "Open\u2011Source Library",
+          "description": "Statistical modelling for time\u2011series and regression analysis.",
           "link": "https://www.statsmodels.org/"
         },
         {
-          "name": "Scikit‑Learn",
-          "type": "Open‑Source Library",
-          "description": "Machine learning for TF‑IDF and classifier training (v9 ML).",
+          "name": "Scikit\u2011Learn",
+          "type": "Open\u2011Source Library",
+          "description": "Machine learning for TF\u2011IDF and classifier training (v9 ML).",
           "link": "https://scikit-learn.org/"
         },
         {
           "name": "Requests",
-          "type": "Open‑Source Library",
+          "type": "Open\u2011Source Library",
           "description": "HTTP client for fetching feeds and APIs.",
           "link": "https://requests.readthedocs.io/"
         },
         {
           "name": "Feedparser",
-          "type": "Open‑Source Library",
+          "type": "Open\u2011Source Library",
           "description": "RSS/Atom feed parsing for news and alert streams.",
           "link": "https://feedparser.readthedocs.io/"
         },
         {
           "name": "Beautiful Soup",
-          "type": "Open‑Source Library",
+          "type": "Open\u2011Source Library",
           "description": "HTML/XML parsing for web scraping.",
           "link": "https://www.crummy.com/software/BeautifulSoup/"
         },
         {
           "name": "Geopy",
-          "type": "Open‑Source Library",
+          "type": "Open\u2011Source Library",
           "description": "Geocoding for conflict location mapping (Nominatim).",
           "link": "https://geopy.readthedocs.io/"
         },
         {
           "name": "Joblib",
-          "type": "Open‑Source Library",
+          "type": "Open\u2011Source Library",
           "description": "Model serialization and caching for the ML pipeline.",
           "link": "https://joblib.readthedocs.io/"
         },
         {
           "name": "Prophet (Meta)",
-          "type": "Open‑Source Library",
-          "description": "Time‑series forecasting for oil, food, and FEMA indicators.",
+          "type": "Open\u2011Source Library",
+          "description": "Time\u2011series forecasting for oil, food, and FEMA indicators.",
           "link": "https://facebook.github.io/prophet/"
         },
         {
@@ -431,9 +431,9 @@
           "link": "https://github.com/vasturiano/globe.gl"
         },
         {
-          "name": "3d‑force‑graph",
+          "name": "3d\u2011force\u2011graph",
           "type": "Frontend Library",
-          "description": "3D force‑directed graph for the Nexus 3D threat visualisation.",
+          "description": "3D force\u2011directed graph for the Nexus 3D threat visualisation.",
           "link": "https://github.com/vasturiano/3d-force-graph"
         },
         {
@@ -458,60 +458,60 @@
     },
     {
       "category": "Custom Cathedral Modules",
-      "disclaimer": "These are proprietary (but open‑source) modules developed specifically for the Cathedral Network. They are documented in the code and methodology.",
+      "disclaimer": "These are proprietary (but open\u2011source) modules developed specifically for the Cathedral Network. They are documented in the code and methodology.",
       "sources": [
         {
           "name": "cathedral_system.py",
           "type": "Custom Module",
-          "description": "Master orchestrator – runs the full 19‑step daily pipeline.",
+          "description": "Master orchestrator \u2013 runs the full 19\u2011step daily pipeline.",
           "link": "https://github.com/sad9605/cathedral-network"
         },
         {
           "name": "daily-sweep.py",
           "type": "Custom Module",
-          "description": "OSINT ingestion pipeline – fetches all feeds from feeds.json, normalises, and outputs sweep_report.json.",
+          "description": "OSINT ingestion pipeline \u2013 fetches all feeds from feeds.json, normalises, and outputs sweep_report.json.",
           "link": "https://github.com/sad9605/cathedral-network"
         },
         {
           "name": "cascade_engine.py",
           "type": "Custom Module",
-          "description": "Bayesian cascade engine with v9 ML integration – updates threats.json and cascade_log.json.",
+          "description": "Bayesian cascade engine with v9 ML integration \u2013 updates threats.json and cascade_log.json.",
           "link": "https://github.com/sad9605/cathedral-network"
         },
         {
           "name": "cathedral_math.py",
           "type": "Custom Module",
-          "description": "Mathematical Compendium – all 32 formulas (SSI, GSCI, SCP, DAS, etc.) implemented.",
+          "description": "Mathematical Compendium \u2013 all 32 formulas (SSI, GSCI, SCP, DAS, etc.) implemented.",
           "link": "https://github.com/sad9605/cathedral-network"
         },
         {
           "name": "cathedral_ml.py",
           "type": "Custom Module",
-          "description": "TF‑IDF + Logistic Regression ML model for threat likelihood ratios (v9).",
+          "description": "TF\u2011IDF + Logistic Regression ML model for threat likelihood ratios (v9).",
           "link": "https://github.com/sad9605/cathedral-network"
         },
         {
           "name": "ascension_engine.py",
           "type": "Custom Module",
-          "description": "Positive cascades – Recovery Probability, Opportunity Matrix, Resilience Score.",
+          "description": "Positive cascades \u2013 Recovery Probability, Opportunity Matrix, Resilience Score.",
           "link": "https://github.com/sad9605/cathedral-network"
         },
         {
           "name": "generate_predictions.py",
           "type": "Custom Module",
-          "description": "Prediction log generator – creates predictions.json with date_made, CERES, and confidence breakdown.",
+          "description": "Prediction log generator \u2013 creates predictions.json with date_made, CERES, and confidence breakdown.",
           "link": "https://github.com/sad9605/cathedral-network"
         },
         {
           "name": "verify_predictions.py",
           "type": "Custom Module",
-          "description": "Daily verification – moves pending predictions to confirmed/falsified based on threat status.",
+          "description": "Daily verification \u2013 moves pending predictions to confirmed/falsified based on threat status.",
           "link": "https://github.com/sad9605/cathedral-network"
         },
         {
           "name": "indices.py",
           "type": "Custom Module",
-          "description": "Regional indices computation – aggregates threats by region for regional GSCI/SSI.",
+          "description": "Regional indices computation \u2013 aggregates threats by region for regional GSCI/SSI.",
           "link": "https://github.com/sad9605/cathedral-network"
         },
         {
@@ -529,7 +529,7 @@
         {
           "name": "cfr_agent.py",
           "type": "Custom Module",
-          "description": "Agentic Warden for CFR Conflict Tracker – scrapes and updates conflict_data.json and threats.json.",
+          "description": "Agentic Warden for CFR Conflict Tracker \u2013 scrapes and updates conflict_data.json and threats.json.",
           "link": "https://github.com/sad9605/cathedral-network"
         },
         {
@@ -595,7 +595,7 @@
         {
           "name": "compute_trends.py",
           "type": "Custom Module",
-          "description": "Computes 7‑day SCP deltas and outputs trend.json.",
+          "description": "Computes 7\u2011day SCP deltas and outputs trend.json.",
           "link": "https://github.com/sad9605/cathedral-network"
         },
         {
@@ -613,12 +613,52 @@
         {
           "name": "git_commit_push.py",
           "type": "Custom Module",
-          "description": "Auto‑commits and pushes all changes to GitHub after each sweep.",
+          "description": "Auto\u2011commits and pushes all changes to GitHub after each sweep.",
           "link": "https://github.com/sad9605/cathedral-network"
         }
       ]
     }
   ],
-  "last_updated": "2026-06-25",
-  "disclaimer": "This list is generated automatically and may not be exhaustive. The Cathedral Network does not endorse any external organisation; all sources are included for transparency and analytical purposes. Attribution and source credibility weighting are applied per Law III."
+  "last_updated": "2026-06-25T11:34:11.180037",
+  "disclaimer": "This list is generated automatically and may not be exhaustive. The Cathedral Network does not endorse any external organisation; all sources are included for transparency and analytical purposes. Attribution and source credibility weighting are applied per Law III.",
+  "software": [
+    {
+      "name": "Agentic Warden",
+      "type": "Custom Module"
+    },
+    {
+      "name": "GovAgent",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Steganographic Layer",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Provenance Engine",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Formal Verification",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Unconventional Orchestrator",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Community Sensors",
+      "type": "Custom Module"
+    },
+    {
+      "name": "Cascade Discovery",
+      "type": "Custom Module"
+    }
+  ],
+  "stats": {
+    "threats": 233,
+    "cascade_rules": 0,
+    "data_sources": 10,
+    "software_libraries": 8
+  }
 }

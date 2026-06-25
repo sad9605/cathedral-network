@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-25T02:22:27.923010",
+  "timestamp": "2026-06-25T11:33:45.259559",
   "items": [
     {
       "title": "Green flood alert in T\u00fcrkiye",
@@ -9,6 +9,15 @@
       "source": "GDACS",
       "category": "Negative",
       "impact": "Medium"
+    },
+    {
+      "title": "Green earthquake (Magnitude 5.5M, Depth:33km) in Papua New Guinea 25/06/2026 06:19 UTC, 240 thousand in MMI>=IV.",
+      "description": "On 6/25/2026 6:19:38 AM, an earthquake occurred in Papua New Guinea potentially affecting 240 thousand in MMI>=IV. The earthquake had Magnitude 5.5M, Depth:33km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548439",
+      "date": "Thu, 25 Jun 2026 06:37:31 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
     },
     {
       "title": "Green earthquake (Magnitude 6.9M, Depth:50.923km) in Japan 24/06/2026 22:30 UTC, 330 thousand in MMI VI.",
@@ -29,6 +38,15 @@
       "impact": "Critical"
     },
     {
+      "title": "Red earthquake (Magnitude 7.2M, Depth:20.294km) in Venezuela 24/06/2026 22:04 UTC, 990 thousand (in MMI>=VII).",
+      "description": "On 6/24/2026 10:04:32 PM, an earthquake occurred in Venezuela potentially affecting 990 thousand (in MMI>=VII). The earthquake had Magnitude 7.2M, Depth:20.294km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548473",
+      "date": "Thu, 25 Jun 2026 11:07:15 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
       "title": "Green earthquake (Magnitude 5.57M, Depth:8.06999969482422km) in United States 24/06/2026 15:10 UTC, 10 thousand (in MMI>=VII).",
       "description": "On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 10 thousand (in MMI>=VII). The earthquake had Magnitude 5.57M, Depth:8.06999969482422km.",
       "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548310",
@@ -38,49 +56,58 @@
       "impact": "Critical"
     },
     {
-      "title": "Green flood alert in Hungary",
-      "description": "On 22/06/2026, a flood started in Hungary, lasting until 24/06/2026 (last update). The flood caused 0 deaths and 0 displaced .",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103967",
-      "date": "Tue, 23 Jun 2026 10:47:08 GMT",
+      "title": "Green flood alert in India",
+      "description": "On 23/06/2026, a flood started in India, lasting until 25/06/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103972",
+      "date": "Thu, 25 Jun 2026 07:47:24 GMT",
       "source": "GDACS",
       "category": "Negative",
       "impact": "Medium"
     },
     {
-      "title": "Green flood alert in Romania",
-      "description": "On 21/06/2026, a flood started in Romania, lasting until 23/06/2026 (last update). The flood caused 0 deaths and 0 displaced .",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103966",
-      "date": "Tue, 23 Jun 2026 06:07:19 GMT",
-      "source": "GDACS",
-      "category": "Negative",
-      "impact": "Medium"
-    },
-    {
-      "title": "'I thought building would fall on top of me' - Venezuelans describe earthquake panic",
-      "description": "Two quakes hit the capital seconds apart, the first at a magnitude of 7.2 and the second at 7.5.",
+      "title": "'I thought I was going to die' - Venezuelans describe earthquake panic",
+      "description": "Buildings were flattened in the capital Caracas, where voices have been heard calling from the rubble.",
       "link": "https://www.bbc.co.uk/news/articles/czj8vjvmz38o?at_medium=RSS&at_campaign=rss",
-      "date": "Thu, 25 Jun 2026 02:27:27 GMT",
+      "date": "Thu, 25 Jun 2026 15:04:21 GMT",
       "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "Trump asks Congress for $87bn, mostly for 'urgent' Iran war costs",
-      "description": "But the budget faces an uphill battle, coming a day after lawmakers rebuked Trump's military action.",
+      "title": "Earthquake is devastating blow to Venezuela at time of uncertainty",
+      "description": "The twin quakes come less than six months after Venezuela's then-leader Nicol\u00e1s Maduro was seized by US forces.",
+      "link": "https://www.bbc.co.uk/news/articles/c3vynpw7rk4o?at_medium=RSS&at_campaign=rss",
+      "date": "Thu, 25 Jun 2026 13:09:58 GMT",
+      "source": "BBC News",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Trump asks Congress for billions for Iran war, after tension with Republicans",
+      "description": "But the budget faces an uphill battle as the president spars with some members of his own party over the issue.",
       "link": "https://www.bbc.co.uk/news/articles/c1eydwldzdjo?at_medium=RSS&at_campaign=rss",
-      "date": "Thu, 25 Jun 2026 00:51:28 GMT",
+      "date": "Thu, 25 Jun 2026 09:06:59 GMT",
       "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "UN nuclear chief says inspectors will visit Iran sites as part of war deal",
-      "description": "Rafael Grossi says the IAEA is \"working on modalities\" but an Iranian  minister says such access would only be part of a final deal with the US.",
-      "link": "https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&at_campaign=rss",
-      "date": "Wed, 24 Jun 2026 17:31:48 GMT",
+      "title": "Oil price falls back to pre-Iran war levels",
+      "description": "Signs that traffic through the key Strait of Hormuz shipping route is gradually resuming has helped to push the oil price down.",
+      "link": "https://www.bbc.co.uk/news/articles/c0jy7d7wzv4o?at_medium=RSS&at_campaign=rss",
+      "date": "Thu, 25 Jun 2026 15:32:04 GMT",
       "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
+    },
+    {
+      "title": "IBM hails new 'block of flats' design breakthrough for ultra tiny chips",
+      "description": "IBM says it has created the world's first known chip tech below 1 nanometre - but it will be some time before it's ready for production.",
+      "link": "https://www.bbc.co.uk/news/articles/cvg7vpyn5pxo?at_medium=RSS&at_campaign=rss",
+      "date": "Thu, 25 Jun 2026 10:04:43 GMT",
+      "source": "BBC News",
+      "category": "Positive",
+      "impact": "High"
     },
     {
       "title": "Clean sweep for Mamdani-backed candidates in New York's Democratic primary",
@@ -101,35 +128,17 @@
       "impact": "Critical"
     },
     {
-      "title": "French woman allegedly held captive by husband for 12 years rescued in Pakistan",
-      "description": "Yasmina alleges she was held along with her five children, and they were all cut off from the outside world.",
-      "link": "https://www.bbc.co.uk/news/articles/cj0g71pnv3no?at_medium=RSS&at_campaign=rss",
-      "date": "Wed, 24 Jun 2026 08:29:06 GMT",
-      "source": "BBC News",
-      "category": "Positive",
-      "impact": "Medium"
-    },
-    {
-      "title": "Sydney woman wakes from induced coma more than a week after shark attack",
-      "description": "Leah Stewart, 34, had one of her arms amputated after she was bitten while swimming at Coogee Beach.",
-      "link": "https://www.bbc.co.uk/news/articles/cy8drk2dk3no?at_medium=RSS&at_campaign=rss",
-      "date": "Wed, 24 Jun 2026 01:42:43 GMT",
+      "title": "UN nuclear chief says inspectors will visit Iran sites as part of war deal",
+      "description": "Rafael Grossi says the IAEA is \"working on modalities\" but an Iranian  minister says such access would only be part of a final deal with the US.",
+      "link": "https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 24 Jun 2026 17:31:48 GMT",
       "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "Eight sentenced to 450 years in prison over anti-ICE riot where officer was shot",
-      "description": "An officer was shot in the neck during the Texas disorder by \"Antifa Cell operatives\", prosecutors said.",
-      "link": "https://www.bbc.co.uk/news/articles/clyedgnyn4mo?at_medium=RSS&at_campaign=rss",
-      "date": "Wed, 24 Jun 2026 00:00:06 GMT",
-      "source": "BBC News",
-      "category": "Positive",
-      "impact": "High"
-    },
-    {
       "title": "The ICE raids are over, but some Minnesotans say they still live in fear",
-      "description": "Six months after he Trump administration's immigration crackdown ended, Minneapolis is still feeling the impact.",
+      "description": "Months after the Trump administration's immigration crackdown officially ended, Minneapolis is still feeling the impact.",
       "link": "https://www.bbc.co.uk/news/articles/c0eyww7280xo?at_medium=RSS&at_campaign=rss",
       "date": "Thu, 25 Jun 2026 02:40:13 GMT",
       "source": "BBC News",
@@ -137,48 +146,39 @@
       "impact": "High"
     },
     {
-      "title": "Why are there holiday delay warnings over the EU's new border system?",
-      "description": "The EU's much-delayed Entry/Exit System will change the way UK passengers travel to 29 countries.",
-      "link": "https://www.bbc.co.uk/news/articles/c39rkpe8mj2o?at_medium=RSS&at_campaign=rss",
-      "date": "Wed, 24 Jun 2026 09:47:35 GMT",
-      "source": "BBC News",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Ethiopia is not being \u2018dragged into war\u2019",
-      "description": "A response to Redwan Hussein and Getachew Reda\u2019s misleading opinion article.",
-      "link": "https://www.aljazeera.com/opinions/2026/6/25/ethiopia-is-not-being-dragged-into-war?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 06:29:17 +0000",
+      "title": "They fled war as child refugees, now they\u2019re playing at World Cup 2026",
+      "description": "In a World Cup for everyone, as it has been dubbed by FIFA, players carry historic stories of war and displacement.",
+      "link": "https://www.aljazeera.com/sports/2026/6/25/they-fled-war-as-child-refugees-now-theyre-playing-at-world-cup-2026?traffic_source=rss",
+      "date": "Thu, 25 Jun 2026 15:31:55 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "Venezuela rocked by 7.5, 7.2 earthquakes: What happened and what we know",
-      "description": "Rescue efforts under way as Venezuela declares a state of emergency after powerful twin quakes cause widespread damage.",
-      "link": "https://www.aljazeera.com/news/2026/6/25/venezuela-rocked-by-7-5-7-2-earthquakes-what-happened-and-what-we-know?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 05:27:10 +0000",
+      "title": "Lebanon Latest: Peace talks between Lebanon and Israel, people return south",
+      "description": "Al Jazeera\u2019s Robert McBride brings you the latest from Beirut as people return to the south of Lebanon.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/25/lebanon-latest-peace-talks-between-lebanon-and-israel-people-return-south?traffic_source=rss",
+      "date": "Thu, 25 Jun 2026 14:59:15 +0000",
+      "source": "Al Jazeera",
+      "category": "Positive",
+      "impact": "Medium"
+    },
+    {
+      "title": "Iran accuses NATO of \u2018complicity\u2019 in US war: What role did EU nations play?",
+      "description": "NATO boss tries to convince Trump that European allies were there for the US during war on Iran.",
+      "link": "https://www.aljazeera.com/news/2026/6/25/iran-accuses-nato-of-complicity-in-us-war-what-role-did-eu-nations-play?traffic_source=rss",
+      "date": "Thu, 25 Jun 2026 14:43:48 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "In pictures: Venezuela hit by twin earthquakes",
-      "description": "Caracas airport closed, metro suspended and power outages reported after deadly quakes rock Venezuela.",
-      "link": "https://www.aljazeera.com/gallery/2026/6/25/venezuela-grapples-with-deadly-twin-quakes-over-700-injured-so-far?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 05:23:27 +0000",
+      "title": "IRGC warns against new Hormuz route for ships: What we know",
+      "description": "Experts say disagreements over shipping routes and transit fees could complicate efforts to reach a permanent agreement.",
+      "link": "https://www.aljazeera.com/news/2026/6/25/irgc-warns-against-new-hormuz-route-for-ships-what-we-know?traffic_source=rss",
+      "date": "Thu, 25 Jun 2026 14:33:54 +0000",
       "source": "Al Jazeera",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Thousands feared dead as twin earthquakes cause devastation across Venezuel",
-      "description": "Thousands feared dead as twin earthquakes cause devastation across Venezuela.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/25/thousands-feared-dead-as-twin-earthquakes-cause-devastation-across-venezuel?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 04:16:01 +0000",
-      "source": "Al Jazeera",
-      "category": "Negative",
+      "category": "Neutral",
       "impact": "Critical"
     }
   ]
