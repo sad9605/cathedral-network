@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-24T20:22:46.314308",
+  "timestamp": "2026-06-24T21:22:19.681381",
   "threats": [
     {
       "id": "C01",
@@ -47,8 +47,8 @@
       "name": "Bab el\u2011Mandeb Blockade",
       "scp": 0.5128,
       "status": "Orange",
-      "lat": 71,
-      "lng": 133,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical",
         "Supply Chains"
@@ -122,8 +122,8 @@
       "name": "AI Deepfake Ops",
       "scp": 0.4907,
       "status": "Orange",
-      "lat": 39.8,
-      "lng": -98.6,
+      "lat": 38.0,
+      "lng": 23.0,
       "domains": [
         "Geopolitical",
         "Information",
@@ -198,8 +198,8 @@
       "name": "Narva Border Crisis",
       "scp": 0.2121,
       "status": "Green",
-      "lat": 87,
-      "lng": -16,
+      "lat": 59.0,
+      "lng": 27.0,
       "domains": [
         "Geopolitical"
       ],
@@ -210,8 +210,8 @@
       "name": "Mediterranean Migration",
       "scp": 0.3105,
       "status": "Yellow",
-      "lat": -41,
-      "lng": 23,
+      "lat": 35.0,
+      "lng": 18.0,
       "domains": [
         "Geopolitical",
         "Social"
@@ -322,8 +322,8 @@
       "name": "Black Sea grain corridor closure",
       "scp": 0.371,
       "status": "Yellow",
-      "lat": -26,
-      "lng": 143,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical",
         "Food"
@@ -348,8 +348,8 @@
       "name": "Nord Stream 2 reactivation",
       "scp": 0.3242,
       "status": "Yellow",
-      "lat": -74,
-      "lng": -143,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical",
         "Energy"
@@ -361,8 +361,8 @@
       "name": "Transnistria depot explosion",
       "scp": 0.2664,
       "status": "Yellow",
-      "lat": -59,
-      "lng": 27,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical"
       ],
@@ -373,8 +373,8 @@
       "name": "Georgia Abkhazia freeze\u2011thaw",
       "scp": 0.3037,
       "status": "Yellow",
-      "lat": -47,
-      "lng": 128,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical"
       ],
@@ -410,8 +410,8 @@
       "name": "Khmelnytskyi NPP shelling",
       "scp": 0.3589,
       "status": "Yellow",
-      "lat": 9,
-      "lng": -155,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical",
         "Energy"
@@ -423,8 +423,8 @@
       "name": "Radiological release (ZNPP)",
       "scp": 0.4904,
       "status": "Orange",
-      "lat": 31,
-      "lng": -19,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical",
         "Energy",
@@ -449,8 +449,8 @@
       "name": "Wagner resurgence in Africa",
       "scp": 0.3679,
       "status": "Yellow",
-      "lat": -74,
-      "lng": -105,
+      "lat": 8.0,
+      "lng": 20.0,
       "domains": [
         "Geopolitical"
       ],
@@ -474,8 +474,8 @@
       "name": "NATO Article 5 deliberation",
       "scp": 0.4148,
       "status": "Yellow",
-      "lat": 50.0,
-      "lng": 15.0,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical"
       ],
@@ -498,8 +498,8 @@
       "name": "Turkish Straits closure",
       "scp": 0.3373,
       "status": "Yellow",
-      "lat": -14,
-      "lng": -161,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical",
         "Supply Chains"
@@ -511,8 +511,8 @@
       "name": "Arctic resource wars (minerals, fish, oil, shipping)",
       "scp": 0.4804,
       "status": "Orange",
-      "lat": 26,
-      "lng": 113,
+      "lat": 75.0,
+      "lng": -40.0,
       "domains": [
         "Geopolitical",
         "Energy"
@@ -524,8 +524,8 @@
       "name": "Greenland as geopolitical flashpoint",
       "scp": 0.3958,
       "status": "Yellow",
-      "lat": -62,
-      "lng": 173,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical"
       ],
@@ -536,8 +536,8 @@
       "name": "Weaponisation of low Earth orbit (ASAT, jamming, cyber)",
       "scp": 0.4583,
       "status": "Orange",
-      "lat": -38,
-      "lng": -24,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical",
         "Technology"
@@ -549,8 +549,8 @@
       "name": "West Bank violent escalation (third intifada risk)",
       "scp": 0.4666,
       "status": "Orange",
-      "lat": -38,
-      "lng": -54,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical",
         "Social"
@@ -562,8 +562,8 @@
       "name": "Blue Nile / GERD water war escalation",
       "scp": 0.3833,
       "status": "Yellow",
-      "lat": 80,
-      "lng": -156,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical",
         "Food"
@@ -575,8 +575,8 @@
       "name": "Central Asia Energy Export Dependency",
       "scp": 0.4904,
       "status": "Orange",
-      "lat": -77,
-      "lng": -161,
+      "lat": 45.0,
+      "lng": 65.0,
       "domains": [
         "Energy",
         "Geopolitical"
@@ -614,8 +614,8 @@
       "name": "Georgia destabilisation",
       "scp": 0.3037,
       "status": "Yellow",
-      "lat": 72,
-      "lng": 38,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Climate",
         "Geopolitical"
@@ -627,8 +627,8 @@
       "name": "Pacific strategic",
       "scp": 0.4449,
       "status": "Yellow",
-      "lat": 55,
-      "lng": -174,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Climate",
         "Geopolitical"
@@ -640,8 +640,8 @@
       "name": "Great\u2011Power Competition \u2192 Aid Diversion",
       "scp": 0.4214,
       "status": "Yellow",
-      "lat": -41,
-      "lng": 42,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Financial",
         "Geopolitical"
@@ -653,8 +653,8 @@
       "name": "Red Sea Shipping Chokepoint",
       "scp": 0.453,
       "status": "Orange",
-      "lat": -6,
-      "lng": 122,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Supply Chains",
         "Geopolitical"
@@ -666,8 +666,8 @@
       "name": "Gaza Structural Atrocity",
       "scp": 0.5491,
       "status": "Orange",
-      "lat": -64,
-      "lng": 6,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Social",
         "Geopolitical"
@@ -679,8 +679,8 @@
       "name": "Mediterranean Migration",
       "scp": 0.3679,
       "status": "Yellow",
-      "lat": -61,
-      "lng": -163,
+      "lat": 35.0,
+      "lng": 18.0,
       "domains": [
         "Social",
         "Geopolitical"
@@ -692,8 +692,8 @@
       "name": "Co\u2011orbital ASAT Threat",
       "scp": 0.4867,
       "status": "Orange",
-      "lat": 37,
-      "lng": 61,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Technology",
         "Geopolitical"
@@ -705,8 +705,8 @@
       "name": "Deepfake WMD false flag risk",
       "scp": 0.4449,
       "status": "Yellow",
-      "lat": -57,
-      "lng": -90,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Technology",
         "Geopolitical"
@@ -731,8 +731,8 @@
       "name": "Information Warfare",
       "scp": 0.4666,
       "status": "Orange",
-      "lat": 62,
-      "lng": 122,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Information",
         "Geopolitical"
@@ -744,8 +744,8 @@
       "name": "Deepfake WMD false flag",
       "scp": 0.4449,
       "status": "Yellow",
-      "lat": -24,
-      "lng": 160,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Information",
         "Geopolitical"
@@ -770,8 +770,8 @@
       "name": "NPT Review Conference Regime Failure",
       "scp": 0.5124,
       "status": "Orange",
-      "lat": -30,
-      "lng": -70,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Institutional",
         "Geopolitical"
