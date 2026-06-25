@@ -8,7 +8,6 @@
   <meta name="description" content="3D conflict intelligence dashboard with historical and forecast layers.">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Violet pulse animation (same as other pages) */
     .violet-pulse {
       display: inline-block;
       width: 12px;
@@ -19,9 +18,9 @@
       flex-shrink: 0;
     }
     @keyframes pulse-violet {
-      0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0.4); }
-      50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124, 77, 255, 0); }
-      100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0); }
+      0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124,77,255,0.4); }
+      50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124,77,255,0); }
+      100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124,77,255,0); }
     }
 
     #globe-container {
@@ -32,9 +31,7 @@
       position: relative;
       overflow: hidden;
     }
-    body.dark #globe-container {
-      background: #0a0a12;
-    }
+    body.dark #globe-container { background: #0a0a12; }
 
     .globe-controls {
       position: absolute;
@@ -48,6 +45,7 @@
       border-radius: 40px;
       backdrop-filter: blur(8px);
       border: 1px solid #333;
+      flex-wrap: wrap;
     }
     .globe-controls button {
       background: none;
@@ -59,14 +57,8 @@
       border-radius: 40px;
       transition: background 0.2s;
     }
-    .globe-controls button:hover {
-      background: #7c4dff;
-      color: white;
-    }
-    .globe-controls button.active {
-      background: #7c4dff;
-      color: white;
-    }
+    .globe-controls button:hover { background: #7c4dff; color: white; }
+    .globe-controls button.active { background: #7c4dff; color: white; }
     .globe-controls .slider-container {
       display: flex;
       align-items: center;
@@ -76,10 +68,7 @@
       width: 100px;
       accent-color: #7c4dff;
     }
-    .globe-controls .slider-container label {
-      color: #aaa;
-      font-size: 0.7rem;
-    }
+    .globe-controls .slider-container label { color: #aaa; font-size: 0.7rem; }
     .globe-legend {
       position: absolute;
       top: 1rem;
@@ -93,17 +82,8 @@
       color: #aaa;
       font-size: 0.75rem;
     }
-    .globe-legend .item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 0.2rem 0;
-    }
-    .globe-legend .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
+    .globe-legend .item { display: flex; align-items: center; gap: 0.5rem; margin: 0.2rem 0; }
+    .globe-legend .dot { width: 10px; height: 10px; border-radius: 50%; }
     .globe-tooltip {
       position: absolute;
       display: none;
@@ -126,9 +106,7 @@
       box-shadow: var(--shadow-sm);
       border-left: 4px solid var(--violet-dark);
     }
-    body.dark .info-panel {
-      background: #2a2a3a;
-    }
+    body.dark .info-panel { background: #2a2a3a; }
 
     .sidebar-container {
       position: fixed;
@@ -143,10 +121,7 @@
       padding: 1rem;
       transition: transform 0.3s ease;
     }
-    body.dark .sidebar-container {
-      background: #2a2a3a;
-      border-right-color: #444;
-    }
+    body.dark .sidebar-container { background: #2a2a3a; border-right-color: #444; }
     .sidebar-container .sidebar-header {
       display: flex;
       align-items: center;
@@ -155,21 +130,15 @@
       padding-bottom: 0.75rem;
       border-bottom: 1px solid #eee;
     }
-    body.dark .sidebar-container .sidebar-header {
-      border-bottom-color: #444;
-    }
+    body.dark .sidebar-container .sidebar-header { border-bottom-color: #444; }
     .sidebar-container .sidebar-header span {
       font-weight: 700;
       font-size: 1.1rem;
       letter-spacing: 0.05em;
       color: var(--violet-dark);
     }
-    body.dark .sidebar-container .sidebar-header span {
-      color: #b39ddb;
-    }
-    .sidebar-container nav .nav-section {
-      margin-bottom: 1.25rem;
-    }
+    body.dark .sidebar-container .sidebar-header span { color: #b39ddb; }
+    .sidebar-container nav .nav-section { margin-bottom: 1.25rem; }
     .sidebar-container nav .nav-section strong {
       display: block;
       font-size: 0.65rem;
@@ -179,9 +148,7 @@
       padding: 0.2rem 0 0.3rem 0;
       opacity: 0.7;
     }
-    body.dark .sidebar-container nav .nav-section strong {
-      color: #b39ddb;
-    }
+    body.dark .sidebar-container nav .nav-section strong { color: #b39ddb; }
     .sidebar-container nav .nav-section a {
       display: block;
       padding: 0.3rem 0.5rem;
@@ -191,15 +158,10 @@
       border-radius: 8px;
       transition: background 0.15s;
     }
-    body.dark .sidebar-container nav .nav-section a {
-      color: #f0f0f0;
-    }
-    .sidebar-container nav .nav-section a:hover {
-      background: var(--violet-light);
-    }
-    body.dark .sidebar-container nav .nav-section a:hover {
-      background: #3a3a4a;
-    }
+    body.dark .sidebar-container nav .nav-section a { color: #f0f0f0; }
+    .sidebar-container nav .nav-section a:hover { background: var(--violet-light); }
+    body.dark .sidebar-container nav .nav-section a:hover { background: #3a3a4a; }
+
     #sidebar-toggle {
       display: none;
       background: none;
@@ -209,29 +171,40 @@
       padding: 0.5rem;
       color: var(--violet-dark);
     }
-    body.dark #sidebar-toggle {
-      color: #b39ddb;
-    }
+    body.dark #sidebar-toggle { color: #b39ddb; }
+
     @media (max-width: 768px) {
-      .sidebar-container {
-        transform: translateX(-100%);
-        width: 260px;
-      }
-      .sidebar-container.open {
-        transform: translateX(0);
-      }
-      #sidebar-toggle {
-        display: block;
-      }
-      .container {
-        margin-left: 0 !important;
-      }
+      .sidebar-container { transform: translateX(-100%); width: 260px; }
+      .sidebar-container.open { transform: translateX(0); }
+      #sidebar-toggle { display: block; }
+      .container { margin-left: 0 !important; }
     }
-    @media (min-width: 769px) {
-      .container {
-        margin-left: 240px;
-      }
+    @media (min-width: 769px) { .container { margin-left: 240px; } }
+
+    .top-nav {
+      display: none;
+      background: var(--violet-light);
+      padding: 0.5rem 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      border-radius: var(--card-radius);
+      margin-bottom: 1rem;
+      justify-content: center;
     }
+    body.dark .top-nav { background: #2a2a3a; }
+    .top-nav a {
+      color: var(--violet-dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 40px;
+    }
+    body.dark .top-nav a { color: #b39ddb; }
+    .top-nav a:hover { background: var(--violet-dark); color: white; }
+    body.dark .top-nav a:hover { background: var(--violet); color: #1a1a1a; }
+    @media (max-width: 768px) { .top-nav { display: flex; } }
+
     .footer {
       margin-top: 3rem;
       text-align: center;
@@ -255,50 +228,13 @@
       z-index: 1000;
       box-shadow: var(--shadow-sm);
     }
-    .top-nav {
-      display: none;
-      background: var(--violet-light);
-      padding: 0.5rem 0.8rem;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      border-radius: var(--card-radius);
-      margin-bottom: 1rem;
-      justify-content: center;
-    }
-    body.dark .top-nav {
-      background: #2a2a3a;
-    }
-    .top-nav a {
-      color: var(--violet-dark);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 40px;
-    }
-    body.dark .top-nav a {
-      color: #b39ddb;
-    }
-    .top-nav a:hover {
-      background: var(--violet-dark);
-      color: white;
-    }
-    body.dark .top-nav a:hover {
-      background: var(--violet);
-      color: #1a1a1a;
-    }
-    @media (max-width: 768px) {
-      .top-nav {
-        display: flex;
-      }
-    }
     @media (max-width: 600px) {
       .banner-content { flex-direction: column; text-align: center; }
       .container { padding: 1rem; }
-      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
       #globe-container { height: 400px; }
       .globe-controls { flex-wrap: wrap; padding: 0.5rem; }
       .globe-controls .slider-container input[type="range"] { width: 60px; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
     }
   </style>
 </head>
@@ -455,153 +391,30 @@
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
 
-  // ---- Globe logic ----
-  const globeContainer = document.getElementById('globe-container');
-  const tooltip = document.getElementById('globeTooltip');
-
-  // Country centroids (lat, lng)
-  const countryCoords = {
-    'Iran': { lat: 32.4, lng: 53.7 },
-    'Israel': { lat: 31.0, lng: 34.8 },
-    'US': { lat: 39.8, lng: -98.6 },
-    'USA': { lat: 39.8, lng: -98.6 },
-    'Russia': { lat: 61.5, lng: 105.3 },
-    'China': { lat: 35.9, lng: 104.2 },
-    'Taiwan': { lat: 23.7, lng: 120.9 },
-    'Ukraine': { lat: 48.4, lng: 31.2 },
-    'Romania': { lat: 45.9, lng: 25.0 },
-    'Armenia': { lat: 40.1, lng: 45.0 },
-    'Azerbaijan': { lat: 40.3, lng: 47.5 },
-    'Mexico': { lat: 23.6, lng: -102.0 },
-    'North Korea': { lat: 39.0, lng: 127.0 },
-    'Iraq': { lat: 33.0, lng: 44.0 },
-    'Yemen': { lat: 15.0, lng: 48.0 },
-    'Moldova': { lat: 47.4, lng: 28.8 },
-    'Lebanon': { lat: 33.8, lng: 35.8 },
-    'Syria': { lat: 34.8, lng: 38.9 },
-    'Saudi Arabia': { lat: 23.9, lng: 45.0 },
-    'Turkey': { lat: 38.9, lng: 35.0 },
-    'NATO': { lat: 50.0, lng: 15.0 }, // centroid of Europe
-    'Baltic': { lat: 55.0, lng: 25.0 },
-    'South China Sea': { lat: 12.0, lng: 116.0 },
-    'Hormuz': { lat: 26.5, lng: 56.5 },
-    'Bab el-Mandeb': { lat: 13.0, lng: 43.0 },
-    'Global': { lat: 20.0, lng: 0.0 },
-  };
-
-  // Extract country from threat name or description
-  function getCountryFromThreat(threat) {
-    const name = threat.name || '';
-    const desc = threat.description || '';
-    const text = name + ' ' + desc;
-    for (const country of Object.keys(countryCoords)) {
-      if (text.includes(country)) return country;
-    }
-    return null;
-  }
-
-  function getCoords(threat) {
-    const id = threat.id || '';
-    // First check explicit mapping
-    if (conflictCoords[id]) return conflictCoords[id];
-    // Then try to extract country
-    const country = getCountryFromThreat(threat);
-    if (country && countryCoords[country]) {
-      const c = countryCoords[country];
-      return { lat: c.lat + (Math.random() - 0.5) * 2, lng: c.lng + (Math.random() - 0.5) * 2, label: threat.name };
-    }
-    // Fallback: random in plausible range
-    return { lat: (Math.random() - 0.5) * 80, lng: (Math.random() - 0.5) * 180, label: threat.name };
-  }
-
-  // Fallback coords for unknown threats
-  function getCoords(t) {
-    const id = t.id || '';
-    if (conflictCoords[id]) return conflictCoords[id];
-    return { lat: (Math.random() - 0.5) * 80, lng: (Math.random() - 0.5) * 180, label: t.name || id };
-  }
-
+  // ---- Globe state ----
   let globe = null;
   let sceneData = { points: [], heatmapData: [] };
+  let historyData = [];
+  let trendData = {};
   let currentMode = '3d';
   let showForecast = false;
 
-  let historyData = [];
-  async function loadHistory() {
+  // ---- Load conflict data ----
+  async function loadConflictData() {
     try {
-      const resp = await fetch('scp_history.json');
-      if (!resp.ok) throw new Error('No history');
-      historyData = await resp.json();
-      historyData.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
-      return historyData;
-    } catch(e) {
-      console.warn('No history data available');
-      return [];
-    }
-  }
+      const resp = await fetch('conflict_data.json');
+      if (!resp.ok) throw new Error('Failed to fetch conflict data');
+      const data = await resp.json();
+      const threats = data.threats || [];
 
-    async function loadConflictData() {
-      try {
-        const resp = await fetch('conflict_data.json');
-        if (!resp.ok) throw new Error('Failed to fetch conflict data');
-        const data = await resp.json();
-        const threats = data.threats || [];
-
-        document.getElementById('conflictCount').textContent = threats.length;
-
-        // Stats
-        const total = threats.length;
-        const critical = threats.filter(t => t.scp >= 0.80).length;
-        const high = threats.filter(t => t.scp >= 0.60 && t.scp < 0.80).length;
-        const elevated = threats.filter(t => t.scp >= 0.40 && t.scp < 0.60).length;
-        const moderate = threats.filter(t => t.scp < 0.40).length;
-
-        document.getElementById('totalConflicts').textContent = total;
-        document.getElementById('criticalCount').textContent = critical;
-        document.getElementById('highCount').textContent = high;
-        document.getElementById('elevatedCount').textContent = elevated;
-        document.getElementById('moderateCount').textContent = moderate;
-
-        // Build globe data
-        const points = [];
-        threats.forEach(t => {
-          points.push({
-            lat: t.lat,
-            lng: t.lng,
-            size: Math.max(0.3, (t.scp || 0.5) * 1.5),
-            color: t.scp >= 0.80 ? '#dc2626' : t.scp >= 0.60 ? '#f97316' : t.scp >= 0.40 ? '#eab308' : '#22c55e',
-            label: `${t.id}: ${t.name} (${(t.scp*100).toFixed(0)}%)`,
-            threat: t
-          });
-        });
-
-        sceneData.points = points;
-        sceneData.heatmapData = points.map(p => ({ lat: p.lat, lng: p.lng, intensity: p.threat.scp }));
-
-        // Load history if available
-        if (data.history && data.history.length > 0) {
-          historyData = data.history;
-        }
-
-        initGlobe(points);
-      } catch(e) {
-        console.error('Error loading conflicts:', e);
-        document.getElementById('conflictCount').textContent = 'Error';
-      }
-    }
-
-      await loadHistory();
-
-      // Filter geopolitical threats
-      const conflicts = threats.filter(t => t.domains && t.domains.includes('Geopolitical'));
-      document.getElementById('conflictCount').textContent = conflicts.length;
+      document.getElementById('conflictCount').textContent = threats.length;
 
       // Stats
-      const total = conflicts.length;
-      const critical = conflicts.filter(t => t.scp >= 0.80).length;
-      const high = conflicts.filter(t => t.scp >= 0.60 && t.scp < 0.80).length;
-      const elevated = conflicts.filter(t => t.scp >= 0.40 && t.scp < 0.60).length;
-      const moderate = conflicts.filter(t => t.scp < 0.40).length;
+      const total = threats.length;
+      const critical = threats.filter(t => t.scp >= 0.80).length;
+      const high = threats.filter(t => t.scp >= 0.60 && t.scp < 0.80).length;
+      const elevated = threats.filter(t => t.scp >= 0.40 && t.scp < 0.60).length;
+      const moderate = threats.filter(t => t.scp < 0.40).length;
 
       document.getElementById('totalConflicts').textContent = total;
       document.getElementById('criticalCount').textContent = critical;
@@ -611,27 +424,28 @@
 
       // Build globe data
       const points = [];
-      const heatmapData = [];
-      conflicts.forEach(t => {
-        const coords = getCoords(t);
+      threats.forEach(t => {
         const scp = t.scp || 0.5;
         points.push({
-          lat: coords.lat,
-          lng: coords.lng,
+          lat: t.lat,
+          lng: t.lng,
           size: Math.max(0.3, scp * 1.5),
           color: scp >= 0.80 ? '#dc2626' : scp >= 0.60 ? '#f97316' : scp >= 0.40 ? '#eab308' : '#22c55e',
           label: `${t.id}: ${t.name} (${(scp*100).toFixed(0)}%)`,
           threat: t
         });
-        heatmapData.push({
-          lat: coords.lat,
-          lng: coords.lng,
-          intensity: scp
-        });
       });
 
       sceneData.points = points;
-      sceneData.heatmapData = heatmapData;
+      sceneData.heatmapData = points.map(p => ({ lat: p.lat, lng: p.lng, intensity: p.threat.scp || 0.5 }));
+
+      // Load history and trend from the data
+      if (data.history && data.history.length > 0) {
+        historyData = data.history;
+      }
+      if (data.trend) {
+        trendData = data.trend;
+      }
 
       initGlobe(points);
     } catch(e) {
@@ -640,10 +454,10 @@
     }
   }
 
+  // ---- Init globe ----
   function initGlobe(points) {
     const container = document.getElementById('globe-container');
 
-    // If globe exists, destroy it
     if (globe) {
       globe._destructor();
       globe = null;
@@ -652,7 +466,6 @@
     const width = container.clientWidth || 800;
     const height = container.clientHeight || 600;
 
-    // Create globe
     const Globe = window.ThreeGlobe;
     const globeInstance = new Globe()
       .globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg')
@@ -665,7 +478,6 @@
       .pointLabel('label')
       .pointsData(points);
 
-    // Create scene
     const scene = new THREE.Scene();
     scene.add(globeInstance);
 
@@ -676,19 +488,17 @@
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Clear previous content
+    // Clear previous content except legend
     while (container.firstChild) {
       if (container.firstChild.id === 'globeLegend') break;
       container.removeChild(container.firstChild);
     }
-    // Keep legend
     const legend = document.getElementById('globeLegend');
     if (legend) container.appendChild(legend);
 
-    // Insert renderer before legend
     container.insertBefore(renderer.domElement, legend);
 
-    // Store for later
+    // Globe object
     globe = { scene, camera, renderer, globeInstance, points };
 
     // Click interaction
@@ -702,14 +512,12 @@
       const intersects = raycaster.intersectObjects(globeInstance.children);
       if (intersects.length > 0) {
         const obj = intersects[0].object;
-        // Find the corresponding point data
-        // For now, show tooltip
         const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
         if (idx !== -1) {
           const point = globeInstance.pointsData()[idx];
           if (point && point.threat) {
-            const threat = point.threat;
-            alert(`Conflict: ${threat.id} – ${threat.name}\nSCP: ${(threat.scp || 0.5)*100}%\nStatus: ${threat.status || 'Unknown'}`);
+            const t = point.threat;
+            alert(`Conflict: ${t.id} – ${t.name}\nSCP: ${(t.scp || 0.5)*100}%\nStatus: ${t.status || 'Unknown'}`);
           }
         }
       }
@@ -728,6 +536,7 @@
         if (idx !== -1) {
           const point = globeInstance.pointsData()[idx];
           if (point && point.label) {
+            const tooltip = document.getElementById('globeTooltip');
             tooltip.style.display = 'block';
             tooltip.style.left = (event.clientX - rect.left + 10) + 'px';
             tooltip.style.top = (event.clientY - rect.top - 10) + 'px';
@@ -735,12 +544,12 @@
           }
         }
       } else {
-        tooltip.style.display = 'none';
+        document.getElementById('globeTooltip').style.display = 'none';
       }
     });
 
     renderer.domElement.addEventListener('mouseleave', () => {
-      tooltip.style.display = 'none';
+      document.getElementById('globeTooltip').style.display = 'none';
     });
 
     // Auto-rotate
@@ -752,7 +561,7 @@
     }
     animate();
 
-    // Handle resize
+    // Resize
     const resize = () => {
       const w = container.clientWidth || 800;
       const h = container.clientHeight || 600;
@@ -775,7 +584,7 @@
       document.getElementById('btn-forecast').classList.remove('active');
       currentMode = '3d';
       showForecast = false;
-      globeInstance.pointsData(points);
+      globeInstance.pointsData(sceneData.points);
     });
 
     document.getElementById('btn-heatmap').addEventListener('click', function() {
@@ -784,29 +593,14 @@
       document.getElementById('btn-forecast').classList.remove('active');
       currentMode = 'heatmap';
       showForecast = false;
-      // For heatmap, we could switch to a different visualisation
-      // For now, keep points but change style
-      const heatmapPoints = points.map(p => ({ ...p, size: p.size * 1.5, color: '#7c4dff' }));
+      const heatmapPoints = sceneData.points.map(p => ({ ...p, size: p.size * 1.5, color: '#7c4dff' }));
       globeInstance.pointsData(heatmapPoints);
     });
-
-    let trendData = {};
-
-    async function loadTrends() {
-      try {
-        const resp = await fetch('trend.json');
-        if (!resp.ok) throw new Error('No trend');
-        trendData = await resp.json();
-      } catch(e) {
-        console.warn('No trend data available');
-      }
-    }
-    loadTrends();
 
     document.getElementById('btn-forecast').addEventListener('click', function() {
       this.classList.toggle('active');
       const show = this.classList.contains('active');
-      if (typeof globe === 'undefined' || !globe || !globe.globeInstance) return;
+      showForecast = show;
       const points = sceneData.points.map(p => {
         const tid = p.threat?.id;
         const trend = trendData[tid] || {};
@@ -815,30 +609,13 @@
         }
         return p;
       });
-      globe.globeInstance.pointsData(points);
-      sceneData.points = points;
+      globeInstance.pointsData(points);
+      // Also update mode buttons
+      document.getElementById('btn-3d').classList.remove('active');
+      document.getElementById('btn-heatmap').classList.remove('active');
     });
 
-    // ---- Time slider with historical data ----
-    let historyData = [];
-    let historyIndex = 0;
-
-    async function loadHistory() {
-      try {
-        const resp = await fetch('scp_history.json');
-        if (!resp.ok) throw new Error('No history');
-        historyData = await resp.json();
-        historyData.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
-        return historyData;
-      } catch(e) {
-        console.warn('No history data available');
-        return [];
-      }
-    }
-
-    // Load history when page loads
-    loadHistory();
-
+    // Time slider
     document.getElementById('timeSlider').addEventListener('input', function() {
       const val = parseInt(this.value);
       const label = document.getElementById('timeLabel');
@@ -846,37 +623,31 @@
         label.textContent = 'Now';
         return;
       }
-      // Map 0-100 to history indices
       const idx = Math.floor((val / 100) * (historyData.length - 1));
-      historyIndex = idx;
       const entry = historyData[idx];
       if (!entry) return;
       const date = new Date(entry.timestamp);
       label.textContent = date.toLocaleDateString();
 
-      // Update globe points with historical SCP
       const scpMap = entry.scp || {};
-      if (typeof globe !== 'undefined' && globe && globe.globeInstance) {
-        const updatedPoints = sceneData.points.map(p => {
-          const threatId = p.threat?.id;
-          const histScp = threatId ? scpMap[threatId] : null;
-          if (histScp !== undefined && histScp !== null) {
-            const newScp = histScp;
-            const color = newScp >= 0.80 ? '#dc2626' : newScp >= 0.60 ? '#f97316' : newScp >= 0.40 ? '#eab308' : '#22c55e';
-            return { ...p, size: Math.max(0.3, newScp * 1.5), color: color, label: `${p.threat.id}: ${p.threat.name} (${(newScp*100).toFixed(0)}%)` };
-          }
-          return p;
-        });
+      const updatedPoints = sceneData.points.map(p => {
+        const threatId = p.threat?.id;
+        const histScp = threatId ? scpMap[threatId] : null;
+        if (histScp !== undefined && histScp !== null) {
+          const newScp = histScp;
+          const color = newScp >= 0.80 ? '#dc2626' : newScp >= 0.60 ? '#f97316' : newScp >= 0.40 ? '#eab308' : '#22c55e';
+          return { ...p, size: Math.max(0.3, newScp * 1.5), color, label: `${p.threat.id}: ${p.threat.name} (${(newScp*100).toFixed(0)}%)` };
+        }
+        return p;
+      });
+      if (globe && globe.globeInstance) {
         globe.globeInstance.pointsData(updatedPoints);
         sceneData.points = updatedPoints;
       }
     });
-
-    // Keep reference
-    window._globe = { globeInstance, scene, camera, renderer, resize };
   }
 
-  // ---- Load data on page load ----
+  // ---- Load on page ----
   loadConflictData();
 
   // ---- Service worker ----
