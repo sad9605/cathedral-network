@@ -5,24 +5,24 @@
   <link rel="manifest" href="manifest.json">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Cathedral Network — Regional Forecasts</title>
-  <meta name="description" content="Regional GSCI and SSI forecasts – hierarchical threat intelligence by region.">
+  <meta name="description" content="Hierarchical regional intelligence – GSCI, SSI, conflict density, climate anomalies, and cyber risk by region.">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Minimal page-specific overrides */
+    /* Page-specific styles */
     .region-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
       margin: 1.5rem 0;
     }
     .region-card {
       background: white;
       border-radius: var(--card-radius);
-      padding: 1rem;
-      text-align: center;
+      padding: 1.2rem;
       box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
+      border-left: 6px solid var(--violet-dark);
       transition: transform 0.1s, box-shadow 0.2s;
+      cursor: pointer;
     }
     body.dark .region-card {
       background: #2a2a3a;
@@ -31,142 +31,160 @@
       transform: translateY(-2px);
       box-shadow: var(--shadow-hover);
     }
+    .region-card .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
     .region-card .name {
       font-weight: 700;
       font-size: 1.1rem;
     }
-    .region-card .score {
+    .region-card .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: var(--violet-light);
+      color: var(--violet-dark);
+    }
+    body.dark .region-card .badge {
+      background: #3a3a4a;
+      color: #b39ddb;
+    }
+    .badge-critical {
+      background: #dc2626;
+      color: white;
+    }
+    .badge-elevated {
+      background: #f97316;
+      color: white;
+    }
+    .badge-stable {
+      background: #22c55e;
+      color: white;
+    }
+    .region-card .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin: 0.8rem 0;
+    }
+    .region-card .metric-item {
+      text-align: center;
+      padding: 0.4rem;
+      background: var(--violet-light);
+      border-radius: 10px;
+    }
+    body.dark .region-card .metric-item {
+      background: #3a3a4a;
+    }
+    .region-card .metric-item .number {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--violet-dark);
+    }
+    body.dark .region-card .metric-item .number {
+      color: #b39ddb;
+    }
+    .region-card .metric-item .label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: #666;
+    }
+    body.dark .region-card .metric-item .label {
+      color: #aaa;
+    }
+    .region-card .extra {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      margin-top: 0.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+    .region-card .extra span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .region-detail {
+      display: none;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #eee;
+    }
+    body.dark .region-detail {
+      border-top-color: #444;
+    }
+    .region-detail.active {
+      display: block;
+    }
+    .region-detail .detail-row {
+      display: flex;
+      padding: 0.2rem 0;
+      font-size: 0.85rem;
+    }
+    .region-detail .detail-row .label {
+      font-weight: 600;
+      width: 100px;
+      flex-shrink: 0;
+    }
+    .region-detail .detail-row .value {
+      flex: 1;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.1s, box-shadow 0.2s;
+    }
+    body.dark .stat-card {
+      background: #2a2a3a;
+    }
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .stat-card .number {
       font-size: 2rem;
       font-weight: 700;
       color: var(--violet-dark);
     }
-    body.dark .region-card .score {
+    body.dark .stat-card .number {
       color: #b39ddb;
     }
-    .region-card .label {
+    .stat-card .label {
       font-size: 0.7rem;
       text-transform: uppercase;
       color: #666;
       letter-spacing: 0.5px;
     }
-    body.dark .region-card .label {
+    body.dark .stat-card .label {
       color: #aaa;
     }
-    .region-card .status {
-      font-size: 0.8rem;
-      margin-top: 0.3rem;
-    }
-    .status-low { color: #22c55e; }
-    .status-medium { color: #f97316; }
-    .status-high { color: #dc2626; }
-
-    .sidebar-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 220px;
-      height: 100%;
-      background: white;
-      border-right: 1px solid #eee;
-      overflow-y: auto;
-      z-index: 1000;
-      padding: 1rem;
-      transition: transform 0.3s ease;
-    }
-    body.dark .sidebar-container {
-      background: #2a2a3a;
-      border-right-color: #444;
-    }
-    .sidebar-container .sidebar-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid #eee;
-    }
-    body.dark .sidebar-container .sidebar-header {
-      border-bottom-color: #444;
-    }
-    .sidebar-container .sidebar-header span {
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
-      color: var(--violet-dark);
-    }
-    body.dark .sidebar-container .sidebar-header span {
-      color: #b39ddb;
-    }
-    .sidebar-container nav .nav-section {
-      margin-bottom: 1.25rem;
-    }
-    .sidebar-container nav .nav-section strong {
-      display: block;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--violet-dark);
-      padding: 0.2rem 0 0.3rem 0;
-      opacity: 0.7;
-    }
-    body.dark .sidebar-container nav .nav-section strong {
-      color: #b39ddb;
-    }
-    .sidebar-container nav .nav-section a {
-      display: block;
-      padding: 0.3rem 0.5rem;
-      font-size: 0.9rem;
-      color: var(--text-dark);
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.15s;
-    }
-    body.dark .sidebar-container nav .nav-section a {
-      color: #f0f0f0;
-    }
-    .sidebar-container nav .nav-section a:hover {
-      background: var(--violet-light);
-    }
-    body.dark .sidebar-container nav .nav-section a:hover {
-      background: #3a3a4a;
-    }
-    #sidebar-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.5rem;
-      color: var(--violet-dark);
-    }
-    body.dark #sidebar-toggle {
-      color: #b39ddb;
-    }
-    @media (max-width: 768px) {
-      .sidebar-container {
-        transform: translateX(-100%);
-        width: 260px;
-      }
-      .sidebar-container.open {
-        transform: translateX(0);
-      }
-      #sidebar-toggle {
-        display: block;
-      }
-      .container {
-        margin-left: 0 !important;
-      }
-    }
-    @media (min-width: 769px) {
-      .container {
-        margin-left: 240px;
-      }
-    }
+    /* Reuse sidebar and banner from style.css */
   </style>
 </head>
 <body>
 
-<!-- Hardcoded Sidebar (same as index) -->
+<!-- Hardcoded Sidebar (same as all pages) -->
 <div class="sidebar-container" id="sidebar">
   <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
   <nav>
@@ -182,6 +200,8 @@
       <a href="prediction-log.html">Prediction Log</a>
       <a href="regional.html">Regional Forecasts</a>
       <a href="daily-brief.html">Daily Brief</a>
+      <a href="breaking.html">Breaking News</a>
+      <a href="conflict-monitor.html">Conflict Monitor</a>
     </div>
     <div class="nav-section">
       <strong>⚖️ Governance</strong>
@@ -227,14 +247,39 @@
   </div>
 </header>
 
+<!-- Top Nav (mobile) -->
+<div class="top-nav">
+  <a href="index.html">Ground Truth</a>
+  <a href="threat-matrix.html">Threat Matrix</a>
+  <a href="prediction-log.html">Prediction Log</a>
+  <a href="hewd.html">HEWD</a>
+  <a href="health.html">Health</a>
+  <a href="wardens.html">Wardens</a>
+  <a href="regional.html">Regional</a>
+</div>
+
 <!-- Main content -->
 <div class="container">
-  <h1>🌍 Regional Forecasts</h1>
-  <p style="margin-bottom: 1rem;">Hierarchical threat intelligence by region – GSCI and SSI broken down geographically.</p>
-  <div class="date" id="lastUpdateDate">Loading regional data…</div>
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+    <h1>🌍 Regional Forecasts</h1>
+    <div style="display: flex; align-items: center; gap: 0.8rem;">
+      <span class="violet-pulse"></span>
+      <span style="font-size: 0.8rem; color: #888;">Updated: <span id="lastUpdate">Loading...</span></span>
+    </div>
+  </div>
+  <p style="margin-bottom: 1rem;">Hierarchical threat intelligence by region – GSCI, SSI, conflict density, climate anomalies, and cyber risk.</p>
 
+  <!-- Stats -->
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-card"><div class="number" id="totalRegions">--</div><div class="label">Regions</div></div>
+    <div class="stat-card"><div class="number" id="avgGSCI">--</div><div class="label">Avg GSCI</div></div>
+    <div class="stat-card"><div class="number" id="criticalRegions">--</div><div class="label">Critical Regions</div></div>
+    <div class="stat-card"><div class="number" id="totalConflicts">--</div><div class="label">Conflicts</div></div>
+  </div>
+
+  <!-- Regions -->
   <div id="regionContainer" class="region-grid">
-    <p>Loading regions…</p>
+    <p>Loading regions...</p>
   </div>
 
   <div class="footer">
@@ -246,16 +291,12 @@
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
 <script>
-  // ============================================================
-  // SIDEBAR TOGGLE
-  // ============================================================
+  // ---- Sidebar toggle ----
   document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
     document.getElementById('sidebar')?.classList.toggle('open');
   });
 
-  // ============================================================
-  // DARK MODE
-  // ============================================================
+  // ---- Dark mode ----
   const darkToggle = document.getElementById('darkModeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const storedTheme = localStorage.getItem('cathedral-theme');
@@ -270,86 +311,131 @@
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
 
-  // ============================================================
-  // LOAD REGIONAL DATA
-  // ============================================================
+  // ---- Load regional data ----
   async function loadRegions() {
     const container = document.getElementById('regionContainer');
     try {
-      const resp = await fetch('indices.json');
-      if (!resp.ok) {
-        // Fallback: compute regions from threats.json
-        throw new Error('indices.json not found, using fallback');
-      }
-      const data = await resp.json();
-      document.getElementById('lastUpdateDate').textContent = data.timestamp ? new Date(data.timestamp).toLocaleString() : 'Unknown';
-      const regions = data.regions || [];
-      if (regions.length === 0) {
-        throw new Error('No regions found, using fallback');
-      }
-      renderRegions(regions);
-    } catch(e) {
-      console.warn('Using fallback regional data:', e);
-      // Fallback: compute from threats.json
-      await loadFallbackRegions();
-    }
-  }
+      let regionData = null;
+      let timestamp = '';
 
-  async function loadFallbackRegions() {
-    const container = document.getElementById('regionContainer');
-    try {
-      const resp = await fetch('threats.json');
-      if (!resp.ok) throw new Error('Could not load threats');
-      const data = await resp.json();
-      const threats = data.threats || [];
-      // Build regions from domain + country
-      const regionMap = {};
-      threats.forEach(t => {
-        const domains = t.domains || [];
-        const country = t.country || 'Global';
-        const key = country;
-        if (!regionMap[key]) {
-          regionMap[key] = { threats: [], scp_sum: 0, count: 0 };
+      // Try indices.json first
+      const resp = await fetch('indices.json');
+      if (resp.ok) {
+        const data = await resp.json();
+        regionData = data.regions || [];
+        timestamp = data.timestamp || '';
+      } else {
+        // Fallback: compute from threats.json
+        const threatResp = await fetch('threats.json');
+        if (!threatResp.ok) throw new Error('Could not load threats');
+        const threatData = await threatResp.json();
+        const threats = threatData.threats || [];
+        const regionMap = {};
+        threats.forEach(t => {
+          const region = t.region || t.country || 'Global';
+          if (!regionMap[region]) {
+            regionMap[region] = { threats: [], scp_sum: 0, count: 0 };
+          }
+          regionMap[region].threats.push(t);
+          regionMap[region].scp_sum += t.scp || 0.5;
+          regionMap[region].count += 1;
+        });
+        regionData = Object.entries(regionMap).map(([name, data]) => ({
+          name: name,
+          gsci: Math.round((data.scp_sum / data.count) * 100),
+          threat_count: data.count
+        }));
+        regionData.sort((a, b) => b.gsci - a.gsci);
+        timestamp = threatData.last_updated || '';
+      }
+
+      document.getElementById('lastUpdate').textContent = timestamp ? new Date(timestamp).toLocaleDateString() : 'Unknown';
+
+      // Stats
+      document.getElementById('totalRegions').textContent = regionData.length;
+      const avg = regionData.reduce((s, r) => s + (r.gsci || 0), 0) / regionData.length;
+      document.getElementById('avgGSCI').textContent = avg ? Math.round(avg) : '--';
+      const critical = regionData.filter(r => (r.gsci || 0) > 60).length;
+      document.getElementById('criticalRegions').textContent = critical;
+
+      // Count conflicts from conflict_data.json (if available)
+      let conflictCount = 0;
+      try {
+        const conflictResp = await fetch('conflict_data.json');
+        if (conflictResp.ok) {
+          const conflictData = await conflictResp.json();
+          conflictCount = (conflictData.conflicts || []).length;
         }
-        regionMap[key].threats.push(t);
-        regionMap[key].scp_sum += t.scp || 0.5;
-        regionMap[key].count += 1;
-      });
-      const regions = Object.entries(regionMap).map(([name, data]) => ({
-        name: name,
-        gsci: Math.round((data.scp_sum / data.count) * 100),
-        threat_count: data.count
-      }));
-      // Sort by GSCI descending
-      regions.sort((a, b) => b.gsci - a.gsci);
-      document.getElementById('lastUpdateDate').textContent = 'Fallback data (from threats.json)';
-      renderRegions(regions);
+      } catch (e) { /* ignore */ }
+      document.getElementById('totalConflicts').textContent = conflictCount || '--';
+
+      if (!regionData || regionData.length === 0) {
+        container.innerHTML = '<p>No regional data available.</p>';
+        return;
+      }
+
+      // Load climate anomalies from climate_data.json (if available)
+      let climateData = {};
+      try {
+        const climateResp = await fetch('climate_data.json');
+        if (climateResp.ok) {
+          climateData = await climateResp.json();
+        }
+      } catch (e) { /* ignore */ }
+
+      // Render cards
+      container.innerHTML = regionData.map(r => {
+        const gsci = r.gsci || 0;
+        const status = gsci > 60 ? 'critical' : gsci > 40 ? 'elevated' : 'stable';
+        const badgeClass = status === 'critical' ? 'badge-critical' : status === 'elevated' ? 'badge-elevated' : 'badge-stable';
+        const label = status === 'critical' ? 'Critical' : status === 'elevated' ? 'Elevated' : 'Stable';
+
+        // Check if this region has climate anomaly data
+        const climate = climateData.zones?.find(z => z.name === r.name);
+        const tempAnomaly = climate ? climate.temp_anomaly : null;
+        const precipAnomaly = climate ? climate.precip_anomaly : null;
+
+        return `
+          <div class="region-card" onclick="toggleDetail('${r.name.replace(/'/g, "\\'")}')">
+            <div class="header">
+              <span class="name">${escapeHtml(r.name)}</span>
+              <span class="badge ${badgeClass}">${label}</span>
+            </div>
+            <div class="metrics">
+              <div class="metric-item">
+                <div class="number">${gsci}</div>
+                <div class="label">GSCI</div>
+              </div>
+              <div class="metric-item">
+                <div class="number">${r.ssi || '--'}</div>
+                <div class="label">SSI</div>
+              </div>
+            </div>
+            <div class="extra">
+              <span>🛡️ ${r.threat_count || 0} threats</span>
+              ${tempAnomaly !== null ? `<span>🌡️ ${tempAnomaly > 0 ? '+' : ''}${tempAnomaly.toFixed(1)}°C anomaly</span>` : ''}
+              ${precipAnomaly !== null ? `<span>💧 ${precipAnomaly > 0 ? '+' : ''}${precipAnomaly.toFixed(0)}mm precip anomaly</span>` : ''}
+            </div>
+            <div class="region-detail" id="detail-${r.name.replace(/'/g, "\\'")}">
+              <div class="detail-row"><span class="label">Top Threats</span><span class="value">${r.top_threats || 'N/A'}</span></div>
+              <div class="detail-row"><span class="label">Conflict Density</span><span class="value">${r.conflict_density || 'N/A'}</span></div>
+              <div class="detail-row"><span class="label">Cyber Risk</span><span class="value">${r.cyber_risk || 'N/A'}</span></div>
+              <div class="detail-row"><span class="label">Forecast</span><span class="value">${r.forecast || 'Stable'}</span></div>
+            </div>
+          </div>
+        `;
+      }).join('');
     } catch(e) {
-      console.error('Error loading fallback regions:', e);
+      console.error('Error loading regions:', e);
       container.innerHTML = '<p style="color:#dc2626;">Error loading regional data. Please try again later.</p>';
     }
   }
 
-  function renderRegions(regions) {
-    const container = document.getElementById('regionContainer');
-    if (!regions || regions.length === 0) {
-      container.innerHTML = '<p>No regional data available.</p>';
-      return;
+  function toggleDetail(name) {
+    const detail = document.getElementById(`detail-${name}`);
+    if (detail) {
+      detail.classList.toggle('active');
     }
-    container.innerHTML = regions.map(r => {
-      const gsci = r.gsci || 0;
-      const status = gsci > 60 ? 'status-high' : gsci > 40 ? 'status-medium' : 'status-low';
-      const label = gsci > 60 ? 'Critical' : gsci > 40 ? 'Elevated' : 'Stable';
-      return `
-        <div class="region-card">
-          <div class="name">${escapeHtml(r.name)}</div>
-          <div class="score">${gsci}</div>
-          <div class="label">GSCI</div>
-          <div class="status ${status}">${label}</div>
-          ${r.threat_count ? `<div style="font-size:0.65rem; opacity:0.6; margin-top:0.3rem;">${r.threat_count} threats</div>` : ''}
-        </div>
-      `;
-    }).join('');
   }
 
   function escapeHtml(str) {
@@ -357,12 +443,12 @@
     return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
   }
 
-  // Service worker
+  // ---- Service worker ----
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js').catch(() => {});
   }
 
-  // Go
+  // ---- Load ----
   loadRegions();
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
