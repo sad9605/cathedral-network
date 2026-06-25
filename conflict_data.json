@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-06-24T21:52:21.293854",
+  "timestamp": "2026-06-24T22:17:28.079245",
   "threats": [
     {
       "id": "C01",
       "name": "Iran\u2011Israel/US War / Hormuz",
       "scp": 0.5364,
       "status": "Orange",
-      "lat": 26.5,
-      "lng": 56.5,
+      "lat": 31.0,
+      "lng": 34.8,
       "domains": [
         "Geopolitical",
         "Energy",
@@ -47,8 +47,8 @@
       "name": "Bab el\u2011Mandeb Blockade",
       "scp": 0.5128,
       "status": "Orange",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 13.0,
+      "lng": 43.0,
       "domains": [
         "Geopolitical",
         "Supply Chains"
@@ -60,8 +60,8 @@
       "name": "Great Power Conflict / US\u2011Iran Entanglement",
       "scp": 0.3887,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 35.9,
+      "lng": 104.2,
       "domains": [
         "Geopolitical"
       ],
@@ -72,8 +72,8 @@
       "name": "Armenia\u2011Azerbaijan",
       "scp": 0.4318,
       "status": "Yellow",
-      "lat": 40.5,
-      "lng": 45.0,
+      "lat": 38.9,
+      "lng": 35.0,
       "domains": [
         "Geopolitical"
       ],
@@ -96,8 +96,8 @@
       "name": "Taiwan Strait Incident Risk",
       "scp": 0.408,
       "status": "Yellow",
-      "lat": 23.5,
-      "lng": 120.0,
+      "lat": 23.7,
+      "lng": 120.9,
       "domains": [
         "Geopolitical",
         "Supply Chains"
@@ -122,8 +122,8 @@
       "name": "AI Deepfake Ops",
       "scp": 0.4907,
       "status": "Orange",
-      "lat": 38.0,
-      "lng": 23.0,
+      "lat": 39.8,
+      "lng": -98.6,
       "domains": [
         "Geopolitical",
         "Information",
@@ -149,7 +149,7 @@
       "name": "NATO Article 4 (Romania)",
       "scp": 0.4613,
       "status": "Orange",
-      "lat": 45.0,
+      "lat": 45.9,
       "lng": 25.0,
       "domains": [
         "Geopolitical"
@@ -161,8 +161,8 @@
       "name": "Ukraine\u2011Russia spillover",
       "scp": 0.286,
       "status": "Yellow",
-      "lat": 48.0,
-      "lng": 30.0,
+      "lat": 48.4,
+      "lng": 31.2,
       "domains": [
         "Geopolitical"
       ],
@@ -173,8 +173,8 @@
       "name": "Iraq Instability",
       "scp": 0.3737,
       "status": "Yellow",
-      "lat": 33.0,
-      "lng": 44.0,
+      "lat": 32.4,
+      "lng": 53.7,
       "domains": [
         "Geopolitical"
       ],
@@ -185,8 +185,8 @@
       "name": "Underwater Infrastructure Sabotage",
       "scp": 0.3089,
       "status": "Yellow",
-      "lat": 56.0,
-      "lng": 15.0,
+      "lat": 20.0,
+      "lng": 20.0,
       "domains": [
         "Geopolitical",
         "Energy"
@@ -223,7 +223,7 @@
       "name": "Cartel Violence Mexico",
       "scp": 0.3669,
       "status": "Yellow",
-      "lat": 24.0,
+      "lat": 23.6,
       "lng": -102.0,
       "domains": [
         "Geopolitical",
@@ -249,8 +249,8 @@
       "name": "Information Warfare",
       "scp": 0.4666,
       "status": "Orange",
-      "lat": 38.0,
-      "lng": 23.0,
+      "lat": 20.0,
+      "lng": 20.0,
       "domains": [
         "Geopolitical",
         "Information"
@@ -262,8 +262,8 @@
       "name": "Moldova Transnistria escalation",
       "scp": 0.2681,
       "status": "Yellow",
-      "lat": 47.0,
-      "lng": 29.0,
+      "lat": 47.4,
+      "lng": 28.8,
       "domains": [
         "Geopolitical"
       ],
@@ -274,8 +274,8 @@
       "name": "Russian sabotage in Germany/Poland",
       "scp": 0.3373,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 51.0,
+      "lng": 10.0,
       "domains": [
         "Geopolitical"
       ],
@@ -286,8 +286,8 @@
       "name": "Finland\u2011Russia border closure",
       "scp": 0.251,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 39.8,
+      "lng": -98.6,
       "domains": [
         "Geopolitical"
       ],
@@ -298,8 +298,8 @@
       "name": "Poland\u2011Belarus migrant weaponisation",
       "scp": 0.3679,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 52.0,
+      "lng": 19.0,
       "domains": [
         "Geopolitical"
       ],
@@ -335,8 +335,8 @@
       "name": "Russian LNG terminal sabotage",
       "scp": 0.3589,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 39.8,
+      "lng": -98.6,
       "domains": [
         "Geopolitical",
         "Energy"
@@ -437,8 +437,8 @@
       "name": "Russian internal coup",
       "scp": 0.2664,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 39.8,
+      "lng": -98.6,
       "domains": [
         "Geopolitical"
       ],
@@ -524,8 +524,8 @@
       "name": "Greenland as geopolitical flashpoint",
       "scp": 0.3958,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 72.0,
+      "lng": -42.0,
       "domains": [
         "Geopolitical"
       ],
@@ -549,8 +549,8 @@
       "name": "West Bank violent escalation (third intifada risk)",
       "scp": 0.4666,
       "status": "Orange",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 31.8,
+      "lng": 35.2,
       "domains": [
         "Geopolitical",
         "Social"
@@ -562,8 +562,8 @@
       "name": "Blue Nile / GERD water war escalation",
       "scp": 0.3833,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 12.0,
+      "lng": 34.0,
       "domains": [
         "Geopolitical",
         "Food"
@@ -588,8 +588,8 @@
       "name": "Russia brokering role",
       "scp": 0.1931,
       "status": "Green",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 39.8,
+      "lng": -98.6,
       "domains": [
         "Energy",
         "Geopolitical"
@@ -601,8 +601,8 @@
       "name": "Caucasus frozen conflict",
       "scp": 0.3699,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 39.8,
+      "lng": -98.6,
       "domains": [
         "Climate",
         "Geopolitical"
@@ -627,8 +627,8 @@
       "name": "Pacific strategic",
       "scp": 0.4449,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 0.0,
+      "lng": 160.0,
       "domains": [
         "Climate",
         "Geopolitical"
@@ -705,8 +705,8 @@
       "name": "Deepfake WMD false flag risk",
       "scp": 0.4449,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 38.0,
+      "lng": 23.0,
       "domains": [
         "Technology",
         "Geopolitical"
@@ -718,8 +718,8 @@
       "name": "Lethal autonomous weapons (LAWS) normative collapse",
       "scp": 0.4867,
       "status": "Orange",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 39.8,
+      "lng": -98.6,
       "domains": [
         "Technology",
         "Geopolitical"
@@ -731,8 +731,8 @@
       "name": "Information Warfare",
       "scp": 0.4666,
       "status": "Orange",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 38.0,
+      "lng": 23.0,
       "domains": [
         "Information",
         "Geopolitical"
@@ -744,8 +744,8 @@
       "name": "Deepfake WMD false flag",
       "scp": 0.4449,
       "status": "Yellow",
-      "lat": 35.0,
-      "lng": 38.0,
+      "lat": 38.0,
+      "lng": 23.0,
       "domains": [
         "Information",
         "Geopolitical"
