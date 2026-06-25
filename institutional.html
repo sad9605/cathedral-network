@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — Institutional Intelligence</title>
+  <meta name="description" content="Intelligence reports on multinational institutions and organizations – resilience, stress, and capacity.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-specific styles (same as regional.html) */
+    .institution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .institution-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow-sm);
+      border-left: 6px solid var(--violet-dark);
+      transition: transform 0.1s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    body.dark .institution-card {
+      background: #2a2a3a;
+    }
+    .institution-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .institution-card .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .institution-card .name {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .institution-card .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: var(--violet-light);
+      color: var(--violet-dark);
+    }
+    body.dark .institution-card .badge {
+      background: #3a3a4a;
+      color: #b39ddb;
+    }
+    .badge-critical {
+      background: #dc2626;
+      color: white;
+    }
+    .badge-elevated {
+      background: #f97316;
+      color: white;
+    }
+    .badge-stable {
+      background: #22c55e;
+      color: white;
+    }
+    .institution-card .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin: 0.8rem 0;
+    }
+    .institution-card .metric-item {
+      text-align: center;
+      padding: 0.4rem;
+      background: var(--violet-light);
+      border-radius: 10px;
+    }
+    body.dark .institution-card .metric-item {
+      background: #3a3a4a;
+    }
+    .institution-card .metric-item .number {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--violet-dark);
+    }
+    body.dark .institution-card .metric-item .number {
+      color: #b39ddb;
+    }
+    .institution-card .metric-item .label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: #666;
+    }
+    body.dark .institution-card .metric-item .label {
+      color: #aaa;
+    }
+    .institution-card .extra {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      margin-top: 0.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+    .institution-card .extra span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .institution-detail {
+      display: none;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #eee;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    body.dark .institution-detail {
+      border-top-color: #444;
+    }
+    .institution-detail.active {
+      display: block;
+    }
+    .institution-detail .report-section {
+      margin: 0.5rem 0;
+    }
+    .institution-detail .report-section strong {
+      color: var(--violet-dark);
+    }
+    body.dark .institution-detail .report-section strong {
+      color: #b39ddb;
+    }
+    .institution-detail .report-meta {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: 0.5rem;
+      border-top: 1px solid #eee;
+      padding-top: 0.5rem;
+    }
+    body.dark .institution-detail .report-meta {
+      border-top-color: #444;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.1s, box-shadow 0.2s;
+    }
+    body.dark .stat-card {
+      background: #2a2a3a;
+    }
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .stat-card .number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--violet-dark);
+    }
+    body.dark .stat-card .number {
+      color: #b39ddb;
+    }
+    .stat-card .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #666;
+      letter-spacing: 0.5px;
+    }
+    body.dark .stat-card .label {
+      color: #aaa;
+    }
+    .violet-pulse {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: #7c4dff;
+      border-radius: 50%;
+      animation: pulse-violet 1.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-violet {
+      0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0.4); }
+      50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124, 77, 255, 0); }
+      100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0); }
+    }
+    /* Reuse sidebar, banner, top-nav, footer, dark-mode-toggle from style.css */
+    .top-nav {
+      display: none;
+      background: var(--violet-light);
+      padding: 0.5rem 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      border-radius: var(--card-radius);
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+    body.dark .top-nav {
+      background: #2a2a3a;
+    }
+    .top-nav a {
+      color: var(--violet-dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 40px;
+    }
+    body.dark .top-nav a {
+      color: #b39ddb;
+    }
+    .top-nav a:hover {
+      background: var(--violet-dark);
+      color: white;
+    }
+    body.dark .top-nav a:hover {
+      background: var(--violet);
+      color: #1a1a1a;
+    }
+    @media (max-width: 768px) {
+      .top-nav {
+        display: flex;
+      }
+    }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    .sidebar-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100%;
+      background: white;
+      border-right: 1px solid #eee;
+      overflow-y: auto;
+      z-index: 1000;
+      padding: 1rem;
+      transition: transform 0.3s ease;
+    }
+    body.dark .sidebar-container {
+      background: #2a2a3a;
+      border-right-color: #444;
+    }
+    .sidebar-container .sidebar-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+    }
+    body.dark .sidebar-container .sidebar-header {
+      border-bottom-color: #444;
+    }
+    .sidebar-container .sidebar-header span {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--violet-dark);
+    }
+    body.dark .sidebar-container .sidebar-header span {
+      color: #b39ddb;
+    }
+    .sidebar-container nav .nav-section {
+      margin-bottom: 1.25rem;
+    }
+    .sidebar-container nav .nav-section strong {
+      display: block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--violet-dark);
+      padding: 0.2rem 0 0.3rem 0;
+      opacity: 0.7;
+    }
+    body.dark .sidebar-container nav .nav-section strong {
+      color: #b39ddb;
+    }
+    .sidebar-container nav .nav-section a {
+      display: block;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+    body.dark .sidebar-container nav .nav-section a {
+      color: #f0f0f0;
+    }
+    .sidebar-container nav .nav-section a:hover {
+      background: var(--violet-light);
+    }
+    body.dark .sidebar-container nav .nav-section a:hover {
+      background: #3a3a4a;
+    }
+    #sidebar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--violet-dark);
+    }
+    body.dark #sidebar-toggle {
+      color: #b39ddb;
+    }
+    @media (max-width: 768px) {
+      .sidebar-container {
+        transform: translateX(-100%);
+        width: 260px;
+      }
+      .sidebar-container.open {
+        transform: translateX(0);
+      }
+      #sidebar-toggle {
+        display: block;
+      }
+      .container {
+        margin-left: 0 !important;
+      }
+    }
+    @media (min-width: 769px) {
+      .container {
+        margin-left: 240px;
+      }
+    }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 1rem; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
+      .institution-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar-container" id="sidebar">
+  <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
+  <nav>
+    <div class="nav-section">
+      <strong>📊 Dashboard</strong>
+      <a href="index.html">Ground Truth</a>
+      <a href="hewd.html">HEWD Dashboard</a>
+      <a href="health.html">System Health</a>
+    </div>
+    <div class="nav-section">
+      <strong>🧠 Intelligence</strong>
+      <a href="threat-matrix.html">Threat Matrix</a>
+      <a href="prediction-log.html">Prediction Log</a>
+      <a href="regional.html">Regional Forecasts</a>
+      <a href="institutional.html">Institutional Intelligence</a>
+      <a href="daily-brief.html">Daily Brief</a>
+      <a href="breaking.html">Breaking News</a>
+      <a href="conflict-monitor.html">Conflict Monitor</a>
+    </div>
+    <div class="nav-section">
+      <strong>⚖️ Governance</strong>
+      <a href="constitution.html">Constitution</a>
+      <a href="wardens.html">Wardens</a>
+      <a href="ascension.html">Ascension Engine</a>
+      <a href="warden-dashboard.html">Warden Dashboard</a>
+    </div>
+    <div class="nav-section">
+      <strong>🌍 Community</strong>
+      <a href="spotter.html">Spotter Guide</a>
+      <a href="about.html">About</a>
+      <a href="sources.html">Sources</a>
+      <a href="credits.html">Credits</a>
+    </div>
+    <div class="nav-section">
+      <strong>🔧 Tools</strong>
+      <a href="undp-demo.html">UNDP Demo</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="pra.html">PRA</a>
+    </div>
+  </nav>
+</div>
+
+<!-- Banner -->
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Institutional Intelligence</p></div>
+  </div>
+</header>
+
+<!-- Top Nav (mobile) -->
+<div class="top-nav">
+  <a href="index.html">Ground Truth</a>
+  <a href="threat-matrix.html">Threat Matrix</a>
+  <a href="prediction-log.html">Prediction Log</a>
+  <a href="hewd.html">HEWD</a>
+  <a href="health.html">Health</a>
+  <a href="wardens.html">Wardens</a>
+  <a href="regional.html">Regional</a>
+  <a href="institutional.html">Institutions</a>
+</div>
+
+<!-- Main content -->
+<div class="container">
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+    <h1>🌐 Institutional Intelligence</h1>
+    <div style="display: flex; align-items: center; gap: 0.8rem;">
+      <span class="violet-pulse"></span>
+      <span style="font-size: 0.8rem; color: #888;">Updated: <span id="lastUpdate">Loading...</span></span>
+    </div>
+  </div>
+  <p style="margin-bottom: 1rem;">Intelligence reports on multinational institutions, organizations, and governing bodies. Click any card for the full report.</p>
+
+  <!-- Stats -->
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-card"><div class="number" id="totalInstitutions">--</div><div class="label">Institutions</div></div>
+    <div class="stat-card"><div class="number" id="criticalInstitutions">--</div><div class="label">Critical</div></div>
+    <div class="stat-card"><div class="number" id="elevatedInstitutions">--</div><div class="label">Elevated</div></div>
+    <div class="stat-card"><div class="number" id="stableInstitutions">--</div><div class="label">Stable</div></div>
+  </div>
+
+  <!-- Institutions -->
+  <div id="institutionContainer" class="institution-grid">
+    <p>Loading institutional intelligence...</p>
+  </div>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Institutional Intelligence · Updated daily.
+  </div>
+</div>
+
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+<script>
+  // ---- Sidebar toggle ----
+  document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
+    document.getElementById('sidebar')?.classList.toggle('open');
+  });
+
+  // ---- Dark mode ----
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    darkToggle.innerText = '☀️';
+  } else darkToggle.innerText = '🌙';
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerText = isDark ? '☀️' : '🌙';
+    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+  });
+
+  // ---- Institution intelligence data ----
+  const INSTITUTIONS = [
+    {
+      id: "icrc",
+      name: "International Red Cross & Red Crescent Movement",
+      status: "elevated",
+      stress: 62,
+      capacity: 58,
+      report: `<p><strong>IHL erosion:</strong> Respect for International Humanitarian Law continues to decline across multiple conflict zones. Medical personnel targeted, emblem protection violated in Gaza, Ukraine, and Sudan.</p>
+               <p><strong>Access constraints:</strong> Humanitarian access remains restricted in numerous theatres. Negotiations with non-state armed groups complicated by geopolitical fragmentation.</p>
+               <p><strong>Funding:</strong> Donor fatigue and competing crises strain the Movement's operational budget. Emergency appeals underfunded.</p>
+               <p><strong>Forecast:</strong> Elevated risk of IHL collapse. Monitoring emblem violations, access negotiations, and funding gaps.</p>`,
+      threats: ["IHL Erosion", "Access Constraints", "Funding Shortfalls"]
+    },
+    {
+      id: "who",
+      name: "World Health Organization",
+      status: "elevated",
+      stress: 65,
+      capacity: 52,
+      report: `<p><strong>PHEICs:</strong> Multiple Public Health Emergencies of International Concern active – Ebola, mpox, H5N1. Response capacity stretched.</p>
+               <p><strong>GPMB:</strong> Global Preparedness Monitoring Board warns of systemic underinvestment in pandemic preparedness. Warning fatigue.</p>
+               <p><strong>Funding:</strong> Member state contributions inconsistent. WHO's ability to coordinate global health responses remains constrained by political dynamics.</p>
+               <p><strong>Forecast:</strong> Elevated risk of unmanaged health emergencies. Monitoring PHEIC declarations, outbreak trajectories, and funding flows.</p>`,
+      threats: ["PHEIC Overload", "Funding Shortfalls", "Trust Deficit"]
+    },
+    {
+      id: "iaea",
+      name: "International Atomic Energy Agency",
+      status: "critical",
+      stress: 78,
+      capacity: 55,
+      report: `<p><strong>ZNPP:</strong> Zaporizhzhia Nuclear Plant remains at risk of radiological release. IAEA presence limited, access contested. Shelling continues.</p>
+               <p><strong>Safeguards:</strong> Iran non-cooperation on uranium enrichment verification. DPRK nuclear activities opaque. NPT credibility eroding.</p>
+               <p><strong>Forecast:</strong> Critical risk of nuclear incident. Monitoring ZNPP status, Iran enrichment, and DPRK missile activity.</p>`,
+      threats: ["ZNPP", "Iran Safeguards", "NPT Erosion"]
+    },
+    {
+      id: "pg-gcc",
+      name: "Persian Gulf / GCC",
+      status: "critical",
+      stress: 82,
+      capacity: 60,
+      report: `<p><strong>Hormuz:</strong> Strait of Hormuz remains flashpoint for global energy markets. Iranian naval activity and US presence create continuous tension.</p>
+               <p><strong>OPEC:</strong> Internal disagreement over production quotas. Gulf fiscal stability threatened by oil price volatility and diversification pressures.</p>
+               <p><strong>Forecast:</strong> Critical risk of energy disruption. Monitoring Hormuz, oil prices, and GCC diplomatic dynamics.</p>`,
+      threats: ["Hormuz", "Oil Price Volatility", "GCC Fragmentation"]
+    },
+    {
+      id: "fao",
+      name: "Food and Agriculture Organization",
+      status: "critical",
+      stress: 75,
+      capacity: 48,
+      report: `<p><strong>Food Price Index:</strong> FAO Food Price Index remains elevated, with grain and vegetable oil prices volatile. Fertiliser shortages continue.</p>
+               <p><strong>Famine:</strong> Famine conditions persist in Somalia, South Sudan, and Yemen. Climate-driven crop failures compound conflict impacts.</p>
+               <p><strong>AMR:</strong> Antimicrobial resistance in agriculture accelerates, threatening food systems and human health.</p>
+               <p><strong>Forecast:</strong> Critical risk of widespread food insecurity. Monitoring FAO index, famine declarations, and AMR spread.</p>`,
+      threats: ["Food Price Volatility", "Famine", "AMR"]
+    },
+    {
+      id: "unhcr",
+      name: "UNHCR – UN Refugee Agency",
+      status: "elevated",
+      stress: 68,
+      capacity: 50,
+      report: `<p><strong>Displacement:</strong> Record global displacement exceeds 120 million. New displacement from Gaza, Sudan, Ukraine, and Myanmar.</p>
+               <p><strong>Pushbacks:</strong> Rising pushbacks at borders, particularly in Mediterranean, Balkans, and US-Mexico. Violations of non-refoulement documented.</p>
+               <p><strong>Unaccompanied Minors:</strong> Increasing numbers of unaccompanied minors crossing borders. Protection systems overwhelmed.</p>
+               <p><strong>Forecast:</strong> Elevated risk of protection failures. Monitoring displacement flows, pushbacks, and child protection.</p>`,
+      threats: ["Displacement", "Pushbacks", "Child Protection"]
+    },
+    {
+      id: "opec",
+      name: "Organization of the Petroleum Exporting Countries",
+      status: "elevated",
+      stress: 58,
+      capacity: 62,
+      report: `<p><strong>Supply:</strong> OPEC+ production cuts continue to support prices. U.S. shale response uncertain. Compliance with quotas variable.</p>
+               <p><strong>Forecast:</strong> Elevated risk of supply disruptions. Monitoring production levels, compliance, and demand forecasts.</p>`,
+      threats: ["Supply Disruptions", "Quota Compliance"]
+    },
+    {
+      id: "un",
+      name: "United Nations",
+      status: "critical",
+      stress: 80,
+      capacity: 45,
+      report: `<p><strong>Security Council:</strong> Paralysis continues. Veto use blocks action on Gaza, Ukraine, Syria. Council legitimacy eroded.</p>
+               <p><strong>S-G Legitimacy:</strong> Secretary-General's office faces credibility challenges. Perceived ineffectiveness on major crises.</p>
+               <p><strong>Financing:</strong> Regular budget arrears, particularly from major contributors. Peacekeeping missions underfunded.</p>
+               <p><strong>Forecast:</strong> Critical risk of institutional irrelevance. Monitoring Security Council resolutions, financing, and reform momentum.</p>`,
+      threats: ["SC Paralysis", "S-G Legitimacy", "Funding"]
+    },
+    {
+      id: "eu",
+      name: "European Union Institutions",
+      status: "elevated",
+      stress: 55,
+      capacity: 58,
+      report: `<p><strong>MFF:</strong> Multiannual Financial Framework negotiations strained by fiscal pressures and new priorities (defence, technology).</p>
+               <p><strong>ECB:</strong> Monetary policy faces inflation vs. growth trade-off. European Central Bank policy stance under scrutiny.</p>
+               <p><strong>Externalisation:</strong> Migration externalisation to North Africa and Turkey raises human rights concerns.</p>
+               <p><strong>Forecast:</strong> Elevated risk of internal fragmentation and policy failure. Monitoring MFF negotiations, ECB policy, and migration externalisation.</p>`,
+      threats: ["Fiscal Fragmentation", "Migration Externalisation", "ECB Policy"]
+    },
+    {
+      id: "cdc",
+      name: "U.S. Centers for Disease Control",
+      status: "elevated",
+      stress: 60,
+      capacity: 55,
+      report: `<p><strong>Global Health:</strong> CDC global health presence reduced. Domestic pandemic preparedness levels uncertain.</p>
+               <p><strong>H5N1:</strong> H5N1 avian influenza continues to spread in mammals, raising pandemic risk. Surveillance funding at risk.</p>
+               <p><strong>Lab Safety:</strong> Pathogen escape risks raised by reductions in oversight and inspections.</p>
+               <p><strong>Forecast:</strong> Elevated risk of pandemic and lab incidents. Monitoring H5N1, funding, and lab oversight.</p>`,
+      threats: ["H5N1", "Pandemic Preparedness", "Lab Safety"]
+    },
+    {
+      id: "nato",
+      name: "NATO – North Atlantic Treaty Organization",
+      status: "elevated",
+      stress: 65,
+      capacity: 58,
+      report: `<p><strong>Article 4/5:</strong> Article 4 consultations continue over Baltic and Black Sea incidents. Risk of Article 5 invocation if Russia escalates.</p>
+               <p><strong>Baltic:</strong> NATO presence in Baltic region increases. Russian hybrid warfare persists, testing Article 5 resolve.</p>
+               <p><strong>Arctic Sentry:</strong> NATO expands Arctic monitoring in response to Russia's Arctic militarisation.</p>
+               <p><strong>Forecast:</strong> Elevated risk of direct NATO-Russia confrontation. Monitoring Baltic, Arctic, and Article 4/5 consultations.</p>`,
+      threats: ["Article 5 Risk", "Baltic", "Arctic"]
+    },
+    {
+      id: "cyber",
+      name: "Cyber Domain",
+      status: "elevated",
+      stress: 62,
+      capacity: 48,
+      report: `<p><strong>ICS/OT:</strong> Industrial Control Systems remain primary target for state and non-state actors. Critical infrastructure vulnerable.</p>
+               <p><strong>GPS Spoofing:</strong> GPS spoofing and jamming increase globally. Impacts aviation, maritime, and critical infrastructure.</p>
+               <p><strong>Electoral Disinformation:</strong> AI‑generated deepfakes deployed in multiple electoral contexts. Social media platforms struggle to respond.</p>
+               <p><strong>Forecast:</strong> Elevated risk of cyber incidents. Monitoring ICS threats, GPS interference, and disinformation campaigns.</p>`,
+      threats: ["ICS/OT", "GPS Spoofing", "Electoral Disinformation"]
+    },
+    {
+      id: "brics",
+      name: "BRICS",
+      status: "elevated",
+      stress: 50,
+      capacity: 55,
+      report: `<p><strong>Delhi Ministerial:</strong> BRICS expansion and institutionalisation continue. New members (Argentina, Iran, UAE, Ethiopia) shift internal dynamics.</p>
+               <p><strong>NDB:</strong> New Development Bank expands lending, but governance and financing remain challenges.</p>
+               <p><strong>De‑dollarisation:</strong> BRICS explores alternative payment systems. Momentum increases, but implementation lag.</p>
+               <p><strong>Forecast:</strong> Elevated risk of geopolitical realignment. Monitoring BRICS expansion, NDB lending, and de‑dollarisation progress.</p>`,
+      threats: ["Expansion", "NDB", "De‑dollarisation"]
+    },
+    {
+      id: "arctic",
+      name: "Arctic Council",
+      status: "elevated",
+      stress: 58,
+      capacity: 50,
+      report: `<p><strong>Governance Freeze:</strong> Arctic Council operations limited by Russia's suspension. Indigenous participation reduced.</p>
+               <p><strong>NSR:</strong> Northern Sea Route opens longer each year, increasing strategic competition and environmental risk.</p>
+               <p><strong>Indigenous Marginalisation:</strong> Indigenous representation in Arctic governance continues to decline.</p>
+               <p><strong>Forecast:</strong> Elevated risk of governance failure and environmental degradation. Monitoring Council activity, NSR traffic, and indigenous rights.</p>`,
+      threats: ["Governance Freeze", "NSR", "Indigenous Rights"]
+    },
+    {
+      id: "asean",
+      name: "ASEAN",
+      status: "stable",
+      stress: 40,
+      capacity: 55,
+      report: `<p><strong>5PC:</strong> Five-Point Consensus on Myanmar remains unimplemented. ASEAN credibility at risk.</p>
+               <p><strong>AHA Centre:</strong> ASEAN Coordinating Centre for Humanitarian Assistance operational, but capacity limited.</p>
+               <p><strong>COC:</strong> Code of Conduct in South China Sea negotiations continue, but progress slow.</p>
+               <p><strong>Forecast:</strong> Stable with elevated credibility risk. Monitoring Myanmar, COC, and AHA Centre capacity.</p>`,
+      threats: ["Myanmar", "South China Sea", "AHA Centre Capacity"]
+    },
+    {
+      id: "au",
+      name: "African Union",
+      status: "elevated",
+      stress: 55,
+      capacity: 50,
+      report: `<p><strong>PSC:</strong> Peace and Security Council active but under-resourced. Several conflict prevention missions underfunded.</p>
+               <p><strong>Peace Fund:</strong> AU Peace Fund remains undercapitalised. Donor reliance persists.</p>
+               <p><strong>AfCFTA:</strong> African Continental Free Trade Area implementation slow. Infrastructure deficits and regulatory barriers remain.</p>
+               <p><strong>Karamoja:</strong> Regional conflict in Karamoja cluster (Uganda, Kenya, Ethiopia, South Sudan) requires coordinated response.</p>
+               <p><strong>Forecast:</strong> Elevated risk of security and economic challenges. Monitoring PSC activity, AfCFTA, and Karamoja.</p>`,
+      threats: ["Peace Fund", "AfCFTA", "Karamoja"]
+    },
+    {
+      id: "imf",
+      name: "International Monetary Fund",
+      status: "elevated",
+      stress: 60,
+      capacity: 55,
+      report: `<p><strong>Common Framework:</strong> Debt restructuring for lower-income countries remains slow. Implementation gaps persist.</p>
+               <p><strong>Article IV:</strong> Article IV consultations signal rising risks to global financial stability.</p>
+               <p><strong>Sovereign Debt:</strong> Sovereign debt levels continue to rise, with cascading default risks.</p>
+               <p><strong>Forecast:</strong> Elevated risk of debt crises. Monitoring Common Framework, Article IV, and sovereign defaults.</p>`,
+      threats: ["Sovereign Debt", "Common Framework", "Financial Stability"]
+    },
+    {
+      id: "interpol",
+      name: "INTERPOL",
+      status: "stable",
+      stress: 38,
+      capacity: 60,
+      report: `<p><strong>Red Notices:</strong> INTERPOL Red Notices used increasingly for politically motivated prosecutions. System integrity at risk.</p>
+               <p><strong>CCF:</strong> Commission for the Control of INTERPOL's Files active, but capacity limited.</p>
+               <p><strong>Forecast:</strong> Stable with integrity risks. Monitoring Red Notice misuse and CCF activity.</p>`,
+      threats: ["Red Notice Misuse", "CCF Capacity"]
+    },
+    {
+      id: "wto",
+      name: "World Trade Organization",
+      status: "critical",
+      stress: 70,
+      capacity: 45,
+      report: `<p><strong>Appellate Body:</strong> WTO Appellate Body remains non-functional. Trade dispute resolution system paralysed.</p>
+               <p><strong>Export Restrictions:</strong> Increasing use of export restrictions on food and minerals, violating WTO commitments.</p>
+               <p><strong>Forecast:</strong> Critical risk of trade fragmentation. Monitoring Appellate Body reform and export restrictions.</p>`,
+      threats: ["Appellate Body", "Export Restrictions", "Trade Fragmentation"]
+    },
+    {
+      id: "g20",
+      name: "G20",
+      status: "elevated",
+      stress: 52,
+      capacity: 50,
+      report: `<p><strong>Presidency:</strong> G20 presidency agenda reflects geopolitical fragmentation. Crisis coordination capacity weakened.</p>
+               <p><strong>Borrowers' Platform:</strong> G20 Common Framework for Debt Treatment underutilised. Creditor coordination remains challenging.</p>
+               <p><strong>Forecast:</strong> Elevated risk of coordination failure. Monitoring presidency priorities and debt treatment.</p>`,
+      threats: ["Coordination Failure", "Debt Treatment"]
+    },
+    {
+      id: "icc",
+      name: "International Criminal Court",
+      status: "elevated",
+      stress: 55,
+      capacity: 50,
+      report: `<p><strong>Warrants:</strong> ICC arrest warrants issued for major figures. Compliance varies. Enforcement relies on state cooperation.</p>
+               <p><strong>ICJ Compliance:</strong> International Court of Justice rulings face non-compliance from multiple states. ICJ authority challenged.</p>
+               <p><strong>Forecast:</strong> Elevated risk of accountability deficits. Monitoring warrant enforcement and ICJ compliance.</p>`,
+      threats: ["Warrant Enforcement", "ICJ Compliance"]
+    },
+    {
+      id: "fema",
+      name: "FEMA – U.S. Federal Emergency Management Agency",
+      status: "critical",
+      stress: 75,
+      capacity: 50,
+      report: `<p><strong>DRF:</strong> Disaster Relief Fund balance critically low. Hurricane season approaching with limited reserves.</p>
+               <p><strong>NFIP:</strong> National Flood Insurance Program insolvent. Reform failure continues.</p>
+               <p><strong>Forecast:</strong> Critical risk of disaster response failure. Monitoring DRF balance and NFIP reform.</p>`,
+      threats: ["DRF", "NFIP", "Hurricane Season"]
+    },
+    {
+      id: "disaster-agencies",
+      name: "National Disaster Agencies (Global Scan)",
+      status: "elevated",
+      stress: 58,
+      capacity: 50,
+      report: `<p><strong>NDASI:</strong> National Disaster Agencies face capacity constraints globally. Prepositioning of supplies insufficient.</p>
+               <p><strong>Prepositioning:</strong> Humanitarian supplies pre-positioned for hurricane and cyclone seasons. Gaps in coverage exist.</p>
+               <p><strong>Forecast:</strong> Elevated risk of humanitarian shortfalls. Monitoring prepositioning and agency capacity.</p>`,
+      threats: ["Capacity Gaps", "Prepositioning"]
+    },
+    {
+      id: "biosecurity",
+      name: "Biosecurity",
+      status: "elevated",
+      stress: 62,
+      capacity: 45,
+      report: `<p><strong>Bundibugyo:</strong> Ebola outbreak in Uganda continues. Healthcare capacity strained, vaccine rollout limited.</p>
+               <p><strong>BSL-4:</strong> BSL-4 lab safety protocols under review. Risk of pathogen escape remains.</p>
+               <p><strong>AI-SynBio:</strong> AI-enabled synthetic biology poses novel biosecurity risks. Governance frameworks lag.</p>
+               <p><strong>BWC:</strong> Biological Weapons Convention review conference pending. Verification mechanism absent.</p>
+               <p><strong>Forecast:</strong> Elevated risk of biological incident. Monitoring Ebola, lab safety, and AI‑SynBio governance.</p>`,
+      threats: ["Ebola", "BSL-4", "AI-SynBio", "BWC"]
+    },
+    {
+      id: "ai-governance",
+      name: "AI Governance",
+      status: "elevated",
+      stress: 60,
+      capacity: 45,
+      report: `<p><strong>LAWS:</strong> Lethal Autonomous Weapons Systems negotiations stalled. CCS support lacks consensus.</p>
+               <p><strong>Electoral Deepfakes:</strong> AI‑generated deepfakes target multiple elections globally. Detection and response insufficient.</p>
+               <p><strong>CCW:</strong> Convention on Certain Conventional Weapons negotiations on LAWS continue, but progress slow.</p>
+               <p><strong>Forecast:</strong> Elevated risk of AI‑driven harm. Monitoring LAWS, deepfakes, and CCW progress.</p>`,
+      threats: ["LAWS", "Electoral Deepfakes", "CCW"]
+    },
+    {
+      id: "orbital",
+      name: "Orbital Domain",
+      status: "elevated",
+      stress: 55,
+      capacity: 50,
+      report: `<p><strong>GPS Jamming/Spoofing:</strong> GPS interference incidents increase. Impacts on aviation, maritime, and military operations.</p>
+               <p><strong>ASAT:</strong> Anti‑satellite weapon testing continues. Debris accumulation threatens orbital infrastructure.</p>
+               <p><strong>Debris:</strong> Orbital debris levels approach critical thresholds. Cleanup measures lacking.</p>
+               <p><strong>Forecast:</strong> Elevated risk of orbital disruption. Monitoring GPS interference, ASAT tests, and debris.</p>`,
+      threats: ["GPS Spoofing", "ASAT", "Orbital Debris"]
+    },
+    {
+      id: "ocean",
+      name: "Ocean Governance",
+      status: "elevated",
+      stress: 50,
+      capacity: 48,
+      report: `<p><strong>Deep-Sea Mining:</strong> Deep-sea mining regulations pending. Environmental risks remain unassessed.</p>
+               <p><strong>IUU Fishing:</strong> Illegal, unreported, and unregulated fishing continues. Enforcement gaps significant.</p>
+               <p><strong>CCZ:</strong> Clarion-Clipperton Zone mining exploration increases. Environmental impact assessments incomplete.</p>
+               <p><strong>UNCLOS:</strong> UN Convention on the Law of the Sea implementation inconsistent. Dispute resolution limited.</p>
+               <p><strong>Forecast:</strong> Elevated risk of ocean governance failure. Monitoring deep-sea mining, IUU fishing, and UNCLOS implementation.</p>`,
+      threats: ["Deep-Sea Mining", "IUU Fishing", "UNCLOS"]
+    }
+  ];
+
+  // ---- Load and render institutions ----
+  async function loadInstitutions() {
+    const container = document.getElementById('institutionContainer');
+
+    try {
+      // Stats
+      document.getElementById('totalInstitutions').textContent = INSTITUTIONS.length;
+      const critical = INSTITUTIONS.filter(i => i.status === 'critical').length;
+      document.getElementById('criticalInstitutions').textContent = critical;
+      const elevated = INSTITUTIONS.filter(i => i.status === 'elevated').length;
+      document.getElementById('elevatedInstitutions').textContent = elevated;
+      const stable = INSTITUTIONS.filter(i => i.status === 'stable').length;
+      document.getElementById('stableInstitutions').textContent = stable;
+      document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString();
+
+      // Render cards
+      container.innerHTML = INSTITUTIONS.map(i => {
+        const status = i.status || 'stable';
+        const badgeClass = status === 'critical' ? 'badge-critical' : status === 'elevated' ? 'badge-elevated' : 'badge-stable';
+        const label = status === 'critical' ? 'Critical' : status === 'elevated' ? 'Elevated' : 'Stable';
+
+        return `
+          <div class="institution-card" onclick="toggleDetail('${i.id}')">
+            <div class="header">
+              <span class="name">${escapeHtml(i.name)}</span>
+              <span class="badge ${badgeClass}">${label}</span>
+            </div>
+            <div class="metrics">
+              <div class="metric-item">
+                <div class="number">${i.stress || '--'}</div>
+                <div class="label">Stress</div>
+              </div>
+              <div class="metric-item">
+                <div class="number">${i.capacity || '--'}</div>
+                <div class="label">Capacity</div>
+              </div>
+            </div>
+            <div class="extra">
+              <span>⚠️ ${i.threats ? i.threats.length : 0} threats</span>
+              <span>📋 ${i.report ? 'Report available' : 'No report'}</span>
+            </div>
+            <div class="institution-detail" id="detail-${i.id}">
+              ${i.report ? `
+                <div class="report-section">${i.report}</div>
+                ${i.threats ? `<div class="report-section"><strong>Key Threats:</strong> ${i.threats.join(', ')}</div>` : ''}
+                <div class="report-meta">Institution ID: ${i.id} · Updated daily</div>
+              ` : `
+                <p>No report available.</p>
+              `}
+            </div>
+          </div>
+        `;
+      }).join('');
+    } catch(e) {
+      console.error('Error rendering institutions:', e);
+      container.innerHTML = '<p style="color:#dc2626;">Error loading institutional data. Please try again later.</p>';
+    }
+  }
+
+  function toggleDetail(id) {
+    const detail = document.getElementById(`detail-${id}`);
+    if (detail) {
+      detail.classList.toggle('active');
+    }
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
+  }
+
+  // ---- Service worker ----
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').catch(() => {});
+  }
+
+  // ---- Load ----
+  loadInstitutions();
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
