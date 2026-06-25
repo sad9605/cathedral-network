@@ -173,7 +173,7 @@
       padding: 0.5rem;
       color: var(--violet-dark);
     }
-    body.dark #sidebar-toggle { color: #b39ddb; }
+    body.dark #sidebar-toggle { color: #b39ddbW; }
 
     @media (max-width: 768px) {
       .sidebar-container { transform: translateX(-100%); width: 260px; }
@@ -340,6 +340,7 @@
       <button id="btn-3d" class="active">🌐 3D</button>
       <button id="btn-heatmap">🔥 Heatmap</button>
       <button id="btn-forecast">🔮 Forecast</button>
+      <button id="btn-style">🎨 Style</button>
       <div class="slider-container">
         <label>📅</label>
         <input type="range" id="timeSlider" min="0" max="100" value="100">
@@ -863,6 +864,167 @@
         sprite.scale.set(baseScale, baseScale, 1);
       });
     });
+    
+    // ---- Globe style toggle ----
+    let currentStyle = 'satellite';
+    document.getElementById('btn-style').addEventListener('click', function() {
+      if (currentStyle === 'satellite') {
+        // Switch to violet vector style
+        currentStyle = 'violet';
+        this.textContent = '🛰️ Satellite';
+        setVioletStyle();
+      } else {
+        // Switch to satellite style
+        currentStyle = 'satellite';
+        this.textContent = '🎨 Violet';
+        setSatelliteStyle();
+      }
+    });
+
+    // ---- Style functions ----
+    function setVioletStyle() {
+      // Create a violet vector globe texture
+      const canvas = document.createElement('canvas');
+      canvas.width = 1024;
+      canvas.height = 512;
+      const ctx = canvas.getContext('2d');
+
+      // Dark background
+      ctx.fillStyle = '#0a0a12';
+      ctx.fillRect(0, 0, 1024, 512);
+
+      // Grid lines (violet)
+      ctx.strokeStyle = '#7c4dff';
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < 36; i++) {
+        const x = (i / 36) * 1024;
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, 512);
+        ctx.stroke();
+      }
+      for (let i = 0; i < 18; i++) {
+        const y = (i / 18) * 512;
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(1024, y);
+        ctx.stroke();
+      }
+
+      // Continents (simplified violet glow)
+      ctx.fillStyle = 'rgba(124, 77, 255, 0.25)';
+      ctx.strokeStyle = '#7c4dff';
+      ctx.lineWidth = 1.5;
+
+      // North America
+      ctx.beginPath();
+      ctx.moveTo(50, 20);
+      ctx.lineTo(50, 40);
+      ctx.lineTo(40, 50);
+      ctx.lineTo(30, 50);
+      ctx.lineTo(25, 40);
+      ctx.lineTo(30, 20);
+      ctx.lineTo(45, 15);
+      ctx.lineTo(50, 20);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // South America
+      ctx.beginPath();
+      ctx.moveTo(30, 50);
+      ctx.lineTo(25, 60);
+      ctx.lineTo(30, 70);
+      ctx.lineTo(40, 70);
+      ctx.lineTo(45, 60);
+      ctx.lineTo(40, 50);
+      ctx.lineTo(30, 50);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // Europe
+      ctx.beginPath();
+      ctx.moveTo(55, 35);
+      ctx.lineTo(60, 35);
+      ctx.lineTo(65, 40);
+      ctx.lineTo(65, 45);
+      ctx.lineTo(60, 50);
+      ctx.lineTo(55, 50);
+      ctx.lineTo(50, 45);
+      ctx.lineTo(50, 40);
+      ctx.lineTo(55, 35);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // Africa
+      ctx.beginPath();
+      ctx.moveTo(20, 35);
+      ctx.lineTo(20, 45);
+      ctx.lineTo(25, 55);
+      ctx.lineTo(35, 60);
+      ctx.lineTo(45, 55);
+      ctx.lineTo(50, 45);
+      ctx.lineTo(45, 35);
+      ctx.lineTo(35, 30);
+      ctx.lineTo(25, 30);
+      ctx.lineTo(20, 35);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // Asia
+      ctx.beginPath();
+      ctx.moveTo(60, 30);
+      ctx.lineTo(80, 30);
+      ctx.lineTo(100, 40);
+      ctx.lineTo(110, 50);
+      ctx.lineTo(100, 60);
+      ctx.lineTo(80, 60);
+      ctx.lineTo(70, 55);
+      ctx.lineTo(60, 45);
+      ctx.lineTo(55, 40);
+      ctx.lineTo(60, 30);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // Australia
+      ctx.beginPath();
+      ctx.moveTo(80, 60);
+      ctx.lineTo(90, 60);
+      ctx.lineTo(95, 65);
+      ctx.lineTo(90, 70);
+      ctx.lineTo(80, 70);
+      ctx.lineTo(75, 65);
+      ctx.lineTo(80, 60);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // Apply texture
+      const texture = new THREE.CanvasTexture(canvas);
+      if (globeObj) {
+        globeObj.material.map = texture;
+        globeObj.material.color.setHex(0x7c4dff);
+        globeObj.material.emissive = new THREE.Color(0x1a0a3a);
+        globeObj.material.emissiveIntensity = 0.3;
+        globeObj.material.needsUpdate = true;
+      }
+    }
+
+    function setSatelliteStyle() {
+      const textureLoader = new THREE.TextureLoader();
+      const texture = textureLoader.load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
+      if (globeObj) {
+        globeObj.material.map = texture;
+        globeObj.material.color.setHex(0xffffff);
+        globeObj.material.emissive = new THREE.Color(0x000000);
+        globeObj.material.emissiveIntensity = 0;
+        globeObj.material.needsUpdate = true;
+      }
+    }
 
     // Time slider – update points based on history
     document.getElementById('timeSlider').addEventListener('input', function() {
