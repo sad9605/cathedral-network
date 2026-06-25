@@ -534,7 +534,7 @@
       "status": "active"
     }
   ],
-  "last_updated": "2026-06-25T01:07:04.040559",
+  "last_updated": "2026-06-25T02:22:53.642633",
   "disclaimer": "This list is generated automatically and may not be exhaustive. The Cathedral Network does not endorse any external organisation; all sources are included for transparency and analytical purposes.",
   "software": [
     {
@@ -621,7 +621,7 @@
     }
   ],
   "stats": {
-    "threats": 213,
+    "threats": 233,
     "cascade_rules": 0,
     "data_sources": 15,
     "software_libraries": 18

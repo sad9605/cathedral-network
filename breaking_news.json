@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-25T01:06:33.135621",
+  "timestamp": "2026-06-25T02:22:27.923010",
   "items": [
     {
       "title": "Green flood alert in T\u00fcrkiye",
@@ -20,8 +20,8 @@
       "impact": "Critical"
     },
     {
-      "title": "Red earthquake (Magnitude 7.5M, Depth:10km) in Venezuela 24/06/2026 22:05 UTC, 810 thousand (in MMI>=VII).",
-      "description": "On 6/24/2026 10:05:12 PM, an earthquake occurred in Venezuela potentially affecting 810 thousand (in MMI>=VII). The earthquake had Magnitude 7.5M, Depth:10km.",
+      "title": "Red earthquake (Magnitude 7.5M, Depth:10km) in Venezuela 24/06/2026 22:05 UTC, 2.4 million (in MMI>=VII).",
+      "description": "On 6/24/2026 10:05:12 PM, an earthquake occurred in Venezuela potentially affecting 2.4 million (in MMI>=VII). The earthquake had Magnitude 7.5M, Depth:10km.",
       "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548377",
       "date": "Wed, 24 Jun 2026 22:17:17 GMT",
       "source": "GDACS",
@@ -146,8 +146,17 @@
       "impact": "Critical"
     },
     {
+      "title": "Ethiopia is not being \u2018dragged into war\u2019",
+      "description": "A response to Redwan Hussein and Getachew Reda\u2019s misleading opinion article.",
+      "link": "https://www.aljazeera.com/opinions/2026/6/25/ethiopia-is-not-being-dragged-into-war?traffic_source=rss",
+      "date": "Thu, 25 Jun 2026 06:29:17 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
       "title": "Venezuela rocked by 7.5, 7.2 earthquakes: What happened and what we know",
-      "description": "Venezuela declared a state of emergency after twin 7.2 and 7.5 earthquakes caused widespread damage and rescue efforts.",
+      "description": "Rescue efforts under way as Venezuela declares a state of emergency after powerful twin quakes cause widespread damage.",
       "link": "https://www.aljazeera.com/news/2026/6/25/venezuela-rocked-by-7-5-7-2-earthquakes-what-happened-and-what-we-know?traffic_source=rss",
       "date": "Thu, 25 Jun 2026 05:27:10 +0000",
       "source": "Al Jazeera",
@@ -168,15 +177,6 @@
       "description": "Thousands feared dead as twin earthquakes cause devastation across Venezuela.",
       "link": "https://www.aljazeera.com/video/newsfeed/2026/6/25/thousands-feared-dead-as-twin-earthquakes-cause-devastation-across-venezuel?traffic_source=rss",
       "date": "Thu, 25 Jun 2026 04:16:01 +0000",
-      "source": "Al Jazeera",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Iranians mark first Ashura since Khamenei\u2019s killing in the US-Iran war",
-      "description": "Thousands gathered in Tehran on the eve of Ashura, the first since the killing of Iranian supreme leader Ali Khamenei.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/25/iranians-mark-first-ashura-since-khameneis-killing-in-the-us-iran-war?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 03:55:07 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Critical"

@@ -4,6 +4,7 @@ cathedral_system.py – Master orchestrator for Cathedral Network daily pipeline
 Runs: sweep → forecast → cascade engine → indices → early warning → SCP history → cascade graph → trends → verify predictions → generate predictions → update sources → archive → git push.
 """
 
+import os
 import json
 import sys
 import subprocess

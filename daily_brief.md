@@ -1,7 +1,7 @@
 # Cathedral Daily Brief – 25 Jun 2026
 
-**GSCI:** 20.58  
-**Last sweep:** 2026-06-25T01:06:06.624736
+**GSCI:** 20.52  
+**Last sweep:** 2026-06-25T02:15:27.165726
 
 ## Top Threats
 
@@ -34,7 +34,7 @@
 
 - On 28/06/2026, a flood started in Türkiye, lasting until 30/06/2026 (last update). The flood caused 
 - On 6/24/2026 10:30:14 PM, an earthquake occurred in Japan potentially affecting 330 thousand in MMI 
-- On 6/24/2026 10:05:12 PM, an earthquake occurred in Venezuela potentially affecting 810 thousand (in
+- On 6/24/2026 10:05:12 PM, an earthquake occurred in Venezuela potentially affecting 2.4 million (in 
 - On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 10 thousand (
 - On 23/06/2026, a forest fire started in Brazil,  until 24/06/2026.
 

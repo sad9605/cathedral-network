@@ -11,8 +11,15 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 from pathlib import Path
-from geopy.geocoders import Nominatim
-from geopy.exc import GeocoderTimedOut, GeocoderUnavailable
+
+# Optional geocoding
+try:
+    from geopy.geocoders import Nominatim
+    from geopy.exc import GeocoderTimedOut, GeocoderUnavailable, GeocoderRateLimited
+    GEOCODING_AVAILABLE = True
+except ImportError:
+    GEOCODING_AVAILABLE = False
+    print("⚠️ Geopy not installed. Conflicts will have lat/lng = 0,0.")
 
 # ---------- Configuration ----------
 CFR_URL = "https://www.cfr.org/global-conflict-tracker"
@@ -20,29 +27,37 @@ OUTPUT_FILE = "conflict_data.json"
 THREATS_FILE = "threats.json"
 USER_AGENT = "Cathedral-Network-Agent/1.0 (https://cathedral.network)"
 
-# Geocoding cache to avoid repeated requests
-GEO_CACHE = {}
-
 # ---------- Helpers ----------
 def log(msg):
     print(f"[CFR Agent] {msg}")
 
-def geocode_location(location_name):
-    """Convert place name to lat/lng using Nominatim (OpenStreetMap)."""
-    if not location_name:
+GEO_CACHE = {}
+
+def geocode_location(location_name, max_retries=3):
+    """Convert place name to lat/lng using Nominatim with retries and backoff."""
+    if not GEOCODING_AVAILABLE or not location_name:
         return None, None
     if location_name in GEO_CACHE:
         return GEO_CACHE[location_name]
 
     geolocator = Nominatim(user_agent=USER_AGENT)
-    try:
-        query = f"{location_name}, world"
-        location = geolocator.geocode(query, timeout=10)
-        if location:
-            GEO_CACHE[location_name] = (location.latitude, location.longitude)
-            return location.latitude, location.longitude
-    except (GeocoderTimedOut, GeocoderUnavailable):
-        log(f"Geocoding timeout for {location_name}")
+    attempt = 0
+    while attempt < max_retries:
+        try:
+            query = f"{location_name}, world"
+            location = geolocator.geocode(query, timeout=10)
+            if location:
+                GEO_CACHE[location_name] = (location.latitude, location.longitude)
+                return location.latitude, location.longitude
+            break
+        except (GeocoderTimedOut, GeocoderUnavailable, GeocoderRateLimited) as e:
+            attempt += 1
+            wait = 2 ** attempt
+            log(f"Geocoding error for {location_name}: {e}. Retry {attempt}/{max_retries} in {wait}s...")
+            time.sleep(wait)
+            if attempt >= max_retries:
+                log(f"Geocoding failed for {location_name} after {max_retries} attempts.")
+                break
     return None, None
 
 def load_json(filepath, default=None):
@@ -62,11 +77,25 @@ def generate_conflict_id(name):
         return f"CFR-{base.upper()}"
     return f"CFR-{datetime.now().strftime('%Y%m%d%H%M%S')}"
 
+def parse_date(text):
+    """Try to extract a date from text."""
+    patterns = [
+        r'(\d{4})',  # 2024
+        r'(\d{1,2}\s+\w+\s+\d{4})',  # 15 March 2024
+        r'(\w+\s+\d{1,2},\s+\d{4})',  # March 15, 2024
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if match:
+            return match.group(1)
+    return datetime.now().strftime("%Y-%m-%d")
+
 # ---------- Main Scraper ----------
 def fetch_cfr_conflicts():
     """Fetch and parse CFR Global Conflict Tracker."""
     log("Fetching CFR Global Conflict Tracker...")
     headers = {'User-Agent': USER_AGENT}
+
     try:
         resp = requests.get(CFR_URL, headers=headers, timeout=30)
         resp.raise_for_status()
@@ -77,53 +106,122 @@ def fetch_cfr_conflicts():
     soup = BeautifulSoup(resp.text, 'html.parser')
     conflicts = []
 
-    # Try primary selector
-    cards = soup.select('.c-card--conflict')
-    log(f"Found {len(cards)} conflict cards")
+    # ---- Option 1: Try multiple primary selectors ----
+    selectors = [
+        '.c-card--conflict',
+        '.card--conflict',
+        '.conflict-card',
+        '.conflict-item',
+        '.c-card__conflict',
+        '.card-conflict'
+    ]
+
+    cards = []
+    for selector in selectors:
+        cards = soup.select(selector)
+        if cards:
+            log(f"Found {len(cards)} conflicts with selector: {selector}")
+            break
 
     if not cards:
-        log("No conflict cards found. Attempting fallback extraction...")
-        for header in soup.find_all(['h2', 'h3']):
-            text = header.text.strip()
-            if any(k in text.lower() for k in ['conflict', 'war', 'crisis']):
+        log("No conflict cards found with primary selectors.")
+        # ---- Option 3: Enhanced fallback extraction ----
+        log("Using enhanced fallback extraction...")
+        cards = soup.find_all(['h2', 'h3', 'h4'])
+        fallback_conflicts = []
+
+        keywords = [
+            'conflict', 'war', 'crisis', 'violence', 'escalation',
+            'tension', 'dispute', 'battle', 'fighting', 'clash',
+            'insurgency', 'rebellion', 'uprising', 'civil', 'military'
+        ]
+
+        for elem in cards:
+            text = elem.text.strip()
+            if not text:
+                continue
+            if any(k in text.lower() for k in keywords):
                 name = text
                 desc = ''
-                parent = header.find_parent()
+                status = 'Unknown'
+                region = ''
+
+                parent = elem.find_parent()
                 if parent:
-                    p = parent.find_next('p')
-                    if p:
-                        desc = p.text.strip()
-                conflicts.append({
-                    'name': name,
-                    'description': desc,
-                    'source': 'CFR (fallback)'
-                })
-        if not conflicts:
+                    for p in parent.find_all(['p', 'div']):
+                        p_text = p.text.strip()
+                        if len(p_text) > 50 and len(p_text) < 1000:
+                            desc = p_text
+                            break
+
+                    status_elem = parent.find(string=re.compile(r'Active|Worsening|Critical|Improving|Ceasefire|Ongoing|Stalemate'))
+                    if status_elem:
+                        status = status_elem.strip()
+
+                    region_elem = parent.find(string=re.compile(r'Africa|Asia|Europe|Middle East|Americas|Global|Eastern Europe|East Asia|South Asia|Latin America'))
+                    if region_elem:
+                        region = region_elem.strip()
+
+                if not desc:
+                    next_p = elem.find_next('p')
+                    if next_p:
+                        desc = next_p.text.strip()
+
+                if name:
+                    conflict_id = generate_conflict_id(name)
+                    lat, lng = geocode_location(f"{name} {region}".strip())
+                    if not lat or not lng:
+                        lat, lng = geocode_location(region)
+
+                    fallback_conflicts.append({
+                        "id": conflict_id,
+                        "name": name,
+                        "lat": lat or 0,
+                        "lng": lng or 0,
+                        "status": status,
+                        "description": desc[:500] if desc else f"Conflict: {name}",
+                        "source": "CFR Global Conflict Tracker (fallback)",
+                        "last_updated": parse_date(desc)
+                    })
+                    log(f"  Extracted (fallback): {name}")
+
+        if fallback_conflicts:
+            log(f"Fallback extracted {len(fallback_conflicts)} conflicts")
+            return fallback_conflicts
+        else:
             log("No conflicts found in fallback either.")
             return []
 
+    # Process primary selector cards
     for card in cards:
         try:
             name_elem = card.select_one('.c-card__title')
             if not name_elem:
+                name_elem = card.find(['h2', 'h3', 'h4'])
+            if not name_elem:
                 continue
+
             name = name_elem.text.strip()
 
             status_elem = card.select_one('.c-card__status')
+            if not status_elem:
+                status_elem = card.find(string=re.compile(r'Active|Worsening|Critical|Improving|Ceasefire|Ongoing|Stalemate'))
             status = status_elem.text.strip() if status_elem else 'Unknown'
 
             region_elem = card.select_one('.c-card__region')
+            if not region_elem:
+                region_elem = card.find(string=re.compile(r'Africa|Asia|Europe|Middle East|Americas|Global|Eastern Europe|East Asia|South Asia|Latin America'))
             region = region_elem.text.strip() if region_elem else ''
 
             desc_elem = card.select_one('.c-card__description')
+            if not desc_elem:
+                desc_elem = card.find('p')
             description = desc_elem.text.strip() if desc_elem else ''
 
-            location_query = f"{name} {region}".strip()
-            lat, lng = geocode_location(location_query)
+            conflict_id = generate_conflict_id(name)
+            lat, lng = geocode_location(f"{name} {region}".strip())
             if not lat or not lng:
                 lat, lng = geocode_location(region)
-
-            conflict_id = generate_conflict_id(name)
 
             conflicts.append({
                 "id": conflict_id,
@@ -131,9 +229,9 @@ def fetch_cfr_conflicts():
                 "lat": lat or 0,
                 "lng": lng or 0,
                 "status": status,
-                "description": description,
+                "description": description[:500] if description else f"Conflict: {name}",
                 "source": "CFR Global Conflict Tracker",
-                "last_updated": datetime.now().strftime("%Y-%m-%d")
+                "last_updated": parse_date(description)
             })
             log(f"  Extracted: {name}")
 
@@ -176,7 +274,6 @@ def update_conflict_data(cfr_conflicts):
     else:
         log("No new conflicts to add")
 
-    # Optionally update threats.json
     if new_entries:
         threats_data = load_json(THREATS_FILE, {"threats": []})
         threats = threats_data.get("threats", [])
@@ -210,6 +307,7 @@ def main():
     if conflicts:
         update_conflict_data(conflicts)
         log("CFR Agent completed successfully")
+        log(f"Total conflicts in CFR: {len(conflicts)}")
     else:
         log("No conflicts fetched – check the website or selectors")
 

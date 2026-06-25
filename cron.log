@@ -1197,3 +1197,187 @@ DEBUG: C03 base=0.008, lrs=[5.949211590631928, 1.249999999998181, 13.37302897657
    - C147 – Ross Ice Shelf Acceleration: 119.54
    - C106 – Global Food Price Volatility: 114.67
    - A-STRAT-RES – Absence of strategic fertiliser reserves: 114.67
+
+🔹 Regional indices ...
+✅ Regional indices completed.
+✅ Regional indices saved for 20 regions
+📊 Computing and storing GSCI...
+   GSCI = 20.58
+
+🔹 Early warning report ...
+✅ Early warning report completed.
+{
+  "timestamp": "2026-06-25T01:07:01.012044",
+  "das_results": [
+    {
+      "threat_id": "C11",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C03",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C01",
+      "das": 0.0,
+      "band": "Normal"
+    }
+  ],
+  "convergence_alert": {
+    "level": "Alert",
+    "weighted_score": 4
+  },
+  "anomaly_count": 0
+}
+
+🔹 SCP history logging ...
+✅ SCP history logging completed.
+✅ SCP history updated: 213 threats logged.
+✅ SCP history updated: 213 threats logged.
+
+🔹 Cascade graph generation ...
+✅ Cascade graph generation completed.
+✅ Cascade graph generated: 213 nodes, 34 edges.
+
+🔹 Trend computation ...
+✅ Trend computation completed.
+Not enough history for 7-day trend.
+
+🔹 Prediction verification ...
+✅ Prediction verification completed.
+
+🔹 Corrections RSS feed generation ...
+✅ Corrections RSS feed generation completed.
+✅ Corrections RSS feed written to corrections.xml
+
+🔹 Prediction log generation ...
+✅ Prediction log generation completed.
+📋 Generating prediction log (preserving history, adding date_made)...
+📦 Archived 213 filtered predictions (total archive: 285)
+✅ Prediction Log Updated:
+   Updated pending: 0, Added: 0
+   Confirmed: 75
+   Falsified: 4
+   Hit rate: 94.94%
+   Pending: 204
+   Archived: 213
+
+🔹 Prediction intelligence generation ...
+✅ Prediction intelligence generation completed.
+🧠 Generating prediction intelligence...
+✅ Prediction intelligence generated: 283 entries
+
+🔹 Threat intelligence generation ...
+✅ Threat intelligence generation completed.
+📊 Generating threat intelligence reports...
+✅ Threat intelligence generated: 213 entries
+
+🔹 Positive signal extraction ...
+✅ Positive signal extraction completed.
+✅ Generated 24 positive signals
+
+🔹 Ascension Engine (Recovery & Opportunity) ...
+✅ Ascension Engine (Recovery & Opportunity) completed.
+🌱 Ascension Engine Alpha started
+Loaded 24 positive signals
+Computed Recovery Probability for 213 threats
+Generated Opportunity Matrix with 213 entries
+Resilience Score: 47.44
+✅ Ascension report saved to ascension_report.json
+
+📊 Top 5 Recovery Opportunities:
+  1. Oil Price Shock (ID: C11E)
+     Impact: 0.38, Effort: 0.15, Score: 2.39
+     Current RP: 0.43, SCP: 0.56
+  2. Zaporizhzhia NPP Single‑Point‑of‑Failure (ID: C141)
+     Impact: 0.38, Effort: 0.15, Score: 2.39
+     Current RP: 0.43, SCP: 0.56
+  3. OPEC Quota Compliance Collapse (ID: C143)
+     Impact: 0.37, Effort: 0.15, Score: 2.25
+     Current RP: 0.44, SCP: 0.55
+  4. Bundibugyo Ebola (ID: B02)
+     Impact: 0.34, Effort: 0.15, Score: 2.17
+     Current RP: 0.42, SCP: 0.59
+  5. Bundibugyo Ebola (duplicate) (ID: C148)
+     Impact: 0.34, Effort: 0.15, Score: 2.17
+     Current RP: 0.42, SCP: 0.59
+
+🔹 Sources update ...
+✅ Sources update completed.
+✅ Sources updated: 15 data sources, 18 software libraries
+
+🔹 Daily archive generation ...
+✅ Daily archive generation completed.
+Generated archive: archive/2026-06-25.html
+
+🔹 Archive index generation ...
+✅ Archive index generation completed.
+✅ Archive index generated: 23 unique archives
+
+🔹 Conflict monitor data generation ...
+✅ Conflict monitor data generation completed.
+🌍 Generating conflict coordinates...
+✅ Saved 61 conflicts to conflict_data.json
+✅ All threats matched successfully!
+
+🔹 Regional indices JSON ...
+✅ Regional indices JSON completed.
+✅ Regional indices saved for 20 regions
+
+🔹 Daily brief generation ...
+✅ Daily brief generation completed.
+✅ Daily brief generated (Markdown + HTML)
+
+🔹 Git commit and push ...
+✅ Git commit and push completed.
+✅ Changes committed and pushed
+
+🔹 Health check generation ...
+✅ Health check generation completed.
+✅ Health data written to health.json
+   Status: ok
+   Threats: 213
+   Errors: 0
+
+============================================================
+✅ Cathedral pipeline finished.
+   Completed at 2026-06-25T01:08:12.448647
+============================================================
+✅ Health data written to health.json
+   Status: ok
+   Threats: 229
+   Errors: 0
+✅ Health data written to health.json
+   Status: ok
+   Threats: 233
+   Errors: 0
+[CFR Agent] Starting CFR conflict scrape...
+[CFR Agent] Fetching CFR Global Conflict Tracker...
+[CFR Agent] No conflict cards found with primary selectors.
+[CFR Agent] Using enhanced fallback extraction...
+[CFR Agent]   Extracted (fallback): Conflicts:
+[CFR Agent]   Extracted (fallback): Criminal Violence in Haiti
+[CFR Agent]   Extracted (fallback): Civil War in Sudan
+[CFR Agent]   Extracted (fallback): Conflict in Ethiopia
+[CFR Agent]   Extracted (fallback): Iran’s War With Israel and the United States
+[CFR Agent]   Extracted (fallback): Conflict in Yemen and the Red Sea
+[CFR Agent]   Extracted (fallback): Conflict Between India and Pakistan
+[CFR Agent]   Extracted (fallback): Conflict With Al-Shabaab in Somalia
+[CFR Agent]   Extracted (fallback): Israeli-Palestinian Conflict
+[CFR Agent]   Extracted (fallback): Criminal Violence in Mexico
+[CFR Agent]   Extracted (fallback): Conflict Between Turkey and Armed Kurdish Groups
+[CFR Agent]   Extracted (fallback): War in Ukraine
+[CFR Agent]   Extracted (fallback): North Korea Crisis
+[CFR Agent]   Extracted (fallback): Civil War in Myanmar
+[CFR Agent]   Extracted (fallback): Territorial Disputes in the South China Sea
+[CFR Agent]   Extracted (fallback): Conflict in the Democratic Republic of Congo
+[CFR Agent]   Extracted (fallback): Conflict in the Central African Republic
+[CFR Agent]   Extracted (fallback): Conflict With Hezbollah in Lebanon
+[CFR Agent]   Extracted (fallback): Conflict in Syria
+[CFR Agent]   Extracted (fallback): Tensions Between Armenia and Azerbaijan
+[CFR Agent] Fallback extracted 20 conflicts
+[CFR Agent] No new conflicts to add
+[CFR Agent] CFR Agent completed successfully
+[CFR Agent] Total conflicts in CFR: 20
