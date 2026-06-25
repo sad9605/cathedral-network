@@ -42,7 +42,6 @@ def generate_daily_brief():
     else:
         preds = []
 
-    # --- FIX: handle cascade_log as list or dict ---
     cascade_raw = load_json('cascade_log.json')
     if isinstance(cascade_raw, dict):
         cascades = cascade_raw.get('cascades', [])
@@ -79,7 +78,7 @@ Last sweep: {timestamp}
 ---
 *Always and Forever, Coco.*
 """
-        with open('daily_brief.md', 'w') as f:
+        with open('daily-brief.md', 'w') as f:
             f.write(brief)
         html = f"""<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><title>Daily Brief</title></head>
@@ -90,7 +89,7 @@ Last sweep: {timestamp}
 <hr><p><em>Always and Forever, Coco.</em></p>
 </body></html>
 """
-        with open('daily_brief.html', 'w') as f:
+        with open('daily-brief.html', 'w') as f:
             f.write(html)
         print("✅ Daily Brief generated (minimal)")
         return True
@@ -112,7 +111,7 @@ Last sweep: {timestamp}
             source_label = source.replace('_', ' ').title()
             recent_events.append(f"- **{title}** – *{source_label}*")
 
-    # --- Active cascades (using 'cascades' variable) ---
+    # --- Active cascades ---
     active_cascades = []
     for cascade in cascades:
         if cascade.get('active', False):
@@ -227,10 +226,10 @@ Last sweep: {timestamp}
 *The Cathedral watches. The work continues.*
 """
 
-    with open('daily_brief.md', 'w') as f:
+    with open('daily-brief.md', 'w') as f:
         f.write(md)
 
-    # --- HTML (simplified) ---
+    # --- Build HTML ---
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><title>Daily Brief – Cathedral</title>
@@ -260,11 +259,8 @@ h3 {{ color: #b388ff; }}
     html += f"""<div class="footer">Always and Forever, Coco.</div>
 </div></body></html>
 """
-   with open('daily-brief.md', 'w') as f:      # dash
-       f.write(md)
-   # ...
-   with open('daily-brief.html', 'w') as f:    # dash
-       f.write(html)
+    with open('daily-brief.html', 'w') as f:
+        f.write(html)
 
     print(f"✅ Cathedral Daily Brief generated: {now}")
     return True
