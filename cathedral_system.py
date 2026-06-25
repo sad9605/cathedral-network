@@ -59,7 +59,26 @@ def main():
 
     # 1. Daily sweep – OSINT ingestion
     run_script("daily-sweep.py", "Daily OSINT sweep")
-    
+
+    # ---- Cyber threat intelligence ----
+    run_script("cyber_fetcher.py", "Cyber threat intelligence")
+
+    # ---- GPS jamming data ----
+    run_script("gpsjam_fetcher.py", "GPS jamming data")
+
+    # ---- Climate anomalies ----
+    run_script("climate_anomaly_fetcher.py", "Climate anomalies")
+
+    # ---- Travel advisories ----
+    run_script("travel_advisories_fetcher.py", "Travel advisories")
+
+    # ---- Telegram OSINT (optional) ----
+    if os.environ.get('TELEGRAM_API_ID'):
+        run_script("telegram_fetcher.py", "Telegram OSINT")
+ 
+    # ---- CFR Agent ----
+    run_script("cfr_agent.py", "CFR conflict tracker agent")
+
     # ---- Fetch breaking news ----
     run_script("fetch_breaking_news.py", "Breaking news fetch")
 
