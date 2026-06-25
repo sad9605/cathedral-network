@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-24T21:22:19.681381",
+  "timestamp": "2026-06-24T21:39:12.705399",
   "threats": [
     {
       "id": "C01",
@@ -274,8 +274,8 @@
       "name": "Russian sabotage in Germany/Poland",
       "scp": 0.3373,
       "status": "Yellow",
-      "lat": 39.8,
-      "lng": -98.6,
+      "lat": 52.0,
+      "lng": 19.0,
       "domains": [
         "Geopolitical"
       ],
@@ -298,8 +298,8 @@
       "name": "Poland\u2011Belarus migrant weaponisation",
       "scp": 0.3679,
       "status": "Yellow",
-      "lat": 39.8,
-      "lng": -98.6,
+      "lat": 52.0,
+      "lng": 19.0,
       "domains": [
         "Geopolitical"
       ],
@@ -385,8 +385,8 @@
       "name": "Armenia\u2011Azerbaijan peace collapse",
       "scp": 0.2837,
       "status": "Yellow",
-      "lat": 40.1,
-      "lng": 45.0,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical"
       ],
@@ -449,8 +449,8 @@
       "name": "Wagner resurgence in Africa",
       "scp": 0.3679,
       "status": "Yellow",
-      "lat": 8.0,
-      "lng": 20.0,
+      "lat": 35.0,
+      "lng": 38.0,
       "domains": [
         "Geopolitical"
       ],
@@ -486,8 +486,8 @@
       "name": "US troop deployment to Romania",
       "scp": 0.4214,
       "status": "Yellow",
-      "lat": 39.8,
-      "lng": -98.6,
+      "lat": 21.0,
+      "lng": 57.0,
       "domains": [
         "Geopolitical"
       ],
@@ -571,6 +571,122 @@
       "priority": 46.33
     },
     {
+      "id": "C11E",
+      "name": "Oil Price Shock",
+      "scp": 0.5628,
+      "status": "Orange",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "priority": 64.28
+    },
+    {
+      "id": "C141",
+      "name": "Zaporizhzhia NPP Single\u2011Point\u2011of\u2011Failure",
+      "scp": 0.5625,
+      "status": "Orange",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy"
+      ],
+      "priority": 64.25
+    },
+    {
+      "id": "C143",
+      "name": "OPEC Quota Compliance Collapse",
+      "scp": 0.5464,
+      "status": "Orange",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "priority": 62.64
+    },
+    {
+      "id": "C62",
+      "name": "EU Gas Security",
+      "scp": 0.5219,
+      "status": "Orange",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy"
+      ],
+      "priority": 60.19
+    },
+    {
+      "id": "C63",
+      "name": "Global Oil Supply Deficit",
+      "scp": 0.5005,
+      "status": "Orange",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "priority": 58.05
+    },
+    {
+      "id": "C123",
+      "name": "East Asia Fiscal\u2011Energy Spiral",
+      "scp": 0.4986,
+      "status": "Orange",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "priority": 57.86
+    },
+    {
+      "id": "C127",
+      "name": "Egypt Fiscal & Political Stress",
+      "scp": 0.4904,
+      "status": "Orange",
+      "lat": 26.0,
+      "lng": 30.0,
+      "domains": [
+        "Energy",
+        "Financial",
+        "Domestic"
+      ],
+      "priority": 57.04
+    },
+    {
+      "id": "C144",
+      "name": "Kuwait Fiscal Collapse",
+      "scp": 0.5105,
+      "status": "Orange",
+      "lat": 29.0,
+      "lng": 47.0,
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "priority": 59.05
+    },
+    {
+      "id": "C143-KZ",
+      "name": "Kazakhstan OPEC Overproduction",
+      "scp": 0.4686,
+      "status": "Orange",
+      "lat": 48.0,
+      "lng": 68.0,
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "priority": 54.86
+    },
+    {
       "id": "CA4",
       "name": "Central Asia Energy Export Dependency",
       "scp": 0.4904,
@@ -584,6 +700,58 @@
       "priority": 57.04
     },
     {
+      "id": "G16",
+      "name": "Oil price >$150",
+      "scp": 0.4091,
+      "status": "Yellow",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "priority": 48.91
+    },
+    {
+      "id": "G17",
+      "name": "Global deficit 7M b/d",
+      "scp": 0.4448,
+      "status": "Yellow",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "priority": 52.48
+    },
+    {
+      "id": "G18",
+      "name": "SPR release inadequacy",
+      "scp": 0.4686,
+      "status": "Orange",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy",
+        "Domestic"
+      ],
+      "priority": 54.86
+    },
+    {
+      "id": "G19",
+      "name": "China\u2011Iran petroyuan",
+      "scp": 0.2206,
+      "status": "Green",
+      "lat": 32.4,
+      "lng": 53.7,
+      "domains": [
+        "Energy",
+        "Financial"
+      ],
+      "priority": 30.06
+    },
+    {
       "id": "G20",
       "name": "Russia brokering role",
       "scp": 0.1931,
@@ -595,6 +763,247 @@
         "Geopolitical"
       ],
       "priority": 27.31
+    },
+    {
+      "id": "G24",
+      "name": "Qatar LNG rerouting disruption",
+      "scp": 0.4448,
+      "status": "Yellow",
+      "lat": 25.0,
+      "lng": 51.0,
+      "domains": [
+        "Energy",
+        "Supply Chains"
+      ],
+      "priority": 52.48
+    },
+    {
+      "id": "E-AI-GRID",
+      "name": "AI data centre power demand as new energy war front",
+      "scp": 0.5013,
+      "status": "Orange",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy",
+        "Technology"
+      ],
+      "priority": 58.13
+    },
+    {
+      "id": "E-SMR",
+      "name": "Small modular reactor safety & regulatory gap",
+      "scp": 0.3903,
+      "status": "Yellow",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy"
+      ],
+      "priority": 47.03
+    },
+    {
+      "id": "E-HYPER-SCALE",
+      "name": "Hyperscale AI data centre water/energy tipping point",
+      "scp": 0.4574,
+      "status": "Orange",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy",
+        "Climate"
+      ],
+      "priority": 53.74
+    },
+    {
+      "id": "E-MINI-GRID",
+      "name": "Critical infrastructure mini\u2011grid fragility",
+      "scp": 0.4283,
+      "status": "Yellow",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy",
+        "Cyber"
+      ],
+      "priority": 50.83
+    },
+    {
+      "id": "E-SOLAR-CYBER",
+      "name": "Solar inverter botnets for grid destabilisation",
+      "scp": 0.4448,
+      "status": "Yellow",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Energy",
+        "Cyber"
+      ],
+      "priority": 52.48
+    },
+    {
+      "id": "C100",
+      "name": "Arctic Sea Ice Loss",
+      "scp": 0.4515,
+      "status": "Orange",
+      "lat": 75.0,
+      "lng": -40.0,
+      "domains": [
+        "Climate"
+      ],
+      "priority": 53.15
+    },
+    {
+      "id": "C147",
+      "name": "Ross Ice Shelf Acceleration",
+      "scp": 0.4981,
+      "status": "Orange",
+      "lat": -75.0,
+      "lng": 20.0,
+      "domains": [
+        "Climate"
+      ],
+      "priority": 57.81
+    },
+    {
+      "id": "C44",
+      "name": "Delhi Heatwave",
+      "scp": 0.4265,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate",
+        "Social"
+      ],
+      "priority": 50.65
+    },
+    {
+      "id": "C80",
+      "name": "U.S. Hurricane Season",
+      "scp": 0.4281,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate",
+        "Domestic"
+      ],
+      "priority": 50.81
+    },
+    {
+      "id": "C134",
+      "name": "Dry Corridor Famine\u2011Migration",
+      "scp": 0.5033,
+      "status": "Orange",
+      "lat": 15.0,
+      "lng": -30.0,
+      "domains": [
+        "Climate",
+        "Food",
+        "Social"
+      ],
+      "priority": 58.33
+    },
+    {
+      "id": "C135",
+      "name": "Panama Canal Logistics Shock",
+      "scp": 0.4666,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate",
+        "Supply Chains"
+      ],
+      "priority": 54.66
+    },
+    {
+      "id": "C99",
+      "name": "Yamal Methane Anomaly",
+      "scp": 0.4449,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate"
+      ],
+      "priority": 52.49
+    },
+    {
+      "id": "C41",
+      "name": "AMOC Slowdown",
+      "scp": 0.3373,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate"
+      ],
+      "priority": 41.73
+    },
+    {
+      "id": "C46",
+      "name": "Bangladesh Monsoon Flood",
+      "scp": 0.3958,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate",
+        "Social"
+      ],
+      "priority": 47.58
+    },
+    {
+      "id": "E11",
+      "name": "El Ni\u00f1o",
+      "scp": 0.4666,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate"
+      ],
+      "priority": 54.66
+    },
+    {
+      "id": "U10",
+      "name": "NOAA below\u2011avg forecast",
+      "scp": 0.1788,
+      "status": "Green",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate"
+      ],
+      "priority": 25.88
+    },
+    {
+      "id": "U11",
+      "name": "California flood risk",
+      "scp": 0.3373,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate",
+        "Domestic"
+      ],
+      "priority": 41.73
+    },
+    {
+      "id": "U12",
+      "name": "Canada wildfire season",
+      "scp": 0.3399,
+      "status": "Yellow",
+      "lat": 56.0,
+      "lng": -96.0,
+      "domains": [
+        "Climate",
+        "Domestic"
+      ],
+      "priority": 41.99
     },
     {
       "id": "CC1",
@@ -636,6 +1045,169 @@
       "priority": 52.49
     },
     {
+      "id": "CB2",
+      "name": "Hurricane\u2011debt spiral",
+      "scp": 0.3918,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate",
+        "Financial"
+      ],
+      "priority": 47.18
+    },
+    {
+      "id": "LA2",
+      "name": "Amazon tipping point",
+      "scp": 0.4522,
+      "status": "Orange",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Climate",
+        "Food"
+      ],
+      "priority": 53.22
+    },
+    {
+      "id": "C-WATER-BANK",
+      "name": "Global water bankruptcy",
+      "scp": 0.4344,
+      "status": "Yellow",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Climate",
+        "Food"
+      ],
+      "priority": 51.44
+    },
+    {
+      "id": "C-SUBSIDENCE",
+      "name": "Widespread land subsidence from groundwater depletion",
+      "scp": 0.3958,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate"
+      ],
+      "priority": 47.58
+    },
+    {
+      "id": "C-CRYO",
+      "name": "Accelerating glacier mass loss (functional extinction)",
+      "scp": 0.4316,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Climate"
+      ],
+      "priority": 51.16
+    },
+    {
+      "id": "C-SOIL-DEG",
+      "name": "Severe soil degradation (>50% agricultural land)",
+      "scp": 0.3531,
+      "status": "Yellow",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Climate",
+        "Food"
+      ],
+      "priority": 43.31
+    },
+    {
+      "id": "C-AG-STORAGE",
+      "name": "Collapse of agricultural water storage",
+      "scp": 0.3936,
+      "status": "Yellow",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Climate",
+        "Food"
+      ],
+      "priority": 47.36
+    },
+    {
+      "id": "C78",
+      "name": "Sovereign Debt Crisis",
+      "scp": 0.4778,
+      "status": "Orange",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial"
+      ],
+      "priority": 55.78
+    },
+    {
+      "id": "C133",
+      "name": "USD Reserve Erosion",
+      "scp": 0.4666,
+      "status": "Orange",
+      "lat": 39.8,
+      "lng": -98.6,
+      "domains": [
+        "Financial"
+      ],
+      "priority": 54.66
+    },
+    {
+      "id": "I08",
+      "name": "Global debt 100% by 2029",
+      "scp": 0.5326,
+      "status": "Orange",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial"
+      ],
+      "priority": 61.26
+    },
+    {
+      "id": "I09",
+      "name": "IMF lending capacity crisis",
+      "scp": 0.416,
+      "status": "Yellow",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial"
+      ],
+      "priority": 49.6
+    },
+    {
+      "id": "C136",
+      "name": "N. Triangle Cartel Violence",
+      "scp": 0.4449,
+      "status": "Yellow",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial",
+        "Domestic"
+      ],
+      "priority": 52.49
+    },
+    {
+      "id": "C137",
+      "name": "Central America Food Supply Shock",
+      "scp": 0.4515,
+      "status": "Orange",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Financial",
+        "Food"
+      ],
+      "priority": 53.15
+    },
+    {
       "id": "C138",
       "name": "Great\u2011Power Competition \u2192 Aid Diversion",
       "scp": 0.4214,
@@ -647,6 +1219,272 @@
         "Geopolitical"
       ],
       "priority": 50.14
+    },
+    {
+      "id": "U16",
+      "name": "Argentina peso collapse",
+      "scp": 0.4449,
+      "status": "Yellow",
+      "lat": -36.0,
+      "lng": -63.0,
+      "domains": [
+        "Financial",
+        "Domestic"
+      ],
+      "priority": 52.49
+    },
+    {
+      "id": "U18",
+      "name": "US sovereign debt",
+      "scp": 0.5053,
+      "status": "Orange",
+      "lat": 39.8,
+      "lng": -98.6,
+      "domains": [
+        "Financial",
+        "Domestic"
+      ],
+      "priority": 58.53
+    },
+    {
+      "id": "U19",
+      "name": "Fed rate hold into 2027",
+      "scp": 0.3105,
+      "status": "Yellow",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial"
+      ],
+      "priority": 39.05
+    },
+    {
+      "id": "C17*",
+      "name": "African debt + private credit",
+      "scp": 0.4867,
+      "status": "Orange",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial"
+      ],
+      "priority": 56.67
+    },
+    {
+      "id": "C18*",
+      "name": "Petrodollar crisis + US fiscal",
+      "scp": 0.4378,
+      "status": "Yellow",
+      "lat": 39.8,
+      "lng": -98.6,
+      "domains": [
+        "Financial",
+        "Energy"
+      ],
+      "priority": 51.78
+    },
+    {
+      "id": "C19*",
+      "name": "China malaise + trade fragmentation",
+      "scp": 0.4748,
+      "status": "Orange",
+      "lat": 35.9,
+      "lng": 104.2,
+      "domains": [
+        "Financial",
+        "Supply Chains"
+      ],
+      "priority": 55.48
+    },
+    {
+      "id": "C20*",
+      "name": "Demand destruction + frozen labour",
+      "scp": 0.4092,
+      "status": "Yellow",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial",
+        "Social"
+      ],
+      "priority": 48.92
+    },
+    {
+      "id": "G30",
+      "name": "Global recession from oil",
+      "scp": 0.4807,
+      "status": "Orange",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial"
+      ],
+      "priority": 56.07
+    },
+    {
+      "id": "U15",
+      "name": "Brazil coup risk",
+      "scp": 0.4214,
+      "status": "Yellow",
+      "lat": -14.0,
+      "lng": -51.0,
+      "domains": [
+        "Financial",
+        "Domestic"
+      ],
+      "priority": 50.14
+    },
+    {
+      "id": "U17",
+      "name": "Venezuela oil sanctions relief",
+      "scp": 0.4002,
+      "status": "Yellow",
+      "lat": 8.0,
+      "lng": -66.0,
+      "domains": [
+        "Financial",
+        "Energy"
+      ],
+      "priority": 48.02
+    },
+    {
+      "id": "A24",
+      "name": "Angola debt default risk",
+      "scp": 0.4666,
+      "status": "Orange",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial"
+      ],
+      "priority": 54.66
+    },
+    {
+      "id": "C145",
+      "name": "Iran\u2011Oman transit fee precedent",
+      "scp": 0.3566,
+      "status": "Yellow",
+      "lat": 32.4,
+      "lng": 53.7,
+      "domains": [
+        "Financial",
+        "Energy"
+      ],
+      "priority": 43.66
+    },
+    {
+      "id": "F-AI-CYBER-SYS",
+      "name": "AI\u2011driven systemic cyber\u2011financial crisis",
+      "scp": 0.4182,
+      "status": "Yellow",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial",
+        "Cyber"
+      ],
+      "priority": 49.82
+    },
+    {
+      "id": "F-AI-LIQ",
+      "name": "AI\u2011triggered flash crashes & liquidity evaporation",
+      "scp": 0.4304,
+      "status": "Yellow",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial"
+      ],
+      "priority": 51.04
+    },
+    {
+      "id": "F-REPO-2026",
+      "name": "Repo market freeze exacerbated by AI/cyber",
+      "scp": 0.4071,
+      "status": "Yellow",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial"
+      ],
+      "priority": 48.71
+    },
+    {
+      "id": "F-CBDC",
+      "name": "CBDC\u2011driven disintermediation & bank runs",
+      "scp": 0.3634,
+      "status": "Yellow",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Financial"
+      ],
+      "priority": 44.34
+    },
+    {
+      "id": "F-INSUR-SPIRAL",
+      "name": "Climate\u2011driven insurance withdrawal spiral",
+      "scp": 0.0734,
+      "status": "Green",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Financial",
+        "Climate"
+      ],
+      "priority": 15.34
+    },
+    {
+      "id": "C121",
+      "name": "Taiwan Semiconductor Chokepoint",
+      "scp": 0.5491,
+      "status": "Orange",
+      "lat": 23.7,
+      "lng": 120.9,
+      "domains": [
+        "Supply Chains",
+        "Technology"
+      ],
+      "priority": 62.91
+    },
+    {
+      "id": "C124",
+      "name": "East Asia Semiconductor\u2011Fiscal Contagion",
+      "scp": 0.4867,
+      "status": "Orange",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Supply Chains",
+        "Financial"
+      ],
+      "priority": 56.67
+    },
+    {
+      "id": "C36",
+      "name": "Taiwan semiconductor cascade",
+      "scp": 0.4981,
+      "status": "Orange",
+      "lat": 23.7,
+      "lng": 120.9,
+      "domains": [
+        "Supply Chains",
+        "Technology"
+      ],
+      "priority": 57.81
+    },
+    {
+      "id": "C39",
+      "name": "Semiconductor\u2011fiscal",
+      "scp": 0.3958,
+      "status": "Yellow",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Supply Chains",
+        "Financial"
+      ],
+      "priority": 47.58
     },
     {
       "id": "C8",
@@ -662,6 +1500,476 @@
       "priority": 53.3
     },
     {
+      "id": "C29",
+      "name": "Gulf shipping chokepoint",
+      "scp": 0.5539,
+      "status": "Orange",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Supply Chains",
+        "Energy"
+      ],
+      "priority": 63.39
+    },
+    {
+      "id": "C135S",
+      "name": "Panama Canal Logistics Shock",
+      "scp": 0.4666,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Supply Chains",
+        "Climate"
+      ],
+      "priority": 54.66
+    },
+    {
+      "id": "SC-NUCLEAR",
+      "name": "Nuclear fuel supply chain (Russia\u2011dominated HALEU)",
+      "scp": 0.2599,
+      "status": "Yellow",
+      "lat": 39.8,
+      "lng": -98.6,
+      "domains": [
+        "Supply Chains",
+        "Energy"
+      ],
+      "priority": 33.99
+    },
+    {
+      "id": "SC-COUNTER",
+      "name": "Counterfeit network gear in critical infrastructure",
+      "scp": 0.4448,
+      "status": "Yellow",
+      "lat": 30.0,
+      "lng": 45.0,
+      "domains": [
+        "Supply Chains",
+        "Cyber"
+      ],
+      "priority": 52.48
+    },
+    {
+      "id": "SC-RARE",
+      "name": "Rare earth refining choke point (China >85%)",
+      "scp": 0.4185,
+      "status": "Yellow",
+      "lat": 35.9,
+      "lng": 104.2,
+      "domains": [
+        "Supply Chains"
+      ],
+      "priority": 49.85
+    },
+    {
+      "id": "SC-DEVICE",
+      "name": "Third\u2011party device compromise in CI/CD pipelines",
+      "scp": 0.4449,
+      "status": "Yellow",
+      "lat": 30.0,
+      "lng": 45.0,
+      "domains": [
+        "Supply Chains",
+        "Cyber"
+      ],
+      "priority": 52.49
+    },
+    {
+      "id": "SC-ZINC",
+      "name": "Zinc smelting closure cascade (European energy crisis)",
+      "scp": 0.4161,
+      "status": "Yellow",
+      "lat": 28.0,
+      "lng": 50.0,
+      "domains": [
+        "Supply Chains",
+        "Energy"
+      ],
+      "priority": 49.61
+    },
+    {
+      "id": "C03",
+      "name": "Horn of Africa Famine",
+      "scp": 0.5129,
+      "status": "Orange",
+      "lat": 5.0,
+      "lng": 45.0,
+      "domains": [
+        "Food"
+      ],
+      "priority": 59.29
+    },
+    {
+      "id": "C126",
+      "name": "North Africa Food Security Collapse",
+      "scp": 0.5146,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 10.0,
+      "domains": [
+        "Food"
+      ],
+      "priority": 59.46
+    },
+    {
+      "id": "C125",
+      "name": "Nile Water Conflict / GERD",
+      "scp": 0.4379,
+      "status": "Yellow",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "priority": 51.79
+    },
+    {
+      "id": "C43",
+      "name": "Indus Water\u2011Food\u2011Conflict",
+      "scp": 0.4371,
+      "status": "Yellow",
+      "lat": 39.8,
+      "lng": -98.6,
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "priority": 51.71
+    },
+    {
+      "id": "C106",
+      "name": "Global Food Price Volatility",
+      "scp": 0.4778,
+      "status": "Orange",
+      "lat": 30.0,
+      "lng": 30.0,
+      "domains": [
+        "Food",
+        "Financial"
+      ],
+      "priority": 55.78
+    },
+    {
+      "id": "C137F",
+      "name": "Central America Food Supply Shock",
+      "scp": 0.4515,
+      "status": "Orange",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Food",
+        "Domestic"
+      ],
+      "priority": 53.15
+    },
+    {
+      "id": "A01",
+      "name": "Sudan IPC5 famine",
+      "scp": 0.5519,
+      "status": "Orange",
+      "lat": 15.0,
+      "lng": 30.0,
+      "domains": [
+        "Food"
+      ],
+      "priority": 63.19
+    },
+    {
+      "id": "A02",
+      "name": "Kenya AMN Phase 5",
+      "scp": 0.5019,
+      "status": "Orange",
+      "lat": -1.0,
+      "lng": 38.0,
+      "domains": [
+        "Food"
+      ],
+      "priority": 58.19
+    },
+    {
+      "id": "A03",
+      "name": "Ethiopia Tigray famine relapse",
+      "scp": 0.5375,
+      "status": "Orange",
+      "lat": 9.0,
+      "lng": 40.0,
+      "domains": [
+        "Food"
+      ],
+      "priority": 61.75
+    },
+    {
+      "id": "A04",
+      "name": "Somalia Shabelle floods + famine",
+      "scp": 0.5149,
+      "status": "Orange",
+      "lat": 6.0,
+      "lng": 47.0,
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "priority": 59.49
+    },
+    {
+      "id": "A22",
+      "name": "Zimbabwe grain deficit",
+      "scp": 0.4323,
+      "status": "Yellow",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Food"
+      ],
+      "priority": 51.23
+    },
+    {
+      "id": "A23",
+      "name": "Zambia drought emergency",
+      "scp": 0.4687,
+      "status": "Orange",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "priority": 54.87
+    },
+    {
+      "id": "A-UREA",
+      "name": "Urea fertiliser supply chain timing window",
+      "scp": 0.4378,
+      "status": "Yellow",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Food",
+        "Supply Chains"
+      ],
+      "priority": 51.78
+    },
+    {
+      "id": "A-EL-NINO",
+      "name": "El Ni\u00f1o\u2019s asynchronous global crop impact",
+      "scp": 0.4323,
+      "status": "Yellow",
+      "lat": 39.8,
+      "lng": -98.6,
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "priority": 51.23
+    },
+    {
+      "id": "A-SOIL-BIO",
+      "name": "Loss of soil biodiversity (microbiome collapse)",
+      "scp": 0.3714,
+      "status": "Yellow",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Food",
+        "Climate"
+      ],
+      "priority": 45.14
+    },
+    {
+      "id": "A-STRAT-RES",
+      "name": "Absence of strategic fertiliser reserves",
+      "scp": 0.4778,
+      "status": "Orange",
+      "lat": 30.0,
+      "lng": 45.0,
+      "domains": [
+        "Food"
+      ],
+      "priority": 55.78
+    },
+    {
+      "id": "A-AG-DEBT",
+      "name": "Farm debt\u2011fertiliser price trap",
+      "scp": 0.411,
+      "status": "Yellow",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Food",
+        "Financial"
+      ],
+      "priority": 49.1
+    },
+    {
+      "id": "C84",
+      "name": "U.S. Electoral Integrity Breach",
+      "scp": 0.5813,
+      "status": "Orange",
+      "lat": 38.0,
+      "lng": 23.0,
+      "domains": [
+        "Domestic",
+        "Information"
+      ],
+      "priority": 66.13
+    },
+    {
+      "id": "I01",
+      "name": "AI Deepfake Election",
+      "scp": 0.5044,
+      "status": "Orange",
+      "lat": 38.0,
+      "lng": 23.0,
+      "domains": [
+        "Domestic",
+        "Information"
+      ],
+      "priority": 58.44
+    },
+    {
+      "id": "C67",
+      "name": "Asylum System Collapse",
+      "scp": 0.4666,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Domestic",
+        "Social"
+      ],
+      "priority": 54.66
+    },
+    {
+      "id": "U01",
+      "name": "US Jan 6 records erased",
+      "scp": 0.4214,
+      "status": "Yellow",
+      "lat": 39.8,
+      "lng": -98.6,
+      "domains": [
+        "Domestic"
+      ],
+      "priority": 50.14
+    },
+    {
+      "id": "U02",
+      "name": "$1.776B dark election fund",
+      "scp": 0.4102,
+      "status": "Yellow",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Domestic",
+        "Financial"
+      ],
+      "priority": 49.02
+    },
+    {
+      "id": "U03",
+      "name": "2026 midterm integrity breaches",
+      "scp": 0.3785,
+      "status": "Yellow",
+      "lat": 38.0,
+      "lng": 23.0,
+      "domains": [
+        "Domestic",
+        "Information"
+      ],
+      "priority": 45.85
+    },
+    {
+      "id": "U06",
+      "name": "Far\u2011right militia coordination",
+      "scp": 0.4666,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Domestic"
+      ],
+      "priority": 54.66
+    },
+    {
+      "id": "D-IMM-WAR",
+      "name": "Governor\u2011federal military standoff (state vs. national guard)",
+      "scp": 0.3301,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Domestic",
+        "Institutional"
+      ],
+      "priority": 41.01
+    },
+    {
+      "id": "D-AI-LIAB",
+      "name": "Collapse of AI liability frameworks",
+      "scp": 0.3818,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Domestic",
+        "Institutional"
+      ],
+      "priority": 46.18
+    },
+    {
+      "id": "D-TRUST",
+      "name": "Compound erosion of trust in all institutions",
+      "scp": 0.4666,
+      "status": "Orange",
+      "lat": 39.8,
+      "lng": -98.6,
+      "domains": [
+        "Domestic",
+        "Institutional"
+      ],
+      "priority": 54.66
+    },
+    {
+      "id": "D-DESKILL",
+      "name": "Massive technological deskilling & workforce mismatch",
+      "scp": 0.3882,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Domestic",
+        "Social"
+      ],
+      "priority": 46.82
+    },
+    {
+      "id": "D-GDPR",
+      "name": "Fragmentation of global privacy & AI governance",
+      "scp": 0.3818,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Domestic",
+        "Institutional"
+      ],
+      "priority": 46.18
+    },
+    {
+      "id": "C139",
+      "name": "Mass Displacement",
+      "scp": 0.5227,
+      "status": "Orange",
+      "lat": 15.0,
+      "lng": 25.0,
+      "domains": [
+        "Social"
+      ],
+      "priority": 60.27
+    },
+    {
       "id": "C5",
       "name": "Gaza Structural Atrocity",
       "scp": 0.5491,
@@ -673,6 +1981,57 @@
         "Geopolitical"
       ],
       "priority": 62.91
+    },
+    {
+      "id": "U07",
+      "name": "Left\u2011wing protest violence",
+      "scp": 0.3037,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Social"
+      ],
+      "priority": 38.37
+    },
+    {
+      "id": "U13",
+      "name": "Mexico cartel violence spillover",
+      "scp": 0.4867,
+      "status": "Orange",
+      "lat": 23.6,
+      "lng": -102.0,
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "priority": 56.67
+    },
+    {
+      "id": "U14",
+      "name": "Central America migration surge",
+      "scp": 0.4961,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "priority": 57.61
+    },
+    {
+      "id": "C44S",
+      "name": "Delhi Heatwave \u2013 social collapse",
+      "scp": 0.4265,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Social",
+        "Climate"
+      ],
+      "priority": 50.65
     },
     {
       "id": "C64S",
@@ -688,6 +2047,197 @@
       "priority": 44.79
     },
     {
+      "id": "C20*S",
+      "name": "Demand destruction + frozen labour",
+      "scp": 0.4092,
+      "status": "Yellow",
+      "lat": 40.0,
+      "lng": -74.0,
+      "domains": [
+        "Social",
+        "Financial"
+      ],
+      "priority": 48.92
+    },
+    {
+      "id": "S-ANTI-TECH",
+      "name": "Anti\u2011tech extremism (FBI/DHS tracked)",
+      "scp": 0.3818,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "priority": 46.18
+    },
+    {
+      "id": "S-NVE",
+      "name": "Nihilistic Violent Extremists targeting children",
+      "scp": 0.3958,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "priority": 47.58
+    },
+    {
+      "id": "S-CLASS",
+      "name": "Class\u2011based domestic terrorism (DHS)",
+      "scp": 0.3679,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "priority": 44.79
+    },
+    {
+      "id": "S-FED-8000",
+      "name": "8,000% rise in threats against federal law enforcement",
+      "scp": 0.456,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Social",
+        "Domestic"
+      ],
+      "priority": 53.6
+    },
+    {
+      "id": "S-LONELY",
+      "name": "Epidemic of loneliness as national security risk",
+      "scp": 0.3373,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Social"
+      ],
+      "priority": 41.73
+    },
+    {
+      "id": "C\u2011ESCAPE",
+      "name": "AI Containment Escape",
+      "scp": 0.4304,
+      "status": "Yellow",
+      "lat": 37.0,
+      "lng": -122.0,
+      "domains": [
+        "Technology"
+      ],
+      "priority": 51.04
+    },
+    {
+      "id": "C\u2011ZERODAY",
+      "name": "AI\u2011Generated Zero\u2011Day Exploits",
+      "scp": 0.3902,
+      "status": "Yellow",
+      "lat": 37.0,
+      "lng": -122.0,
+      "domains": [
+        "Technology",
+        "Cyber"
+      ],
+      "priority": 47.02
+    },
+    {
+      "id": "C\u2011BIOWPN",
+      "name": "AI\u2011Generated Bioweapon Instructions",
+      "scp": 0.3818,
+      "status": "Yellow",
+      "lat": 37.0,
+      "lng": -122.0,
+      "domains": [
+        "Technology",
+        "Biosecurity"
+      ],
+      "priority": 46.18
+    },
+    {
+      "id": "C\u2011AILANG",
+      "name": "Autonomous AI Social Networks",
+      "scp": 0.3426,
+      "status": "Yellow",
+      "lat": 39.8,
+      "lng": -98.6,
+      "domains": [
+        "Technology"
+      ],
+      "priority": 42.26
+    },
+    {
+      "id": "C\u2011DATACENTER\u2011RES",
+      "name": "AI Infrastructure Resource Tipping Point",
+      "scp": 0.3757,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 0.0,
+      "domains": [
+        "Technology",
+        "Climate"
+      ],
+      "priority": 45.57
+    },
+    {
+      "id": "C\u2011MALWARE",
+      "name": "Miasma Supply\u2011Chain Worm",
+      "scp": 0.4214,
+      "status": "Yellow",
+      "lat": 30.0,
+      "lng": 45.0,
+      "domains": [
+        "Technology",
+        "Supply Chains"
+      ],
+      "priority": 50.14
+    },
+    {
+      "id": "C121T",
+      "name": "Taiwan Semiconductor Chokepoint",
+      "scp": 0.5491,
+      "status": "Orange",
+      "lat": 23.7,
+      "lng": 120.9,
+      "domains": [
+        "Technology",
+        "Supply Chains"
+      ],
+      "priority": 62.91
+    },
+    {
+      "id": "C48T",
+      "name": "AI Deepfake Ops",
+      "scp": 0.4834,
+      "status": "Orange",
+      "lat": 38.0,
+      "lng": 23.0,
+      "domains": [
+        "Technology",
+        "Information"
+      ],
+      "priority": 56.34
+    },
+    {
+      "id": "C96",
+      "name": "GPS Spoofing (Civil Aviation)",
+      "scp": 0.4173,
+      "status": "Yellow",
+      "lat": 37.0,
+      "lng": -122.0,
+      "domains": [
+        "Technology"
+      ],
+      "priority": 49.73
+    },
+    {
       "id": "C97",
       "name": "Co\u2011orbital ASAT Threat",
       "scp": 0.4867,
@@ -699,6 +2249,19 @@
         "Geopolitical"
       ],
       "priority": 56.67
+    },
+    {
+      "id": "I11",
+      "name": "AI disinformation supercycle",
+      "scp": 0.3818,
+      "status": "Yellow",
+      "lat": 38.0,
+      "lng": 23.0,
+      "domains": [
+        "Technology",
+        "Information"
+      ],
+      "priority": 46.18
     },
     {
       "id": "I12",
@@ -714,6 +2277,19 @@
       "priority": 52.49
     },
     {
+      "id": "T-BIO-INF",
+      "name": "AI\u2011powered bioinformatics as national security vulnerability",
+      "scp": 0.3818,
+      "status": "Yellow",
+      "lat": 37.0,
+      "lng": -122.0,
+      "domains": [
+        "Technology",
+        "Biosecurity"
+      ],
+      "priority": 46.18
+    },
+    {
       "id": "T-LAWS",
       "name": "Lethal autonomous weapons (LAWS) normative collapse",
       "scp": 0.4867,
@@ -725,6 +2301,57 @@
         "Geopolitical"
       ],
       "priority": 56.67
+    },
+    {
+      "id": "T-SYN-DNA",
+      "name": "DNA synthesis screening gap (voluntary only)",
+      "scp": 0.4214,
+      "status": "Yellow",
+      "lat": 37.0,
+      "lng": -122.0,
+      "domains": [
+        "Technology",
+        "Biosecurity"
+      ],
+      "priority": 50.14
+    },
+    {
+      "id": "T-AGENT",
+      "name": "Autonomous AI agents as persistence mechanism (Miasma variant)",
+      "scp": 0.4297,
+      "status": "Yellow",
+      "lat": 39.8,
+      "lng": -98.6,
+      "domains": [
+        "Technology",
+        "Cyber"
+      ],
+      "priority": 50.97
+    },
+    {
+      "id": "T-MISINFO",
+      "name": "Information ecosystem collapse as national security threat",
+      "scp": 0.4867,
+      "status": "Orange",
+      "lat": 38.0,
+      "lng": 23.0,
+      "domains": [
+        "Technology",
+        "Information"
+      ],
+      "priority": 56.67
+    },
+    {
+      "id": "I01I",
+      "name": "IHL collapse \u2013 starvation as weapon",
+      "scp": 0.5047,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Institutional"
+      ],
+      "priority": 58.47
     },
     {
       "id": "C2I",
@@ -740,6 +2367,44 @@
       "priority": 54.66
     },
     {
+      "id": "C84I",
+      "name": "U.S. Electoral Integrity Breach",
+      "scp": 0.5813,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Institutional",
+        "Domestic"
+      ],
+      "priority": 66.13
+    },
+    {
+      "id": "G14",
+      "name": "Trump 'imminent deal' narrative",
+      "scp": 0.0428,
+      "status": "Green",
+      "lat": 38.0,
+      "lng": 23.0,
+      "domains": [
+        "Information"
+      ],
+      "priority": 12.28
+    },
+    {
+      "id": "I11I",
+      "name": "AI disinformation supercycle",
+      "scp": 0.3818,
+      "status": "Yellow",
+      "lat": 38.0,
+      "lng": 23.0,
+      "domains": [
+        "Information",
+        "Technology"
+      ],
+      "priority": 46.18
+    },
+    {
       "id": "I12I",
       "name": "Deepfake WMD false flag",
       "scp": 0.4449,
@@ -751,6 +2416,191 @@
         "Geopolitical"
       ],
       "priority": 52.49
+    },
+    {
+      "id": "C19I",
+      "name": "Info\u2011civil unrest",
+      "scp": 0.4272,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Information",
+        "Social"
+      ],
+      "priority": 50.72
+    },
+    {
+      "id": "B02",
+      "name": "Bundibugyo Ebola",
+      "scp": 0.5858,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Biosecurity"
+      ],
+      "priority": 66.58
+    },
+    {
+      "id": "C148",
+      "name": "Bundibugyo Ebola (duplicate)",
+      "scp": 0.5858,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Biosecurity"
+      ],
+      "priority": 66.58
+    },
+    {
+      "id": "C94",
+      "name": "H5N1 Mammalian Adaptation",
+      "scp": 0.296,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Biosecurity"
+      ],
+      "priority": 37.6
+    },
+    {
+      "id": "C77",
+      "name": "U.S. Health Security Gaps",
+      "scp": 0.4867,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Biosecurity",
+        "Domestic"
+      ],
+      "priority": 56.67
+    },
+    {
+      "id": "A12",
+      "name": "Ebola \u2013 Bundibugyo",
+      "scp": 0.5858,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Biosecurity"
+      ],
+      "priority": 66.58
+    },
+    {
+      "id": "A13",
+      "name": "Ebola cross\u2011border",
+      "scp": 0.4707,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Biosecurity"
+      ],
+      "priority": 55.07
+    },
+    {
+      "id": "A14",
+      "name": "Mpox resurgence",
+      "scp": 0.3775,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Biosecurity"
+      ],
+      "priority": 45.75
+    },
+    {
+      "id": "A15",
+      "name": "Marburg outbreak",
+      "scp": 0.3654,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Biosecurity"
+      ],
+      "priority": 44.54
+    },
+    {
+      "id": "B-METABIO",
+      "name": "Convergent bio\u2011cyber threats (meta\u2011biothreats)",
+      "scp": 0.3037,
+      "status": "Yellow",
+      "lat": 37.0,
+      "lng": -122.0,
+      "domains": [
+        "Biosecurity",
+        "Technology"
+      ],
+      "priority": 38.37
+    },
+    {
+      "id": "B-AMR-KLEB",
+      "name": "Hypervirulent carbapenem\u2011resistant Klebsiella pneumoniae (hvKp ST23)",
+      "scp": 0.4666,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Biosecurity"
+      ],
+      "priority": 54.66
+    },
+    {
+      "id": "B-DARK-PROTEIN",
+      "name": "AI\u2011designed undetectable toxins",
+      "scp": 0.3818,
+      "status": "Yellow",
+      "lat": 37.0,
+      "lng": -122.0,
+      "domains": [
+        "Biosecurity",
+        "Technology"
+      ],
+      "priority": 46.18
+    },
+    {
+      "id": "B-PANT-PIE",
+      "name": "Pantoea piersonii \u2013 emerging pathogen",
+      "scp": 0.3373,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Biosecurity"
+      ],
+      "priority": 41.73
+    },
+    {
+      "id": "B-RNA",
+      "name": "AI\u2011generated vaccine\u2011evading pathogens",
+      "scp": 0.3543,
+      "status": "Yellow",
+      "lat": 37.0,
+      "lng": -122.0,
+      "domains": [
+        "Biosecurity",
+        "Technology"
+      ],
+      "priority": 43.43
+    },
+    {
+      "id": "C120",
+      "name": "IHL Framework Collapse",
+      "scp": 0.5111,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Institutional"
+      ],
+      "priority": 59.11
     },
     {
       "id": "C140",
@@ -777,6 +2627,81 @@
         "Geopolitical"
       ],
       "priority": 59.24
+    },
+    {
+      "id": "C77I",
+      "name": "U.S. Health Security Gaps",
+      "scp": 0.4867,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Institutional",
+        "Biosecurity"
+      ],
+      "priority": 56.67
+    },
+    {
+      "id": "I02",
+      "name": "War crime designation for ship attacks",
+      "scp": 0.3626,
+      "status": "Yellow",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Institutional"
+      ],
+      "priority": 44.26
+    },
+    {
+      "id": "I03",
+      "name": "NPT failure \u2013 third consecutive",
+      "scp": 0.5227,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Institutional"
+      ],
+      "priority": 60.27
+    },
+    {
+      "id": "I17",
+      "name": "UN Security Council paralysis",
+      "scp": 0.4666,
+      "status": "Orange",
+      "lat": 20.0,
+      "lng": 20.0,
+      "domains": [
+        "Institutional"
+      ],
+      "priority": 54.66
+    },
+    {
+      "id": "C145I",
+      "name": "Iran\u2011Oman transit fee precedent",
+      "scp": 0.2039,
+      "status": "Green",
+      "lat": 32.4,
+      "lng": 53.7,
+      "domains": [
+        "Institutional",
+        "Financial"
+      ],
+      "priority": 28.39
+    },
+    {
+      "id": "I10",
+      "name": "US Media Collapse",
+      "scp": 0.5227,
+      "status": "Orange",
+      "lat": 39.8,
+      "lng": -98.6,
+      "domains": [
+        "Institutional",
+        "Domestic"
+      ],
+      "priority": 60.27
     }
   ],
   "history": [
