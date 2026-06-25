@@ -36,7 +36,6 @@ def geocode_location(location_name):
 
     geolocator = Nominatim(user_agent=USER_AGENT)
     try:
-        # Add "world" to help geocoder
         query = f"{location_name}, world"
         location = geolocator.geocode(query, timeout=10)
         if location:
@@ -56,6 +55,13 @@ def save_json(data, filepath):
     with open(filepath, 'w') as f:
         json.dump(data, f, indent=2)
 
+def generate_conflict_id(name):
+    """Generate a stable ID from a conflict name."""
+    base = re.sub(r'[^a-zA-Z0-9]', '', name[:30])
+    if base:
+        return f"CFR-{base.upper()}"
+    return f"CFR-{datetime.now().strftime('%Y%m%d%H%M%S')}"
+
 # ---------- Main Scraper ----------
 def fetch_cfr_conflicts():
     """Fetch and parse CFR Global Conflict Tracker."""
@@ -71,82 +77,59 @@ def fetch_cfr_conflicts():
     soup = BeautifulSoup(resp.text, 'html.parser')
     conflicts = []
 
-    # CFR uses card-like containers; inspect the page to adjust selectors
-    # We'll look for elements with class 'conflict-card' or similar.
-    # As of 2026, they use a pattern: .c-card--conflict
-    card_selector = '.c-card--conflict'
-    cards = soup.select(card_selector)
+    # Try primary selector
+    cards = soup.select('.c-card--conflict')
     log(f"Found {len(cards)} conflict cards")
 
     if not cards:
-        # Fallback: try to find by heading + description pattern
-        # This is a backup; adjust based on page inspection
         log("No conflict cards found. Attempting fallback extraction...")
-        # Look for sections with conflict titles
-        # We'll parse using a generic approach: find h3 with conflict names
-        # This may need adjustment
-        for header in soup.select('h3'):
-            if 'conflict' in header.text.lower() or 'war' in header.text.lower():
-                name = header.text.strip()
-                # Get parent or next sibling for description
+        for header in soup.find_all(['h2', 'h3']):
+            text = header.text.strip()
+            if any(k in text.lower() for k in ['conflict', 'war', 'crisis']):
+                name = text
+                desc = ''
                 parent = header.find_parent()
                 if parent:
-                    desc_elem = parent.select_one('p') or parent.find_next('p')
-                    desc = desc_elem.text.strip() if desc_elem else ''
-                else:
-                    desc = ''
+                    p = parent.find_next('p')
+                    if p:
+                        desc = p.text.strip()
                 conflicts.append({
                     'name': name,
                     'description': desc,
-                    'raw': 'fallback'
+                    'source': 'CFR (fallback)'
                 })
-        return conflicts
+        if not conflicts:
+            log("No conflicts found in fallback either.")
+            return []
 
     for card in cards:
         try:
-            # Extract name
             name_elem = card.select_one('.c-card__title')
-            name = name_elem.text.strip() if name_elem else 'Unknown conflict'
+            if not name_elem:
+                continue
+            name = name_elem.text.strip()
 
-            # Extract status (e.g., "Active", "Worsening")
             status_elem = card.select_one('.c-card__status')
             status = status_elem.text.strip() if status_elem else 'Unknown'
 
-            # Extract region
             region_elem = card.select_one('.c-card__region')
             region = region_elem.text.strip() if region_elem else ''
 
-            # Extract description
             desc_elem = card.select_one('.c-card__description')
             description = desc_elem.text.strip() if desc_elem else ''
 
-            # Determine severity (heuristic)
-            severity = 'Medium'
-            if 'worsen' in status.lower() or 'critical' in status.lower():
-                severity = 'High'
-            elif 'improve' in status.lower():
-                severity = 'Low'
-
-            # Geocode using region + name
             location_query = f"{name} {region}".strip()
             lat, lng = geocode_location(location_query)
             if not lat or not lng:
-                # Fallback to region only
                 lat, lng = geocode_location(region)
 
-            # Generate a stable ID
-            conflict_id = re.sub(r'[^a-zA-Z0-9-]', '', name[:20]).upper()
-            if conflict_id:
-                conflict_id = f"CFR-{conflict_id}"
-            else:
-                conflict_id = f"CFR-{len(conflicts)+1:04d}"
+            conflict_id = generate_conflict_id(name)
 
             conflicts.append({
                 "id": conflict_id,
                 "name": name,
                 "lat": lat or 0,
                 "lng": lng or 0,
-                "scp": 0.5,  # placeholder; could be refined
                 "status": status,
                 "description": description,
                 "source": "CFR Global Conflict Tracker",
@@ -157,25 +140,32 @@ def fetch_cfr_conflicts():
         except Exception as e:
             log(f"Error parsing card: {e}")
 
+    # Ensure every conflict has an id
+    for c in conflicts:
+        if 'id' not in c:
+            c['id'] = generate_conflict_id(c.get('name', 'Unknown'))
+
     log(f"Extracted {len(conflicts)} conflicts")
     return conflicts
 
 # ---------- Integration ----------
 def update_conflict_data(cfr_conflicts):
     """Merge CFR conflicts into conflict_data.json and threats.json."""
-    # Load existing data
+    if not cfr_conflicts:
+        log("No conflicts to update.")
+        return
+
     existing_data = load_json(OUTPUT_FILE, {"conflicts": []})
     existing_conflicts = existing_data.get("conflicts", [])
+    existing_ids = {c.get("id") for c in existing_conflicts if c.get("id")}
 
-    # Create map of existing IDs to avoid duplicates
-    existing_ids = {c["id"] for c in existing_conflicts if "id" in c}
-
-    # Add new CFR conflicts that are not already present
     new_entries = []
     for cfr in cfr_conflicts:
-        if cfr["id"] not in existing_ids:
+        if 'id' not in cfr:
+            cfr['id'] = generate_conflict_id(cfr.get('name', 'Unknown'))
+        if cfr['id'] not in existing_ids:
             new_entries.append(cfr)
-            existing_ids.add(cfr["id"])
+            existing_ids.add(cfr['id'])
 
     if new_entries:
         log(f"Adding {len(new_entries)} new CFR conflicts")
@@ -186,7 +176,7 @@ def update_conflict_data(cfr_conflicts):
     else:
         log("No new conflicts to add")
 
-    # Optionally create threats in threats.json
+    # Optionally update threats.json
     if new_entries:
         threats_data = load_json(THREATS_FILE, {"threats": []})
         threats = threats_data.get("threats", [])
@@ -194,7 +184,6 @@ def update_conflict_data(cfr_conflicts):
 
         for cfr in new_entries:
             if cfr["id"] not in threat_ids:
-                # Create a basic threat entry
                 threat = {
                     "id": cfr["id"],
                     "name": cfr["name"],
