@@ -1,592 +1,816 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Conflict Monitor</title>
-  <meta name="description" content="3D conflict intelligence dashboard with historical and forecast layers.">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Violet pulse animation (same as other pages) */
-    .violet-pulse {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      background: #7c4dff;
-      border-radius: 50%;
-      animation: pulse-violet 1.5s ease-in-out infinite;
-      flex-shrink: 0;
-    }
-    @keyframes pulse-violet {
-      0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0.4); }
-      50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124, 77, 255, 0); }
-      100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0); }
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cathedral Network – Conflict Monitor</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+    <!-- Bootstrap (for layout, badges, etc.) – keep existing styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a12;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+        a { color: #b388ff; text-decoration: none; }
+        a:hover { color: #d1c4e9; }
 
-    #globe-container {
-      width: 100%;
-      height: 600px;
-      background: #0a0a12;
-      border-radius: var(--card-radius);
-      position: relative;
-      overflow: hidden;
-    }
-    body.dark #globe-container {
-      background: #0a0a12;
-    }
+        /* ===== LAYOUT ===== */
+        .monitor-wrapper {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px 30px;
+        }
 
-    .globe-controls {
-      position: absolute;
-      bottom: 1rem;
-      left: 1rem;
-      z-index: 10;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      background: rgba(0,0,0,0.7);
-      padding: 0.6rem 1rem;
-      border-radius: 40px;
-      backdrop-filter: blur(8px);
-      border: 1px solid #333;
-      align-items: center;
-    }
-    .globe-controls button,
-    .globe-controls .slider-container {
-      background: none;
-      border: none;
-      color: #ccc;
-      font-size: 0.75rem;
-      cursor: pointer;
-      padding: 0.3rem 0.8rem;
-      border-radius: 40px;
-      transition: background 0.2s;
-    }
-    .globe-controls button:hover {
-      background: #7c4dff;
-      color: white;
-    }
-    .globe-controls button.active {
-      background: #7c4dff;
-      color: white;
-    }
-    .globe-controls .slider-container {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0;
-    }
-    .globe-controls .slider-container input[type="range"] {
-      width: 80px;
-      accent-color: #7c4dff;
-    }
-    .globe-controls .slider-container label {
-      color: #aaa;
-      font-size: 0.7rem;
-    }
-    .globe-legend {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      z-index: 10;
-      background: rgba(0,0,0,0.7);
-      padding: 0.6rem 0.8rem;
-      border-radius: 12px;
-      border: 1px solid #333;
-      backdrop-filter: blur(8px);
-      color: #aaa;
-      font-size: 0.65rem;
-    }
-    .globe-legend .item {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin: 0.15rem 0;
-    }
-    .globe-legend .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-    }
-    .globe-tooltip {
-      position: absolute;
-      display: none;
-      background: rgba(0,0,0,0.9);
-      border: 1px solid #7c4dff;
-      border-radius: 8px;
-      padding: 0.6rem 1rem;
-      color: white;
-      font-size: 0.75rem;
-      pointer-events: none;
-      z-index: 20;
-      backdrop-filter: blur(8px);
-      max-width: 200px;
-    }
-    .info-panel {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      margin: 1.5rem 0;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-    }
-    body.dark .info-panel {
-      background: #2a2a3a;
-    }
-    .info-panel .conflict-detail {
-      display: none;
-    }
-    .info-panel .conflict-detail.active {
-      display: block;
-    }
-    .info-panel .conflict-detail h3 {
-      margin-top: 0;
-      color: var(--violet-dark);
-    }
-    body.dark .info-panel .conflict-detail h3 {
-      color: #b39ddb;
-    }
-    .info-panel .detail-row {
-      display: flex;
-      padding: 0.3rem 0;
-      border-bottom: 1px solid #eee;
-    }
-    body.dark .info-panel .detail-row {
-      border-bottom-color: #444;
-    }
-    .info-panel .detail-row .label {
-      font-weight: 600;
-      width: 120px;
-      flex-shrink: 0;
-    }
-    .info-panel .detail-row .value {
-      flex: 1;
-    }
+        /* ===== HEADER ===== */
+        .monitor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #2a2a3a;
+            padding-bottom: 16px;
+        }
+        .monitor-header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: #fff;
+        }
+        .monitor-header h1 i {
+            color: #b388ff;
+            margin-right: 10px;
+        }
+        .monitor-header .badge-version {
+            background: #2a2a3a;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #b388ff;
+        }
+        .last-updated {
+            font-size: 14px;
+            color: #888;
+        }
 
-    /* Sidebar and other styles are in style.css – we reuse them */
-    .sidebar-container, .top-nav, .footer, .dark-mode-toggle, .container { /* already defined */ }
-  </style>
+        /* ===== STAT CARDS ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .stat-card {
+            background: #14141f;
+            border-radius: 16px;
+            padding: 18px 20px;
+            border: 1px solid #28283a;
+            transition: border-color 0.2s;
+        }
+        .stat-card:hover { border-color: #6c5b8a; }
+        .stat-card .label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #9e9eae;
+        }
+        .stat-card .number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+            margin-top: 4px;
+        }
+        .stat-card .number.critical { color: #ff6b6b; }
+        .stat-card .number.high { color: #ffa94d; }
+        .stat-card .number.elevated { color: #ffd93d; }
+        .stat-card .number.moderate { color: #6bcb8a; }
+
+        /* ===== GLOBE CONTAINER ===== */
+        .globe-section {
+            position: relative;
+            background: #0a0a12;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #2a2a3a;
+            margin-bottom: 28px;
+            height: 500px; /* fixed height for globe */
+        }
+        .globe-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .globe-container .globe-view {
+            width: 100%;
+            height: 100%;
+            display: none; /* hidden by default, shown by toggle */
+        }
+        .globe-container .globe-view.active {
+            display: block;
+        }
+        /* Toggle button */
+        .globe-toggle {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 100;
+            display: flex;
+            gap: 8px;
+            background: rgba(10, 10, 18, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 6px;
+            border-radius: 40px;
+            border: 1px solid #3a3a4e;
+        }
+        .globe-toggle button {
+            background: transparent;
+            border: none;
+            color: #aaa;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .globe-toggle button.active {
+            background: #6c5b8a;
+            color: #fff;
+            box-shadow: 0 0 12px rgba(108, 91, 138, 0.5);
+        }
+        .globe-toggle button:hover:not(.active) {
+            color: #fff;
+            background: #2a2a3e;
+        }
+
+        /* ===== CONTROLS & TABLE ===== */
+        .table-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+        .table-controls .search-box {
+            display: flex;
+            align-items: center;
+            background: #14141f;
+            border: 1px solid #2a2a3a;
+            border-radius: 40px;
+            padding: 6px 16px;
+            flex: 1 1 280px;
+        }
+        .table-controls .search-box i {
+            color: #6c6c82;
+            margin-right: 10px;
+        }
+        .table-controls .search-box input {
+            background: transparent;
+            border: none;
+            color: #e0e0e0;
+            padding: 10px 0;
+            width: 100%;
+            outline: none;
+            font-size: 14px;
+        }
+        .table-controls .filter-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .table-controls .filter-group .filter-btn {
+            background: #14141f;
+            border: 1px solid #2a2a3a;
+            color: #aaa;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .table-controls .filter-group .filter-btn.active {
+            background: #6c5b8a;
+            border-color: #6c5b8a;
+            color: #fff;
+        }
+        .table-controls .filter-group .filter-btn:hover:not(.active) {
+            border-color: #6c5b8a;
+            color: #fff;
+        }
+
+        .table-wrap {
+            background: #14141f;
+            border-radius: 16px;
+            border: 1px solid #2a2a3a;
+            overflow-x: auto;
+            padding: 4px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        table th {
+            text-align: left;
+            padding: 14px 18px;
+            color: #9e9eae;
+            font-weight: 500;
+            border-bottom: 1px solid #2a2a3a;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            font-size: 12px;
+        }
+        table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid #1e1e2e;
+            vertical-align: middle;
+        }
+        table tr:hover td { background: #1a1a2a; }
+        .conflict-name { font-weight: 500; color: #fff; }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+        .status-badge.critical { background: #6b2a2a; color: #ff6b6b; }
+        .status-badge.high { background: #6b4a1a; color: #ffa94d; }
+        .status-badge.elevated { background: #5a4a1a; color: #ffd93d; }
+        .status-badge.moderate { background: #1a4a2a; color: #6bcb8a; }
+        .status-badge.unknown { background: #2a2a3a; color: #9e9eae; }
+
+        .scp-bar {
+            display: inline-block;
+            width: 60px;
+            height: 6px;
+            background: #2a2a3a;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-right: 8px;
+        }
+        .scp-bar .fill {
+            height: 100%;
+            border-radius: 6px;
+            background: #6c5b8a;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px 0;
+            color: #888;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .monitor-wrapper { padding: 16px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .globe-section { height: 300px; }
+            .table-controls { flex-direction: column; align-items: stretch; }
+            .globe-toggle { top: 8px; right: 8px; }
+            .globe-toggle button { padding: 6px 12px; font-size: 12px; }
+        }
+
+        /* Keep existing styles for any extra elements */
+    </style>
 </head>
 <body>
 
-<!-- Sidebar (hardcoded for consistency) -->
-<div class="sidebar-container" id="sidebar">
-  <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
-  <nav>
-    <div class="nav-section">
-      <strong>📊 Dashboard</strong>
-      <a href="index.html">Ground Truth</a>
-      <a href="hewd.html">HEWD Dashboard</a>
-      <a href="health.html">System Health</a>
+<div class="monitor-wrapper">
+
+    <!-- HEADER -->
+    <header class="monitor-header">
+        <div>
+            <h1><i class="fas fa-globe-americas"></i>Conflict Monitor</h1>
+            <span class="last-updated" id="lastUpdated">Last updated: loading...</span>
+        </div>
+        <div>
+            <span class="badge-version"><i class="fas fa-code-branch"></i> v3.2 · Cathedral</span>
+        </div>
+    </header>
+
+    <!-- STAT CARDS -->
+    <div class="stats-grid" id="statCards">
+        <div class="stat-card"><div class="label">Total Conflicts</div><div class="number" id="totalCount">0</div></div>
+        <div class="stat-card"><div class="label">Critical</div><div class="number critical" id="criticalCount">0</div></div>
+        <div class="stat-card"><div class="label">High</div><div class="number high" id="highCount">0</div></div>
+        <div class="stat-card"><div class="label">Elevated</div><div class="number elevated" id="elevatedCount">0</div></div>
+        <div class="stat-card"><div class="label">Moderate</div><div class="number moderate" id="moderateCount">0</div></div>
     </div>
-    <div class="nav-section">
-      <strong>🧠 Intelligence</strong>
-      <a href="threat-matrix.html">Threat Matrix</a>
-      <a href="prediction-log.html">Prediction Log</a>
-      <a href="regional.html">Regional Forecasts</a>
-      <a href="daily-brief.html">Daily Brief</a>
-      <a href="breaking.html">Breaking News</a>
-      <a href="conflict-monitor.html">Conflict Monitor</a>
+
+    <!-- GLOBE SECTION with toggle -->
+    <div class="globe-section">
+        <div class="globe-container" id="globeContainer">
+            <!-- Satellite View (Cesium) -->
+            <div id="cesiumContainer" class="globe-view active"></div>
+            <!-- Hologram View (Three.js) -->
+            <div id="hologramContainer" class="globe-view"></div>
+        </div>
+        <!-- Toggle buttons -->
+        <div class="globe-toggle">
+            <button id="btnSatellite" class="active" data-view="satellite"><i class="fas fa-satellite"></i> Satellite</button>
+            <button id="btnHologram" data-view="hologram"><i class="fas fa-cube"></i> Hologram</button>
+        </div>
     </div>
-    <div class="nav-section">
-      <strong>⚖️ Governance</strong>
-      <a href="constitution.html">Constitution</a>
-      <a href="wardens.html">Wardens</a>
-      <a href="ascension.html">Ascension Engine</a>
-      <a href="warden-dashboard.html">Warden Dashboard</a>
+
+    <!-- TABLE CONTROLS -->
+    <div class="table-controls">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search conflict, region, actor..." />
+        </div>
+        <div class="filter-group" id="filterGroup">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="critical">Critical</button>
+            <button class="filter-btn" data-filter="high">High</button>
+            <button class="filter-btn" data-filter="elevated">Elevated</button>
+            <button class="filter-btn" data-filter="moderate">Moderate</button>
+        </div>
     </div>
-    <div class="nav-section">
-      <strong>🌍 Community</strong>
-      <a href="spotter.html">Spotter Guide</a>
-      <a href="about.html">About</a>
-      <a href="sources.html">Sources</a>
-      <a href="credits.html">Credits</a>
+
+    <!-- CONFLICT TABLE -->
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Conflict / Event</th>
+                    <th>Region</th>
+                    <th>Status</th>
+                    <th>SCP</th>
+                    <th>Last Updated</th>
+                </tr>
+            </thead>
+            <tbody id="conflictTableBody">
+                <tr><td colspan="5" class="no-results">Loading conflict data...</td></tr>
+            </tbody>
+        </table>
     </div>
-    <div class="nav-section">
-      <strong>🔧 Tools</strong>
-      <a href="undp-demo.html">UNDP Demo</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="pra.html">PRA</a>
-    </div>
-  </nav>
+
 </div>
 
-<!-- Banner -->
-<header class="cathedral-banner">
-  <div class="banner-content">
-    <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Conflict Monitor</p></div>
-  </div>
-</header>
+<!-- ============================================================ -->
+<!-- DEPENDENCIES -->
+<!-- ============================================================ -->
 
-<!-- Top Nav (mobile) -->
-<div class="top-nav">
-  <a href="index.html">Ground Truth</a>
-  <a href="threat-matrix.html">Threat Matrix</a>
-  <a href="prediction-log.html">Prediction Log</a>
-  <a href="hewd.html">HEWD</a>
-  <a href="health.html">Health</a>
-  <a href="wardens.html">Wardens</a>
-  <a href="conflict-monitor.html">Conflict Monitor</a>
-</div>
+<!-- CesiumJS for satellite globe -->
+<link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.113/Build/Cesium/Widgets/widgets.css" />
+<script src="https://cesium.com/downloads/cesiumjs/releases/1.113/Build/Cesium/Cesium.js"></script>
 
-<!-- Main content -->
-<div class="container">
-  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-    <h1>🌍 Conflict Monitor</h1>
-    <div style="display: flex; align-items: center; gap: 0.8rem;">
-      <span class="violet-pulse"></span>
-      <span style="font-size: 0.8rem; color: #888;">Live · <span id="conflictCount">Loading...</span> active conflicts</span>
-    </div>
-  </div>
-  <p style="margin-bottom: 1rem;">Real‑time 3D intelligence of active armed conflicts, territorial changes, and escalation forecasts.</p>
+<!-- Three.js for hologram -->
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+}
+</script>
 
-  <!-- Globe -->
-  <div id="globe-container">
-    <div class="globe-legend" id="globeLegend">
-      <div class="item"><span class="dot" style="background:#dc2626;"></span> Critical</div>
-      <div class="item"><span class="dot" style="background:#f97316;"></span> High</div>
-      <div class="item"><span class="dot" style="background:#eab308;"></span> Elevated</div>
-      <div class="item"><span class="dot" style="background:#22c55e;"></span> Moderate</div>
-    </div>
-    <div class="globe-tooltip" id="globeTooltip"></div>
-    <div class="globe-controls">
-      <button id="btn-3d" class="active">🌐 3D</button>
-      <button id="btn-heatmap">🔥 Heatmap</button>
-      <button id="btn-forecast">🔮 Forecast</button>
-      <button id="btn-style">🟣 Hologram</button>
-      <div class="slider-container">
-        <label>📅</label>
-        <input type="range" id="timeSlider" min="0" max="100" value="100">
-        <span id="timeLabel" style="color:#aaa; font-size:0.7rem; min-width:40px;">Now</span>
-      </div>
-      <button id="btn-reset">⟲ Reset</button>
-    </div>
-  </div>
+<!-- ============================================================ -->
+<!-- MAIN APPLICATION SCRIPT -->
+<!-- ============================================================ -->
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 
-  <!-- Info panel -->
-  <div class="info-panel" id="infoPanel">
-    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-      <div><strong>Total Conflicts:</strong> <span id="totalConflicts">--</span></div>
-      <div><strong>Critical:</strong> <span id="criticalCount" style="color:#dc2626;">--</span></div>
-      <div><strong>High:</strong> <span id="highCount" style="color:#f97316;">--</span></div>
-      <div><strong>Elevated:</strong> <span id="elevatedCount" style="color:#eab308;">--</span></div>
-      <div><strong>Moderate:</strong> <span id="moderateCount" style="color:#22c55e;">--</span></div>
-    </div>
-    <div id="conflictDetail" class="conflict-detail">
-      <h3 id="detailTitle">Conflict Intelligence</h3>
-      <div id="detailBody"></div>
-    </div>
-  </div>
+// ----------------------------------------------------------------
+// 1. DATA LOADING & UI UPDATES
+// ----------------------------------------------------------------
+let allConflicts = [];
+let filteredConflicts = [];
+let currentFilter = 'all';
+let searchQuery = '';
 
-  <div class="footer">
-    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Conflict Monitor · Updated daily.
-  </div>
-</div>
-
-<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
-
-<!-- Three.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three-globe@2.24.13/dist/three-globe.min.js"></script>
-
-<script>
-  // ---- Sidebar toggle ----
-  document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
-    document.getElementById('sidebar')?.classList.toggle('open');
-  });
-
-  // ---- Dark mode ----
-  const darkToggle = document.getElementById('darkModeToggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const storedTheme = localStorage.getItem('cathedral-theme');
-  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-    document.body.classList.add('dark');
-    darkToggle.innerText = '☀️';
-  } else darkToggle.innerText = '🌙';
-  darkToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    darkToggle.innerText = isDark ? '☀️' : '🌙';
-    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
-  });
-
-  // ---- Globe logic ----
-  const globeContainer = document.getElementById('globe-container');
-  const tooltip = document.getElementById('globeTooltip');
-  const detailPanel = document.getElementById('conflictDetail');
-  const detailTitle = document.getElementById('detailTitle');
-  const detailBody = document.getElementById('detailBody');
-
-  let globe = null;
-  let currentStyle = 'satellite';
-  let currentMode = '3d';
-  let showForecast = false;
-  let allConflicts = [];
-
-  // ---- Load conflict data ----
-  async function loadConflictData() {
+// Load conflict_data.json from same directory
+async function loadData() {
     try {
-      const resp = await fetch('conflict_data.json');
-      if (!resp.ok) throw new Error('Failed to fetch conflict data');
-      const data = await resp.json();
-      allConflicts = data.threats || data.conflicts || [];
-
-      // Update stats
-      document.getElementById('conflictCount').textContent = allConflicts.length;
-      const critical = allConflicts.filter(c => c.scp >= 0.80).length;
-      const high = allConflicts.filter(c => c.scp >= 0.60 && c.scp < 0.80).length;
-      const elevated = allConflicts.filter(c => c.scp >= 0.40 && c.scp < 0.60).length;
-      const moderate = allConflicts.filter(c => c.scp < 0.40).length;
-      document.getElementById('totalConflicts').textContent = allConflicts.length;
-      document.getElementById('criticalCount').textContent = critical;
-      document.getElementById('highCount').textContent = high;
-      document.getElementById('elevatedCount').textContent = elevated;
-      document.getElementById('moderateCount').textContent = moderate;
-
-      // Build points for globe
-      const points = allConflicts.map(c => ({
-        lat: c.lat,
-        lng: c.lng,
-        size: Math.max(0.3, (c.scp || 0.5) * 1.5),
-        color: c.scp >= 0.80 ? '#dc2626' : c.scp >= 0.60 ? '#f97316' : c.scp >= 0.40 ? '#eab308' : '#22c55e',
-        label: `${c.id}: ${c.name} (${(c.scp || 0.5)*100}%)`,
-        conflict: c
-      }));
-
-      initGlobe(points);
-    } catch(e) {
-      console.error('Error loading conflicts:', e);
-      document.getElementById('conflictCount').textContent = 'Error';
+        const res = await fetch('conflict_data.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        // FIX: use 'threats' key, fallback to 'conflicts'
+        allConflicts = data.threats || data.conflicts || [];
+        // Ensure each has a severity based on SCP
+        allConflicts.forEach(c => {
+            c.scp = c.scp || 0;
+            c.severity = getSeverity(c.scp);
+            c.status = c.status || c.severity;
+            c.last_updated = c.last_updated || c.timestamp || new Date().toISOString();
+        });
+        // Sort by SCP descending
+        allConflicts.sort((a,b) => b.scp - a.scp);
+        // Update UI
+        updateStats();
+        applyFilters();
+        document.getElementById('lastUpdated').textContent = `Last updated: ${new Date().toLocaleString()}`;
+        // Also update globe markers (both views)
+        updateGlobeMarkers(allConflicts);
+    } catch (err) {
+        console.warn('Failed to load conflict data:', err);
+        document.getElementById('conflictTableBody').innerHTML =
+            `<tr><td colspan="5" class="no-results">⚠️ Could not load conflict data. Check console.</td></tr>`;
+        document.getElementById('lastUpdated').textContent = 'Last updated: error';
+        // Use dummy data for demo? We'll keep zeros.
     }
-  }
+}
 
-  // ---- Init globe ----
-  function initGlobe(points) {
-    const container = document.getElementById('globe-container');
-    if (globe) {
-      globe._destructor();
-      globe = null;
+function getSeverity(scp) {
+    if (scp >= 0.80) return 'critical';
+    if (scp >= 0.60) return 'high';
+    if (scp >= 0.40) return 'elevated';
+    return 'moderate';
+}
+
+function updateStats() {
+    const critical = allConflicts.filter(c => c.severity === 'critical').length;
+    const high = allConflicts.filter(c => c.severity === 'high').length;
+    const elevated = allConflicts.filter(c => c.severity === 'elevated').length;
+    const moderate = allConflicts.filter(c => c.severity === 'moderate').length;
+    document.getElementById('totalCount').textContent = allConflicts.length;
+    document.getElementById('criticalCount').textContent = critical;
+    document.getElementById('highCount').textContent = high;
+    document.getElementById('elevatedCount').textContent = elevated;
+    document.getElementById('moderateCount').textContent = moderate;
+}
+
+function applyFilters() {
+    const query = searchQuery.toLowerCase().trim();
+    filteredConflicts = allConflicts.filter(c => {
+        // Filter by severity
+        if (currentFilter !== 'all' && c.severity !== currentFilter) return false;
+        // Search by name, region, actors
+        if (query) {
+            const name = (c.name || '').toLowerCase();
+            const region = (c.region || '').toLowerCase();
+            const actors = (c.actors || []).join(' ').toLowerCase();
+            if (!name.includes(query) && !region.includes(query) && !actors.includes(query)) return false;
+        }
+        return true;
+    });
+    renderTable();
+}
+
+function renderTable() {
+    const tbody = document.getElementById('conflictTableBody');
+    if (!filteredConflicts.length) {
+        tbody.innerHTML = `<tr><td colspan="5" class="no-results">No conflicts match your criteria.</td></tr>`;
+        return;
     }
+    let html = '';
+    filteredConflicts.forEach(c => {
+        const scp = c.scp || 0;
+        const pct = Math.min(100, scp * 100);
+        const statusClass = c.severity || 'unknown';
+        const statusLabel = statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
+        const name = c.name || 'Unnamed conflict';
+        const region = c.region || '—';
+        const updated = c.last_updated ? new Date(c.last_updated).toLocaleDateString() : '—';
+        html += `<tr>
+            <td class="conflict-name">${name}</td>
+            <td>${region}</td>
+            <td><span class="status-badge ${statusClass}">${statusLabel}</span></td>
+            <td>
+                <div class="scp-bar"><div class="fill" style="width:${pct}%; background:${scp>=0.8?'#ff6b6b':scp>=0.6?'#ffa94d':scp>=0.4?'#ffd93d':'#6bcb8a'}"></div></div>
+                ${(scp*100).toFixed(1)}%
+            </td>
+            <td>${updated}</td>
+        </tr>`;
+    });
+    tbody.innerHTML = html;
+}
 
-    const width = container.clientWidth || 800;
-    const height = container.clientHeight || 600;
+// ----------------------------------------------------------------
+// 2. SEARCH & FILTER EVENT BINDINGS
+// ----------------------------------------------------------------
+document.getElementById('searchInput').addEventListener('input', (e) => {
+    searchQuery = e.target.value;
+    applyFilters();
+});
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        applyFilters();
+    });
+});
 
-    const Globe = window.ThreeGlobe;
-    const globeInstance = new Globe()
-      .globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg')
-      .pointLat('lat')
-      .pointLng('lng')
-      .pointColor('color')
-      .pointAltitude(0.01)
-      .pointRadius('size')
-      .pointLabel('label')
-      .pointsData(points);
+// ----------------------------------------------------------------
+// 3. GLOBE TOGGLE LOGIC
+// ----------------------------------------------------------------
+const satelliteBtn = document.getElementById('btnSatellite');
+const hologramBtn = document.getElementById('btnHologram');
+const cesiumView = document.getElementById('cesiumContainer');
+const hologramView = document.getElementById('hologramContainer');
+
+// Initially satellite active (already has class "active" on cesiumView)
+// Remove active from hologram
+hologramView.classList.remove('active');
+
+satelliteBtn.addEventListener('click', () => {
+    satelliteBtn.classList.add('active');
+    hologramBtn.classList.remove('active');
+    cesiumView.classList.add('active');
+    hologramView.classList.remove('active');
+    // Resize Cesium if needed
+    if (window.cesiumViewer) {
+        window.cesiumViewer.resize();
+    }
+});
+
+hologramBtn.addEventListener('click', () => {
+    hologramBtn.classList.add('active');
+    satelliteBtn.classList.remove('active');
+    hologramView.classList.add('active');
+    cesiumView.classList.remove('active');
+    // Resize Three.js if needed
+    if (window.hologramRenderer) {
+        const container = document.getElementById('hologramContainer');
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+        if (window.hologramCamera) {
+            window.hologramCamera.aspect = w / h;
+            window.hologramCamera.updateProjectionMatrix();
+        }
+        if (window.hologramRenderer) {
+            window.hologramRenderer.setSize(w, h);
+        }
+    }
+});
+
+// ----------------------------------------------------------------
+// 4. CESIUM SATELLITE GLOBE
+// ----------------------------------------------------------------
+function initCesium() {
+    const container = document.getElementById('cesiumContainer');
+    // Set Cesium token if you have one (free for localhost)
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4ZWI5ZGM3OC1lNjdmLTQzM2UtODg3YS05M2I3NWM0Y2NmYjYiLCJpZCI6MjM2MTYxLCJpYXQiOjE3MTU1ODkzNDl9.9zG9hZ6cJkG4k3s5Dl2lE9p8mBc6q_1zW';
+    const viewer = new Cesium.Viewer(container, {
+        globe: true,
+        baseLayerPicker: false,
+        animation: false,
+        timeline: false,
+        fullscreenButton: false,
+        vrButton: false,
+        geocoder: false,
+        homeButton: false,
+        sceneModePicker: false,
+        navigationHelpButton: false,
+        selectionIndicator: false,
+        infoBox: false,
+        terrainProvider: new Cesium.createWorldTerrain(),
+    });
+    // Remove credit text if desired (keep minimal)
+    viewer.cesiumWidget.creditContainer.style.display = 'none';
+    // Set satellite imagery
+    viewer.scene.imageryLayers.removeAll();
+    viewer.scene.imageryLayers.addImageryProvider(
+        new Cesium.IonImageryProvider({ assetId: 2 }) // Sentinel-2
+    );
+    // Add some lighting
+    viewer.scene.globe.enableLighting = true;
+    // Store for later marker updates
+    window.cesiumViewer = viewer;
+    // Add markers (will be called later)
+    updateCesiumMarkers(allConflicts);
+}
+
+function updateCesiumMarkers(conflicts) {
+    if (!window.cesiumViewer) return;
+    const viewer = window.cesiumViewer;
+    // Clear existing entities (keep only if we want to remove old markers)
+    // Simple: remove all entities except the globe? We'll manage by saving a list.
+    if (window.cesiumEntityIds) {
+        window.cesiumEntityIds.forEach(id => viewer.entities.removeById(id));
+    }
+    window.cesiumEntityIds = [];
+    conflicts.forEach(c => {
+        // If there's a lat/lng
+        if (c.lat && c.lng) {
+            const entity = viewer.entities.add({
+                position: Cesium.Cartesian3.fromDegrees(c.lng, c.lat, 100000),
+                point: {
+                    pixelSize: 12,
+                    color: getColor(c.scp || 0),
+                    outlineColor: Cesium.Color.WHITE,
+                    outlineWidth: 1,
+                    heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+                },
+                label: {
+                    text: c.name || '',
+                    font: '12px Inter',
+                    fillColor: Cesium.Color.WHITE,
+                    outlineColor: Cesium.Color.BLACK,
+                    outlineWidth: 2,
+                    style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                    pixelOffset: new Cesium.Cartesian2(0, -20),
+                    eyeOffset: new Cesium.Cartesian3(0, 0, -1000),
+                },
+                // For removal
+                id: c.id || 'conflict_' + Math.random(),
+            });
+            window.cesiumEntityIds.push(entity.id);
+        }
+    });
+}
+
+function getColor(scp) {
+    if (scp >= 0.8) return Cesium.Color.RED;
+    if (scp >= 0.6) return Cesium.Color.ORANGE;
+    if (scp >= 0.4) return Cesium.Color.YELLOW;
+    return Cesium.Color.GREEN;
+}
+
+// ----------------------------------------------------------------
+// 5. HOLOGRAM GLOBE (Three.js)
+// ----------------------------------------------------------------
+function initHologram() {
+    const container = document.getElementById('hologramContainer');
+    const width = container.clientWidth;
+    const height = container.clientHeight;
 
     const scene = new THREE.Scene();
-    scene.add(globeInstance);
+    scene.background = new THREE.Color(0x050510);
+
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.set(0, 0, 2.5);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    camera.position.set(0, 0, 5);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
 
-    // Clear container, keep legend
-    while (container.firstChild) {
-      if (container.firstChild.id === 'globeLegend') break;
-      container.removeChild(container.firstChild);
+    // Controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1.2;
+    controls.minDistance = 2.5;
+    controls.maxDistance = 10;
+
+    // Create a sphere with custom shader for hologram effect
+    const geometry = new THREE.SphereGeometry(1.8, 64, 64);
+
+    // Main hologram material
+    const material = new THREE.ShaderMaterial({
+        uniforms: {
+            time: { value: 0 },
+            glowColor: { value: new THREE.Color(0x9b59b6) },
+        },
+        vertexShader: `
+            varying vec3 vNormal;
+            varying vec3 vPosition;
+            void main() {
+                vNormal = normalize(normalMatrix * normal);
+                vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                vPosition = mvPosition.xyz;
+                gl_Position = projectionMatrix * mvPosition;
+            }
+        `,
+        fragmentShader: `
+            uniform vec3 glowColor;
+            uniform float time;
+            varying vec3 vNormal;
+            varying vec3 vPosition;
+
+            void main() {
+                // Fresnel glow
+                vec3 viewDir = normalize(-vPosition);
+                float intensity = pow(1.0 - abs(dot(vNormal, viewDir)), 2.5);
+                // Scanline effect
+                float scan = sin(vPosition.y * 40.0 + time * 3.0) * 0.5 + 0.5;
+                scan = smoothstep(0.3, 0.7, scan);
+                // Combine
+                vec3 color = glowColor * (0.6 + 0.4 * intensity) + vec3(0.2, 0.1, 0.3) * scan;
+                float alpha = 0.7 + 0.3 * intensity;
+                gl_FragColor = vec4(color, alpha);
+            }
+        `,
+        transparent: true,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+    });
+
+    const globe = new THREE.Mesh(geometry, material);
+    scene.add(globe);
+
+    // Wireframe overlay
+    const wireGeo = new THREE.SphereGeometry(1.82, 32, 16);
+    const wireMat = new THREE.MeshBasicMaterial({
+        color: 0x9b59b6,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.2,
+    });
+    const wireframe = new THREE.Mesh(wireGeo, wireMat);
+    scene.add(wireframe);
+
+    // Glow particles (stars)
+    const starsGeo = new THREE.BufferGeometry();
+    const starCount = 2000;
+    const positions = new Float32Array(starCount * 3);
+    for (let i = 0; i < starCount * 3; i += 3) {
+        const r = 10 + Math.random() * 30;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        positions[i] = r * Math.sin(phi) * Math.cos(theta);
+        positions[i+1] = r * Math.sin(phi) * Math.sin(theta);
+        positions[i+2] = r * Math.cos(phi);
     }
-    const legend = document.getElementById('globeLegend');
-    if (legend) container.appendChild(legend);
-    container.insertBefore(renderer.domElement, legend);
-
-    // Store references
-    globe = { scene, camera, renderer, globeInstance, points };
-
-    // Click interaction – show detailed intelligence
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
-    renderer.domElement.addEventListener('click', (event) => {
-      const rect = renderer.domElement.getBoundingClientRect();
-      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-      raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(globeInstance.children);
-      if (intersects.length > 0) {
-        const obj = intersects[0].object;
-        const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
-        if (idx !== -1) {
-          const point = globeInstance.pointsData()[idx];
-          if (point && point.conflict) {
-            showConflictDetail(point.conflict);
-          }
-        }
-      }
+    starsGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const starsMat = new THREE.PointsMaterial({
+        color: 0x8e44ad,
+        size: 0.08,
+        transparent: true,
+        opacity: 0.8,
     });
+    const stars = new THREE.Points(starsGeo, starsMat);
+    scene.add(stars);
 
-    // Hover tooltip
-    renderer.domElement.addEventListener('mousemove', (event) => {
-      const rect = renderer.domElement.getBoundingClientRect();
-      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-      raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(globeInstance.children);
-      if (intersects.length > 0) {
-        const obj = intersects[0].object;
-        const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
-        if (idx !== -1) {
-          const point = globeInstance.pointsData()[idx];
-          if (point && point.label) {
-            tooltip.style.display = 'block';
-            tooltip.style.left = (event.clientX - rect.left + 10) + 'px';
-            tooltip.style.top = (event.clientY - rect.top - 10) + 'px';
-            tooltip.textContent = point.label;
-          }
-        }
-      } else {
-        tooltip.style.display = 'none';
-      }
-    });
-    renderer.domElement.addEventListener('mouseleave', () => {
-      tooltip.style.display = 'none';
-    });
+    // Store for updates and resize
+    window.hologramScene = scene;
+    window.hologramCamera = camera;
+    window.hologramRenderer = renderer;
+    window.hologramControls = controls;
+    window.hologramGlobe = globe;
+    window.hologramWire = wireframe;
+    window.hologramStars = stars;
+    window.hologramMaterial = material;
 
-    // Auto-rotate
-    let angle = 0;
+    // Start animation loop
     function animate() {
-      requestAnimationFrame(animate);
-      globeInstance.rotation.y += 0.001;
-      renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+        const time = performance.now() / 1000;
+        if (window.hologramMaterial) {
+            window.hologramMaterial.uniforms.time.value = time;
+        }
+        if (window.hologramControls) {
+            window.hologramControls.update();
+        }
+        if (window.hologramRenderer && window.hologramScene && window.hologramCamera) {
+            window.hologramRenderer.render(window.hologramScene, window.hologramCamera);
+        }
     }
     animate();
 
-    // Resize
-    const resize = () => {
-      const w = container.clientWidth || 800;
-      const h = container.clientHeight || 600;
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-      renderer.setSize(w, h);
-    };
-    window.addEventListener('resize', resize);
-
-    // ---- Controls ----
-    document.getElementById('btn-reset').addEventListener('click', () => {
-      globeInstance.rotation.y = 0;
-      camera.position.set(0, 0, 2.5);
+    // Handle resize
+    window.addEventListener('resize', () => {
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+        if (window.hologramCamera) {
+            window.hologramCamera.aspect = w / h;
+            window.hologramCamera.updateProjectionMatrix();
+        }
+        if (window.hologramRenderer) {
+            window.hologramRenderer.setSize(w, h);
+        }
     });
+}
 
-    // 3D / Heatmap / Forecast toggles
-    document.getElementById('btn-3d').addEventListener('click', function() {
-      this.classList.add('active');
-      document.getElementById('btn-heatmap').classList.remove('active');
-      document.getElementById('btn-forecast').classList.remove('active');
-      currentMode = '3d';
-      showForecast = false;
-      globeInstance.pointsData(points);
-    });
-    document.getElementById('btn-heatmap').addEventListener('click', function() {
-      this.classList.add('active');
-      document.getElementById('btn-3d').classList.remove('active');
-      document.getElementById('btn-forecast').classList.remove('active');
-      currentMode = 'heatmap';
-      showForecast = false;
-      const heatmapPoints = points.map(p => ({ ...p, size: p.size * 1.5, color: '#7c4dff' }));
-      globeInstance.pointsData(heatmapPoints);
-    });
-    document.getElementById('btn-forecast').addEventListener('click', function() {
-      this.classList.add('active');
-      document.getElementById('btn-3d').classList.remove('active');
-      document.getElementById('btn-heatmap').classList.remove('active');
-      currentMode = '3d';
-      showForecast = !showForecast;
-      const forecastPoints = points.map(p => {
-        const scp = p.conflict?.scp || 0.5;
-        const forecast = scp > 0.6 ? { ...p, color: '#7c4dff', size: p.size * 1.8 } : p;
-        return forecast;
-      });
-      globeInstance.pointsData(forecastPoints);
-    });
+// ----------------------------------------------------------------
+// 6. UPDATE GLOBE MARKERS FOR BOTH VIEWS
+// ----------------------------------------------------------------
+function updateGlobeMarkers(conflicts) {
+    // Cesium
+    updateCesiumMarkers(conflicts);
+    // Hologram: we could add point markers on the sphere, but we'll keep it simple.
+    // For now, hologram just shows the globe. Could add pulsing dots in future.
+    // Optionally, we can add small dots on the sphere surface.
+    // We'll skip for brevity, but you can add.
+}
 
-    // ---- Style toggle ----
-    document.getElementById('btn-style').addEventListener('click', function() {
-      const styles = ['satellite', 'hologram', 'dark'];
-      const currentIndex = styles.indexOf(currentStyle);
-      const nextIndex = (currentIndex + 1) % styles.length;
-      currentStyle = styles[nextIndex];
-      this.textContent = currentStyle === 'satellite' ? '🛰️ Satellite' :
-                         currentStyle === 'hologram' ? '🟣 Hologram' : '🌙 Dark';
-      applyStyle(currentStyle, globeInstance);
-    });
+// ----------------------------------------------------------------
+// 7. INITIALISE EVERYTHING
+// ----------------------------------------------------------------
+// Wait for DOM and load data
+document.addEventListener('DOMContentLoaded', async () => {
+    // Load data
+    await loadData();
+    // Init globes
+    initCesium();
+    initHologram();
+    // Ensure the hologram container is hidden initially (satellite active)
+    hologramView.classList.remove('active');
+    // Resize cesium after a short delay to ensure layout
+    setTimeout(() => {
+        if (window.cesiumViewer) window.cesiumViewer.resize();
+    }, 200);
+});
 
-    // Time slider (placeholder)
-    document.getElementById('timeSlider').addEventListener('input', function() {
-      const val = parseInt(this.value);
-      const label = document.getElementById('timeLabel');
-      if (val === 100) label.textContent = 'Now';
-      else if (val > 70) label.textContent = '7d ago';
-      else if (val > 40) label.textContent = '14d ago';
-      else if (val > 10) label.textContent = '30d ago';
-      else label.textContent = '90d ago';
-    });
-  }
-
-  // ---- Apply globe style ----
-  function applyStyle(style, globeInstance) {
-    if (!globeInstance) return;
-    if (style === 'satellite') {
-      globeInstance.globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg');
-      globeInstance.globeMaterial({ color: null });
-    } else if (style === 'hologram') {
-      globeInstance.globeImageUrl(null);
-      globeInstance.globeMaterial({
-        color: new THREE.Color('#7c4dff'),
-        emissive: new THREE.Color('#7c4dff'),
-        emissiveIntensity: 0.3,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.8
-      });
-    } else if (style === 'dark') {
-      globeInstance.globeImageUrl(null);
-      globeInstance.globeMaterial({
-        color: new THREE.Color('#1a1a2e'),
-        emissive: new THREE.Color('#7c4dff'),
-        emissiveIntensity: 0.1,
-        transparent: true,
-        opacity: 0.6
-      });
-    }
-  }
-
-  // ---- Show conflict detail panel ----
-  function showConflictDetail(conflict) {
-    detailPanel.classList.add('active');
-    detailTitle.textContent = `${conflict.id} – ${conflict.name}`;
-    let html = `
-      <div class="detail-row"><span class="label">Status</span><span class="value">${conflict.status || 'Unknown'}</span></div>
-      <div class="detail-row"><span class="label">SCP</span><span class="value">${(conflict.scp || 0.5).toFixed(2)}</span></div>
-      <div class="detail-row"><span class="label">Description</span><span class="value">${conflict.description || 'No description available.'}</span></div>
-      <div class="detail-row"><span class="label">Cascade Impact</span><span class="value">${(conflict.cascade_impact || []).join(', ') || 'None'}</span></div>
-      <div class="detail-row"><span class="label">Casualties</span><span class="value">${conflict.casualties || 'Unknown'}</span></div>
-      <div class="detail-row"><span class="label">Displaced</span><span class="value">${conflict.displaced || 'Unknown'}</span></div>
-      <div class="detail-row"><span class="label">Source</span><span class="value">${conflict.source || 'Cathedral Engine'}</span></div>
-      <div class="detail-row"><span class="label">Last Updated</span><span class="value">${conflict.last_updated || 'Unknown'}</span></div>
-    `;
-    detailBody.innerHTML = html;
-  }
-
-  // ---- Load data on page load ----
-  loadConflictData();
-
-  // ---- Service worker ----
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').catch(() => {});
-  }
 </script>
-<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
