@@ -105,7 +105,7 @@
       max-width: 200px;
     }
 
-    /* ===== INFO PANEL (already in user's design) ===== */
+    /* ===== INFO PANEL ===== */
     .info-panel {
       background: white;
       border-radius: var(--card-radius, 16px);
@@ -128,7 +128,7 @@
     .detail-row .label { font-weight: 600; width: 120px; flex-shrink: 0; }
     .detail-row .value { flex: 1; }
 
-    /* ===== TABLE & FILTERS (added from our version) ===== */
+    /* ===== TABLE & FILTERS ===== */
     .table-controls {
       display: flex;
       flex-wrap: wrap;
@@ -218,7 +218,6 @@
     .scp-bar .fill { height: 100%; border-radius: 6px; }
     .no-results { text-align: center; padding: 40px 0; color: #888; }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       #globe-container { height: 350px; }
       .globe-controls { bottom: 0.5rem; left: 0.5rem; padding: 0.4rem 0.6rem; gap: 0.3rem; }
@@ -230,7 +229,7 @@
 </head>
 <body>
 
-<!-- ===== SIDEBAR (from Cathedral design) ===== -->
+<!-- ===== SIDEBAR ===== -->
 <div class="sidebar-container" id="sidebar">
   <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
   <nav>
@@ -306,7 +305,7 @@
   </div>
 </header>
 
-<!-- ===== TOP NAV (mobile) ===== -->
+<!-- ===== TOP NAV ===== -->
 <div class="top-nav">
   <a href="index.html">Ground Truth</a>
   <a href="threat-matrix.html">Threat Matrix</a>
@@ -317,10 +316,8 @@
   <a href="conflict-monitor.html" class="active">Conflict Monitor</a>
 </div>
 
-<!-- ===== MAIN CONTENT ===== -->
+<!-- ===== MAIN ===== -->
 <div class="container">
-
-  <!-- Header -->
   <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
     <h1>🌍 Conflict Monitor</h1>
     <div style="display: flex; align-items: center; gap: 0.8rem;">
@@ -353,7 +350,7 @@
     </div>
   </div>
 
-  <!-- ===== INFO PANEL (stats + detail) ===== -->
+  <!-- ===== INFO PANEL ===== -->
   <div class="info-panel" id="infoPanel">
     <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
       <div><strong>Total Conflicts:</strong> <span id="totalConflicts">--</span></div>
@@ -368,7 +365,7 @@
     </div>
   </div>
 
-  <!-- ===== TABLE CONTROLS (search & filter) ===== -->
+  <!-- ===== TABLE ===== -->
   <div class="table-controls">
     <div class="search-box">
       <i class="fas fa-search" style="color:#6c6c82;"></i>
@@ -382,8 +379,6 @@
       <button class="filter-btn" data-filter="moderate">Moderate</button>
     </div>
   </div>
-
-  <!-- ===== CONFLICT TABLE ===== -->
   <div class="table-wrap">
     <table>
       <thead>
@@ -401,21 +396,16 @@
     </table>
   </div>
 
-  <!-- ===== FOOTER ===== -->
   <div class="footer">
     <strong>Always and Forever, Coco. Always and Forever.</strong><br>
     Conflict Monitor · Updated daily.
   </div>
 </div>
 
-<!-- ===== DARK MODE TOGGLE ===== -->
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
 <!-- ===== SCRIPTS ===== -->
-<!-- FontAwesome (for search icon) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
-<!-- Three.js & three-globe -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three-globe@2.24.13/dist/three-globe.min.js"></script>
 
@@ -423,7 +413,7 @@
   (function() {
     'use strict';
 
-    // ---- SIDEBAR TOGGLE ----
+    // ---- TOGGLE SIDEBAR ----
     document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
       document.getElementById('sidebar')?.classList.toggle('open');
     });
@@ -469,10 +459,8 @@
         const resp = await fetch('conflict_data.json');
         if (!resp.ok) throw new Error('HTTP ' + resp.status);
         const data = await resp.json();
-        // Use 'threats' key (fallback to 'conflicts')
         const raw = data.threats || data.conflicts || [];
         allConflicts = raw.map(c => {
-          // Normalize fields
           return {
             id: c.id || c.name || 'unknown',
             name: c.name || c.conflict || 'Unnamed',
@@ -489,18 +477,13 @@
             source: c.source || 'Cathedral Engine',
             last_updated: c.last_updated || c.timestamp || new Date().toISOString(),
           };
-        });
-        // Filter out items with no coordinates
-        allConflicts = allConflicts.filter(c => c.lat && c.lng);
-        // Sort by SCP descending
+        }).filter(c => c.lat && c.lng);
         allConflicts.sort((a,b) => b.scp - a.scp);
 
-        // Update UI
         updateStats(allConflicts);
         renderTable(allConflicts);
         document.getElementById('conflictCount').textContent = allConflicts.length;
 
-        // Build points for globe
         const points = allConflicts.map(c => ({
           lat: c.lat,
           lng: c.lng,
@@ -521,7 +504,6 @@
       }
     }
 
-    // ---- UPDATE STATS ----
     function updateStats(conflicts) {
       const total = conflicts.length;
       const critical = conflicts.filter(c => c.severity === 'critical').length;
@@ -535,7 +517,6 @@
       document.getElementById('moderateCount').textContent = moderate;
     }
 
-    // ---- RENDER TABLE ----
     function renderTable(conflicts) {
       const tbody = document.getElementById('conflictTableBody');
       if (!conflicts || conflicts.length === 0) {
@@ -566,7 +547,6 @@
     // ---- FILTER / SEARCH ----
     let currentFilter = 'all';
     let searchQuery = '';
-
     function applyFilters() {
       const query = searchQuery.toLowerCase().trim();
       const filtered = allConflicts.filter(c => {
@@ -580,9 +560,7 @@
         return true;
       });
       renderTable(filtered);
-      // Also update the globe? Keep globe showing all; maybe we want to highlight? We'll keep full globe.
     }
-
     document.getElementById('searchInput').addEventListener('input', (e) => {
       searchQuery = e.target.value;
       applyFilters();
@@ -596,12 +574,11 @@
       });
     });
 
-    // ---- GLOBE INIT (using three-globe) ----
+    // ---- GLOBE INIT (fixed) ----
     function initGlobe(points) {
       const container = document.getElementById('globe-container');
-      // Clear any previous globe
       if (globe) {
-        // Attempt cleanup
+        // Cleanup
         if (globe.renderer) {
           const canvas = globe.renderer.domElement;
           if (canvas && canvas.parentNode) canvas.parentNode.removeChild(canvas);
@@ -614,20 +591,20 @@
 
       const Globe = window.ThreeGlobe;
       if (!Globe) {
-        console.error('ThreeGlobe not loaded');
+        console.error('ThreeGlobe library not loaded');
         return;
       }
 
+      // Build globe – avoid methods that may not exist
       const globeInstance = new Globe()
         .globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg')
-        .bumpImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png')
+        .pointsData(points)
         .pointLat('lat')
         .pointLng('lng')
         .pointColor('color')
         .pointAltitude(0.01)
-        .pointRadius('size')
-        .pointLabel('label')
-        .pointsData(points);
+        .pointRadius('size');
+        // Removed .pointLabel – we use custom tooltip
 
       const scene = new THREE.Scene();
       scene.add(globeInstance);
@@ -637,24 +614,19 @@
       renderer.setSize(width, height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-      // Remove previous canvas, keep legend and controls
       const existingCanvas = container.querySelector('canvas');
       if (existingCanvas) existingCanvas.remove();
-      // Append new canvas
       container.appendChild(renderer.domElement);
-
-      // Ensure legend is on top
       const legend = document.getElementById('globeLegend');
       if (legend) container.appendChild(legend);
 
-      // Store
       globe = {
         scene, camera, renderer, globeInstance,
-        points, // for later updates
+        points,
         autoRotate: true,
       };
 
-      // ---- INTERACTION: Click -> show detail ----
+      // ---- INTERACTION ----
       const raycaster = new THREE.Raycaster();
       const mouse = new THREE.Vector2();
       renderer.domElement.addEventListener('click', (event) => {
@@ -662,19 +634,15 @@
         mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
         mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
         raycaster.setFromCamera(mouse, camera);
-        // We need to intersect with globeInstance's children (points are meshes)
-        // three-globe stores points as children with userData referencing the point data.
         const children = globeInstance.children;
         const intersects = raycaster.intersectObjects(children);
         if (intersects.length > 0) {
           const obj = intersects[0].object;
-          // Find the point data by matching the mesh's userData or position
-          // three-globe attaches the point data to the mesh's userData.pointData
           const pointData = obj.userData && obj.userData.pointData;
           if (pointData && pointData.conflict) {
             showConflictDetail(pointData.conflict);
           } else {
-            // Fallback: search by index from points array
+            // fallback: search by index
             const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
             if (idx !== -1) {
               const p = globeInstance.pointsData()[idx];
@@ -684,7 +652,6 @@
         }
       });
 
-      // ---- HOVER -> tooltip ----
       renderer.domElement.addEventListener('mousemove', (event) => {
         const rect = renderer.domElement.getBoundingClientRect();
         mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
@@ -718,7 +685,7 @@
         tooltip.style.display = 'none';
       });
 
-      // ---- ANIMATION LOOP ----
+      // ---- ANIMATION ----
       function animate() {
         requestAnimationFrame(animate);
         if (globe && globe.autoRotate) {
@@ -737,7 +704,6 @@
         renderer.setSize(w, h);
       };
       window.addEventListener('resize', resize);
-      // Store resize for later cleanup if needed
       globe._resize = resize;
 
       // ---- CONTROLS ----
@@ -746,7 +712,6 @@
         camera.position.set(0, 0, 2.5);
       });
 
-      // ---- 3D / Heatmap / Forecast ----
       document.getElementById('btn-3d').addEventListener('click', function() {
         this.classList.add('active');
         document.getElementById('btn-heatmap').classList.remove('active');
@@ -767,7 +732,6 @@
         document.getElementById('btn-3d').classList.remove('active');
         document.getElementById('btn-heatmap').classList.remove('active');
         currentMode = '3d';
-        // Toggle forecast: size up, color violet for high SCP
         const forecastPoints = points.map(p => {
           if (p.conflict && p.conflict.scp > 0.6) {
             return { ...p, color: '#7c4dff', size: p.size * 1.8 };
@@ -777,7 +741,7 @@
         globeInstance.pointsData(forecastPoints);
       });
 
-      // ---- STYLE TOGGLE (Satellite / Hologram / Dark) ----
+      // ---- STYLE TOGGLE ----
       document.getElementById('btn-style').addEventListener('click', function() {
         const styles = ['satellite', 'hologram', 'dark'];
         const currentIndex = styles.indexOf(currentStyle);
@@ -788,7 +752,7 @@
         applyStyle(currentStyle, globeInstance);
       });
 
-      // ---- TIME SLIDER (placeholder) ----
+      // ---- TIME SLIDER ----
       document.getElementById('timeSlider').addEventListener('input', function() {
         const val = parseInt(this.value);
         const label = document.getElementById('timeLabel');
@@ -828,7 +792,7 @@
       }
     }
 
-    // ---- SHOW CONFLICT DETAIL ----
+    // ---- SHOW DETAIL ----
     function showConflictDetail(conflict) {
       if (!conflict) return;
       detailPanel.classList.add('active');
@@ -846,19 +810,15 @@
       detailBody.innerHTML = html;
     }
 
-    // ---- INIT ----
+    // ---- START ----
     loadConflictData();
 
-    // ---- SERVICE WORKER ----
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js').catch(() => {});
     }
 
   })();
 </script>
-
-<!-- GoatCounter (if used) -->
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
 </body>
 </html>
