@@ -11,7 +11,7 @@
     /* Page-specific styles */
     .region-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 1.2rem;
       margin: 1.5rem 0;
     }
@@ -118,6 +118,8 @@
       margin-top: 0.8rem;
       padding-top: 0.8rem;
       border-top: 1px solid #eee;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
     body.dark .region-detail {
       border-top-color: #444;
@@ -125,18 +127,24 @@
     .region-detail.active {
       display: block;
     }
-    .region-detail .detail-row {
-      display: flex;
-      padding: 0.2rem 0;
-      font-size: 0.85rem;
+    .region-detail .report-section {
+      margin: 0.5rem 0;
     }
-    .region-detail .detail-row .label {
-      font-weight: 600;
-      width: 100px;
-      flex-shrink: 0;
+    .region-detail .report-section strong {
+      color: var(--violet-dark);
     }
-    .region-detail .detail-row .value {
-      flex: 1;
+    body.dark .region-detail .report-section strong {
+      color: #b39ddb;
+    }
+    .region-detail .report-meta {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: 0.5rem;
+      border-top: 1px solid #eee;
+      padding-top: 0.5rem;
+    }
+    body.dark .region-detail .report-meta {
+      border-top-color: #444;
     }
     .stats-grid {
       display: grid;
@@ -179,12 +187,194 @@
     body.dark .stat-card .label {
       color: #aaa;
     }
+    .violet-pulse {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: #7c4dff;
+      border-radius: 50%;
+      animation: pulse-violet 1.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-violet {
+      0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0.4); }
+      50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124, 77, 255, 0); }
+      100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0); }
+    }
     /* Reuse sidebar and banner from style.css */
+    .top-nav {
+      display: none;
+      background: var(--violet-light);
+      padding: 0.5rem 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      border-radius: var(--card-radius);
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+    body.dark .top-nav {
+      background: #2a2a3a;
+    }
+    .top-nav a {
+      color: var(--violet-dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 40px;
+    }
+    body.dark .top-nav a {
+      color: #b39ddb;
+    }
+    .top-nav a:hover {
+      background: var(--violet-dark);
+      color: white;
+    }
+    body.dark .top-nav a:hover {
+      background: var(--violet);
+      color: #1a1a1a;
+    }
+    @media (max-width: 768px) {
+      .top-nav {
+        display: flex;
+      }
+    }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    .sidebar-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100%;
+      background: white;
+      border-right: 1px solid #eee;
+      overflow-y: auto;
+      z-index: 1000;
+      padding: 1rem;
+      transition: transform 0.3s ease;
+    }
+    body.dark .sidebar-container {
+      background: #2a2a3a;
+      border-right-color: #444;
+    }
+    .sidebar-container .sidebar-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+    }
+    body.dark .sidebar-container .sidebar-header {
+      border-bottom-color: #444;
+    }
+    .sidebar-container .sidebar-header span {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--violet-dark);
+    }
+    body.dark .sidebar-container .sidebar-header span {
+      color: #b39ddb;
+    }
+    .sidebar-container nav .nav-section {
+      margin-bottom: 1.25rem;
+    }
+    .sidebar-container nav .nav-section strong {
+      display: block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--violet-dark);
+      padding: 0.2rem 0 0.3rem 0;
+      opacity: 0.7;
+    }
+    body.dark .sidebar-container nav .nav-section strong {
+      color: #b39ddb;
+    }
+    .sidebar-container nav .nav-section a {
+      display: block;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+    body.dark .sidebar-container nav .nav-section a {
+      color: #f0f0f0;
+    }
+    .sidebar-container nav .nav-section a:hover {
+      background: var(--violet-light);
+    }
+    body.dark .sidebar-container nav .nav-section a:hover {
+      background: #3a3a4a;
+    }
+    #sidebar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--violet-dark);
+    }
+    body.dark #sidebar-toggle {
+      color: #b39ddb;
+    }
+    @media (max-width: 768px) {
+      .sidebar-container {
+        transform: translateX(-100%);
+        width: 260px;
+      }
+      .sidebar-container.open {
+        transform: translateX(0);
+      }
+      #sidebar-toggle {
+        display: block;
+      }
+      .container {
+        margin-left: 0 !important;
+      }
+    }
+    @media (min-width: 769px) {
+      .container {
+        margin-left: 240px;
+      }
+    }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 1rem; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
+      .region-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
-<!-- Hardcoded Sidebar (same as all pages) -->
+<!-- Sidebar -->
 <div class="sidebar-container" id="sidebar">
   <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
   <nav>
@@ -267,7 +457,7 @@
       <span style="font-size: 0.8rem; color: #888;">Updated: <span id="lastUpdate">Loading...</span></span>
     </div>
   </div>
-  <p style="margin-bottom: 1rem;">Hierarchical threat intelligence by region – GSCI, SSI, conflict density, climate anomalies, and cyber risk.</p>
+  <p style="margin-bottom: 1rem;">Regional intelligence reports from dedicated AI agents across the globe. Click any region for the full report.</p>
 
   <!-- Stats -->
   <div class="stats-grid" id="statsGrid">
@@ -311,54 +501,259 @@
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
 
-  // ---- Load regional data ----
+  // ---- Region intelligence data ----
+  const REGIONS = [
+    {
+      id: "north-america",
+      name: "North America (Continental)",
+      gsci: 35,
+      ssi: 42,
+      status: "stable",
+      report: `<p><strong>US-Mexico border:</strong> Cartel violence remains elevated in northern Mexico, with spillover risk into US border states. US-China semiconductor tensions continue to drive domestic CHIPS Act implementation.</p>
+               <p><strong>Energy:</strong> US shale production remains resilient, but pipeline constraints create regional bottlenecks. Electricity demand surges with AI data center buildout.</p>
+               <p><strong>Forecast:</strong> Stable with elevated energy and migration risks. Monitoring cartel violence and industrial policy implementation.</p>`,
+      threats: ["Cartel Violence", "Energy Grid Stress", "Semiconductor Supply Chain"]
+    },
+    {
+      id: "central-america",
+      name: "Central America (Dry Corridor, Migration)",
+      gsci: 58,
+      ssi: 55,
+      status: "elevated",
+      report: `<p><strong>Dry Corridor:</strong> Prolonged drought conditions continue to impact agricultural yields, accelerating migration pressures. Food insecurity rises in Guatemala, Honduras, El Salvador.</p>
+               <p><strong>Migration:</strong> Record numbers of migrants transiting through the Darién Gap, with humanitarian conditions deteriorating. US-Mexico border dynamics remain volatile.</p>
+               <p><strong>Forecast:</strong> Elevated risk of food riots and migration surges. Monitoring rainfall patterns and border policies.</p>`,
+      threats: ["Drought", "Food Insecurity", "Migration Surge"]
+    },
+    {
+      id: "caribbean",
+      name: "Caribbean (Hurricane, Sea-Level Rise)",
+      gsci: 45,
+      ssi: 48,
+      status: "elevated",
+      report: `<p><strong>Hurricane Season:</strong> Above-average activity predicted. Critical infrastructure vulnerability in Puerto Rico, Haiti, Dominican Republic.</p>
+               <p><strong>Sea-Level Rise:</strong> Accelerating coastal erosion and saltwater intrusion threatening freshwater supplies and agriculture.</p>
+               <p><strong>Forecast:</strong> Elevated risk during hurricane season. Monitoring storm tracks and ocean temperatures.</p>`,
+      threats: ["Hurricanes", "Sea-Level Rise", "Infrastructure Vulnerability"]
+    },
+    {
+      id: "south-america",
+      name: "South America (Venezuela, Panama Canal, Amazon)",
+      gsci: 62,
+      ssi: 58,
+      status: "critical",
+      report: `<p><strong>Venezuela:</strong> Political crisis deepens ahead of elections. Oil production decline continues, exacerbating humanitarian situation.</p>
+               <p><strong>Panama Canal:</strong> Water levels remain critically low, limiting shipping capacity. Impact on global trade routes escalating.</p>
+               <p><strong>Amazon:</strong> Deforestation accelerates, with knock-on effects on regional climate patterns and biodiversity.</p>
+               <p><strong>Forecast:</strong> Critical risk. Monitoring election outcomes, canal water levels, and deforestation rates.</p>`,
+      threats: ["Venezuela Crisis", "Panama Canal Disruption", "Amazon Deforestation"]
+    },
+    {
+      id: "europe",
+      name: "Europe (EU Energy, Zaporizhzhia, Gas Storage)",
+      gsci: 55,
+      ssi: 52,
+      status: "elevated",
+      report: `<p><strong>Energy:</strong> Gas storage levels are adequate but Russian supply risks remain. Renewable expansion accelerates but intermittency challenges persist.</p>
+               <p><strong>Zaporizhzhia:</strong> Nuclear plant remains at risk from shelling. IAEA monitoring continues. Potential for regional catastrophe if containment breached.</p>
+               <p><strong>Forecast:</strong> Elevated energy and nuclear risks. Monitoring winter preparedness and Zaporizhzhia status.</p>`,
+      threats: ["Gas Storage", "Zaporizhzhia NPP", "Grid Resilience"]
+    },
+    {
+      id: "baltic",
+      name: "Baltic Sea Region (Grey-Zone, GPS Jamming, C29 Watch)",
+      gsci: 48,
+      ssi: 45,
+      status: "elevated",
+      report: `<p><strong>Grey-Zone:</strong> Russian hybrid warfare continues – GPS jamming, cyber attacks, and intimidation tactics against NATO allies.</p>
+               <p><strong>GPS Jamming:</strong> Increased GPS interference over the Baltic region, affecting aviation and maritime navigation. Threat to critical infrastructure.</p>
+               <p><strong>C29 Watch:</strong> Ongoing monitoring of Russian activities in the Baltic. Risk of escalation if incidents increase.</p>
+               <p><strong>Forecast:</strong> Elevated grey‑zone activity. Monitoring GPS interference and incident frequency.</p>`,
+      threats: ["GPS Jamming", "Hybrid Warfare", "NATO Tensions"]
+    },
+    {
+      id: "russia",
+      name: "Russia (Ukraine War, Arctic Posture, NPT)",
+      gsci: 72,
+      ssi: 68,
+      status: "critical",
+      report: `<p><strong>Ukraine War:</strong> Frontline grinding with heavy casualties on both sides. Winter offensives anticipated. Risk of territorial escalation.</p>
+               <p><strong>Arctic Posture:</strong> Russia expands military presence in the Arctic, establishing new bases and testing hypersonic missiles.</p>
+               <p><strong>NPT:</strong> Nuclear posture remains elevated. Tactical nuclear weapons deployed to Belarus. Risk of nuclear escalation remains.</p>
+               <p><strong>Forecast:</strong> Critical risk. Monitoring frontline shifts, Arctic military buildup, and nuclear rhetoric.</p>`,
+      threats: ["Ukraine War", "Arctic Militarisation", "Nuclear Posture"]
+    },
+    {
+      id: "caucasus",
+      name: "Caucasus (Armenia-Azerbaijan, Energy Corridors)",
+      gsci: 52,
+      ssi: 50,
+      status: "elevated",
+      report: `<p><strong>Armenia-Azerbaijan:</strong> Border clashes continue. Peace talks stalled. Risk of renewed large-scale conflict over Nagorno-Karabakh.</p>
+               <p><strong>Energy Corridors:</strong> Gas and oil transit routes from Central Asia and the Middle East remain vulnerable to disruption.</p>
+               <p><strong>Forecast:</strong> Elevated conflict risk. Monitoring border incidents and negotiation progress.</p>`,
+      threats: ["Armenia-Azerbaijan Conflict", "Energy Transit Disruption"]
+    },
+    {
+      id: "middle-east",
+      name: "Middle East (Hormuz, Gaza, Iraq, GCC Fragmentation)",
+      gsci: 78,
+      ssi: 72,
+      status: "critical",
+      report: `<p><strong>Hormuz:</strong> Strategic chokepoint remains high risk. Iranian naval activity and US presence create flashpoint potential.</p>
+               <p><strong>Gaza:</strong> Humanitarian crisis deepens. Infrastructure destruction and food/water shortages. Risk of broader regional conflict.</p>
+               <p><strong>Iraq:</strong> Political instability and Iranian-backed militia attacks on US forces. Regional security deteriorating.</p>
+               <p><strong>GCC Fragmentation:</strong> Gulf states increasingly divided over Iran policy and economic diversification strategies.</p>
+               <p><strong>Forecast:</strong> Critical risk. Monitoring Hormuz tensions, Gaza humanitarian indicators, and GCC diplomatic dynamics.</p>`,
+      threats: ["Hormuz", "Gaza Crisis", "Iraq Instability", "GCC Fragmentation"]
+    },
+    {
+      id: "north-africa",
+      name: "North Africa (Nile/GERD, Egypt Wheat, Sudan Relay)",
+      gsci: 62,
+      ssi: 58,
+      status: "critical",
+      report: `<p><strong>Nile/GERD:</strong> Ethiopian dam filling continues to reduce water flow to Egypt and Sudan. Regional water stress intensifies.</p>
+               <p><strong>Egypt Wheat:</strong> Import dependency remains high. Global wheat price volatility threatens food security.</p>
+               <p><strong>Sudan Relay:</strong> Civil war continues, with humanitarian access severely restricted. Regional spillover risk.</p>
+               <p><strong>Forecast:</strong> Critical risk. Monitoring Nile flow, wheat prices, and Sudan conflict dynamics.</p>`,
+      threats: ["Nile Water War", "Egypt Food Security", "Sudan Civil War"]
+    },
+    {
+      id: "west-africa",
+      name: "West Africa (Sahel, Iran Fuel/Food Transmission)",
+      gsci: 55,
+      ssi: 52,
+      status: "elevated",
+      report: `<p><strong>Sahel:</strong> Insurgency continues to spread across Burkina Faso, Mali, Niger. Humanitarian access limited, food insecurity rises.</p>
+               <p><strong>Iran Fuel/Food Transmission:</strong> Iranian proxy networks expand influence in the region, shifting regional power dynamics.</p>
+               <p><strong>Forecast:</strong> Elevated risk of insecurity and humanitarian crisis. Monitoring insurgency expansion and proxy activity.</p>`,
+      threats: ["Sahel Insurgency", "Humanitarian Access", "Iran Influence"]
+    },
+    {
+      id: "central-africa",
+      name: "Central Africa (Ebola, Great Lakes Conflict)",
+      gsci: 48,
+      ssi: 45,
+      status: "elevated",
+      report: `<p><strong>Ebola:</strong> Outbreak clusters persist in DRC and Uganda. Healthcare capacity strained, response requires international coordination.</p>
+               <p><strong>Great Lakes Conflict:</strong> Localised conflicts continue in DRC, Burundi, and Rwanda. Risk of regional escalation.</p>
+               <p><strong>Forecast:</strong> Elevated health and security risks. Monitoring Ebola spread and conflict dynamics.</p>`,
+      threats: ["Ebola Outbreak", "Great Lakes Conflict"]
+    },
+    {
+      id: "east-africa",
+      name: "East Africa (Horn Famine, Kenya, Somalia)",
+      gsci: 68,
+      ssi: 62,
+      status: "critical",
+      report: `<p><strong>Horn Famine:</strong> Somalia and Kenya face catastrophic food insecurity. Humanitarian corridors essential, but access limited.</p>
+               <p><strong>Kenya:</strong> Drought and conflict exacerbate food insecurity. Political tensions ahead of elections.</p>
+               <p><strong>Somalia:</strong> Al-Shabaab insurgency continues, with complex humanitarian and security dynamics.</p>
+               <p><strong>Forecast:</strong> Critical risk of famine. Monitoring rainfall, conflict, and humanitarian access.</p>`,
+      threats: ["Famine", "Conflict", "Humanitarian Access"]
+    },
+    {
+      id: "southern-africa",
+      name: "Southern Africa (Drought-Debt Spiral)",
+      gsci: 45,
+      ssi: 42,
+      status: "elevated",
+      report: `<p><strong>Drought-Debt Spiral:</strong> El Niño-driven drought devastates agriculture, while debt service consumes resources needed for humanitarian response.</p>
+               <p><strong>Zambia, Zimbabwe:</strong> Food insecurity worsens. Power shortages due to low dam levels.</p>
+               <p><strong>Forecast:</strong> Elevated risk of economic collapse and food crisis. Monitoring crop yields and debt restructuring.</p>`,
+      threats: ["Drought", "Debt Crisis", "Food Insecurity"]
+    },
+    {
+      id: "south-asia",
+      name: "South Asia (Delhi Heatwave, Indus, Pakistan Wheat)",
+      gsci: 58,
+      ssi: 55,
+      status: "elevated",
+      report: `<p><strong>Delhi Heatwave:</strong> Extreme temperatures persist, with wet-bulb conditions approaching lethal thresholds. Power demand soars.</p>
+               <p><strong>Indus:</strong> Water flow reduces, threatening agriculture and hydropower in Pakistan and India.</p>
+               <p><strong>Pakistan Wheat:</strong> Crop yields decline due to heat and water stress. Import dependency rises, exposing Pakistan to global price shocks.</p>
+               <p><strong>Forecast:</strong> Elevated risk of heat mortality, agricultural collapse, and food price spikes. Monitoring heatwave duration and river flow.</p>`,
+      threats: ["Heatwave", "Indus Water", "Wheat Crisis"]
+    },
+    {
+      id: "southeast-asia",
+      name: "Southeast Asia (Typhoon, Caixin PMI, Mekong)",
+      gsci: 42,
+      ssi: 40,
+      status: "stable",
+      report: `<p><strong>Typhoon:</strong> Seasonal typhoon activity threatens coastal communities and supply chains. Forecast suggests above-average activity.</p>
+               <p><strong>Caixin PMI:</strong> Manufacturing activity signals mixed signals – recovery trajectory uncertain.</p>
+               <p><strong>Mekong:</strong> Low water levels impact agriculture and fisheries. China dam operations remain opaque.</p>
+               <p><strong>Forecast:</strong> Stable with elevated weather and supply chain risks. Monitoring typhoon tracks and PMI trends.</p>`,
+      threats: ["Typhoon", "Supply Chain Vulnerability", "Mekong Water"]
+    },
+    {
+      id: "east-asia",
+      name: "East Asia (Taiwan Semi, JGB, ADIZ, China Fiscal)",
+      gsci: 55,
+      ssi: 52,
+      status: "elevated",
+      report: `<p><strong>Taiwan Semi:</strong> Semiconductor supply chain remains critical. China military drills continue, raising tensions.</p>
+               <p><strong>JGB:</strong> Japan's debt sustainability under pressure. Bond yields test BOJ policy limits.</p>
+               <p><strong>ADIZ:</strong> China expands Air Defence Identification Zone, increasing tensions with neighbours.</p>
+               <p><strong>China Fiscal:</strong> Local government debt crisis continues. Stimulus uncertainty weighs on growth outlook.</p>
+               <p><strong>Forecast:</strong> Elevated geopolitical and fiscal risks. Monitoring Taiwan tensions, Japan yields, and China stimulus.</p>`,
+      threats: ["Taiwan Tensions", "Japan Debt", "China Fiscal Crisis"]
+    },
+    {
+      id: "oceania",
+      name: "Oceania (Fiji, Cyclone, Pacific Logistics)",
+      gsci: 35,
+      ssi: 32,
+      status: "stable",
+      report: `<p><strong>Fiji:</strong> Cyclone season approaches. Infrastructure vulnerability remains high.</p>
+               <p><strong>Pacific Logistics:</strong> Supply chains rely on remote islands; disruption from weather events threatens food and medical supplies.</p>
+               <p><strong>Forecast:</strong> Stable with seasonal cyclone risk. Monitoring storm tracks and logistics resilience.</p>`,
+      threats: ["Cyclone", "Logistics Disruption"]
+    },
+    {
+      id: "central-asia",
+      name: "Central Asia (Amu Darya, Energy Export)",
+      gsci: 48,
+      ssi: 45,
+      status: "elevated",
+      report: `<p><strong>Amu Darya:</strong> Water scarcity intensifies, threatening agriculture and regional stability.</p>
+               <p><strong>Energy Export:</strong> Central Asian energy exports to China and Europe remain vital but face infrastructure risks.</p>
+               <p><strong>Forecast:</strong> Elevated water and energy risks. Monitoring Amu Darya flow and infrastructure security.</p>`,
+      threats: ["Water Scarcity", "Energy Export Corridors"]
+    },
+    {
+      id: "pacific-islands",
+      name: "Pacific Islands (Sea-Level Rise, King Tides)",
+      gsci: 32,
+      ssi: 30,
+      status: "stable",
+      report: `<p><strong>Sea-Level Rise:</strong> Acceleration of king tides and coastal erosion threatens low-lying islands. Relocation discussions intensify.</p>
+               <p><strong>King Tides:</strong> Increasing frequency and severity of king tides cause damage to infrastructure and freshwater supplies.</p>
+               <p><strong>Forecast:</strong> Stable with existential long-term risk. Monitoring sea-level acceleration and coastal damage.</p>`,
+      threats: ["Sea-Level Rise", "Coastal Erosion"]
+    },
+    {
+      id: "polar",
+      name: "Polar Arctic & Antarctic (Sea Ice, Ross Ice Shelf, Yamal Methane)",
+      gsci: 38,
+      ssi: 35,
+      status: "stable",
+      report: `<p><strong>Sea Ice:</strong> Arctic sea ice extent continues to decline. Northern Sea Route opens for longer periods, increasing strategic competition.</p>
+               <p><strong>Ross Ice Shelf:</strong> Antartica ice shelf shows signs of structural weakness, raising concerns about global sea-level rise.</p>
+               <p><strong>Yamal Methane:</strong> Methane release from Arctic permafrost and Yamal peninsula accelerates, feedback loop intensifies.</p>
+               <p><strong>Forecast:</strong> Stable with accelerating climate risks. Monitoring ice extent, shelf stability, and methane emissions.</p>`,
+      threats: ["Sea Ice Decline", "Ice Shelf Instability", "Methane Release"]
+    }
+  ];
+
+  // ---- Load and render regions ----
   async function loadRegions() {
     const container = document.getElementById('regionContainer');
+
     try {
-      let regionData = null;
-      let timestamp = '';
-
-      // Try indices.json first
-      const resp = await fetch('indices.json');
-      if (resp.ok) {
-        const data = await resp.json();
-        regionData = data.regions || [];
-        timestamp = data.timestamp || '';
-      } else {
-        // Fallback: compute from threats.json
-        const threatResp = await fetch('threats.json');
-        if (!threatResp.ok) throw new Error('Could not load threats');
-        const threatData = await threatResp.json();
-        const threats = threatData.threats || [];
-        const regionMap = {};
-        threats.forEach(t => {
-          const region = t.region || t.country || 'Global';
-          if (!regionMap[region]) {
-            regionMap[region] = { threats: [], scp_sum: 0, count: 0 };
-          }
-          regionMap[region].threats.push(t);
-          regionMap[region].scp_sum += t.scp || 0.5;
-          regionMap[region].count += 1;
-        });
-        regionData = Object.entries(regionMap).map(([name, data]) => ({
-          name: name,
-          gsci: Math.round((data.scp_sum / data.count) * 100),
-          threat_count: data.count
-        }));
-        regionData.sort((a, b) => b.gsci - a.gsci);
-        timestamp = threatData.last_updated || '';
-      }
-
-      document.getElementById('lastUpdate').textContent = timestamp ? new Date(timestamp).toLocaleDateString() : 'Unknown';
-
-      // Stats
-      document.getElementById('totalRegions').textContent = regionData.length;
-      const avg = regionData.reduce((s, r) => s + (r.gsci || 0), 0) / regionData.length;
-      document.getElementById('avgGSCI').textContent = avg ? Math.round(avg) : '--';
-      const critical = regionData.filter(r => (r.gsci || 0) > 60).length;
-      document.getElementById('criticalRegions').textContent = critical;
-
-      // Count conflicts from conflict_data.json (if available)
+      // Try to get real-time conflict count
       let conflictCount = 0;
       try {
         const conflictResp = await fetch('conflict_data.json');
@@ -367,14 +762,8 @@
           conflictCount = (conflictData.conflicts || []).length;
         }
       } catch (e) { /* ignore */ }
-      document.getElementById('totalConflicts').textContent = conflictCount || '--';
 
-      if (!regionData || regionData.length === 0) {
-        container.innerHTML = '<p>No regional data available.</p>';
-        return;
-      }
-
-      // Load climate anomalies from climate_data.json (if available)
+      // Try to get climate anomalies
       let climateData = {};
       try {
         const climateResp = await fetch('climate_data.json');
@@ -383,27 +772,30 @@
         }
       } catch (e) { /* ignore */ }
 
+      // Stats
+      document.getElementById('totalRegions').textContent = REGIONS.length;
+      const avg = REGIONS.reduce((s, r) => s + r.gsci, 0) / REGIONS.length;
+      document.getElementById('avgGSCI').textContent = Math.round(avg);
+      const critical = REGIONS.filter(r => r.status === 'critical').length;
+      document.getElementById('criticalRegions').textContent = critical;
+      document.getElementById('totalConflicts').textContent = conflictCount || '--';
+      document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString();
+
       // Render cards
-      container.innerHTML = regionData.map(r => {
-        const gsci = r.gsci || 0;
-        const status = gsci > 60 ? 'critical' : gsci > 40 ? 'elevated' : 'stable';
+      container.innerHTML = REGIONS.map(r => {
+        const status = r.status || 'stable';
         const badgeClass = status === 'critical' ? 'badge-critical' : status === 'elevated' ? 'badge-elevated' : 'badge-stable';
         const label = status === 'critical' ? 'Critical' : status === 'elevated' ? 'Elevated' : 'Stable';
 
-        // Check if this region has climate anomaly data
-        const climate = climateData.zones?.find(z => z.name === r.name);
-        const tempAnomaly = climate ? climate.temp_anomaly : null;
-        const precipAnomaly = climate ? climate.precip_anomaly : null;
-
         return `
-          <div class="region-card" onclick="toggleDetail('${r.name.replace(/'/g, "\\'")}')">
+          <div class="region-card" onclick="toggleDetail('${r.id}')">
             <div class="header">
               <span class="name">${escapeHtml(r.name)}</span>
               <span class="badge ${badgeClass}">${label}</span>
             </div>
             <div class="metrics">
               <div class="metric-item">
-                <div class="number">${gsci}</div>
+                <div class="number">${r.gsci}</div>
                 <div class="label">GSCI</div>
               </div>
               <div class="metric-item">
@@ -412,27 +804,29 @@
               </div>
             </div>
             <div class="extra">
-              <span>🛡️ ${r.threat_count || 0} threats</span>
-              ${tempAnomaly !== null ? `<span>🌡️ ${tempAnomaly > 0 ? '+' : ''}${tempAnomaly.toFixed(1)}°C anomaly</span>` : ''}
-              ${precipAnomaly !== null ? `<span>💧 ${precipAnomaly > 0 ? '+' : ''}${precipAnomaly.toFixed(0)}mm precip anomaly</span>` : ''}
+              <span>🛡️ ${r.threats ? r.threats.length : 0} threats</span>
+              <span>📋 ${r.report ? 'Report available' : 'No report'}</span>
             </div>
-            <div class="region-detail" id="detail-${r.name.replace(/'/g, "\\'")}">
-              <div class="detail-row"><span class="label">Top Threats</span><span class="value">${r.top_threats || 'N/A'}</span></div>
-              <div class="detail-row"><span class="label">Conflict Density</span><span class="value">${r.conflict_density || 'N/A'}</span></div>
-              <div class="detail-row"><span class="label">Cyber Risk</span><span class="value">${r.cyber_risk || 'N/A'}</span></div>
-              <div class="detail-row"><span class="label">Forecast</span><span class="value">${r.forecast || 'Stable'}</span></div>
+            <div class="region-detail" id="detail-${r.id}">
+              ${r.report ? `
+                <div class="report-section">${r.report}</div>
+                ${r.threats ? `<div class="report-section"><strong>Key Threats:</strong> ${r.threats.join(', ')}</div>` : ''}
+                <div class="report-meta">Region ID: ${r.id} · Updated daily</div>
+              ` : `
+                <p>No report available.</p>
+              `}
             </div>
           </div>
         `;
       }).join('');
     } catch(e) {
-      console.error('Error loading regions:', e);
+      console.error('Error rendering regions:', e);
       container.innerHTML = '<p style="color:#dc2626;">Error loading regional data. Please try again later.</p>';
     }
   }
 
-  function toggleDetail(name) {
-    const detail = document.getElementById(`detail-${name}`);
+  function toggleDetail(id) {
+    const detail = document.getElementById(`detail-${id}`);
     if (detail) {
       detail.classList.toggle('active');
     }
