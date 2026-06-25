@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-06-25T13:22:01.448822",
+  "timestamp": "2026-06-25T18:38:20.109733",
   "zones": [
     {
-      "temp_anomaly": -1.0,
-      "precip_anomaly": -18.3,
-      "recent_temp_avg": 26.47,
+      "temp_anomaly": -0.99,
+      "precip_anomaly": -18.5,
+      "recent_temp_avg": 26.49,
       "historic_temp_avg": 27.47,
       "name": "Horn of Africa"
     },
     {
-      "temp_anomaly": -1.09,
+      "temp_anomaly": -1.12,
       "precip_anomaly": -4.9,
-      "recent_temp_avg": 33.17,
+      "recent_temp_avg": 33.14,
       "historic_temp_avg": 34.26,
       "name": "Sahel"
     },
     {
-      "temp_anomaly": 2.63,
+      "temp_anomaly": 2.6,
       "precip_anomaly": 0.0,
-      "recent_temp_avg": 37.41,
+      "recent_temp_avg": 37.39,
       "historic_temp_avg": 34.78,
       "name": "Middle East"
     },
     {
-      "temp_anomaly": -2.69,
-      "precip_anomaly": 10.4,
-      "recent_temp_avg": 28.4,
+      "temp_anomaly": -2.63,
+      "precip_anomaly": 13.9,
+      "recent_temp_avg": 28.46,
       "historic_temp_avg": 31.09,
       "name": "South Asia"
     },
     {
       "temp_anomaly": -0.28,
-      "precip_anomaly": -151.5,
+      "precip_anomaly": -151.0,
       "recent_temp_avg": 20.19,
       "historic_temp_avg": 20.47,
       "name": "Central America"
     },
     {
       "temp_anomaly": 5.17,
-      "precip_anomaly": -45.9,
+      "precip_anomaly": -45.8,
       "recent_temp_avg": 21.96,
       "historic_temp_avg": 16.78,
       "name": "Ukraine"
     },
     {
-      "temp_anomaly": -0.13,
-      "precip_anomaly": -87.5,
-      "recent_temp_avg": 29.66,
+      "temp_anomaly": -0.14,
+      "precip_anomaly": -77.2,
+      "recent_temp_avg": 29.64,
       "historic_temp_avg": 29.78,
       "name": "South China Sea"
     }

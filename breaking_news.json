@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-25T13:23:37.293499",
+  "timestamp": "2026-06-25T18:43:32.158775",
   "items": [
     {
       "title": "Green flood alert in T\u00fcrkiye",
@@ -29,8 +29,8 @@
       "impact": "Critical"
     },
     {
-      "title": "Red earthquake (Magnitude 7.5M, Depth:10km) in Venezuela 24/06/2026 22:05 UTC, 2.4 million (in MMI>=VII).",
-      "description": "On 6/24/2026 10:05:12 PM, an earthquake occurred in Venezuela potentially affecting 2.4 million (in MMI>=VII). The earthquake had Magnitude 7.5M, Depth:10km.",
+      "title": "Red earthquake (Magnitude 7.5M, Depth:10km) in Venezuela 24/06/2026 22:05 UTC, 6.1 million (in MMI>=VII).",
+      "description": "On 6/24/2026 10:05:12 PM, an earthquake occurred in Venezuela potentially affecting 6.1 million (in MMI>=VII). The earthquake had Magnitude 7.5M, Depth:10km.",
       "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548377",
       "date": "Wed, 24 Jun 2026 22:17:17 GMT",
       "source": "GDACS",
@@ -77,7 +77,16 @@
       "title": "France warns even young people's health at risk as Europe's heatwave shifts east",
       "description": "Temperatures in Germany could hit 40C in some areas while French officials say deaths linked to the heat are being seen among young people.",
       "link": "https://www.bbc.co.uk/news/articles/cwy0pdq89zno?at_medium=RSS&at_campaign=rss",
-      "date": "Thu, 25 Jun 2026 18:12:27 GMT",
+      "date": "Thu, 25 Jun 2026 21:27:06 GMT",
+      "source": "BBC News",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "UN pauses Strait of Hormuz evacuation plan after cargo ship attacked",
+      "description": "The ship was reportedly struck by an \"unknown projectile\" near Oman but no casualties were reported.",
+      "link": "https://www.bbc.co.uk/news/articles/cjwg9np904qo?at_medium=RSS&at_campaign=rss",
+      "date": "Thu, 25 Jun 2026 19:19:12 GMT",
       "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
@@ -137,49 +146,40 @@
       "impact": "Critical"
     },
     {
-      "title": "The ICE raids are over, but some Minnesotans say they still live in fear",
-      "description": "Months after the Trump administration's immigration crackdown officially ended, Minneapolis is still feeling the impact.",
-      "link": "https://www.bbc.co.uk/news/articles/c0eyww7280xo?at_medium=RSS&at_campaign=rss",
-      "date": "Thu, 25 Jun 2026 02:40:13 GMT",
+      "title": "Why the trail went cold in Nancy Guthrie case",
+      "description": "The lack of a breakthrough in the abduction of a famous TV anchor's mother is puzzling given the huge publicity.",
+      "link": "https://www.bbc.co.uk/news/articles/cy064kg3n0ko?at_medium=RSS&at_campaign=rss",
+      "date": "Thu, 25 Jun 2026 23:12:22 GMT",
       "source": "BBC News",
       "category": "Positive",
       "impact": "High"
     },
     {
-      "title": "Pragmatic choice: Israel\u2019s war backfires as Gulf backs US-Iran deal",
-      "description": "A war meant to isolate Iran instead deepened Gulf pragmatism and strengthened support for diplomacy.",
-      "link": "https://www.aljazeera.com/features/2026/6/25/hard-headed-pragmatism-israels-war-backfires-as-gulf-backs-us-iran-mou?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 17:11:34 +0000",
+      "title": "UN: Venezuela earthquakes will deepen already severe humanitarian crisis",
+      "description": "The UN says it is scaling up its response after twin earthquakes devastated Venezuela.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/25/un-venezuela-earthquakes-will-deepen-already-severe-humanitarian-crisis?traffic_source=rss",
+      "date": "Thu, 25 Jun 2026 23:20:02 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "How the HPV vaccine changes how we think about cancer",
-      "description": "Al Jazeera\u2019s Linh Nguyen explains how the HPV vaccine changes the way we think about cancer.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/25/how-the-hpv-vaccine-changes-how-we-think-about-cancer?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 17:07:49 +0000",
+      "title": "Venezuela earthquakes live: At least 188 dead as rescue efforts intensify",
+      "description": "Venezuelans battle to rescue loved ones trapped alive beneath rubble of collapsed buildings after two major earthquakes.",
+      "link": "https://www.aljazeera.com/news/liveblog/2026/6/25/venezuela-earthquakes-live-at-least-188-dead-as-rescue-efforts-intensify?traffic_source=rss",
+      "date": "Thu, 25 Jun 2026 22:00:02 +0000",
       "source": "Al Jazeera",
-      "category": "Positive",
-      "impact": "High"
-    },
-    {
-      "title": "Venezuela struggles to respond to devastating twin earthquakes",
-      "description": "Noris Soto says authorities appear to lack a clear response plan in the aftermath of two powerful earthquakes.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/25/venezuela-struggles-to-respond-to-devastating-twin-earthquakes?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 16:36:06 +0000",
-      "source": "Al Jazeera",
-      "category": "Negative",
+      "category": "Neutral",
       "impact": "Critical"
     },
     {
-      "title": "Rubio: Gulf countries don\u2019t support Strait of Hormuz tolls",
-      "description": "US Secretary of State Marco Rubio said all Gulf countries oppose a toll in the Strait of Hormuz.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/25/rubio-gulf-countries-dont-support-strait-of-hormuz-tolls?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 16:32:05 +0000",
+      "title": "Venezuela rescue teams race to find earthquake survivors",
+      "description": "Rescue teams raced to find survivors and recover bodies after twin earthquakes rocked Venezuela on Wednesday.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/25/venezuela-rescue-teams-race-to-find-earthquake-survivors?traffic_source=rss",
+      "date": "Thu, 25 Jun 2026 21:42:33 +0000",
       "source": "Al Jazeera",
-      "category": "Positive",
-      "impact": "High"
+      "category": "Neutral",
+      "impact": "Critical"
     }
   ]
 }

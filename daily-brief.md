@@ -1,7 +1,7 @@
 # 🏛️ Cathedral Daily Brief – 25 June 2026
 
 **GSCI:** --  
-**Last sweep:** 2026-06-25T19:15:40.243500+00:00
+**Last sweep:** 2026-06-25T23:43:49.952460+00:00
 
 ## Top 5 Threats
 
