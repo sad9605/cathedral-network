@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-24T14:59:06.724511",
+  "timestamp": "2026-06-24T19:20:31.264767",
   "items": [
     {
       "title": "Green flood alert in T\u00fcrkiye",
@@ -11,8 +11,26 @@
       "impact": "Medium"
     },
     {
-      "title": "Green earthquake (Magnitude 5.57M, Depth:8.06999969482422km) in United States 24/06/2026 15:10 UTC, 7 thousand (in MMI>=VII).",
-      "description": "On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 7 thousand (in MMI>=VII). The earthquake had Magnitude 5.57M, Depth:8.06999969482422km.",
+      "title": "Green earthquake (Magnitude 6.9M, Depth:51.709km) in Japan 24/06/2026 22:30 UTC, 320 thousand in MMI VI.",
+      "description": "On 6/24/2026 10:30:15 PM, an earthquake occurred in Japan potentially affecting 320 thousand in MMI VI. The earthquake had Magnitude 6.9M, Depth:51.709km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548381",
+      "date": "Wed, 24 Jun 2026 22:46:49 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Red earthquake (Magnitude 7.5M, Depth:10km) in Venezuela 24/06/2026 22:05 UTC, 3.9 million (in MMI>=VII).",
+      "description": "On 6/24/2026 10:05:12 PM, an earthquake occurred in Venezuela potentially affecting 3.9 million (in MMI>=VII). The earthquake had Magnitude 7.5M, Depth:10km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548377",
+      "date": "Wed, 24 Jun 2026 22:17:17 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Green earthquake (Magnitude 5.57M, Depth:8.06999969482422km) in United States 24/06/2026 15:10 UTC, 10 thousand (in MMI>=VII).",
+      "description": "On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 10 thousand (in MMI>=VII). The earthquake had Magnitude 5.57M, Depth:8.06999969482422km.",
       "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548310",
       "date": "Wed, 24 Jun 2026 15:15:23 GMT",
       "source": "GDACS",
@@ -119,67 +137,49 @@
       "impact": "Critical"
     },
     {
-      "title": "UN nuclear chief says Iran inspections will happen, Tehran says after deal",
-      "description": "Head of the IAEA, Rafael Grossi, said the MoU stated &#039;explicitly&#039; that the agency would supervise inspections in Iran.",
-      "link": "https://www.aljazeera.com/news/2026/6/24/un-nuclear-chief-says-iran-inspections-will-happen-tehran-says-after-deal?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 19:33:17 +0000",
-      "source": "Al Jazeera",
-      "category": "Positive",
-      "impact": "High"
-    },
-    {
-      "title": "Wins by Mamdani-backed candidates deal blow to pro-Israel camp in US",
-      "description": "Palestinian rights advocates hail &#039;political earthquake&#039; in New York as progressives beat several pro-Israel candidates.",
-      "link": "https://www.aljazeera.com/news/2026/6/24/wins-by-mamdani-backed-candidates-deal-blow-to-pro-israel-camp-in-us?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 19:33:12 +0000",
+      "title": "Iran war live: US vows to defend Gulf interests; Israel kills 2 in Lebanon",
+      "description": "Rubio promises to protect Gulf interests in talks with Iran, as Israel says it will not withdraw from southern Lebanon.",
+      "link": "https://www.aljazeera.com/news/liveblog/2026/6/25/iran-war-live-us-vows-to-defend-gulf-interests-israel-kills-2-in-lebanon?traffic_source=rss",
+      "date": "Thu, 25 Jun 2026 00:00:00 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "Our life stops\u2019: West Bank childhood shattered by Israeli military raids",
-      "description": "A new UN report documents killings, detentions and lasting psychological harm to Palestinian children.",
-      "link": "https://www.aljazeera.com/features/2026/6/24/our-life-stops-west-bank-childhood-shattered-by-israeli-military-raids?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 18:20:11 +0000",
-      "source": "Al Jazeera",
-      "category": "Positive",
-      "impact": "High"
-    },
-    {
-      "title": "What to know about the Israeli-developed chip in Apple\u2019s iPhone 17e",
-      "description": "There\u2019s more to the iPhone 17e than meets the eye. Like an advanced silicon chip that is said to be developed in Israel.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/24/what-to-know-about-the-israeli-developed-chip-in-apples-iphone-17e?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 18:00:33 +0000",
-      "source": "Al Jazeera",
-      "category": "Positive",
-      "impact": "High"
-    },
-    {
-      "title": "Flash floods hit India\u2019s Arunachal Pradesh",
-      "description": "Torrential rain has triggered flash floods and landslides in India&#039;s northeastern state of Arunachal Pradesh.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/24/flash-floods-hit-indias-arunachal-pradesh?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 17:56:36 +0000",
-      "source": "Al Jazeera",
-      "category": "Negative",
-      "impact": "Medium"
-    },
-    {
-      "title": "Iran\u2019s president awarded honorary doctorate in Pakistan",
-      "description": "Iran\u2019s President Masoud Pezeshkian was awarded an honorary medical fellowship in cardiac surgery.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/24/irans-president-awarded-honorary-doctorate-in-pakistan?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 17:33:37 +0000",
+      "title": "Trump slams NATO over lax participation in Iran war in talk with Mark Rutte",
+      "description": "NATO chief Mark Rutte points to use of US bases in Europe as he stresses support for US war on Iran.",
+      "link": "https://www.aljazeera.com/news/2026/6/24/trump-slams-nato-over-lax-participation-in-iran-war-in-talk-with-mark-rutte?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 23:47:48 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "Has the worst of the Hormuz crisis passed?",
-      "description": "Ships are moving again through the Strait of Hormuz, with oil prices falling. But relief for consumers may take longer.",
-      "link": "https://www.aljazeera.com/video/counting-the-cost/2026/6/24/has-the-worst-of-the-hormuz-crisis-passed?traffic_source=rss",
-      "date": "Wed, 24 Jun 2026 16:50:57 +0000",
+      "title": "Trump White House requests $87.6bn in spending, including for Iran war",
+      "description": "The request is likely to face an uphill battle in Congress, which voted a day earlier to rein in Trump&#039;s war powers.",
+      "link": "https://www.aljazeera.com/news/2026/6/24/trump-white-house-requests-87-6bn-in-spending-including-for-iran-war?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 23:25:01 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
-      "impact": "Medium"
+      "impact": "Critical"
+    },
+    {
+      "title": "European heatwave, scorching weather triggers UK \u2018red\u2019 warning",
+      "description": "Britain is facing its hottest June weather on record as a blistering heatwave spreads across Europe.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/24/european-heatwave-scorching-weather-triggers-uk-red-warning?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 22:31:21 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Katz: Israel will not withdraw from Lebanon even if US demands it",
+      "description": "Defence Minister Israel Katz said Israel will maintain its presence in Lebanon even if US demands withdrawal.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/24/aje-onl-nf_israel-will-not-withdraw-from-lebanon-us-demands-240626?traffic_source=rss",
+      "date": "Wed, 24 Jun 2026 21:35:35 +0000",
+      "source": "Al Jazeera",
+      "category": "Positive",
+      "impact": "High"
     }
   ]
 }

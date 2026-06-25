@@ -634,3 +634,288 @@ DEBUG: C03 base=0.008, lrs=[5.949211590631928, 1.249999999998181, 13.37302897657
   },
   "anomaly_count": 0
 }
+
+🔹 SCP history logging ...
+✅ SCP history logging completed.
+✅ SCP history updated: 213 threats logged.
+✅ SCP history updated: 213 threats logged.
+
+🔹 Cascade graph generation ...
+✅ Cascade graph generation completed.
+✅ Cascade graph generated: 213 nodes, 34 edges.
+
+🔹 Trend computation ...
+✅ Trend computation completed.
+Not enough history for 7-day trend.
+
+🔹 Prediction verification ...
+✅ Prediction verification completed.
+
+🔹 Corrections RSS feed generation ...
+✅ Corrections RSS feed generation completed.
+✅ Corrections RSS feed written to corrections.xml
+
+🔹 Prediction log generation ...
+✅ Prediction log generation completed.
+📋 Generating prediction log (preserving history, adding date_made)...
+📦 Archived 213 filtered predictions (total archive: 285)
+✅ Prediction Log Updated:
+   Updated pending: 0, Added: 0
+   Confirmed: 75
+   Falsified: 4
+   Hit rate: 94.94%
+   Pending: 204
+   Archived: 213
+
+🔹 Prediction intelligence generation ...
+✅ Prediction intelligence generation completed.
+🧠 Generating prediction intelligence...
+✅ Prediction intelligence generated: 283 entries
+
+🔹 Threat intelligence generation ...
+✅ Threat intelligence generation completed.
+📊 Generating threat intelligence reports...
+✅ Threat intelligence generated: 213 entries
+
+🔹 Positive signal extraction ...
+✅ Positive signal extraction completed.
+✅ Generated 27 positive signals
+
+🔹 Ascension Engine (Recovery & Opportunity) ...
+✅ Ascension Engine (Recovery & Opportunity) completed.
+🌱 Ascension Engine Alpha started
+Loaded 27 positive signals
+Computed Recovery Probability for 213 threats
+Generated Opportunity Matrix with 213 entries
+Resilience Score: 47.44
+✅ Ascension report saved to ascension_report.json
+
+📊 Top 5 Recovery Opportunities:
+  1. Oil Price Shock (ID: C11E)
+     Impact: 0.38, Effort: 0.15, Score: 2.39
+     Current RP: 0.43, SCP: 0.56
+  2. Zaporizhzhia NPP Single‑Point‑of‑Failure (ID: C141)
+     Impact: 0.38, Effort: 0.15, Score: 2.39
+     Current RP: 0.43, SCP: 0.56
+  3. OPEC Quota Compliance Collapse (ID: C143)
+     Impact: 0.37, Effort: 0.15, Score: 2.25
+     Current RP: 0.44, SCP: 0.55
+  4. Bundibugyo Ebola (ID: B02)
+     Impact: 0.34, Effort: 0.15, Score: 2.17
+     Current RP: 0.42, SCP: 0.59
+  5. Bundibugyo Ebola (duplicate) (ID: C148)
+     Impact: 0.34, Effort: 0.15, Score: 2.17
+     Current RP: 0.42, SCP: 0.59
+
+🔹 Sources update ...
+✅ Sources update completed.
+✅ Sources updated: 15 data sources, 18 software libraries
+
+🔹 Daily archive generation ...
+✅ Daily archive generation completed.
+Generated archive: archive/2026-06-24.html
+
+🔹 Archive index generation ...
+✅ Archive index generation completed.
+✅ Archive index generated: 22 unique archives
+
+🔹 Regional indices JSON ...
+✅ Regional indices JSON completed.
+✅ Regional indices saved for 20 regions
+
+🔹 Daily brief generation ...
+✅ Daily brief generation completed.
+✅ Daily brief generated (Markdown + HTML)
+
+🔹 Git commit and push ...
+✅ Git commit and push completed.
+✅ Changes committed and pushed
+
+🔹 Health check generation ...
+✅ Health check generation completed.
+✅ Health data written to health.json
+   Status: ok
+   Threats: 213
+   Errors: 0
+
+============================================================
+✅ Cathedral pipeline finished.
+   Completed at 2026-06-24T14:59:34.808251
+============================================================
+✅ Health data written to health.json
+   Status: ok
+   Threats: 213
+   Errors: 0
+✅ Health data written to health.json
+   Status: ok
+   Threats: 213
+   Errors: 0
+✅ Health data written to health.json
+   Status: ok
+   Threats: 213
+   Errors: 0
+============================================================
+🏛️  CATHEDRAL NETWORK – DAILY PIPELINE
+   Started at 2026-06-24T19:17:26.935383
+============================================================
+
+🔹 Daily OSINT sweep ...
+✅ Daily OSINT sweep completed.
+🌍 Starting daily OSINT sweep...
+Loaded 38 feed definitions.
+  Fetching GDACS...
+  Fetching USGS Earthquakes...
+  Fetching Bellingcat...
+  Fetching CDC Health Alert...
+  Fetching CVE Database...
+  Fetching Internet Health...
+  Fetching OpenSky Network...
+  Fetching Associated Press...
+  Fetching BBC News...
+  Fetching Al Jazeera...
+  Fetching The Guardian...
+  Fetching The New York Times...
+  Fetching South China Morning Post...
+  Fetching The Washington Post...
+  Fetching IMF Data...
+  RSS error: 403 Client Error: Forbidden for url: https://www.imf.org/en/Data/rss
+  Fetching ReliefWeb...
+  Fetching FloodList...
+  Fetching NASA FIRMS...
+  API error (attempt 1): Expecting value: line 2 column 1 (char 3)
+  API error (attempt 2): Expecting value: line 2 column 1 (char 3)
+  API error (attempt 3): Expecting value: line 2 column 1 (char 3)
+  Fetching WHO Disease Outbreak...
+  RSS error: 404 Client Error: Not Found for url: https://www.who.int/rss-feeds/
+  Fetching ProMED-mail...
+  RSS error: 404 Client Error: Not Found for url: https://www.promedmail.org/rss
+  Fetching HealthMap...
+  RSS error: 403 Client Error: Forbidden for url: http://healthmap.org/rss/
+  Fetching Reuters...
+  RSS error: 401 Client Error: HTTP Forbidden for url: https://www.reuters.com/feed/
+  Fetching OECD Data...
+  RSS error: 403 Client Error: Forbidden for url: https://www.oecd.org/rss
+  Fetching ACAPS...
+  RSS error: 404 Client Error: Not Found for url: https://www.acaps.org/feed/
+  Fetching EIA Energy...
+  RSS error: 404 Client Error: Not Found for url: https://www.eia.gov/outlooks/steo/rss/steo.xml
+  Fetching Electricity Map...
+  API error (attempt 1): 404 Client Error: Not Found for url: https://api.electricitymap.org/v3/overview?zone=all
+  API error (attempt 2): 404 Client Error: Not Found for url: https://api.electricitymap.org/v3/overview?zone=all
+  API error (attempt 3): 404 Client Error: Not Found for url: https://api.electricitymap.org/v3/overview?zone=all
+  Fetching Exchange Rates...
+  Fetching Wikipedia Pageviews...
+  API error (attempt 1): 404 Client Error: Not Found for url: https://wikimedia.org/api/rest_v1/metrics/pageviews/aggregate/all-projects/all-access/all-agents/monthly/2026/01/2026/06
+  API error (attempt 2): 404 Client Error: Not Found for url: https://wikimedia.org/api/rest_v1/metrics/pageviews/aggregate/all-projects/all-access/all-agents/monthly/2026/01/2026/06
+  API error (attempt 3): 404 Client Error: Not Found for url: https://wikimedia.org/api/rest_v1/metrics/pageviews/aggregate/all-projects/all-access/all-agents/monthly/2026/01/2026/06
+  Fetching Reddit r/worldnews...
+  API error (attempt 1): 403 Client Error: Blocked for url: https://www.reddit.com/r/worldnews/.json
+  API error (attempt 2): 403 Client Error: Blocked for url: https://www.reddit.com/r/worldnews/.json
+  API error (attempt 3): 403 Client Error: Blocked for url: https://www.reddit.com/r/worldnews/.json
+  Fetching Reddit r/geopolitics...
+  API error (attempt 1): 403 Client Error: Blocked for url: https://www.reddit.com/r/geopolitics/.json
+  API error (attempt 2): 403 Client Error: Blocked for url: https://www.reddit.com/r/geopolitics/.json
+  API error (attempt 3): 403 Client Error: Blocked for url: https://www.reddit.com/r/geopolitics/.json
+  Fetching Mastodon Public...
+  API error (attempt 1): 422 Client Error: Unknown Error for url: https://mastodon.social/api/v1/timelines/public?limit=20
+  API error (attempt 2): 422 Client Error: Unknown Error for url: https://mastodon.social/api/v1/timelines/public?limit=20
+  API error (attempt 3): 422 Client Error: Unknown Error for url: https://mastodon.social/api/v1/timelines/public?limit=20
+  Fetching GDELT...
+  API error (attempt 1): 429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=*&mode=articles&format=json
+  API error (attempt 2): 429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=*&mode=articles&format=json
+  API error (attempt 3): 429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=*&mode=articles&format=json
+  Fetching Weather Alerts...
+  Fetching Spamhaus...
+  Fetching Shadowserver...
+  RSS error: 404 Client Error: Not Found for url: https://www.shadowserver.org/feed/
+  Fetching UNOCHA FTS...
+  API error (attempt 1): 404 Client Error: Not Found for url: https://fts.unocha.org/api/v1/
+  API error (attempt 2): 404 Client Error: Not Found for url: https://fts.unocha.org/api/v1/
+  API error (attempt 3): 404 Client Error: Not Found for url: https://fts.unocha.org/api/v1/
+  Fetching IDMC Displacement...
+  RSS error: 404 Client Error: Not Found for url: https://www.internal-displacement.org/rss/
+  Fetching HDX HAPI...
+  API error (attempt 1): HTTPSConnectionPool(host='api.hapi.humdata.org', port=443): Max retries exceeded with url: /v1/ (Caused by NameResolutionError("HTTPSConnection(host='api.hapi.humdata.org', port=443): Failed to resolve 'api.hapi.humdata.org' ([Errno -2] Name or service not known)"))
+  API error (attempt 2): HTTPSConnectionPool(host='api.hapi.humdata.org', port=443): Max retries exceeded with url: /v1/ (Caused by NameResolutionError("HTTPSConnection(host='api.hapi.humdata.org', port=443): Failed to resolve 'api.hapi.humdata.org' ([Errno -2] Name or service not known)"))
+  API error (attempt 3): HTTPSConnectionPool(host='api.hapi.humdata.org', port=443): Max retries exceeded with url: /v1/ (Caused by NameResolutionError("HTTPSConnection(host='api.hapi.humdata.org', port=443): Failed to resolve 'api.hapi.humdata.org' ([Errno -2] Name or service not known)"))
+📡 Fetching unconventional signals...
+✅ Sweep complete: 214 events, 23 feed errors
+   Unconventional signals: 4 categories saved
+
+🔹 Breaking news fetch ...
+✅ Breaking news fetch completed.
+📰 Fetching breaking news...
+  Fetching ReliefWeb...
+  API error for https://api.reliefweb.int/v1/disasters?format=json: 410 Client Error: Gone for url: https://api.reliefweb.int/v1/disasters?format=json
+  Fetching GDACS...
+  Fetching BBC News...
+  Fetching Reuters...
+  Fetching Al Jazeera...
+✅ Breaking news updated: 20 items
+
+🔹 Time‑series forecasting ...
+✅ Time‑series forecasting completed.
+
+🔹 Cascade Engine (v8) ...
+✅ Cascade Engine (v8) completed.
+🏛️ Cascade Engine v8 running...
+   Loaded 213 threats, 41 cascade rules, 213 ML LRs
+DEBUG: C01 base=0.008, lrs=[6.22203139861979, 1.249999999998181, 14.055078496549477, 1.249999999998181], posterior=0.536
+DEBUG: C11 base=0.004, lrs=[6.450137479891525, 1.249999999998181, 14.625343699728814, 1.249999999998181], posterior=0.374
+DEBUG: C03 base=0.008, lrs=[5.949211590631928, 1.249999999998181, 13.373028976579821, 1.249999999998181], posterior=0.513
+   ✅ Updated 213 threats
+   📊 GSCI: 20.58, SSI: 27.04, DS: 0
+   🔥 Active cascades: 34, SCA Tier: Critical
+   ⚠️ Anomalies: 2, CAP: Normal
+🧠 Computing ML likelihood ratios...
+✅ Loaded existing ML model
+   ✅ ML LRs computed for 213 threats
+
+🔹 HEWD humanitarian threat selection ...
+✅ HEWD humanitarian threat selection completed.
+✅ HEWD data written to hewd_data.json
+   Selected 10 humanitarian threats.
+   - A01 – Sudan IPC5 famine: 132.46
+   - A03 – Ethiopia Tigray famine relapse: 129.0
+   - A04 – Somalia Shabelle floods + famine: 123.58
+   - C126 – North Africa Food Security Collapse: 123.5
+   - C03 – Horn of Africa Famine: 123.1
+   - C134 – Dry Corridor Famine‑Migration: 120.79
+   - A02 – Kenya AMN Phase 5: 120.46
+   - C147 – Ross Ice Shelf Acceleration: 119.54
+   - C106 – Global Food Price Volatility: 114.67
+   - A-STRAT-RES – Absence of strategic fertiliser reserves: 114.67
+
+🔹 Regional indices ...
+✅ Regional indices completed.
+✅ Regional indices saved for 20 regions
+📊 Computing and storing GSCI...
+   GSCI = 20.58
+
+🔹 Early warning report ...
+✅ Early warning report completed.
+{
+  "timestamp": "2026-06-24T19:20:40.830098",
+  "das_results": [
+    {
+      "threat_id": "C11",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C03",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C01",
+      "das": 0.0,
+      "band": "Normal"
+    }
+  ],
+  "convergence_alert": {
+    "level": "Alert",
+    "weighted_score": 4
+  },
+  "anomaly_count": 0
+}

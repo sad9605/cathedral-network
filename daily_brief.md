@@ -1,7 +1,7 @@
 # Cathedral Daily Brief – 24 Jun 2026
 
 **GSCI:** 20.58  
-**Last sweep:** 2026-06-24T14:58:59.143438
+**Last sweep:** 2026-06-24T19:20:20.562004
 
 ## Top Threats
 
@@ -33,9 +33,9 @@
 ## Recent Events
 
 - On 28/06/2026, a flood started in Türkiye, lasting until 30/06/2026 (last update). The flood caused 
-- On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 7 thousand (i
-- On 23/06/2026, a forest fire started in Syrian Arab Republic,  until 23/06/2026.
-- On 23/06/2026, a forest fire started in Australia,  until 24/06/2026.
+- On 6/24/2026 10:30:15 PM, an earthquake occurred in Japan potentially affecting 320 thousand in MMI 
+- On 6/24/2026 10:05:12 PM, an earthquake occurred in Venezuela potentially affecting 3.9 million (in 
+- On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 10 thousand (
 - On 23/06/2026, a forest fire started in Australia,  until 24/06/2026.
 
 ---
