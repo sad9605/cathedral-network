@@ -25,8 +25,8 @@ def normalize_threats(data):
     return []
 
 def generate_daily_brief():
-    now = datetime.now(timezone.UTC).strftime('%d %B %Y')
-    timestamp = datetime.now(timezone.UTC).isoformat()
+    now = datetime.now(timezone.utc).strftime('%d %B %Y')
+    timestamp = datetime.now(timezone.utc).isoformat()
 
     threats_raw = load_json('threats.json')
     threats = normalize_threats(threats_raw)
