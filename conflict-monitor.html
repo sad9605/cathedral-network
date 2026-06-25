@@ -540,12 +540,55 @@
     }
   }
 
-  async function loadConflictData() {
-    try {
-      const resp = await fetch('threats.json');
-      if (!resp.ok) throw new Error('Failed to fetch threats');
-      const data = await resp.json();
-      const threats = data.threats || [];
+    async function loadConflictData() {
+      try {
+        const resp = await fetch('conflict_data.json');
+        if (!resp.ok) throw new Error('Failed to fetch conflict data');
+        const data = await resp.json();
+        const threats = data.threats || [];
+
+        document.getElementById('conflictCount').textContent = threats.length;
+
+        // Stats
+        const total = threats.length;
+        const critical = threats.filter(t => t.scp >= 0.80).length;
+        const high = threats.filter(t => t.scp >= 0.60 && t.scp < 0.80).length;
+        const elevated = threats.filter(t => t.scp >= 0.40 && t.scp < 0.60).length;
+        const moderate = threats.filter(t => t.scp < 0.40).length;
+
+        document.getElementById('totalConflicts').textContent = total;
+        document.getElementById('criticalCount').textContent = critical;
+        document.getElementById('highCount').textContent = high;
+        document.getElementById('elevatedCount').textContent = elevated;
+        document.getElementById('moderateCount').textContent = moderate;
+
+        // Build globe data
+        const points = [];
+        threats.forEach(t => {
+          points.push({
+            lat: t.lat,
+            lng: t.lng,
+            size: Math.max(0.3, (t.scp || 0.5) * 1.5),
+            color: t.scp >= 0.80 ? '#dc2626' : t.scp >= 0.60 ? '#f97316' : t.scp >= 0.40 ? '#eab308' : '#22c55e',
+            label: `${t.id}: ${t.name} (${(t.scp*100).toFixed(0)}%)`,
+            threat: t
+          });
+        });
+
+        sceneData.points = points;
+        sceneData.heatmapData = points.map(p => ({ lat: p.lat, lng: p.lng, intensity: p.threat.scp }));
+
+        // Load history if available
+        if (data.history && data.history.length > 0) {
+          historyData = data.history;
+        }
+
+        initGlobe(points);
+      } catch(e) {
+        console.error('Error loading conflicts:', e);
+        document.getElementById('conflictCount').textContent = 'Error';
+      }
+    }
 
       await loadHistory();
 

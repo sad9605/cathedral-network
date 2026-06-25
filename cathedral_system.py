@@ -150,6 +150,9 @@ def main():
     # ---- Generate archive index ----
     run_script("generate_archive_index.py", "Archive index generation")
 
+    # ---- Generate conflict data ----
+    run_script("generate_conflict_data.py", "Conflict monitor data generation")
+
     # ---- Generate regional indices JSON ----
     run_script("indices.py", "Regional indices JSON")
 
