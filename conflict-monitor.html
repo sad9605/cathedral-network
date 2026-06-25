@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cathedral Network – Conflict Monitor</title>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
-    <!-- Bootstrap (for layout, badges, etc.) – keep existing styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Cesium -->
+    <link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.113/Build/Cesium/Widgets/widgets.css" />
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.113/Build/Cesium/Cesium.js"></script>
+
     <style>
-        /* ===== RESET & BASE ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
@@ -21,17 +22,7 @@
             color: #e0e0e0;
             overflow-x: hidden;
         }
-        a { color: #b388ff; text-decoration: none; }
-        a:hover { color: #d1c4e9; }
-
-        /* ===== LAYOUT ===== */
-        .monitor-wrapper {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 20px 30px;
-        }
-
-        /* ===== HEADER ===== */
+        .monitor-wrapper { max-width: 1600px; margin: 0 auto; padding: 20px 30px; }
         .monitor-header {
             display: flex;
             justify-content: space-between;
@@ -41,29 +32,11 @@
             border-bottom: 1px solid #2a2a3a;
             padding-bottom: 16px;
         }
-        .monitor-header h1 {
-            font-size: 28px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            color: #fff;
-        }
-        .monitor-header h1 i {
-            color: #b388ff;
-            margin-right: 10px;
-        }
-        .monitor-header .badge-version {
-            background: #2a2a3a;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 13px;
-            color: #b388ff;
-        }
-        .last-updated {
-            font-size: 14px;
-            color: #888;
-        }
+        .monitor-header h1 { font-size: 28px; font-weight: 600; color: #fff; }
+        .monitor-header h1 i { color: #b388ff; margin-right: 10px; }
+        .badge-version { background: #2a2a3a; padding: 6px 14px; border-radius: 30px; font-size: 13px; color: #b388ff; }
+        .last-updated { font-size: 14px; color: #888; }
 
-        /* ===== STAT CARDS ===== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -75,28 +48,14 @@
             border-radius: 16px;
             padding: 18px 20px;
             border: 1px solid #28283a;
-            transition: border-color 0.2s;
         }
-        .stat-card:hover { border-color: #6c5b8a; }
-        .stat-card .label {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #9e9eae;
-        }
-        .stat-card .number {
-            font-size: 36px;
-            font-weight: 700;
-            color: #fff;
-            line-height: 1.2;
-            margin-top: 4px;
-        }
+        .stat-card .label { font-size: 13px; text-transform: uppercase; color: #9e9eae; }
+        .stat-card .number { font-size: 36px; font-weight: 700; color: #fff; }
         .stat-card .number.critical { color: #ff6b6b; }
         .stat-card .number.high { color: #ffa94d; }
         .stat-card .number.elevated { color: #ffd93d; }
         .stat-card .number.moderate { color: #6bcb8a; }
 
-        /* ===== GLOBE CONTAINER ===== */
         .globe-section {
             position: relative;
             background: #0a0a12;
@@ -104,22 +63,12 @@
             overflow: hidden;
             border: 1px solid #2a2a3a;
             margin-bottom: 28px;
-            height: 500px; /* fixed height for globe */
+            height: 500px;
         }
-        .globe-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        .globe-container .globe-view {
-            width: 100%;
-            height: 100%;
-            display: none; /* hidden by default, shown by toggle */
-        }
-        .globe-container .globe-view.active {
-            display: block;
-        }
-        /* Toggle button */
+        .globe-container { width: 100%; height: 100%; position: relative; }
+        .globe-view { width: 100%; height: 100%; display: none; }
+        .globe-view.active { display: block; }
+
         .globe-toggle {
             position: absolute;
             top: 16px;
@@ -127,7 +76,7 @@
             z-index: 100;
             display: flex;
             gap: 8px;
-            background: rgba(10, 10, 18, 0.7);
+            background: rgba(10, 10, 18, 0.8);
             backdrop-filter: blur(8px);
             padding: 6px;
             border-radius: 40px;
@@ -149,12 +98,8 @@
             color: #fff;
             box-shadow: 0 0 12px rgba(108, 91, 138, 0.5);
         }
-        .globe-toggle button:hover:not(.active) {
-            color: #fff;
-            background: #2a2a3e;
-        }
+        .globe-toggle button:hover:not(.active) { color: #fff; background: #2a2a3e; }
 
-        /* ===== CONTROLS & TABLE ===== */
         .table-controls {
             display: flex;
             flex-wrap: wrap;
@@ -172,10 +117,7 @@
             padding: 6px 16px;
             flex: 1 1 280px;
         }
-        .table-controls .search-box i {
-            color: #6c6c82;
-            margin-right: 10px;
-        }
+        .table-controls .search-box i { color: #6c6c82; margin-right: 10px; }
         .table-controls .search-box input {
             background: transparent;
             border: none;
@@ -185,12 +127,8 @@
             outline: none;
             font-size: 14px;
         }
-        .table-controls .filter-group {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .table-controls .filter-group .filter-btn {
+        .filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-btn {
             background: #14141f;
             border: 1px solid #2a2a3a;
             color: #aaa;
@@ -200,15 +138,8 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .table-controls .filter-group .filter-btn.active {
-            background: #6c5b8a;
-            border-color: #6c5b8a;
-            color: #fff;
-        }
-        .table-controls .filter-group .filter-btn:hover:not(.active) {
-            border-color: #6c5b8a;
-            color: #fff;
-        }
+        .filter-btn.active { background: #6c5b8a; border-color: #6c5b8a; color: #fff; }
+        .filter-btn:hover:not(.active) { border-color: #6c5b8a; color: #fff; }
 
         .table-wrap {
             background: #14141f;
@@ -217,11 +148,7 @@
             overflow-x: auto;
             padding: 4px 0;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
         table th {
             text-align: left;
             padding: 14px 18px;
@@ -229,14 +156,9 @@
             font-weight: 500;
             border-bottom: 1px solid #2a2a3a;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
             font-size: 12px;
         }
-        table td {
-            padding: 14px 18px;
-            border-bottom: 1px solid #1e1e2e;
-            vertical-align: middle;
-        }
+        table td { padding: 14px 18px; border-bottom: 1px solid #1e1e2e; }
         table tr:hover td { background: #1a1a2a; }
         .conflict-name { font-weight: 500; color: #fff; }
         .status-badge {
@@ -245,14 +167,11 @@
             border-radius: 30px;
             font-size: 12px;
             font-weight: 600;
-            letter-spacing: 0.2px;
         }
         .status-badge.critical { background: #6b2a2a; color: #ff6b6b; }
         .status-badge.high { background: #6b4a1a; color: #ffa94d; }
         .status-badge.elevated { background: #5a4a1a; color: #ffd93d; }
         .status-badge.moderate { background: #1a4a2a; color: #6bcb8a; }
-        .status-badge.unknown { background: #2a2a3a; color: #9e9eae; }
-
         .scp-bar {
             display: inline-block;
             width: 60px;
@@ -262,36 +181,19 @@
             overflow: hidden;
             margin-right: 8px;
         }
-        .scp-bar .fill {
-            height: 100%;
-            border-radius: 6px;
-            background: #6c5b8a;
-        }
+        .scp-bar .fill { height: 100%; border-radius: 6px; }
+        .no-results { text-align: center; padding: 40px 0; color: #888; }
 
-        .no-results {
-            text-align: center;
-            padding: 40px 0;
-            color: #888;
-        }
-
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .monitor-wrapper { padding: 16px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .globe-section { height: 300px; }
-            .table-controls { flex-direction: column; align-items: stretch; }
-            .globe-toggle { top: 8px; right: 8px; }
-            .globe-toggle button { padding: 6px 12px; font-size: 12px; }
         }
-
-        /* Keep existing styles for any extra elements */
     </style>
 </head>
 <body>
 
 <div class="monitor-wrapper">
-
-    <!-- HEADER -->
     <header class="monitor-header">
         <div>
             <h1><i class="fas fa-globe-americas"></i>Conflict Monitor</h1>
@@ -302,7 +204,6 @@
         </div>
     </header>
 
-    <!-- STAT CARDS -->
     <div class="stats-grid" id="statCards">
         <div class="stat-card"><div class="label">Total Conflicts</div><div class="number" id="totalCount">0</div></div>
         <div class="stat-card"><div class="label">Critical</div><div class="number critical" id="criticalCount">0</div></div>
@@ -311,22 +212,17 @@
         <div class="stat-card"><div class="label">Moderate</div><div class="number moderate" id="moderateCount">0</div></div>
     </div>
 
-    <!-- GLOBE SECTION with toggle -->
     <div class="globe-section">
-        <div class="globe-container" id="globeContainer">
-            <!-- Satellite View (Cesium) -->
+        <div class="globe-container">
             <div id="cesiumContainer" class="globe-view active"></div>
-            <!-- Hologram View (Three.js) -->
             <div id="hologramContainer" class="globe-view"></div>
         </div>
-        <!-- Toggle buttons -->
         <div class="globe-toggle">
             <button id="btnSatellite" class="active" data-view="satellite"><i class="fas fa-satellite"></i> Satellite</button>
             <button id="btnHologram" data-view="hologram"><i class="fas fa-cube"></i> Hologram</button>
         </div>
     </div>
 
-    <!-- TABLE CONTROLS -->
     <div class="table-controls">
         <div class="search-box">
             <i class="fas fa-search"></i>
@@ -341,97 +237,63 @@
         </div>
     </div>
 
-    <!-- CONFLICT TABLE -->
     <div class="table-wrap">
         <table>
             <thead>
-                <tr>
-                    <th>Conflict / Event</th>
-                    <th>Region</th>
-                    <th>Status</th>
-                    <th>SCP</th>
-                    <th>Last Updated</th>
-                </tr>
+                <tr><th>Conflict / Event</th><th>Region</th><th>Status</th><th>SCP</th><th>Last Updated</th></tr>
             </thead>
             <tbody id="conflictTableBody">
                 <tr><td colspan="5" class="no-results">Loading conflict data...</td></tr>
             </tbody>
         </table>
     </div>
-
 </div>
 
 <!-- ============================================================ -->
-<!-- DEPENDENCIES -->
+<!-- THREE.JS (via CDN, no importmap needed) -->
 <!-- ============================================================ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
-<!-- CesiumJS for satellite globe -->
-<link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.113/Build/Cesium/Widgets/widgets.css" />
-<script src="https://cesium.com/downloads/cesiumjs/releases/1.113/Build/Cesium/Cesium.js"></script>
-
-<!-- Three.js for hologram -->
-<script type="importmap">
-{
-    "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-    }
-}
-</script>
-
-<!-- ============================================================ -->
-<!-- MAIN APPLICATION SCRIPT -->
-<!-- ============================================================ -->
-<script type="module">
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
-
-// ----------------------------------------------------------------
-// 1. DATA LOADING & UI UPDATES
-// ----------------------------------------------------------------
+<script>
+// ================================================================
+// 1. DATA LOADING & UI
+// ================================================================
 let allConflicts = [];
 let filteredConflicts = [];
 let currentFilter = 'all';
 let searchQuery = '';
-
-// Load conflict_data.json from same directory
-async function loadData() {
-    try {
-        const res = await fetch('conflict_data.json');
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
-        // FIX: use 'threats' key, fallback to 'conflicts'
-        allConflicts = data.threats || data.conflicts || [];
-        // Ensure each has a severity based on SCP
-        allConflicts.forEach(c => {
-            c.scp = c.scp || 0;
-            c.severity = getSeverity(c.scp);
-            c.status = c.status || c.severity;
-            c.last_updated = c.last_updated || c.timestamp || new Date().toISOString();
-        });
-        // Sort by SCP descending
-        allConflicts.sort((a,b) => b.scp - a.scp);
-        // Update UI
-        updateStats();
-        applyFilters();
-        document.getElementById('lastUpdated').textContent = `Last updated: ${new Date().toLocaleString()}`;
-        // Also update globe markers (both views)
-        updateGlobeMarkers(allConflicts);
-    } catch (err) {
-        console.warn('Failed to load conflict data:', err);
-        document.getElementById('conflictTableBody').innerHTML =
-            `<tr><td colspan="5" class="no-results">⚠️ Could not load conflict data. Check console.</td></tr>`;
-        document.getElementById('lastUpdated').textContent = 'Last updated: error';
-        // Use dummy data for demo? We'll keep zeros.
-    }
-}
 
 function getSeverity(scp) {
     if (scp >= 0.80) return 'critical';
     if (scp >= 0.60) return 'high';
     if (scp >= 0.40) return 'elevated';
     return 'moderate';
+}
+
+async function loadData() {
+    try {
+        const res = await fetch('conflict_data.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        allConflicts = data.threats || data.conflicts || [];
+        allConflicts.forEach(c => {
+            c.scp = c.scp || 0;
+            c.severity = getSeverity(c.scp);
+            c.status = c.status || c.severity;
+            c.last_updated = c.last_updated || c.timestamp || new Date().toISOString();
+        });
+        allConflicts.sort((a,b) => b.scp - a.scp);
+        updateStats();
+        applyFilters();
+        document.getElementById('lastUpdated').textContent = `Last updated: ${new Date().toLocaleString()}`;
+        // Update globe markers
+        updateCesiumMarkers(allConflicts);
+    } catch (err) {
+        console.warn('Data load error:', err);
+        document.getElementById('conflictTableBody').innerHTML =
+            `<tr><td colspan="5" class="no-results">⚠️ Could not load conflict data. Check console.</td></tr>`;
+    }
 }
 
 function updateStats() {
@@ -449,9 +311,7 @@ function updateStats() {
 function applyFilters() {
     const query = searchQuery.toLowerCase().trim();
     filteredConflicts = allConflicts.filter(c => {
-        // Filter by severity
         if (currentFilter !== 'all' && c.severity !== currentFilter) return false;
-        // Search by name, region, actors
         if (query) {
             const name = (c.name || '').toLowerCase();
             const region = (c.region || '').toLowerCase();
@@ -475,26 +335,22 @@ function renderTable() {
         const pct = Math.min(100, scp * 100);
         const statusClass = c.severity || 'unknown';
         const statusLabel = statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
-        const name = c.name || 'Unnamed conflict';
-        const region = c.region || '—';
-        const updated = c.last_updated ? new Date(c.last_updated).toLocaleDateString() : '—';
+        const color = scp >= 0.8 ? '#ff6b6b' : scp >= 0.6 ? '#ffa94d' : scp >= 0.4 ? '#ffd93d' : '#6bcb8a';
         html += `<tr>
-            <td class="conflict-name">${name}</td>
-            <td>${region}</td>
+            <td class="conflict-name">${c.name || 'Unnamed'}</td>
+            <td>${c.region || '—'}</td>
             <td><span class="status-badge ${statusClass}">${statusLabel}</span></td>
             <td>
-                <div class="scp-bar"><div class="fill" style="width:${pct}%; background:${scp>=0.8?'#ff6b6b':scp>=0.6?'#ffa94d':scp>=0.4?'#ffd93d':'#6bcb8a'}"></div></div>
+                <div class="scp-bar"><div class="fill" style="width:${pct}%; background:${color}"></div></div>
                 ${(scp*100).toFixed(1)}%
             </td>
-            <td>${updated}</td>
+            <td>${c.last_updated ? new Date(c.last_updated).toLocaleDateString() : '—'}</td>
         </tr>`;
     });
     tbody.innerHTML = html;
 }
 
-// ----------------------------------------------------------------
-// 2. SEARCH & FILTER EVENT BINDINGS
-// ----------------------------------------------------------------
+// Search & filter events
 document.getElementById('searchInput').addEventListener('input', (e) => {
     searchQuery = e.target.value;
     applyFilters();
@@ -508,106 +364,86 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     });
 });
 
-// ----------------------------------------------------------------
-// 3. GLOBE TOGGLE LOGIC
-// ----------------------------------------------------------------
+// ================================================================
+// 2. GLOBE TOGGLE
+// ================================================================
 const satelliteBtn = document.getElementById('btnSatellite');
 const hologramBtn = document.getElementById('btnHologram');
 const cesiumView = document.getElementById('cesiumContainer');
 const hologramView = document.getElementById('hologramContainer');
-
-// Initially satellite active (already has class "active" on cesiumView)
-// Remove active from hologram
-hologramView.classList.remove('active');
 
 satelliteBtn.addEventListener('click', () => {
     satelliteBtn.classList.add('active');
     hologramBtn.classList.remove('active');
     cesiumView.classList.add('active');
     hologramView.classList.remove('active');
-    // Resize Cesium if needed
-    if (window.cesiumViewer) {
-        window.cesiumViewer.resize();
-    }
+    if (window.cesiumViewer) setTimeout(() => window.cesiumViewer.resize(), 100);
 });
-
 hologramBtn.addEventListener('click', () => {
     hologramBtn.classList.add('active');
     satelliteBtn.classList.remove('active');
     hologramView.classList.add('active');
     cesiumView.classList.remove('active');
-    // Resize Three.js if needed
-    if (window.hologramRenderer) {
-        const container = document.getElementById('hologramContainer');
-        const w = container.clientWidth;
-        const h = container.clientHeight;
-        if (window.hologramCamera) {
-            window.hologramCamera.aspect = w / h;
-            window.hologramCamera.updateProjectionMatrix();
-        }
-        if (window.hologramRenderer) {
-            window.hologramRenderer.setSize(w, h);
-        }
-    }
 });
 
-// ----------------------------------------------------------------
-// 4. CESIUM SATELLITE GLOBE
-// ----------------------------------------------------------------
+// ================================================================
+// 3. CESIUM SATELLITE GLOBE
+// ================================================================
 function initCesium() {
-    const container = document.getElementById('cesiumContainer');
-    // Set Cesium token if you have one (free for localhost)
-    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4ZWI5ZGM3OC1lNjdmLTQzM2UtODg3YS05M2I3NWM0Y2NmYjYiLCJpZCI6MjM2MTYxLCJpYXQiOjE3MTU1ODkzNDl9.9zG9hZ6cJkG4k3s5Dl2lE9p8mBc6q_1zW';
-    const viewer = new Cesium.Viewer(container, {
-        globe: true,
-        baseLayerPicker: false,
-        animation: false,
-        timeline: false,
-        fullscreenButton: false,
-        vrButton: false,
-        geocoder: false,
-        homeButton: false,
-        sceneModePicker: false,
-        navigationHelpButton: false,
-        selectionIndicator: false,
-        infoBox: false,
-        terrainProvider: new Cesium.createWorldTerrain(),
-    });
-    // Remove credit text if desired (keep minimal)
-    viewer.cesiumWidget.creditContainer.style.display = 'none';
-    // Set satellite imagery
-    viewer.scene.imageryLayers.removeAll();
-    viewer.scene.imageryLayers.addImageryProvider(
-        new Cesium.IonImageryProvider({ assetId: 2 }) // Sentinel-2
-    );
-    // Add some lighting
-    viewer.scene.globe.enableLighting = true;
-    // Store for later marker updates
-    window.cesiumViewer = viewer;
-    // Add markers (will be called later)
-    updateCesiumMarkers(allConflicts);
+    try {
+        const container = document.getElementById('cesiumContainer');
+        // Use a valid token (free tier for localhost/GitHub Pages)
+        Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4ZWI5ZGM3OC1lNjdmLTQzM2UtODg3YS05M2I3NWM0Y2NmYjYiLCJpZCI6MjM2MTYxLCJpYXQiOjE3MTU1ODkzNDl9.9zG9hZ6cJkG4k3s5Dl2lE9p8mBc6q_1zW';
+        const viewer = new Cesium.Viewer(container, {
+            baseLayerPicker: false,
+            animation: false,
+            timeline: false,
+            fullscreenButton: false,
+            geocoder: false,
+            homeButton: false,
+            sceneModePicker: false,
+            navigationHelpButton: false,
+            selectionIndicator: false,
+            infoBox: false,
+            terrainProvider: new Cesium.createWorldTerrain(),
+        });
+        viewer.cesiumWidget.creditContainer.style.display = 'none';
+        // Use satellite imagery
+        viewer.scene.imageryLayers.removeAll();
+        viewer.scene.imageryLayers.addImageryProvider(
+            new Cesium.IonImageryProvider({ assetId: 2 })
+        );
+        viewer.scene.globe.enableLighting = true;
+        window.cesiumViewer = viewer;
+        updateCesiumMarkers(allConflicts);
+        console.log('✅ Cesium satellite globe initialized');
+    } catch (err) {
+        console.error('❌ Cesium init error:', err);
+        document.getElementById('cesiumContainer').innerHTML =
+            `<div style="color:#888;text-align:center;padding-top:200px;">⚠️ Satellite globe unavailable<br><small>${err.message}</small></div>`;
+    }
 }
 
 function updateCesiumMarkers(conflicts) {
-    if (!window.cesiumViewer) return;
     const viewer = window.cesiumViewer;
-    // Clear existing entities (keep only if we want to remove old markers)
-    // Simple: remove all entities except the globe? We'll manage by saving a list.
+    if (!viewer) return;
+    // Remove old markers
     if (window.cesiumEntityIds) {
         window.cesiumEntityIds.forEach(id => viewer.entities.removeById(id));
     }
     window.cesiumEntityIds = [];
     conflicts.forEach(c => {
-        // If there's a lat/lng
         if (c.lat && c.lng) {
+            const color = c.scp >= 0.8 ? Cesium.Color.RED :
+                          c.scp >= 0.6 ? Cesium.Color.ORANGE :
+                          c.scp >= 0.4 ? Cesium.Color.YELLOW : Cesium.Color.GREEN;
             const entity = viewer.entities.add({
-                position: Cesium.Cartesian3.fromDegrees(c.lng, c.lat, 100000),
+                position: Cesium.Cartesian3.fromDegrees(c.lng, c.lat, 50000),
                 point: {
-                    pixelSize: 12,
-                    color: getColor(c.scp || 0),
+                    pixelSize: 14,
+                    color: color,
                     outlineColor: Cesium.Color.WHITE,
                     outlineWidth: 1,
-                    heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
                 },
                 label: {
                     text: c.name || '',
@@ -615,202 +451,150 @@ function updateCesiumMarkers(conflicts) {
                     fillColor: Cesium.Color.WHITE,
                     outlineColor: Cesium.Color.BLACK,
                     outlineWidth: 2,
-                    style: Cesium.LabelStyle.FILL_AND_OUTLINE,
                     pixelOffset: new Cesium.Cartesian2(0, -20),
-                    eyeOffset: new Cesium.Cartesian3(0, 0, -1000),
                 },
-                // For removal
-                id: c.id || 'conflict_' + Math.random(),
+                id: 'marker_' + Math.random().toString(36).substr(2, 9),
             });
             window.cesiumEntityIds.push(entity.id);
         }
     });
 }
 
-function getColor(scp) {
-    if (scp >= 0.8) return Cesium.Color.RED;
-    if (scp >= 0.6) return Cesium.Color.ORANGE;
-    if (scp >= 0.4) return Cesium.Color.YELLOW;
-    return Cesium.Color.GREEN;
-}
+// ================================================================
+// 4. HOLOGRAM GLOBE (Three.js – simplified, no importmap)
+// ================================================================
+let hologramScene, hologramCamera, hologramRenderer, hologramControls, hologramGlobe;
 
-// ----------------------------------------------------------------
-// 5. HOLOGRAM GLOBE (Three.js)
-// ----------------------------------------------------------------
 function initHologram() {
-    const container = document.getElementById('hologramContainer');
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    try {
+        const container = document.getElementById('hologramContainer');
+        const width = container.clientWidth || 500;
+        const height = container.clientHeight || 500;
 
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x050510);
+        hologramScene = new THREE.Scene();
+        hologramScene.background = new THREE.Color(0x050510);
 
-    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.set(0, 0, 5);
+        hologramCamera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+        hologramCamera.position.set(0, 0, 4.5);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
+        hologramRenderer = new THREE.WebGLRenderer({ antialias: true });
+        hologramRenderer.setSize(width, height);
+        hologramRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(hologramRenderer.domElement);
 
-    // Controls
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.08;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 1.2;
-    controls.minDistance = 2.5;
-    controls.maxDistance = 10;
+        hologramControls = new THREE.OrbitControls(hologramCamera, hologramRenderer.domElement);
+        hologramControls.enableDamping = true;
+        hologramControls.autoRotate = true;
+        hologramControls.autoRotateSpeed = 1.2;
+        hologramControls.minDistance = 2.5;
+        hologramControls.maxDistance = 10;
 
-    // Create a sphere with custom shader for hologram effect
-    const geometry = new THREE.SphereGeometry(1.8, 64, 64);
+        // Hologram sphere
+        const geometry = new THREE.SphereGeometry(1.6, 64, 64);
+        const material = new THREE.MeshPhongMaterial({
+            color: 0x9b59b6,
+            emissive: 0x6c3483,
+            emissiveIntensity: 0.4,
+            transparent: true,
+            opacity: 0.7,
+            shininess: 30,
+            wireframe: false,
+        });
+        hologramGlobe = new THREE.Mesh(geometry, material);
+        hologramScene.add(hologramGlobe);
 
-    // Main hologram material
-    const material = new THREE.ShaderMaterial({
-        uniforms: {
-            time: { value: 0 },
-            glowColor: { value: new THREE.Color(0x9b59b6) },
-        },
-        vertexShader: `
-            varying vec3 vNormal;
-            varying vec3 vPosition;
-            void main() {
-                vNormal = normalize(normalMatrix * normal);
-                vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-                vPosition = mvPosition.xyz;
-                gl_Position = projectionMatrix * mvPosition;
+        // Wireframe overlay
+        const wireGeo = new THREE.SphereGeometry(1.62, 24, 12);
+        const wireMat = new THREE.MeshBasicMaterial({
+            color: 0x9b59b6,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.2,
+        });
+        const wireframe = new THREE.Mesh(wireGeo, wireMat);
+        hologramScene.add(wireframe);
+
+        // Glow ring (equator)
+        const ringGeo = new THREE.TorusGeometry(1.7, 0.02, 16, 100);
+        const ringMat = new THREE.MeshBasicMaterial({
+            color: 0x9b59b6,
+            transparent: true,
+            opacity: 0.6,
+        });
+        const ring = new THREE.Mesh(ringGeo, ringMat);
+        ring.rotation.x = Math.PI / 2;
+        hologramScene.add(ring);
+
+        // Stars
+        const starsGeo = new THREE.BufferGeometry();
+        const starCount = 1500;
+        const positions = new Float32Array(starCount * 3);
+        for (let i = 0; i < starCount * 3; i += 3) {
+            const r = 8 + Math.random() * 25;
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos(2 * Math.random() - 1);
+            positions[i] = r * Math.sin(phi) * Math.cos(theta);
+            positions[i+1] = r * Math.sin(phi) * Math.sin(theta);
+            positions[i+2] = r * Math.cos(phi);
+        }
+        starsGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const starsMat = new THREE.PointsMaterial({
+            color: 0x8e44ad,
+            size: 0.06,
+            transparent: true,
+            opacity: 0.7,
+        });
+        const stars = new THREE.Points(starsGeo, starsMat);
+        hologramScene.add(stars);
+
+        // Lights
+        const ambient = new THREE.AmbientLight(0x404060);
+        hologramScene.add(ambient);
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(1, 1, 1);
+        hologramScene.add(dirLight);
+
+        // Animate
+        function animate() {
+            requestAnimationFrame(animate);
+            if (hologramControls) hologramControls.update();
+            if (hologramGlobe) hologramGlobe.rotation.y += 0.001;
+            if (hologramRenderer && hologramScene && hologramCamera) {
+                hologramRenderer.render(hologramScene, hologramCamera);
             }
-        `,
-        fragmentShader: `
-            uniform vec3 glowColor;
-            uniform float time;
-            varying vec3 vNormal;
-            varying vec3 vPosition;
+        }
+        animate();
 
-            void main() {
-                // Fresnel glow
-                vec3 viewDir = normalize(-vPosition);
-                float intensity = pow(1.0 - abs(dot(vNormal, viewDir)), 2.5);
-                // Scanline effect
-                float scan = sin(vPosition.y * 40.0 + time * 3.0) * 0.5 + 0.5;
-                scan = smoothstep(0.3, 0.7, scan);
-                // Combine
-                vec3 color = glowColor * (0.6 + 0.4 * intensity) + vec3(0.2, 0.1, 0.3) * scan;
-                float alpha = 0.7 + 0.3 * intensity;
-                gl_FragColor = vec4(color, alpha);
+        // Resize
+        window.addEventListener('resize', () => {
+            const w = container.clientWidth || 500;
+            const h = container.clientHeight || 500;
+            if (hologramCamera) {
+                hologramCamera.aspect = w / h;
+                hologramCamera.updateProjectionMatrix();
             }
-        `,
-        transparent: true,
-        side: THREE.DoubleSide,
-        depthWrite: false,
-    });
+            if (hologramRenderer) hologramRenderer.setSize(w, h);
+        });
 
-    const globe = new THREE.Mesh(geometry, material);
-    scene.add(globe);
-
-    // Wireframe overlay
-    const wireGeo = new THREE.SphereGeometry(1.82, 32, 16);
-    const wireMat = new THREE.MeshBasicMaterial({
-        color: 0x9b59b6,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.2,
-    });
-    const wireframe = new THREE.Mesh(wireGeo, wireMat);
-    scene.add(wireframe);
-
-    // Glow particles (stars)
-    const starsGeo = new THREE.BufferGeometry();
-    const starCount = 2000;
-    const positions = new Float32Array(starCount * 3);
-    for (let i = 0; i < starCount * 3; i += 3) {
-        const r = 10 + Math.random() * 30;
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.acos(2 * Math.random() - 1);
-        positions[i] = r * Math.sin(phi) * Math.cos(theta);
-        positions[i+1] = r * Math.sin(phi) * Math.sin(theta);
-        positions[i+2] = r * Math.cos(phi);
+        console.log('✅ Hologram globe initialized');
+    } catch (err) {
+        console.error('❌ Hologram init error:', err);
+        document.getElementById('hologramContainer').innerHTML =
+            `<div style="color:#888;text-align:center;padding-top:200px;">⚠️ Hologram globe unavailable<br><small>${err.message}</small></div>`;
     }
-    starsGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const starsMat = new THREE.PointsMaterial({
-        color: 0x8e44ad,
-        size: 0.08,
-        transparent: true,
-        opacity: 0.8,
-    });
-    const stars = new THREE.Points(starsGeo, starsMat);
-    scene.add(stars);
-
-    // Store for updates and resize
-    window.hologramScene = scene;
-    window.hologramCamera = camera;
-    window.hologramRenderer = renderer;
-    window.hologramControls = controls;
-    window.hologramGlobe = globe;
-    window.hologramWire = wireframe;
-    window.hologramStars = stars;
-    window.hologramMaterial = material;
-
-    // Start animation loop
-    function animate() {
-        requestAnimationFrame(animate);
-        const time = performance.now() / 1000;
-        if (window.hologramMaterial) {
-            window.hologramMaterial.uniforms.time.value = time;
-        }
-        if (window.hologramControls) {
-            window.hologramControls.update();
-        }
-        if (window.hologramRenderer && window.hologramScene && window.hologramCamera) {
-            window.hologramRenderer.render(window.hologramScene, window.hologramCamera);
-        }
-    }
-    animate();
-
-    // Handle resize
-    window.addEventListener('resize', () => {
-        const w = container.clientWidth;
-        const h = container.clientHeight;
-        if (window.hologramCamera) {
-            window.hologramCamera.aspect = w / h;
-            window.hologramCamera.updateProjectionMatrix();
-        }
-        if (window.hologramRenderer) {
-            window.hologramRenderer.setSize(w, h);
-        }
-    });
 }
 
-// ----------------------------------------------------------------
-// 6. UPDATE GLOBE MARKERS FOR BOTH VIEWS
-// ----------------------------------------------------------------
-function updateGlobeMarkers(conflicts) {
-    // Cesium
-    updateCesiumMarkers(conflicts);
-    // Hologram: we could add point markers on the sphere, but we'll keep it simple.
-    // For now, hologram just shows the globe. Could add pulsing dots in future.
-    // Optionally, we can add small dots on the sphere surface.
-    // We'll skip for brevity, but you can add.
-}
-
-// ----------------------------------------------------------------
-// 7. INITIALISE EVERYTHING
-// ----------------------------------------------------------------
-// Wait for DOM and load data
+// ================================================================
+// 5. INIT
+// ================================================================
 document.addEventListener('DOMContentLoaded', async () => {
-    // Load data
     await loadData();
-    // Init globes
     initCesium();
     initHologram();
-    // Ensure the hologram container is hidden initially (satellite active)
+    // Ensure hologram is hidden initially
     hologramView.classList.remove('active');
-    // Resize cesium after a short delay to ensure layout
-    setTimeout(() => {
-        if (window.cesiumViewer) window.cesiumViewer.resize();
-    }, 200);
+    cesiumView.classList.add('active');
 });
-
 </script>
 </body>
 </html>
