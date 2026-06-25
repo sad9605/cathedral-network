@@ -1563,3 +1563,195 @@ GPSJAM error: HTTPSConnectionPool(host='data.gpsjam.org', port=443): Max retries
 [CFR Agent] Added 20 new threats to threats.json
 [CFR Agent] CFR Agent completed successfully
 [CFR Agent] Total conflicts in CFR: 20
+
+🔹 Breaking news fetch ...
+✅ Breaking news fetch completed.
+📰 Fetching breaking news...
+  Fetching ReliefWeb...
+  API error for https://api.reliefweb.int/v1/disasters?format=json: 410 Client Error: Gone for url: https://api.reliefweb.int/v1/disasters?format=json
+  Fetching GDACS...
+  Fetching BBC News...
+  Fetching Reuters...
+  Fetching Al Jazeera...
+✅ Breaking news updated: 20 items
+
+🔹 Time‑series forecasting ...
+✅ Time‑series forecasting completed.
+
+🔹 Cascade Engine (v8) ...
+✅ Cascade Engine (v8) completed.
+🏛️ Cascade Engine v8 running...
+   Loaded 233 threats, 41 cascade rules, 233 ML LRs
+DEBUG: C01 base=0.008, lrs=[6.22203139861979, 1.249999999998181, 14.055078496549477, 1.2499999999998863], posterior=0.536
+DEBUG: C11 base=0.004, lrs=[6.450137479891525, 1.249999999998181, 14.625343699728814, 1.2499999999998863], posterior=0.374
+DEBUG: C03 base=0.008, lrs=[5.949211590631928, 1.249999999998181, 13.373028976579821, 1.2499999999998863], posterior=0.513
+   ✅ Updated 233 threats
+   📊 GSCI: 23.25, SSI: 31.59, DS: 0
+   🔥 Active cascades: 54, SCA Tier: Unprecedented
+   ⚠️ Anomalies: 20, CAP: Critical
+🧠 Computing ML likelihood ratios...
+✅ Loaded existing ML model
+   ✅ ML LRs computed for 233 threats
+
+🔹 HEWD humanitarian threat selection ...
+✅ HEWD humanitarian threat selection completed.
+✅ HEWD data written to hewd_data.json
+   Selected 10 humanitarian threats.
+   - CFR-CIVILWARINSUDAN – Civil War in Sudan: 435.02
+   - CFR-CONFLICTINETHIOPIA – Conflict in Ethiopia: 435.02
+   - CFR-IRANSWARWITHISRAELANDTHE – Iran’s War With Israel and the United States: 435.02
+   - CFR-CONFLICTINYEMENANDTHERED – Conflict in Yemen and the Red Sea: 435.02
+   - CFR-CONFLICTBETWEENINDIAANDPAK – Conflict Between India and Pakistan: 435.02
+   - CFR-CONFLICTWITHALSHABAABINSO – Conflict With Al-Shabaab in Somalia: 435.02
+   - CFR-ISRAELIPALESTINIANCONFLICT – Israeli-Palestinian Conflict: 435.02
+   - CFR-CONFLICTBETWEENTURKEYANDAR – Conflict Between Turkey and Armed Kurdish Groups: 435.02
+   - CFR-NORTHKOREACRISIS – North Korea Crisis: 435.02
+   - CFR-CIVILWARINMYANMAR – Civil War in Myanmar: 435.02
+
+🔹 Regional indices ...
+✅ Regional indices completed.
+✅ Regional indices saved for 20 regions
+📊 Computing and storing GSCI...
+   GSCI = 23.25
+
+🔹 Early warning report ...
+✅ Early warning report completed.
+{
+  "timestamp": "2026-06-25T11:34:06.293478",
+  "das_results": [
+    {
+      "threat_id": "C11",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C03",
+      "das": 0.0,
+      "band": "Normal"
+    },
+    {
+      "threat_id": "C01",
+      "das": 0.0,
+      "band": "Normal"
+    }
+  ],
+  "convergence_alert": {
+    "level": "Alert",
+    "weighted_score": 4
+  },
+  "anomaly_count": 0
+}
+
+🔹 SCP history logging ...
+✅ SCP history logging completed.
+✅ SCP history updated: 233 threats logged.
+✅ SCP history updated: 233 threats logged.
+
+🔹 Cascade graph generation ...
+✅ Cascade graph generation completed.
+✅ Cascade graph generated: 233 nodes, 34 edges.
+
+🔹 Trend computation ...
+✅ Trend computation completed.
+Not enough history for 7-day trend.
+
+🔹 Prediction verification ...
+✅ Prediction verification completed.
+
+🔹 Corrections RSS feed generation ...
+✅ Corrections RSS feed generation completed.
+✅ Corrections RSS feed written to corrections.xml
+
+🔹 Prediction log generation ...
+✅ Prediction log generation completed.
+📋 Generating prediction log (preserving history, adding date_made)...
+📦 Archived 233 filtered predictions (total archive: 305)
+✅ Prediction Log Updated:
+   Updated pending: 0, Added: 0
+   Confirmed: 75
+   Falsified: 4
+   Hit rate: 94.94%
+   Pending: 204
+   Archived: 233
+
+🔹 Prediction intelligence generation ...
+✅ Prediction intelligence generation completed.
+🧠 Generating prediction intelligence...
+✅ Prediction intelligence generated: 283 entries
+
+🔹 Threat intelligence generation ...
+✅ Threat intelligence generation completed.
+📊 Generating threat intelligence reports...
+✅ Threat intelligence generated: 233 entries
+
+🔹 Positive signal extraction ...
+✅ Positive signal extraction completed.
+✅ Generated 30 positive signals
+
+🔹 Ascension Engine (Recovery & Opportunity) ...
+✅ Ascension Engine (Recovery & Opportunity) completed.
+🌱 Ascension Engine Alpha started
+Loaded 30 positive signals
+Computed Recovery Probability for 233 threats
+Generated Opportunity Matrix with 233 entries
+Resilience Score: 45.73
+✅ Ascension report saved to ascension_report.json
+
+📊 Top 5 Recovery Opportunities:
+  1. Civil War in Sudan (ID: CFR-CIVILWARINSUDAN)
+     Impact: 0.77, Effort: 0.10, Score: 7.02
+     Current RP: 0.29, SCP: 0.91
+  2. Conflict in Ethiopia (ID: CFR-CONFLICTINETHIOPIA)
+     Impact: 0.77, Effort: 0.10, Score: 7.02
+     Current RP: 0.29, SCP: 0.91
+  3. Iran’s War With Israel and the United States (ID: CFR-IRANSWARWITHISRAELANDTHE)
+     Impact: 0.77, Effort: 0.10, Score: 7.02
+     Current RP: 0.29, SCP: 0.91
+  4. Conflict in Yemen and the Red Sea (ID: CFR-CONFLICTINYEMENANDTHERED)
+     Impact: 0.77, Effort: 0.10, Score: 7.02
+     Current RP: 0.29, SCP: 0.91
+  5. Conflict Between India and Pakistan (ID: CFR-CONFLICTBETWEENINDIAANDPAK)
+     Impact: 0.77, Effort: 0.10, Score: 7.02
+     Current RP: 0.29, SCP: 0.91
+
+🔹 Sources update ...
+✅ Sources update completed.
+✅ Sources updated: 10 data sources, 8 software libraries
+
+🔹 Daily archive generation ...
+✅ Daily archive generation completed.
+Generated archive: archive/2026-06-25.html
+
+🔹 Archive index generation ...
+✅ Archive index generation completed.
+✅ Archive index generated: 23 unique archives
+
+🔹 Conflict monitor data generation ...
+✅ Conflict monitor data generation completed.
+🌍 Generating conflict coordinates...
+✅ Saved 81 conflicts to conflict_data.json
+⚠️ Unmatched threats (using default Middle East): CFR-CONFLICTINTHECENTRALAFRICA, CFR-CRIMINALVIOLENCEINHAITI, CFR-TENSIONSBETWEENARMENIAANDA
+
+🔹 Regional indices JSON ...
+✅ Regional indices JSON completed.
+✅ Regional indices saved for 20 regions
+
+🔹 Daily brief generation ...
+✅ Daily brief generation completed.
+✅ Daily brief generated (Markdown + HTML)
+
+🔹 Git commit and push ...
+✅ Git commit and push completed.
+✅ Changes committed and pushed
+
+🔹 Health check generation ...
+✅ Health check generation completed.
+✅ Health data written to health.json
+   Status: ok
+   Threats: 233
+   Errors: 0
+
+============================================================
+✅ Cathedral pipeline finished.
+   Completed at 2026-06-25T11:35:07.996498
+============================================================

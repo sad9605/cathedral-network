@@ -619,7 +619,7 @@
       ]
     }
   ],
-  "last_updated": "2026-06-25T11:34:11.180037",
+  "last_updated": "2026-06-25T11:43:24.121125",
   "disclaimer": "This list is generated automatically and may not be exhaustive. The Cathedral Network does not endorse any external organisation; all sources are included for transparency and analytical purposes. Attribution and source credibility weighting are applied per Law III.",
   "software": [
     {
@@ -653,12 +653,62 @@
     {
       "name": "Cascade Discovery",
       "type": "Custom Module"
+    },
+    {
+      "name": "pgmpy",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "prophet",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "scipy",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "numpy",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "pandas",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "statsmodels",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "yfinance",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "feedparser",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "beautifulsoup4",
+      "type": "Python Library",
+      "status": "installed"
+    },
+    {
+      "name": "requests",
+      "type": "Python Library",
+      "status": "installed"
     }
   ],
   "stats": {
     "threats": 233,
     "cascade_rules": 0,
     "data_sources": 10,
-    "software_libraries": 8
+    "software_libraries": 18
   }
 }
