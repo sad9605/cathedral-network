@@ -26,12 +26,14 @@
     #globe-container {
       width: 100%;
       height: 600px;
+      min-height: 500px;
       background: #0a0a12;
       border-radius: var(--card-radius);
       position: relative;
       overflow: hidden;
+      cursor: grab;
     }
-    body.dark #globe-container { background: #0a0a12; }
+    #globe-container:active { cursor: grabbing; }
 
     .globe-controls {
       position: absolute;
@@ -366,9 +368,8 @@
 
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
-<!-- Three.js -->
+<!-- Three.js (only this one library needed) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://unpkg.com/three-globe@2.24.13/dist/three-globe.min.js"></script>
 
 <script>
   // ---- Sidebar toggle ----
@@ -392,12 +393,16 @@
   });
 
   // ---- Globe state ----
-  let globe = null;
-  let sceneData = { points: [], heatmapData: [] };
+  let globeScene = null;
+  let globeCamera = null;
+  let globeRenderer = null;
+  let globeObj = null;
+  let pointsData = [];
   let historyData = [];
   let trendData = {};
-  let currentMode = '3d';
-  let showForecast = false;
+  let isDragging = false;
+  let previousMousePosition = { x: 0, y: 0 };
+  let autoRotate = true;
 
   // ---- Load conflict data ----
   async function loadConflictData() {
@@ -409,7 +414,6 @@
 
       document.getElementById('conflictCount').textContent = threats.length;
 
-      // Stats
       const total = threats.length;
       const critical = threats.filter(t => t.scp >= 0.80).length;
       const high = threats.filter(t => t.scp >= 0.60 && t.scp < 0.80).length;
@@ -422,129 +426,265 @@
       document.getElementById('elevatedCount').textContent = elevated;
       document.getElementById('moderateCount').textContent = moderate;
 
-      // Build globe data
-      const points = [];
-      threats.forEach(t => {
-        const scp = t.scp || 0.5;
-        points.push({
-          lat: t.lat,
-          lng: t.lng,
-          size: Math.max(0.3, scp * 1.5),
-          color: scp >= 0.80 ? '#dc2626' : scp >= 0.60 ? '#f97316' : scp >= 0.40 ? '#eab308' : '#22c55e',
-          label: `${t.id}: ${t.name} (${(scp*100).toFixed(0)}%)`,
-          threat: t
-        });
-      });
+      pointsData = threats.map(t => ({
+        lat: t.lat,
+        lng: t.lng,
+        scp: t.scp || 0.5,
+        id: t.id,
+        name: t.name,
+        status: t.status || 'Yellow'
+      }));
 
-      sceneData.points = points;
-      sceneData.heatmapData = points.map(p => ({ lat: p.lat, lng: p.lng, intensity: p.threat.scp || 0.5 }));
+      if (data.history) historyData = data.history;
+      if (data.trend) trendData = data.trend;
 
-      // Load history and trend from the data
-      if (data.history && data.history.length > 0) {
-        historyData = data.history;
-      }
-      if (data.trend) {
-        trendData = data.trend;
-      }
-
-      initGlobe(points);
+      initGlobe();
     } catch(e) {
       console.error('Error loading conflicts:', e);
       document.getElementById('conflictCount').textContent = 'Error';
+      document.getElementById('globe-container').innerHTML = `
+        <div style="display:flex; align-items:center; justify-content:center; height:100%; color:#888; flex-direction:column; gap:1rem; padding:2rem;">
+          <span style="font-size:2rem;">🌍</span>
+          <p>Could not load conflict data. Please try again later.</p>
+        </div>
+      `;
     }
   }
 
   // ---- Init globe ----
-  function initGlobe(points) {
+  function initGlobe() {
     const container = document.getElementById('globe-container');
-
-    if (globe) {
-      globe._destructor();
-      globe = null;
-    }
-
     const width = container.clientWidth || 800;
-    const height = container.clientHeight || 600;
+    const height = container.clientHeight || 500;
 
-    const Globe = window.ThreeGlobe;
-    const globeInstance = new Globe()
-      .globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg')
-      .bumpImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png')
-      .pointLat('lat')
-      .pointLng('lng')
-      .pointColor('color')
-      .pointAltitude(0.01)
-      .pointRadius('size')
-      .pointLabel('label')
-      .pointsData(points);
-
+    // Scene
     const scene = new THREE.Scene();
-    scene.add(globeInstance);
+    globeScene = scene;
 
+    // Camera
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.set(0, 0, 2.5);
+    camera.position.set(0, 0, 3);
+    globeCamera = camera;
 
+    // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x0a0a12, 1);
+    globeRenderer = renderer;
 
-    // Clear previous content except legend
+    // Clear container (keep legend)
     while (container.firstChild) {
       if (container.firstChild.id === 'globeLegend') break;
       container.removeChild(container.firstChild);
     }
     const legend = document.getElementById('globeLegend');
     if (legend) container.appendChild(legend);
+    container.appendChild(renderer.domElement);
 
-    container.insertBefore(renderer.domElement, legend);
+    // ---- Earth Sphere ----
+    const geometry = new THREE.SphereGeometry(1, 64, 64);
+    const textureLoader = new THREE.TextureLoader();
+    const texture = textureLoader.load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
+    const material = new THREE.MeshPhongMaterial({
+      map: texture,
+      shininess: 5
+    });
+    const earth = new THREE.Mesh(geometry, material);
+    scene.add(earth);
+    globeObj = earth;
 
-    // Globe object
-    globe = { scene, camera, renderer, globeInstance, points };
+    // ---- Atmosphere glow ----
+    const glowGeometry = new THREE.SphereGeometry(1.02, 64, 64);
+    const glowMaterial = new THREE.MeshBasicMaterial({
+      color: 0x7c4dff,
+      transparent: true,
+      opacity: 0.08,
+      side: THREE.BackSide
+    });
+    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+    scene.add(glow);
 
-    // Click interaction
+    // ---- Lights ----
+    const ambientLight = new THREE.AmbientLight(0x404060, 0.5);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+    directionalLight.position.set(5, 3, 5);
+    scene.add(directionalLight);
+    const backLight = new THREE.DirectionalLight(0x7c4dff, 0.3);
+    backLight.position.set(-5, -3, -5);
+    scene.add(backLight);
+
+    // ---- Points (conflict dots) ----
+    const pointGroup = new THREE.Group();
+    scene.add(pointGroup);
+
+    // For each conflict, add a sprite
+    pointsData.forEach(p => {
+      const lat = p.lat * Math.PI / 180;
+      const lng = p.lng * Math.PI / 180;
+      const radius = 1.01;
+
+      const x = radius * Math.cos(lat) * Math.cos(lng);
+      const y = radius * Math.sin(lat);
+      const z = radius * Math.cos(lat) * Math.sin(lng);
+
+      const scp = p.scp || 0.5;
+      const color = scp >= 0.80 ? '#dc2626' : scp >= 0.60 ? '#f97316' : scp >= 0.40 ? '#eab308' : '#22c55e';
+
+      // Create a canvas sprite
+      const canvas = document.createElement('canvas');
+      canvas.width = 64;
+      canvas.height = 64;
+      const ctx = canvas.getContext('2d');
+
+      const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
+      gradient.addColorStop(0, color);
+      gradient.addColorStop(0.4, color);
+      gradient.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(32, 32, 28, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Glow ring
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(32, 32, 20, 0, Math.PI * 2);
+      ctx.stroke();
+
+      const texture2 = new THREE.CanvasTexture(canvas);
+      const spriteMaterial = new THREE.SpriteMaterial({
+        map: texture2,
+        transparent: true,
+        depthTest: false,
+        depthWrite: false
+      });
+      const sprite = new THREE.Sprite(spriteMaterial);
+      sprite.position.set(x, y, z);
+      sprite.scale.set(0.1 + scp * 0.12, 0.1 + scp * 0.12, 1);
+      sprite.userData = p;
+      pointGroup.add(sprite);
+    });
+
+    // ---- Stars background ----
+    const starsGeometry = new THREE.BufferGeometry();
+    const starsCount = 3000;
+    const starPositions = new Float32Array(starsCount * 3);
+    for (let i = 0; i < starsCount * 3; i++) {
+      starPositions[i] = (Math.random() - 0.5) * 200;
+    }
+    starsGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+    const starsMaterial = new THREE.PointsMaterial({
+      color: 0x666688,
+      size: 0.15,
+      transparent: true
+    });
+    const stars = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(stars);
+
+    // ---- Mouse interaction ----
+    let isDragging = false;
+    let previousMouse = { x: 0, y: 0 };
+
+    renderer.domElement.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      autoRotate = false;
+      previousMouse.x = e.clientX;
+      previousMouse.y = e.clientY;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - previousMouse.x;
+      const deltaY = e.clientY - previousMouse.y;
+      earth.rotation.y += deltaX * 0.005;
+      earth.rotation.x += deltaY * 0.005;
+      glow.rotation.y = earth.rotation.y;
+      glow.rotation.x = earth.rotation.x;
+      pointGroup.rotation.y = earth.rotation.y;
+      pointGroup.rotation.x = earth.rotation.x;
+      previousMouse.x = e.clientX;
+      previousMouse.y = e.clientY;
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+      setTimeout(() => { autoRotate = true; }, 3000);
+    });
+
+    // Touch support
+    let touchStart = { x: 0, y: 0 };
+    renderer.domElement.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      isDragging = true;
+      autoRotate = false;
+      touchStart.x = touch.clientX;
+      touchStart.y = touch.clientY;
+    });
+
+    renderer.domElement.addEventListener('touchmove', (e) => {
+      if (!isDragging || !e.touches.length) return;
+      const touch = e.touches[0];
+      const deltaX = touch.clientX - touchStart.x;
+      const deltaY = touch.clientY - touchStart.y;
+      earth.rotation.y += deltaX * 0.005;
+      earth.rotation.x += deltaY * 0.005;
+      glow.rotation.y = earth.rotation.y;
+      glow.rotation.x = earth.rotation.x;
+      pointGroup.rotation.y = earth.rotation.y;
+      pointGroup.rotation.x = earth.rotation.x;
+      touchStart.x = touch.clientX;
+      touchStart.y = touch.clientY;
+    });
+
+    renderer.domElement.addEventListener('touchend', () => {
+      isDragging = false;
+      setTimeout(() => { autoRotate = true; }, 3000);
+    });
+
+    // ---- Click to show conflict details ----
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
-    renderer.domElement.addEventListener('click', (event) => {
+    renderer.domElement.addEventListener('click', (e) => {
       const rect = renderer.domElement.getBoundingClientRect();
-      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
       raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(globeInstance.children);
+
+      const sprites = pointGroup.children;
+      const intersects = raycaster.intersectObjects(sprites);
       if (intersects.length > 0) {
-        const obj = intersects[0].object;
-        const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
-        if (idx !== -1) {
-          const point = globeInstance.pointsData()[idx];
-          if (point && point.threat) {
-            const t = point.threat;
-            alert(`Conflict: ${t.id} – ${t.name}\nSCP: ${(t.scp || 0.5)*100}%\nStatus: ${t.status || 'Unknown'}`);
-          }
+        const hit = intersects[0].object;
+        const data = hit.userData;
+        if (data && data.id) {
+          alert(`Conflict: ${data.id} – ${data.name}\nSCP: ${(data.scp || 0.5)*100}%\nStatus: ${data.status || 'Unknown'}`);
         }
       }
     });
 
-    // Hover tooltip
-    renderer.domElement.addEventListener('mousemove', (event) => {
+    // ---- Hover tooltip ----
+    renderer.domElement.addEventListener('mousemove', (e) => {
       const rect = renderer.domElement.getBoundingClientRect();
-      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
       raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(globeInstance.children);
+
+      const sprites = pointGroup.children;
+      const intersects = raycaster.intersectObjects(sprites);
+      const tooltip = document.getElementById('globeTooltip');
       if (intersects.length > 0) {
-        const obj = intersects[0].object;
-        const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
-        if (idx !== -1) {
-          const point = globeInstance.pointsData()[idx];
-          if (point && point.label) {
-            const tooltip = document.getElementById('globeTooltip');
-            tooltip.style.display = 'block';
-            tooltip.style.left = (event.clientX - rect.left + 10) + 'px';
-            tooltip.style.top = (event.clientY - rect.top - 10) + 'px';
-            tooltip.textContent = point.label;
-          }
+        const hit = intersects[0].object;
+        const data = hit.userData;
+        if (data && data.id) {
+          tooltip.style.display = 'block';
+          tooltip.style.left = (e.clientX - rect.left + 10) + 'px';
+          tooltip.style.top = (e.clientY - rect.top - 10) + 'px';
+          tooltip.textContent = `${data.id}: ${data.name} (${(data.scp || 0.5)*100}%)`;
         }
       } else {
-        document.getElementById('globeTooltip').style.display = 'none';
+        tooltip.style.display = 'none';
       }
     });
 
@@ -552,70 +692,179 @@
       document.getElementById('globeTooltip').style.display = 'none';
     });
 
-    // Auto-rotate
-    let angle = 0;
+    // ---- Animation loop ----
     function animate() {
       requestAnimationFrame(animate);
-      globeInstance.rotation.y += 0.001;
+      if (autoRotate) {
+        earth.rotation.y += 0.002;
+        glow.rotation.y = earth.rotation.y;
+        pointGroup.rotation.y = earth.rotation.y;
+      }
+      // Pulse points slightly
+      pointGroup.children.forEach((sprite, i) => {
+        const pulse = 1 + 0.05 * Math.sin(Date.now() / 1000 + i);
+        const baseScale = 0.1 + (sprite.userData.scp || 0.5) * 0.12;
+        sprite.scale.set(baseScale * pulse, baseScale * pulse, 1);
+      });
       renderer.render(scene, camera);
     }
     animate();
 
-    // Resize
+    // ---- Resize ----
     const resize = () => {
       const w = container.clientWidth || 800;
-      const h = container.clientHeight || 600;
+      const h = container.clientHeight || 500;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
     };
     window.addEventListener('resize', resize);
 
-    // Reset view
+    // ---- Controls ----
     document.getElementById('btn-reset').addEventListener('click', () => {
-      globeInstance.rotation.y = 0;
-      camera.position.set(0, 0, 2.5);
+      earth.rotation.x = 0;
+      earth.rotation.y = 0;
+      glow.rotation.x = 0;
+      glow.rotation.y = 0;
+      pointGroup.rotation.x = 0;
+      pointGroup.rotation.y = 0;
+      camera.position.set(0, 0, 3);
     });
 
-    // Mode buttons
+    // Heatmap mode – just change point colours
+    document.getElementById('btn-heatmap').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('btn-3d').classList.remove('active');
+      document.getElementById('btn-forecast').classList.remove('active');
+      const isHeatmap = this.classList.contains('active');
+      pointGroup.children.forEach(sprite => {
+        const data = sprite.userData;
+        if (isHeatmap) {
+          const scp = data.scp || 0.5;
+          const intensity = Math.floor(scp * 255);
+          const color = `rgb(${intensity}, ${Math.floor(intensity * 0.5)}, 255)`;
+          const canvas = document.createElement('canvas');
+          canvas.width = 64;
+          canvas.height = 64;
+          const ctx = canvas.getContext('2d');
+          const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
+          gradient.addColorStop(0, color);
+          gradient.addColorStop(1, 'rgba(0,0,0,0)');
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(32, 32, 28, 0, Math.PI * 2);
+          ctx.fill();
+          sprite.material.map = new THREE.CanvasTexture(canvas);
+          sprite.material.needsUpdate = true;
+        } else {
+          // Reset to original colour
+          const scp = data.scp || 0.5;
+          const color = scp >= 0.80 ? '#dc2626' : scp >= 0.60 ? '#f97316' : scp >= 0.40 ? '#eab308' : '#22c55e';
+          const canvas = document.createElement('canvas');
+          canvas.width = 64;
+          canvas.height = 64;
+          const ctx = canvas.getContext('2d');
+          const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
+          gradient.addColorStop(0, color);
+          gradient.addColorStop(1, 'rgba(0,0,0,0)');
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(32, 32, 28, 0, Math.PI * 2);
+          ctx.fill();
+          sprite.material.map = new THREE.CanvasTexture(canvas);
+          sprite.material.needsUpdate = true;
+        }
+      });
+    });
+
+    // Forecast mode – highlight escalating threats
+    document.getElementById('btn-forecast').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('btn-3d').classList.remove('active');
+      document.getElementById('btn-heatmap').classList.remove('active');
+      const show = this.classList.contains('active');
+      pointGroup.children.forEach(sprite => {
+        const data = sprite.userData;
+        if (show && trendData[data.id] && trendData[data.id].trend === 'up') {
+          const canvas = document.createElement('canvas');
+          canvas.width = 64;
+          canvas.height = 64;
+          const ctx = canvas.getContext('2d');
+          const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 30);
+          gradient.addColorStop(0, '#7c4dff');
+          gradient.addColorStop(0.5, '#7c4dff');
+          gradient.addColorStop(1, 'rgba(124,77,255,0)');
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(32, 32, 30, 0, Math.PI * 2);
+          ctx.fill();
+          // Add arrow
+          ctx.strokeStyle = 'white';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(32, 16);
+          ctx.lineTo(32, 48);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(24, 24);
+          ctx.lineTo(32, 16);
+          ctx.lineTo(40, 24);
+          ctx.stroke();
+          sprite.material.map = new THREE.CanvasTexture(canvas);
+          sprite.material.needsUpdate = true;
+          sprite.scale.set(0.25, 0.25, 1);
+        } else if (!show) {
+          // Reset
+          const scp = data.scp || 0.5;
+          const color = scp >= 0.80 ? '#dc2626' : scp >= 0.60 ? '#f97316' : scp >= 0.40 ? '#eab308' : '#22c55e';
+          const canvas = document.createElement('canvas');
+          canvas.width = 64;
+          canvas.height = 64;
+          const ctx = canvas.getContext('2d');
+          const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
+          gradient.addColorStop(0, color);
+          gradient.addColorStop(1, 'rgba(0,0,0,0)');
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(32, 32, 28, 0, Math.PI * 2);
+          ctx.fill();
+          sprite.material.map = new THREE.CanvasTexture(canvas);
+          sprite.material.needsUpdate = true;
+          const baseScale = 0.1 + (data.scp || 0.5) * 0.12;
+          sprite.scale.set(baseScale, baseScale, 1);
+        }
+      });
+    });
+
+    // 3D mode button – reset to default
     document.getElementById('btn-3d').addEventListener('click', function() {
       this.classList.add('active');
       document.getElementById('btn-heatmap').classList.remove('active');
       document.getElementById('btn-forecast').classList.remove('active');
-      currentMode = '3d';
-      showForecast = false;
-      globeInstance.pointsData(sceneData.points);
-    });
-
-    document.getElementById('btn-heatmap').addEventListener('click', function() {
-      this.classList.add('active');
-      document.getElementById('btn-3d').classList.remove('active');
-      document.getElementById('btn-forecast').classList.remove('active');
-      currentMode = 'heatmap';
-      showForecast = false;
-      const heatmapPoints = sceneData.points.map(p => ({ ...p, size: p.size * 1.5, color: '#7c4dff' }));
-      globeInstance.pointsData(heatmapPoints);
-    });
-
-    document.getElementById('btn-forecast').addEventListener('click', function() {
-      this.classList.toggle('active');
-      const show = this.classList.contains('active');
-      showForecast = show;
-      const points = sceneData.points.map(p => {
-        const tid = p.threat?.id;
-        const trend = trendData[tid] || {};
-        if (trend.trend === 'up' && show) {
-          return { ...p, size: p.size * 1.8, color: '#7c4dff' };
-        }
-        return p;
+      // Reset all points to default
+      pointGroup.children.forEach(sprite => {
+        const data = sprite.userData;
+        const scp = data.scp || 0.5;
+        const color = scp >= 0.80 ? '#dc2626' : scp >= 0.60 ? '#f97316' : scp >= 0.40 ? '#eab308' : '#22c55e';
+        const canvas = document.createElement('canvas');
+        canvas.width = 64;
+        canvas.height = 64;
+        const ctx = canvas.getContext('2d');
+        const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
+        gradient.addColorStop(0, color);
+        gradient.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(32, 32, 28, 0, Math.PI * 2);
+        ctx.fill();
+        sprite.material.map = new THREE.CanvasTexture(canvas);
+        sprite.material.needsUpdate = true;
+        const baseScale = 0.1 + (data.scp || 0.5) * 0.12;
+        sprite.scale.set(baseScale, baseScale, 1);
       });
-      globeInstance.pointsData(points);
-      // Also update mode buttons
-      document.getElementById('btn-3d').classList.remove('active');
-      document.getElementById('btn-heatmap').classList.remove('active');
     });
 
-    // Time slider
+    // Time slider – update points based on history
     document.getElementById('timeSlider').addEventListener('input', function() {
       const val = parseInt(this.value);
       const label = document.getElementById('timeLabel');
@@ -630,20 +879,30 @@
       label.textContent = date.toLocaleDateString();
 
       const scpMap = entry.scp || {};
-      const updatedPoints = sceneData.points.map(p => {
-        const threatId = p.threat?.id;
-        const histScp = threatId ? scpMap[threatId] : null;
+      pointGroup.children.forEach(sprite => {
+        const data = sprite.userData;
+        const histScp = scpMap[data.id];
         if (histScp !== undefined && histScp !== null) {
           const newScp = histScp;
           const color = newScp >= 0.80 ? '#dc2626' : newScp >= 0.60 ? '#f97316' : newScp >= 0.40 ? '#eab308' : '#22c55e';
-          return { ...p, size: Math.max(0.3, newScp * 1.5), color, label: `${p.threat.id}: ${p.threat.name} (${(newScp*100).toFixed(0)}%)` };
+          const canvas = document.createElement('canvas');
+          canvas.width = 64;
+          canvas.height = 64;
+          const ctx = canvas.getContext('2d');
+          const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
+          gradient.addColorStop(0, color);
+          gradient.addColorStop(1, 'rgba(0,0,0,0)');
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(32, 32, 28, 0, Math.PI * 2);
+          ctx.fill();
+          sprite.material.map = new THREE.CanvasTexture(canvas);
+          sprite.material.needsUpdate = true;
+          const baseScale = 0.1 + newScp * 0.12;
+          sprite.scale.set(baseScale, baseScale, 1);
+          data.scp = newScp;
         }
-        return p;
       });
-      if (globe && globe.globeInstance) {
-        globe.globeInstance.pointsData(updatedPoints);
-        sceneData.points = updatedPoints;
-      }
     });
   }
 
