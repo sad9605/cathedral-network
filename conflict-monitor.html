@@ -405,7 +405,8 @@ function initCesium() {
             navigationHelpButton: false,
             selectionIndicator: false,
             infoBox: false,
-            terrainProvider: new Cesium.createWorldTerrain(),
+            // ✅ FIX: removed 'new' – createWorldTerrain is a factory function
+            terrainProvider: Cesium.createWorldTerrain(),
         });
         viewer.cesiumWidget.creditContainer.style.display = 'none';
         // Use satellite imagery
