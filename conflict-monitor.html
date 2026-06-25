@@ -8,6 +8,7 @@
   <meta name="description" content="3D conflict intelligence dashboard with historical and forecast layers.">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Violet pulse animation (same as other pages) */
     .violet-pulse {
       display: inline-block;
       width: 12px;
@@ -18,22 +19,22 @@
       flex-shrink: 0;
     }
     @keyframes pulse-violet {
-      0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124,77,255,0.4); }
-      50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124,77,255,0); }
-      100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124,77,255,0); }
+      0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0.4); }
+      50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124, 77, 255, 0); }
+      100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0); }
     }
 
     #globe-container {
       width: 100%;
       height: 600px;
-      min-height: 500px;
       background: #0a0a12;
       border-radius: var(--card-radius);
       position: relative;
       overflow: hidden;
-      cursor: grab;
     }
-    #globe-container:active { cursor: grabbing; }
+    body.dark #globe-container {
+      background: #0a0a12;
+    }
 
     .globe-controls {
       position: absolute;
@@ -41,51 +42,72 @@
       left: 1rem;
       z-index: 10;
       display: flex;
-      gap: 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
       background: rgba(0,0,0,0.7);
-      padding: 0.8rem 1.2rem;
+      padding: 0.6rem 1rem;
       border-radius: 40px;
       backdrop-filter: blur(8px);
       border: 1px solid #333;
-      flex-wrap: wrap;
+      align-items: center;
     }
-    .globe-controls button {
+    .globe-controls button,
+    .globe-controls .slider-container {
       background: none;
       border: none;
       color: #ccc;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       cursor: pointer;
       padding: 0.3rem 0.8rem;
       border-radius: 40px;
       transition: background 0.2s;
     }
-    .globe-controls button:hover { background: #7c4dff; color: white; }
-    .globe-controls button.active { background: #7c4dff; color: white; }
+    .globe-controls button:hover {
+      background: #7c4dff;
+      color: white;
+    }
+    .globe-controls button.active {
+      background: #7c4dff;
+      color: white;
+    }
     .globe-controls .slider-container {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      padding: 0;
     }
     .globe-controls .slider-container input[type="range"] {
-      width: 100px;
+      width: 80px;
       accent-color: #7c4dff;
     }
-    .globe-controls .slider-container label { color: #aaa; font-size: 0.7rem; }
+    .globe-controls .slider-container label {
+      color: #aaa;
+      font-size: 0.7rem;
+    }
     .globe-legend {
       position: absolute;
       top: 1rem;
       right: 1rem;
       z-index: 10;
       background: rgba(0,0,0,0.7);
-      padding: 0.8rem 1rem;
+      padding: 0.6rem 0.8rem;
       border-radius: 12px;
       border: 1px solid #333;
       backdrop-filter: blur(8px);
       color: #aaa;
-      font-size: 0.75rem;
+      font-size: 0.65rem;
     }
-    .globe-legend .item { display: flex; align-items: center; gap: 0.5rem; margin: 0.2rem 0; }
-    .globe-legend .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .globe-legend .item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 0.15rem 0;
+    }
+    .globe-legend .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
     .globe-tooltip {
       position: absolute;
       display: none;
@@ -94,7 +116,7 @@
       border-radius: 8px;
       padding: 0.6rem 1rem;
       color: white;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       pointer-events: none;
       z-index: 20;
       backdrop-filter: blur(8px);
@@ -108,141 +130,46 @@
       box-shadow: var(--shadow-sm);
       border-left: 4px solid var(--violet-dark);
     }
-    body.dark .info-panel { background: #2a2a3a; }
-
-    .sidebar-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 220px;
-      height: 100%;
-      background: white;
-      border-right: 1px solid #eee;
-      overflow-y: auto;
-      z-index: 1000;
-      padding: 1rem;
-      transition: transform 0.3s ease;
+    body.dark .info-panel {
+      background: #2a2a3a;
     }
-    body.dark .sidebar-container { background: #2a2a3a; border-right-color: #444; }
-    .sidebar-container .sidebar-header {
+    .info-panel .conflict-detail {
+      display: none;
+    }
+    .info-panel .conflict-detail.active {
+      display: block;
+    }
+    .info-panel .conflict-detail h3 {
+      margin-top: 0;
+      color: var(--violet-dark);
+    }
+    body.dark .info-panel .conflict-detail h3 {
+      color: #b39ddb;
+    }
+    .info-panel .detail-row {
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.75rem;
+      padding: 0.3rem 0;
       border-bottom: 1px solid #eee;
     }
-    body.dark .sidebar-container .sidebar-header { border-bottom-color: #444; }
-    .sidebar-container .sidebar-header span {
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
-      color: var(--violet-dark);
+    body.dark .info-panel .detail-row {
+      border-bottom-color: #444;
     }
-    body.dark .sidebar-container .sidebar-header span { color: #b39ddb; }
-    .sidebar-container nav .nav-section { margin-bottom: 1.25rem; }
-    .sidebar-container nav .nav-section strong {
-      display: block;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--violet-dark);
-      padding: 0.2rem 0 0.3rem 0;
-      opacity: 0.7;
+    .info-panel .detail-row .label {
+      font-weight: 600;
+      width: 120px;
+      flex-shrink: 0;
     }
-    body.dark .sidebar-container nav .nav-section strong { color: #b39ddb; }
-    .sidebar-container nav .nav-section a {
-      display: block;
-      padding: 0.3rem 0.5rem;
-      font-size: 0.9rem;
-      color: var(--text-dark);
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.15s;
+    .info-panel .detail-row .value {
+      flex: 1;
     }
-    body.dark .sidebar-container nav .nav-section a { color: #f0f0f0; }
-    .sidebar-container nav .nav-section a:hover { background: var(--violet-light); }
-    body.dark .sidebar-container nav .nav-section a:hover { background: #3a3a4a; }
 
-    #sidebar-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.5rem;
-      color: var(--violet-dark);
-    }
-    body.dark #sidebar-toggle { color: #b39ddbW; }
-
-    @media (max-width: 768px) {
-      .sidebar-container { transform: translateX(-100%); width: 260px; }
-      .sidebar-container.open { transform: translateX(0); }
-      #sidebar-toggle { display: block; }
-      .container { margin-left: 0 !important; }
-    }
-    @media (min-width: 769px) { .container { margin-left: 240px; } }
-
-    .top-nav {
-      display: none;
-      background: var(--violet-light);
-      padding: 0.5rem 0.8rem;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      border-radius: var(--card-radius);
-      margin-bottom: 1rem;
-      justify-content: center;
-    }
-    body.dark .top-nav { background: #2a2a3a; }
-    .top-nav a {
-      color: var(--violet-dark);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 40px;
-    }
-    body.dark .top-nav a { color: #b39ddb; }
-    .top-nav a:hover { background: var(--violet-dark); color: white; }
-    body.dark .top-nav a:hover { background: var(--violet); color: #1a1a1a; }
-    @media (max-width: 768px) { .top-nav { display: flex; } }
-
-    .footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-style: italic;
-      color: #888;
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
-    }
-    .dark-mode-toggle {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      background: var(--violet-dark);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: var(--shadow-sm);
-    }
-    @media (max-width: 600px) {
-      .banner-content { flex-direction: column; text-align: center; }
-      .container { padding: 1rem; }
-      #globe-container { height: 400px; }
-      .globe-controls { flex-wrap: wrap; padding: 0.5rem; }
-      .globe-controls .slider-container input[type="range"] { width: 60px; }
-      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
-    }
+    /* Sidebar and other styles are in style.css – we reuse them */
+    .sidebar-container, .top-nav, .footer, .dark-mode-toggle, .container { /* already defined */ }
   </style>
 </head>
 <body>
 
-<!-- Sidebar -->
+<!-- Sidebar (hardcoded for consistency) -->
 <div class="sidebar-container" id="sidebar">
   <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
   <nav>
@@ -289,18 +216,7 @@
 <header class="cathedral-banner">
   <div class="banner-content">
     <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-    <div class="logo-mark">
-      <svg viewBox="0 0 120 140" width="50" height="60">
-        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
-        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
-        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
-        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
-        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
-        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
-        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
-        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
-      </svg>
-    </div>
+    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
     <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Conflict Monitor</p></div>
   </div>
 </header>
@@ -325,22 +241,22 @@
       <span style="font-size: 0.8rem; color: #888;">Live · <span id="conflictCount">Loading...</span> active conflicts</span>
     </div>
   </div>
-  <p style="margin-bottom: 1rem;">Real‑time 3D intelligence of active conflicts, territorial changes, and escalation forecasts.</p>
+  <p style="margin-bottom: 1rem;">Real‑time 3D intelligence of active armed conflicts, territorial changes, and escalation forecasts.</p>
 
   <!-- Globe -->
   <div id="globe-container">
     <div class="globe-legend" id="globeLegend">
-      <div class="item"><span class="dot" style="background:#dc2626;"></span> Critical (SCP ≥ 0.80)</div>
-      <div class="item"><span class="dot" style="background:#f97316;"></span> High (SCP 0.60–0.79)</div>
-      <div class="item"><span class="dot" style="background:#eab308;"></span> Elevated (SCP 0.40–0.59)</div>
-      <div class="item"><span class="dot" style="background:#22c55e;"></span> Moderate (SCP < 0.40)</div>
+      <div class="item"><span class="dot" style="background:#dc2626;"></span> Critical</div>
+      <div class="item"><span class="dot" style="background:#f97316;"></span> High</div>
+      <div class="item"><span class="dot" style="background:#eab308;"></span> Elevated</div>
+      <div class="item"><span class="dot" style="background:#22c55e;"></span> Moderate</div>
     </div>
     <div class="globe-tooltip" id="globeTooltip"></div>
     <div class="globe-controls">
       <button id="btn-3d" class="active">🌐 3D</button>
       <button id="btn-heatmap">🔥 Heatmap</button>
       <button id="btn-forecast">🔮 Forecast</button>
-      <button id="btn-style">🎨 Style</button>
+      <button id="btn-style">🟣 Hologram</button>
       <div class="slider-container">
         <label>📅</label>
         <input type="range" id="timeSlider" min="0" max="100" value="100">
@@ -359,6 +275,10 @@
       <div><strong>Elevated:</strong> <span id="elevatedCount" style="color:#eab308;">--</span></div>
       <div><strong>Moderate:</strong> <span id="moderateCount" style="color:#22c55e;">--</span></div>
     </div>
+    <div id="conflictDetail" class="conflict-detail">
+      <h3 id="detailTitle">Conflict Intelligence</h3>
+      <div id="detailBody"></div>
+    </div>
   </div>
 
   <div class="footer">
@@ -369,8 +289,9 @@
 
 <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
-<!-- Three.js (only this one library needed) -->
+<!-- Three.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three-globe@2.24.13/dist/three-globe.min.js"></script>
 
 <script>
   // ---- Sidebar toggle ----
@@ -393,17 +314,18 @@
     localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
   });
 
-  // ---- Globe state ----
-  let globeScene = null;
-  let globeCamera = null;
-  let globeRenderer = null;
-  let globeObj = null;
-  let pointsData = [];
-  let historyData = [];
-  let trendData = {};
-  let isDragging = false;
-  let previousMousePosition = { x: 0, y: 0 };
-  let autoRotate = true;
+  // ---- Globe logic ----
+  const globeContainer = document.getElementById('globe-container');
+  const tooltip = document.getElementById('globeTooltip');
+  const detailPanel = document.getElementById('conflictDetail');
+  const detailTitle = document.getElementById('detailTitle');
+  const detailBody = document.getElementById('detailBody');
+
+  let globe = null;
+  let currentStyle = 'satellite';
+  let currentMode = '3d';
+  let showForecast = false;
+  let allConflicts = [];
 
   // ---- Load conflict data ----
   async function loadConflictData() {
@@ -411,310 +333,141 @@
       const resp = await fetch('conflict_data.json');
       if (!resp.ok) throw new Error('Failed to fetch conflict data');
       const data = await resp.json();
-      const threats = data.threats || [];
+      allConflicts = data.conflicts || [];
 
-      document.getElementById('conflictCount').textContent = threats.length;
-
-      const total = threats.length;
-      const critical = threats.filter(t => t.scp >= 0.80).length;
-      const high = threats.filter(t => t.scp >= 0.60 && t.scp < 0.80).length;
-      const elevated = threats.filter(t => t.scp >= 0.40 && t.scp < 0.60).length;
-      const moderate = threats.filter(t => t.scp < 0.40).length;
-
-      document.getElementById('totalConflicts').textContent = total;
+      // Update stats
+      document.getElementById('conflictCount').textContent = allConflicts.length;
+      const critical = allConflicts.filter(c => c.scp >= 0.80).length;
+      const high = allConflicts.filter(c => c.scp >= 0.60 && c.scp < 0.80).length;
+      const elevated = allConflicts.filter(c => c.scp >= 0.40 && c.scp < 0.60).length;
+      const moderate = allConflicts.filter(c => c.scp < 0.40).length;
+      document.getElementById('totalConflicts').textContent = allConflicts.length;
       document.getElementById('criticalCount').textContent = critical;
       document.getElementById('highCount').textContent = high;
       document.getElementById('elevatedCount').textContent = elevated;
       document.getElementById('moderateCount').textContent = moderate;
 
-      pointsData = threats.map(t => ({
-        lat: t.lat,
-        lng: t.lng,
-        scp: t.scp || 0.5,
-        id: t.id,
-        name: t.name,
-        status: t.status || 'Yellow'
+      // Build points for globe
+      const points = allConflicts.map(c => ({
+        lat: c.lat,
+        lng: c.lng,
+        size: Math.max(0.3, (c.scp || 0.5) * 1.5),
+        color: c.scp >= 0.80 ? '#dc2626' : c.scp >= 0.60 ? '#f97316' : c.scp >= 0.40 ? '#eab308' : '#22c55e',
+        label: `${c.id}: ${c.name} (${(c.scp || 0.5)*100}%)`,
+        conflict: c
       }));
 
-      if (data.history) historyData = data.history;
-      if (data.trend) trendData = data.trend;
-
-      initGlobe();
+      initGlobe(points);
     } catch(e) {
       console.error('Error loading conflicts:', e);
       document.getElementById('conflictCount').textContent = 'Error';
-      document.getElementById('globe-container').innerHTML = `
-        <div style="display:flex; align-items:center; justify-content:center; height:100%; color:#888; flex-direction:column; gap:1rem; padding:2rem;">
-          <span style="font-size:2rem;">🌍</span>
-          <p>Could not load conflict data. Please try again later.</p>
-        </div>
-      `;
     }
   }
 
   // ---- Init globe ----
-  function initGlobe() {
+  function initGlobe(points) {
     const container = document.getElementById('globe-container');
+    if (globe) {
+      globe._destructor();
+      globe = null;
+    }
+
     const width = container.clientWidth || 800;
-    const height = container.clientHeight || 500;
+    const height = container.clientHeight || 600;
 
-    // Scene
+    const Globe = window.ThreeGlobe;
+    const globeInstance = new Globe()
+      .globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg')
+      .bumpImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png')
+      .pointLat('lat')
+      .pointLng('lng')
+      .pointColor('color')
+      .pointAltitude(0.01)
+      .pointRadius('size')
+      .pointLabel('label')
+      .pointsData(points);
+
     const scene = new THREE.Scene();
-    globeScene = scene;
-
-    // Camera
+    scene.add(globeInstance);
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.set(0, 0, 3);
-    globeCamera = camera;
-
-    // Renderer
+    camera.position.set(0, 0, 2.5);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x0a0a12, 1);
-    globeRenderer = renderer;
 
-    // Clear container (keep legend)
+    // Clear container, keep legend
     while (container.firstChild) {
       if (container.firstChild.id === 'globeLegend') break;
       container.removeChild(container.firstChild);
     }
     const legend = document.getElementById('globeLegend');
     if (legend) container.appendChild(legend);
-    container.appendChild(renderer.domElement);
+    container.insertBefore(renderer.domElement, legend);
 
-    // ---- Earth Sphere ----
-    const geometry = new THREE.SphereGeometry(1, 64, 64);
-    const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
-    const material = new THREE.MeshPhongMaterial({
-      map: texture,
-      shininess: 5
-    });
-    const earth = new THREE.Mesh(geometry, material);
-    scene.add(earth);
-    globeObj = earth;
+    // Store references
+    globe = { scene, camera, renderer, globeInstance, points };
 
-    // ---- Atmosphere glow ----
-    const glowGeometry = new THREE.SphereGeometry(1.02, 64, 64);
-    const glowMaterial = new THREE.MeshBasicMaterial({
-      color: 0x7c4dff,
-      transparent: true,
-      opacity: 0.08,
-      side: THREE.BackSide
-    });
-    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
-    scene.add(glow);
-
-    // ---- Lights ----
-    const ambientLight = new THREE.AmbientLight(0x404060, 0.5);
-    scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
-    directionalLight.position.set(5, 3, 5);
-    scene.add(directionalLight);
-    const backLight = new THREE.DirectionalLight(0x7c4dff, 0.3);
-    backLight.position.set(-5, -3, -5);
-    scene.add(backLight);
-
-    // ---- Points (conflict dots) ----
-    const pointGroup = new THREE.Group();
-    scene.add(pointGroup);
-
-    // For each conflict, add a sprite
-    pointsData.forEach(p => {
-      const lat = p.lat * Math.PI / 180;
-      const lng = p.lng * Math.PI / 180;
-      const radius = 1.01;
-
-      const x = radius * Math.cos(lat) * Math.cos(lng);
-      const y = radius * Math.sin(lat);
-      const z = radius * Math.cos(lat) * Math.sin(lng);
-
-      const scp = p.scp || 0.5;
-      const color = scp >= 0.80 ? '#dc2626' : scp >= 0.60 ? '#f97316' : scp >= 0.40 ? '#eab308' : '#22c55e';
-
-      // Create a canvas sprite
-      const canvas = document.createElement('canvas');
-      canvas.width = 64;
-      canvas.height = 64;
-      const ctx = canvas.getContext('2d');
-
-      const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
-      gradient.addColorStop(0, color);
-      gradient.addColorStop(0.4, color);
-      gradient.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.fillStyle = gradient;
-      ctx.beginPath();
-      ctx.arc(32, 32, 28, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Glow ring
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.arc(32, 32, 20, 0, Math.PI * 2);
-      ctx.stroke();
-
-      const texture2 = new THREE.CanvasTexture(canvas);
-      const spriteMaterial = new THREE.SpriteMaterial({
-        map: texture2,
-        transparent: true,
-        depthTest: false,
-        depthWrite: false
-      });
-      const sprite = new THREE.Sprite(spriteMaterial);
-      sprite.position.set(x, y, z);
-      sprite.scale.set(0.1 + scp * 0.12, 0.1 + scp * 0.12, 1);
-      sprite.userData = p;
-      pointGroup.add(sprite);
-    });
-
-    // ---- Stars background ----
-    const starsGeometry = new THREE.BufferGeometry();
-    const starsCount = 3000;
-    const starPositions = new Float32Array(starsCount * 3);
-    for (let i = 0; i < starsCount * 3; i++) {
-      starPositions[i] = (Math.random() - 0.5) * 200;
-    }
-    starsGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-    const starsMaterial = new THREE.PointsMaterial({
-      color: 0x666688,
-      size: 0.15,
-      transparent: true
-    });
-    const stars = new THREE.Points(starsGeometry, starsMaterial);
-    scene.add(stars);
-
-    // ---- Mouse interaction ----
-    let isDragging = false;
-    let previousMouse = { x: 0, y: 0 };
-
-    renderer.domElement.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      autoRotate = false;
-      previousMouse.x = e.clientX;
-      previousMouse.y = e.clientY;
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const deltaX = e.clientX - previousMouse.x;
-      const deltaY = e.clientY - previousMouse.y;
-      earth.rotation.y += deltaX * 0.005;
-      earth.rotation.x += deltaY * 0.005;
-      glow.rotation.y = earth.rotation.y;
-      glow.rotation.x = earth.rotation.x;
-      pointGroup.rotation.y = earth.rotation.y;
-      pointGroup.rotation.x = earth.rotation.x;
-      previousMouse.x = e.clientX;
-      previousMouse.y = e.clientY;
-    });
-
-    window.addEventListener('mouseup', () => {
-      isDragging = false;
-      setTimeout(() => { autoRotate = true; }, 3000);
-    });
-
-    // Touch support
-    let touchStart = { x: 0, y: 0 };
-    renderer.domElement.addEventListener('touchstart', (e) => {
-      const touch = e.touches[0];
-      isDragging = true;
-      autoRotate = false;
-      touchStart.x = touch.clientX;
-      touchStart.y = touch.clientY;
-    });
-
-    renderer.domElement.addEventListener('touchmove', (e) => {
-      if (!isDragging || !e.touches.length) return;
-      const touch = e.touches[0];
-      const deltaX = touch.clientX - touchStart.x;
-      const deltaY = touch.clientY - touchStart.y;
-      earth.rotation.y += deltaX * 0.005;
-      earth.rotation.x += deltaY * 0.005;
-      glow.rotation.y = earth.rotation.y;
-      glow.rotation.x = earth.rotation.x;
-      pointGroup.rotation.y = earth.rotation.y;
-      pointGroup.rotation.x = earth.rotation.x;
-      touchStart.x = touch.clientX;
-      touchStart.y = touch.clientY;
-    });
-
-    renderer.domElement.addEventListener('touchend', () => {
-      isDragging = false;
-      setTimeout(() => { autoRotate = true; }, 3000);
-    });
-
-    // ---- Click to show conflict details ----
+    // Click interaction – show detailed intelligence
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
-    renderer.domElement.addEventListener('click', (e) => {
+    renderer.domElement.addEventListener('click', (event) => {
       const rect = renderer.domElement.getBoundingClientRect();
-      mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
       raycaster.setFromCamera(mouse, camera);
-
-      const sprites = pointGroup.children;
-      const intersects = raycaster.intersectObjects(sprites);
+      const intersects = raycaster.intersectObjects(globeInstance.children);
       if (intersects.length > 0) {
-        const hit = intersects[0].object;
-        const data = hit.userData;
-        if (data && data.id) {
-          alert(`Conflict: ${data.id} – ${data.name}\nSCP: ${(data.scp || 0.5)*100}%\nStatus: ${data.status || 'Unknown'}`);
+        const obj = intersects[0].object;
+        const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
+        if (idx !== -1) {
+          const point = globeInstance.pointsData()[idx];
+          if (point && point.conflict) {
+            showConflictDetail(point.conflict);
+          }
         }
       }
     });
 
-    // ---- Hover tooltip ----
-    renderer.domElement.addEventListener('mousemove', (e) => {
+    // Hover tooltip
+    renderer.domElement.addEventListener('mousemove', (event) => {
       const rect = renderer.domElement.getBoundingClientRect();
-      mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
       raycaster.setFromCamera(mouse, camera);
-
-      const sprites = pointGroup.children;
-      const intersects = raycaster.intersectObjects(sprites);
-      const tooltip = document.getElementById('globeTooltip');
+      const intersects = raycaster.intersectObjects(globeInstance.children);
       if (intersects.length > 0) {
-        const hit = intersects[0].object;
-        const data = hit.userData;
-        if (data && data.id) {
-          tooltip.style.display = 'block';
-          tooltip.style.left = (e.clientX - rect.left + 10) + 'px';
-          tooltip.style.top = (e.clientY - rect.top - 10) + 'px';
-          tooltip.textContent = `${data.id}: ${data.name} (${(data.scp || 0.5)*100}%)`;
+        const obj = intersects[0].object;
+        const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
+        if (idx !== -1) {
+          const point = globeInstance.pointsData()[idx];
+          if (point && point.label) {
+            tooltip.style.display = 'block';
+            tooltip.style.left = (event.clientX - rect.left + 10) + 'px';
+            tooltip.style.top = (event.clientY - rect.top - 10) + 'px';
+            tooltip.textContent = point.label;
+          }
         }
       } else {
         tooltip.style.display = 'none';
       }
     });
-
     renderer.domElement.addEventListener('mouseleave', () => {
-      document.getElementById('globeTooltip').style.display = 'none';
+      tooltip.style.display = 'none';
     });
 
-    // ---- Animation loop ----
+    // Auto-rotate
+    let angle = 0;
     function animate() {
       requestAnimationFrame(animate);
-      if (autoRotate) {
-        earth.rotation.y += 0.002;
-        glow.rotation.y = earth.rotation.y;
-        pointGroup.rotation.y = earth.rotation.y;
-      }
-      // Pulse points slightly
-      pointGroup.children.forEach((sprite, i) => {
-        const pulse = 1 + 0.05 * Math.sin(Date.now() / 1000 + i);
-        const baseScale = 0.1 + (sprite.userData.scp || 0.5) * 0.12;
-        sprite.scale.set(baseScale * pulse, baseScale * pulse, 1);
-      });
+      globeInstance.rotation.y += 0.001;
       renderer.render(scene, camera);
     }
     animate();
 
-    // ---- Resize ----
+    // Resize
     const resize = () => {
       const w = container.clientWidth || 800;
-      const h = container.clientHeight || 500;
+      const h = container.clientHeight || 600;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
@@ -723,352 +476,111 @@
 
     // ---- Controls ----
     document.getElementById('btn-reset').addEventListener('click', () => {
-      earth.rotation.x = 0;
-      earth.rotation.y = 0;
-      glow.rotation.x = 0;
-      glow.rotation.y = 0;
-      pointGroup.rotation.x = 0;
-      pointGroup.rotation.y = 0;
-      camera.position.set(0, 0, 3);
+      globeInstance.rotation.y = 0;
+      camera.position.set(0, 0, 2.5);
     });
 
-    // Heatmap mode – just change point colours
-    document.getElementById('btn-heatmap').addEventListener('click', function() {
-      this.classList.toggle('active');
-      document.getElementById('btn-3d').classList.remove('active');
-      document.getElementById('btn-forecast').classList.remove('active');
-      const isHeatmap = this.classList.contains('active');
-      pointGroup.children.forEach(sprite => {
-        const data = sprite.userData;
-        if (isHeatmap) {
-          const scp = data.scp || 0.5;
-          const intensity = Math.floor(scp * 255);
-          const color = `rgb(${intensity}, ${Math.floor(intensity * 0.5)}, 255)`;
-          const canvas = document.createElement('canvas');
-          canvas.width = 64;
-          canvas.height = 64;
-          const ctx = canvas.getContext('2d');
-          const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
-          gradient.addColorStop(0, color);
-          gradient.addColorStop(1, 'rgba(0,0,0,0)');
-          ctx.fillStyle = gradient;
-          ctx.beginPath();
-          ctx.arc(32, 32, 28, 0, Math.PI * 2);
-          ctx.fill();
-          sprite.material.map = new THREE.CanvasTexture(canvas);
-          sprite.material.needsUpdate = true;
-        } else {
-          // Reset to original colour
-          const scp = data.scp || 0.5;
-          const color = scp >= 0.80 ? '#dc2626' : scp >= 0.60 ? '#f97316' : scp >= 0.40 ? '#eab308' : '#22c55e';
-          const canvas = document.createElement('canvas');
-          canvas.width = 64;
-          canvas.height = 64;
-          const ctx = canvas.getContext('2d');
-          const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
-          gradient.addColorStop(0, color);
-          gradient.addColorStop(1, 'rgba(0,0,0,0)');
-          ctx.fillStyle = gradient;
-          ctx.beginPath();
-          ctx.arc(32, 32, 28, 0, Math.PI * 2);
-          ctx.fill();
-          sprite.material.map = new THREE.CanvasTexture(canvas);
-          sprite.material.needsUpdate = true;
-        }
-      });
-    });
-
-    // Forecast mode – highlight escalating threats
-    document.getElementById('btn-forecast').addEventListener('click', function() {
-      this.classList.toggle('active');
-      document.getElementById('btn-3d').classList.remove('active');
-      document.getElementById('btn-heatmap').classList.remove('active');
-      const show = this.classList.contains('active');
-      pointGroup.children.forEach(sprite => {
-        const data = sprite.userData;
-        if (show && trendData[data.id] && trendData[data.id].trend === 'up') {
-          const canvas = document.createElement('canvas');
-          canvas.width = 64;
-          canvas.height = 64;
-          const ctx = canvas.getContext('2d');
-          const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 30);
-          gradient.addColorStop(0, '#7c4dff');
-          gradient.addColorStop(0.5, '#7c4dff');
-          gradient.addColorStop(1, 'rgba(124,77,255,0)');
-          ctx.fillStyle = gradient;
-          ctx.beginPath();
-          ctx.arc(32, 32, 30, 0, Math.PI * 2);
-          ctx.fill();
-          // Add arrow
-          ctx.strokeStyle = 'white';
-          ctx.lineWidth = 2;
-          ctx.beginPath();
-          ctx.moveTo(32, 16);
-          ctx.lineTo(32, 48);
-          ctx.stroke();
-          ctx.beginPath();
-          ctx.moveTo(24, 24);
-          ctx.lineTo(32, 16);
-          ctx.lineTo(40, 24);
-          ctx.stroke();
-          sprite.material.map = new THREE.CanvasTexture(canvas);
-          sprite.material.needsUpdate = true;
-          sprite.scale.set(0.25, 0.25, 1);
-        } else if (!show) {
-          // Reset
-          const scp = data.scp || 0.5;
-          const color = scp >= 0.80 ? '#dc2626' : scp >= 0.60 ? '#f97316' : scp >= 0.40 ? '#eab308' : '#22c55e';
-          const canvas = document.createElement('canvas');
-          canvas.width = 64;
-          canvas.height = 64;
-          const ctx = canvas.getContext('2d');
-          const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
-          gradient.addColorStop(0, color);
-          gradient.addColorStop(1, 'rgba(0,0,0,0)');
-          ctx.fillStyle = gradient;
-          ctx.beginPath();
-          ctx.arc(32, 32, 28, 0, Math.PI * 2);
-          ctx.fill();
-          sprite.material.map = new THREE.CanvasTexture(canvas);
-          sprite.material.needsUpdate = true;
-          const baseScale = 0.1 + (data.scp || 0.5) * 0.12;
-          sprite.scale.set(baseScale, baseScale, 1);
-        }
-      });
-    });
-
-    // 3D mode button – reset to default
+    // 3D / Heatmap / Forecast toggles
     document.getElementById('btn-3d').addEventListener('click', function() {
       this.classList.add('active');
       document.getElementById('btn-heatmap').classList.remove('active');
       document.getElementById('btn-forecast').classList.remove('active');
-      // Reset all points to default
-      pointGroup.children.forEach(sprite => {
-        const data = sprite.userData;
-        const scp = data.scp || 0.5;
-        const color = scp >= 0.80 ? '#dc2626' : scp >= 0.60 ? '#f97316' : scp >= 0.40 ? '#eab308' : '#22c55e';
-        const canvas = document.createElement('canvas');
-        canvas.width = 64;
-        canvas.height = 64;
-        const ctx = canvas.getContext('2d');
-        const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
-        gradient.addColorStop(0, color);
-        gradient.addColorStop(1, 'rgba(0,0,0,0)');
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.arc(32, 32, 28, 0, Math.PI * 2);
-        ctx.fill();
-        sprite.material.map = new THREE.CanvasTexture(canvas);
-        sprite.material.needsUpdate = true;
-        const baseScale = 0.1 + (data.scp || 0.5) * 0.12;
-        sprite.scale.set(baseScale, baseScale, 1);
+      currentMode = '3d';
+      showForecast = false;
+      globeInstance.pointsData(points);
+    });
+    document.getElementById('btn-heatmap').addEventListener('click', function() {
+      this.classList.add('active');
+      document.getElementById('btn-3d').classList.remove('active');
+      document.getElementById('btn-forecast').classList.remove('active');
+      currentMode = 'heatmap';
+      showForecast = false;
+      const heatmapPoints = points.map(p => ({ ...p, size: p.size * 1.5, color: '#7c4dff' }));
+      globeInstance.pointsData(heatmapPoints);
+    });
+    document.getElementById('btn-forecast').addEventListener('click', function() {
+      this.classList.add('active');
+      document.getElementById('btn-3d').classList.remove('active');
+      document.getElementById('btn-heatmap').classList.remove('active');
+      currentMode = '3d';
+      showForecast = !showForecast;
+      const forecastPoints = points.map(p => {
+        const scp = p.conflict?.scp || 0.5;
+        const forecast = scp > 0.6 ? { ...p, color: '#7c4dff', size: p.size * 1.8 } : p;
+        return forecast;
       });
+      globeInstance.pointsData(forecastPoints);
     });
-    
-    // ---- Globe style toggle ----
-    let currentStyle = 'satellite';
+
+    // ---- Style toggle ----
     document.getElementById('btn-style').addEventListener('click', function() {
-      if (currentStyle === 'satellite') {
-        // Switch to violet vector style
-        currentStyle = 'violet';
-        this.textContent = '🛰️ Satellite';
-        setVioletStyle();
-      } else {
-        // Switch to satellite style
-        currentStyle = 'satellite';
-        this.textContent = '🎨 Violet';
-        setSatelliteStyle();
-      }
+      const styles = ['satellite', 'hologram', 'dark'];
+      const currentIndex = styles.indexOf(currentStyle);
+      const nextIndex = (currentIndex + 1) % styles.length;
+      currentStyle = styles[nextIndex];
+      this.textContent = currentStyle === 'satellite' ? '🛰️ Satellite' :
+                         currentStyle === 'hologram' ? '🟣 Hologram' : '🌙 Dark';
+      applyStyle(currentStyle, globeInstance);
     });
 
-    // ---- Style functions ----
-    function setVioletStyle() {
-      // Create a violet vector globe texture
-      const canvas = document.createElement('canvas');
-      canvas.width = 1024;
-      canvas.height = 512;
-      const ctx = canvas.getContext('2d');
-
-      // Dark background
-      ctx.fillStyle = '#0a0a12';
-      ctx.fillRect(0, 0, 1024, 512);
-
-      // Grid lines (violet)
-      ctx.strokeStyle = '#7c4dff';
-      ctx.lineWidth = 0.5;
-      for (let i = 0; i < 36; i++) {
-        const x = (i / 36) * 1024;
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, 512);
-        ctx.stroke();
-      }
-      for (let i = 0; i < 18; i++) {
-        const y = (i / 18) * 512;
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(1024, y);
-        ctx.stroke();
-      }
-
-      // Continents (simplified violet glow)
-      ctx.fillStyle = 'rgba(124, 77, 255, 0.25)';
-      ctx.strokeStyle = '#7c4dff';
-      ctx.lineWidth = 1.5;
-
-      // North America
-      ctx.beginPath();
-      ctx.moveTo(50, 20);
-      ctx.lineTo(50, 40);
-      ctx.lineTo(40, 50);
-      ctx.lineTo(30, 50);
-      ctx.lineTo(25, 40);
-      ctx.lineTo(30, 20);
-      ctx.lineTo(45, 15);
-      ctx.lineTo(50, 20);
-      ctx.closePath();
-      ctx.fill();
-      ctx.stroke();
-
-      // South America
-      ctx.beginPath();
-      ctx.moveTo(30, 50);
-      ctx.lineTo(25, 60);
-      ctx.lineTo(30, 70);
-      ctx.lineTo(40, 70);
-      ctx.lineTo(45, 60);
-      ctx.lineTo(40, 50);
-      ctx.lineTo(30, 50);
-      ctx.closePath();
-      ctx.fill();
-      ctx.stroke();
-
-      // Europe
-      ctx.beginPath();
-      ctx.moveTo(55, 35);
-      ctx.lineTo(60, 35);
-      ctx.lineTo(65, 40);
-      ctx.lineTo(65, 45);
-      ctx.lineTo(60, 50);
-      ctx.lineTo(55, 50);
-      ctx.lineTo(50, 45);
-      ctx.lineTo(50, 40);
-      ctx.lineTo(55, 35);
-      ctx.closePath();
-      ctx.fill();
-      ctx.stroke();
-
-      // Africa
-      ctx.beginPath();
-      ctx.moveTo(20, 35);
-      ctx.lineTo(20, 45);
-      ctx.lineTo(25, 55);
-      ctx.lineTo(35, 60);
-      ctx.lineTo(45, 55);
-      ctx.lineTo(50, 45);
-      ctx.lineTo(45, 35);
-      ctx.lineTo(35, 30);
-      ctx.lineTo(25, 30);
-      ctx.lineTo(20, 35);
-      ctx.closePath();
-      ctx.fill();
-      ctx.stroke();
-
-      // Asia
-      ctx.beginPath();
-      ctx.moveTo(60, 30);
-      ctx.lineTo(80, 30);
-      ctx.lineTo(100, 40);
-      ctx.lineTo(110, 50);
-      ctx.lineTo(100, 60);
-      ctx.lineTo(80, 60);
-      ctx.lineTo(70, 55);
-      ctx.lineTo(60, 45);
-      ctx.lineTo(55, 40);
-      ctx.lineTo(60, 30);
-      ctx.closePath();
-      ctx.fill();
-      ctx.stroke();
-
-      // Australia
-      ctx.beginPath();
-      ctx.moveTo(80, 60);
-      ctx.lineTo(90, 60);
-      ctx.lineTo(95, 65);
-      ctx.lineTo(90, 70);
-      ctx.lineTo(80, 70);
-      ctx.lineTo(75, 65);
-      ctx.lineTo(80, 60);
-      ctx.closePath();
-      ctx.fill();
-      ctx.stroke();
-
-      // Apply texture
-      const texture = new THREE.CanvasTexture(canvas);
-      if (globeObj) {
-        globeObj.material.map = texture;
-        globeObj.material.color.setHex(0x7c4dff);
-        globeObj.material.emissive = new THREE.Color(0x1a0a3a);
-        globeObj.material.emissiveIntensity = 0.3;
-        globeObj.material.needsUpdate = true;
-      }
-    }
-
-    function setSatelliteStyle() {
-      const textureLoader = new THREE.TextureLoader();
-      const texture = textureLoader.load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
-      if (globeObj) {
-        globeObj.material.map = texture;
-        globeObj.material.color.setHex(0xffffff);
-        globeObj.material.emissive = new THREE.Color(0x000000);
-        globeObj.material.emissiveIntensity = 0;
-        globeObj.material.needsUpdate = true;
-      }
-    }
-
-    // Time slider – update points based on history
+    // Time slider (placeholder)
     document.getElementById('timeSlider').addEventListener('input', function() {
       const val = parseInt(this.value);
       const label = document.getElementById('timeLabel');
-      if (!historyData || historyData.length === 0) {
-        label.textContent = 'Now';
-        return;
-      }
-      const idx = Math.floor((val / 100) * (historyData.length - 1));
-      const entry = historyData[idx];
-      if (!entry) return;
-      const date = new Date(entry.timestamp);
-      label.textContent = date.toLocaleDateString();
-
-      const scpMap = entry.scp || {};
-      pointGroup.children.forEach(sprite => {
-        const data = sprite.userData;
-        const histScp = scpMap[data.id];
-        if (histScp !== undefined && histScp !== null) {
-          const newScp = histScp;
-          const color = newScp >= 0.80 ? '#dc2626' : newScp >= 0.60 ? '#f97316' : newScp >= 0.40 ? '#eab308' : '#22c55e';
-          const canvas = document.createElement('canvas');
-          canvas.width = 64;
-          canvas.height = 64;
-          const ctx = canvas.getContext('2d');
-          const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 28);
-          gradient.addColorStop(0, color);
-          gradient.addColorStop(1, 'rgba(0,0,0,0)');
-          ctx.fillStyle = gradient;
-          ctx.beginPath();
-          ctx.arc(32, 32, 28, 0, Math.PI * 2);
-          ctx.fill();
-          sprite.material.map = new THREE.CanvasTexture(canvas);
-          sprite.material.needsUpdate = true;
-          const baseScale = 0.1 + newScp * 0.12;
-          sprite.scale.set(baseScale, baseScale, 1);
-          data.scp = newScp;
-        }
-      });
+      if (val === 100) label.textContent = 'Now';
+      else if (val > 70) label.textContent = '7d ago';
+      else if (val > 40) label.textContent = '14d ago';
+      else if (val > 10) label.textContent = '30d ago';
+      else label.textContent = '90d ago';
     });
   }
 
-  // ---- Load on page ----
+  // ---- Apply globe style ----
+  function applyStyle(style, globeInstance) {
+    if (!globeInstance) return;
+    if (style === 'satellite') {
+      globeInstance.globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg');
+      globeInstance.globeMaterial({ color: null });
+    } else if (style === 'hologram') {
+      globeInstance.globeImageUrl(null);
+      globeInstance.globeMaterial({
+        color: new THREE.Color('#7c4dff'),
+        emissive: new THREE.Color('#7c4dff'),
+        emissiveIntensity: 0.3,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.8
+      });
+    } else if (style === 'dark') {
+      globeInstance.globeImageUrl(null);
+      globeInstance.globeMaterial({
+        color: new THREE.Color('#1a1a2e'),
+        emissive: new THREE.Color('#7c4dff'),
+        emissiveIntensity: 0.1,
+        transparent: true,
+        opacity: 0.6
+      });
+    }
+  }
+
+  // ---- Show conflict detail panel ----
+  function showConflictDetail(conflict) {
+    detailPanel.classList.add('active');
+    detailTitle.textContent = `${conflict.id} – ${conflict.name}`;
+    let html = `
+      <div class="detail-row"><span class="label">Status</span><span class="value">${conflict.status || 'Unknown'}</span></div>
+      <div class="detail-row"><span class="label">SCP</span><span class="value">${(conflict.scp || 0.5).toFixed(2)}</span></div>
+      <div class="detail-row"><span class="label">Description</span><span class="value">${conflict.description || 'No description available.'}</span></div>
+      <div class="detail-row"><span class="label">Cascade Impact</span><span class="value">${(conflict.cascade_impact || []).join(', ') || 'None'}</span></div>
+      <div class="detail-row"><span class="label">Casualties</span><span class="value">${conflict.casualties || 'Unknown'}</span></div>
+      <div class="detail-row"><span class="label">Displaced</span><span class="value">${conflict.displaced || 'Unknown'}</span></div>
+      <div class="detail-row"><span class="label">Source</span><span class="value">${conflict.source || 'Cathedral Engine'}</span></div>
+      <div class="detail-row"><span class="label">Last Updated</span><span class="value">${conflict.last_updated || 'Unknown'}</span></div>
+    `;
+    detailBody.innerHTML = html;
+  }
+
+  // ---- Load data on page load ----
   loadConflictData();
 
   // ---- Service worker ----
