@@ -176,8 +176,13 @@ def main():
     # ---- Generate regional indices JSON ----
     run_script("indices.py", "Regional indices JSON")
 
-    # ---- Generate daily brief ----
-    run_script("generate_daily_brief.py", "Daily brief generation")
+    # Generate Daily Brief
+    try:
+        from generate_daily_brief import generate_daily_brief
+        generate_daily_brief()
+        print("✅ Daily Brief generated")
+    except Exception as e:
+        print(f"⚠️ Daily Brief generation failed: {e}")
 
     # The unconventional signals are already in sweep_report.json from daily-sweep.py,
     # so we don't need a separate script. They are now part of the sweep data.
