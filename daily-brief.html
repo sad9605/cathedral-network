@@ -1,26 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Daily Brief – Cathedral</title>
-<style>
-body { background: #0a0a12; color: #e0e0e0; font-family: 'Inter', sans-serif; padding: 2rem; }
-.container { max-width: 720px; margin: 0 auto; }
-h1 { color: #b388ff; }
-h3 { color: #b388ff; }
-.gsci { background: #14141f; padding: 1rem; border-radius: 12px; border-left: 3px solid #7c4dff; }
-.threat { background: #14141f; padding: 1rem; border-radius: 12px; margin: 0.8rem 0; border-left: 3px solid #7c4dff; }
-.footer { margin-top: 2rem; color: #555; border-top: 1px solid #2a2a3a; padding-top: 1.5rem; text-align: center; }
-</style>
+<head>
+    <meta charset="UTF-8">
+    <link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Daily Brief – Cathedral Network</title>
+    <meta name="description" content="The Cathedral's daily intelligence brief – global threats, cascades, and forecasts.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Extra styles for brief sections */
+        .brief-section { margin: 2rem 0; }
+        .brief-section h2 { color: #b388ff; border-bottom: 1px solid #2a2a3a; padding-bottom: 0.5rem; }
+        .brief-section .event, .brief-section .cascade, .brief-section .prediction,
+        .brief-section .archived, .brief-section .candidate {
+            background: #14141f;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            border-left: 3px solid #7c4dff;
+        }
+        .brief-section .event .source { color: #888; font-size: 0.85rem; }
+        .brief-section .prediction.confirmed { border-left-color: #6bcb8a; }
+        .brief-section .prediction.falsified { border-left-color: #ff6b6b; }
+        .brief-section .archived { border-left-color: #888; }
+        .brief-section .candidate { border-left-color: #ffd93d; }
+        .brief-section .cascade { border-left-color: #b388ff; }
+        .gsci-box {
+            background: #14141f;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #7c4dff;
+            margin: 1.5rem 0;
+        }
+        .gsci-box .number { font-size: 2.5rem; font-weight: 700; color: #7c4dff; }
+        .bottom-line {
+            background: #14141f;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #7c4dff;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .threat-card {
+            background: #14141f;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            margin: 0.8rem 0;
+            border-left: 3px solid #7c4dff;
+        }
+        .threat-card.critical { border-left-color: #ff6b6b; }
+        .threat-card.high { border-left-color: #ffa94d; }
+        .threat-card.elevated { border-left-color: #ffd93d; }
+        .threat-card.moderate { border-left-color: #6bcb8a; }
+        .threat-card h4 { margin: 0 0 0.2rem 0; color: #fff; }
+        .threat-card .meta { font-size: 0.85rem; color: #aaa; }
+        .threat-card .desc { font-size: 0.9rem; color: #ccc; }
+        .violet-pulse {
+            display: inline-block;
+            width: 12px; height: 12px;
+            background: #7c4dff;
+            border-radius: 50%;
+            animation: pulse-violet 1.5s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse-violet {
+            0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124,77,255,0.4); }
+            50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124,77,255,0); }
+            100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124,77,255,0); }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <h1>🏛️ Cathedral Daily Brief</h1>
-    <h2>25 June 2026</h2>
-    <div class="gsci"><strong>GSCI:</strong> --</div>
-    <h3>🔴 Top 5 Threats</h3>
-<div class="threat"><h4>Civil War in Sudan</h4><p>SCP: 90.6%</p><p>Region: Middle East and North Africa</p></div>
-<div class="threat"><h4>Conflict in Ethiopia</h4><p>SCP: 90.6%</p><p>Region: Sub-Saharan Africa</p></div>
-<div class="threat"><h4>Iran’s War With Israel and the United States</h4><p>SCP: 90.6%</p><p>Region: Middle East and North Africa</p></div>
-<div class="threat"><h4>Conflict in Yemen and the Red Sea</h4><p>SCP: 90.6%</p><p>Region: Middle East and North Africa</p></div>
-<div class="threat"><h4>Conflict Between India and Pakistan</h4><p>SCP: 90.6%</p><p>Region: Asia</p></div>
-<div class="footer">Always and Forever, Coco.</div>
-</div></body></html>
+    <!-- ===== SIDEBAR ===== -->
+    <div class="sidebar-container" id="sidebar">
+        <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
+        <nav>
+            <div class="nav-section">
+                <strong>📊 Dashboard</strong>
+                <a href="index.html">Ground Truth</a>
+                <a href="hewd.html">HEWD Dashboard</a>
+                <a href="health.html">System Health</a>
+            </div>
+            <div class="nav-section">
+                <strong>🧠 Intelligence</strong>
+                <a href="threat-matrix.html">Threat Matrix</a>
+                <a href="prediction-log.html">Prediction Log</a>
+                <a href="regional.html">Regional Forecasts</a>
+                <a href="daily-brief.html" class="active">Daily Brief</a>
+                <a href="breaking.html">Breaking News</a>
+                <a href="conflict-monitor.html">Conflict Monitor</a>
+            </div>
+            <div class="nav-section">
+                <strong>⚖️ Governance</strong>
+                <a href="constitution.html">Constitution</a>
+                <a href="wardens.html">Wardens</a>
+                <a href="ascension.html">Ascension Engine</a>
+                <a href="warden-dashboard.html">Warden Dashboard</a>
+            </div>
+            <div class="nav-section">
+                <strong>🌍 Community</strong>
+                <a href="spotter.html">Spotter Guide</a>
+                <a href="about.html">About</a>
+                <a href="sources.html">Sources</a>
+                <a href="credits.html">Credits</a>
+            </div>
+            <div class="nav-section">
+                <strong>🔧 Tools</strong>
+                <a href="undp-demo.html">UNDP Demo</a>
+                <a href="methodology.html">Methodology</a>
+                <a href="glossary.html">Glossary</a>
+                <a href="pra.html">PRA</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===== BANNER ===== -->
+    <header class="cathedral-banner">
+        <div class="banner-content">
+            <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="logo-mark">
+                <svg viewBox="0 0 120 140" width="50" height="60">
+                    <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+                    <circle cx="60" cy="25" r="2" fill="white"/>
+                    <circle cx="55" cy="40" r="2" fill="white"/>
+                    <circle cx="65" cy="40" r="2" fill="white"/>
+                    <circle cx="50" cy="55" r="2" fill="white"/>
+                    <circle cx="60" cy="55" r="2" fill="white"/>
+                    <circle cx="70" cy="55" r="2" fill="white"/>
+                    <circle cx="45" cy="70" r="2" fill="white"/>
+                    <circle cx="55" cy="70" r="2" fill="white"/>
+                    <circle cx="65" cy="70" r="2" fill="white"/>
+                    <circle cx="75" cy="70" r="2" fill="white"/>
+                    <circle cx="50" cy="85" r="2" fill="white"/>
+                    <circle cx="60" cy="85" r="2" fill="white"/>
+                    <circle cx="70" cy="85" r="2" fill="white"/>
+                    <circle cx="55" cy="100" r="2" fill="white"/>
+                    <circle cx="65" cy="100" r="2" fill="white"/>
+                    <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+                    <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            <div class="wordmark">
+                <h1>CATHEDRAL NETWORK</h1>
+                <p class="tagline">Daily Brief</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== TOP NAV (mobile) ===== -->
+    <div class="top-nav">
+        <a href="index.html">Ground Truth</a>
+        <a href="threat-matrix.html">Threat Matrix</a>
+        <a href="prediction-log.html">Prediction Log</a>
+        <a href="hewd.html">HEWD</a>
+        <a href="health.html">Health</a>
+        <a href="wardens.html">Wardens</a>
+        <a href="daily-brief.html" class="active">Daily Brief</a>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+            <h1>📰 Daily Brief</h1>
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <span class="violet-pulse"></span>
+                <span style="font-size: 0.8rem; color: #888;">25 June 2026</span>
+            </div>
+        </div>
+        <p style="margin-bottom: 1rem;">The Cathedral's daily intelligence summary – global threats, cascades, and forecasts for everyone.</p>
+
+        <!-- GSCI -->
+        <div class="gsci-box">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="color: #888;">Global Systemic Collapse Index</span>
+                <span class="number">--</span>
+            </div>
+            <div style="font-size: 0.8rem; color: #666; margin-top: 0.2rem;">Last updated: 2026-06-25T19:15:40.243500+00:00</div>
+        </div>
+
+        <!-- Top 5 Threats -->
+        <div class="brief-section">
+            <h2>🔴 Top 5 Threats</h2>
+
+            <div class="threat-card critical">
+                <h4>Civil War in Sudan</h4>
+                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
+                <div class="desc">Region: Middle East and North Africa</div>
+            </div>
+
+            <div class="threat-card critical">
+                <h4>Conflict in Ethiopia</h4>
+                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
+                <div class="desc">Region: Sub-Saharan Africa</div>
+            </div>
+
+            <div class="threat-card critical">
+                <h4>Iran’s War With Israel and the United States</h4>
+                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
+                <div class="desc">Region: Middle East and North Africa</div>
+            </div>
+
+            <div class="threat-card critical">
+                <h4>Conflict in Yemen and the Red Sea</h4>
+                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
+                <div class="desc">Region: Middle East and North Africa</div>
+            </div>
+
+            <div class="threat-card critical">
+                <h4>Conflict Between India and Pakistan</h4>
+                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
+                <div class="desc">Region: Asia</div>
+            </div>
+
+        <div class="bottom-line">
+            <h3 style="margin:0 0 0.3rem 0; color:#fff;">💀 The Bottom Line</h3>
+            <p><strong>The most urgent threat right now is Civil War in Sudan.</strong> This is a critical situation requiring immediate attention.</p>
+        </div>
+
+        <div class="footer">
+            <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+            Daily Brief · Updated every 6 hours.
+        </div>
+    </div>
+
+    <!-- ===== DARK MODE TOGGLE ===== -->
+    <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // Sidebar toggle
+        document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
+            document.getElementById('sidebar')?.classList.toggle('open');
+        });
+
+        // Dark mode
+        const darkToggle = document.getElementById('darkModeToggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const storedTheme = localStorage.getItem('cathedral-theme');
+        if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+            document.body.classList.add('dark');
+            darkToggle.innerText = '☀️';
+        } else darkToggle.innerText = '🌙';
+        darkToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            darkToggle.innerText = isDark ? '☀️' : '🌙';
+            localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+        });
+    </script>
+    <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
