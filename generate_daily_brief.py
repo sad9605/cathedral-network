@@ -260,8 +260,11 @@ h3 {{ color: #b388ff; }}
     html += f"""<div class="footer">Always and Forever, Coco.</div>
 </div></body></html>
 """
-    with open('daily_brief.html', 'w') as f:
-        f.write(html)
+   with open('daily-brief.md', 'w') as f:      # dash
+       f.write(md)
+   # ...
+   with open('daily-brief.html', 'w') as f:    # dash
+       f.write(html)
 
     print(f"✅ Cathedral Daily Brief generated: {now}")
     return True
