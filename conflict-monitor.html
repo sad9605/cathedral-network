@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cathedral Network — Conflict Monitor</title>
+  <meta name="description" content="3D conflict intelligence dashboard with historical and forecast layers.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Violet pulse animation (same as other pages) */
+    .violet-pulse {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: #7c4dff;
+      border-radius: 50%;
+      animation: pulse-violet 1.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-violet {
+      0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0.4); }
+      50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124, 77, 255, 0); }
+      100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0); }
+    }
+
+    #globe-container {
+      width: 100%;
+      height: 600px;
+      background: #0a0a12;
+      border-radius: var(--card-radius);
+      position: relative;
+      overflow: hidden;
+    }
+    body.dark #globe-container {
+      background: #0a0a12;
+    }
+
+    .globe-controls {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      z-index: 10;
+      display: flex;
+      gap: 0.8rem;
+      background: rgba(0,0,0,0.7);
+      padding: 0.8rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(8px);
+      border: 1px solid #333;
+    }
+    .globe-controls button {
+      background: none;
+      border: none;
+      color: #ccc;
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 0.3rem 0.8rem;
+      border-radius: 40px;
+      transition: background 0.2s;
+    }
+    .globe-controls button:hover {
+      background: #7c4dff;
+      color: white;
+    }
+    .globe-controls button.active {
+      background: #7c4dff;
+      color: white;
+    }
+    .globe-controls .slider-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .globe-controls .slider-container input[type="range"] {
+      width: 100px;
+      accent-color: #7c4dff;
+    }
+    .globe-controls .slider-container label {
+      color: #aaa;
+      font-size: 0.7rem;
+    }
+    .globe-legend {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      background: rgba(0,0,0,0.7);
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      border: 1px solid #333;
+      backdrop-filter: blur(8px);
+      color: #aaa;
+      font-size: 0.75rem;
+    }
+    .globe-legend .item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.2rem 0;
+    }
+    .globe-legend .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .globe-tooltip {
+      position: absolute;
+      display: none;
+      background: rgba(0,0,0,0.9);
+      border: 1px solid #7c4dff;
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      color: white;
+      font-size: 0.8rem;
+      pointer-events: none;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+      max-width: 200px;
+    }
+    .info-panel {
+      background: white;
+      border-radius: var(--card-radius);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--violet-dark);
+    }
+    body.dark .info-panel {
+      background: #2a2a3a;
+    }
+
+    .sidebar-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100%;
+      background: white;
+      border-right: 1px solid #eee;
+      overflow-y: auto;
+      z-index: 1000;
+      padding: 1rem;
+      transition: transform 0.3s ease;
+    }
+    body.dark .sidebar-container {
+      background: #2a2a3a;
+      border-right-color: #444;
+    }
+    .sidebar-container .sidebar-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+    }
+    body.dark .sidebar-container .sidebar-header {
+      border-bottom-color: #444;
+    }
+    .sidebar-container .sidebar-header span {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--violet-dark);
+    }
+    body.dark .sidebar-container .sidebar-header span {
+      color: #b39ddb;
+    }
+    .sidebar-container nav .nav-section {
+      margin-bottom: 1.25rem;
+    }
+    .sidebar-container nav .nav-section strong {
+      display: block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--violet-dark);
+      padding: 0.2rem 0 0.3rem 0;
+      opacity: 0.7;
+    }
+    body.dark .sidebar-container nav .nav-section strong {
+      color: #b39ddb;
+    }
+    .sidebar-container nav .nav-section a {
+      display: block;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+    body.dark .sidebar-container nav .nav-section a {
+      color: #f0f0f0;
+    }
+    .sidebar-container nav .nav-section a:hover {
+      background: var(--violet-light);
+    }
+    body.dark .sidebar-container nav .nav-section a:hover {
+      background: #3a3a4a;
+    }
+    #sidebar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--violet-dark);
+    }
+    body.dark #sidebar-toggle {
+      color: #b39ddb;
+    }
+    @media (max-width: 768px) {
+      .sidebar-container {
+        transform: translateX(-100%);
+        width: 260px;
+      }
+      .sidebar-container.open {
+        transform: translateX(0);
+      }
+      #sidebar-toggle {
+        display: block;
+      }
+      .container {
+        margin-left: 0 !important;
+      }
+    }
+    @media (min-width: 769px) {
+      .container {
+        margin-left: 240px;
+      }
+    }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--violet-dark);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    .top-nav {
+      display: none;
+      background: var(--violet-light);
+      padding: 0.5rem 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      border-radius: var(--card-radius);
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+    body.dark .top-nav {
+      background: #2a2a3a;
+    }
+    .top-nav a {
+      color: var(--violet-dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 40px;
+    }
+    body.dark .top-nav a {
+      color: #b39ddb;
+    }
+    .top-nav a:hover {
+      background: var(--violet-dark);
+      color: white;
+    }
+    body.dark .top-nav a:hover {
+      background: var(--violet);
+      color: #1a1a1a;
+    }
+    @media (max-width: 768px) {
+      .top-nav {
+        display: flex;
+      }
+    }
+    @media (max-width: 600px) {
+      .banner-content { flex-direction: column; text-align: center; }
+      .container { padding: 1rem; }
+      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
+      #globe-container { height: 400px; }
+      .globe-controls { flex-wrap: wrap; padding: 0.5rem; }
+      .globe-controls .slider-container input[type="range"] { width: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar-container" id="sidebar">
+  <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
+  <nav>
+    <div class="nav-section">
+      <strong>📊 Dashboard</strong>
+      <a href="index.html">Ground Truth</a>
+      <a href="hewd.html">HEWD Dashboard</a>
+      <a href="health.html">System Health</a>
+    </div>
+    <div class="nav-section">
+      <strong>🧠 Intelligence</strong>
+      <a href="threat-matrix.html">Threat Matrix</a>
+      <a href="prediction-log.html">Prediction Log</a>
+      <a href="regional.html">Regional Forecasts</a>
+      <a href="daily-brief.html">Daily Brief</a>
+      <a href="breaking.html">Breaking News</a>
+      <a href="conflict-monitor.html">Conflict Monitor</a>
+    </div>
+    <div class="nav-section">
+      <strong>⚖️ Governance</strong>
+      <a href="constitution.html">Constitution</a>
+      <a href="wardens.html">Wardens</a>
+      <a href="ascension.html">Ascension Engine</a>
+      <a href="warden-dashboard.html">Warden Dashboard</a>
+    </div>
+    <div class="nav-section">
+      <strong>🌍 Community</strong>
+      <a href="spotter.html">Spotter Guide</a>
+      <a href="about.html">About</a>
+      <a href="sources.html">Sources</a>
+      <a href="credits.html">Credits</a>
+    </div>
+    <div class="nav-section">
+      <strong>🔧 Tools</strong>
+      <a href="undp-demo.html">UNDP Demo</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="pra.html">PRA</a>
+    </div>
+  </nav>
+</div>
+
+<!-- Banner -->
+<header class="cathedral-banner">
+  <div class="banner-content">
+    <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="logo-mark">
+      <svg viewBox="0 0 120 140" width="50" height="60">
+        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
+        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
+        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
+        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
+        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
+        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Conflict Monitor</p></div>
+  </div>
+</header>
+
+<!-- Top Nav (mobile) -->
+<div class="top-nav">
+  <a href="index.html">Ground Truth</a>
+  <a href="threat-matrix.html">Threat Matrix</a>
+  <a href="prediction-log.html">Prediction Log</a>
+  <a href="hewd.html">HEWD</a>
+  <a href="health.html">Health</a>
+  <a href="wardens.html">Wardens</a>
+  <a href="conflict-monitor.html">Conflict Monitor</a>
+</div>
+
+<!-- Main content -->
+<div class="container">
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+    <h1>🌍 Conflict Monitor</h1>
+    <div style="display: flex; align-items: center; gap: 0.8rem;">
+      <span class="violet-pulse"></span>
+      <span style="font-size: 0.8rem; color: #888;">Live · <span id="conflictCount">Loading...</span> active conflicts</span>
+    </div>
+  </div>
+  <p style="margin-bottom: 1rem;">Real‑time 3D intelligence of active conflicts, territorial changes, and escalation forecasts.</p>
+
+  <!-- Globe -->
+  <div id="globe-container">
+    <div class="globe-legend" id="globeLegend">
+      <div class="item"><span class="dot" style="background:#dc2626;"></span> Critical (SCP ≥ 0.80)</div>
+      <div class="item"><span class="dot" style="background:#f97316;"></span> High (SCP 0.60–0.79)</div>
+      <div class="item"><span class="dot" style="background:#eab308;"></span> Elevated (SCP 0.40–0.59)</div>
+      <div class="item"><span class="dot" style="background:#22c55e;"></span> Moderate (SCP < 0.40)</div>
+    </div>
+    <div class="globe-tooltip" id="globeTooltip"></div>
+    <div class="globe-controls">
+      <button id="btn-3d" class="active">🌐 3D</button>
+      <button id="btn-heatmap">🔥 Heatmap</button>
+      <button id="btn-forecast">🔮 Forecast</button>
+      <div class="slider-container">
+        <label>📅</label>
+        <input type="range" id="timeSlider" min="0" max="100" value="100">
+        <span id="timeLabel" style="color:#aaa; font-size:0.7rem; min-width:40px;">Now</span>
+      </div>
+      <button id="btn-reset">⟲ Reset</button>
+    </div>
+  </div>
+
+  <!-- Info panel -->
+  <div class="info-panel" id="infoPanel">
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+      <div><strong>Total Conflicts:</strong> <span id="totalConflicts">--</span></div>
+      <div><strong>Critical:</strong> <span id="criticalCount" style="color:#dc2626;">--</span></div>
+      <div><strong>High:</strong> <span id="highCount" style="color:#f97316;">--</span></div>
+      <div><strong>Elevated:</strong> <span id="elevatedCount" style="color:#eab308;">--</span></div>
+      <div><strong>Moderate:</strong> <span id="moderateCount" style="color:#22c55e;">--</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+    Conflict Monitor · Updated daily.
+  </div>
+</div>
+
+<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three-globe@2.24.13/dist/three-globe.min.js"></script>
+
+<script>
+  // ---- Sidebar toggle ----
+  document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
+    document.getElementById('sidebar')?.classList.toggle('open');
+  });
+
+  // ---- Dark mode ----
+  const darkToggle = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('cathedral-theme');
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    darkToggle.innerText = '☀️';
+  } else darkToggle.innerText = '🌙';
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerText = isDark ? '☀️' : '🌙';
+    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+  });
+
+  // ---- Globe logic ----
+  const globeContainer = document.getElementById('globe-container');
+  const tooltip = document.getElementById('globeTooltip');
+
+  // Placeholder coordinates for conflict threats
+  const conflictCoords = {
+    'C01': { lat: 26.5, lng: 56.5, label: 'Iran-Israel/US War / Hormuz' },
+    'C-USIRAN': { lat: 30.0, lng: 50.0, label: 'Direct US-Iran Conflict' },
+    'C-BELT': { lat: 28.0, lng: 52.0, label: 'Iran Resistance Security Belt' },
+    'C-RED-BLOCK': { lat: 13.0, lng: 43.0, label: 'Bab el-Mandeb Blockade' },
+    'C132': { lat: 35.0, lng: 38.0, label: 'Great Power Conflict' },
+    'C129': { lat: 40.5, lng: 45.0, label: 'Armenia-Azerbaijan' },
+    'C54': { lat: 55.0, lng: 25.0, label: 'Baltic Grey-Zone' },
+    'C88': { lat: 23.5, lng: 120.0, label: 'Taiwan Strait' },
+    'C90': { lat: 12.0, lng: 116.0, label: 'South China Sea' },
+    'C19': { lat: 47.5, lng: 34.5, label: 'Zaporizhzhia NPP' },
+    'C25': { lat: 45.0, lng: 25.0, label: 'NATO Article 4 (Romania)' },
+    'C3': { lat: 48.0, lng: 30.0, label: 'Ukraine-Russia Spillover' },
+    'C11': { lat: 33.0, lng: 44.0, label: 'Iraq Instability' },
+    'C58': { lat: 56.0, lng: 15.0, label: 'Underwater Infrastructure Sabotage' },
+    'C85': { lat: 24.0, lng: -102.0, label: 'Cartel Violence Mexico' },
+    'C122': { lat: 39.0, lng: 127.0, label: 'North Korea Ballistic' },
+    'C2': { lat: 38.0, lng: 23.0, label: 'Information Warfare' },
+    'C4': { lat: 47.0, lng: 29.0, label: 'Moldova Transnistria' },
+  };
+
+  // Fallback coords for unknown threats
+  function getCoords(t) {
+    const id = t.id || '';
+    if (conflictCoords[id]) return conflictCoords[id];
+    return { lat: (Math.random() - 0.5) * 80, lng: (Math.random() - 0.5) * 180, label: t.name || id };
+  }
+
+  let globe = null;
+  let sceneData = { points: [], heatmapData: [] };
+  let currentMode = '3d';
+  let showForecast = false;
+
+  async function loadConflictData() {
+    try {
+      const resp = await fetch('threats.json');
+      if (!resp.ok) throw new Error('Failed to fetch threats');
+      const data = await resp.json();
+      const threats = data.threats || [];
+
+      // Filter geopolitical threats
+      const conflicts = threats.filter(t => t.domains && t.domains.includes('Geopolitical'));
+      document.getElementById('conflictCount').textContent = conflicts.length;
+
+      // Stats
+      const total = conflicts.length;
+      const critical = conflicts.filter(t => t.scp >= 0.80).length;
+      const high = conflicts.filter(t => t.scp >= 0.60 && t.scp < 0.80).length;
+      const elevated = conflicts.filter(t => t.scp >= 0.40 && t.scp < 0.60).length;
+      const moderate = conflicts.filter(t => t.scp < 0.40).length;
+
+      document.getElementById('totalConflicts').textContent = total;
+      document.getElementById('criticalCount').textContent = critical;
+      document.getElementById('highCount').textContent = high;
+      document.getElementById('elevatedCount').textContent = elevated;
+      document.getElementById('moderateCount').textContent = moderate;
+
+      // Build globe data
+      const points = [];
+      const heatmapData = [];
+      conflicts.forEach(t => {
+        const coords = getCoords(t);
+        const scp = t.scp || 0.5;
+        points.push({
+          lat: coords.lat,
+          lng: coords.lng,
+          size: Math.max(0.3, scp * 1.5),
+          color: scp >= 0.80 ? '#dc2626' : scp >= 0.60 ? '#f97316' : scp >= 0.40 ? '#eab308' : '#22c55e',
+          label: `${t.id}: ${t.name} (${(scp*100).toFixed(0)}%)`,
+          threat: t
+        });
+        heatmapData.push({
+          lat: coords.lat,
+          lng: coords.lng,
+          intensity: scp
+        });
+      });
+
+      sceneData.points = points;
+      sceneData.heatmapData = heatmapData;
+
+      initGlobe(points);
+    } catch(e) {
+      console.error('Error loading conflicts:', e);
+      document.getElementById('conflictCount').textContent = 'Error';
+    }
+  }
+
+  function initGlobe(points) {
+    const container = document.getElementById('globe-container');
+
+    // If globe exists, destroy it
+    if (globe) {
+      globe._destructor();
+      globe = null;
+    }
+
+    const width = container.clientWidth || 800;
+    const height = container.clientHeight || 600;
+
+    // Create globe
+    const Globe = window.ThreeGlobe;
+    const globeInstance = new Globe()
+      .globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg')
+      .bumpImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png')
+      .pointLat('lat')
+      .pointLng('lng')
+      .pointColor('color')
+      .pointAltitude(0.01)
+      .pointRadius('size')
+      .pointLabel('label')
+      .pointsData(points);
+
+    // Create scene
+    const scene = new THREE.Scene();
+    scene.add(globeInstance);
+
+    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    camera.position.set(0, 0, 2.5);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Clear previous content
+    while (container.firstChild) {
+      if (container.firstChild.id === 'globeLegend') break;
+      container.removeChild(container.firstChild);
+    }
+    // Keep legend
+    const legend = document.getElementById('globeLegend');
+    if (legend) container.appendChild(legend);
+
+    // Insert renderer before legend
+    container.insertBefore(renderer.domElement, legend);
+
+    // Store for later
+    globe = { scene, camera, renderer, globeInstance, points };
+
+    // Click interaction
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    renderer.domElement.addEventListener('click', (event) => {
+      const rect = renderer.domElement.getBoundingClientRect();
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(globeInstance.children);
+      if (intersects.length > 0) {
+        const obj = intersects[0].object;
+        // Find the corresponding point data
+        // For now, show tooltip
+        const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
+        if (idx !== -1) {
+          const point = globeInstance.pointsData()[idx];
+          if (point && point.threat) {
+            const threat = point.threat;
+            alert(`Conflict: ${threat.id} – ${threat.name}\nSCP: ${(threat.scp || 0.5)*100}%\nStatus: ${threat.status || 'Unknown'}`);
+          }
+        }
+      }
+    });
+
+    // Hover tooltip
+    renderer.domElement.addEventListener('mousemove', (event) => {
+      const rect = renderer.domElement.getBoundingClientRect();
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(globeInstance.children);
+      if (intersects.length > 0) {
+        const obj = intersects[0].object;
+        const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
+        if (idx !== -1) {
+          const point = globeInstance.pointsData()[idx];
+          if (point && point.label) {
+            tooltip.style.display = 'block';
+            tooltip.style.left = (event.clientX - rect.left + 10) + 'px';
+            tooltip.style.top = (event.clientY - rect.top - 10) + 'px';
+            tooltip.textContent = point.label;
+          }
+        }
+      } else {
+        tooltip.style.display = 'none';
+      }
+    });
+
+    renderer.domElement.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+
+    // Auto-rotate
+    let angle = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+      globeInstance.rotation.y += 0.001;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle resize
+    const resize = () => {
+      const w = container.clientWidth || 800;
+      const h = container.clientHeight || 600;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    };
+    window.addEventListener('resize', resize);
+
+    // Reset view
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      globeInstance.rotation.y = 0;
+      camera.position.set(0, 0, 2.5);
+    });
+
+    // Mode buttons
+    document.getElementById('btn-3d').addEventListener('click', function() {
+      this.classList.add('active');
+      document.getElementById('btn-heatmap').classList.remove('active');
+      document.getElementById('btn-forecast').classList.remove('active');
+      currentMode = '3d';
+      showForecast = false;
+      globeInstance.pointsData(points);
+    });
+
+    document.getElementById('btn-heatmap').addEventListener('click', function() {
+      this.classList.add('active');
+      document.getElementById('btn-3d').classList.remove('active');
+      document.getElementById('btn-forecast').classList.remove('active');
+      currentMode = 'heatmap';
+      showForecast = false;
+      // For heatmap, we could switch to a different visualisation
+      // For now, keep points but change style
+      const heatmapPoints = points.map(p => ({ ...p, size: p.size * 1.5, color: '#7c4dff' }));
+      globeInstance.pointsData(heatmapPoints);
+    });
+
+    document.getElementById('btn-forecast').addEventListener('click', function() {
+      this.classList.add('active');
+      document.getElementById('btn-3d').classList.remove('active');
+      document.getElementById('btn-heatmap').classList.remove('active');
+      currentMode = '3d';
+      showForecast = !showForecast;
+      // Forecast: highlight threats that are likely to escalate
+      const forecastPoints = points.map(p => {
+        const scp = p.threat?.scp || 0.5;
+        const forecast = scp > 0.6 ? { ...p, color: '#7c4dff', size: p.size * 1.8 } : p;
+        return forecast;
+      });
+      globeInstance.pointsData(forecastPoints);
+    });
+
+    // Time slider (simulate historical view)
+    document.getElementById('timeSlider').addEventListener('input', function() {
+      const val = parseInt(this.value);
+      const label = document.getElementById('timeLabel');
+      if (val === 100) {
+        label.textContent = 'Now';
+      } else if (val > 70) {
+        label.textContent = '7d ago';
+      } else if (val > 40) {
+        label.textContent = '14d ago';
+      } else if (val > 10) {
+        label.textContent = '30d ago';
+      } else {
+        label.textContent = '90d ago';
+      }
+      // In a real implementation, we'd load historical data
+    });
+
+    // Keep reference
+    window._globe = { globeInstance, scene, camera, renderer, resize };
+  }
+
+  // ---- Load data on page load ----
+  loadConflictData();
+
+  // ---- Service worker ----
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').catch(() => {});
+  }
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
