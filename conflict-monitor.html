@@ -406,8 +406,9 @@
 
 <!-- ===== SCRIPTS ===== -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three-globe@2.24.13/dist/three-globe.min.js"></script>
+
+<!-- globe.gl CDN (includes Three.js and three-globe) -->
+<script src="https://cdn.jsdelivr.net/npm/globe.gl@2.46.1"></script>
 
 <script>
   (function() {
@@ -440,10 +441,11 @@
     const detailTitle = document.getElementById('detailTitle');
     const detailBody = document.getElementById('detailBody');
 
-    let globe = null;
+    let myGlobe = null;
     let currentStyle = 'satellite';
     let currentMode = '3d';
     let allConflicts = [];
+    let currentPoints = [];
 
     // ---- HELPERS ----
     function getSeverity(scp) {
@@ -484,7 +486,8 @@
         renderTable(allConflicts);
         document.getElementById('conflictCount').textContent = allConflicts.length;
 
-        const points = allConflicts.map(c => ({
+        // Build points for globe
+        currentPoints = allConflicts.map(c => ({
           lat: c.lat,
           lng: c.lng,
           size: Math.max(0.3, (c.scp || 0.5) * 1.5),
@@ -495,7 +498,7 @@
           conflict: c
         }));
 
-        initGlobe(points);
+        initGlobe(currentPoints);
       } catch (err) {
         console.error('Error loading conflicts:', err);
         document.getElementById('conflictCount').textContent = 'Error';
@@ -574,110 +577,121 @@
       });
     });
 
-    // ---- GLOBE INIT (fixed) ----
+    // ---- GLOBE INIT (using globe.gl) ----
     function initGlobe(points) {
-      const container = document.getElementById('globe-container');
-      if (globe) {
-        // Cleanup
-        if (globe.renderer) {
-          const canvas = globe.renderer.domElement;
-          if (canvas && canvas.parentNode) canvas.parentNode.removeChild(canvas);
-        }
-        globe = null;
+      // Clean up previous globe if exists
+      if (myGlobe) {
+        const container = document.getElementById('globe-container');
+        const canvas = container.querySelector('canvas');
+        if (canvas) canvas.remove();
+        myGlobe = null;
       }
 
+      const container = document.getElementById('globe-container');
       const width = container.clientWidth || 800;
       const height = container.clientHeight || 600;
 
-      const Globe = window.ThreeGlobe;
-      if (!Globe) {
-        console.error('ThreeGlobe library not loaded');
-        return;
-      }
-
-      // Build globe – avoid methods that may not exist
-      const globeInstance = new Globe()
+      // Create the globe instance
+      // globe.gl uses: new Globe(element, configOptions)
+      // See: https://www.npmjs.com/package/globe.gl#api-reference
+      myGlobe = new Globe(container, {
+        rendererConfig: { antialias: true, alpha: true },
+        animateIn: true,
+      })
         .globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg')
+        .backgroundColor('#0a0a12')
         .pointsData(points)
         .pointLat('lat')
         .pointLng('lng')
         .pointColor('color')
         .pointAltitude(0.01)
-        .pointRadius('size');
-        // Removed .pointLabel – we use custom tooltip
+        .pointRadius('size')
+        .pointLabel('label');
 
-      const scene = new THREE.Scene();
-      scene.add(globeInstance);
-      const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-      camera.position.set(0, 0, 2.5);
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setSize(width, height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      // Store points for later updates
+      myGlobe._points = points;
 
-      const existingCanvas = container.querySelector('canvas');
-      if (existingCanvas) existingCanvas.remove();
-      container.appendChild(renderer.domElement);
-      const legend = document.getElementById('globeLegend');
-      if (legend) container.appendChild(legend);
+      // ---- INTERACTION: Click -> show detail ----
+      // globe.gl exposes a 'onClick' method for point interactions
+      // We'll use the underlying Three.js raycaster for more control
+      const renderer = myGlobe.renderer();
+      const scene = myGlobe.scene();
+      const camera = myGlobe.camera();
 
-      globe = {
-        scene, camera, renderer, globeInstance,
-        points,
-        autoRotate: true,
-      };
+      // Find the globe group (it's the first child of the scene)
+      let globeGroup = null;
+      scene.children.forEach(child => {
+        if (child.type === 'Group' && child.children.length > 0) {
+          // The globe group contains the mesh and point objects
+          globeGroup = child;
+        }
+      });
 
-      // ---- INTERACTION ----
       const raycaster = new THREE.Raycaster();
       const mouse = new THREE.Vector2();
+
+      // Click handler
       renderer.domElement.addEventListener('click', (event) => {
         const rect = renderer.domElement.getBoundingClientRect();
         mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
         mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
         raycaster.setFromCamera(mouse, camera);
-        const children = globeInstance.children;
-        const intersects = raycaster.intersectObjects(children);
+
+        // Intersect with all objects in the scene
+        const intersects = raycaster.intersectObjects(scene.children, true);
         if (intersects.length > 0) {
-          const obj = intersects[0].object;
-          const pointData = obj.userData && obj.userData.pointData;
+          // Find the point data associated with the intersected object
+          let pointData = null;
+          for (let i = 0; i < intersects.length; i++) {
+            const obj = intersects[i].object;
+            // Check if this object has userData with point data
+            if (obj.userData && obj.userData.pointData) {
+              pointData = obj.userData.pointData;
+              break;
+            }
+            // Also check parent
+            if (obj.parent && obj.parent.userData && obj.parent.userData.pointData) {
+              pointData = obj.parent.userData.pointData;
+              break;
+            }
+          }
           if (pointData && pointData.conflict) {
             showConflictDetail(pointData.conflict);
-          } else {
-            // fallback: search by index
-            const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
-            if (idx !== -1) {
-              const p = globeInstance.pointsData()[idx];
-              if (p && p.conflict) showConflictDetail(p.conflict);
-            }
           }
         }
       });
 
+      // Hover tooltip
       renderer.domElement.addEventListener('mousemove', (event) => {
         const rect = renderer.domElement.getBoundingClientRect();
         mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
         mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
         raycaster.setFromCamera(mouse, camera);
-        const children = globeInstance.children;
-        const intersects = raycaster.intersectObjects(children);
+
+        const intersects = raycaster.intersectObjects(scene.children, true);
+        let found = false;
         if (intersects.length > 0) {
-          const obj = intersects[0].object;
-          const pointData = obj.userData && obj.userData.pointData;
-          let label = null;
-          if (pointData && pointData.label) label = pointData.label;
-          else {
-            const idx = globeInstance.pointsData().findIndex(p => p === obj.userData);
-            if (idx !== -1) {
-              const p = globeInstance.pointsData()[idx];
-              if (p && p.label) label = p.label;
+          let pointData = null;
+          for (let i = 0; i < intersects.length; i++) {
+            const obj = intersects[i].object;
+            if (obj.userData && obj.userData.pointData) {
+              pointData = obj.userData.pointData;
+              break;
+            }
+            if (obj.parent && obj.parent.userData && obj.parent.userData.pointData) {
+              pointData = obj.parent.userData.pointData;
+              break;
             }
           }
-          if (label) {
+          if (pointData && pointData.label) {
             tooltip.style.display = 'block';
             tooltip.style.left = (event.clientX - rect.left + 10) + 'px';
             tooltip.style.top = (event.clientY - rect.top - 10) + 'px';
-            tooltip.textContent = label;
+            tooltip.textContent = pointData.label;
+            found = true;
           }
-        } else {
+        }
+        if (!found) {
           tooltip.style.display = 'none';
         }
       });
@@ -685,60 +699,46 @@
         tooltip.style.display = 'none';
       });
 
-      // ---- ANIMATION ----
-      function animate() {
-        requestAnimationFrame(animate);
-        if (globe && globe.autoRotate) {
-          globeInstance.rotation.y += 0.001;
-        }
-        renderer.render(scene, camera);
-      }
-      animate();
-
-      // ---- RESIZE ----
-      const resize = () => {
-        const w = container.clientWidth || 800;
-        const h = container.clientHeight || 600;
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-        renderer.setSize(w, h);
-      };
-      window.addEventListener('resize', resize);
-      globe._resize = resize;
-
       // ---- CONTROLS ----
       document.getElementById('btn-reset').addEventListener('click', () => {
-        globeInstance.rotation.y = 0;
-        camera.position.set(0, 0, 2.5);
+        // Reset camera view
+        const controls = myGlobe.controls();
+        if (controls) {
+          controls.target.set(0, 0, 0);
+          controls.update();
+        }
+        // Also reset rotation via pointOfView
+        myGlobe.pointOfView({ lat: 0, lng: 0, altitude: 2.5 });
       });
 
+      // ---- 3D / Heatmap / Forecast ----
       document.getElementById('btn-3d').addEventListener('click', function() {
         this.classList.add('active');
         document.getElementById('btn-heatmap').classList.remove('active');
         document.getElementById('btn-forecast').classList.remove('active');
         currentMode = '3d';
-        globeInstance.pointsData(points);
+        myGlobe.pointsData(currentPoints);
       });
       document.getElementById('btn-heatmap').addEventListener('click', function() {
         this.classList.add('active');
         document.getElementById('btn-3d').classList.remove('active');
         document.getElementById('btn-forecast').classList.remove('active');
         currentMode = 'heatmap';
-        const heatmapPoints = points.map(p => ({ ...p, size: p.size * 1.5, color: '#7c4dff' }));
-        globeInstance.pointsData(heatmapPoints);
+        const heatmapPoints = currentPoints.map(p => ({ ...p, size: p.size * 1.5, color: '#7c4dff' }));
+        myGlobe.pointsData(heatmapPoints);
       });
       document.getElementById('btn-forecast').addEventListener('click', function() {
         this.classList.add('active');
         document.getElementById('btn-3d').classList.remove('active');
         document.getElementById('btn-heatmap').classList.remove('active');
         currentMode = '3d';
-        const forecastPoints = points.map(p => {
+        const forecastPoints = currentPoints.map(p => {
           if (p.conflict && p.conflict.scp > 0.6) {
             return { ...p, color: '#7c4dff', size: p.size * 1.8 };
           }
           return p;
         });
-        globeInstance.pointsData(forecastPoints);
+        myGlobe.pointsData(forecastPoints);
       });
 
       // ---- STYLE TOGGLE ----
@@ -749,7 +749,7 @@
         currentStyle = styles[nextIndex];
         this.textContent = currentStyle === 'satellite' ? '🛰️ Satellite' :
                            currentStyle === 'hologram'  ? '🟣 Hologram' : '🌙 Dark';
-        applyStyle(currentStyle, globeInstance);
+        applyStyle(currentStyle);
       });
 
       // ---- TIME SLIDER ----
@@ -762,17 +762,20 @@
         else if (val > 10) label.textContent = '30d ago';
         else label.textContent = '90d ago';
       });
+
+      console.log('✅ Globe.gl initialized successfully');
     }
 
     // ---- APPLY STYLE ----
-    function applyStyle(style, globeInstance) {
-      if (!globeInstance) return;
+    function applyStyle(style) {
+      if (!myGlobe) return;
       if (style === 'satellite') {
-        globeInstance.globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg');
-        globeInstance.globeMaterial({ color: null, emissive: null, emissiveIntensity: 0, wireframe: false, transparent: false, opacity: 1 });
+        myGlobe.globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg');
+        // Reset material
+        myGlobe.globeMaterial({ color: null, emissive: null, emissiveIntensity: 0, wireframe: false, transparent: false, opacity: 1 });
       } else if (style === 'hologram') {
-        globeInstance.globeImageUrl(null);
-        globeInstance.globeMaterial({
+        myGlobe.globeImageUrl(null);
+        myGlobe.globeMaterial({
           color: new THREE.Color('#7c4dff'),
           emissive: new THREE.Color('#7c4dff'),
           emissiveIntensity: 0.3,
@@ -781,8 +784,8 @@
           opacity: 0.8
         });
       } else if (style === 'dark') {
-        globeInstance.globeImageUrl(null);
-        globeInstance.globeMaterial({
+        myGlobe.globeImageUrl(null);
+        myGlobe.globeMaterial({
           color: new THREE.Color('#1a1a2e'),
           emissive: new THREE.Color('#7c4dff'),
           emissiveIntensity: 0.1,
@@ -819,6 +822,9 @@
 
   })();
 </script>
+
+<!-- GoatCounter (if used) -->
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
 </body>
 </html>
