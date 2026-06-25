@@ -333,7 +333,7 @@
       const resp = await fetch('conflict_data.json');
       if (!resp.ok) throw new Error('Failed to fetch conflict data');
       const data = await resp.json();
-      allConflicts = data.conflicts || [];
+      allConflicts = data.threats || data.conflicts || [];
 
       // Update stats
       document.getElementById('conflictCount').textContent = allConflicts.length;
