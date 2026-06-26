@@ -61,6 +61,9 @@ def main():
     # 1. Daily sweep – OSINT ingestion
     run_script("daily-sweep.py", "Daily OSINT sweep")
 
+    # At the top with other imports
+    from threat_scanner import ThreatScanner, generate_threat_report
+
     # In cathedral_system.py, after daily-sweep.py:
     scanner = ThreatScanner()
     candidates = scanner.scan_for_new_threats()
@@ -69,6 +72,8 @@ def main():
         with open('new_threat_candidates.json', 'w') as f:
             json.dump(candidates, f, indent=2)
         print(f"🔍 Found {len(candidates)} potential new threats")
+    except Exception as e:
+        print(f"⚠️ Threat scan failed: {e}")
 
     # ---- Cyber threat intelligence ----
     run_script("cyber_fetcher.py", "Cyber threat intelligence")
