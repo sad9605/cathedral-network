@@ -61,6 +61,15 @@ def main():
     # 1. Daily sweep – OSINT ingestion
     run_script("daily-sweep.py", "Daily OSINT sweep")
 
+    # In cathedral_system.py, after daily-sweep.py:
+    scanner = ThreatScanner()
+    candidates = scanner.scan_for_new_threats()
+    if candidates:
+        # Save to file for human review
+        with open('new_threat_candidates.json', 'w') as f:
+            json.dump(candidates, f, indent=2)
+        print(f"🔍 Found {len(candidates)} potential new threats")
+
     # ---- Cyber threat intelligence ----
     run_script("cyber_fetcher.py", "Cyber threat intelligence")
 
@@ -88,6 +97,10 @@ def main():
 
     # 3. Cascade Engine – Bayesian updates, SCP, GSCI, etc.
     run_script("cascade_engine.py", "Cascade Engine (v8)")
+
+    # In cathedral_system.py, after cascade_engine.py:
+    archived_count = archive_old_threats()
+    print(f"📦 Archived {archived_count} threats")
 
     # ---- v9 ML Likelihoods ----
     print("🧠 Computing ML likelihood ratios...")
