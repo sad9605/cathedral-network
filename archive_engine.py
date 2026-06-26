@@ -127,7 +127,9 @@ def archive_old_threats(
 
     print(f"✅ Archived {len(new_archived)} threats to {archive_file}")
     return len(new_archived)
-
+   
+    print(f"\n📊 Active threats remaining: {len(active_threats)}")
+    print(f"📦 Total threats in archive: {len(archive)}")
 # ------------------------------------------------------------------
 # 4. STANDALONE RUN
 # ------------------------------------------------------------------
