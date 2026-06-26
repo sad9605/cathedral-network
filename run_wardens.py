@@ -2,7 +2,7 @@
 """
 Master Warden Orchestrator
 Runs the entire Cathedral pipeline in the correct order:
-1. Fetch data (Threat Scanner, GPSJAM)
+1. Fetch data (Threat Scanner, GPSJAM,Telegram Fetcher)
 2. Archive resolved threats
 3. OSINT Triage (DRY RUN by default)
 4. Generate Daily Brief
@@ -52,6 +52,7 @@ def main():
     # --------------------------------------------------
     results.append(run_step("Threat Scanner (H02)", "python3 threat_scanner.py"))
     results.append(run_step("GPSJAM Fetcher (C04)", "python3 gpsjam_fetcher.py"))
+    results.append(run_step("Telegram Fetcher (AW15)", "python3 telegram_fetcher.py"))
 
     # --------------------------------------------------
     # STEP 2: Archive resolved threats
