@@ -1,72 +1,136 @@
-import json
-from datetime import datetime, timedelta
+#!/usr/bin/env python3
+"""
+archive_engine.py – Cathedral Archive Engine
+Moves resolved, inactive, or stale low-risk threats to the archive.
+"""
 
-def archive_old_threats(threats_file='threats.json', archive_file='archive.json'):
-    """Move inactive threats to archive based on clear criteria."""
-    
-    with open(threats_file, 'r') as f:
-        threats = json.load(f)
-    
-    now = datetime.utcnow()
-    archived = []
+import json
+import os
+from datetime import datetime, timedelta, timezone
+from typing import Dict, List, Any
+
+# ------------------------------------------------------------------
+# 1. LOAD AND NORMALIZE THREATS
+# ------------------------------------------------------------------
+
+def load_json(filepath):
+    try:
+        with open(filepath, 'r') as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return None
+
+def normalize_threats(data):
+    """Convert various threat.json formats into a list of dicts."""
+    if isinstance(data, list):
+        if data and isinstance(data[0], str):
+            # list of IDs – skip
+            return []
+        return data
+    elif isinstance(data, dict):
+        return data.get('threats', [])
+    return []
+
+# ------------------------------------------------------------------
+# 2. ARCHIVE CRITERIA
+# ------------------------------------------------------------------
+
+def should_archive(threat: Dict[str, Any]) -> tuple[bool, str]:
+    """
+    Determine if a threat should be archived and the reason.
+    Returns (should_archive, reason).
+    """
+    # Explicit status
+    status = threat.get('status', '').lower()
+    if status in ['resolved', 'inactive', 'peace_agreement', 'disaster_ended']:
+        return True, f"Status: {status}"
+
+    # Peace agreement confirmed flag
+    if threat.get('peace_agreement_confirmed', False):
+        return True, "Peace agreement confirmed"
+
+    # Stale + low risk: no updates in 90 days and SCP < 0.25
+    last_updated = threat.get('last_updated')
+    if last_updated:
+        try:
+            last_dt = datetime.fromisoformat(last_updated)
+            # Make it timezone-aware (assume UTC if naive)
+            if last_dt.tzinfo is None:
+                last_dt = last_dt.replace(tzinfo=timezone.utc)
+        except (ValueError, TypeError):
+            # If parsing fails, treat as old
+            last_dt = datetime.now(timezone.utc) - timedelta(days=100)
+        days_since = (datetime.now(timezone.utc) - last_dt).days
+        scp = threat.get('scp', 0)
+        if days_since > 90 and scp < 0.25:
+            return True, f"Inactive for {days_since} days, low SCP ({scp:.2f})"
+    else:
+        # No timestamp – treat as old if it has no recent evidence
+        if threat.get('scp', 0) < 0.25:
+            return True, "No update timestamp and low SCP"
+
+    return False, ""
+
+# ------------------------------------------------------------------
+# 3. MAIN ARCHIVE FUNCTION
+# ------------------------------------------------------------------
+
+def archive_old_threats(
+    threats_file='threats.json',
+    archive_file='archive.json'
+) -> int:
+    """
+    Move archived threats from the main threats file to the archive.
+    Returns the number of threats archived.
+    """
+    # Load threats
+    threats_raw = load_json(threats_file)
+    threats = normalize_threats(threats_raw)
+    if not threats:
+        print("⚠️ No threats found to archive.")
+        return 0
+
+    # Load existing archive
+    existing_archive = load_json(archive_file) or []
+
+    now = datetime.now(timezone.utc)
     active = []
-    
+    archived = []
+
     for threat in threats:
-        # Criteria for archiving:
-        # 1. Status explicitly set to 'resolved' or 'inactive'
-        # 2. No evidence updates for 90+ days AND SCP < 0.25
-        # 3. Peace agreement confirmed (if domain='military')
-        # 4. Disaster officially declared over (if domain='climate')
-        
-        last_updated = datetime.fromisoformat(threat.get('last_updated', '2000-01-01'))
-        days_since_update = (now - last_updated).days
-        
-        should_archive = False
-        
-        # Explicit status
-        if threat.get('status') in ['resolved', 'inactive', 'peace_agreement', 'disaster_ended']:
-            should_archive = True
-        
-        # Stale + low risk
-        if days_since_update > 90 and threat.get('scp', 0) < 0.25:
-            should_archive = True
-        
-        # Peace agreement special case (needs human verification)
-        if threat.get('peace_agreement_confirmed', False):
-            should_archive = True
-        
-        if should_archive:
+        should, reason = should_archive(threat)
+        if should:
             # Add archive metadata
             threat['archived_date'] = now.isoformat()
-            threat['archive_reason'] = get_archive_reason(threat)
+            threat['archive_reason'] = reason
             archived.append(threat)
         else:
             active.append(threat)
-    
-    # Save
+
+    if not archived:
+        print("📭 No threats met archive criteria.")
+        return 0
+
+    # Save active threats back
     with open(threats_file, 'w') as f:
         json.dump(active, f, indent=2)
-    
-    # Load existing archive and append
-    try:
-        with open(archive_file, 'r') as f:
-            existing_archive = json.load(f)
-    except:
-        existing_archive = []
-    
-    existing_archive.extend(archived)
-    
-    with open(archive_file, 'w') as f:
-        json.dump(existing_archive, f, indent=2)
-    
-    return len(archived)
 
-def get_archive_reason(threat):
-    """Determine why a threat was archived."""
-    if threat.get('peace_agreement_confirmed'):
-        return 'Peace agreement confirmed'
-    if threat.get('status') == 'disaster_ended':
-        return 'Disaster officially ended'
-    if threat.get('scp', 0) < 0.25:
-        return f'Low SCP ({threat.get("scp")}) and inactive for 90+ days'
-    return 'Marked as resolved'
+    # Append to existing archive (deduplicate by id)
+    existing_ids = {t.get('id') for t in existing_archive if t.get('id')}
+    new_archived = [t for t in archived if t.get('id') not in existing_ids]
+    if new_archived:
+        existing_archive.extend(new_archived)
+        with open(archive_file, 'w') as f:
+            json.dump(existing_archive, f, indent=2)
+    else:
+        print("⚠️ All archived threats were already in archive.")
+
+    print(f"✅ Archived {len(new_archived)} threats to {archive_file}")
+    return len(new_archived)
+
+# ------------------------------------------------------------------
+# 4. STANDALONE RUN
+# ------------------------------------------------------------------
+
+if __name__ == '__main__':
+    archive_old_threats()
