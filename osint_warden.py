@@ -2,9 +2,11 @@
 """
 H11 – OSINT Triage Warden
 Automatically reviews new threat candidates, scores them, and promotes urgent ones.
+Supports --dry-run flag to preview actions without modifying threats.json
 """
 import json
 import math
+import sys
 from datetime import datetime, timezone
 
 # --------------------------------------------------
@@ -23,6 +25,11 @@ SOURCE_WEIGHTS = {
     "mock": 30
 }
 URGENT_KEYWORDS = ["attack", "clash", "siege", "blockade", "missile", "drone", "offensive", "breakthrough", "escalate"]
+
+# Check for --dry-run flag
+DRY_RUN = "--dry-run" in sys.argv
+if DRY_RUN:
+    print("🔒 DRY RUN MODE: Will score candidates but NOT promote them.")
 
 # --------------------------------------------------
 # 1. LOAD DATA
@@ -85,9 +92,8 @@ for candidate in candidates:
                 t_lat = t.get("lat")
                 t_lng = t.get("lng")
                 if t_lat and t_lng:
-                    # Simple Euclidean distance (rough)
                     distance = math.sqrt((lat - t_lat)**2 + (lng - t_lng)**2)
-                    if distance < 5:  # Within ~5 degrees (roughly 500km)
+                    if distance < 5:
                         proximity_boost += 20
                         break
                     elif distance < 10:
@@ -109,48 +115,62 @@ for candidate in candidates:
     candidate["triage_status"] = triage_status
     candidate["last_triage"] = datetime.now(timezone.utc).isoformat()
 
-    # If Promote, move to threats.json
+    # If Promote, move to threats.json (skip if DRY_RUN)
     if triage_status == "Promote":
-        # Create a new threat entry
-        new_threat = {
-            "id": f"C{len(threats)+100:03d}",  # Keep new IDs separate
-            "name": candidate.get("name"),
-            "status": "Yellow",  # Start as Yellow, let human upgrade
-            "lat": candidate.get("lat"),
-            "lng": candidate.get("lng"),
-            "scp": 0.35,  # Conservative start
-            "priority_score": 35.0,
-            "description": candidate.get("description", "Promoted by OSINT Warden"),
-            "source": candidate.get("source"),
-            "promoted_date": datetime.now(timezone.utc).isoformat()
-        }
-        threats.append(new_threat)
-        promoted.append(new_threat)
-        print(f"✅ Promoted: {new_threat['name']} (Score: {triage_score})")
-
-    updated_candidates.append(candidate)
+        if DRY_RUN:
+            print(f"🔒 [DRY RUN] Would promote: {candidate.get('name')} (Score: {triage_score})")
+            candidate["triage_status"] = "Would-Promote (DRY)"
+            updated_candidates.append(candidate)
+            continue
+        else:
+            # Create a new threat entry
+            new_threat = {
+                "id": f"C{len(threats)+100:03d}",
+                "name": candidate.get("name"),
+                "status": "Yellow",
+                "lat": candidate.get("lat"),
+                "lng": candidate.get("lng"),
+                "scp": 0.35,
+                "priority_score": 35.0,
+                "description": candidate.get("description", "Promoted by OSINT Warden"),
+                "source": candidate.get("source"),
+                "promoted_date": datetime.now(timezone.utc).isoformat()
+            }
+            threats.append(new_threat)
+            promoted.append(new_threat)
+            print(f"✅ Promoted: {new_threat['name']} (Score: {triage_score})")
+            updated_candidates.append(candidate)
+            continue
+    else:
+        updated_candidates.append(candidate)
 
 # --------------------------------------------------
 # 3. SAVE UPDATED FILES
 # --------------------------------------------------
-# Save updated candidates (remove promoted ones if you want, or keep them as record)
-# We'll keep them but mark as Promoted
+# Save updated candidates (always save)
 with open("new_threat_candidates.json", "w") as f:
     json.dump(updated_candidates, f, indent=2)
 
-# Save updated threats
-with open("threats.json", "w") as f:
-    json.dump(threats, f, indent=2)
+# Save updated threats only if NOT dry-run
+if not DRY_RUN:
+    with open("threats.json", "w") as f:
+        json.dump(threats, f, indent=2)
 
 # --------------------------------------------------
 # 4. SUMMARY
 # --------------------------------------------------
 print(f"📊 Triage complete.")
 print(f"   Candidates reviewed: {len(updated_candidates)}")
-print(f"   Promoted: {len(promoted)}")
+if not DRY_RUN:
+    print(f"   Promoted: {len(promoted)}")
+else:
+    print(f"   Would-Promote (DRY): {len([c for c in updated_candidates if c.get('triage_status') == 'Would-Promote (DRY)'])}")
 print(f"   Watch: {len([c for c in updated_candidates if c.get('triage_status') == 'Watch'])}")
 print(f"   Ignored: {len([c for c in updated_candidates if c.get('triage_status') == 'Ignore'])}")
 
-if promoted:
+if promoted and not DRY_RUN:
     print("\n✅ Auto-promoted threats added to threats.json.")
     print("   ⚠️  Please review them and adjust status/SCP if needed.")
+elif DRY_RUN and any(c.get('triage_status') == 'Would-Promote (DRY)' for c in updated_candidates):
+    print("\n🔒 DRY RUN: No changes were made to threats.json.")
+    print("   To enable auto-promotion, run without --dry-run or set OSINT_DRY_RUN=False in run_wardens.py.")
