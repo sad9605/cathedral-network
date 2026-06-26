@@ -61,9 +61,6 @@ def main():
     # 1. Daily sweep – OSINT ingestion
     run_script("daily-sweep.py", "Daily OSINT sweep")
 
-    # At the top with other imports
-    from threat_scanner import ThreatScanner, generate_threat_report
-
     # In cathedral_system.py, after daily-sweep.py:
     try:
         scanner = ThreatScanner()
@@ -103,7 +100,9 @@ def main():
     # 3. Cascade Engine – Bayesian updates, SCP, GSCI, etc.
     run_script("cascade_engine.py", "Cascade Engine (v8)")
 
-    # In cathedral_system.py, after cascade_engine.py:
+    from archive_engine import archive_old_threats
+
+    # ... after cascade_engine.py runs ...
     archived_count = archive_old_threats()
     print(f"📦 Archived {archived_count} threats")
 

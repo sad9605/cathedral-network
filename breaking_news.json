@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-25T18:43:32.158775",
+  "timestamp": "2026-06-25T20:56:33.206430",
   "items": [
     {
       "title": "Green flood alert in T\u00fcrkiye",
@@ -65,6 +65,15 @@
       "impact": "Medium"
     },
     {
+      "title": "Rescuers search rubble for survivors as Venezuela earthquakes kill at least 235",
+      "description": "Nearly 1,500 people have been injured after two seven-plus magnitude shallow quakes hit seconds apart.",
+      "link": "https://www.bbc.co.uk/news/articles/cjegdqw5d3yo?at_medium=RSS&at_campaign=rss",
+      "date": "Fri, 26 Jun 2026 01:30:01 GMT",
+      "source": "BBC News",
+      "category": "Neutral",
+      "impact": "Critical"
+    },
+    {
       "title": "Earthquake is devastating blow to Venezuela at time of uncertainty",
       "description": "The twin quakes come less than six months after Venezuela's then-leader Nicol\u00e1s Maduro was seized by US forces.",
       "link": "https://www.bbc.co.uk/news/articles/c3vynpw7rk4o?at_medium=RSS&at_campaign=rss",
@@ -74,19 +83,10 @@
       "impact": "Critical"
     },
     {
-      "title": "France warns even young people's health at risk as Europe's heatwave shifts east",
-      "description": "Temperatures in Germany could hit 40C in some areas while French officials say deaths linked to the heat are being seen among young people.",
-      "link": "https://www.bbc.co.uk/news/articles/cwy0pdq89zno?at_medium=RSS&at_campaign=rss",
-      "date": "Thu, 25 Jun 2026 21:27:06 GMT",
-      "source": "BBC News",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
       "title": "UN pauses Strait of Hormuz evacuation plan after cargo ship attacked",
       "description": "The ship was reportedly struck by an \"unknown projectile\" near Oman but no casualties were reported.",
       "link": "https://www.bbc.co.uk/news/articles/cjwg9np904qo?at_medium=RSS&at_campaign=rss",
-      "date": "Thu, 25 Jun 2026 19:19:12 GMT",
+      "date": "Fri, 26 Jun 2026 00:28:02 GMT",
       "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
@@ -146,13 +146,31 @@
       "impact": "Critical"
     },
     {
-      "title": "Why the trail went cold in Nancy Guthrie case",
-      "description": "The lack of a breakthrough in the abduction of a famous TV anchor's mother is puzzling given the huge publicity.",
-      "link": "https://www.bbc.co.uk/news/articles/cy064kg3n0ko?at_medium=RSS&at_campaign=rss",
-      "date": "Thu, 25 Jun 2026 23:12:22 GMT",
-      "source": "BBC News",
-      "category": "Positive",
-      "impact": "High"
+      "title": "France seizes fifth Russian \u2018shadow fleet\u2019 tanker linked to Ukraine war",
+      "description": "France seizes fifth Russian \u2018shadow fleet\u2019 tanker linked to funding Ukraine war.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/26/france-seizes-fifth-russian-shadow-fleet-tanker-linked-to-ukraine-war?traffic_source=rss",
+      "date": "Fri, 26 Jun 2026 01:20:40 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Plan Intl: \u2018Mental health impact of Venezuelan quakes can last for years\u2019",
+      "description": "Plan International said children and young people must be at the centre of Venezuela&#039;s earthquake response.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/26/plan-intl-mental-health-impact-of-venezuelan-quakes-can-last-for-years?traffic_source=rss",
+      "date": "Fri, 26 Jun 2026 00:36:08 +0000",
+      "source": "Al Jazeera",
+      "category": "Neutral",
+      "impact": "Critical"
+    },
+    {
+      "title": "Iran war live: Israel attacks Lebanon as Netanyahu says troops to stay",
+      "description": "Israeli leader says military to stay in occupied areas of southern Lebanon &#039;as long as necessary&#039;, despite US-Iran deal.",
+      "link": "https://www.aljazeera.com/news/liveblog/2026/6/26/iran-war-live-israel-attacks-lebanon-as-netanyahu-says-troops-to-stay?traffic_source=rss",
+      "date": "Fri, 26 Jun 2026 00:00:09 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Critical"
     },
     {
       "title": "UN: Venezuela earthquakes will deepen already severe humanitarian crisis",
@@ -161,24 +179,6 @@
       "date": "Thu, 25 Jun 2026 23:20:02 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Venezuela earthquakes live: At least 188 dead as rescue efforts intensify",
-      "description": "Venezuelans battle to rescue loved ones trapped alive beneath rubble of collapsed buildings after two major earthquakes.",
-      "link": "https://www.aljazeera.com/news/liveblog/2026/6/25/venezuela-earthquakes-live-at-least-188-dead-as-rescue-efforts-intensify?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 22:00:02 +0000",
-      "source": "Al Jazeera",
-      "category": "Neutral",
-      "impact": "Critical"
-    },
-    {
-      "title": "Venezuela rescue teams race to find earthquake survivors",
-      "description": "Rescue teams raced to find survivors and recover bodies after twin earthquakes rocked Venezuela on Wednesday.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/25/venezuela-rescue-teams-race-to-find-earthquake-survivors?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 21:42:33 +0000",
-      "source": "Al Jazeera",
-      "category": "Neutral",
       "impact": "Critical"
     }
   ]
