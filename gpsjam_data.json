@@ -1,4 +1,62 @@
 {
-  "timestamp": "2026-06-25T20:52:59.048303",
-  "jamming": {}
+  "lastUpdated": "2026-06-26T04:15:37.273102+00:00",
+  "source": "SYNTHETIC_FALLBACK",
+  "zones": [
+    {
+      "id": "SYN-JAM-01",
+      "name": "Synthetic: Strait of Hormuz",
+      "lat": 26.5,
+      "lng": 56.0,
+      "intensity": 8.5,
+      "type": "Synthetic (Hardcoded)",
+      "source": "Cathedral Synthetic",
+      "fetchedAt": "2026-06-26T04:15:37.264604+00:00",
+      "synthetic_fallback": true
+    },
+    {
+      "id": "SYN-JAM-02",
+      "name": "Synthetic: Bab el-Mandeb / Red Sea",
+      "lat": 13.0,
+      "lng": 43.0,
+      "intensity": 7.8,
+      "type": "Synthetic (Hardcoded)",
+      "source": "Cathedral Synthetic",
+      "fetchedAt": "2026-06-26T04:15:37.271972+00:00",
+      "synthetic_fallback": true
+    },
+    {
+      "id": "SYN-JAM-03",
+      "name": "Synthetic: South China Sea",
+      "lat": 12.0,
+      "lng": 116.0,
+      "intensity": 6.5,
+      "type": "Synthetic (Hardcoded)",
+      "source": "Cathedral Synthetic",
+      "fetchedAt": "2026-06-26T04:15:37.272007+00:00",
+      "synthetic_fallback": true
+    },
+    {
+      "id": "SYN-JAM-04",
+      "name": "Synthetic: Ukraine / Black Sea",
+      "lat": 46.0,
+      "lng": 32.0,
+      "intensity": 7.0,
+      "type": "Synthetic (Hardcoded)",
+      "source": "Cathedral Synthetic",
+      "fetchedAt": "2026-06-26T04:15:37.272019+00:00",
+      "synthetic_fallback": true
+    },
+    {
+      "id": "SYN-JAM-05",
+      "name": "Synthetic: Taiwan Strait",
+      "lat": 24.5,
+      "lng": 120.5,
+      "intensity": 6.0,
+      "type": "Synthetic (Hardcoded)",
+      "source": "Cathedral Synthetic",
+      "fetchedAt": "2026-06-26T04:15:37.272028+00:00",
+      "synthetic_fallback": true
+    }
+  ],
+  "warning": "GPSJAM endpoint unreachable. Data is synthetic and labeled as such."
 }
