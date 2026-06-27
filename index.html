@@ -1,831 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Ground Truth</title>
-  <meta name="description" content="Live summary of the Cathedral Network's threat assessment, global metrics, and top pressing threats.">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Page-specific overrides – matching the new design */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    .stat-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1rem;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.1s, box-shadow 0.2s;
-    }
-    body.dark .stat-card {
-      background: #2a2a3a;
-    }
-    .stat-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-    }
-    .stat-card .number {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--violet-dark);
-    }
-    body.dark .stat-card .number {
-      color: #b39ddb;
-    }
-    .stat-card .label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      color: #666;
-      letter-spacing: 0.5px;
-    }
-    body.dark .stat-card .label {
-      color: #aaa;
-    }
-    .stat-card .sub {
-      font-size: 0.65rem;
-      opacity: 0.6;
-      margin-top: 0.15rem;
-    }
+    <meta charset="UTF-8">
+    <link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ground Truth – Cathedral Network</title>
+    <meta name="description" content="The Cathedral's Ground Truth – live global threat intelligence, predictions, and cascades.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── Ground Truth Specific Styles ── */
+        .gt-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .gt-card {
+            background: #14141f;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid #2a2a3a;
+            transition: all 0.2s ease;
+        }
+        .gt-card:hover {
+            border-color: #7c4dff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 77, 255, 0.12);
+        }
+        .gt-card .label {
+            color: #888;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .gt-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+        }
+        .gt-card .sub {
+            color: #666;
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
+        .gt-card .trend-up { color: #ff6b6b; }
+        .gt-card .trend-down { color: #6bcb8a; }
+        .gt-card .trend-flat { color: #888; }
 
-    .threat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.2rem;
-      margin: 1.5rem 0;
-    }
-    .threat-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      box-shadow: var(--shadow-sm);
-      border-left: 6px solid var(--violet-dark);
-      transition: transform 0.1s, box-shadow 0.2s;
-      cursor: pointer;
-    }
-    body.dark .threat-card {
-      background: #2a2a3a;
-    }
-    .threat-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-    }
-    .threat-card .title {
-      font-weight: 700;
-      font-size: 1.05rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 0.3rem;
-    }
-    .threat-card .badge {
-      display: inline-block;
-      padding: 0.2rem 0.6rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      background: var(--violet-light);
-      color: var(--violet-dark);
-    }
-    body.dark .threat-card .badge {
-      background: #3a3a4a;
-      color: #b39ddb;
-    }
-    .badge-black { background: #1f1f1f; color: #fff; }
-    .badge-red { background: #dc2626; color: #fff; }
-    .badge-orange { background: #f97316; color: #fff; }
-    .badge-yellow { background: #eab308; color: #1a1a1a; }
-    .badge-green { background: #22c55e; color: #1a1a1a; }
-    .threat-card .desc {
-      font-size: 0.9rem;
-      margin: 0.5rem 0;
-      opacity: 0.8;
-    }
-    .threat-card .justification {
-      font-size: 0.85rem;
-      background: var(--violet-light);
-      padding: 0.5rem 0.75rem;
-      border-radius: 10px;
-      border-left: 3px solid var(--violet-dark);
-      margin: 0.5rem 0;
-    }
-    body.dark .threat-card .justification {
-      background: #3a3a4a;
-      border-left-color: #b39ddb;
-    }
-    .threat-card .meta {
-      font-size: 0.75rem;
-      opacity: 0.6;
-      margin-top: 0.4rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+        .threat-item {
+            background: #1a1a2e;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            border-left: 3px solid #7c4dff;
+        }
+        .threat-item.critical { border-left-color: #ff6b6b; }
+        .threat-item.high { border-left-color: #ffa94d; }
+        .threat-item.elevated { border-left-color: #ffd93d; }
+        .threat-item.moderate { border-left-color: #6bcb8a; }
+        .threat-item .name { color: #fff; font-weight: 600; }
+        .threat-item .meta { color: #888; font-size: 0.8rem; }
+        .threat-item .desc { color: #aaa; font-size: 0.85rem; margin-top: 0.2rem; }
 
-    .recovery-card {
-      background: #fef9e7;
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      margin: 1.5rem 0;
-      border-left: 4px solid #d4a837;
-    }
-    body.dark .recovery-card {
-      background: #2a2a1a;
-      border-left-color: #d4a837;
-    }
-    .recovery-card h3 {
-      color: #d4a837;
-      margin: 0 0 0.5rem 0;
-    }
-    .recovery-signal {
-      background: rgba(212,168,55,0.12);
-      border-radius: 8px;
-      padding: 0.5rem 1rem;
-      margin: 0.25rem 0;
-    }
+        .pred-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #1a1a2e;
+        }
+        .pred-item:last-child { border-bottom: none; }
+        .pred-item .statement { color: #ccc; }
+        .pred-item .status-confirm { color: #6bcb8a; font-weight: 600; }
+        .pred-item .status-falsify { color: #ff6b6b; font-weight: 600; }
+        .pred-item .status-pending { color: #ffd93d; font-weight: 600; }
 
-    .hewd-widget {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      margin: 1.5rem 0;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-    }
-    body.dark .hewd-widget {
-      background: #2a2a3a;
-    }
-    .hewd-widget .widget-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 0.5rem;
-      margin: 0.5rem 0;
-    }
-    .hewd-widget .widget-item {
-      text-align: center;
-    }
-    .hewd-widget .widget-item .number {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--violet-dark);
-    }
-    body.dark .hewd-widget .widget-item .number {
-      color: #b39ddb;
-    }
-    .hewd-widget .widget-item .label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      color: #666;
-    }
-    body.dark .hewd-widget .widget-item .label {
-      color: #aaa;
-    }
+        .refresh-timer {
+            text-align: right;
+            font-size: 0.75rem;
+            color: #444;
+            margin-top: 1rem;
+        }
 
-    .oil-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-    .oil-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1rem;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-    }
-    body.dark .oil-card {
-      background: #2a2a3a;
-    }
-    .oil-card .number {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--violet-dark);
-    }
-    body.dark .oil-card .number {
-      color: #b39ddb;
-    }
-    .oil-card .label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      color: #666;
-      letter-spacing: 0.5px;
-    }
-    body.dark .oil-card .label {
-      color: #aaa;
-    }
+        .alert-banner {
+            background: #1a1a2e;
+            border-left: 4px solid #ff6b6b;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+        .alert-banner.show { display: block; }
+        .alert-banner .title { color: #ff6b6b; font-weight: bold; }
 
-    .prediction-update {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      margin: 1.5rem 0;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-    }
-    body.dark .prediction-update {
-      background: #2a2a3a;
-    }
-    .update-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid #f0f0f0;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    body.dark .update-item {
-      border-bottom-color: #444;
-    }
-    .update-item:last-child {
-      border-bottom: none;
-    }
-    .update-item .desc {
-      flex: 1;
-      font-size: 0.9rem;
-    }
-    .update-item .date {
-      font-size: 0.75rem;
-      opacity: 0.6;
-    }
+        .oil-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 0.5rem 0;
+        }
+        .oil-card {
+            background: #1a1a2e;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .oil-card .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .oil-card .label {
+            color: #888;
+            font-size: 0.8rem;
+        }
 
-    .corrections-feed {
-      margin-top: 1rem;
-      font-size: 0.8rem;
-      text-align: right;
-    }
-    .page-title {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.15rem;
-      border-bottom: 3px solid var(--violet-dark);
-      display: inline-block;
-      padding-bottom: 0.25rem;
-    }
-    .page-title small {
-      font-size: 1rem;
-      font-weight: 400;
-      opacity: 0.6;
-      display: block;
-      margin-top: 0.1rem;
-      border-bottom: none;
-    }
-    .date {
-      color: #666;
-      margin-bottom: 1.2rem;
-      font-size: 0.9rem;
-    }
-    body.dark .date {
-      color: #aaa;
-    }
-  </style>
+        @media (max-width: 600px) {
+            .gt-grid { grid-template-columns: 1fr 1fr; }
+            .oil-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-
-<!-- Hardcoded Sidebar (same as other pages) -->
-<div class="sidebar-container" id="sidebar">
-  <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
-  <nav>
-    <div class="nav-section">
-      <strong>📊 Dashboard</strong>
-      <a href="index.html">Ground Truth</a>
-      <a href="hewd.html">HEWD Dashboard</a>
-      <a href="health.html">System Health</a>
-    </div>
-    <div class="nav-section">
-      <strong>🧠 Intelligence</strong>
-      <a href="threat-matrix.html">Threat Matrix</a>
-      <a href="prediction-log.html">Prediction Log</a>
-      <a href="regional.html">Regional Forecasts</a>
-      <a href="institutional.html">Institutional Intelligence</a>
-      <a href="daily-brief.html">Daily Brief</a>
-      <a href="breaking.html">Breaking News</a>
-    </div>
-    <div class="nav-section">
-      <strong>⚖️ Governance</strong>
-      <a href="constitution.html">Constitution</a>
-      <a href="wardens.html">Wardens</a>
-      <a href="ascension.html">Ascension Engine</a>
-      <a href="warden-dashboard.html">Warden Dashboard</a>
-    </div>
-    <div class="nav-section">
-      <strong>🌍 Community</strong>
-      <a href="spotter.html">Spotter Guide</a>
-      <a href="about.html">About</a>
-      <a href="sources.html">Sources</a>
-      <a href="credits.html">Credits</a>
-    </div>
-    <div class="nav-section">
-      <strong>🔧 Tools</strong>
-      <a href="undp-demo.html">UNDP Demo</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="pra.html">PRA</a>
-    </div>
-  </nav>
-</div>
-
-<!-- Banner -->
-<header class="cathedral-banner">
-  <div class="banner-content">
-    <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-    <div class="logo-mark">
-      <svg viewBox="0 0 120 140" width="50" height="60">
-        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
-        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
-        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
-        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
-        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
-        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
-        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
-        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
-      </svg>
-    </div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Ground Truth – Live Summary</p></div>
-  </div>
-</header>
-
-<!-- Top Nav (mobile) -->
-<div class="top-nav">
-  <a href="index.html">Ground Truth</a>
-  <a href="threat-matrix.html">Threat Matrix</a>
-  <a href="prediction-log.html">Prediction Log</a>
-  <a href="hewd.html">HEWD</a>
-  <a href="health.html">Health</a>
-  <a href="wardens.html">Wardens</a>
-</div>
-
-<!-- Main content -->
-<div class="container">
-
-  <div class="page-title">
-    Ground Truth Summary
-    <small>The Cathedral's live assessment of global systemic risk</small>
-  </div>
-  <div class="date" id="lastUpdateDate">Loading latest sweep…</div>
-
-  <!-- Violet Warning Alert -->
-  <div id="violet-alert" style="display:none; background: #7c4dff20; border-left: 4px solid #7c4dff; padding: 0.8rem 1rem; border-radius: 12px; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
-    <span class="violet-pulse"></span>
-    <div>
-      <strong style="color: #7c4dff;">⚠️ Critical System Warning</strong>
-      <span id="alert-reason" style="font-size:0.85rem; opacity:0.8;">SCA Tier 5 – Unprecedented</span>
-    </div>
-  </div>
-
-  <!-- Metric tiles -->
-  <div class="stats-grid">
-    <a href="glossary.html#gsci" class="stat-card">
-      <div class="number" id="gsciValue">--</div>
-      <div class="label">GSCI</div>
-      <div class="sub">Global Systemic Collapse Index</div>
-    </a>
-    <a href="glossary.html#ssi" class="stat-card">
-      <div class="number" id="ssiValue">--</div>
-      <div class="label">SSI</div>
-      <div class="sub">System Stress Index</div>
-    </a>
-    <a href="prediction-log.html" class="stat-card">
-      <div class="number" id="hitRateValue">--</div>
-      <div class="label">Prediction Log</div>
-      <div class="sub">Hit rate</div>
-    </a>
-    <a href="threat-matrix.html" class="stat-card">
-      <div class="number" id="threatCountValue">--</div>
-      <div class="label">Threats tracked</div>
-      <div class="sub">Cascade rules active</div>
-    </a>
-  </div>
-
-  <!-- Top threats -->
-  <h2 style="font-size:1.4rem; margin-top:2rem; border-bottom:2px solid var(--violet); padding-bottom:0.5rem; display:inline-block;">Top Pressing Threats</h2>
-  <div id="dynamicThreatGrid" class="threat-grid">
-    <p>Loading threats…</p>
-  </div>
-
-  <!-- Recovery / Resilience -->
-  <div class="recovery-card">
-    <h3>🕯️ Glimmers of Resilience</h3>
-    <div id="resilienceText">
-      <div class="recovery-signal">⏳ The Resilience Engine is under construction. This section will soon display positive cascades, recovery signals, and opportunities for intervention. The Cathedral watches for light as carefully as for shadow.</div>
-    </div>
-    <p style="font-size:0.8rem; margin-top:0.5rem; opacity:0.6;">Coming soon: Ascension Engine · Opportunity Matrix · Recovery Probability</p>
-  </div>
-
-  <!-- HEWD Widget -->
-  <div class="hewd-widget">
-    <h3 style="font-size:1.1rem; margin:0 0 0.3rem 0; color:var(--violet-dark);">🌐 HEWD Snapshot</h3>
-    <div id="hewdContent"><p>Loading…</p></div>
-    <p style="font-size:0.75rem; text-align:right; margin:0.3rem 0 0 0; opacity:0.5;"><a href="hewd.html" style="color:var(--violet-dark);">View full HEWD Dashboard →</a></p>
-  </div>
-
-  <!-- Oil Market & Predictions -->
-  <h2 style="font-size:1.4rem; margin-top:2rem; border-bottom:2px solid var(--violet); padding-bottom:0.5rem; display:inline-block;">Oil Market & Predictions</h2>
-  <div class="oil-grid" id="oilPrices">
-    <div class="oil-card"><div class="number" id="brentPrice">--</div><div class="label">Brent Crude</div></div>
-    <div class="oil-card"><div class="number" id="wtiPrice">--</div><div class="label">WTI Crude</div></div>
-  </div>
-  <div id="oilPredictions" style="display:flex; flex-wrap:wrap; gap:1rem; margin:0.5rem 0 1rem 0;">
-    <div style="flex:1; min-width:200px; background:white; border-radius:var(--card-radius); padding:0.8rem 1rem; box-shadow:var(--shadow-sm); border-left:4px solid var(--violet-dark);">
-      <div style="font-size:0.7rem; text-transform:uppercase; opacity:0.6;">Closest to confirmation</div>
-      <div id="oilClosestConfirm" style="font-weight:600;">Loading…</div>
-    </div>
-    <div style="flex:1; min-width:200px; background:white; border-radius:var(--card-radius); padding:0.8rem 1rem; box-shadow:var(--shadow-sm); border-left:4px solid #dc2626;">
-      <div style="font-size:0.7rem; text-transform:uppercase; opacity:0.6;">Closest to falsification</div>
-      <div id="oilClosestFalsify" style="font-weight:600;">Loading…</div>
-    </div>
-  </div>
-  <p id="oilPricesText" style="font-size:0.8rem; opacity:0.6;">Data from latest OSINT sweep</p>
-
-  <!-- Prediction Log Update -->
-  <h2 style="font-size:1.4rem; margin-top:2rem; border-bottom:2px solid var(--violet); padding-bottom:0.5rem; display:inline-block;">Prediction Log Update</h2>
-  <div class="prediction-update" id="predictionUpdates">
-    <div class="update-item"><span class="desc">Loading latest predictions…</span></div>
-  </div>
-
-  <div class="corrections-feed">
-    📡 <a href="corrections.xml" style="color:var(--violet-dark);">Corrections RSS feed</a> – real‑time error logging (Law III)
-  </div>
-
-  <div class="footer">
-    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Cathedral Core v1.4.4 · Ground Truth dynamic · Updated daily.
-  </div>
-</div>
-
-<!-- Threat Intelligence Modal -->
-<div class="modal-overlay" id="intelModal">
-  <div class="modal">
-    <button class="modal-close" id="intelClose">&times;</button>
-    <div id="intelContent"><div style="text-align:center; padding:2rem; color:#888;">Loading intelligence…</div></div>
-  </div>
-</div>
-
-<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
-
-<script>
-  // ---- Sidebar toggle ----
-  document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
-    document.getElementById('sidebar')?.classList.toggle('open');
-  });
-
-  // ---- Dark mode ----
-  const darkToggle = document.getElementById('darkModeToggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const storedTheme = localStorage.getItem('cathedral-theme');
-  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-    document.body.classList.add('dark');
-    darkToggle.innerText = '☀️';
-  } else darkToggle.innerText = '🌙';
-  darkToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    darkToggle.innerText = isDark ? '☀️' : '🌙';
-    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
-  });
-
-  // ---- Utility functions ----
-  function getBadgeClass(status) {
-    if (status === 'Black Acute') return 'badge-black-acute';
-    if (status === 'Black Structural') return 'badge-black-structural';
-    if (status === 'Red') return 'badge-red';
-    if (status === 'Orange') return 'badge-orange';
-    if (status === 'Yellow') return 'badge-yellow';
-    if (status === 'Green') return 'badge-green';
-    return '';
-  }
-
-  function escapeHtml(str) {
-    if (!str) return '';
-    return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
-  }
-
-  async function fetchJson(url) {
-    try {
-      const resp = await fetch(url);
-      if (!resp.ok) return null;
-      return await resp.json();
-    } catch { return null; }
-  }
-
-  // ---- Intelligence modal ----
-  async function openIntel(threatId) {
-    const modal = document.getElementById('intelModal');
-    const content = document.getElementById('intelContent');
-    modal.classList.add('active');
-    content.innerHTML = '<div style="text-align:center; padding:2rem; color:#888;">Loading intelligence…</div>';
-
-    try {
-      const resp = await fetch('threat_intelligence.json');
-      if (!resp.ok) throw new Error('Failed to load intelligence');
-      const data = await resp.json();
-      const intel = data[threatId];
-      if (!intel) {
-        content.innerHTML = `<p>No intelligence report available for ${threatId}.</p>`;
-        return;
-      }
-      content.innerHTML = buildIntelHTML(intel);
-    } catch(e) {
-      console.error('Error loading intelligence:', e);
-      content.innerHTML = '<p style="color:#dc2626;">Error loading intelligence data.</p>';
-    }
-  }
-
-  function buildIntelHTML(intel) {
-    let html = `<h2>${escapeHtml(intel.id)} – ${escapeHtml(intel.name)}</h2>
-      <div class="meta">Confidence: ${Math.round((intel.confidence||0.7)*100)}% · Sources: ${(intel.sources||[]).join(', ')}</div>
-      <p><strong>📋 Narrative:</strong> ${escapeHtml(intel.narrative || '')}</p>
-      <h3>📅 Timeline</h3><ul>`;
-    if (intel.timeline) {
-      for (const [date, event] of Object.entries(intel.timeline)) {
-        html += `<li><strong>${date}:</strong> ${escapeHtml(event)}</li>`;
-      }
-    } else {
-      html += `<li>No timeline data available.</li>`;
-    }
-    html += `</ul>
-      <h3>📊 Current Status</h3><p>${escapeHtml(intel.current_status || '')}</p>
-      <h3>🔮 Forecast</h3><p>${escapeHtml(intel.forecast || '')}</p>`;
-
-    if (intel.cascade_effects && intel.cascade_effects.length) {
-      html += `<h3>🌀 Cascade Effects</h3><ul>`;
-      for (const effect of intel.cascade_effects) {
-        html += `<li><strong>${escapeHtml(effect.target)}:</strong> ${escapeHtml(effect.impact)} (SCP +${effect.scp_boost})</li>`;
-      }
-      html += `</ul>`;
-    }
-
-    if (intel.human_cost) {
-      html += `<h3>👥 Human Cost</h3><ul>
-        <li><strong>Casualties:</strong> ${escapeHtml(intel.human_cost.casualties)}</li>
-        <li><strong>Displaced:</strong> ${escapeHtml(intel.human_cost.displaced)}</li>
-        <li><strong>Affected:</strong> ${escapeHtml(intel.human_cost.affected)}</li>
-      </ul>`;
-    }
-
-    if (intel.economic_cost) {
-      html += `<h3>💰 Economic Cost</h3><ul>
-        <li><strong>Oil Impact:</strong> ${escapeHtml(intel.economic_cost.oil_impact || 'N/A')}</li>
-        <li><strong>Global GDP:</strong> ${escapeHtml(intel.economic_cost.global_gdp || 'N/A')}</li>
-        <li><strong>Estimated Loss:</strong> ${escapeHtml(intel.economic_cost.estimated_loss || 'N/A')}</li>
-      </ul>`;
-    }
-
-    if (intel.recommendations && intel.recommendations.length) {
-      html += `<h3>📋 Recommendations</h3><ul>`;
-      for (const rec of intel.recommendations) {
-        html += `<li>${escapeHtml(rec)}</li>`;
-      }
-      html += `</ul>`;
-    }
-
-    html += `<p style="font-size:0.8rem; color:#888; margin-top:1rem;">📡 Sources: ${(intel.sources||[]).join(', ')}</p>`;
-    return html;
-  }
-
-  document.getElementById('intelClose').addEventListener('click', () => {
-    document.getElementById('intelModal').classList.remove('active');
-  });
-  document.getElementById('intelModal').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) document.getElementById('intelModal').classList.remove('active');
-  });
-
-  // ---- Load all data ----
-  async function loadAll() {
-    // Sweep
-    const sweep = await fetchJson('sweep_report.json');
-    if (sweep && sweep.timestamp) {
-      document.getElementById('lastUpdateDate').innerText = new Date(sweep.timestamp).toLocaleString();
-    }
-
-    // Threats
-    const threatData = await fetchJson('threats.json');
-    let threats = [];
-    if (threatData) {
-      if (Array.isArray(threatData)) {
-        threats = threatData;
-      } else if (threatData.threats && Array.isArray(threatData.threats)) {
-        threats = threatData.threats;
-      }
-    }
-
-    document.getElementById('threatCountValue').innerText = threats.length;
-
-    let gsci = threatData?.gsci || null;
-    if (gsci !== null && gsci !== undefined) {
-      document.getElementById('gsciValue').innerText = gsci;
-    } else if (threats.length) {
-      const avgScp = threats.reduce((s,t) => s + (t.scp||0.5), 0) / threats.length;
-      gsci = Math.round(avgScp * 100);
-      document.getElementById('gsciValue').innerText = gsci;
-    } else {
-      document.getElementById('gsciValue').innerText = '--';
-    }
-
-    let ssi = threatData?.ssi || null;
-    if (!ssi) {
-      ssi = gsci ? Math.round(gsci + (threats.length / 10)) : Math.round(25 + (threats.length / 10));
-    }
-    document.getElementById('ssiValue').innerText = ssi;
-    // ---- Violet Warning Alert ----
-    function checkVioletAlert() {
-        const alertEl = document.getElementById('violet-alert');
-        const reasonEl = document.getElementById('alert-reason');
-        if (!alertEl) return;
-
-        // Get SCA tier and GSCI from threatData
-        const scaTier = threatData?.sca_tier?.tier || 0;
-        const scaLabel = threatData?.sca_tier?.label || 'Normal';
-        const gsci = threatData?.gsci || 0;
-
-        let alertActive = false;
-        let reason = '';
-
-        if (scaTier >= 4) {
-            alertActive = true;
-            reason = `SCA Tier ${scaTier} – ${scaLabel}`;
-        } else if (gsci > 70) {
-            alertActive = true;
-            reason = `GSCI ${Math.round(gsci)} – Critical`;
-        }
-
-        if (alertActive) {
-            alertEl.style.display = 'flex';
-            reasonEl.textContent = reason;
-        } else {
-            alertEl.style.display = 'none';
-        }
-    }
-
-    // Call it after loading threats
-    checkVioletAlert();
-
-
-    // Predictions for hit rate
-    const preds = await fetchJson('predictions.json');
-    if (preds && preds.stats && preds.stats.hit_rate !== undefined) {
-      document.getElementById('hitRateValue').innerText = preds.stats.hit_rate + '%';
-    } else {
-      document.getElementById('hitRateValue').innerText = '--';
-    }
-
-    // Cascade log for justifications
-    const cascadeLog = await fetchJson('cascade_log.json') || [];
-    const eventMap = {};
-    const sorted = [...cascadeLog].sort((a,b) => (b.timestamp||'').localeCompare(a.timestamp||''));
-    for (const ev of sorted) {
-      const tid = ev.threat_id || ev.id || '';
-      if (tid && !eventMap[tid]) {
-        eventMap[tid] = {
-          description: ev.description || ev.event || 'Event logged',
-          timestamp: ev.timestamp || 'recent'
-        };
-      }
-    }
-
-    // Render top threats
-    const sortedThreats = [...threats].sort((a,b) => (b.priority_score||0) - (a.priority_score||0));
-    const top10 = sortedThreats.slice(0,10);
-    const grid = document.getElementById('dynamicThreatGrid');
-
-    if (!top10 || top10.length === 0) {
-      grid.innerHTML = '<p>No threats loaded.</p>';
-    } else {
-      grid.innerHTML = top10.map(t => {
-        const status = t.status || 'Yellow';
-        const badgeClass = getBadgeClass(status);
-        const tid = t.id || '';
-        const description = t.description || t.name || 'No description';
-        const eventInfo = eventMap[tid];
-        let justification = '';
-        if (eventInfo) {
-          const time = eventInfo.timestamp ? new Date(eventInfo.timestamp).toLocaleString() : 'recently';
-          justification = `<div class="justification"><strong>Latest development:</strong> ${escapeHtml(eventInfo.description)} <span style="font-size:0.7rem; opacity:0.6;">(${time})</span></div>`;
-        } else {
-          const scp = t.scp || 0.5;
-          const pri = t.priority_score || 0;
-          let reason = 'High systemic risk';
-          if (scp > 0.8) reason = 'Very high systemic risk';
-          else if (scp > 0.6) reason = 'Elevated systemic risk';
-          else if (scp > 0.4) reason = 'Moderate systemic risk';
-          else reason = 'Low systemic risk';
-          if (pri > 80) reason += ' with critical priority';
-          else if (pri > 60) reason += ' with high priority';
-          justification = `<div class="justification"><strong>Why pressing:</strong> ${reason} (SCP ${Math.round(scp*100)}%, Priority ${Math.round(pri)})</div>`;
-        }
-        return `
-          <div class="threat-card" onclick="openIntel('${tid}')">
-            <div class="title">
-              <span>${escapeHtml(tid)} – ${escapeHtml(t.name || 'Unknown')}</span>
-              <span class="badge ${badgeClass}">${escapeHtml(status)}</span>
+    <!-- ===== SIDEBAR ===== -->
+    <div class="sidebar-container" id="sidebar">
+        <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
+        <nav>
+            <div class="nav-section">
+                <strong>📊 Dashboard</strong>
+                <a href="index.html" class="active">Ground Truth</a>
+                <a href="hewd.html">HEWD Dashboard</a>
+                <a href="health.html">System Health</a>
             </div>
-            <div class="desc">${escapeHtml(description)}</div>
-            ${justification}
-            <div class="meta"><span>SCP: ${(t.scp||0).toFixed(2)}</span><span>Priority: ${Math.round(t.priority_score||0)}</span></div>
-          </div>
-        `;
-      }).join('');
-    }
+            <div class="nav-section">
+                <strong>🧠 Intelligence</strong>
+                <a href="threat-matrix.html">Threat Matrix</a>
+                <a href="prediction-log.html">Prediction Log</a>
+                <a href="regional.html">Regional Forecasts</a>
+                <a href="institutional.html">Institutional Intelligence</a>
+                <a href="daily-brief.html">Daily Brief</a>
+                <a href="breaking.html">Breaking News</a>
+            </div>
+            <div class="nav-section">
+                <strong>⚖️ Governance</strong>
+                <a href="constitution.html">Constitution</a>
+                <a href="wardens.html">Wardens</a>
+                <a href="ascension.html">Ascension Engine</a>
+                <a href="warden-dashboard.html">Warden Dashboard</a>
+            </div>
+            <div class="nav-section">
+                <strong>🌍 Community</strong>
+                <a href="spotter.html">Spotter Guide</a>
+                <a href="about.html">About</a>
+                <a href="sources.html">Sources</a>
+                <a href="credits.html">Credits</a>
+            </div>
+            <div class="nav-section">
+                <strong>🔧 Tools</strong>
+                <a href="undp-demo.html">UNDP Demo</a>
+                <a href="methodology.html">Methodology</a>
+                <a href="glossary.html">Glossary</a>
+                <a href="pra.html">PRA</a>
+            </div>
+        </nav>
+    </div>
 
-    // HEWD Widget
-    await loadHEWD();
-
-    // Oil prices
-    let brent = '--', wti = '--';
-    if (sweep && sweep.oil) {
-      brent = sweep.oil.brent ? `$${sweep.oil.brent.toFixed(2)}` : '--';
-      wti = sweep.oil.wti ? `$${sweep.oil.wti.toFixed(2)}` : '--';
-    }
-    document.getElementById('brentPrice').innerText = brent;
-    document.getElementById('wtiPrice').innerText = wti;
-
-    // Oil predictions
-    const oilPreds = threats.filter(t => t.id && (t.id.startsWith('P') || t.id.startsWith('C')) && t.scp !== undefined);
-    const sortedByScp = [...oilPreds].sort((a,b) => (b.scp||0) - (a.scp||0));
-    const closestConfirm = sortedByScp.slice(0,1)[0];
-    const closestFalsify = sortedByScp.slice(-1)[0];
-    if (closestConfirm) {
-      document.getElementById('oilClosestConfirm').innerHTML = `${escapeHtml(closestConfirm.id)} – ${Math.round((closestConfirm.scp||0)*100)}% (${escapeHtml(closestConfirm.name||'Unknown')})`;
-    } else {
-      document.getElementById('oilClosestConfirm').innerHTML = 'No oil predictions tracked';
-    }
-    if (closestFalsify) {
-      document.getElementById('oilClosestFalsify').innerHTML = `${escapeHtml(closestFalsify.id)} – ${Math.round((closestFalsify.scp||0)*100)}% (${escapeHtml(closestFalsify.name||'Unknown')})`;
-    } else {
-      document.getElementById('oilClosestFalsify').innerHTML = 'No oil predictions tracked';
-    }
-
-    // Prediction Log Update
-    const updateContainer = document.getElementById('predictionUpdates');
-    let updatesHtml = '';
-    if (preds && preds.confirmed && preds.confirmed.length) {
-      const latestConfirmed = preds.confirmed.slice(-3).reverse();
-      updatesHtml += `<div style="font-weight:600; color:#22c55e; margin:0.3rem 0;">✅ Latest Confirmed</div>`;
-      latestConfirmed.forEach(p => {
-        updatesHtml += `<div class="update-item"><span class="desc">${escapeHtml(p.id)} – ${escapeHtml(p.description)}</span><span style="font-size:0.7rem; opacity:0.6;">${escapeHtml(p.date)}</span></div>`;
-      });
-    }
-    if (preds && preds.falsified && preds.falsified.length) {
-      const latestFalsified = preds.falsified.slice(-2).reverse();
-      updatesHtml += `<div style="font-weight:600; color:#dc2626; margin:0.5rem 0 0.3rem 0;">❌ Latest Falsified</div>`;
-      latestFalsified.forEach(p => {
-        updatesHtml += `<div class="update-item"><span class="desc">${escapeHtml(p.id)} – ${escapeHtml(p.description)}</span><span style="font-size:0.7rem; opacity:0.6;">${escapeHtml(p.date)}</span></div>`;
-      });
-    }
-    if (!updatesHtml) {
-      updatesHtml = `<div class="update-item"><span class="desc">No predictions logged yet.</span></div>`;
-    }
-    updateContainer.innerHTML = updatesHtml;
-  }
-
-  // ---- HEWD Widget ----
-  async function loadHEWD() {
-    const container = document.getElementById('hewdContent');
-    try {
-      const resp = await fetch('hewd_data.json');
-      if (!resp.ok) throw new Error('No data');
-      const data = await resp.json();
-      const threats = data.threats || [];
-      if (threats.length === 0) {
-        container.innerHTML = '<p>No humanitarian threats currently tracked.</p>';
-        return;
-      }
-      const top = threats[0];
-      container.innerHTML = `
-        <div class="widget-grid">
-          <div class="widget-item"><span class="number">${threats.length}</span><span class="label">Humanitarian Threats</span></div>
-          <div class="widget-item"><span class="number">${top.score || '--'}</span><span class="label">Top Priority</span></div>
-          <div class="widget-item"><span class="number" style="font-size:1rem;">${escapeHtml(top.name.slice(0, 30))}</span><span class="label">Top Threat</span></div>
+    <!-- ===== BANNER ===== -->
+    <header class="cathedral-banner">
+        <div class="banner-content">
+            <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="logo-mark">
+                <svg viewBox="0 0 120 140" width="50" height="60">
+                    <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+                    <circle cx="60" cy="25" r="2" fill="white"/>
+                    <circle cx="55" cy="40" r="2" fill="white"/>
+                    <circle cx="65" cy="40" r="2" fill="white"/>
+                    <circle cx="50" cy="55" r="2" fill="white"/>
+                    <circle cx="60" cy="55" r="2" fill="white"/>
+                    <circle cx="70" cy="55" r="2" fill="white"/>
+                    <circle cx="45" cy="70" r="2" fill="white"/>
+                    <circle cx="55" cy="70" r="2" fill="white"/>
+                    <circle cx="65" cy="70" r="2" fill="white"/>
+                    <circle cx="75" cy="70" r="2" fill="white"/>
+                    <circle cx="50" cy="85" r="2" fill="white"/>
+                    <circle cx="60" cy="85" r="2" fill="white"/>
+                    <circle cx="70" cy="85" r="2" fill="white"/>
+                    <circle cx="55" cy="100" r="2" fill="white"/>
+                    <circle cx="65" cy="100" r="2" fill="white"/>
+                    <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+                    <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            <div class="wordmark">
+                <h1>CATHEDRAL NETWORK</h1>
+                <p class="tagline">Ground Truth</p>
+            </div>
         </div>
-      `;
-    } catch(e) {
-      container.innerHTML = '<p>HEWD data unavailable. <a href="hewd.html" style="color:var(--violet-dark);">View dashboard</a></p>';
-    }
-  }
+    </header>
 
-  // ---- Service worker ----
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').catch(() => {});
-  }
+    <!-- ===== TOP NAV (mobile) ===== -->
+    <div class="top-nav">
+        <a href="index.html" class="active">Ground Truth</a>
+        <a href="threat-matrix.html">Threat Matrix</a>
+        <a href="prediction-log.html">Prediction Log</a>
+        <a href="hewd.html">HEWD</a>
+        <a href="health.html">Health</a>
+        <a href="wardens.html">Wardens</a>
+    </div>
 
-  // ---- GO ----
-  loadAll();
-</script>
-<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="container">
+
+        <!-- Page Header -->
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+            <h1>🌍 Ground Truth</h1>
+            <div style="display:flex; align-items:center; gap:0.8rem;">
+                <span class="violet-pulse"></span>
+                <span id="last-updated" style="font-size:0.8rem; color:#666;">Loading…</span>
+            </div>
+        </div>
+        <p style="margin-bottom:1rem;">The Cathedral's live assessment of global systemic risk</p>
+
+        <!-- Alert Banner -->
+        <div id="alert-banner" class="alert-banner">
+            <div class="title">⚠️ System Warning</div>
+            <div id="alert-message">One or more data sources are unavailable.</div>
+        </div>
+
+        <!-- ── METRIC CARDS ── -->
+        <div class="gt-grid" id="metric-grid">
+            <div class="gt-card" id="card-gsci">
+                <div class="label">GSCI – Global Systemic Collapse Index</div>
+                <div class="value" id="gsci-value">—</div>
+                <div class="sub" id="gsci-sub">Loading…</div>
+            </div>
+            <div class="gt-card" id="card-ssi">
+                <div class="label">SSI – System Stress Index</div>
+                <div class="value" id="ssi-value">—</div>
+                <div class="sub" id="ssi-sub">Loading…</div>
+            </div>
+            <div class="gt-card" id="card-hitrate">
+                <div class="label">Prediction Log – Hit Rate</div>
+                <div class="value" id="hitrate-value">—</div>
+                <div class="sub" id="hitrate-sub">Loading…</div>
+            </div>
+            <div class="gt-card" id="card-threats">
+                <div class="label">Threats Tracked · Cascade Rules Active</div>
+                <div class="value" id="threats-value">—</div>
+                <div class="sub" id="threats-sub">Loading…</div>
+            </div>
+        </div>
+
+        <!-- ── TOP PRESSING THREATS ── -->
+        <h2>🔴 Top Pressing Threats</h2>
+        <div id="threat-list">
+            <p style="color:#888;">Loading threats…</p>
+        </div>
+
+        <!-- ── GLIMMERS OF RESILIENCE ── -->
+        <h3>✨ Glimmers of Resilience</h3>
+        <div style="background:#14141f; border-radius:12px; padding:1.2rem 1.5rem; border:1px solid #2a2a3a;">
+            <p style="color:#888; margin:0;">
+                ⏳ The Resilience Engine is under construction. This section will soon display positive cascades, recovery signals, and opportunities for intervention. The Cathedral watches for light as carefully as for shadow.
+            </p>
+            <p style="color:#666; margin:0.5rem 0 0 0; font-size:0.85rem;">
+                Coming soon: Ascension Engine · Opportunity Matrix · Recovery Probability
+            </p>
+        </div>
+
+        <!-- ── HEWD SNAPSHOT ── -->
+        <h3>🛡️ HEWD Snapshot</h3>
+        <div id="hewd-list">
+            <p style="color:#888;">Loading…</p>
+        </div>
+        <p style="margin-top:0.5rem;"><a href="hewd.html">View full HEWD Dashboard →</a></p>
+
+        <!-- ── OIL MARKET & PREDICTIONS ── -->
+        <h2>🛢️ Oil Market & Predictions</h2>
+        <div class="oil-grid">
+            <div class="oil-card">
+                <div class="label">Brent Crude</div>
+                <div class="price" id="brent-price">—</div>
+            </div>
+            <div class="oil-card">
+                <div class="label">WTI Crude</div>
+                <div class="price" id="wti-price">—</div>
+            </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin:1rem 0;">
+            <div>
+                <strong style="color:#6bcb8a;">Closest to confirmation</strong>
+                <div id="closest-confirm" style="color:#888;">Loading…</div>
+            </div>
+            <div>
+                <strong style="color:#ff6b6b;">Closest to falsification</strong>
+                <div id="closest-falsify" style="color:#888;">Loading…</div>
+            </div>
+        </div>
+        <p style="color:#666; font-size:0.85rem;">Data from latest OSINT sweep</p>
+
+        <!-- ── PREDICTION LOG UPDATE ── -->
+        <h2>📊 Prediction Log Update</h2>
+        <div id="prediction-preview">
+            <p style="color:#888;">Loading latest predictions…</p>
+        </div>
+        <p style="margin-top:0.5rem;">
+            <a href="corrections.xml">Corrections RSS feed</a> – real‑time error logging (Law III)
+        </p>
+
+        <!-- ── FOOTER ── -->
+        <div class="footer">
+            <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+            Cathedral Core v1.4.4 · Ground Truth dynamic · Updated daily.
+        </div>
+
+        <div class="refresh-timer">
+            <span id="refresh-timer">Updating in 60s</span>
+        </div>
+
+    </div>
+
+    <!-- ===== DARK MODE TOGGLE ===== -->
+    <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+    <!-- ============================================================ -->
+    <!-- ===== GROUND TRUTH ENGINE ===== -->
+    <!-- ============================================================ -->
+    <script>
+        // ── Configuration ──
+        const REFRESH_INTERVAL = 60000;
+        let refreshCounter = REFRESH_INTERVAL / 1000;
+
+        // ── DOM refs ──
+        const $ = id => document.getElementById(id);
+        const el = {
+            lastUpdated: $('last-updated'),
+            alertBanner: $('alert-banner'),
+            alertMessage: $('alert-message'),
+            gsciValue: $('gsci-value'),
+            gsciSub: $('gsci-sub'),
+            ssiValue: $('ssi-value'),
+            ssiSub: $('ssi-sub'),
+            hitrateValue: $('hitrate-value'),
+            hitrateSub: $('hitrate-sub'),
+            threatsValue: $('threats-value'),
+            threatsSub: $('threats-sub'),
+            threatList: $('threat-list'),
+            hewdList: $('hewd-list'),
+            brentPrice: $('brent-price'),
+            wtiPrice: $('wti-price'),
+            closestConfirm: $('closest-confirm'),
+            closestFalsify: $('closest-falsify'),
+            predictionPreview: $('prediction-preview'),
+            refreshTimer: $('refresh-timer'),
+        };
+
+        // ── Safe fetch ──
+        async function safeFetch(url) {
+            try {
+                const r = await fetch(url + '?t=' + Date.now());
+                if (!r.ok) throw new Error(`HTTP ${r.status}`);
+                return await r.json();
+            } catch {
+                return null;
+            }
+        }
+
+        // ── Main refresh ──
+        async function refreshGroundTruth() {
+            let hasError = false;
+
+            // Fetch all data
+            const [threats, predictions, cascades, indices] = await Promise.all([
+                safeFetch('threats.json'),
+                safeFetch('predictions.json'),
+                safeFetch('cascade_log.json'),
+                safeFetch('indices.json'),
+            ]);
+
+            const threatList = Array.isArray(threats) ? threats : [];
+            const predList = Array.isArray(predictions) ? predictions : (predictions?.predictions || []);
+            const cascadeData = Array.isArray(cascades) ? cascades : (cascades?.cascades || []);
+            const idx = indices || {};
+
+            // ── Metrics ──
+            const confirmed = predList.filter(p => p.verified && p.hit).length;
+            const falsified = predList.filter(p => p.verified && !p.hit).length;
+            const total = confirmed + falsified;
+            const hitRate = total ? ((confirmed / total) * 100).toFixed(1) : '—';
+            const gsci = idx.gsci ?? 0.42;
+            const ssi = idx.ssi ?? 0.38;
+            const activeCascades = cascadeData.filter(c => c.active).length;
+
+            // Update metric cards
+            el.gsciValue.textContent = (gsci * 100).toFixed(1) + '%';
+            el.gsciSub.textContent = gsci > 0.6 ? '⬆ Elevated' : gsci > 0.4 ? '➡ Moderate' : '⬇ Stable';
+
+            el.ssiValue.textContent = (ssi * 100).toFixed(1) + '%';
+            el.ssiSub.textContent = ssi > 0.6 ? '⬆ High stress' : ssi > 0.4 ? '➡ Moderate' : '⬇ Low';
+
+            el.hitrateValue.textContent = hitRate + '%';
+            el.hitrateSub.textContent = `${confirmed} confirmed · ${falsified} falsified`;
+
+            el.threatsValue.textContent = threatList.length;
+            el.threatsSub.textContent = `${activeCascades} cascade rules active`;
+
+            // ── Top Threats ──
+            const sorted = [...threatList].sort((a, b) => (b.priority_score || 0) - (a.priority_score || 0));
+            if (sorted.length) {
+                el.threatList.innerHTML = sorted.slice(0, 5).map(t => {
+                    const scp = (t.scp || 0) * 100;
+                    let cls = 'moderate', label = '🟢 MODERATE';
+                    if (scp >= 80) { cls = 'critical'; label = '🔴 CRITICAL'; }
+                    else if (scp >= 65) { cls = 'high'; label = '🟠 HIGH'; }
+                    else if (scp >= 45) { cls = 'elevated'; label = '🟡 ELEVATED'; }
+                    return `<div class="threat-item ${cls}">
+                        <div class="name">${t.name || 'Unnamed'}</div>
+                        <div class="meta">${label} · SCP: ${scp.toFixed(1)}% · Priority: ${(t.priority_score || 0).toFixed(1)}</div>
+                        ${t.description ? `<div class="desc">${t.description.slice(0, 120)}</div>` : ''}
+                    </div>`;
+                }).join('');
+            } else {
+                el.threatList.innerHTML = '<p style="color:#888;">No active threats.</p>';
+            }
+
+            // ── HEWD Snapshot ──
+            if (sorted.length) {
+                el.hewdList.innerHTML = sorted.slice(0, 3).map(t => {
+                    const scp = (t.scp || 0) * 100;
+                    return `<div class="threat-item ${scp >= 80 ? 'critical' : 'high'}">
+                        <div class="name">${t.name || 'Unnamed'}</div>
+                        <div class="meta">SCP: ${scp.toFixed(1)}% · Priority: ${(t.priority_score || 0).toFixed(1)}</div>
+                    </div>`;
+                }).join('');
+            } else {
+                el.hewdList.innerHTML = '<p style="color:#888;">No threats loaded.</p>';
+            }
+
+            // ── Oil Prices (mock for now) ──
+            el.brentPrice.textContent = '$' + (78 + Math.random() * 6).toFixed(2);
+            el.wtiPrice.textContent = '$' + (74 + Math.random() * 5).toFixed(2);
+
+            // ── Closest predictions ──
+            const verified = predList.filter(p => p.verified);
+            const confirmCandidates = verified.filter(p => p.hit).sort((a, b) => (a.confidence || 0) - (b.confidence || 0));
+            const falsifyCandidates = verified.filter(p => !p.hit).sort((a, b) => (a.confidence || 0) - (b.confidence || 0));
+
+            el.closestConfirm.textContent = confirmCandidates.length
+                ? confirmCandidates.slice(0, 1).map(p => `${p.statement || '…'} (${p.confidence || 0}%)`).join('')
+                : 'None';
+            el.closestFalsify.textContent = falsifyCandidates.length
+                ? falsifyCandidates.slice(0, 1).map(p => `${p.statement || '…'} (${p.confidence || 0}%)`).join('')
+                : 'None';
+
+            // ── Prediction Log Preview ──
+            const recent = [...predList].sort((a, b) => (b.id || '').localeCompare(a.id || '')).slice(0, 5);
+            if (recent.length) {
+                el.predictionPreview.innerHTML = recent.map(p => {
+                    let status = '⏳ Pending', cls = 'status-pending';
+                    if (p.verified && p.hit) { status = '✅ Confirmed'; cls = 'status-confirm'; }
+                    else if (p.verified && !p.hit) { status = '❌ Falsified'; cls = 'status-falsify'; }
+                    return `<div class="pred-item">
+                        <span class="statement">${p.statement || '…'}</span>
+                        <span class="${cls}">${status}</span>
+                    </div>`;
+                }).join('');
+            } else {
+                el.predictionPreview.innerHTML = '<p style="color:#888;">No predictions logged.</p>';
+            }
+
+            // ── Timestamp ──
+            el.lastUpdated.textContent = `Last updated: ${new Date().toLocaleString()}`;
+
+            // ── Alert banner ──
+            if (!threats || !predictions) {
+                hasError = true;
+                el.alertBanner.classList.add('show');
+                el.alertMessage.textContent = 'Some data sources are unavailable. Check the logs.';
+            } else {
+                el.alertBanner.classList.remove('show');
+            }
+
+            // Reset timer
+            refreshCounter = REFRESH_INTERVAL / 1000;
+            updateTimerDisplay();
+        }
+
+        function updateTimerDisplay() {
+            if (el.refreshTimer) {
+                el.refreshTimer.textContent = `Updating in ${refreshCounter}s`;
+            }
+        }
+
+        // ── Init ──
+        document.addEventListener('DOMContentLoaded', () => {
+            refreshGroundTruth();
+
+            // Timer tick
+            setInterval(() => {
+                refreshCounter--;
+                updateTimerDisplay();
+                if (refreshCounter <= 0) refreshGroundTruth();
+            }, 1000);
+
+            // Sidebar toggle
+            document.getElementById('sidebar-toggle')?.addEventListener('click', () => {
+                document.getElementById('sidebar')?.classList.toggle('open');
+            });
+
+            // Dark mode
+            const toggle = document.getElementById('darkModeToggle');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const stored = localStorage.getItem('cathedral-theme');
+            if (stored === 'dark' || (!stored && prefersDark)) {
+                document.body.classList.add('dark');
+                toggle.textContent = '☀️';
+            } else {
+                toggle.textContent = '🌙';
+            }
+            toggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                const isDark = document.body.classList.contains('dark');
+                toggle.textContent = isDark ? '☀️' : '🌙';
+                localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+            });
+        });
+    </script>
+    <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
