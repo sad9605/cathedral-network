@@ -1,28 +1,19 @@
+#!/usr/bin/env python3
+"""
+threat_scanner.py – Cathedral Threat Scanner
+Fetches emerging threats from GDELT and merges them into threats.json.
+Now with safe loading and deduplication.
+"""
 import json
 import requests
-from datetime import datetime
+from datetime import datetime, timezone
 import sys
 
-# ----------------------------
-# 1. LOAD EXISTING THREATS
-# ----------------------------
-# 1. LOAD EXISTING THREATS (with automatic cleanup)
-try:
-    with open('threats.json', 'r') as f:
-        raw_threats = json.load(f)
-    # Only keep items that are dictionaries (ignore random strings)
-    existing_threats = [t for t in raw_threats if isinstance(t, dict)]
-    if len(existing_threats) != len(raw_threats):
-        print("⚠️  threats.json had invalid entries. They were automatically skipped.")
-        # Save the cleaned version back to the file
-        with open('threats.json', 'w') as f:
-            json.dump(existing_threats, f, indent=2)
-        print("✅ threats.json has been cleaned automatically.")
-except FileNotFoundError:
-    print("⚠️  threats.json not found. Creating empty list.")
-    existing_threats = []
+# --------------------------------------------------
+# 1. LOAD EXISTING THREATS (SAFE MODE)
+# --------------------------------------------------
+print("🔎 Scanning for emerging threats...")
 
-# ── LOAD EXISTING THREATS (SAFE MODE) ──
 try:
     with open("threats.json", "r") as f:
         raw_threats = json.load(f)
@@ -30,7 +21,7 @@ try:
     if isinstance(raw_threats, list):
         existing_threats = [t for t in raw_threats if isinstance(t, dict)]
         if len(existing_threats) != len(raw_threats):
-            print(f"⚠️  Found {len(raw_threats) - len(existing_threats)} invalid entries. Fixing...")
+            print(f"⚠️  Found {len(raw_threats) - len(existing_threats)} invalid threat entries. Fixing...")
             with open("threats.json", "w") as f:
                 json.dump(existing_threats, f, indent=2)
             print("✅ threats.json has been cleaned.")
@@ -45,17 +36,41 @@ except FileNotFoundError:
     print("⚠️  threats.json not found. Creating empty list.")
     existing_threats = []
 
-# Get names of existing threats for duplicate checking
-existing_names = [t.get("name", "").lower() for t in existing_threats]
-candidate_names = [c.get("name", "").lower() for c in existing_candidates]
-
-# ----------------------------
-# 2. FETCH REAL EVENTS FROM GDELT
-# ----------------------------
-print("🔎 Scanning GDELT for emerging threats...")
-
+# --------------------------------------------------
+# 2. LOAD EXISTING CANDIDATES (SAFE MODE)
+# --------------------------------------------------
 try:
-    # GDELT's free article search API - last 24 hours, conflict-related
+    with open("new_threat_candidates.json", "r") as f:
+        raw_candidates = json.load(f)
+    if isinstance(raw_candidates, list):
+        existing_candidates = [c for c in raw_candidates if isinstance(c, dict)]
+        if len(existing_candidates) != len(raw_candidates):
+            print(f"⚠️  Found {len(raw_candidates) - len(existing_candidates)} invalid candidate entries. Fixing...")
+            with open("new_threat_candidates.json", "w") as f:
+                json.dump(existing_candidates, f, indent=2)
+            print("✅ new_threat_candidates.json has been cleaned.")
+        else:
+            existing_candidates = raw_candidates
+    elif isinstance(raw_candidates, dict) and "candidates" in raw_candidates:
+        existing_candidates = raw_candidates["candidates"]
+    else:
+        print("⚠️  new_threat_candidates.json is not a list. Initializing empty list.")
+        existing_candidates = []
+except FileNotFoundError:
+    print("⚠️  new_threat_candidates.json not found. Creating empty list.")
+    existing_candidates = []
+
+# --------------------------------------------------
+# 3. BUILD EXISTING NAME LOOKUPS
+# --------------------------------------------------
+existing_names = [t.get("name", "").lower() for t in existing_threats if isinstance(t, dict)]
+candidate_names = [c.get("name", "").lower() for c in existing_candidates if isinstance(c, dict)]
+
+# --------------------------------------------------
+# 4. FETCH FROM GDELT (with fallback)
+# --------------------------------------------------
+print("🌐 Fetching GDELT articles...")
+try:
     url = "https://api.gdeltproject.org/api/v2/doc/doc"
     params = {
         "query": "conflict OR war OR clash OR riot OR protest OR attack",
@@ -67,122 +82,78 @@ try:
     response = requests.get(url, params=params, timeout=10)
     response.raise_for_status()
     data = response.json()
-    
     articles = data.get("articles", [])
-    
     if not articles:
-        print("⚠️  GDELT returned no articles. Using fallback mock data.")
         raise Exception("Empty response")
-    
     print(f"✅ Fetched {len(articles)} articles from GDELT.")
-    
-    new_candidates = []
-    for article in articles:
-        title = article.get("title", "Unknown Event")
-        source = article.get("source", "Unknown")
-        url = article.get("url", "")
-        date = article.get("seendate", datetime.utcnow().isoformat())
-        lat = article.get("lat")
-        lng = article.get("lng")
-        
-        # Skip if this title is already in threats or candidates
-        if title.lower() in existing_names or title.lower() in candidate_names:
-            continue
-        
-        # Skip if no title or title is too short/generic
-        if len(title.split()) < 3:
-            continue
-        
-        # Build candidate threat
-        candidate = {
-            "id": f"CAN-{datetime.utcnow().strftime('%Y%m%d')}-{len(new_candidates)+1}",
-            "name": title[:80],  # Trim if too long
-            "status": "Candidate",
-            "candidateStatus": "Pending Review",
-            "source": source,
-            "url": url,
-            "date": date,
-            "lat": float(lat) if lat else None,
-            "lng": float(lng) if lng else None,
-            "description": f"Detected by GDELT on {date[:10]}",
-            "detectedDate": datetime.utcnow().isoformat()
-        }
-        new_candidates.append(candidate)
-    
-    print(f"🆕 Found {len(new_candidates)} new candidate threats.")
-
+    use_fallback = False
 except Exception as e:
-    print(f"⚠️  GDELT fetch failed ({e}). Using fallback mock data instead.")
-    
-    # ----------------------------
-    # FALLBACK: Realistic mock threats for testing
-    # ----------------------------
-    fallback_candidates = [
-        {
-            "id": "CAN-FALLBACK-01",
-            "name": "Sudan-Ethiopia Border Clashes over Al-Fashaga",
-            "status": "Candidate",
-            "candidateStatus": "Pending Review",
-            "source": "Mock OSINT (fallback)",
-            "date": datetime.utcnow().isoformat(),
-            "lat": 12.0,
-            "lng": 36.0,
-            "description": "Ethiopian militia crossed into Sudanese territory near the disputed farming region.",
-            "detectedDate": datetime.utcnow().isoformat()
-        },
-        {
-            "id": "CAN-FALLBACK-02",
-            "name": "Philippines-China Scarborough Shoal Standoff",
-            "status": "Candidate",
-            "candidateStatus": "Pending Review",
-            "source": "Mock OSINT (fallback)",
-            "date": datetime.utcnow().isoformat(),
-            "lat": 15.0,
-            "lng": 117.0,
-            "description": "Chinese coastguard vessels block Filipino fishermen from traditional fishing grounds.",
-            "detectedDate": datetime.utcnow().isoformat()
-        },
-        {
-            "id": "CAN-FALLBACK-03",
-            "name": "Haiti Gang Alliance Targets Port-au-Prince Airport",
-            "status": "Candidate",
-            "candidateStatus": "Pending Review",
-            "source": "Mock OSINT (fallback)",
-            "date": datetime.utcnow().isoformat(),
-            "lat": 18.56,
-            "lng": -72.29,
-            "description": "Multiple gangs unite to besiege the international airport, cutting off aid routes.",
-            "detectedDate": datetime.utcnow().isoformat()
-        }
+    print(f"⚠️  GDELT fetch failed ({e}). Using fallback mock data.")
+    use_fallback = True
+    # Fallback data
+    articles = [
+        {"title": "Sudan-Ethiopia Border Clashes over Al-Fashaga", "source": "Mock OSINT", "url": "", "seendate": datetime.now(timezone.utc).isoformat(), "lat": 12.0, "lng": 36.0},
+        {"title": "Philippines-China Scarborough Shoal Standoff", "source": "Mock OSINT", "url": "", "seendate": datetime.now(timezone.utc).isoformat(), "lat": 15.0, "lng": 117.0},
+        {"title": "Haiti Gang Alliance Targets Port-au-Prince Airport", "source": "Mock OSINT", "url": "", "seendate": datetime.now(timezone.utc).isoformat(), "lat": 18.56, "lng": -72.29},
+        {"title": "Myanmar Junta Airstrikes in Karen State", "source": "Mock OSINT", "url": "", "seendate": datetime.now(timezone.utc).isoformat(), "lat": 17.2, "lng": 97.7},
+        {"title": "DRC M23 Rebel Advance on Goma", "source": "Mock OSINT", "url": "", "seendate": datetime.now(timezone.utc).isoformat(), "lat": -1.67, "lng": 29.23}
     ]
-    
-    new_candidates = []
-    for candidate in fallback_candidates:
-        # Check duplicates against existing threats and candidates
-        if candidate["name"].lower() not in existing_names and candidate["name"].lower() not in candidate_names:
-            new_candidates.append(candidate)
-    
-    print(f"🆕 Found {len(new_candidates)} new candidate threats from fallback.")
 
-# ----------------------------
-# 4. SAVE NEW CANDIDATES
-# ----------------------------
+# --------------------------------------------------
+# 5. PROCESS ARTICLES INTO CANDIDATES
+# --------------------------------------------------
+new_candidates = []
+now = datetime.now(timezone.utc)
+
+for article in articles:
+    title = article.get("title", "").strip()
+    if not title:
+        continue
+    source = article.get("source", "Unknown")
+    url = article.get("url", "")
+    date = article.get("seendate", now.isoformat())
+    lat = article.get("lat")
+    lng = article.get("lng")
+
+    # Skip if already in threats or candidates
+    if title.lower() in existing_names or title.lower() in candidate_names:
+        continue
+    if len(title.split()) < 3:
+        continue
+
+    candidate = {
+        "id": f"CAN-{now.strftime('%Y%m%d')}-{len(new_candidates)+1:02d}",
+        "name": title[:80],
+        "status": "Candidate",
+        "candidateStatus": "Pending Review",
+        "source": source,
+        "url": url,
+        "date": date,
+        "lat": float(lat) if lat else None,
+        "lng": float(lng) if lng else None,
+        "description": f"Detected by GDELT on {date[:10]}" if not use_fallback else f"Fallback: {title[:100]}",
+        "detectedDate": now.isoformat()
+    }
+    new_candidates.append(candidate)
+
+print(f"🆕 Found {len(new_candidates)} new candidate threats.")
+
+# --------------------------------------------------
+# 6. SAVE NEW CANDIDATES
+# --------------------------------------------------
 if new_candidates:
-    # Append to existing candidates
     updated_candidates = existing_candidates + new_candidates
-    with open('new_threat_candidates.json', 'w') as f:
+    with open("new_threat_candidates.json", "w") as f:
         json.dump(updated_candidates, f, indent=2)
-    
     print(f"\n✅ Added {len(new_candidates)} candidate(s) to new_threat_candidates.json.")
-    print("\n📋 New candidates:")
     for c in new_candidates:
         print(f"   - {c['name']} ({c['source']})")
 else:
     print("\nℹ️  No new candidates found. All events already tracked.")
 
-# ----------------------------
-# 5. SUMMARY
-# ----------------------------
+# --------------------------------------------------
+# 7. SUMMARY
+# --------------------------------------------------
 print(f"\n📊 Summary:")
 print(f"   Existing threats: {len(existing_threats)}")
 print(f"   Total candidates: {len(updated_candidates) if new_candidates else len(existing_candidates)}")

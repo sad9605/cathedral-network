@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-27T21:19:24.296889+00:00",
+  "lastUpdated": "2026-06-27T21:31:34.058761+00:00",
   "source": "SYNTHETIC_FALLBACK",
   "zones": [
     {
@@ -10,7 +10,7 @@
       "intensity": 8.5,
       "type": "Synthetic (Hardcoded)",
       "source": "Cathedral Synthetic",
-      "fetchedAt": "2026-06-27T21:19:24.296606+00:00",
+      "fetchedAt": "2026-06-27T21:31:34.058702+00:00",
       "synthetic_fallback": true
     },
     {
@@ -21,7 +21,7 @@
       "intensity": 7.8,
       "type": "Synthetic (Hardcoded)",
       "source": "Cathedral Synthetic",
-      "fetchedAt": "2026-06-27T21:19:24.296749+00:00",
+      "fetchedAt": "2026-06-27T21:31:34.058738+00:00",
       "synthetic_fallback": true
     },
     {
@@ -32,7 +32,7 @@
       "intensity": 6.5,
       "type": "Synthetic (Hardcoded)",
       "source": "Cathedral Synthetic",
-      "fetchedAt": "2026-06-27T21:19:24.296765+00:00",
+      "fetchedAt": "2026-06-27T21:31:34.058742+00:00",
       "synthetic_fallback": true
     },
     {
@@ -43,7 +43,7 @@
       "intensity": 7.0,
       "type": "Synthetic (Hardcoded)",
       "source": "Cathedral Synthetic",
-      "fetchedAt": "2026-06-27T21:19:24.296778+00:00",
+      "fetchedAt": "2026-06-27T21:31:34.058745+00:00",
       "synthetic_fallback": true
     },
     {
@@ -54,7 +54,7 @@
       "intensity": 6.0,
       "type": "Synthetic (Hardcoded)",
       "source": "Cathedral Synthetic",
-      "fetchedAt": "2026-06-27T21:19:24.296788+00:00",
+      "fetchedAt": "2026-06-27T21:31:34.058748+00:00",
       "synthetic_fallback": true
     }
   ],

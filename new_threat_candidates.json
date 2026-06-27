@@ -12,7 +12,7 @@
     "detectedDate": "2026-06-26T04:06:14.205012",
     "triage_score": 70,
     "triage_status": "Would-Promote (DRY)",
-    "last_triage": "2026-06-27T21:19:27.273109+00:00"
+    "last_triage": "2026-06-27T21:31:35.405561+00:00"
   },
   {
     "id": "CAN-FALLBACK-02",
@@ -27,7 +27,7 @@
     "detectedDate": "2026-06-26T04:06:14.205141",
     "triage_score": 60,
     "triage_status": "Watch",
-    "last_triage": "2026-06-27T21:19:27.274235+00:00"
+    "last_triage": "2026-06-27T21:31:35.405762+00:00"
   },
   {
     "id": "CAN-FALLBACK-03",
@@ -42,6 +42,38 @@
     "detectedDate": "2026-06-26T04:06:14.205257",
     "triage_score": 70,
     "triage_status": "Would-Promote (DRY)",
-    "last_triage": "2026-06-27T21:19:27.274252+00:00"
+    "last_triage": "2026-06-27T21:31:35.405828+00:00"
+  },
+  {
+    "id": "CAN-20260627-01",
+    "name": "Myanmar Junta Airstrikes in Karen State",
+    "status": "Candidate",
+    "candidateStatus": "Pending Review",
+    "source": "Mock OSINT",
+    "url": "",
+    "date": "2026-06-27T21:27:55.906060+00:00",
+    "lat": 17.2,
+    "lng": 97.7,
+    "description": "Fallback: Myanmar Junta Airstrikes in Karen State",
+    "detectedDate": "2026-06-27T21:27:55.906069+00:00",
+    "triage_score": 60,
+    "triage_status": "Watch",
+    "last_triage": "2026-06-27T21:31:35.405932+00:00"
+  },
+  {
+    "id": "CAN-20260627-02",
+    "name": "DRC M23 Rebel Advance on Goma",
+    "status": "Candidate",
+    "candidateStatus": "Pending Review",
+    "source": "Mock OSINT",
+    "url": "",
+    "date": "2026-06-27T21:27:55.906063+00:00",
+    "lat": -1.67,
+    "lng": 29.23,
+    "description": "Fallback: DRC M23 Rebel Advance on Goma",
+    "detectedDate": "2026-06-27T21:27:55.906069+00:00",
+    "triage_score": 60,
+    "triage_status": "Watch",
+    "last_triage": "2026-06-27T21:31:35.405995+00:00"
   }
 ]

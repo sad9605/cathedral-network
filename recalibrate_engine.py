@@ -6,7 +6,7 @@ Run this whenever you want to rebalance your threat scores.
 """
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 
 # --------------------------------------------------
 # CONFIGURATION KNOBS (Adjust these to tune the engine)
@@ -28,10 +28,22 @@ LR_BOOST = 1.08          # Extra "learning rate" push for critical items
 try:
     with open("threats.json", "r") as f:
         threats = json.load(f)
-    print(f"📂 Loaded {len(threats)} threats from threats.json")
+    if not isinstance(threats, list):
+        print("⚠️ threats.json is not a list. Creating empty list.")
+        threats = []
+    else:
+        # Filter out non-dict entries
+        threats = [t for t in threats if isinstance(t, dict)]
+        print(f"📂 Loaded {len(threats)} threats from threats.json")
 except FileNotFoundError:
-    print("❌ threats.json not found. Run the pipeline first.")
-    sys.exit(1)
+    print("⚠️ threats.json not found. Creating new file.")
+    threats = []
+    with open("threats.json", "w") as f:
+        json.dump(threats, f, indent=2)
+
+if not threats:
+    print("ℹ️ No threats to recalibrate. Exiting.")
+    sys.exit(0)
 
 # --------------------------------------------------
 # 2. RECALCULATE SCP AND PRIORITY SCORES
@@ -87,9 +99,10 @@ print(f"📁 Saved to threats.json")
 # --------------------------------------------------
 # 4. SHOW TOP 5 THREATS AFTER RECALIBRATION
 # --------------------------------------------------
-print("\n🏆 TOP 5 THREATS (After Recalibration):")
-sorted_threats = sorted(threats, key=lambda x: x.get("priority_score", 0), reverse=True)
-for i, t in enumerate(sorted_threats[:5], 1):
-    print(f"   {i}. {t['name']} (SCP: {t['scp']:.4f} | Priority: {t['priority_score']:.2f} | Status: {t['status']})")
+if threats:
+    print("\n🏆 TOP 5 THREATS (After Recalibration):")
+    sorted_threats = sorted(threats, key=lambda x: x.get("priority_score", 0), reverse=True)
+    for i, t in enumerate(sorted_threats[:5], 1):
+        print(f"   {i}. {t.get('name', 'Unnamed')} (SCP: {t.get('scp', 0):.4f} | Priority: {t.get('priority_score', 0):.2f} | Status: {t.get('status', 'Unknown')})")
 
 print("\n⚙️  H03 Recalibration complete.")

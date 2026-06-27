@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-06-27T21:31:35.877587+00:00",
+  "historical_basis": [
+    "Global Financial Crisis",
+    "COVID-19 Pandemic",
+    "Russia-Ukraine Full-Scale Invasion"
+  ],
+  "recovery_thresholds": {
+    "Global Financial Crisis": {
+      "ascension_trigger": 0.42,
+      "peak_scp": 0.89,
+      "recovery_complete": "2012-06-30"
+    },
+    "COVID-19 Pandemic": {
+      "ascension_trigger": 0.38,
+      "peak_scp": 0.92,
+      "recovery_complete": "2021-06-30"
+    },
+    "Russia-Ukraine Full-Scale Invasion": {
+      "ascension_trigger": 0.45,
+      "peak_scp": 0.81,
+      "recovery_complete": "2024-12-31"
+    }
+  },
+  "optimism_matrix": {
+    "Global Financial Crisis": {
+      "recovery_type": "gradual",
+      "optimism_reset": 0.35,
+      "time_to_ascension_days": 175,
+      "confidence": 80
+    },
+    "COVID-19 Pandemic": {
+      "recovery_type": "V-shaped",
+      "optimism_reset": 0.65,
+      "time_to_ascension_days": 140,
+      "confidence": 85
+    },
+    "Russia-Ukraine Full-Scale Invasion": {
+      "recovery_type": "slow-burn",
+      "optimism_reset": 0.25,
+      "time_to_ascension_days": 270,
+      "confidence": 80
+    }
+  },
+  "ascension_rules": [
+    {
+      "crisis": "Global Financial Crisis",
+      "rule": {
+        "trigger_threshold": 0.42,
+        "expected_timeframe_days": 175,
+        "recovery_type": "gradual",
+        "recovery_speed": "fast",
+        "optimism_boost": 0.35,
+        "confidence": 80
+      }
+    },
+    {
+      "crisis": "COVID-19 Pandemic",
+      "rule": {
+        "trigger_threshold": 0.38,
+        "expected_timeframe_days": 140,
+        "recovery_type": "V-shaped",
+        "recovery_speed": "fast",
+        "optimism_boost": 0.65,
+        "confidence": 85
+      }
+    },
+    {
+      "crisis": "Russia-Ukraine Full-Scale Invasion",
+      "rule": {
+        "trigger_threshold": 0.45,
+        "expected_timeframe_days": 270,
+        "recovery_type": "slow-burn",
+        "recovery_speed": "moderate",
+        "optimism_boost": 0.25,
+        "confidence": 80
+      }
+    }
+  ]
+}

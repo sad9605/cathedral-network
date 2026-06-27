@@ -2,7 +2,7 @@
 """
 H11 – OSINT Triage Warden
 Automatically reviews new threat candidates, scores them, and promotes urgent ones.
-Supports --dry-run flag to preview actions without modifying threats.json
+Supports --dry-run flag to preview actions without modifying threats.json.
 """
 import json
 import math
@@ -32,28 +32,51 @@ if DRY_RUN:
     print("🔒 DRY RUN MODE: Will score candidates but NOT promote them.")
 
 # --------------------------------------------------
-# 1. LOAD DATA
+# 1. LOAD CANDIDATES (SAFE)
 # --------------------------------------------------
 print("🔍 OSINT Triage Warden (H11) running...")
 
 try:
     with open("new_threat_candidates.json", "r") as f:
-        candidates = json.load(f)
-    if not candidates:
-        print("ℹ️  No candidates to triage.")
-        exit(0)
+        raw_candidates = json.load(f)
+    if isinstance(raw_candidates, list):
+        candidates = [c for c in raw_candidates if isinstance(c, dict)]
+        if len(candidates) != len(raw_candidates):
+            print(f"⚠️  Found {len(raw_candidates) - len(candidates)} invalid candidate entries. Skipping.")
+    elif isinstance(raw_candidates, dict) and "candidates" in raw_candidates:
+        candidates = [c for c in raw_candidates["candidates"] if isinstance(c, dict)]
+    else:
+        print("⚠️  new_threat_candidates.json is not a list. Initializing empty list.")
+        candidates = []
 except FileNotFoundError:
     print("⚠️  new_threat_candidates.json not found.")
-    exit(0)
+    candidates = []
 
+if not candidates:
+    print("ℹ️  No candidates to triage.")
+    sys.exit(0)
+
+# --------------------------------------------------
+# 2. LOAD EXISTING THREATS (SAFE)
+# --------------------------------------------------
 try:
     with open("threats.json", "r") as f:
-        threats = json.load(f)
+        raw_threats = json.load(f)
+    if isinstance(raw_threats, list):
+        threats = [t for t in raw_threats if isinstance(t, dict)]
+        if len(threats) != len(raw_threats):
+            print(f"⚠️  Found {len(raw_threats) - len(threats)} invalid threat entries. Skipping.")
+    elif isinstance(raw_threats, dict) and "threats" in raw_threats:
+        threats = [t for t in raw_threats["threats"] if isinstance(t, dict)]
+    else:
+        print("⚠️  threats.json is not a list. Initializing empty list.")
+        threats = []
 except FileNotFoundError:
+    print("⚠️  threats.json not found. Creating empty list.")
     threats = []
 
 # --------------------------------------------------
-# 2. SCORE EACH CANDIDATE
+# 3. SCORE EACH CANDIDATE
 # --------------------------------------------------
 promoted = []
 updated_candidates = []
@@ -124,10 +147,22 @@ for candidate in candidates:
             continue
         else:
             # Create a new threat entry
+            # Generate a new ID based on existing IDs
+            max_id = 0
+            for t in threats:
+                tid = t.get("id", "")
+                if tid.startswith("C"):
+                    try:
+                        num = int(tid[1:])
+                        if num > max_id:
+                            max_id = num
+                    except:
+                        pass
+            new_id = f"C{max_id+1:03d}"
             new_threat = {
-                "id": f"C{len(threats)+100:03d}",
+                "id": new_id,
                 "name": candidate.get("name"),
-                "status": "Yellow",
+                "status": "Yellow",  # Start as Yellow, let human upgrade
                 "lat": candidate.get("lat"),
                 "lng": candidate.get("lng"),
                 "scp": 0.35,
@@ -145,7 +180,7 @@ for candidate in candidates:
         updated_candidates.append(candidate)
 
 # --------------------------------------------------
-# 3. SAVE UPDATED FILES
+# 4. SAVE UPDATED FILES
 # --------------------------------------------------
 # Save updated candidates (always save)
 with open("new_threat_candidates.json", "w") as f:
@@ -157,14 +192,15 @@ if not DRY_RUN:
         json.dump(threats, f, indent=2)
 
 # --------------------------------------------------
-# 4. SUMMARY
+# 5. SUMMARY
 # --------------------------------------------------
 print(f"📊 Triage complete.")
 print(f"   Candidates reviewed: {len(updated_candidates)}")
 if not DRY_RUN:
     print(f"   Promoted: {len(promoted)}")
 else:
-    print(f"   Would-Promote (DRY): {len([c for c in updated_candidates if c.get('triage_status') == 'Would-Promote (DRY)'])}")
+    promoted_dry = [c for c in updated_candidates if c.get('triage_status') == 'Would-Promote (DRY)']
+    print(f"   Would-Promote (DRY): {len(promoted_dry)}")
 print(f"   Watch: {len([c for c in updated_candidates if c.get('triage_status') == 'Watch'])}")
 print(f"   Ignored: {len([c for c in updated_candidates if c.get('triage_status') == 'Ignore'])}")
 
