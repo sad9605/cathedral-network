@@ -1,29 +1,25 @@
 #!/usr/bin/env python3
 """
-Master Warden Orchestrator
-Runs the entire Cathedral pipeline in the correct order:
-1. Fetch data (Threat Scanner, GPSJAM,Telegram Fetcher)
-2. Archive resolved threats
-3. OSINT Triage (DRY RUN by default)
-4. Generate Daily Brief
-5. Pipeline Health Monitor
-6. Self-Tuning
-7. Warden Verification
-8. Prediction Validation
+run_wardens.py – Cathedral Master Orchestrator
+Runs all pipeline steps with Threat Matrix integrity protection.
 """
 import subprocess
 import sys
 import os
 from datetime import datetime, timezone
 
-# --------------------------------------------------
-# CONFIGURATION
-# --------------------------------------------------
-# Set this to False to ENABLE auto-promotion in OSINT Warden
-OSINT_DRY_RUN = True  # True = Safe mode (prints what it would do, doesn't modify threats.json)
+# ── Threat Matrix Guardian Integration ──
+def guardian(action):
+    """Run guardian.py with the given action."""
+    try:
+        subprocess.run(["python3", "guardian.py", action], check=True, capture_output=True)
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"⚠️ Guardian {action} failed: {e.stderr.decode()}")
+        return False
 
+# ── Step Runner ──
 def run_step(name, command):
-    """Runs a shell command and prints the result."""
     print("\n" + "="*60)
     print(f"🏛️  RUNNING: {name}")
     print("="*60)
@@ -39,63 +35,57 @@ def run_step(name, command):
         print(f"💥 {name} crashed: {str(e)}")
         return False
 
+# ── Main Pipeline ──
 def main():
     start_time = datetime.now(timezone.utc)
     print("🏛️  CATHEDRAL MASTER PIPELINE START")
     print(f"⏰ Started at: {start_time.isoformat()}")
-    print(f"🔒 OSINT Triage DRY-RUN mode: {'ENABLED' if OSINT_DRY_RUN else 'DISABLED (auto-promote ON)'}")
+
+    # Lock the Threat Matrix
+    if not guardian("lock"):
+        print("💀 Could not lock Threat Matrix. Aborting.")
+        sys.exit(1)
 
     results = []
 
-    # --------------------------------------------------
-    # STEP 1: Fetch fresh data
-    # --------------------------------------------------
+    # ── STEP 1: Data Collection ──
     results.append(run_step("Threat Scanner (H02)", "python3 threat_scanner.py"))
     results.append(run_step("GPSJAM Fetcher (C04)", "python3 gpsjam_fetcher.py"))
     results.append(run_step("Telegram Fetcher (AW15)", "python3 telegram_fetcher.py"))
 
-    # --------------------------------------------------
-    # STEP 2: Archive resolved threats
-    # --------------------------------------------------
+    # ── STEP 2: Archive Resolved Threats ──
     results.append(run_step("Archive Engine (H01)", "python3 archive_engine.py"))
 
-    # --------------------------------------------------
-    # STEP 3: OSINT Triage (with DRY RUN toggle)
-    # --------------------------------------------------
-    if OSINT_DRY_RUN:
-        # Run in dry-run mode: it will score candidates but NOT promote them
-        results.append(run_step("OSINT Triage Warden (H11) - DRY RUN", "python3 osint_warden.py --dry-run"))
-    else:
-        results.append(run_step("OSINT Triage Warden (H11) - LIVE", "python3 osint_warden.py"))
+    # ── STEP 3: OSINT Triage ──
+    results.append(run_step("OSINT Triage Warden (H11) - DRY RUN", "python3 osint_warden.py --dry-run"))
 
-    # --------------------------------------------------
-    # STEP 4: Generate Daily Brief
-    # --------------------------------------------------
+    # ── STEP 4: Historical Validation & Tuning ──
+    results.append(run_step("Historical Validator", "python3 historical_validator.py"))
+    results.append(run_step("Historical Tuner", "python3 historical_tuner.py"))
+    results.append(run_step("Historical Cascade Analyst", "python3 historical_cascade_analyst.py"))
+    results.append(run_step("Ascension Tuner", "python3 ascension_tuner.py"))
+
+    # ── STEP 5: Generate Output ──
     results.append(run_step("Daily Brief Generator (C03/H05-H10)", "python3 generate_daily_brief.py"))
 
-    # --------------------------------------------------
-    # STEP 5: Pipeline Health Monitor
-    # --------------------------------------------------
+    # ── STEP 6: Health & Monitoring ──
     results.append(run_step("Pipeline Monitor (H12)", "python3 pipeline_warden.py"))
-
-    # --------------------------------------------------
-    # STEP 6: Self-Tuning
-    # --------------------------------------------------
     results.append(run_step("Self-Tuning Warden (H13)", "python3 self_tune_warden.py"))
 
-    # --------------------------------------------------
-    # STEP 7: Warden Verification (AW04)
-    # --------------------------------------------------
+    # ── STEP 7: Verification & Validation ──
     results.append(run_step("Warden Verification (AW04)", "python3 verification_warden.py"))
-
-    # --------------------------------------------------
-    # STEP 8: Prediction Validation (AW05)
-    # --------------------------------------------------
     results.append(run_step("Prediction Validation (AW05)", "python3 validation_warden.py"))
 
-    # --------------------------------------------------
-    # SUMMARY
-    # --------------------------------------------------
+    # ── Check Threat Matrix integrity ──
+    if not guardian("check"):
+        print("⚠️ Threat Matrix integrity check failed. Pipeline will continue, but check logs.")
+    else:
+        print("✅ Threat Matrix integrity verified.")
+
+    # Unlock the Threat Matrix (optional)
+    guardian("unlock")
+
+    # ── Summary ──
     print("\n" + "="*60)
     print("📊 PIPELINE EXECUTION SUMMARY")
     print("="*60)

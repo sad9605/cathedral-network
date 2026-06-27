@@ -22,17 +22,28 @@ except FileNotFoundError:
     print("⚠️  threats.json not found. Creating empty list.")
     existing_threats = []
 
-# Load existing candidates (clean up bad data too)
+# ── LOAD EXISTING THREATS (SAFE MODE) ──
 try:
-    with open('new_threat_candidates.json', 'r') as f:
-        raw_candidates = json.load(f)
-    existing_candidates = [c for c in raw_candidates if isinstance(c, dict)]
-    if len(existing_candidates) != len(raw_candidates):
-        print("⚠️  new_threat_candidates.json had invalid entries. They were skipped.")
-        with open('new_threat_candidates.json', 'w') as f:
-            json.dump(existing_candidates, f, indent=2)
+    with open("threats.json", "r") as f:
+        raw_threats = json.load(f)
+    # Only clean if it's truly broken (not a list)
+    if isinstance(raw_threats, list):
+        existing_threats = [t for t in raw_threats if isinstance(t, dict)]
+        if len(existing_threats) != len(raw_threats):
+            print(f"⚠️  Found {len(raw_threats) - len(existing_threats)} invalid entries. Fixing...")
+            with open("threats.json", "w") as f:
+                json.dump(existing_threats, f, indent=2)
+            print("✅ threats.json has been cleaned.")
+        else:
+            existing_threats = raw_threats
+    elif isinstance(raw_threats, dict) and "threats" in raw_threats:
+        existing_threats = raw_threats["threats"]
+    else:
+        print("⚠️  threats.json is not a list. Initializing empty list.")
+        existing_threats = []
 except FileNotFoundError:
-    existing_candidates = []
+    print("⚠️  threats.json not found. Creating empty list.")
+    existing_threats = []
 
 # Get names of existing threats for duplicate checking
 existing_names = [t.get("name", "").lower() for t in existing_threats]
