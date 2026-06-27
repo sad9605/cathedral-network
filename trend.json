@@ -1,0 +1,934 @@
+{
+  "C01": {
+    "delta": -0.414,
+    "trend": "down"
+  },
+  "C\u2011USIRAN": {
+    "delta": 0.299,
+    "trend": "up"
+  },
+  "C\u2011BELT": {
+    "delta": 0.34,
+    "trend": "up"
+  },
+  "C\u2011RED\u2011BLOCK": {
+    "delta": 0.481,
+    "trend": "up"
+  },
+  "C132": {
+    "delta": -0.561,
+    "trend": "down"
+  },
+  "C129": {
+    "delta": 0.408,
+    "trend": "up"
+  },
+  "C54": {
+    "delta": 0.344,
+    "trend": "up"
+  },
+  "C88": {
+    "delta": 0.384,
+    "trend": "up"
+  },
+  "C90": {
+    "delta": 0.418,
+    "trend": "up"
+  },
+  "C48": {
+    "delta": 0.466,
+    "trend": "up"
+  },
+  "C19": {
+    "delta": 0.139,
+    "trend": "up"
+  },
+  "C25": {
+    "delta": 0.437,
+    "trend": "up"
+  },
+  "C3": {
+    "delta": 0.272,
+    "trend": "up"
+  },
+  "C11": {
+    "delta": -0.576,
+    "trend": "down"
+  },
+  "C58": {
+    "delta": 0.297,
+    "trend": "up"
+  },
+  "C60": {
+    "delta": 0.202,
+    "trend": "up"
+  },
+  "C64": {
+    "delta": 0.297,
+    "trend": "up"
+  },
+  "C85": {
+    "delta": 0.35,
+    "trend": "up"
+  },
+  "C122": {
+    "delta": 0.398,
+    "trend": "up"
+  },
+  "C2": {
+    "delta": 0.444,
+    "trend": "up"
+  },
+  "C4": {
+    "delta": 0.256,
+    "trend": "up"
+  },
+  "C6": {
+    "delta": 0.323,
+    "trend": "up"
+  },
+  "C7": {
+    "delta": 0.241,
+    "trend": "up"
+  },
+  "C9": {
+    "delta": 0.352,
+    "trend": "up"
+  },
+  "C10": {
+    "delta": 0.366,
+    "trend": "up"
+  },
+  "C12": {
+    "delta": 0.352,
+    "trend": "up"
+  },
+  "C13": {
+    "delta": 0.345,
+    "trend": "up"
+  },
+  "C14": {
+    "delta": 0.312,
+    "trend": "up"
+  },
+  "C15": {
+    "delta": 0.256,
+    "trend": "up"
+  },
+  "C16": {
+    "delta": 0.292,
+    "trend": "up"
+  },
+  "C17": {
+    "delta": 0.268,
+    "trend": "up"
+  },
+  "C18": {
+    "delta": 0.393,
+    "trend": "up"
+  },
+  "C20": {
+    "delta": 0.345,
+    "trend": "up"
+  },
+  "C21": {
+    "delta": 0.468,
+    "trend": "up"
+  },
+  "C22": {
+    "delta": 0.256,
+    "trend": "up"
+  },
+  "C23": {
+    "delta": 0.352,
+    "trend": "up"
+  },
+  "C24": {
+    "delta": 0.292,
+    "trend": "up"
+  },
+  "C26": {
+    "delta": 0.394,
+    "trend": "up"
+  },
+  "C27": {
+    "delta": 0.402,
+    "trend": "up"
+  },
+  "C28": {
+    "delta": 0.323,
+    "trend": "up"
+  },
+  "G-ARCTIC": {
+    "delta": 0.458,
+    "trend": "up"
+  },
+  "G-GREENLAND": {
+    "delta": 0.379,
+    "trend": "up"
+  },
+  "G-SPACE": {
+    "delta": 0.434,
+    "trend": "up"
+  },
+  "G-WEST-BANK": {
+    "delta": 0.444,
+    "trend": "up"
+  },
+  "G-SUD-BLUE": {
+    "delta": 0.363,
+    "trend": "up"
+  },
+  "C11E": {
+    "delta": 0.53,
+    "trend": "up"
+  },
+  "C141": {
+    "delta": 0.533,
+    "trend": "up"
+  },
+  "C143": {
+    "delta": 0.519,
+    "trend": "up"
+  },
+  "C62": {
+    "delta": -0.428,
+    "trend": "down"
+  },
+  "C63": {
+    "delta": 0.476,
+    "trend": "up"
+  },
+  "C123": {
+    "delta": 0.475,
+    "trend": "up"
+  },
+  "C127": {
+    "delta": 0.468,
+    "trend": "up"
+  },
+  "C144": {
+    "delta": 0.486,
+    "trend": "up"
+  },
+  "C143-KZ": {
+    "delta": 0.448,
+    "trend": "up"
+  },
+  "CA4": {
+    "delta": 0.468,
+    "trend": "up"
+  },
+  "G16": {
+    "delta": 0.392,
+    "trend": "up"
+  },
+  "G17": {
+    "delta": 0.426,
+    "trend": "up"
+  },
+  "G18": {
+    "delta": 0.448,
+    "trend": "up"
+  },
+  "G19": {
+    "delta": 0.205,
+    "trend": "up"
+  },
+  "G20": {
+    "delta": 0.186,
+    "trend": "up"
+  },
+  "G24": {
+    "delta": 0.426,
+    "trend": "up"
+  },
+  "E-AI-GRID": {
+    "delta": 0.479,
+    "trend": "up"
+  },
+  "E-SMR": {
+    "delta": 0.375,
+    "trend": "up"
+  },
+  "E-HYPER-SCALE": {
+    "delta": 0.437,
+    "trend": "up"
+  },
+  "E-MINI-GRID": {
+    "delta": 0.411,
+    "trend": "up"
+  },
+  "E-SOLAR-CYBER": {
+    "delta": 0.426,
+    "trend": "up"
+  },
+  "C100": {
+    "delta": 0.426,
+    "trend": "up"
+  },
+  "C147": {
+    "delta": 0.473,
+    "trend": "up"
+  },
+  "C44": {
+    "delta": 0.403,
+    "trend": "up"
+  },
+  "C80": {
+    "delta": 0.404,
+    "trend": "up"
+  },
+  "C134": {
+    "delta": 0.478,
+    "trend": "up"
+  },
+  "C135": {
+    "delta": 0.444,
+    "trend": "up"
+  },
+  "C99": {
+    "delta": 0.425,
+    "trend": "up"
+  },
+  "C41": {
+    "delta": 0.323,
+    "trend": "up"
+  },
+  "C46": {
+    "delta": 0.379,
+    "trend": "up"
+  },
+  "E11": {
+    "delta": 0.444,
+    "trend": "up"
+  },
+  "U10": {
+    "delta": 0.172,
+    "trend": "up"
+  },
+  "U11": {
+    "delta": 0.323,
+    "trend": "up"
+  },
+  "U12": {
+    "delta": 0.324,
+    "trend": "up"
+  },
+  "CC1": {
+    "delta": 0.351,
+    "trend": "up"
+  },
+  "CC2": {
+    "delta": 0.292,
+    "trend": "up"
+  },
+  "OC1": {
+    "delta": 0.424,
+    "trend": "up"
+  },
+  "CB2": {
+    "delta": 0.373,
+    "trend": "up"
+  },
+  "LA2": {
+    "delta": 0.428,
+    "trend": "up"
+  },
+  "C-WATER-BANK": {
+    "delta": 0.41,
+    "trend": "up"
+  },
+  "C-SUBSIDENCE": {
+    "delta": 0.379,
+    "trend": "up"
+  },
+  "C-CRYO": {
+    "delta": 0.409,
+    "trend": "up"
+  },
+  "C-SOIL-DEG": {
+    "delta": 0.334,
+    "trend": "up"
+  },
+  "C-AG-STORAGE": {
+    "delta": 0.373,
+    "trend": "up"
+  },
+  "C78": {
+    "delta": -0.472,
+    "trend": "down"
+  },
+  "C133": {
+    "delta": -0.483,
+    "trend": "down"
+  },
+  "I08": {
+    "delta": -0.417,
+    "trend": "down"
+  },
+  "I09": {
+    "delta": 0.392,
+    "trend": "up"
+  },
+  "C136": {
+    "delta": 0.424,
+    "trend": "up"
+  },
+  "C137": {
+    "delta": 0.429,
+    "trend": "up"
+  },
+  "C138": {
+    "delta": 0.402,
+    "trend": "up"
+  },
+  "U16": {
+    "delta": 0.424,
+    "trend": "up"
+  },
+  "U18": {
+    "delta": 0.479,
+    "trend": "up"
+  },
+  "U19": {
+    "delta": 0.297,
+    "trend": "up"
+  },
+  "C17*": {
+    "delta": 0.463,
+    "trend": "up"
+  },
+  "C18*": {
+    "delta": 0.415,
+    "trend": "up"
+  },
+  "C19*": {
+    "delta": 0.451,
+    "trend": "up"
+  },
+  "C20*": {
+    "delta": 0.388,
+    "trend": "up"
+  },
+  "G30": {
+    "delta": 0.457,
+    "trend": "up"
+  },
+  "U15": {
+    "delta": 0.402,
+    "trend": "up"
+  },
+  "U17": {
+    "delta": 0.385,
+    "trend": "up"
+  },
+  "A24": {
+    "delta": 0.444,
+    "trend": "up"
+  },
+  "C145": {
+    "delta": 0.329,
+    "trend": "up"
+  },
+  "F-AI-CYBER-SYS": {
+    "delta": 0.394,
+    "trend": "up"
+  },
+  "F-AI-LIQ": {
+    "delta": 0.41,
+    "trend": "up"
+  },
+  "F-REPO-2026": {
+    "delta": 0.388,
+    "trend": "up"
+  },
+  "F-CBDC": {
+    "delta": 0.346,
+    "trend": "up"
+  },
+  "F-INSUR-SPIRAL": {
+    "delta": 0.051,
+    "trend": "up"
+  },
+  "C121": {
+    "delta": -0.401,
+    "trend": "down"
+  },
+  "C124": {
+    "delta": 0.463,
+    "trend": "up"
+  },
+  "C36": {
+    "delta": 0.473,
+    "trend": "up"
+  },
+  "C39": {
+    "delta": 0.379,
+    "trend": "up"
+  },
+  "C8": {
+    "delta": 0.426,
+    "trend": "up"
+  },
+  "C29": {
+    "delta": 0.525,
+    "trend": "up"
+  },
+  "C135S": {
+    "delta": 0.444,
+    "trend": "up"
+  },
+  "SC-NUCLEAR": {
+    "delta": 0.237,
+    "trend": "up"
+  },
+  "SC-COUNTER": {
+    "delta": 0.426,
+    "trend": "up"
+  },
+  "SC-RARE": {
+    "delta": 0.394,
+    "trend": "up"
+  },
+  "SC-DEVICE": {
+    "delta": 0.424,
+    "trend": "up"
+  },
+  "SC-ZINC": {
+    "delta": 0.397,
+    "trend": "up"
+  },
+  "C03": {
+    "delta": -0.437,
+    "trend": "down"
+  },
+  "C126": {
+    "delta": 0.484,
+    "trend": "up"
+  },
+  "C125": {
+    "delta": 0.413,
+    "trend": "up"
+  },
+  "C43": {
+    "delta": 0.413,
+    "trend": "up"
+  },
+  "C106": {
+    "delta": -0.472,
+    "trend": "down"
+  },
+  "C137F": {
+    "delta": 0.429,
+    "trend": "up"
+  },
+  "A01": {
+    "delta": 0.52,
+    "trend": "up"
+  },
+  "A02": {
+    "delta": 0.474,
+    "trend": "up"
+  },
+  "A03": {
+    "delta": 0.514,
+    "trend": "up"
+  },
+  "A04": {
+    "delta": 0.491,
+    "trend": "up"
+  },
+  "A22": {
+    "delta": 0.41,
+    "trend": "up"
+  },
+  "A23": {
+    "delta": 0.448,
+    "trend": "up"
+  },
+  "A-UREA": {
+    "delta": 0.414,
+    "trend": "up"
+  },
+  "A-EL-NINO": {
+    "delta": 0.41,
+    "trend": "up"
+  },
+  "A-SOIL-BIO": {
+    "delta": 0.352,
+    "trend": "up"
+  },
+  "A-STRAT-RES": {
+    "delta": 0.452,
+    "trend": "up"
+  },
+  "A-AG-DEBT": {
+    "delta": 0.39,
+    "trend": "up"
+  },
+  "C84": {
+    "delta": 0.552,
+    "trend": "up"
+  },
+  "I01": {
+    "delta": -0.446,
+    "trend": "down"
+  },
+  "C67": {
+    "delta": 0.444,
+    "trend": "up"
+  },
+  "U01": {
+    "delta": 0.402,
+    "trend": "up"
+  },
+  "U02": {
+    "delta": 0.389,
+    "trend": "up"
+  },
+  "U03": {
+    "delta": 0.354,
+    "trend": "up"
+  },
+  "U06": {
+    "delta": -0.483,
+    "trend": "down"
+  },
+  "D-IMM-WAR": {
+    "delta": 0.315,
+    "trend": "up"
+  },
+  "D-AI-LIAB": {
+    "delta": 0.365,
+    "trend": "up"
+  },
+  "D-TRUST": {
+    "delta": 0.444,
+    "trend": "up"
+  },
+  "D-DESKILL": {
+    "delta": 0.369,
+    "trend": "up"
+  },
+  "D-GDPR": {
+    "delta": 0.365,
+    "trend": "up"
+  },
+  "C139": {
+    "delta": -0.427,
+    "trend": "down"
+  },
+  "C5": {
+    "delta": 0.518,
+    "trend": "up"
+  },
+  "U07": {
+    "delta": 0.292,
+    "trend": "up"
+  },
+  "U13": {
+    "delta": 0.463,
+    "trend": "up"
+  },
+  "U14": {
+    "delta": 0.475,
+    "trend": "up"
+  },
+  "C44S": {
+    "delta": 0.403,
+    "trend": "up"
+  },
+  "C64S": {
+    "delta": 0.352,
+    "trend": "up"
+  },
+  "C20*S": {
+    "delta": 0.388,
+    "trend": "up"
+  },
+  "S-ANTI-TECH": {
+    "delta": 0.363,
+    "trend": "up"
+  },
+  "S-NVE": {
+    "delta": 0.379,
+    "trend": "up"
+  },
+  "S-CLASS": {
+    "delta": 0.352,
+    "trend": "up"
+  },
+  "S-FED-8000": {
+    "delta": 0.432,
+    "trend": "up"
+  },
+  "S-LONELY": {
+    "delta": 0.323,
+    "trend": "up"
+  },
+  "C\u2011ESCAPE": {
+    "delta": 0.41,
+    "trend": "up"
+  },
+  "C\u2011ZERODAY": {
+    "delta": 0.369,
+    "trend": "up"
+  },
+  "C\u2011BIOWPN": {
+    "delta": 0.365,
+    "trend": "up"
+  },
+  "C\u2011AILANG": {
+    "delta": 0.328,
+    "trend": "up"
+  },
+  "C\u2011DATACENTER\u2011RES": {
+    "delta": 0.36,
+    "trend": "up"
+  },
+  "C\u2011MALWARE": {
+    "delta": -0.529,
+    "trend": "down"
+  },
+  "C121T": {
+    "delta": 0.519,
+    "trend": "up"
+  },
+  "C48T": {
+    "delta": 0.459,
+    "trend": "up"
+  },
+  "C96": {
+    "delta": 0.395,
+    "trend": "up"
+  },
+  "C97": {
+    "delta": 0.463,
+    "trend": "up"
+  },
+  "I11": {
+    "delta": 0.365,
+    "trend": "up"
+  },
+  "I12": {
+    "delta": 0.424,
+    "trend": "up"
+  },
+  "T-BIO-INF": {
+    "delta": 0.365,
+    "trend": "up"
+  },
+  "T-LAWS": {
+    "delta": 0.463,
+    "trend": "up"
+  },
+  "T-SYN-DNA": {
+    "delta": 0.402,
+    "trend": "up"
+  },
+  "T-AGENT": {
+    "delta": 0.407,
+    "trend": "up"
+  },
+  "T-MISINFO": {
+    "delta": 0.463,
+    "trend": "up"
+  },
+  "I01I": {
+    "delta": 0.477,
+    "trend": "up"
+  },
+  "C2I": {
+    "delta": 0.444,
+    "trend": "up"
+  },
+  "C84I": {
+    "delta": 0.552,
+    "trend": "up"
+  },
+  "G14": {
+    "delta": 0.032,
+    "trend": "stable"
+  },
+  "I11I": {
+    "delta": 0.365,
+    "trend": "up"
+  },
+  "I12I": {
+    "delta": 0.424,
+    "trend": "up"
+  },
+  "C19I": {
+    "delta": 0.408,
+    "trend": "up"
+  },
+  "B02": {
+    "delta": -0.364,
+    "trend": "down"
+  },
+  "C148": {
+    "delta": 0.555,
+    "trend": "up"
+  },
+  "C94": {
+    "delta": 0.28,
+    "trend": "up"
+  },
+  "C77": {
+    "delta": -0.463,
+    "trend": "down"
+  },
+  "A12": {
+    "delta": 0.555,
+    "trend": "up"
+  },
+  "A13": {
+    "delta": 0.448,
+    "trend": "up"
+  },
+  "A14": {
+    "delta": 0.364,
+    "trend": "up"
+  },
+  "A15": {
+    "delta": 0.353,
+    "trend": "up"
+  },
+  "B-METABIO": {
+    "delta": 0.292,
+    "trend": "up"
+  },
+  "B-AMR-KLEB": {
+    "delta": 0.444,
+    "trend": "up"
+  },
+  "B-DARK-PROTEIN": {
+    "delta": 0.365,
+    "trend": "up"
+  },
+  "B-PANT-PIE": {
+    "delta": 0.323,
+    "trend": "up"
+  },
+  "B-RNA": {
+    "delta": 0.339,
+    "trend": "up"
+  },
+  "C120": {
+    "delta": 0.483,
+    "trend": "up"
+  },
+  "C140": {
+    "delta": 0.37,
+    "trend": "up"
+  },
+  "C142": {
+    "delta": 0.487,
+    "trend": "up"
+  },
+  "C77I": {
+    "delta": 0.463,
+    "trend": "up"
+  },
+  "I02": {
+    "delta": 0.344,
+    "trend": "up"
+  },
+  "I03": {
+    "delta": 0.496,
+    "trend": "up"
+  },
+  "I17": {
+    "delta": 0.444,
+    "trend": "up"
+  },
+  "C145I": {
+    "delta": 0.176,
+    "trend": "up"
+  },
+  "I10": {
+    "delta": -0.427,
+    "trend": "down"
+  },
+  "CFR-CONFLICTS": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CIVILWARINSUDAN": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CONFLICTINETHIOPIA": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-IRANSWARWITHISRAELANDTHE": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CONFLICTINYEMENANDTHERED": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CONFLICTBETWEENINDIAANDPAK": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CONFLICTWITHALSHABAABINSO": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-ISRAELIPALESTINIANCONFLICT": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CONFLICTBETWEENTURKEYANDAR": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-WARINUKRAINE": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-NORTHKOREACRISIS": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CIVILWARINMYANMAR": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CONFLICTINTHEDEMOCRATICREP": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CONFLICTINTHECENTRALAFRICA": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CONFLICTWITHHEZBOLLAHINLEB": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CONFLICTINSYRIA": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CRIMINALVIOLENCEINHAITI": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-CRIMINALVIOLENCEINMEXICO": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-TERRITORIALDISPUTESINTHESO": {
+    "delta": 0.0,
+    "trend": "stable"
+  },
+  "CFR-TENSIONSBETWEENARMENIAANDA": {
+    "delta": 0.0,
+    "trend": "stable"
+  }
+}

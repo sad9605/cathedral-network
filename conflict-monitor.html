@@ -825,6 +825,45 @@
 
 <!-- GoatCounter (if used) -->
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
+<script>
+// Load conflict data from conflict_data.json
+fetch('conflict_data.json')
+  .then(response => response.json())
+  .then(data => {
+    // Get the threats array
+    const threats = data.threats || data;
+    
+    // Update the counters
+    document.querySelector('main').innerHTML = `
+      <h1>Conflict Monitor</h1>
+      <p>Live · ${threats.length} active conflicts</p>
+      <div>
+        <span>Critical: ${threats.filter(t => t.status === 'Red' || t.status === 'Critical').length}</span>
+        <span>High: ${threats.filter(t => t.status === 'Orange' || t.status === 'High').length}</span>
+        <span>Elevated: ${threats.filter(t => t.status === 'Yellow' || t.status === 'Elevated').length}</span>
+        <span>Moderate: ${threats.filter(t => t.status === 'Green' || t.status === 'Moderate').length}</span>
+      </div>
+      <table>
+        <tr><th>Conflict</th><th>Region</th><th>Status</th><th>SCP</th></tr>
+        ${threats.map(t => `
+          <tr>
+            <td>${t.name}</td>
+            <td>${t.lat}, ${t.lng}</td>
+            <td>${t.status}</td>
+            <td>${t.scp || '--'}</td>
+          </tr>
+        `).join('')}
+      </table>
+    `;
+  })
+  .catch(error => {
+    document.querySelector('main').innerHTML = `
+      <h1>Conflict Monitor</h1>
+      <p style="color:red;">Error loading conflict data: ${error.message}</p>
+      <p>Make sure conflict_data.json exists in the same folder.</p>
+    `;
+    console.error('Error loading conflict_data.json:', error);
+  });
+</script>
 </body>
 </html>

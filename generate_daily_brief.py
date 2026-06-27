@@ -2,6 +2,7 @@
 """
 generate_daily_brief.py – Cathedral Daily Brief
 Generates a full Cathedral-style HTML page and Markdown version.
+Includes H05-H10: SCP deltas, prediction accountability, cascades, candidates, archive, and bottom line.
 """
 
 import json
@@ -69,6 +70,31 @@ def generate_daily_brief():
     indices = load_json('indices.json') or {}
     gsci = indices.get('gsci', '--')
 
+    # --- H05: Load previous SCP values for delta tracking ---
+    previous_scp = load_json('scp_history.json')
+    if not isinstance(previous_scp, dict):
+        previous_scp = {}
+    scp_deltas = []
+    for threat in threats:
+        t_id = threat.get('id')
+        current = threat.get('scp', 0.5)
+        previous = previous_scp.get(t_id, current)
+        delta = current - previous
+        scp_deltas.append({
+            'id': t_id,
+            'name': threat.get('name', 'Unknown'),
+            'status': threat.get('status', 'Unknown'),
+            'current_scp': current,
+            'previous_scp': previous,
+            'delta': delta
+        })
+    # Save current SCP for next run
+    current_scp_state = {t.get('id'): t.get('scp', 0.5) for t in threats}
+    with open('scp_history.json', 'w') as f:
+        json.dump(current_scp_state, f, indent=2)
+    # Sort by biggest positive delta
+    scp_deltas.sort(key=lambda x: x['delta'], reverse=True)
+
     # --- Prepare content sections ---
     # Top 5 threats
     active_threats = [t for t in threats if t.get('status') != 'archived']
@@ -97,24 +123,26 @@ def generate_daily_brief():
             target_name = next((t.get('name', target) for t in threats if t.get('id') == target), target)
             active_cascades.append(f"<div class='cascade'><strong>{source_name}</strong> → <strong>{target_name}</strong></div>")
 
-    # Predictions
-    prediction_updates = []
-    for p in preds[:8]:
+    # Predictions – accountability
+    confirmed = []
+    falsified = []
+    for p in preds:
         if p.get('verified', False) and p.get('hit') is not None:
             statement = p.get('statement', '')[:80]
             if p.get('hit'):
-                prediction_updates.append(f"<div class='prediction confirmed'>✅ <strong>Confirmed:</strong> {statement}…</div>")
+                confirmed.append(f"<div class='prediction confirmed'>✅ <strong>Confirmed:</strong> {statement}…</div>")
             else:
-                prediction_updates.append(f"<div class='prediction falsified'>❌ <strong>Falsified:</strong> {statement}…</div>")
+                falsified.append(f"<div class='prediction falsified'>❌ <strong>Falsified:</strong> {statement}…</div>")
+    prediction_updates = confirmed[:3] + falsified[:3]  # Show up to 3 each
 
-    # Archived threats
+    # Archived threats (most recent 5)
     archived_threats = []
     for a in archive[-5:]:
         name = a.get('name', 'Unknown')
         reason = a.get('archive_reason', 'Resolved')
         archived_threats.append(f"<div class='archived'><strong>{name}</strong> – {reason}</div>")
 
-    # New candidates
+    # New candidates (top 3)
     candidate_text = []
     for c in candidates[:3]:
         name = c.get('name', 'Unnamed')
@@ -122,7 +150,7 @@ def generate_daily_brief():
         domains = ', '.join(c.get('domains', ['unknown']))
         candidate_text.append(f"<div class='candidate'><strong>{name}</strong> – {domains} (confidence: {confidence:.0%})</div>")
 
-    # Bottom line
+    # Bottom line (H10)
     bottom_line = ""
     if sorted_threats:
         top = sorted_threats[0]
@@ -194,6 +222,9 @@ def generate_daily_brief():
         .threat-card h4 {{ margin: 0 0 0.2rem 0; color: #fff; }}
         .threat-card .meta {{ font-size: 0.85rem; color: #aaa; }}
         .threat-card .desc {{ font-size: 0.9rem; color: #ccc; }}
+        .delta-up {{ color: #ff6b6b; font-weight: bold; }}
+        .delta-down {{ color: #6bcb8a; font-weight: bold; }}
+        .delta-neutral {{ color: #888; }}
         .violet-pulse {{
             display: inline-block;
             width: 12px; height: 12px;
@@ -317,6 +348,9 @@ def generate_daily_brief():
             <div style="font-size: 0.8rem; color: #666; margin-top: 0.2rem;">Last updated: {timestamp}</div>
         </div>
 
+        <!-- H10: Bottom Line (moved to top for prominence) -->
+        {f'<div class="bottom-line"><h3 style="margin:0 0 0.3rem 0; color:#fff;">💀 The Bottom Line</h3>{bottom_line}</div>' if bottom_line else ''}
+
         <!-- Top 5 Threats -->
         <div class="brief-section">
             <h2>🔴 Top 5 Threats</h2>
@@ -346,69 +380,72 @@ def generate_daily_brief():
             </div>
 """
 
-    # Recent events
-    if recent_events:
-        html += f"""
+    # H05: SCP Deltas (What Changed Overnight)
+    if scp_deltas:
+        html += """
         <div class="brief-section">
-            <h2>📡 What Changed Overnight</h2>
-            <p style="color:#888; font-size:0.9rem;">Significant events in the last 24 hours.</p>
+            <h2>📈 What Changed Overnight (H05)</h2>
+            <p style="color:#888; font-size:0.9rem;">Biggest SCP movements in the last 24 hours.</p>
 """
-        for e in recent_events:
-            html += f"            {e}\n"
+        # Show top 5 increases and top 3 decreases (or top 5 overall)
+        for item in scp_deltas[:5]:
+            delta = item['delta']
+            if delta > 0.01:
+                arrow = "▲"
+                cls = "delta-up"
+            elif delta < -0.01:
+                arrow = "▼"
+                cls = "delta-down"
+            else:
+                arrow = "—"
+                cls = "delta-neutral"
+            html += f"""            <div class='event'><strong>{item['name']}</strong> <span class='{cls}'>{arrow} {delta:+.4f}</span> (was {item['previous_scp']:.4f}) <span style='color:#888;'>[Status: {item['status']}]</span></div>
+"""
         html += "        </div>\n"
 
-    # Cascades
+    # H06: Prediction Accountability
+    if prediction_updates:
+        html += f"""
+        <div class="brief-section">
+            <h2>✅❌ Prediction Accountability (H06)</h2>
+            <p style="color:#888; font-size:0.9rem;">Confirmed: {len(confirmed)} · Falsified: {len(falsified)}</p>
+"""
+        for p in prediction_updates:
+            html += f"            {p}\n"
+        html += "        </div>\n"
+
+    # H07: Active Cascades
     if active_cascades:
         html += f"""
         <div class="brief-section">
-            <h2>🔗 Cascades in Motion</h2>
+            <h2>🔗 Cascades in Motion (H07)</h2>
             <p style="color:#888; font-size:0.9rem;">How one crisis is feeding another.</p>
 """
         for c in active_cascades:
             html += f"            {c}\n"
         html += "        </div>\n"
 
-    # Predictions
-    if prediction_updates:
-        html += f"""
-        <div class="brief-section">
-            <h2>📝 What We Got Wrong (and Right)</h2>
-            <p style="color:#888; font-size:0.9rem;">Public accountability for our predictions.</p>
-"""
-        for p in prediction_updates:
-            html += f"            {p}\n"
-        html += "        </div>\n"
-
-    # Archived threats
-    if archived_threats:
-        html += f"""
-        <div class="brief-section">
-            <h2>📦 Resolved & Archived</h2>
-            <p style="color:#888; font-size:0.9rem;">Threats no longer active.</p>
-"""
-        for a in archived_threats:
-            html += f"            {a}\n"
-        html += "        </div>\n"
-
-    # New candidates
+    # H08: New Candidates
     if candidate_text:
         html += f"""
         <div class="brief-section">
-            <h2>🔍 What We're Watching</h2>
+            <h2>🔍 What We're Watching (H08)</h2>
             <p style="color:#888; font-size:0.9rem;">Emerging threats being monitored.</p>
 """
         for c in candidate_text:
             html += f"            {c}\n"
         html += "        </div>\n"
 
-    # Bottom line
-    if bottom_line:
+    # H09: Archived Threats
+    if archived_threats:
         html += f"""
-        <div class="bottom-line">
-            <h3 style="margin:0 0 0.3rem 0; color:#fff;">💀 The Bottom Line</h3>
-            {bottom_line}
-        </div>
+        <div class="brief-section">
+            <h2>📦 Resolved & Archived (H09)</h2>
+            <p style="color:#888; font-size:0.9rem;">Threats no longer active.</p>
 """
+        for a in archived_threats:
+            html += f"            {a}\n"
+        html += "        </div>\n"
 
     html += """
         <div class="footer">
@@ -457,6 +494,9 @@ def generate_daily_brief():
 **GSCI:** {gsci}  
 **Last sweep:** {timestamp}
 
+## Bottom Line (H10)
+{''.join(bottom_line.replace('<p>','').replace('</p>','').replace('<strong>','**').replace('</strong>','**')) if bottom_line else 'No bottom line available.'}
+
 ## Top 5 Threats
 """
     for i, t in enumerate(sorted_threats, 1):
@@ -465,40 +505,41 @@ def generate_daily_brief():
         desc = t.get('description', 'No description')[:200]
         md += f"\n### {i}. {name}\n- SCP: {scp:.1f}%\n- {desc}\n"
 
-    if recent_events:
-        md += "\n## Recent Events\n"
-        for e in recent_events:
-            # strip HTML tags for markdown
-            clean = e.replace('<div class="event">', '').replace('</div>', '').replace('<strong>', '**').replace('</strong>', '**').replace('<span class="source">', '(').replace('</span>', ')')
+    # H05 Markdown
+    if scp_deltas:
+        md += "\n## What Changed Overnight (H05)\n"
+        for item in scp_deltas[:5]:
+            delta = item['delta']
+            arrow = "▲" if delta > 0.01 else "▼" if delta < -0.01 else "—"
+            md += f"- {item['name']}: {arrow} {delta:+.4f} (was {item['previous_scp']:.4f})\n"
+
+    # H06 Markdown
+    if prediction_updates:
+        md += f"\n## Prediction Accountability (H06)\n- Confirmed: {len(confirmed)}\n- Falsified: {len(falsified)}\n"
+        for p in prediction_updates[:3]:
+            clean = p.replace('<div class="prediction confirmed">', '✅ ').replace('<div class="prediction falsified">', '❌ ').replace('</div>', '').replace('<strong>', '**').replace('</strong>', '**')
             md += f"- {clean}\n"
 
+    # H07 Markdown
     if active_cascades:
-        md += "\n## Active Cascades\n"
+        md += "\n## Cascades in Motion (H07)\n"
         for c in active_cascades:
             clean = c.replace('<div class="cascade">', '').replace('</div>', '').replace('<strong>', '**').replace('</strong>', '**')
             md += f"- {clean}\n"
 
-    if prediction_updates:
-        md += "\n## Prediction Updates\n"
-        for p in prediction_updates:
-            clean = p.replace('<div class="prediction confirmed">', '✅ ').replace('<div class="prediction falsified">', '❌ ').replace('</div>', '').replace('<strong>', '**').replace('</strong>', '**')
-            md += f"- {clean}\n"
-
-    if archived_threats:
-        md += "\n## Archived Threats\n"
-        for a in archived_threats:
-            clean = a.replace('<div class="archived">', '').replace('</div>', '').replace('<strong>', '**').replace('</strong>', '**')
-            md += f"- {clean}\n"
-
+    # H08 Markdown
     if candidate_text:
-        md += "\n## New Threat Candidates\n"
+        md += "\n## New Candidates (H08)\n"
         for c in candidate_text:
             clean = c.replace('<div class="candidate">', '').replace('</div>', '').replace('<strong>', '**').replace('</strong>', '**')
             md += f"- {clean}\n"
 
-    if bottom_line:
-        clean_bottom = bottom_line.replace('<p>', '').replace('</p>', '').replace('<strong>', '**').replace('</strong>', '**')
-        md += f"\n## The Bottom Line\n{clean_bottom}\n"
+    # H09 Markdown
+    if archived_threats:
+        md += "\n## Archived Threats (H09)\n"
+        for a in archived_threats:
+            clean = a.replace('<div class="archived">', '').replace('</div>', '').replace('<strong>', '**').replace('</strong>', '**')
+            md += f"- {clean}\n"
 
     md += "\n---\n*Always and Forever, Coco.*"
     with open('daily-brief.md', 'w') as f:

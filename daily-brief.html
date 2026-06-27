@@ -55,6 +55,9 @@
         .threat-card h4 { margin: 0 0 0.2rem 0; color: #fff; }
         .threat-card .meta { font-size: 0.85rem; color: #aaa; }
         .threat-card .desc { font-size: 0.9rem; color: #ccc; }
+        .delta-up { color: #ff6b6b; font-weight: bold; }
+        .delta-down { color: #6bcb8a; font-weight: bold; }
+        .delta-neutral { color: #888; }
         .violet-pulse {
             display: inline-block;
             width: 12px; height: 12px;
@@ -164,7 +167,7 @@
             <h1>📰 Daily Brief</h1>
             <div style="display: flex; align-items: center; gap: 0.8rem;">
                 <span class="violet-pulse"></span>
-                <span style="font-size: 0.8rem; color: #888;">27 June 2026</span>
+                <span style="font-size: 0.8rem; color: #888;">26 June 2026</span>
             </div>
         </div>
         <p style="margin-bottom: 1rem;">The Cathedral's daily intelligence summary – global threats, cascades, and forecasts for everyone.</p>
@@ -175,46 +178,62 @@
                 <span style="color: #888;">Global Systemic Collapse Index</span>
                 <span class="number">--</span>
             </div>
-            <div style="font-size: 0.8rem; color: #666; margin-top: 0.2rem;">Last updated: 2026-06-27T18:26:57.310810+00:00</div>
+            <div style="font-size: 0.8rem; color: #666; margin-top: 0.2rem;">Last updated: 2026-06-26T04:53:40.622846+00:00</div>
         </div>
+
+        <!-- H10: Bottom Line (moved to top for prominence) -->
+        <div class="bottom-line"><h3 style="margin:0 0 0.3rem 0; color:#fff;">💀 The Bottom Line</h3><p><strong>The most urgent threat right now is Iran-Israel/US War / Hormuz.</strong> This is a critical situation requiring immediate attention.</p></div>
 
         <!-- Top 5 Threats -->
         <div class="brief-section">
             <h2>🔴 Top 5 Threats</h2>
 
             <div class="threat-card critical">
-                <h4>Civil War in Sudan</h4>
-                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
-                <div class="desc">Region: Middle East and North Africa</div>
+                <h4>Iran-Israel/US War / Hormuz</h4>
+                <div class="meta">🔴 CRITICAL · SCP: 99.0% · Priority: 114.0</div>
+                <div class="desc">Iran threatens to close Strait of Hormuz; US carrier group in Arabian Sea.</div>
             </div>
 
             <div class="threat-card critical">
-                <h4>Conflict in Ethiopia</h4>
-                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
-                <div class="desc">Region: Sub-Saharan Africa</div>
+                <h4>Ukraine War – Kharkiv Front</h4>
+                <div class="meta">🔴 CRITICAL · SCP: 99.0% · Priority: 114.0</div>
+                <div class="desc">Russian forces launch major offensive in Kharkiv region; heavy artillery duels.</div>
             </div>
 
             <div class="threat-card critical">
-                <h4>Iran’s War With Israel and the United States</h4>
-                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
-                <div class="desc">Region: Middle East and North Africa</div>
+                <h4>Gaza – Rafah Incursion</h4>
+                <div class="meta">🔴 CRITICAL · SCP: 99.0% · Priority: 114.0</div>
+                <div class="desc">IDF expands ground operations; Rafah crossing closed; humanitarian crisis worsens.</div>
             </div>
 
             <div class="threat-card critical">
-                <h4>Conflict in Yemen and the Red Sea</h4>
-                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
-                <div class="desc">Region: Middle East and North Africa</div>
+                <h4>Sudan – El Fasher Siege</h4>
+                <div class="meta">🔴 CRITICAL · SCP: 99.0% · Priority: 114.0</div>
+                <div class="desc">RSF encirclement tightens; famine conditions reported in Zamzam camp.</div>
             </div>
 
             <div class="threat-card critical">
-                <h4>Conflict Between India and Pakistan</h4>
-                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
-                <div class="desc">Region: Asia</div>
+                <h4>Sahel – Niger/Mali Insurgency Surge</h4>
+                <div class="meta">🔴 CRITICAL · SCP: 99.0% · Priority: 114.0</div>
+                <div class="desc">JNIM and ISIS-Sahel expand attacks; French forces withdraw.</div>
             </div>
 
-        <div class="bottom-line">
-            <h3 style="margin:0 0 0.3rem 0; color:#fff;">💀 The Bottom Line</h3>
-            <p><strong>The most urgent threat right now is Civil War in Sudan.</strong> This is a critical situation requiring immediate attention.</p>
+        <div class="brief-section">
+            <h2>📈 What Changed Overnight (H05)</h2>
+            <p style="color:#888; font-size:0.9rem;">Biggest SCP movements in the last 24 hours.</p>
+            <div class='event'><strong>Iran-Israel/US War / Hormuz</strong> <span class='delta-neutral'>— +0.0000</span> (was 0.9900) <span style='color:#888;'>[Status: Red]</span></div>
+            <div class='event'><strong>Bab el-Mandeb Blockade</strong> <span class='delta-neutral'>— +0.0000</span> (was 0.9471) <span style='color:#888;'>[Status: Orange]</span></div>
+            <div class='event'><strong>Ukraine War – Kharkiv Front</strong> <span class='delta-neutral'>— +0.0000</span> (was 0.9900) <span style='color:#888;'>[Status: Red]</span></div>
+            <div class='event'><strong>Gaza – Rafah Incursion</strong> <span class='delta-neutral'>— +0.0000</span> (was 0.9900) <span style='color:#888;'>[Status: Red]</span></div>
+            <div class='event'><strong>Sudan – El Fasher Siege</strong> <span class='delta-neutral'>— +0.0000</span> (was 0.9900) <span style='color:#888;'>[Status: Red]</span></div>
+        </div>
+
+        <div class="brief-section">
+            <h2>🔍 What We're Watching (H08)</h2>
+            <p style="color:#888; font-size:0.9rem;">Emerging threats being monitored.</p>
+            <div class='candidate'><strong>Sudan-Ethiopia Border Clashes over Al-Fashaga</strong> – unknown (confidence: 0%)</div>
+            <div class='candidate'><strong>Philippines-China Scarborough Shoal Standoff</strong> – unknown (confidence: 0%)</div>
+            <div class='candidate'><strong>Haiti Gang Alliance Targets Port-au-Prince Airport</strong> – unknown (confidence: 0%)</div>
         </div>
 
         <div class="footer">

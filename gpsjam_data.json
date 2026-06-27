@@ -1,4 +1,73 @@
 {
-  "timestamp": "2026-06-25T20:52:59.048303",
-  "jamming": {}
+  "lastUpdated": "2026-06-26T04:22:51.770818+00:00",
+  "source": "SYNTHETIC_FALLBACK",
+  "zones": [
+    {
+      "id": "SYN-JAM-01",
+      "name": "Jamming near Iran-Israel/US War / Hormuz",
+      "lat": 26.264203626179373,
+      "lng": 55.13170499252627,
+      "intensity": 4.0,
+      "type": "Synthetic GPS Interference (Fallback)",
+      "source": "Cathedral Synthetic (derived from threats)",
+      "fetchedAt": "2026-06-26T04:22:51.769308+00:00",
+      "synthetic_fallback": true
+    },
+    {
+      "id": "SYN-JAM-02",
+      "name": "Jamming near Bab el-Mandeb Blockade",
+      "lat": 12.994895909825848,
+      "lng": 43.034963381219306,
+      "intensity": 5.5,
+      "type": "Synthetic GPS Interference (Fallback)",
+      "source": "Cathedral Synthetic (derived from threats)",
+      "fetchedAt": "2026-06-26T04:22:51.770456+00:00",
+      "synthetic_fallback": true
+    },
+    {
+      "id": "SYN-JAM-03",
+      "name": "Jamming near Ukraine War \u2013 Kharkiv Front",
+      "lat": 49.25144674532733,
+      "lng": 35.66232778535283,
+      "intensity": 7.0,
+      "type": "Synthetic GPS Interference (Fallback)",
+      "source": "Cathedral Synthetic (derived from threats)",
+      "fetchedAt": "2026-06-26T04:22:51.770498+00:00",
+      "synthetic_fallback": true
+    },
+    {
+      "id": "SYN-JAM-04",
+      "name": "Jamming near Gaza \u2013 Rafah Incursion",
+      "lat": 31.225093489723918,
+      "lng": 34.97870543212216,
+      "intensity": 8.5,
+      "type": "Synthetic GPS Interference (Fallback)",
+      "source": "Cathedral Synthetic (derived from threats)",
+      "fetchedAt": "2026-06-26T04:22:51.770612+00:00",
+      "synthetic_fallback": true
+    },
+    {
+      "id": "SYN-JAM-05",
+      "name": "Jamming near Sudan \u2013 El Fasher Siege",
+      "lat": 13.101296330319144,
+      "lng": 25.50958213950846,
+      "intensity": 4.0,
+      "type": "Synthetic GPS Interference (Fallback)",
+      "source": "Cathedral Synthetic (derived from threats)",
+      "fetchedAt": "2026-06-26T04:22:51.770676+00:00",
+      "synthetic_fallback": true
+    },
+    {
+      "id": "SYN-JAM-06",
+      "name": "Jamming near Myanmar \u2013 Karen State Offensiv",
+      "lat": 16.33427318818698,
+      "lng": 97.40099784662146,
+      "intensity": 5.5,
+      "type": "Synthetic GPS Interference (Fallback)",
+      "source": "Cathedral Synthetic (derived from threats)",
+      "fetchedAt": "2026-06-26T04:22:51.770697+00:00",
+      "synthetic_fallback": true
+    }
+  ],
+  "warning": "GPSJAM endpoint unreachable. Data is synthetic and labeled as such."
 }
