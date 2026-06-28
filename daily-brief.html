@@ -8,9 +8,65 @@
     <meta name="description" content="The Cathedral's daily intelligence brief – global threats, cascades, and forecasts.">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Extra styles for brief sections */
-        .brief-section { margin: 2rem 0; }
-        .brief-section h2 { color: #b388ff; border-bottom: 1px solid #2a2a3a; padding-bottom: 0.5rem; }
+        /* ── Daily Brief Specific Styles ── */
+        .brief-date { color: #666; font-size: 0.9rem; }
+        .gsci-card {
+            background: #14141f;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #7c4dff;
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .gsci-card .gsci-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #7c4dff;
+        }
+        .gsci-card .gsci-label {
+            color: #888;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .gsci-card .gsci-trend {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        .gsci-card .gsci-trend .up { color: #ff6b6b; }
+        .gsci-card .gsci-trend .down { color: #6bcb8a; }
+        .gsci-card .gsci-trend .flat { color: #888; }
+        .bottom-line-box {
+            background: linear-gradient(135deg, #1a1a2e, #14141f);
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #7c4dff;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        .bottom-line-box .label {
+            color: #888;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .bottom-line-box .text {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 0.3rem;
+        }
+        .brief-section {
+            margin: 2rem 0;
+        }
+        .brief-section h2 {
+            color: #b388ff;
+            border-bottom: 1px solid #2a2a3a;
+            padding-bottom: 0.5rem;
+        }
         .brief-section .event, .brief-section .cascade, .brief-section .prediction,
         .brief-section .archived, .brief-section .candidate {
             background: #14141f;
@@ -25,22 +81,6 @@
         .brief-section .archived { border-left-color: #888; }
         .brief-section .candidate { border-left-color: #ffd93d; }
         .brief-section .cascade { border-left-color: #b388ff; }
-        .gsci-box {
-            background: #14141f;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid #7c4dff;
-            margin: 1.5rem 0;
-        }
-        .gsci-box .number { font-size: 2.5rem; font-weight: 700; color: #7c4dff; }
-        .bottom-line {
-            background: #14141f;
-            padding: 1.2rem;
-            border-radius: 12px;
-            border: 1px solid #7c4dff;
-            text-align: center;
-            margin: 2rem 0;
-        }
         .threat-card {
             background: #14141f;
             padding: 1rem 1.2rem;
@@ -53,11 +93,37 @@
         .threat-card.elevated { border-left-color: #ffd93d; }
         .threat-card.moderate { border-left-color: #6bcb8a; }
         .threat-card h4 { margin: 0 0 0.2rem 0; color: #fff; }
+        .threat-card h4 a { color: #fff; text-decoration: none; }
+        .threat-card h4 a:hover { color: #b388ff; text-decoration: underline; }
         .threat-card .meta { font-size: 0.85rem; color: #aaa; }
-        .threat-card .desc { font-size: 0.9rem; color: #ccc; }
+        .threat-card .desc { font-size: 0.9rem; color: #ccc; margin-top: 0.3rem; }
         .delta-up { color: #ff6b6b; font-weight: bold; }
         .delta-down { color: #6bcb8a; font-weight: bold; }
         .delta-neutral { color: #888; }
+        .global-state {
+            background: #14141f;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #2a2a3a;
+            margin: 1.5rem 0;
+        }
+        .global-state p {
+            color: #ccc;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+        .opportunity-box {
+            background: #14141f;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #6bcb8a;
+            margin: 1.5rem 0;
+        }
+        .opportunity-box p {
+            color: #ccc;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
         .violet-pulse {
             display: inline-block;
             width: 12px; height: 12px;
@@ -70,6 +136,14 @@
             0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124,77,255,0.4); }
             50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124,77,255,0); }
             100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124,77,255,0); }
+        }
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #2a2a3a;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -167,73 +241,146 @@
             <h1>📰 Daily Brief</h1>
             <div style="display: flex; align-items: center; gap: 0.8rem;">
                 <span class="violet-pulse"></span>
-                <span style="font-size: 0.8rem; color: #888;">27 June 2026</span>
+                <span style="font-size: 0.8rem; color: #888;">28 June 2026</span>
             </div>
         </div>
         <p style="margin-bottom: 1rem;">The Cathedral's daily intelligence summary – global threats, cascades, and forecasts for everyone.</p>
 
-        <!-- GSCI -->
-        <div class="gsci-box">
-            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                <span style="color: #888;">Global Systemic Collapse Index</span>
-                <span class="number">--</span>
+        <!-- GSCI Card -->
+        <div class="gsci-card">
+            <div>
+                <div class="gsci-label">Global Systemic Collapse Index</div>
+                <div class="gsci-value">0.500</div>
             </div>
-            <div style="font-size: 0.8rem; color: #666; margin-top: 0.2rem;">Last updated: 2026-06-27T21:31:35.940192+00:00</div>
+            <div>
+                <div class="gsci-trend">
+                    <span class="flat">→</span>
+                    Moderate
+                </div>
+                <div style="font-size: 0.8rem; color: #666; margin-top: 0.2rem;">
+                    Last updated: 2026-06-28T06:35:43.937816+00:00
+                </div>
+                <div style="font-size: 0.8rem; color: #666; margin-top: 0.2rem;">
+                    <a href="methodology.html" style="color: #7c4dff;">How this is calculated →</a>
+                </div>
+            </div>
         </div>
 
-        <!-- H10: Bottom Line (moved to top for prominence) -->
-        <div class="bottom-line"><h3 style="margin:0 0 0.3rem 0; color:#fff;">💀 The Bottom Line</h3><p><strong>The most urgent threat right now is Civil War in Sudan.</strong> This is a critical situation requiring immediate attention.</p></div>
+        <!-- Bottom Line -->
+        <div class="bottom-line-box">
+            <div class="label">💀 The Bottom Line</div>
+            <div class="text">The most urgent threat right now is Civil War in Sudan. This is a critical situation requiring immediate attention.</div>
+        </div>
+
+        <!-- Global State Brief -->
+        <div class="global-state">
+            <h3 style="color: #b388ff; margin-top: 0;">🌍 Global State Brief</h3>
+            <p>The global security landscape is currently dominated by the crisis in Civil War in Sudan, centered on an unspecified region. This situation is compounded by ongoing cascading effects. Simultaneously, Conflict in Ethiopia continues to escalate, creating a multi-front challenge for international stability.</p>
+        </div>
 
         <!-- Top 5 Threats -->
         <div class="brief-section">
             <h2>🔴 Top 5 Threats</h2>
 
             <div class="threat-card critical">
-                <h4>Civil War in Sudan</h4>
-                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
+                <h4><a href="threat-matrix.html#CFR-CIVILWARINSUDAN">Civil War in Sudan</a></h4>
+                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6 · Region: Unknown region</div>
                 <div class="desc">Region: Middle East and North Africa</div>
             </div>
 
             <div class="threat-card critical">
-                <h4>Conflict in Ethiopia</h4>
-                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
+                <h4><a href="threat-matrix.html#CFR-CONFLICTINETHIOPIA">Conflict in Ethiopia</a></h4>
+                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6 · Region: Unknown region</div>
                 <div class="desc">Region: Sub-Saharan Africa</div>
             </div>
 
             <div class="threat-card critical">
-                <h4>Iran’s War With Israel and the United States</h4>
-                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
+                <h4><a href="threat-matrix.html#CFR-IRANSWARWITHISRAELANDTHE">Iran’s War With Israel and the United States</a></h4>
+                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6 · Region: Unknown region</div>
                 <div class="desc">Region: Middle East and North Africa</div>
             </div>
 
             <div class="threat-card critical">
-                <h4>Conflict in Yemen and the Red Sea</h4>
-                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
+                <h4><a href="threat-matrix.html#CFR-CONFLICTINYEMENANDTHERED">Conflict in Yemen and the Red Sea</a></h4>
+                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6 · Region: Unknown region</div>
                 <div class="desc">Region: Middle East and North Africa</div>
             </div>
 
             <div class="threat-card critical">
-                <h4>Conflict Between India and Pakistan</h4>
-                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6</div>
+                <h4><a href="threat-matrix.html#CFR-CONFLICTBETWEENINDIAANDPAK">Conflict Between India and Pakistan</a></h4>
+                <div class="meta">🔴 CRITICAL · SCP: 90.6% · Priority: 96.6 · Region: Unknown region</div>
                 <div class="desc">Region: Asia</div>
             </div>
 
         <div class="brief-section">
             <h2>📈 What Changed Overnight (H05)</h2>
             <p style="color:#888; font-size:0.9rem;">Biggest SCP movements in the last 24 hours.</p>
-            <div class='event'><strong>Iran‑Israel/US War / Hormuz</strong> <span class='delta-neutral'>— +0.0000</span> (was 0.5364) <span style='color:#888;'>[Status: Orange]</span></div>
-            <div class='event'><strong>Direct US‑Iran Conflict</strong> <span class='delta-neutral'>— +0.0000</span> (was 0.3281) <span style='color:#888;'>[Status: Yellow]</span></div>
-            <div class='event'><strong>Iran 'Resistance Security Belt'</strong> <span class='delta-neutral'>— +0.0000</span> (was 0.3720) <span style='color:#888;'>[Status: Yellow]</span></div>
-            <div class='event'><strong>Bab el‑Mandeb Blockade</strong> <span class='delta-neutral'>— +0.0000</span> (was 0.5128) <span style='color:#888;'>[Status: Orange]</span></div>
-            <div class='event'><strong>Great Power Conflict / US‑Iran Entanglement</strong> <span class='delta-neutral'>— +0.0000</span> (was 0.3887) <span style='color:#888;'>[Status: Yellow]</span></div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+
+                <div style="background:#14141f; padding:0.5rem 0.8rem; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:#ccc; font-size:0.9rem;">Iran‑Israel/US War / Hormuz</span>
+                    <span class="delta-neutral">— +0.0000</span>
+                </div>
+
+                <div style="background:#14141f; padding:0.5rem 0.8rem; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:#ccc; font-size:0.9rem;">Direct US‑Iran Conflict</span>
+                    <span class="delta-neutral">— +0.0000</span>
+                </div>
+
+                <div style="background:#14141f; padding:0.5rem 0.8rem; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:#ccc; font-size:0.9rem;">Iran 'Resistance Security Belt'</span>
+                    <span class="delta-neutral">— +0.0000</span>
+                </div>
+
+                <div style="background:#14141f; padding:0.5rem 0.8rem; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:#ccc; font-size:0.9rem;">Bab el‑Mandeb Blockade</span>
+                    <span class="delta-neutral">— +0.0000</span>
+                </div>
+
+                <div style="background:#14141f; padding:0.5rem 0.8rem; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:#ccc; font-size:0.9rem;">Great Power Conflict / US‑Iran Entanglement</span>
+                    <span class="delta-neutral">— +0.0000</span>
+                </div>
+
+                <div style="background:#14141f; padding:0.5rem 0.8rem; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:#ccc; font-size:0.9rem;">Armenia‑Azerbaijan</span>
+                    <span class="delta-neutral">— +0.0000</span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="brief-section">
+            <h2>✅❌ Prediction Accountability (H06)</h2>
+            <p style="color:#888; font-size:0.9rem;">Confirmed: 75 · Falsified: 4</p>
+
+            <div class="prediction confirmed">✅ Confirmed: Iran closes Strait of Hormuz after US-Israeli strikes…</div>
+
+            <div class="prediction confirmed">✅ Confirmed: US imposes naval blockade of Iranian ports…</div>
+
+            <div class="prediction confirmed">✅ Confirmed: Ukraine ceasefire is 'frozen conflict,' not peace…</div>
+
+            <div class="prediction falsified">❌ Falsified: Brent crude breaches $170 before May 31 (72% prob)…</div>
+
+            <div class="prediction falsified">❌ Falsified: Hormuz insurance differential ≥10% or rebounds >10% within 48h (80% prob)…</div>
+
+            <div class="prediction falsified">❌ Falsified: Hormuz insurance differential ≥10% (re-evaluated)…</div>
         </div>
 
         <div class="brief-section">
             <h2>🔍 What We're Watching (H08)</h2>
             <p style="color:#888; font-size:0.9rem;">Emerging threats being monitored.</p>
-            <div class='candidate'><strong>Sudan-Ethiopia Border Clashes over Al-Fashaga</strong> – unknown (confidence: 0%)</div>
-            <div class='candidate'><strong>Philippines-China Scarborough Shoal Standoff</strong> – unknown (confidence: 0%)</div>
-            <div class='candidate'><strong>Haiti Gang Alliance Targets Port-au-Prince Airport</strong> – unknown (confidence: 0%)</div>
+
+            <div class="candidate">Sudan-Ethiopia Border Clashes over Al-Fashaga – unknown (confidence: 0%)</div>
+
+            <div class="candidate">Philippines-China Scarborough Shoal Standoff – unknown (confidence: 0%)</div>
+
+            <div class="candidate">Haiti Gang Alliance Targets Port-au-Prince Airport – unknown (confidence: 0%)</div>
+        </div>
+
+        <div class="opportunity-box">
+            <h3 style="color: #6bcb8a; margin-top: 0;">🌱 Opportunity Matrix & Recovery</h3>
+            <p>The Cathedral's Ascension Engine has identified several opportunities for intervention and recovery: Global Financial Crisis shows signs of a gradual recovery, with an optimism boost of 35%. COVID-19 Pandemic shows signs of a V-shaped recovery, with an optimism boost of 65%. Russia-Ukraine Full-Scale Invasion shows signs of a slow-burn recovery, with an optimism boost of 25%.</p>
         </div>
 
         <div class="footer">
