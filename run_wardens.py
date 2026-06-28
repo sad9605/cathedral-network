@@ -51,6 +51,7 @@ def main():
     # ── STEP 1: Data Collection ──
     results.append(run_step("Threat Scanner (H02)", "python3 threat_scanner.py"))
     results.append(run_step("GPSJAM Fetcher (C04)", "python3 gpsjam_fetcher.py"))
+    results.append(run_step("HEWD Fetcher", "python3 hewd_fetcher.py"))
     results.append(run_step("Telegram Fetcher (AW15)", "python3 telegram_fetcher.py"))
 
     # ── STEP 2: Archive Resolved Threats ──
@@ -64,6 +65,12 @@ def main():
     results.append(run_step("Historical Tuner", "python3 historical_tuner.py"))
     results.append(run_step("Historical Cascade Analyst", "python3 historical_cascade_analyst.py"))
     results.append(run_step("Ascension Tuner", "python3 ascension_tuner.py"))
+
+    # ── STEP: Prediction Validator ──
+    results.append(run_step("Prediction Validator", "python3 prediction_validator.py"))
+
+    # ── STEP: Prediction Checker (Daily Sweep) ──
+    results.append(run_step("Prediction Checker (Daily Sweep)", "python3 prediction_checker.py"))
 
     # ── STEP 5: Generate Output ──
     results.append(run_step("Daily Brief Generator (C03/H05-H10)", "python3 generate_daily_brief.py"))
