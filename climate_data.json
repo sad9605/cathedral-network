@@ -1,53 +1,46 @@
 {
-  "timestamp": "2026-06-25T20:53:15.160267",
+  "timestamp": "2026-06-28T12:43:14.906833",
   "zones": [
     {
-      "temp_anomaly": -0.99,
-      "precip_anomaly": -18.5,
-      "recent_temp_avg": 26.49,
-      "historic_temp_avg": 27.47,
-      "name": "Horn of Africa"
-    },
-    {
-      "temp_anomaly": -1.12,
-      "precip_anomaly": -4.9,
-      "recent_temp_avg": 33.14,
-      "historic_temp_avg": 34.26,
+      "temp_anomaly": -0.5,
+      "precip_anomaly": -6.7,
+      "recent_temp_avg": 33.89,
+      "historic_temp_avg": 34.39,
       "name": "Sahel"
     },
     {
-      "temp_anomaly": 2.62,
+      "temp_anomaly": 1.38,
       "precip_anomaly": 0.0,
-      "recent_temp_avg": 37.4,
-      "historic_temp_avg": 34.78,
+      "recent_temp_avg": 36.47,
+      "historic_temp_avg": 35.09,
       "name": "Middle East"
     },
     {
-      "temp_anomaly": -2.66,
-      "precip_anomaly": 12.0,
-      "recent_temp_avg": 28.43,
-      "historic_temp_avg": 31.09,
+      "temp_anomaly": -2.84,
+      "precip_anomaly": 12.3,
+      "recent_temp_avg": 27.7,
+      "historic_temp_avg": 30.54,
       "name": "South Asia"
     },
     {
-      "temp_anomaly": -0.3,
-      "precip_anomaly": -150.5,
-      "recent_temp_avg": 20.17,
-      "historic_temp_avg": 20.47,
+      "temp_anomaly": -0.64,
+      "precip_anomaly": -142.8,
+      "recent_temp_avg": 19.84,
+      "historic_temp_avg": 20.48,
       "name": "Central America"
     },
     {
-      "temp_anomaly": 5.19,
-      "precip_anomaly": -45.8,
-      "recent_temp_avg": 21.97,
-      "historic_temp_avg": 16.78,
+      "temp_anomaly": 5.38,
+      "precip_anomaly": -35.8,
+      "recent_temp_avg": 22.8,
+      "historic_temp_avg": 17.42,
       "name": "Ukraine"
     },
     {
-      "temp_anomaly": -0.14,
-      "precip_anomaly": -83.3,
-      "recent_temp_avg": 29.64,
-      "historic_temp_avg": 29.78,
+      "temp_anomaly": -0.69,
+      "precip_anomaly": -45.2,
+      "recent_temp_avg": 29.11,
+      "historic_temp_avg": 29.81,
       "name": "South China Sea"
     }
   ]

@@ -1,9 +1,7 @@
 {
-  "timestamp": "2026-06-27T16:30:01.585580",
-  "status": "warning",
-  "last_sweep": "2026-06-25T20:52:56.022022",
+  "timestamp": "2026-06-28T13:00:01.457974",
+  "status": "ok",
+  "last_sweep": "2026-06-28T12:42:30.672577",
   "threats": 233,
-  "errors": [
-    "No sweep in the last 8 hours"
-  ]
+  "errors": []
 }

@@ -1,9 +1,130 @@
 {
-  "checked_at": "2026-06-27T21:31:36.439205+00:00",
-  "total": 0,
-  "verified": 0,
+  "checked_at": "2026-06-28T06:35:44.517579+00:00",
+  "total": 159,
+  "verified": 79,
   "missed_deadline": 0,
-  "need_review": 0,
+  "need_review": 24,
   "pending": 0,
-  "details": []
+  "details": [
+    {
+      "id": "P-KYIV-STRIKE",
+      "statement": "Russian mass-casualty strike on Kyiv",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P-OIL-150",
+      "statement": "Brent >$150/bbl",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P-FAO-140",
+      "statement": "FAO Food Price Index \u2265140",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P-ZNPP-LOSS",
+      "statement": "ZNPP complete external power loss",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P42",
+      "statement": "ERISA class-action lawsuit over forced SpaceX 401(k) purchas",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P47",
+      "statement": "Public trust in journalists falls below 50% by end of 2026",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P64",
+      "statement": "Alphabet forced to divest ad exchange business within 24 mon",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P66",
+      "statement": "US government surveillance contract with new TikTok entity e",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P74",
+      "statement": "Oil exceeds $130/bbl within 7 days (from 7 June)",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P76",
+      "statement": "Iran's 'seven days of continuous strikes' occurs",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P78",
+      "statement": "Brent >$120/bbl within 7 days (8 June)",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P81",
+      "statement": "Oil >$200/bbl within 14 days (Hormuz closed)",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P82",
+      "statement": "US-Iran direct military exchange within 14 days",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P83",
+      "statement": "Israel ground incursion into Lebanon within 14 days",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P86",
+      "statement": "US combat deaths >100 in Iran-related conflict within 90 day",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P97",
+      "statement": "Oil >$140/bbl within 30 days",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "P102",
+      "statement": "Oil >$120/bbl within 30 days after 'security belt' implement",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "C3",
+      "statement": "Ukraine-Russia spillover",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "C11",
+      "statement": "Iraq Instability",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "C58",
+      "statement": "Underwater Infrastructure Sabotage",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "C64",
+      "statement": "Mediterranean Migration",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "C85",
+      "statement": "Cartel Violence Mexico",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "C122",
+      "statement": "North Korea Ballistic",
+      "status": "Need Human Review"
+    },
+    {
+      "id": "C4",
+      "statement": "Moldova Transnistria escalation",
+      "status": "Need Human Review"
+    }
+  ]
 }

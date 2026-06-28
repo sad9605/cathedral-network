@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-27T13:26:56.993779",
+  "timestamp": "2026-06-28T00:11:30.038680",
   "threats": [
     {
       "id": "C01",
@@ -8874,5 +8874,207 @@
       "delta": 0.0,
       "trend": "stable"
     }
-  }
+  },
+  "conflicts": [
+    {
+      "id": "CFR-CONFLICTS",
+      "name": "Conflicts:",
+      "lat": 0,
+      "lng": 0,
+      "status": "Worsening",
+      "description": "The Center for Preventive Action's (CPA) Global Conflict Tracker is an interactive guide to ongoing conflicts around the world of concern to the United States. The map displays nearly thirty conflicts with background information and resources on each conflict.",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CRIMINALVIOLENCEINHAITI",
+      "name": "Criminal Violence in Haiti",
+      "lat": 50.9546207,
+      "lng": -0.1394608,
+      "status": "Worsening",
+      "description": "Region: Americas",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CIVILWARINSUDAN",
+      "name": "Civil War in Sudan",
+      "lat": 0,
+      "lng": 0,
+      "status": "Unknown",
+      "description": "Region: Middle East and North Africa",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CONFLICTINETHIOPIA",
+      "name": "Conflict in Ethiopia",
+      "lat": 0,
+      "lng": 0,
+      "status": "Worsening",
+      "description": "Region: Sub-Saharan Africa",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-IRANSWARWITHISRAELANDTHE",
+      "name": "Iran\u2019s War With Israel and the United States",
+      "lat": 0,
+      "lng": 0,
+      "status": "Critical",
+      "description": "Region: Middle East and North Africa",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CONFLICTINYEMENANDTHERED",
+      "name": "Conflict in Yemen and the Red Sea",
+      "lat": 0,
+      "lng": 0,
+      "status": "Worsening",
+      "description": "Region: Middle East and North Africa",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CONFLICTBETWEENINDIAANDPAK",
+      "name": "Conflict Between India and Pakistan",
+      "lat": 41.9755885,
+      "lng": -87.6596081,
+      "status": "Unknown",
+      "description": "Region: Asia",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CONFLICTWITHALSHABAABINSO",
+      "name": "Conflict With Al-Shabaab in Somalia",
+      "lat": 0,
+      "lng": 0,
+      "status": "Unknown",
+      "description": "Region: Sub-Saharan Africa",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-ISRAELIPALESTINIANCONFLICT",
+      "name": "Israeli-Palestinian Conflict",
+      "lat": 0,
+      "lng": 0,
+      "status": "Worsening",
+      "description": "Region: Middle East and North Africa",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CRIMINALVIOLENCEINMEXICO",
+      "name": "Criminal Violence in Mexico",
+      "lat": 50.9546207,
+      "lng": -0.1394608,
+      "status": "Worsening",
+      "description": "Region: Americas",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CONFLICTBETWEENTURKEYANDAR",
+      "name": "Conflict Between Turkey and Armed Kurdish Groups",
+      "lat": 0,
+      "lng": 0,
+      "status": "Improving",
+      "description": "Region: Middle East and North Africa",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-WARINUKRAINE",
+      "name": "War in Ukraine",
+      "lat": 0,
+      "lng": 0,
+      "status": "Critical",
+      "description": "Region: Europe and Eurasia",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-NORTHKOREACRISIS",
+      "name": "North Korea Crisis",
+      "lat": 41.9755885,
+      "lng": -87.6596081,
+      "status": "Critical",
+      "description": "Region: Asia",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CIVILWARINMYANMAR",
+      "name": "Civil War in Myanmar",
+      "lat": 41.9755885,
+      "lng": -87.6596081,
+      "status": "Unknown",
+      "description": "Region: Asia",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-TERRITORIALDISPUTESINTHESO",
+      "name": "Territorial Disputes in the South China Sea",
+      "lat": 41.9755885,
+      "lng": -87.6596081,
+      "status": "Critical",
+      "description": "Region: Asia",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CONFLICTINTHEDEMOCRATICREP",
+      "name": "Conflict in the Democratic Republic of Congo",
+      "lat": 0,
+      "lng": 0,
+      "status": "Worsening",
+      "description": "Region: Sub-Saharan Africa",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CONFLICTINTHECENTRALAFRICA",
+      "name": "Conflict in the Central African Republic",
+      "lat": 0,
+      "lng": 0,
+      "status": "Unknown",
+      "description": "Region: Sub-Saharan Africa",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CONFLICTWITHHEZBOLLAHINLEB",
+      "name": "Conflict With Hezbollah in Lebanon",
+      "lat": 0,
+      "lng": 0,
+      "status": "Unknown",
+      "description": "Region: Middle East and North Africa",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-CONFLICTINSYRIA",
+      "name": "Conflict in Syria",
+      "lat": 0,
+      "lng": 0,
+      "status": "Unknown",
+      "description": "Region: Middle East and North Africa",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    },
+    {
+      "id": "CFR-TENSIONSBETWEENARMENIAANDA",
+      "name": "Tensions Between Armenia and Azerbaijan",
+      "lat": 0,
+      "lng": 0,
+      "status": "Improving",
+      "description": "Region: Europe and Eurasia",
+      "source": "CFR Global Conflict Tracker (fallback)",
+      "last_updated": "2026-06-28"
+    }
+  ]
 }

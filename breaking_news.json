@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-25T20:56:33.206430",
+  "timestamp": "2026-06-28T12:57:49.363553",
   "items": [
     {
       "title": "Green flood alert in T\u00fcrkiye",
@@ -11,6 +11,60 @@
       "impact": "Medium"
     },
     {
+      "title": "Green earthquake (Magnitude 5.8M, Depth:34km) in Japan 27/06/2026 20:21 UTC, 590 thousand in MMI IV.",
+      "description": "On 6/27/2026 8:21:51 PM, an earthquake occurred in Japan potentially affecting 590 thousand in MMI IV. The earthquake had Magnitude 5.8M, Depth:34km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548889",
+      "date": "Sat, 27 Jun 2026 20:40:32 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Green earthquake (Magnitude 6.1M, Depth:208.328km) in Afghanistan 27/06/2026 13:34 UTC, 140 thousand in MMI IV.",
+      "description": "On 6/27/2026 1:34:53 PM, an earthquake occurred in Afghanistan potentially affecting 140 thousand in MMI IV. The earthquake had Magnitude 6.1M, Depth:208.328km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548849",
+      "date": "Sat, 27 Jun 2026 13:55:52 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Green earthquake (Magnitude 5.9M, Depth:525.542km) in Indonesia 27/06/2026 10:37 UTC, 350 thousand in MMI II.",
+      "description": "On 6/27/2026 10:37:02 AM, an earthquake occurred in Indonesia potentially affecting 350 thousand in MMI II. The earthquake had Magnitude 5.9M, Depth:525.542km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548825",
+      "date": "Sat, 27 Jun 2026 10:51:53 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Green earthquake (Magnitude 5.7M, Depth:50.925km) in Japan 26/06/2026 13:29 UTC, 950 thousand in MMI V.",
+      "description": "On 6/26/2026 1:29:01 PM, an earthquake occurred in Japan potentially affecting 950 thousand in MMI V. The earthquake had Magnitude 5.7M, Depth:50.925km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548681",
+      "date": "Fri, 26 Jun 2026 13:49:13 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Orange earthquake (Magnitude 6.5M, Depth:42km) in Philippines 26/06/2026 11:34 UTC, 30 thousand (in MMI>=VII).",
+      "description": "On 6/26/2026 11:34:41 AM, an earthquake occurred in Philippines potentially affecting 30 thousand (in MMI>=VII). The earthquake had Magnitude 6.5M, Depth:42km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548668",
+      "date": "Fri, 26 Jun 2026 11:43:14 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Green earthquake (Magnitude 5.8M, Depth:43km) in Japan 26/06/2026 03:46 UTC, 27.8 million in MMI IV.",
+      "description": "On 6/26/2026 3:46:37 AM, an earthquake occurred in Japan potentially affecting 27.8 million in MMI IV. The earthquake had Magnitude 5.8M, Depth:43km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548621",
+      "date": "Fri, 26 Jun 2026 04:02:37 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
       "title": "Green earthquake (Magnitude 5.5M, Depth:33km) in Papua New Guinea 25/06/2026 06:19 UTC, 240 thousand in MMI>=IV.",
       "description": "On 6/25/2026 6:19:38 AM, an earthquake occurred in Papua New Guinea potentially affecting 240 thousand in MMI>=IV. The earthquake had Magnitude 5.5M, Depth:33km.",
       "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548439",
@@ -20,166 +74,112 @@
       "impact": "Critical"
     },
     {
-      "title": "Green earthquake (Magnitude 6.9M, Depth:50.923km) in Japan 24/06/2026 22:30 UTC, 330 thousand in MMI VI.",
-      "description": "On 6/24/2026 10:30:14 PM, an earthquake occurred in Japan potentially affecting 330 thousand in MMI VI. The earthquake had Magnitude 6.9M, Depth:50.923km.",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548381",
-      "date": "Wed, 24 Jun 2026 22:46:49 GMT",
-      "source": "GDACS",
+      "title": "Two boys rescued from Venezuela earthquake rubble after days of being trapped",
+      "description": "Rescuers spent six hours carefully digging to reach one of the boys, as many residents continue searching through the rubble by hand, still waiting for heavy machinery to arrive.",
+      "link": "https://www.bbc.co.uk/news/articles/cr47dvywvy5o?at_medium=RSS&at_campaign=rss",
+      "date": "Sun, 28 Jun 2026 12:39:41 GMT",
+      "source": "BBC News",
+      "category": "Neutral",
+      "impact": "Critical"
+    },
+    {
+      "title": "In Caracas, this feels like the hardest moment in Venezuela's modern history",
+      "description": "Rescue teams are working ceaselessly to reach those trapped under rubble. But as hope fades, anger is growing.",
+      "link": "https://www.bbc.co.uk/news/articles/cdjk8zwe7z3o?at_medium=RSS&at_campaign=rss",
+      "date": "Sat, 27 Jun 2026 14:22:37 GMT",
+      "source": "BBC News",
+      "category": "Positive",
+      "impact": "Medium"
+    },
+    {
+      "title": "Europe's heatwave linked to 1,300 deaths, WHO says, as Germany hits record 41.7C",
+      "description": "WHO chief Tedros Adhanom Ghebreyesus warned that Europe is not prepared for high temperatures.",
+      "link": "https://www.bbc.co.uk/news/articles/cn4d2vv935lo?at_medium=RSS&at_campaign=rss",
+      "date": "Sun, 28 Jun 2026 16:38:55 GMT",
+      "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "Red earthquake (Magnitude 7.5M, Depth:10km) in Venezuela 24/06/2026 22:05 UTC, 6.1 million (in MMI>=VII).",
-      "description": "On 6/24/2026 10:05:12 PM, an earthquake occurred in Venezuela potentially affecting 6.1 million (in MMI>=VII). The earthquake had Magnitude 7.5M, Depth:10km.",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548377",
-      "date": "Wed, 24 Jun 2026 22:17:17 GMT",
-      "source": "GDACS",
-      "category": "Negative",
+      "title": "Eleven killed after plane carrying skydivers crashes in eastern France",
+      "description": "The pilot and 10 passengers died in the incident, local officials said.",
+      "link": "https://www.bbc.co.uk/news/articles/c5yz9yj9x74o?at_medium=RSS&at_campaign=rss",
+      "date": "Sun, 28 Jun 2026 15:51:19 GMT",
+      "source": "BBC News",
+      "category": "Neutral",
+      "impact": "High"
+    },
+    {
+      "title": "US and Iran exchange strikes and accuse each other of violating ceasefire",
+      "description": "Iran says it has launched retaliatory attacks at US infrastructure in Kuwait and Bahrain after the US said it hit multiple targets across Iran.",
+      "link": "https://www.bbc.co.uk/news/articles/cdxdwkgqgq0o?at_medium=RSS&at_campaign=rss",
+      "date": "Sun, 28 Jun 2026 04:54:50 GMT",
+      "source": "BBC News",
+      "category": "Positive",
       "impact": "Critical"
     },
     {
-      "title": "Red earthquake (Magnitude 7.2M, Depth:20.294km) in Venezuela 24/06/2026 22:04 UTC, 990 thousand (in MMI>=VII).",
-      "description": "On 6/24/2026 10:04:32 PM, an earthquake occurred in Venezuela potentially affecting 990 thousand (in MMI>=VII). The earthquake had Magnitude 7.2M, Depth:20.294km.",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548473",
-      "date": "Thu, 25 Jun 2026 11:07:15 GMT",
-      "source": "GDACS",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Green earthquake (Magnitude 5.57M, Depth:8.06999969482422km) in United States 24/06/2026 15:10 UTC, 10 thousand (in MMI>=VII).",
-      "description": "On 6/24/2026 3:10:40 PM, an earthquake occurred in United States potentially affecting 10 thousand (in MMI>=VII). The earthquake had Magnitude 5.57M, Depth:8.06999969482422km.",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548310",
-      "date": "Wed, 24 Jun 2026 15:15:23 GMT",
-      "source": "GDACS",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Green flood alert in India",
-      "description": "On 23/06/2026, a flood started in India, lasting until 25/06/2026 (last update). The flood caused 0 deaths and 0 displaced .",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103972",
-      "date": "Thu, 25 Jun 2026 07:47:24 GMT",
-      "source": "GDACS",
+      "title": "Three firefighters die battling huge wildfires on Colorado-Utah border",
+      "description": "A number of blazes have been raging across Utah and Colorado, leading both governors to declare states of emergency.",
+      "link": "https://www.bbc.co.uk/news/articles/cp8l7mpmdggo?at_medium=RSS&at_campaign=rss",
+      "date": "Sun, 28 Jun 2026 16:33:50 GMT",
+      "source": "BBC News",
       "category": "Negative",
       "impact": "Medium"
     },
     {
-      "title": "Rescuers search rubble for survivors as Venezuela earthquakes kill at least 235",
-      "description": "Nearly 1,500 people have been injured after two seven-plus magnitude shallow quakes hit seconds apart.",
-      "link": "https://www.bbc.co.uk/news/articles/cjegdqw5d3yo?at_medium=RSS&at_campaign=rss",
-      "date": "Fri, 26 Jun 2026 01:30:01 GMT",
+      "title": "117 dead dogs found at California 'no-kill' animal rescue - many with gunshot wounds",
+      "description": "Hundreds more animals are still missing from the California facility as investigators continue excavating the grounds.",
+      "link": "https://www.bbc.co.uk/news/articles/cj4gqz5lx1eo?at_medium=RSS&at_campaign=rss",
+      "date": "Sun, 28 Jun 2026 00:06:19 GMT",
       "source": "BBC News",
+      "category": "Positive",
+      "impact": "Medium"
+    },
+    {
+      "title": "Israel strikes southern Lebanon as Hezbollah condemns new deal",
+      "description": "Strikes have killed at least one person, state media say a day after Lebanon and Israel signed a framework agreement.",
+      "link": "https://www.bbc.co.uk/news/articles/cx2kpn0eeweo?at_medium=RSS&at_campaign=rss",
+      "date": "Sat, 27 Jun 2026 21:35:40 GMT",
+      "source": "BBC News",
+      "category": "Neutral",
+      "impact": "Medium"
+    },
+    {
+      "title": "Drone captures ongoing rescue efforts after Venezuela earthquakes",
+      "description": "Drone footage from Venezuela&#039;s La Guaira shows widespread destruction after twin earthquakes devastated the region.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/28/drone-captures-ongoing-rescue-efforts-after-venezuela-earthquakes?traffic_source=rss",
+      "date": "Sun, 28 Jun 2026 16:38:04 +0000",
+      "source": "Al Jazeera",
       "category": "Neutral",
       "impact": "Critical"
     },
     {
-      "title": "Earthquake is devastating blow to Venezuela at time of uncertainty",
-      "description": "The twin quakes come less than six months after Venezuela's then-leader Nicol\u00e1s Maduro was seized by US forces.",
-      "link": "https://www.bbc.co.uk/news/articles/c3vynpw7rk4o?at_medium=RSS&at_campaign=rss",
-      "date": "Thu, 25 Jun 2026 13:09:58 GMT",
-      "source": "BBC News",
-      "category": "Negative",
-      "impact": "Critical"
+      "title": "Israel strikes Lebanon, testing days-old peace deal",
+      "description": "Hezbollah calls the deal a surrender as Israeli forces stay put and continue striking the south.",
+      "link": "https://www.aljazeera.com/news/2026/6/28/israel-strikes-lebanon-testing-days-old-peace-deal?traffic_source=rss",
+      "date": "Sun, 28 Jun 2026 15:53:07 +0000",
+      "source": "Al Jazeera",
+      "category": "Positive",
+      "impact": "Medium"
     },
     {
-      "title": "UN pauses Strait of Hormuz evacuation plan after cargo ship attacked",
-      "description": "The ship was reportedly struck by an \"unknown projectile\" near Oman but no casualties were reported.",
-      "link": "https://www.bbc.co.uk/news/articles/cjwg9np904qo?at_medium=RSS&at_campaign=rss",
-      "date": "Fri, 26 Jun 2026 00:28:02 GMT",
-      "source": "BBC News",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Trump asks Congress for billions for Iran war, after tension with Republicans",
-      "description": "But the budget faces an uphill battle as the president spars with some members of his own party over the issue.",
-      "link": "https://www.bbc.co.uk/news/articles/c1eydwldzdjo?at_medium=RSS&at_campaign=rss",
-      "date": "Thu, 25 Jun 2026 09:06:59 GMT",
-      "source": "BBC News",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Oil price falls back to pre-Iran war levels",
-      "description": "Signs that traffic through the key Strait of Hormuz shipping route is gradually resuming has helped to push the oil price down.",
-      "link": "https://www.bbc.co.uk/news/articles/c0jy7d7wzv4o?at_medium=RSS&at_campaign=rss",
-      "date": "Thu, 25 Jun 2026 15:32:04 GMT",
-      "source": "BBC News",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "IBM hails new 'block of flats' design breakthrough for ultra tiny chips",
-      "description": "IBM says it has created the world's first known chip tech below 1 nanometre - but it will be some time before it's ready for production.",
-      "link": "https://www.bbc.co.uk/news/articles/cvg7vpyn5pxo?at_medium=RSS&at_campaign=rss",
-      "date": "Thu, 25 Jun 2026 10:04:43 GMT",
-      "source": "BBC News",
+      "title": "Iraq arrests senior officials in anti-corruption raids",
+      "description": "Iraqi security forces arrested several politicians, lawmakers and senior officials in dawn raids across Baghdad.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/28/iraq-arrests-senior-officials-in-anti-corruption-raids?traffic_source=rss",
+      "date": "Sun, 28 Jun 2026 15:19:36 +0000",
+      "source": "Al Jazeera",
       "category": "Positive",
       "impact": "High"
     },
     {
-      "title": "Clean sweep for Mamdani-backed candidates in New York's Democratic primary",
-      "description": "Brad Lander unseats Dan Goldman in a race that laid bare the city's divisions over the Israel-Gaza war.",
-      "link": "https://www.bbc.co.uk/news/articles/clye652m41po?at_medium=RSS&at_campaign=rss",
-      "date": "Wed, 24 Jun 2026 13:03:35 GMT",
-      "source": "BBC News",
-      "category": "Neutral",
-      "impact": "Critical"
-    },
-    {
-      "title": "Biggest city in Crimea without power after Ukraine strikes",
-      "description": "Sevastopol's Moscow-installed governor warns there will be no electricity in some areas until the evening.",
-      "link": "https://www.bbc.co.uk/news/articles/c3ryv72pjqno?at_medium=RSS&at_campaign=rss",
-      "date": "Wed, 24 Jun 2026 09:48:24 GMT",
-      "source": "BBC News",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "UN nuclear chief says inspectors will visit Iran sites as part of war deal",
-      "description": "Rafael Grossi says the IAEA is \"working on modalities\" but an Iranian  minister says such access would only be part of a final deal with the US.",
-      "link": "https://www.bbc.co.uk/news/articles/cpd395zv81vo?at_medium=RSS&at_campaign=rss",
-      "date": "Wed, 24 Jun 2026 17:31:48 GMT",
-      "source": "BBC News",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "France seizes fifth Russian \u2018shadow fleet\u2019 tanker linked to Ukraine war",
-      "description": "France seizes fifth Russian \u2018shadow fleet\u2019 tanker linked to funding Ukraine war.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/26/france-seizes-fifth-russian-shadow-fleet-tanker-linked-to-ukraine-war?traffic_source=rss",
-      "date": "Fri, 26 Jun 2026 01:20:40 +0000",
+      "title": "Three firefighters killed in US wildfires along Colorado\u2013Utah border",
+      "description": "The US has seen a harsh wildfire season this year, with prolonged droughts and dry conditions fuelling blazes.",
+      "link": "https://www.aljazeera.com/news/2026/6/28/three-firefighters-killed-in-us-wildfires-along-colorado-utah?traffic_source=rss",
+      "date": "Sun, 28 Jun 2026 15:16:10 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Plan Intl: \u2018Mental health impact of Venezuelan quakes can last for years\u2019",
-      "description": "Plan International said children and young people must be at the centre of Venezuela&#039;s earthquake response.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/26/plan-intl-mental-health-impact-of-venezuelan-quakes-can-last-for-years?traffic_source=rss",
-      "date": "Fri, 26 Jun 2026 00:36:08 +0000",
-      "source": "Al Jazeera",
-      "category": "Neutral",
-      "impact": "Critical"
-    },
-    {
-      "title": "Iran war live: Israel attacks Lebanon as Netanyahu says troops to stay",
-      "description": "Israeli leader says military to stay in occupied areas of southern Lebanon &#039;as long as necessary&#039;, despite US-Iran deal.",
-      "link": "https://www.aljazeera.com/news/liveblog/2026/6/26/iran-war-live-israel-attacks-lebanon-as-netanyahu-says-troops-to-stay?traffic_source=rss",
-      "date": "Fri, 26 Jun 2026 00:00:09 +0000",
-      "source": "Al Jazeera",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "UN: Venezuela earthquakes will deepen already severe humanitarian crisis",
-      "description": "The UN says it is scaling up its response after twin earthquakes devastated Venezuela.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/6/25/un-venezuela-earthquakes-will-deepen-already-severe-humanitarian-crisis?traffic_source=rss",
-      "date": "Thu, 25 Jun 2026 23:20:02 +0000",
-      "source": "Al Jazeera",
-      "category": "Negative",
-      "impact": "Critical"
+      "impact": "Medium"
     }
   ]
 }

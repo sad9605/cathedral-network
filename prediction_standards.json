@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "required_fields": [
+    "id",
+    "statement",
+    "logged_date",
+    "deadline",
+    "confidence",
+    "falsification_criteria",
+    "confirmation_criteria"
+  ],
+  "confidence_scale": {
+    "min": 0,
+    "max": 100,
+    "default": 50
+  },
+  "deadline_format": "YYYY-MM-DD",
+  "resolution_statuses": ["Confirmed", "Falsified", "Pending", "Expired"]
+}
