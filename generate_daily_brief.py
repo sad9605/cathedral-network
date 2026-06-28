@@ -67,7 +67,12 @@ def generate_daily_brief():
         candidates = []
 
     indices = load_json('indices.json') or {}
-    gsci = indices.get('gsci', '--')
+    gsci_raw = indices.get('gsci', '--')
+    # Convert GSCI to float, handle missing/string
+    try:
+        gsci = float(gsci_raw) if gsci_raw != '--' else 0.5
+    except (ValueError, TypeError):
+        gsci = 0.5
 
     ascension_raw = load_json('ascension_config.json')
     ascension = ascension_raw if ascension_raw else {}
@@ -119,9 +124,9 @@ def generate_daily_brief():
             global_state += f" Simultaneously, {second.get('name', 'Another crisis')} continues to escalate, creating a multi-front challenge for international stability."
         
         if cascades:
-            active_cascades = [c for c in cascades if c.get('active', False)]
-            if active_cascades:
-                global_state += f" The Cathedral has identified {len(active_cascades)} active cascades, indicating that these crises are not isolated events but are interconnected, amplifying their overall impact."
+            active_cascades_list = [c for c in cascades if c.get('active', False)]
+            if active_cascades_list:
+                global_state += f" The Cathedral has identified {len(active_cascades_list)} active cascades, indicating that these crises are not isolated events but are interconnected, amplifying their overall impact."
 
     # Opportunity Matrix & Recovery (3-4 paragraphs)
     opportunity_text = ""
@@ -195,6 +200,11 @@ def generate_daily_brief():
         else:
             urgency = "serious but currently contained"
         bottom_line = f"The most urgent threat right now is {top_name}. This is a {urgency}."
+
+    # Compute GSCI trend
+    gsci_trend_class = 'up' if gsci > 0.6 else 'down' if gsci < 0.4 else 'flat'
+    gsci_arrow = '▲' if gsci > 0.6 else '▼' if gsci < 0.4 else '→'
+    gsci_label = 'Elevated' if gsci > 0.6 else 'Moderate' if gsci > 0.4 else 'Stable'
 
     # --- Build HTML ---
     html = f"""<!DOCTYPE html>
@@ -449,14 +459,12 @@ def generate_daily_brief():
         <div class="gsci-card">
             <div>
                 <div class="gsci-label">Global Systemic Collapse Index</div>
-                <div class="gsci-value">{gsci}</div>
+                <div class="gsci-value">{gsci:.3f}</div>
             </div>
             <div>
                 <div class="gsci-trend">
-                    <span class="{'up' if gsci > 0.6 else 'down' if gsci < 0.4 else 'flat'}">
-                        {'▲' if gsci > 0.6 else '▼' if gsci < 0.4 else '→'}
-                    </span>
-                    {'Elevated' if gsci > 0.6 else 'Moderate' if gsci > 0.4 else 'Stable'}
+                    <span class="{gsci_trend_class}">{gsci_arrow}</span>
+                    {gsci_label}
                 </div>
                 <div style="font-size: 0.8rem; color: #666; margin-top: 0.2rem;">
                     Last updated: {timestamp}
@@ -644,7 +652,7 @@ def generate_daily_brief():
     # Also generate Markdown version
     md = f"""# 🏛️ Cathedral Daily Brief – {now}
 
-**GSCI:** {gsci}  
+**GSCI:** {gsci:.3f}  
 **Last updated:** {timestamp}
 
 ## 💀 The Bottom Line
