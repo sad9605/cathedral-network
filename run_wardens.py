@@ -48,8 +48,12 @@ def main():
 
     results = []
 
+    results.append(run_step("Cascade Engine", "python3 cascade_engine.py"))
+
     # ── STEP 1: Data Collection ──
     results.append(run_step("Threat Scanner (H02)", "python3 threat_scanner.py"))
+    # ── After Threat Scanner ──
+    results.append(run_step("Causal Validator (DoWhy)", "python3 causal_validator.py"))
     results.append(run_step("GPSJAM Fetcher (C04)", "python3 gpsjam_fetcher.py"))
     results.append(run_step("HEWD Fetcher", "python3 hewd_fetcher.py"))
     results.append(run_step("Telegram Fetcher (AW15)", "python3 telegram_fetcher.py"))
