@@ -83,6 +83,12 @@ def main():
     results.append(run_step("Warden Verification (AW04)", "python3 verification_warden.py"))
     results.append(run_step("Prediction Validation (AW05)", "python3 validation_warden.py"))
 
+    # ── STEP: Domain Wardens (AW09-AW13) ──
+    results.append(run_step("AW11 Climate Warden", "python3 aw11_climate_warden.py"))
+    results.append(run_step("AW10 Economic Warden", "python3 aw10_economic_warden.py"))
+    results.append(run_step("AW12 Health Warden", "python3 aw12_health_warden.py"))
+    # AW09 and AW13 can be added later
+
     # ── Check Threat Matrix integrity ──
     if not guardian("check"):
         print("⚠️ Threat Matrix integrity check failed. Pipeline will continue, but check logs.")
