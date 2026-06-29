@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascade Map – Cathedral Network</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Cytoscape and extensions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+    <!-- cola layout for better force-directed placement -->
+    <script src="https://cdn.jsdelivr.net/npm/cytoscape-cola@2.5.1/cytoscape-cola.min.js"></script>
+    <style>
+        /* ── Page specific styles ── */
+        #cy {
+            width: 100%;
+            height: calc(100vh - 220px);
+            background: #0a0a14;
+            border-radius: 12px;
+            border: 1px solid #2a2a3a;
+            margin: 1rem 0;
+        }
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #14141f;
+            border-radius: 8px;
+            border: 1px solid #2a2a3a;
+        }
+        .controls label {
+            color: #888;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .controls input[type="text"] {
+            background: #0a0a14;
+            border: 1px solid #2a2a3a;
+            color: #fff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            flex: 1;
+            min-width: 150px;
+        }
+        .controls select {
+            background: #0a0a14;
+            border: 1px solid #2a2a3a;
+            color: #fff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+        }
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.5rem 0;
+            color: #ccc;
+            font-size: 0.8rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 1px solid #333;
+        }
+        .legend-color.Red { background: #ff6b6b; }
+        .legend-color.Orange { background: #ffa94d; }
+        .legend-color.Yellow { background: #ffd93d; }
+        .legend-color.Green { background: #6bcb8a; }
+        .legend-color.Black { background: #1a1a2e; border-color: #7c4dff; }
+        .legend-color.Purple { background: #7c4dff; }
+        .violet-pulse {
+            display: inline-block;
+            width: 12px; height: 12px;
+            background: #7c4dff;
+            border-radius: 50%;
+            animation: pulse-violet 1.5s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse-violet {
+            0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124,77,255,0.4); }
+            50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124,77,255,0); }
+            100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124,77,255,0); }
+        }
+        .stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 0.5rem 0 1rem 0;
+        }
+        .stats span {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .stats strong {
+            color: #fff;
+        }
+        #node-info {
+            background: #14141f;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #2a2a3a;
+            margin-top: 0.5rem;
+            min-height: 3rem;
+            color: #ccc;
+            font-size: 0.9rem;
+            display: none;
+        }
+        #node-info .close-btn {
+            float: right;
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        #node-info .close-btn:hover { color: #fff; }
+        @media (max-width: 600px) {
+            #cy { height: 60vh; }
+            .controls { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== SIDEBAR ===== -->
+    <div class="sidebar-container" id="sidebar">
+        <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
+        <nav>
+            <div class="nav-section">
+                <strong>📊 Dashboard</strong>
+                <a href="index.html">Ground Truth</a>
+                <a href="hewd.html">HEWD Dashboard</a>
+                <a href="health.html">System Health</a>
+            </div>
+            <div class="nav-section">
+                <strong>🧠 Intelligence</strong>
+                <a href="threat-matrix.html">Threat Matrix</a>
+                <a href="prediction-log.html">Prediction Log</a>
+                <a href="regional.html">Regional Forecasts</a>
+                <a href="daily-brief.html">Daily Brief</a>
+                <a href="breaking.html">Breaking News</a>
+                <a href="conflict-monitor.html">Conflict Monitor</a>
+                <a href="cascade-map.html" class="active">Cascade Map</a>
+            </div>
+            <div class="nav-section">
+                <strong>⚖️ Governance</strong>
+                <a href="constitution.html">Constitution</a>
+                <a href="wardens.html">Wardens</a>
+                <a href="ascension.html">Ascension Engine</a>
+                <a href="warden-dashboard.html">Warden Dashboard</a>
+            </div>
+            <div class="nav-section">
+                <strong>🌍 Community</strong>
+                <a href="spotter.html">Spotter Guide</a>
+                <a href="about.html">About</a>
+                <a href="sources.html">Sources</a>
+                <a href="credits.html">Credits</a>
+            </div>
+            <div class="nav-section">
+                <strong>🔧 Tools</strong>
+                <a href="undp-demo.html">UNDP Demo</a>
+                <a href="methodology.html">Methodology</a>
+                <a href="glossary.html">Glossary</a>
+                <a href="pra.html">PRA</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===== BANNER ===== -->
+    <header class="cathedral-banner">
+        <div class="banner-content">
+            <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="logo-mark">
+                <svg viewBox="0 0 120 140" width="50" height="60">
+                    <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+                    <circle cx="60" cy="25" r="2" fill="white"/>
+                    <circle cx="55" cy="40" r="2" fill="white"/>
+                    <circle cx="65" cy="40" r="2" fill="white"/>
+                    <circle cx="50" cy="55" r="2" fill="white"/>
+                    <circle cx="60" cy="55" r="2" fill="white"/>
+                    <circle cx="70" cy="55" r="2" fill="white"/>
+                    <circle cx="45" cy="70" r="2" fill="white"/>
+                    <circle cx="55" cy="70" r="2" fill="white"/>
+                    <circle cx="65" cy="70" r="2" fill="white"/>
+                    <circle cx="75" cy="70" r="2" fill="white"/>
+                    <circle cx="50" cy="85" r="2" fill="white"/>
+                    <circle cx="60" cy="85" r="2" fill="white"/>
+                    <circle cx="70" cy="85" r="2" fill="white"/>
+                    <circle cx="55" cy="100" r="2" fill="white"/>
+                    <circle cx="65" cy="100" r="2" fill="white"/>
+                    <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+                    <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            <div class="wordmark">
+                <h1>CATHEDRAL NETWORK</h1>
+                <p class="tagline">Cascade Map</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== TOP NAV (mobile) ===== -->
+    <div class="top-nav">
+        <a href="index.html">Ground Truth</a>
+        <a href="threat-matrix.html">Threat Matrix</a>
+        <a href="prediction-log.html">Prediction Log</a>
+        <a href="hewd.html">HEWD</a>
+        <a href="health.html">Health</a>
+        <a href="wardens.html">Wardens</a>
+        <a href="cascade-map.html" class="active">Cascade Map</a>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+            <h1>🕸️ Cascade Map</h1>
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <span class="violet-pulse"></span>
+                <span id="last-updated" style="font-size: 0.8rem; color: #888;">Loading…</span>
+            </div>
+        </div>
+        <p style="margin-bottom: 0.5rem;">Interactive graph of all cascade rules. Nodes = threats, edges = cascading effects. Click a node for details.</p>
+
+        <!-- Stats -->
+        <div class="stats" id="stats"></div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <input type="text" id="search-box" placeholder="Search threats…" style="flex:1;">
+            <select id="status-filter">
+                <option value="all">All Statuses</option>
+                <option value="Red">Red</option>
+                <option value="Orange">Orange</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Green">Green</option>
+                <option value="Black">Black</option>
+                <option value="Purple">Purple</option>
+            </select>
+            <label><input type="checkbox" id="show-labels" checked> Labels</label>
+            <label><input type="checkbox" id="show-edges" checked> Edges</label>
+            <button id="reset-layout" style="background:#2a2a3a;border:none;color:#fff;padding:0.3rem 1rem;border-radius:4px;cursor:pointer;">Reset Layout</button>
+        </div>
+
+        <!-- Cytoscape container -->
+        <div id="cy"></div>
+
+        <!-- Node info panel -->
+        <div id="node-info">
+            <button class="close-btn" id="close-info">✕</button>
+            <div id="info-content">Select a node to see details.</div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <span style="color:#888;font-weight:600;">Legend:</span>
+            <div class="legend-item"><span class="legend-color Red"></span> Red (Critical)</div>
+            <div class="legend-item"><span class="legend-color Orange"></span> Orange (High)</div>
+            <div class="legend-item"><span class="legend-color Yellow"></span> Yellow (Elevated)</div>
+            <div class="legend-item"><span class="legend-color Green"></span> Green (Moderate)</div>
+            <div class="legend-item"><span class="legend-color Black"></span> Black (Existential)</div>
+            <div class="legend-item"><span class="legend-color Purple"></span> Purple (Systemic)</div>
+        </div>
+
+        <div class="footer">
+            <strong>Always and Forever, Coco. Always and Forever.</strong><br>
+            Cascade Map · Interactive graph of 79 cascade rules.
+        </div>
+    </div>
+
+    <!-- ===== DARK MODE TOGGLE ===== -->
+    <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+    <!-- ============================================================ -->
+    <!-- ===== CASCADE MAP ENGINE ===== -->
+    <!-- ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ── Cytoscape + extensions ──
+            cytoscape.use(require('cytoscape-cola'));
+
+            const cyContainer = document.getElementById('cy');
+            const statsDiv = document.getElementById('stats');
+            const searchBox = document.getElementById('search-box');
+            const statusFilter = document.getElementById('status-filter');
+            const showLabels = document.getElementById('show-labels');
+            const showEdges = document.getElementById('show-edges');
+            const resetBtn = document.getElementById('reset-layout');
+            const infoPanel = document.getElementById('node-info');
+            const infoContent = document.getElementById('info-content');
+            const closeInfo = document.getElementById('close-info');
+
+            let cy = null;
+            let allThreats = [];
+            let allRules = [];
+            let nodeMap = {};
+
+            // ── Fetch data ──
+            async function loadData() {
+                try {
+                    const [threatsResp, rulesResp] = await Promise.all([
+                        fetch('threats.json?t=' + Date.now()),
+                        fetch('cascade_rules.json?t=' + Date.now())
+                    ]);
+                    const threats = await threatsResp.json();
+                    const rulesData = await rulesResp.json();
+
+                    // Normalize threats (may be array or object with 'threats' key)
+                    allThreats = Array.isArray(threats) ? threats : (threats.threats || []);
+                    allRules = rulesData.rules || [];
+
+                    document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleString();
+                    initGraph();
+                } catch (e) {
+                    console.error('Error loading data:', e);
+                    cyContainer.innerHTML = '<p style="color:#ff6b6b;padding:2rem;text-align:center;">❌ Error loading data. Check console.</p>';
+                }
+            }
+
+            // ── Build graph ──
+            function initGraph() {
+                // Build node map
+                nodeMap = {};
+                allThreats.forEach(t => {
+                    nodeMap[t.id] = t;
+                });
+
+                // Prepare Cytoscape elements
+                const elements = [];
+
+                // Nodes
+                const threatIds = new Set(allThreats.map(t => t.id));
+                allThreats.forEach(t => {
+                    const status = t.status || 'Yellow';
+                    const colorMap = {
+                        'Red': '#ff6b6b',
+                        'Orange': '#ffa94d',
+                        'Yellow': '#ffd93d',
+                        'Green': '#6bcb8a',
+                        'Black Acute': '#1a1a2e',
+                        'Black Structural': '#1a1a2e',
+                        'Purple': '#7c4dff',
+                        'Black': '#1a1a2e'
+                    };
+                    const borderColorMap = {
+                        'Red': '#ff6b6b',
+                        'Orange': '#ffa94d',
+                        'Yellow': '#ffd93d',
+                        'Green': '#6bcb8a',
+                        'Black Acute': '#7c4dff',
+                        'Black Structural': '#7c4dff',
+                        'Purple': '#7c4dff',
+                        'Black': '#7c4dff'
+                    };
+                    const color = colorMap[status] || '#888';
+                    const border = borderColorMap[status] || '#888';
+                    const size = 20 + (t.scp || 0.5) * 40;
+
+                    elements.push({
+                        data: {
+                            id: t.id,
+                            label: t.name || t.id,
+                            status: status,
+                            scp: t.scp || 0.5,
+                            priority: t.priority_score || 0,
+                            description: t.description || ''
+                        },
+                        style: {
+                            'background-color': color,
+                            'border-color': border,
+                            'border-width': 2,
+                            'width': size,
+                            'height': size,
+                            'color': '#fff',
+                            'font-size': '10px',
+                            'text-valign': 'bottom',
+                            'text-halign': 'center',
+                            'text-margin-y': 6,
+                            'text-max-width': '80px',
+                            'text-wrap': 'wrap'
+                        }
+                    });
+                });
+
+                // Edges
+                const edgeSet = new Set();
+                allRules.forEach(rule => {
+                    const source = rule.source;
+                    const target = rule.target;
+                    if (!source || !target) return;
+                    if (!nodeMap[source] || !nodeMap[target]) return;
+                    const key = source + '->' + target;
+                    if (edgeSet.has(key)) return;
+                    edgeSet.add(key);
+                    const delta = rule.delta || 0.1;
+                    const lineWidth = 1 + delta * 6;
+                    elements.push({
+                        data: {
+                            id: key,
+                            source: source,
+                            target: target,
+                            delta: delta,
+                            description: rule.description || ''
+                        },
+                        style: {
+                            'width': lineWidth,
+                            'line-color': '#7c4dff',
+                            'target-arrow-color': '#7c4dff',
+                            'target-arrow-shape': 'triangle',
+                            'curve-style': 'bezier',
+                            'opacity': 0.7,
+                            'arrow-scale': 1.2
+                        }
+                    });
+                });
+
+                // Create Cytoscape instance
+                cy = cytoscape({
+                    container: cyContainer,
+                    elements: elements,
+                    style: [
+                        {
+                            selector: 'node',
+                            style: {
+                                'background-color': 'data(background-color)',
+                                'border-color': 'data(border-color)',
+                                'border-width': 2,
+                                'width': 'data(width)',
+                                'height': 'data(height)',
+                                'color': '#fff',
+                                'font-size': '10px',
+                                'text-valign': 'bottom',
+                                'text-halign': 'center',
+                                'text-margin-y': 6,
+                                'text-max-width': '80px',
+                                'text-wrap': 'wrap'
+                            }
+                        },
+                        {
+                            selector: 'node:selected',
+                            style: {
+                                'border-width': 4,
+                                'border-color': '#fff'
+                            }
+                        },
+                        {
+                            selector: 'edge',
+                            style: {
+                                'width': 'data(width)',
+                                'line-color': '#7c4dff',
+                                'target-arrow-color': '#7c4dff',
+                                'target-arrow-shape': 'triangle',
+                                'curve-style': 'bezier',
+                                'opacity': 0.7,
+                                'arrow-scale': 1.2
+                            }
+                        },
+                        {
+                            selector: 'edge:selected',
+                            style: {
+                                'opacity': 1,
+                                'line-color': '#b388ff'
+                            }
+                        }
+                    ],
+                    layout: {
+                        name: 'cola',
+                        animate: true,
+                        maxSimulationTime: 2000,
+                        randomize: false,
+                        nodeSpacing: 20,
+                        edgeLength: 120,
+                        fit: true,
+                        padding: 30
+                    }
+                });
+
+                // ── Events ──
+                cy.on('tap', 'node', function(evt) {
+                    const node = evt.target;
+                    const data = node.data();
+                    showNodeInfo(data);
+                });
+
+                cy.on('tap', function(evt) {
+                    if (evt.target === cy) {
+                        infoPanel.style.display = 'none';
+                    }
+                });
+
+                // ── Filters ──
+                function applyFilters() {
+                    const search = searchBox.value.toLowerCase().trim();
+                    const status = statusFilter.value;
+                    const showLabelsFlag = showLabels.checked;
+                    const showEdgesFlag = showEdges.checked;
+
+                    cy.elements().removeClass('hidden');
+
+                    // Filter nodes
+                    cy.nodes().forEach(node => {
+                        const data = node.data();
+                        let hide = false;
+                        if (search) {
+                            const label = (data.label || '').toLowerCase();
+                            const id = (data.id || '').toLowerCase();
+                            if (!label.includes(search) && !id.includes(search)) hide = true;
+                        }
+                        if (status !== 'all' && data.status !== status) hide = true;
+                        if (hide) node.addClass('hidden');
+                        else node.removeClass('hidden');
+                    });
+
+                    // Hide edges connecting to hidden nodes
+                    cy.edges().forEach(edge => {
+                        const source = edge.source();
+                        const target = edge.target();
+                        if (source.hasClass('hidden') || target.hasClass('hidden')) {
+                            edge.addClass('hidden');
+                        } else {
+                            edge.removeClass('hidden');
+                        }
+                    });
+
+                    // Show/hide labels and edges
+                    cy.nodes().style('text-opacity', showLabelsFlag ? 1 : 0);
+                    cy.edges().style('opacity', showEdgesFlag ? 0.7 : 0);
+
+                    // Update stats
+                    updateStats();
+                }
+
+                searchBox.addEventListener('input', applyFilters);
+                statusFilter.addEventListener('change', applyFilters);
+                showLabels.addEventListener('change', applyFilters);
+                showEdges.addEventListener('change', applyFilters);
+
+                resetBtn.addEventListener('click', function() {
+                    cy.layout({
+                        name: 'cola',
+                        animate: true,
+                        maxSimulationTime: 2000,
+                        randomize: false,
+                        fit: true,
+                        padding: 30
+                    }).run();
+                });
+
+                closeInfo.addEventListener('click', function() {
+                    infoPanel.style.display = 'none';
+                });
+
+                // Initial apply
+                applyFilters();
+
+                // ── Stats ──
+                function updateStats() {
+                    const visibleNodes = cy.nodes(':visible');
+                    const visibleEdges = cy.edges(':visible');
+                    const totalNodes = cy.nodes().length;
+                    const totalEdges = cy.edges().length;
+                    statsDiv.innerHTML = `
+                        <span>Nodes: <strong>${totalNodes}</strong> (visible: ${visibleNodes.length})</span>
+                        <span>Edges: <strong>${totalEdges}</strong> (visible: ${visibleEdges.length})</span>
+                        <span>Statuses: <strong>${[...new Set(cy.nodes().map(n => n.data('status'))).join(', ')]}</strong></span>
+                    `;
+                }
+                updateStats();
+
+                // ── Node info panel ──
+                function showNodeInfo(data) {
+                    const id = data.id;
+                    const threat = nodeMap[id];
+                    if (!threat) {
+                        infoContent.innerHTML = `<strong>${data.label}</strong><br>No additional data.`;
+                    } else {
+                        const desc = threat.description || 'No description';
+                        const status = threat.status || 'Unknown';
+                        const scp = (threat.scp || 0) * 100;
+                        const priority = threat.priority_score || 0;
+                        infoContent.innerHTML = `
+                            <div style="display:flex;justify-content:space-between;align-items:center;">
+                                <strong style="color:#fff;font-size:1.1rem;">${threat.name || threat.id}</strong>
+                                <span style="color:#888;">${threat.id}</span>
+                            </div>
+                            <div style="margin-top:0.3rem;color:#aaa;font-size:0.9rem;">${desc}</div>
+                            <div style="margin-top:0.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;font-size:0.85rem;">
+                                <span>Status: <strong style="color:${statusColor(status)}">${status}</strong></span>
+                                <span>SCP: <strong>${scp.toFixed(1)}%</strong></span>
+                                <span>Priority: <strong>${priority.toFixed(1)}</strong></span>
+                            </div>
+                            <div style="margin-top:0.3rem;color:#666;font-size:0.8rem;">
+                                ${threat.domain ? `Domain: ${threat.domain}` : ''}
+                            </div>
+                        `;
+                    }
+                    infoPanel.style.display = 'block';
+                }
+
+                function statusColor(status) {
+                    const map = {
+                        'Red': '#ff6b6b',
+                        'Orange': '#ffa94d',
+                        'Yellow': '#ffd93d',
+                        'Green': '#6bcb8a',
+                        'Black Acute': '#7c4dff',
+                        'Black Structural': '#7c4dff',
+                        'Purple': '#7c4dff',
+                        'Black': '#7c4dff'
+                    };
+                    return map[status] || '#888';
+                }
+
+                // ── Resize ──
+                window.addEventListener('resize', function() {
+                    cy.resize();
+                });
+            }
+
+            // ── Init ──
+            document.addEventListener('DOMContentLoaded', function() {
+                loadData();
+
+                // Sidebar toggle
+                document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
+                    document.getElementById('sidebar')?.classList.toggle('open');
+                });
+
+                // Dark mode
+                const toggle = document.getElementById('darkModeToggle');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const stored = localStorage.getItem('cathedral-theme');
+                if (stored === 'dark' || (!stored && prefersDark)) {
+                    document.body.classList.add('dark');
+                    toggle.textContent = '☀️';
+                } else {
+                    toggle.textContent = '🌙';
+                }
+                toggle.addEventListener('click', function() {
+                    document.body.classList.toggle('dark');
+                    const isDark = document.body.classList.contains('dark');
+                    toggle.textContent = isDark ? '☀️' : '🌙';
+                    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
+                });
+            });
+
+        })();
+    </script>
+    <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
