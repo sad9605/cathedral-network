@@ -1,0 +1,40 @@
+{
+  "version": "1.4.0",
+  "clusters": [
+    {
+      "id": "CC-04",
+      "name": "Iran Cyber-Maritime-Energy",
+      "components": ["C1", "C8", "C29", "C96", "C97", "C143", "C149"],
+      "ivf": 0.91,
+      "status": "active"
+    },
+    {
+      "id": "CC-05",
+      "name": "Western Hemisphere Polycrisis",
+      "components": ["C77", "C78", "C80", "C84", "C134", "C135", "C136", "C139"],
+      "ivf": 0.96,
+      "status": "active"
+    },
+    {
+      "id": "CC-06",
+      "name": "South Asia Compound Emergency",
+      "components": ["C43", "C44", "C46", "C48"],
+      "ivf": 0.92,
+      "status": "active"
+    },
+    {
+      "id": "CC-07",
+      "name": "Humanitarian Order Dissolution",
+      "components": ["C120", "C5", "C74", "C3", "C10"],
+      "ivf": 0.94,
+      "status": "active"
+    },
+    {
+      "id": "CC-08",
+      "name": "Nile-Wheat-War",
+      "components": ["C125", "C126", "C74", "C64", "C5"],
+      "ivf": 0.89,
+      "status": "active"
+    }
+  ]
+}

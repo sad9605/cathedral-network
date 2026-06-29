@@ -1,0 +1,38 @@
+{
+  "version": "1.4.0",
+  "levels": [
+    {
+      "level": "Warning",
+      "description": "Cascade active; monitoring at standard sweep cadence.",
+      "actions": ["Standard monitoring", "Log entry only"]
+    },
+    {
+      "level": "Critical",
+      "description": "Cascade accelerating; sweep cadence doubled. Flash update triggered.",
+      "actions": ["Double sweep cadence", "Flash update to relevant region(s)", "Council notification"]
+    },
+    {
+      "level": "Emergency",
+      "description": "Cascade in full detonation; continuous monitoring. Global Warden Council convenes.",
+      "actions": ["Continuous monitoring", "Global Warden Council convened", "All Sentinels shifted", "Public flash update"]
+    }
+  ],
+  "trigger_rules": {
+    "C1": "Emergency",
+    "C2": "Emergency",
+    "C12": "Emergency",
+    "C31": "Critical",
+    "C35": "Critical",
+    "C43": "Emergency",
+    "C44": "Emergency",
+    "C70": "Critical",
+    "C77": "Critical",
+    "C78": "Critical"
+  },
+  "thresholds": {
+    "scp_critical": 0.70,
+    "scp_emergency": 0.85,
+    "ivf_critical": 0.75,
+    "ivf_emergency": 0.90
+  }
+}

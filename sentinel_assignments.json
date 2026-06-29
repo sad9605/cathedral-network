@@ -1,0 +1,105 @@
+{
+  "version": "1.4.0",
+  "sentinels": {
+    "Sentinel-ME": {
+      "region": "Middle East",
+      "cascades": ["C1", "C20", "C21", "C22", "C27", "C67", "C140", "C144", "C145"]
+    },
+    "Sentinel-EU": {
+      "region": "Europe",
+      "cascades": ["C19", "C26", "C27", "C28", "C29", "C54", "C71", "C72"]
+    },
+    "Sentinel-NAm": {
+      "region": "North America",
+      "cascades": ["C2", "C8", "C9", "C10", "C11", "C59", "C60", "C77", "C80", "C84"]
+    },
+    "Sentinel-SA": {
+      "region": "South Asia",
+      "cascades": ["C18", "C43", "C44", "C45", "C69"]
+    },
+    "Sentinel-EA": {
+      "region": "East Asia",
+      "cascades": ["C15", "C17", "C36", "C37", "C38", "C39", "C50", "C51"]
+    },
+    "Sentinel-AF": {
+      "region": "Africa",
+      "cascades": ["C20", "C21", "C25", "C30", "C31", "C32", "C63", "C65", "C66", "C68", "C70"]
+    },
+    "Sentinel-NA": {
+      "region": "North Africa",
+      "cascades": ["C25", "C33", "C34", "C35", "C76"]
+    },
+    "Sentinel-LA": {
+      "region": "Latin America",
+      "cascades": ["C22", "C41", "C56", "C57", "C58"]
+    },
+    "Sentinel-CAm": {
+      "region": "Central America",
+      "cascades": ["C23", "C61", "C62", "C85"]
+    },
+    "Sentinel-CB": {
+      "region": "Caribbean",
+      "cascades": ["C26", "C52", "C53"]
+    },
+    "Sentinel-RU": {
+      "region": "Russia / Central Asia",
+      "cascades": ["C40", "C41", "C42", "C46"]
+    },
+    "Sentinel-CC": {
+      "region": "Caucasus",
+      "cascades": ["C28", "C47", "C48", "C49"]
+    },
+    "Sentinel-IMF": {
+      "region": "Global",
+      "cascades": ["C3", "C7", "C78"]
+    },
+    "Sentinel-FAO": {
+      "region": "Global",
+      "cascades": ["C5", "C87"]
+    },
+    "Sentinel-WTO": {
+      "region": "Global",
+      "cascades": ["C4"]
+    },
+    "Sentinel-AIGOV": {
+      "region": "Global",
+      "cascades": ["C6", "C13", "C81"]
+    },
+    "Sentinel-POLAR": {
+      "region": "Arctic / Antarctic",
+      "cascades": ["C14", "C30", "C74", "C75", "C86"]
+    },
+    "Sentinel-SEA": {
+      "region": "Southeast Asia",
+      "cascades": ["C16", "C24", "C64"]
+    },
+    "Sentinel-PI": {
+      "region": "Pacific Islands",
+      "cascades": ["C54", "C55"]
+    },
+    "Sentinel-UN": {
+      "region": "Global",
+      "cascades": ["C71"]
+    },
+    "Sentinel-WHO": {
+      "region": "Global",
+      "cascades": ["C73"]
+    },
+    "Sentinel-SPACE": {
+      "region": "Global",
+      "cascades": ["C83"]
+    },
+    "Sentinel-BIOSEC": {
+      "region": "Global",
+      "cascades": ["C82"]
+    },
+    "Sentinel-OCEAN": {
+      "region": "Global",
+      "cascades": ["C149"]
+    },
+    "Sentinel-Global": {
+      "region": "Global",
+      "cascades": ["C12", "C31", "C32", "C33", "C34", "C35", "C36", "C37", "C38", "C79"]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "last_updated": "2026-06-29",
+  "statuses": {
+    "triggered": ["C43", "C44", "C143"],
+    "armed": ["C29", "C39", "C42", "C45", "C54", "C59", "C61", "C62", "C70", "C74", "C75", "C76", "C77", "C78", "C80", "C84", "C85", "C87"],
+    "active": ["C1", "C2", "C3", "C5", "C7", "C10", "C11", "C12", "C17", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C30", "C31", "C32", "C33", "C34", "C35", "C36", "C40", "C41", "C46", "C48", "C49", "C51", "C52", "C53", "C55", "C58", "C60", "C65", "C66", "C67", "C68", "C69", "C71", "C72", "C73"],
+    "held": ["C15"],
+    "inactive": ["C4", "C6", "C8", "C9", "C13", "C14", "C16", "C37", "C38", "C47", "C50", "C56", "C57", "C63", "C64", "C79"],
+    "pre_activation_watch": ["C18"],
+    "proposed": ["C81", "C82", "C83", "C86"]
+  },
+  "escalation_tiers": {
+    "C1": "Emergency",
+    "C2": "Emergency",
+    "C12": "Emergency",
+    "C31": "Critical",
+    "C35": "Critical",
+    "C43": "Emergency",
+    "C44": "Emergency",
+    "C70": "Critical",
+    "C77": "Critical",
+    "C78": "Critical"
+  }
+}

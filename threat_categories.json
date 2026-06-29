@@ -1,0 +1,47 @@
+{
+  "version": "1.4.0",
+  "categories": [
+    {
+      "id": "geopolitical",
+      "name": "Geopolitical / Conflict",
+      "count": 47,
+      "examples": ["C01", "C-USIRAN", "G-ARCTIC", "G-SPACE", "G-WEST-BANK"]
+    },
+    {
+      "id": "energy",
+      "name": "Energy / Commodities",
+      "count": 28,
+      "examples": ["C11", "A-UREA", "SC-RARE", "C133"]
+    },
+    {
+      "id": "food",
+      "name": "Food / Agriculture",
+      "count": 24,
+      "examples": ["C03", "C106", "G-SUD-BLUE"]
+    },
+    {
+      "id": "biosecurity",
+      "name": "Biosecurity / Health",
+      "count": 32,
+      "examples": ["B02", "B-AMR-KLEB", "B-DARK-PROTEIN"]
+    },
+    {
+      "id": "ai_cyber_tech",
+      "name": "AI / Cyber / Tech",
+      "count": 37,
+      "examples": ["C-ESCAPE", "C-ZERODAY", "C-MALWARE", "F-AI-CYBER-SYS"]
+    },
+    {
+      "id": "climate",
+      "name": "Climate / Environmental",
+      "count": 28,
+      "examples": ["C-WATER-BANK", "E11", "SC-NUCLEAR"]
+    },
+    {
+      "id": "social_domestic",
+      "name": "Social / Domestic",
+      "count": 19,
+      "examples": ["U06", "I01", "I10", "D-TRUST"]
+    }
+  ]
+}
