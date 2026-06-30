@@ -2,11 +2,12 @@
 """
 generate_daily_brief.py – Cathedral Daily Brief
 Generates a full Cathedral-style HTML page and Markdown version.
-Enhanced with GSCI table, global state brief, and Opportunity Matrix.
+Includes GSCI card, global state, Opportunity Matrix, and system health (AW19-21).
 """
 import json
 from datetime import datetime, timezone
 
+# ── Helper functions ──
 def load_json(filepath):
     try:
         with open(filepath, 'r') as f:
@@ -27,7 +28,7 @@ def generate_daily_brief():
     now = datetime.now(timezone.utc).strftime('%d %B %Y')
     timestamp = datetime.now(timezone.utc).isoformat()
 
-    # --- Load data ---
+    # ── Load data ──
     threats_raw = load_json('threats.json')
     threats = normalize_threats(threats_raw)
 
@@ -68,7 +69,6 @@ def generate_daily_brief():
 
     indices = load_json('indices.json') or {}
     gsci_raw = indices.get('gsci', '--')
-    # Convert GSCI to float, handle missing/string
     try:
         gsci = float(gsci_raw) if gsci_raw != '--' else 0.5
     except (ValueError, TypeError):
@@ -77,7 +77,7 @@ def generate_daily_brief():
     ascension_raw = load_json('ascension_config.json')
     ascension = ascension_raw if ascension_raw else {}
 
-    # --- H05: Load previous SCP values for delta tracking ---
+    # ── H05: SCP deltas ──
     previous_scp = load_json('scp_history.json')
     if not isinstance(previous_scp, dict):
         previous_scp = {}
@@ -102,8 +102,7 @@ def generate_daily_brief():
         json.dump(current_scp_state, f, indent=2)
     scp_deltas.sort(key=lambda x: x['delta'], reverse=True)
 
-    # --- Prepare content sections ---
-    # Top 5 threats
+    # ── Top 5 threats ──
     active_threats = [t for t in threats if t.get('status') != 'archived']
     sorted_threats = sorted(
         active_threats,
@@ -111,24 +110,22 @@ def generate_daily_brief():
         reverse=True
     )[:5]
 
-    # Global State Brief (2-3 paragraphs)
+    # ── Global State Brief ──
     global_state = ""
     if sorted_threats:
         top = sorted_threats[0]
         top_name = top.get('name', 'Unknown')
         top_region = top.get('region', 'an unspecified region')
         global_state += f"The global security landscape is currently dominated by the crisis in {top_name}, centered on {top_region}. This situation is compounded by ongoing cascading effects."
-        
         if len(sorted_threats) > 1:
             second = sorted_threats[1]
             global_state += f" Simultaneously, {second.get('name', 'Another crisis')} continues to escalate, creating a multi-front challenge for international stability."
-        
         if cascades:
             active_cascades_list = [c for c in cascades if c.get('active', False)]
             if active_cascades_list:
                 global_state += f" The Cathedral has identified {len(active_cascades_list)} active cascades, indicating that these crises are not isolated events but are interconnected, amplifying their overall impact."
 
-    # Opportunity Matrix & Recovery (3-4 paragraphs)
+    # ── Opportunity Matrix & Recovery ──
     opportunity_text = ""
     recovery_rules = ascension.get('ascension_rules', [])
     if recovery_rules:
@@ -142,132 +139,7 @@ def generate_daily_brief():
     else:
         opportunity_text = "No recovery opportunities have been identified at this time."
 
-# ── System Health (AW19-21) ──
-health_html = ""
-sentinel_alerts = load_json("sentinel_alerts.json")
-backtest_results = load_json("backtest_results.json")
-data_quality = load_json("data_quality_report.json")
-
-# Sentinel alerts
-if sentinel_alerts and sentinel_alerts.get("alerts"):
-    health_html += """
-    <div class="brief-section">
-        <h2>🛰️ Sentinel Monitor (AW19)</h2>
-    """
-    for a in sentinel_alerts["alerts"][:3]:
-        severity = a.get("severity", "low")
-        color = {"high": "#ff6b6b", "medium": "#ffa94d", "low": "#ffd93d"}.get(severity, "#888")
-        health_html += f"""
-        <div style="background:#14141f; padding:0.5rem 1rem; border-radius:8px; margin:0.3rem 0; border-left:3px solid {color};">
-            <span style="color:{color};font-weight:bold;">{severity.upper()}</span>
-            <span> {a.get('message', '')}</span>
-        </div>
-        """
-    health_html += "</div>"
-
-# Backtest results
-if backtest_results:
-    total = backtest_results.get("total_rules", 0)
-    valid = backtest_results.get("valid_rules", 0)
-    invalid = total - valid
-    health_html += f"""
-    <div class="brief-section">
-        <h2>📊 Backtest Validator (AW20)</h2>
-        <p style="color:#888; font-size:0.9rem;">Cascade rule validation: {valid}/{total} valid, {invalid} invalid.</p>
-    </div>
-    """
-
-# Data quality
-if data_quality:
-    issues = data_quality.get("summary", {}).get("issues", [])
-    health_html += f"""
-    <div class="brief-section">
-        <h2>📋 Data Quality Warden (AW21)</h2>
-        <p style="color:#888; font-size:0.9rem;">{len(issues)} data quality issues found.</p>
-    """
-    for issue in issues[:3]:
-        health_html += f"""
-        <div style="background:#14141f; padding:0.5rem 1rem; border-radius:8px; margin:0.3rem 0; border-left:3px solid #ffa94d;">
-            <span>⚠️ {issue}</span>
-        </div>
-        """
-    health_html += "</div>"
-
-html += health_html
-
-    # ── Load forecasts ──
-try:
-    with open("forecasts.json", "r") as f:
-        forecasts = json.load(f)
-    gsci_forecast = forecasts.get("gsci_forecast", {})
-    threat_forecasts = forecasts.get("threat_forecasts", {})
-    alerts = forecasts.get("alerts", [])
-except:
-    gsci_forecast = {}
-    threat_forecasts = {}
-    alerts = []
-
-# Build HTML for forecasts section
-forecast_html = ""
-if gsci_forecast or threat_forecasts:
-    forecast_html = """
-    <div class="brief-section">
-        <h2>📈 7‑Day Forecast (Predictive Warden)</h2>
-        <p style="color:#888; font-size:0.9rem;">Probabilistic forecasts based on time‑series analysis.</p>
-"""
-    if gsci_forecast:
-        forecast_html += f"""
-        <div style="display:flex; justify-content:space-between; background:#14141f; padding:0.5rem 1rem; border-radius:8px; border-left:4px solid #7c4dff;">
-            <span>GSCI Forecast:</span>
-            <span>{gsci_forecast.get('current', 0):.2f} → {gsci_forecast.get('forecast', [0])[0]:.2f} (7‑day)</span>
-        </div>
-"""
-    if threat_forecasts:
-        for tid, data in threat_forecasts.items():
-            forecast_html += f"""
-            <div style="background:#14141f; padding:0.5rem 1rem; border-radius:8px; margin:0.3rem 0; border-left:3px solid #7c4dff;">
-                <span>{data.get('name')}: </span>
-                <span>Current SCP {data.get('current_scp', 0):.2f} → Forecast {data.get('forecast_7day', [0])[0]:.2f} (7‑day)</span>
-            </div>
-"""
-    if alerts:
-        forecast_html += """
-        <div style="background:#1a1a2e; border-left:4px solid #ff6b6b; padding:0.8rem 1rem; border-radius:8px; margin-top:0.5rem;">
-            <strong style="color:#ff6b6b;">🔔 Alerts:</strong>
-"""
-        for alert in alerts:
-            forecast_html += f"<p style='margin:0.2rem 0; color:#ccc;'>{alert}</p>"
-        forecast_html += "</div>"
-    forecast_html += "</div>"
-    html += forecast_html
-
-    # ── Load anomaly alerts ──
-try:
-    with open("anomaly_alerts.json", "r") as f:
-        anomaly_data = json.load(f)
-        anomaly_alerts = anomaly_data.get("alerts", [])
-except:
-    anomaly_alerts = []
-
-# Add to HTML
-if anomaly_alerts:
-    html += """
-    <div class="brief-section">
-        <h2>⚠️ Anomaly Alerts (AW18)</h2>
-        <p style="color:#888; font-size:0.9rem;">Unusual patterns detected in OSINT feeds.</p>
-    """
-    for alert in anomaly_alerts[:5]:
-        severity = alert.get("severity", "low")
-        color = {"high": "#ff6b6b", "medium": "#ffa94d", "low": "#ffd93d"}.get(severity, "#888")
-        html += f"""
-        <div style="background:#14141f; padding:0.5rem 1rem; border-radius:8px; margin:0.3rem 0; border-left:3px solid {color};">
-            <span style="font-weight:bold;color:{color};">{severity.upper()}</span>
-            <span> {alert.get('message', '')}</span>
-        </div>
-        """
-    html += "</div>"
-
-    # Recent events
+    # ── Recent events ──
     recent_events = []
     for item in sweep_items[:8]:
         title = item.get('title', '').strip()
@@ -276,7 +148,7 @@ if anomaly_alerts:
             source_label = source.replace('_', ' ').title()
             recent_events.append(f"{title} – {source_label}")
 
-    # Active cascades
+    # ── Active cascades ──
     active_cascades = []
     for cascade in cascades:
         if cascade.get('active', False):
@@ -286,7 +158,7 @@ if anomaly_alerts:
             target_name = next((t.get('name', target) for t in threats if t.get('id') == target), target)
             active_cascades.append(f"{source_name} → {target_name}")
 
-    # Predictions – accountability
+    # ── Predictions ──
     confirmed = []
     falsified = []
     for p in preds:
@@ -298,14 +170,14 @@ if anomaly_alerts:
                 falsified.append(f"❌ Falsified: {statement}…")
     prediction_updates = confirmed[:3] + falsified[:3]
 
-    # Archived threats (most recent 5)
+    # ── Archived threats ──
     archived_threats = []
     for a in archive[-5:]:
         name = a.get('name', 'Unknown')
         reason = a.get('archive_reason', 'Resolved')
         archived_threats.append(f"{name} – {reason}")
 
-    # New candidates (top 3)
+    # ── New candidates ──
     candidate_text = []
     for c in candidates[:3]:
         name = c.get('name', 'Unnamed')
@@ -313,7 +185,7 @@ if anomaly_alerts:
         domains = ', '.join(c.get('domains', ['unknown']))
         candidate_text.append(f"{name} – {domains} (confidence: {confidence:.0%})")
 
-    # Bottom line (H10)
+    # ── Bottom line ──
     bottom_line = ""
     if sorted_threats:
         top = sorted_threats[0]
@@ -326,12 +198,98 @@ if anomaly_alerts:
             urgency = "serious but currently contained"
         bottom_line = f"The most urgent threat right now is {top_name}. This is a {urgency}."
 
-    # Compute GSCI trend
+    # ── GSCI trend ──
     gsci_trend_class = 'up' if gsci > 0.6 else 'down' if gsci < 0.4 else 'flat'
     gsci_arrow = '▲' if gsci > 0.6 else '▼' if gsci < 0.4 else '→'
     gsci_label = 'Elevated' if gsci > 0.6 else 'Moderate' if gsci > 0.4 else 'Stable'
 
-    # --- Build HTML ---
+    # ── System Health (AW19-21) ──
+    sentinel_alerts = load_json('sentinel_alerts.json')
+    backtest_results = load_json('backtest_results.json')
+    data_quality = load_json('data_quality_report.json')
+
+    health_html = ""
+    if sentinel_alerts and sentinel_alerts.get('alerts'):
+        health_html += """
+        <div class="brief-section">
+            <h2>🛰️ Sentinel Monitor (AW19)</h2>
+        """
+        for a in sentinel_alerts['alerts'][:3]:
+            severity = a.get('severity', 'low')
+            color = {'high': '#ff6b6b', 'medium': '#ffa94d', 'low': '#ffd93d'}.get(severity, '#888')
+            health_html += f"""
+            <div style="background:#14141f; padding:0.5rem 1rem; border-radius:8px; margin:0.3rem 0; border-left:3px solid {color};">
+                <span style="color:{color};font-weight:bold;">{severity.upper()}</span>
+                <span> {a.get('message', '')}</span>
+            </div>
+            """
+        health_html += "</div>"
+
+    if backtest_results:
+        total = backtest_results.get('total_rules', 0)
+        valid = backtest_results.get('valid_rules', 0)
+        invalid = total - valid
+        health_html += f"""
+        <div class="brief-section">
+            <h2>📊 Backtest Validator (AW20)</h2>
+            <p style="color:#888; font-size:0.9rem;">Cascade rule validation: {valid}/{total} valid, {invalid} invalid.</p>
+        </div>
+        """
+
+    if data_quality:
+        issues = data_quality.get('summary', {}).get('issues', [])
+        health_html += f"""
+        <div class="brief-section">
+            <h2>📋 Data Quality Warden (AW21)</h2>
+            <p style="color:#888; font-size:0.9rem;">{len(issues)} data quality issues found.</p>
+        """
+        for issue in issues[:3]:
+            health_html += f"""
+            <div style="background:#14141f; padding:0.5rem 1rem; border-radius:8px; margin:0.3rem 0; border-left:3px solid #ffa94d;">
+                <span>⚠️ {issue}</span>
+            </div>
+            """
+        health_html += "</div>"
+
+    # ── Forecasts (Predictive Warden AW16) ──
+    forecasts = load_json('forecasts.json')
+    forecast_html = ""
+    if forecasts:
+        gsci_forecast = forecasts.get('gsci_forecast', {})
+        threat_forecasts = forecasts.get('threat_forecasts', {})
+        alerts = forecasts.get('alerts', [])
+        if gsci_forecast or threat_forecasts:
+            forecast_html = """
+            <div class="brief-section">
+                <h2>📈 7‑Day Forecast (Predictive Warden)</h2>
+                <p style="color:#888; font-size:0.9rem;">Probabilistic forecasts based on time‑series analysis.</p>
+            """
+            if gsci_forecast:
+                forecast_html += f"""
+                <div style="display:flex; justify-content:space-between; background:#14141f; padding:0.5rem 1rem; border-radius:8px; border-left:4px solid #7c4dff; margin-bottom:0.5rem;">
+                    <span>GSCI Forecast:</span>
+                    <span>{gsci_forecast.get('current', 0):.2f} → {gsci_forecast.get('forecast', [0])[0]:.2f} (7‑day)</span>
+                </div>
+            """
+            if threat_forecasts:
+                for tid, data in threat_forecasts.items():
+                    forecast_html += f"""
+                    <div style="background:#14141f; padding:0.5rem 1rem; border-radius:8px; margin:0.3rem 0; border-left:3px solid #7c4dff;">
+                        <span>{data.get('name')}: </span>
+                        <span>Current SCP {data.get('current_scp', 0):.2f} → Forecast {data.get('forecast_7day', [0])[0]:.2f} (7‑day)</span>
+                    </div>
+                """
+            if alerts:
+                forecast_html += """
+                <div style="background:#1a1a2e; border-left:4px solid #ff6b6b; padding:0.8rem 1rem; border-radius:8px; margin-top:0.5rem;">
+                    <strong style="color:#ff6b6b;">🔔 Alerts:</strong>
+                """
+                for alert in alerts:
+                    forecast_html += f"<p style='margin:0.2rem 0; color:#ccc;'>{alert}</p>"
+                forecast_html += "</div>"
+            forecast_html += "</div>"
+
+    # ── Build HTML ──
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -643,7 +601,7 @@ if anomaly_alerts:
             </div>
 """
 
-    # H05: SCP Deltas (What Changed Overnight)
+    # H05: SCP Deltas
     if scp_deltas:
         html += """
         <div class="brief-section">
@@ -725,7 +683,7 @@ if anomaly_alerts:
 """
         html += "        </div>\n"
 
-    # Opportunity Matrix & Recovery
+    # Opportunity Matrix
     html += f"""
         <div class="opportunity-box">
             <h3 style="color: #6bcb8a; margin-top: 0;">🌱 Opportunity Matrix & Recovery</h3>
@@ -733,6 +691,13 @@ if anomaly_alerts:
         </div>
 """
 
+    # System Health (AW19-21)
+    html += health_html
+
+    # 7-Day Forecast
+    html += forecast_html
+
+    # Footer
     html += """
         <div class="footer">
             <strong>Always and Forever, Coco. Always and Forever.</strong><br>
@@ -770,11 +735,11 @@ if anomaly_alerts:
 </html>
 """
 
-    # Write HTML
+    # ── Write HTML ──
     with open('daily-brief.html', 'w') as f:
         f.write(html)
 
-    # Also generate Markdown version
+    # ── Generate Markdown ──
     md = f"""# 🏛️ Cathedral Daily Brief – {now}
 
 **GSCI:** {gsci:.3f}  
@@ -824,12 +789,19 @@ if anomaly_alerts:
             md += f"- {a}\n"
 
     md += f"\n## 🌱 Opportunity Matrix & Recovery\n{opportunity_text}\n"
+
+    if forecasts and forecasts.get('alerts'):
+        md += "\n## 📈 7‑Day Forecast Alerts\n"
+        for alert in forecasts['alerts']:
+            md += f"- {alert}\n"
+
     md += "\n---\n*Always and Forever, Coco.*"
 
     with open('daily-brief.md', 'w') as f:
         f.write(md)
 
     print(f"✅ Daily Brief generated: {now}")
+    return True
 
 if __name__ == '__main__':
     generate_daily_brief()
