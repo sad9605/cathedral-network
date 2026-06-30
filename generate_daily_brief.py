@@ -188,6 +188,32 @@ if gsci_forecast or threat_forecasts:
     forecast_html += "</div>"
     html += forecast_html
 
+    # ── Load anomaly alerts ──
+try:
+    with open("anomaly_alerts.json", "r") as f:
+        anomaly_data = json.load(f)
+        anomaly_alerts = anomaly_data.get("alerts", [])
+except:
+    anomaly_alerts = []
+
+# Add to HTML
+if anomaly_alerts:
+    html += """
+    <div class="brief-section">
+        <h2>⚠️ Anomaly Alerts (AW18)</h2>
+        <p style="color:#888; font-size:0.9rem;">Unusual patterns detected in OSINT feeds.</p>
+    """
+    for alert in anomaly_alerts[:5]:
+        severity = alert.get("severity", "low")
+        color = {"high": "#ff6b6b", "medium": "#ffa94d", "low": "#ffd93d"}.get(severity, "#888")
+        html += f"""
+        <div style="background:#14141f; padding:0.5rem 1rem; border-radius:8px; margin:0.3rem 0; border-left:3px solid {color};">
+            <span style="font-weight:bold;color:{color};">{severity.upper()}</span>
+            <span> {alert.get('message', '')}</span>
+        </div>
+        """
+    html += "</div>"
+
     # Recent events
     recent_events = []
     for item in sweep_items[:8]:

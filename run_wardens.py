@@ -56,6 +56,9 @@ def main():
     # ── STEP: Predictive Warden ──
     results.append(run_step("Predictive Warden (AW16)", "python3 predictive_warden.py"))
 
+    # ── STEP: Anomaly Detection Warden ──
+    results.append(run_step("Anomaly Detection Warden (AW18)", "python3 anomaly_detection_warden.py"))
+
     # ── STEP 1: Data Collection ──
     results.append(run_step("Threat Scanner (H02)", "python3 threat_scanner.py"))
     # ── After Threat Scanner ──
