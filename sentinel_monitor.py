@@ -4,6 +4,7 @@ sentinel_monitor.py – AW19 Sentinel Monitor
 Tracks Sentinel activity and alerts if a Sentinel is underperforming.
 """
 import json
+import os
 from datetime import datetime, timezone, timedelta
 
 ALERT_FILE = "sentinel_alerts.json"
@@ -13,7 +14,7 @@ def load_json(file):
     try:
         with open(file, 'r') as f:
             return json.load(f)
-    except:
+    except (FileNotFoundError, json.JSONDecodeError):
         return {}
 
 def main():
@@ -32,25 +33,22 @@ def main():
         return
     
     # Check last updated timestamp
-    if "last_updated" not in statuses:
-        print("⚠️ No last_updated field in cascade_status.json. Skipping inactivity check.")
+    if "last_updated" in statuses:
+        try:
+            last_updated = datetime.fromisoformat(statuses["last_updated"].replace("Z", "+00:00"))
+            now = datetime.now(timezone.utc)
+            days_since_update = (now - last_updated).days
+            if days_since_update > MAX_INACTIVITY_DAYS:
+                alerts.append({
+                    "type": "sentinel_inactivity",
+                    "message": f"Sentinel activity stale: last update {days_since_update} days ago.",
+                    "severity": "high",
+                    "timestamp": now.isoformat()
+                })
+        except Exception as e:
+            print(f"⚠️ Could not parse last_updated: {e}")
     else:
-    # Ensure both datetimes are timezone-aware
-    last_updated = datetime.fromisoformat(statuses["last_updated"].replace("Z", "+00:00"))
-    if last_updated.tzinfo is None:
-        last_updated = last_updated.replace(tzinfo=timezone.utc)
-    now = datetime.now(timezone.utc)
-    days_since_update = (now - last_updated).days
-
-        now = datetime.now(timezone.utc)
-        days_since_update = (now - last_updated).days
-        if days_since_update > MAX_INACTIVITY_DAYS:
-            alerts.append({
-                "type": "sentinel_inactivity",
-                "message": f"Sentinel activity stale: last update {days_since_update} days ago.",
-                "severity": "high",
-                "timestamp": now.isoformat()
-            })
+        print("ℹ️ No last_updated field in cascade_status.json.")
     
     # Check for sentinels with no assigned cascades
     for sentinel, data in sentinel_map.items():
