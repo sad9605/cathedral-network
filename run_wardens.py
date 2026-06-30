@@ -79,6 +79,9 @@ def main():
     # ── STEP: Prediction Validator ──
     results.append(run_step("Prediction Validator", "python3 prediction_validator.py"))
 
+    # ── After Prediction Validator ──
+    results.append(run_step("Causal Memory", "python3 causal_memory.py"))
+
     # ── STEP: Prediction Checker (Daily Sweep) ──
     results.append(run_step("Prediction Checker (Daily Sweep)", "python3 prediction_checker.py"))
 
@@ -92,6 +95,9 @@ def main():
     # ── STEP 7: Verification & Validation ──
     results.append(run_step("Warden Verification (AW04)", "python3 verification_warden.py"))
     results.append(run_step("Prediction Validation (AW05)", "python3 validation_warden.py"))
+
+    # ── After Verification Warden ──
+    results.append(run_step("Stargraph Warden Agent", "python3 stargraph_warden.py"))
 
     # ── STEP: Domain Wardens (AW09-AW13) ──
     results.append(run_step("AW11 Climate Warden", "python3 aw11_climate_warden.py"))
