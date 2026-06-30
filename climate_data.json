@@ -1,54 +1,456 @@
 {
-  "timestamp": "2026-06-30T10:28:48.366306",
-  "zones": [
+  "source": "AW11 Climate Warden",
+  "fetched_at": "2026-06-30T15:44:54.855580+00:00",
+  "events": [
     {
-      "temp_anomaly": 0.32,
-      "precip_anomaly": -40.2,
-      "recent_temp_avg": 27.46,
-      "historic_temp_avg": 27.14,
-      "name": "Horn of Africa"
+      "id": "EONET_6051",
+      "name": "Iceberg C39",
+      "type": "Sea and Lake Ice",
+      "lat": -65.68,
+      "lng": 99.61,
+      "date": "2026-06-30T15:44:54.851138+00:00",
+      "source": "NASA EONET"
     },
     {
-      "temp_anomaly": -0.08,
-      "precip_anomaly": -7.3,
-      "recent_temp_avg": 33.94,
-      "historic_temp_avg": 34.02,
-      "name": "Sahel"
+      "id": "EONET_20822",
+      "name": "Iceberg D33D",
+      "type": "Sea and Lake Ice",
+      "lat": -64.35,
+      "lng": -55.51,
+      "date": "2026-06-30T15:44:54.851188+00:00",
+      "source": "NASA EONET"
     },
     {
-      "temp_anomaly": -0.03,
-      "precip_anomaly": 0.0,
-      "recent_temp_avg": 35.6,
-      "historic_temp_avg": 35.63,
-      "name": "Middle East"
+      "id": "EONET_20671",
+      "name": "Tropical Storm Higos",
+      "type": "Storm",
+      "lat": 14.7,
+      "lng": 145.7,
+      "date": "2026-06-30T15:44:54.851206+00:00",
+      "source": "NASA EONET"
     },
     {
-      "temp_anomaly": -3.12,
-      "precip_anomaly": 13.2,
-      "recent_temp_avg": 27.11,
-      "historic_temp_avg": 30.23,
-      "name": "South Asia"
+      "id": "EONET_20606",
+      "name": "Typhoon Mekkhala",
+      "type": "Storm",
+      "lat": 13.7,
+      "lng": 140,
+      "date": "2026-06-30T15:44:54.851215+00:00",
+      "source": "NASA EONET"
     },
     {
-      "temp_anomaly": -0.48,
-      "precip_anomaly": -160.7,
-      "recent_temp_avg": 19.94,
-      "historic_temp_avg": 20.42,
-      "name": "Central America"
+      "id": "EONET_6320",
+      "name": "Iceberg A81",
+      "type": "Sea and Lake Ice",
+      "lat": -75.66,
+      "lng": -27.16,
+      "date": "2026-06-30T15:44:54.851221+00:00",
+      "source": "NASA EONET"
     },
     {
-      "temp_anomaly": 5.31,
-      "precip_anomaly": -32.4,
-      "recent_temp_avg": 23.8,
-      "historic_temp_avg": 18.49,
-      "name": "Ukraine"
+      "id": "EONET_6423",
+      "name": "Iceberg D33A",
+      "type": "Sea and Lake Ice",
+      "lat": -69.38,
+      "lng": 17.14,
+      "date": "2026-06-30T15:44:54.851227+00:00",
+      "source": "NASA EONET"
     },
     {
-      "temp_anomaly": -1.02,
-      "precip_anomaly": -31.9,
-      "recent_temp_avg": 28.74,
-      "historic_temp_avg": 29.76,
-      "name": "South China Sea"
+      "id": "EONET_20558",
+      "name": "Median Wildfire, Gooding, Idaho",
+      "type": "Wildfire",
+      "lat": 42.805867,
+      "lng": -114.767567,
+      "date": "2026-06-30T15:44:54.851231+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20565",
+      "name": "TRAIL 13 (09) Wildfire, Citrus, Florida",
+      "type": "Wildfire",
+      "lat": 28.7994444,
+      "lng": -82.4186111,
+      "date": "2026-06-30T15:44:54.851235+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20560",
+      "name": "Kartar Wildfire, Okanogan, Washington",
+      "type": "Wildfire",
+      "lat": 48.250361,
+      "lng": -119.390027,
+      "date": "2026-06-30T15:44:54.851239+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20562",
+      "name": "Omak Lake Road Wildfire, Okanogan, Washington",
+      "type": "Wildfire",
+      "lat": 48.274722,
+      "lng": -119.410833,
+      "date": "2026-06-30T15:44:54.851244+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20559",
+      "name": "Old Emigrant Wildfire, Umatilla, Oregon",
+      "type": "Wildfire",
+      "lat": 45.616957,
+      "lng": -118.615417,
+      "date": "2026-06-30T15:44:54.851248+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20561",
+      "name": "Sawmill Wildfire, Iron, Utah",
+      "type": "Wildfire",
+      "lat": 38.09192,
+      "lng": -113.70575,
+      "date": "2026-06-30T15:44:54.851253+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20567",
+      "name": "QUARRY 2 (13) Wildfire, Miami-Dade, Florida",
+      "type": "Wildfire",
+      "lat": 25.8116667,
+      "lng": -80.4233333,
+      "date": "2026-06-30T15:44:54.851257+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20569",
+      "name": "Dellenbaugh Wildfire, Mohave, Arizona",
+      "type": "Wildfire",
+      "lat": 36.075,
+      "lng": -113.535333,
+      "date": "2026-06-30T15:44:54.851262+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20570",
+      "name": "APQ Area 5A RX 0615 Prescribed Fire, Polk, Florida",
+      "type": "Wildfire",
+      "lat": 27.720842,
+      "lng": -81.330714,
+      "date": "2026-06-30T15:44:54.851266+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20564",
+      "name": "SHORE Wildfire, Riverside, California",
+      "type": "Wildfire",
+      "lat": 33.976656,
+      "lng": -117.103582,
+      "date": "2026-06-30T15:44:54.851270+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20566",
+      "name": "Rock Canyon Wildfire, Coconino, Arizona",
+      "type": "Wildfire",
+      "lat": 36.9157,
+      "lng": -112.2032,
+      "date": "2026-06-30T15:44:54.851274+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20710",
+      "name": "Nevados del Chillan Volcano, Chile",
+      "type": "Volcanoes",
+      "lat": -36.868,
+      "lng": -71.378,
+      "date": "2026-06-30T15:44:54.851279+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20520",
+      "name": "Green Gate (26) Wildfire, Hendry, Florida",
+      "type": "Wildfire",
+      "lat": 26.3666667,
+      "lng": -81.1661111,
+      "date": "2026-06-30T15:44:54.851283+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20523",
+      "name": "MIDNIGHT FIRE (53) Wildfire, Polk, Florida",
+      "type": "Wildfire",
+      "lat": 27.7152778,
+      "lng": -81.9430556,
+      "date": "2026-06-30T15:44:54.851287+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20516",
+      "name": "4170 Tule Rd Wildfire, Yakima, Washington",
+      "type": "Wildfire",
+      "lat": 46.27602,
+      "lng": -120.3144,
+      "date": "2026-06-30T15:44:54.851292+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20513",
+      "name": "Rookery Wildfire, Volusia, Florida",
+      "type": "Wildfire",
+      "lat": 29.07815,
+      "lng": -81.426633,
+      "date": "2026-06-30T15:44:54.851296+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20571",
+      "name": "TWIN SISTERS Wildfire, Walla Walla, Washington",
+      "type": "Wildfire",
+      "lat": 46.05679,
+      "lng": -118.90997,
+      "date": "2026-06-30T15:44:54.851309+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20517",
+      "name": "JUNIPER DUNES Wildfire, Franklin, Washington",
+      "type": "Wildfire",
+      "lat": 46.346137,
+      "lng": -118.896108,
+      "date": "2026-06-30T15:44:54.851316+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20519",
+      "name": "WYLY Wildfire, Kern, California",
+      "type": "Wildfire",
+      "lat": 35.2638889,
+      "lng": -118.6341667,
+      "date": "2026-06-30T15:44:54.851320+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20518",
+      "name": "SNAKE RIVER Wildfire, Whitman, Washington",
+      "type": "Wildfire",
+      "lat": 46.4322,
+      "lng": -117.19118,
+      "date": "2026-06-30T15:44:54.851325+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20522",
+      "name": "Kilolitna Wildfire, Yukon-Koyukuk, Alaska",
+      "type": "Wildfire",
+      "lat": 66.047957,
+      "lng": -151.805649,
+      "date": "2026-06-30T15:44:54.851329+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20524",
+      "name": "Unit 16/20 Rx Prescribed Fire, Bibb, Alabama",
+      "type": "Wildfire",
+      "lat": 33.062922,
+      "lng": -87.047567,
+      "date": "2026-06-30T15:44:54.851334+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_2736",
+      "name": "Iceberg B22A",
+      "type": "Sea and Lake Ice",
+      "lat": -74.2006,
+      "lng": -108.5265,
+      "date": "2026-06-30T15:44:54.851349+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_6474",
+      "name": "Iceberg D35",
+      "type": "Sea and Lake Ice",
+      "lat": -69.83,
+      "lng": 21.01,
+      "date": "2026-06-30T15:44:54.851356+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_6510",
+      "name": "Iceberg D33C",
+      "type": "Sea and Lake Ice",
+      "lat": -75.52,
+      "lng": -20.02,
+      "date": "2026-06-30T15:44:54.851361+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_10212",
+      "name": "Iceberg B22F",
+      "type": "Sea and Lake Ice",
+      "lat": -72.61,
+      "lng": -127.41,
+      "date": "2026-06-30T15:44:54.851366+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_12716",
+      "name": "Iceberg A85",
+      "type": "Sea and Lake Ice",
+      "lat": -77.51,
+      "lng": -48.54,
+      "date": "2026-06-30T15:44:54.851370+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20446",
+      "name": "Little Schloss RX Prescribed Fire, Shenandoah, Virginia",
+      "type": "Wildfire",
+      "lat": 38.925944,
+      "lng": -78.636,
+      "date": "2026-06-30T15:44:54.851384+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20442",
+      "name": "South Fork Wildfire, Sioux, Nebraska",
+      "type": "Wildfire",
+      "lat": 42.659167,
+      "lng": -103.638333,
+      "date": "2026-06-30T15:44:54.851391+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20521",
+      "name": "Bear Wildfire, Catron, New Mexico",
+      "type": "Wildfire",
+      "lat": 34.0465,
+      "lng": -108.292667,
+      "date": "2026-06-30T15:44:54.851395+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20447",
+      "name": "APQ Area 11 Scrub RX 0608 Prescribed Fire, Highlands, Florida",
+      "type": "Wildfire",
+      "lat": 27.59925,
+      "lng": -81.2536,
+      "date": "2026-06-30T15:44:54.851399+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20444",
+      "name": "South Mountain Wildfire, Tooele, Utah",
+      "type": "Wildfire",
+      "lat": 40.460017,
+      "lng": -112.410167,
+      "date": "2026-06-30T15:44:54.851404+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20443",
+      "name": "PUTAH Wildfire, Yolo, California",
+      "type": "Wildfire",
+      "lat": 38.5148,
+      "lng": -122.0754,
+      "date": "2026-06-30T15:44:54.851408+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20387",
+      "name": "Tower Wildfire, Millard, Utah",
+      "type": "Wildfire",
+      "lat": 39.205895,
+      "lng": -112.164042,
+      "date": "2026-06-30T15:44:54.851412+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20448",
+      "name": "LXR Lower Third RX 0609 Prescribed Fire, Palm Beach, Florida",
+      "type": "Wildfire",
+      "lat": 26.509333,
+      "lng": -80.42115,
+      "date": "2026-06-30T15:44:54.851417+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20388",
+      "name": "Raven Creek Wildfire, Weston, Wyoming",
+      "type": "Wildfire",
+      "lat": 44.084633,
+      "lng": -105.04695,
+      "date": "2026-06-30T15:44:54.852119+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20389",
+      "name": "CHESTNUT Wildfire, Chelan, Washington",
+      "type": "Wildfire",
+      "lat": 47.793631,
+      "lng": -120.018153,
+      "date": "2026-06-30T15:44:54.852134+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20385",
+      "name": "WALTZ Wildfire, Mariposa, California",
+      "type": "Wildfire",
+      "lat": 37.378149,
+      "lng": -120.245512,
+      "date": "2026-06-30T15:44:54.852139+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_5359",
+      "name": "Iceberg A76C",
+      "type": "Sea and Lake Ice",
+      "lat": -75.57,
+      "lng": -57.04,
+      "date": "2026-06-30T15:44:54.852145+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_6288",
+      "name": "Iceberg D32",
+      "type": "Sea and Lake Ice",
+      "lat": -68.36,
+      "lng": 70.68,
+      "date": "2026-06-30T15:44:54.852151+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_6424",
+      "name": "Iceberg D33B",
+      "type": "Sea and Lake Ice",
+      "lat": -69.64,
+      "lng": 18.3,
+      "date": "2026-06-30T15:44:54.852156+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_6523",
+      "name": "Iceberg A83",
+      "type": "Sea and Lake Ice",
+      "lat": -75.37,
+      "lng": -25.55,
+      "date": "2026-06-30T15:44:54.852162+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_14284",
+      "name": "Iceberg B22H",
+      "type": "Sea and Lake Ice",
+      "lat": -73.71,
+      "lng": -168.78,
+      "date": "2026-06-30T15:44:54.852167+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20386",
+      "name": "Kopshesut Wildfire, Northwest Arctic, Alaska",
+      "type": "Wildfire",
+      "lat": 7,
+      "lng": 189,
+      "date": "2026-06-30T15:44:54.852172+00:00",
+      "source": "NASA EONET"
     }
   ]
 }

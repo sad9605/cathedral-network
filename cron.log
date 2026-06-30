@@ -4376,3 +4376,41 @@ Loaded 42 feed definitions.
 [CFR Agent] No new conflicts to add
 [CFR Agent] CFR Agent completed successfully
 [CFR Agent] Total conflicts in CFR: 20
+
+🔹 Breaking news fetch ...
+✅ Breaking news fetch completed.
+📰 Fetching breaking news...
+  Fetching ReliefWeb...
+  API error for https://api.reliefweb.int/v1/disasters?format=json: 410 Client Error: Gone for url: https://api.reliefweb.int/v1/disasters?format=json
+  Fetching GDACS...
+  Fetching BBC News...
+  Fetching Reuters...
+  Fetching Al Jazeera...
+✅ Breaking news updated: 13 items
+
+🔹 Time‑series forecasting ...
+✅ Time‑series forecasting completed.
+
+🔹 Cascade Engine (v8) ...
+✅ Cascade Engine (v8) completed.
+🏛️  Cascade Engine v10 running...
+📊 Loaded 225 threats, 87 cascade rules
+✅ Cascade engine complete.
+   Updates applied: 0
+   GSCI: 54.3
+   SSI: 67.8
+   DS: 9
+   SCA Tier: 5
+   DAS: 0
+📦 Archive Engine (H01) running...
+ℹ️ No threats matched archive criteria.
+
+📊 Active threats remaining: 225
+📦 Total threats in archive: 8
+Traceback (most recent call last):
+  File "/home/sad9605/cathedral-core/cathedral_system.py", line 219, in <module>
+    main()
+    ~~~~^^
+  File "/home/sad9605/cathedral-core/cathedral_system.py", line 103, in main
+    from archive_engine import archive_old_threats
+ImportError: cannot import name 'archive_old_threats' from 'archive_engine' (/home/sad9605/cathedral-core/archive_engine.py). Did you mean: 'archived_threats'?

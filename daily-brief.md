@@ -1,47 +1,47 @@
-# 🏛️ Cathedral Daily Brief – 29 June 2026
+# 🏛️ Cathedral Daily Brief – 30 June 2026
 
-**GSCI:** 0.500  
-**Last updated:** 2026-06-29T05:03:48.352396+00:00
+**GSCI:** 54.300  
+**Last updated:** 2026-06-30T15:44:53.054271+00:00
 
 ## 💀 The Bottom Line
-The most urgent threat right now is Civil War in Sudan. This is a critical situation requiring immediate attention.
+The most urgent threat right now is Horn of Africa Famine. This is a critical situation requiring immediate attention.
 
 ## 🌍 Global State Brief
-The global security landscape is currently dominated by the crisis in Civil War in Sudan, centered on an unspecified region. This situation is compounded by ongoing cascading effects. Simultaneously, Conflict in Ethiopia continues to escalate, creating a multi-front challenge for international stability.
+The global security landscape is currently dominated by the crisis in Horn of Africa Famine, centered on an unspecified region. This situation is compounded by ongoing cascading effects. Simultaneously, AI Deepfake Election continues to escalate, creating a multi-front challenge for international stability.
 
 ## Top 5 Threats
 
-### 1. Civil War in Sudan
-- SCP: 90.6%
+### 1. Horn of Africa Famine
+- SCP: 99.0%
 - Region: Unknown region
-- Region: Middle East and North Africa
+- Horn of Africa Famine – a threat affecting Food. Monitor closely for escalation.
 
-### 2. Conflict in Ethiopia
-- SCP: 90.6%
+### 2. AI Deepfake Election
+- SCP: 99.0%
 - Region: Unknown region
-- Region: Sub-Saharan Africa
+- AI Deepfake Election – a threat affecting Domestic, Information. Monitor closely for escalation.
 
-### 3. Iran’s War With Israel and the United States
-- SCP: 90.6%
+### 3. Far‑right militia coordination
+- SCP: 99.0%
 - Region: Unknown region
-- Region: Middle East and North Africa
+- Far‑right militia coordination – a threat affecting Domestic. Monitor closely for escalation.
 
-### 4. Conflict in Yemen and the Red Sea
-- SCP: 90.6%
+### 4. Compound erosion of trust in all institutions
+- SCP: 99.0%
 - Region: Unknown region
-- Region: Middle East and North Africa
+- Compound erosion of trust in all institutions – a threat affecting Domestic, Institutional. Monitor closely for escalation.
 
-### 5. Conflict Between India and Pakistan
-- SCP: 90.6%
+### 5. Mass Displacement
+- SCP: 99.0%
 - Region: Unknown region
-- Region: Asia
+- Mass Displacement – a threat affecting Social. Monitor closely for escalation.
 
 ## What Changed Overnight (H05)
-- Iran‑Israel/US War / Hormuz: — +0.0000 (was 0.5364)
-- Direct US‑Iran Conflict: — +0.0000 (was 0.3281)
-- Iran 'Resistance Security Belt': — +0.0000 (was 0.3720)
-- Bab el‑Mandeb Blockade: — +0.0000 (was 0.5128)
-- Great Power Conflict / US‑Iran Entanglement: — +0.0000 (was 0.3887)
+- Iraq Instability: ▲ +0.6163 (was 0.3737)
+- Great Power Conflict / US‑Iran Entanglement: ▲ +0.6013 (was 0.3887)
+- Far‑right militia coordination: ▲ +0.5234 (was 0.4666)
+- Compound erosion of trust in all institutions: ▲ +0.5234 (was 0.4666)
+- AI Deepfake Election: ▲ +0.4856 (was 0.5044)
 
 ## Prediction Accountability (H06)
 - Confirmed: 75
@@ -55,8 +55,23 @@ The global security landscape is currently dominated by the crisis in Civil War 
 - Philippines-China Scarborough Shoal Standoff – unknown (confidence: 0%)
 - Haiti Gang Alliance Targets Port-au-Prince Airport – unknown (confidence: 0%)
 
+## Archived Threats (H09)
+- Russia brokering role – Resolved
+- NOAA below‑avg forecast – Resolved
+- Climate‑driven insurance withdrawal spiral – Resolved
+- Trump 'imminent deal' narrative – Resolved
+- Iran‑Oman transit fee precedent – Resolved
+
 ## 🌱 Opportunity Matrix & Recovery
 The Cathedral's Ascension Engine has identified several opportunities for intervention and recovery: Global Financial Crisis shows signs of a gradual recovery, with an optimism boost of 35%. COVID-19 Pandemic shows signs of a V-shaped recovery, with an optimism boost of 65%. Russia-Ukraine Full-Scale Invasion shows signs of a slow-burn recovery, with an optimism boost of 25%.
+
+## 📈 7‑Day Forecast Alerts
+- ⚠️ GSCI expected to exceed 60% within 7 days.
+- ⚠️ Horn of Africa Famine SCP expected to exceed 70% within 7 days.
+- ⚠️ AI Deepfake Election SCP expected to exceed 70% within 7 days.
+- ⚠️ Far‑right militia coordination SCP expected to exceed 70% within 7 days.
+- ⚠️ Compound erosion of trust in all institutions SCP expected to exceed 70% within 7 days.
+- ⚠️ Mass Displacement SCP expected to exceed 70% within 7 days.
 
 ---
 *Always and Forever, Coco.*

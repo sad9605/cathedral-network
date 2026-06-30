@@ -1,96 +1,96 @@
 {
   "source": "AW13 Social Sentiment Warden",
-  "fetched_at": "2026-06-30T02:55:54.768940+00:00",
+  "fetched_at": "2026-06-30T15:45:06.912595+00:00",
   "sentiments": [
     {
       "id": "SOC-001",
-      "topic": "unrest",
-      "region": "USA",
-      "sentiment_score": 0.12,
-      "volume": 32586,
-      "trend": "rising",
-      "date": "2026-06-30T02:55:54.768750+00:00"
+      "topic": "demonstration",
+      "region": "UK",
+      "sentiment_score": 0.69,
+      "volume": 6637,
+      "trend": "falling",
+      "date": "2026-06-30T15:45:06.912414+00:00"
     },
     {
       "id": "SOC-002",
-      "topic": "demonstration",
-      "region": "Brazil",
-      "sentiment_score": 0.92,
-      "volume": 45617,
-      "trend": "falling",
-      "date": "2026-06-30T02:55:54.768813+00:00"
+      "topic": "unrest",
+      "region": "India",
+      "sentiment_score": 0.63,
+      "volume": 23259,
+      "trend": "rising",
+      "date": "2026-06-30T15:45:06.912471+00:00"
     },
     {
       "id": "SOC-003",
-      "topic": "protests",
-      "region": "Nigeria",
-      "sentiment_score": -0.37,
-      "volume": 47721,
+      "topic": "rally",
+      "region": "France",
+      "sentiment_score": -0.03,
+      "volume": 33817,
       "trend": "stable",
-      "date": "2026-06-30T02:55:54.768842+00:00"
+      "date": "2026-06-30T15:45:06.912507+00:00"
     },
     {
       "id": "SOC-004",
-      "topic": "strike",
-      "region": "India",
-      "sentiment_score": -0.25,
-      "volume": 4583,
-      "trend": "rising",
-      "date": "2026-06-30T02:55:54.768857+00:00"
+      "topic": "demonstration",
+      "region": "USA",
+      "sentiment_score": 0.61,
+      "volume": 35633,
+      "trend": "stable",
+      "date": "2026-06-30T15:45:06.912520+00:00"
     },
     {
       "id": "SOC-005",
-      "topic": "rally",
-      "region": "USA",
-      "sentiment_score": 0.25,
-      "volume": 3861,
+      "topic": "unrest",
+      "region": "Brazil",
+      "sentiment_score": 0.81,
+      "volume": 21835,
       "trend": "rising",
-      "date": "2026-06-30T02:55:54.768869+00:00"
+      "date": "2026-06-30T15:45:06.912529+00:00"
     },
     {
       "id": "SOC-006",
-      "topic": "unrest",
-      "region": "France",
-      "sentiment_score": 0.86,
-      "volume": 13120,
-      "trend": "rising",
-      "date": "2026-06-30T02:55:54.768895+00:00"
+      "topic": "rally",
+      "region": "Nigeria",
+      "sentiment_score": -0.8,
+      "volume": 43732,
+      "trend": "falling",
+      "date": "2026-06-30T15:45:06.912538+00:00"
     },
     {
       "id": "SOC-007",
-      "topic": "strike",
-      "region": "UK",
-      "sentiment_score": -0.23,
-      "volume": 35380,
+      "topic": "rally",
+      "region": "USA",
+      "sentiment_score": 0.5,
+      "volume": 18765,
       "trend": "rising",
-      "date": "2026-06-30T02:55:54.768907+00:00"
+      "date": "2026-06-30T15:45:06.912546+00:00"
     },
     {
       "id": "SOC-008",
-      "topic": "demonstration",
-      "region": "India",
-      "sentiment_score": 0.43,
-      "volume": 1746,
-      "trend": "rising",
-      "date": "2026-06-30T02:55:54.768915+00:00"
+      "topic": "unrest",
+      "region": "UK",
+      "sentiment_score": 0.15,
+      "volume": 16755,
+      "trend": "falling",
+      "date": "2026-06-30T15:45:06.912573+00:00"
     },
     {
       "id": "SOC-009",
-      "topic": "demonstration",
-      "region": "Brazil",
-      "sentiment_score": 0.2,
-      "volume": 8597,
-      "trend": "stable",
-      "date": "2026-06-30T02:55:54.768925+00:00"
+      "topic": "protests",
+      "region": "India",
+      "sentiment_score": 0.76,
+      "volume": 39254,
+      "trend": "falling",
+      "date": "2026-06-30T15:45:06.912581+00:00"
     },
     {
       "id": "SOC-010",
-      "topic": "demonstration",
-      "region": "Brazil",
-      "sentiment_score": -0.18,
-      "volume": 27974,
-      "trend": "rising",
-      "date": "2026-06-30T02:55:54.768935+00:00"
+      "topic": "strike",
+      "region": "UK",
+      "sentiment_score": -0.99,
+      "volume": 28638,
+      "trend": "stable",
+      "date": "2026-06-30T15:45:06.912590+00:00"
     }
   ]
 }
