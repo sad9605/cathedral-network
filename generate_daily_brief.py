@@ -142,6 +142,52 @@ def generate_daily_brief():
     else:
         opportunity_text = "No recovery opportunities have been identified at this time."
 
+    # ── Load forecasts ──
+try:
+    with open("forecasts.json", "r") as f:
+        forecasts = json.load(f)
+    gsci_forecast = forecasts.get("gsci_forecast", {})
+    threat_forecasts = forecasts.get("threat_forecasts", {})
+    alerts = forecasts.get("alerts", [])
+except:
+    gsci_forecast = {}
+    threat_forecasts = {}
+    alerts = []
+
+# Build HTML for forecasts section
+forecast_html = ""
+if gsci_forecast or threat_forecasts:
+    forecast_html = """
+    <div class="brief-section">
+        <h2>📈 7‑Day Forecast (Predictive Warden)</h2>
+        <p style="color:#888; font-size:0.9rem;">Probabilistic forecasts based on time‑series analysis.</p>
+"""
+    if gsci_forecast:
+        forecast_html += f"""
+        <div style="display:flex; justify-content:space-between; background:#14141f; padding:0.5rem 1rem; border-radius:8px; border-left:4px solid #7c4dff;">
+            <span>GSCI Forecast:</span>
+            <span>{gsci_forecast.get('current', 0):.2f} → {gsci_forecast.get('forecast', [0])[0]:.2f} (7‑day)</span>
+        </div>
+"""
+    if threat_forecasts:
+        for tid, data in threat_forecasts.items():
+            forecast_html += f"""
+            <div style="background:#14141f; padding:0.5rem 1rem; border-radius:8px; margin:0.3rem 0; border-left:3px solid #7c4dff;">
+                <span>{data.get('name')}: </span>
+                <span>Current SCP {data.get('current_scp', 0):.2f} → Forecast {data.get('forecast_7day', [0])[0]:.2f} (7‑day)</span>
+            </div>
+"""
+    if alerts:
+        forecast_html += """
+        <div style="background:#1a1a2e; border-left:4px solid #ff6b6b; padding:0.8rem 1rem; border-radius:8px; margin-top:0.5rem;">
+            <strong style="color:#ff6b6b;">🔔 Alerts:</strong>
+"""
+        for alert in alerts:
+            forecast_html += f"<p style='margin:0.2rem 0; color:#ccc;'>{alert}</p>"
+        forecast_html += "</div>"
+    forecast_html += "</div>"
+    html += forecast_html
+
     # Recent events
     recent_events = []
     for item in sweep_items[:8]:

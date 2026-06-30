@@ -52,6 +52,9 @@ def main():
 
    # ── After Cascade Engine ──
    results.append(run_step("DeepCausality Contextual Engine", "python3 contextual_cascade.py"))
+  
+    # ── STEP: Predictive Warden ──
+    results.append(run_step("Predictive Warden (AW16)", "python3 predictive_warden.py"))
 
     # ── STEP 1: Data Collection ──
     results.append(run_step("Threat Scanner (H02)", "python3 threat_scanner.py"))
