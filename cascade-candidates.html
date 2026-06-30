@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascade Candidates – Cathedral Network</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .candidate-card {
+            background: #14141f;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            border-left: 3px solid #7c4dff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .candidate-card .rule { color: #fff; }
+        .candidate-card .conf { color: #888; }
+        .actions button {
+            background: #2a2a3a;
+            border: none;
+            color: #fff;
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 0.3rem;
+        }
+        .actions button.approve { background: #6bcb8a; }
+        .actions button.reject { background: #ff6b6b; }
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== SIDEBAR ===== -->
+    <div class="sidebar-container" id="sidebar">
+        <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
+        <nav>
+            <div class="nav-section">
+                <strong>📊 Dashboard</strong>
+                <a href="index.html">Ground Truth</a>
+                <a href="hewd.html">HEWD Dashboard</a>
+                <a href="health.html">System Health</a>
+            </div>
+            <div class="nav-section">
+                <strong>🧠 Intelligence</strong>
+                <a href="threat-matrix.html">Threat Matrix</a>
+                <a href="prediction-log.html">Prediction Log</a>
+                <a href="daily-brief.html">Daily Brief</a>
+                <a href="cascade-map.html">Cascade Map</a>
+                <a href="cascade-candidates.html" class="active">Cascade Candidates</a>
+            </div>
+            <div class="nav-section">
+                <strong>⚖️ Governance</strong>
+                <a href="constitution.html">Constitution</a>
+                <a href="wardens.html">Wardens</a>
+                <a href="ascension.html">Ascension Engine</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===== BANNER ===== -->
+    <header class="cathedral-banner">
+        <div class="banner-content">
+            <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="logo-mark">
+                <svg viewBox="0 0 120 140" width="50" height="60">
+                    <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
+                    <circle cx="60" cy="25" r="2" fill="white"/>
+                    <circle cx="55" cy="40" r="2" fill="white"/>
+                    <circle cx="65" cy="40" r="2" fill="white"/>
+                    <circle cx="50" cy="55" r="2" fill="white"/>
+                    <circle cx="60" cy="55" r="2" fill="white"/>
+                    <circle cx="70" cy="55" r="2" fill="white"/>
+                    <circle cx="45" cy="70" r="2" fill="white"/>
+                    <circle cx="55" cy="70" r="2" fill="white"/>
+                    <circle cx="65" cy="70" r="2" fill="white"/>
+                    <circle cx="75" cy="70" r="2" fill="white"/>
+                    <circle cx="50" cy="85" r="2" fill="white"/>
+                    <circle cx="60" cy="85" r="2" fill="white"/>
+                    <circle cx="70" cy="85" r="2" fill="white"/>
+                    <circle cx="55" cy="100" r="2" fill="white"/>
+                    <circle cx="65" cy="100" r="2" fill="white"/>
+                    <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+                    <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            <div class="wordmark">
+                <h1>CATHEDRAL NETWORK</h1>
+                <p class="tagline">Cascade Candidates</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== TOP NAV ===== -->
+    <div class="top-nav">
+        <a href="index.html">Ground Truth</a>
+        <a href="threat-matrix.html">Threat Matrix</a>
+        <a href="daily-brief.html">Daily Brief</a>
+        <a href="cascade-map.html">Cascade Map</a>
+        <a href="cascade-candidates.html" class="active">Candidates</a>
+    </div>
+
+    <div class="container">
+        <h1>🧬 Cascade Candidates</h1>
+        <p>Candidate cascade rules extracted from OSINT text. Review and approve to add to the engine.</p>
+
+        <div class="filter-bar">
+            <input type="text" id="search" placeholder="Search…" style="flex:1; background:#0a0a14; border:1px solid #2a2a3a; color:#fff; padding:0.3rem 0.6rem; border-radius:4px;">
+            <button id="refresh" style="background:#2a2a3a; border:none; color:#fff; padding:0.3rem 1rem; border-radius:4px; cursor:pointer;">↻ Refresh</button>
+        </div>
+
+        <div id="candidate-list">Loading candidates…</div>
+    </div>
+
+    <!-- ===== DARK MODE TOGGLE ===== -->
+    <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+    <script>
+        async function loadCandidates() {
+            try {
+                const resp = await fetch('cascade_candidates.json?t=' + Date.now());
+                const data = await resp.json();
+                const candidates = data.candidates || [];
+                const container = document.getElementById('candidate-list');
+                if (!candidates.length) {
+                    container.innerHTML = '<p style="color:#888;">No candidate rules pending.</p>';
+                    return;
+                }
+                let html = '';
+                candidates.forEach(c => {
+                    html += `
+                        <div class="candidate-card" data-source="${c.source}" data-target="${c.target}">
+                            <div>
+                                <span class="rule">${c.source || '?'} → ${c.target || '?'}</span>
+                                <span class="conf">Confidence: ${c.confidence || 50}%</span>
+                                <span style="color:#666;font-size:0.8rem;margin-left:0.5rem;">${c.cause_text || ''} → ${c.effect_text || ''}</span>
+                            </div>
+                            <div class="actions">
+                                <button class="approve" onclick="approveRule('${c.source}', '${c.target}')">✓ Approve</button>
+                                <button class="reject" onclick="rejectRule('${c.source}', '${c.target}')">✕ Reject</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                container.innerHTML = html;
+            } catch (e) {
+                document.getElementById('candidate-list').innerHTML = '<p style="color:#ff6b6b;">Error loading candidates.</p>';
+            }
+        }
+
+        async function approveRule(source, target) {
+            // TODO: POST to a backend endpoint to add rule to cascade_rules.json
+            // For now, we just remove from UI and log.
+            console.log(`✅ Approve: ${source} → ${target}`);
+            const card = document.querySelector(`.candidate-card[data-source="${source}"][data-target="${target}"]`);
+            if (card) card.remove();
+            // In production, send to a local API endpoint that merges into cascade_rules.json
+        }
+
+        async function rejectRule(source, target) {
+            console.log(`❌ Reject: ${source} → ${target}`);
+            const card = document.querySelector(`.candidate-card[data-source="${source}"][data-target="${target}"]`);
+            if (card) card.remove();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCandidates);
+        document.getElementById('refresh').addEventListener('click', loadCandidates);
+        document.getElementById('search').addEventListener('input', function() {
+            const q = this.value.toLowerCase();
+            document.querySelectorAll('.candidate-card').forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(q) ? '' : 'none';
+            });
+        });
+
+        // Dark mode toggle
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark');
+            this.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>
