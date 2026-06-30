@@ -1,7 +1,7 @@
 # 🏛️ Cathedral Daily Brief – 30 June 2026
 
 **GSCI:** 54.300  
-**Last updated:** 2026-06-30T15:44:53.054271+00:00
+**Last updated:** 2026-06-30T16:03:46.523623+00:00
 
 ## 💀 The Bottom Line
 The most urgent threat right now is Horn of Africa Famine. This is a critical situation requiring immediate attention.
@@ -37,11 +37,11 @@ The global security landscape is currently dominated by the crisis in Horn of Af
 - Mass Displacement – a threat affecting Social. Monitor closely for escalation.
 
 ## What Changed Overnight (H05)
-- Iraq Instability: ▲ +0.6163 (was 0.3737)
-- Great Power Conflict / US‑Iran Entanglement: ▲ +0.6013 (was 0.3887)
-- Far‑right militia coordination: ▲ +0.5234 (was 0.4666)
-- Compound erosion of trust in all institutions: ▲ +0.5234 (was 0.4666)
-- AI Deepfake Election: ▲ +0.4856 (was 0.5044)
+- Iran‑Israel/US War / Hormuz: — +0.0000 (was 0.2000)
+- Direct US‑Iran Conflict: — +0.0000 (was 0.0000)
+- Iran 'Resistance Security Belt': — +0.0000 (was 0.0000)
+- Bab el‑Mandeb Blockade: — +0.0000 (was 0.0000)
+- Great Power Conflict / US‑Iran Entanglement: — +0.0000 (was 0.9900)
 
 ## Prediction Accountability (H06)
 - Confirmed: 75
