@@ -142,6 +142,59 @@ def generate_daily_brief():
     else:
         opportunity_text = "No recovery opportunities have been identified at this time."
 
+# ── System Health (AW19-21) ──
+health_html = ""
+sentinel_alerts = load_json("sentinel_alerts.json")
+backtest_results = load_json("backtest_results.json")
+data_quality = load_json("data_quality_report.json")
+
+# Sentinel alerts
+if sentinel_alerts and sentinel_alerts.get("alerts"):
+    health_html += """
+    <div class="brief-section">
+        <h2>🛰️ Sentinel Monitor (AW19)</h2>
+    """
+    for a in sentinel_alerts["alerts"][:3]:
+        severity = a.get("severity", "low")
+        color = {"high": "#ff6b6b", "medium": "#ffa94d", "low": "#ffd93d"}.get(severity, "#888")
+        health_html += f"""
+        <div style="background:#14141f; padding:0.5rem 1rem; border-radius:8px; margin:0.3rem 0; border-left:3px solid {color};">
+            <span style="color:{color};font-weight:bold;">{severity.upper()}</span>
+            <span> {a.get('message', '')}</span>
+        </div>
+        """
+    health_html += "</div>"
+
+# Backtest results
+if backtest_results:
+    total = backtest_results.get("total_rules", 0)
+    valid = backtest_results.get("valid_rules", 0)
+    invalid = total - valid
+    health_html += f"""
+    <div class="brief-section">
+        <h2>📊 Backtest Validator (AW20)</h2>
+        <p style="color:#888; font-size:0.9rem;">Cascade rule validation: {valid}/{total} valid, {invalid} invalid.</p>
+    </div>
+    """
+
+# Data quality
+if data_quality:
+    issues = data_quality.get("summary", {}).get("issues", [])
+    health_html += f"""
+    <div class="brief-section">
+        <h2>📋 Data Quality Warden (AW21)</h2>
+        <p style="color:#888; font-size:0.9rem;">{len(issues)} data quality issues found.</p>
+    """
+    for issue in issues[:3]:
+        health_html += f"""
+        <div style="background:#14141f; padding:0.5rem 1rem; border-radius:8px; margin:0.3rem 0; border-left:3px solid #ffa94d;">
+            <span>⚠️ {issue}</span>
+        </div>
+        """
+    health_html += "</div>"
+
+html += health_html
+
     # ── Load forecasts ──
 try:
     with open("forecasts.json", "r") as f:

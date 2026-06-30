@@ -58,6 +58,15 @@ def main():
 
     # ── STEP: Anomaly Detection Warden ──
     results.append(run_step("Anomaly Detection Warden (AW18)", "python3 anomaly_detection_warden.py"))
+   
+    # ── STEP: Sentinel Monitor ── 
+    results.append(run_step("Sentinel Monitor (AW19)", "python3 sentinel_monitor.py"))
+
+    # ── STEP: Backtest Validator ──
+    results.append(run_step("Backtest Validator (AW20)", "python3 backtest_validator.py"))
+
+    # ── STEP: Data Quality Warden ──
+    results.append(run_step("Data Quality Warden (AW21)", "python3 data_quality_warden.py"))
 
     # ── STEP 1: Data Collection ──
     results.append(run_step("Threat Scanner (H02)", "python3 threat_scanner.py"))
