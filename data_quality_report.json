@@ -1,15 +1,15 @@
 {
-  "timestamp": "2026-06-30T15:44:30.312569+00:00",
+  "timestamp": "2026-06-30T16:03:24.699816+00:00",
   "reports": {
     "threats.json": {
       "status": "ok",
-      "age": 0.00019382055555555556,
+      "age": 0.00013292305555555556,
       "valid": true,
       "issues": []
     },
     "sweep_report.json": {
       "status": "invalid",
-      "age": 0.2652769863888889,
+      "age": 0.5803943913888889,
       "valid": false,
       "issues": [
         "Missing keys: ['id', 'name']"
@@ -17,7 +17,7 @@
     },
     "telegram_data.json": {
       "status": "invalid",
-      "age": 0.09794197472222223,
+      "age": 0.30919718416666664,
       "valid": false,
       "issues": [
         "Missing keys: ['id', 'name']"
@@ -25,7 +25,7 @@
     },
     "gpsjam_data.json": {
       "status": "invalid",
-      "age": 0.09887788055555556,
+      "age": 0.3103397625,
       "valid": false,
       "issues": [
         "Missing keys: ['id', 'name']"
@@ -33,7 +33,7 @@
     },
     "hewd_data.json": {
       "status": "invalid",
-      "age": 0.09822483388888889,
+      "age": 0.30948642972222223,
       "valid": false,
       "issues": [
         "Missing keys: ['id', 'name']"
@@ -41,7 +41,7 @@
     },
     "indices.json": {
       "status": "invalid",
-      "age": 17.70683596472222,
+      "age": 18.021943536944445,
       "valid": false,
       "issues": [
         "Missing keys: ['id', 'name']"
