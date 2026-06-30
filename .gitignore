@@ -1,1 +1,7 @@
 test.log
+__pycache__/
+*.pyc
+.threat_lock
+cron.log
+pipeline_health.log
+ARCRIFT/
