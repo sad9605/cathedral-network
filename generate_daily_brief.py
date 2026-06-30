@@ -830,7 +830,6 @@ if anomaly_alerts:
         f.write(md)
 
     print(f"✅ Daily Brief generated: {now}")
-    return True
 
 if __name__ == '__main__':
     generate_daily_brief()

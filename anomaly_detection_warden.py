@@ -107,13 +107,19 @@ def main():
                 print(f"⚠️ Event count anomaly: z={z_score:.2f}")
     
     # Update history
-    counts.append(len(sweep_items))
-    # Keep only last 30 days
-    if len(counts) > 30:
-        counts = counts[-30:]
-    history["event_counts"] = counts
-    with open(history_file, "w") as f:
-        json.dump(history, f, indent=2)
+    try:
+        counts.append(len(sweep_items))
+        # Keep only last 30 days
+        if len(counts) > 30:
+            counts = counts[-30:]
+        # Ensure history is defined before writing
+        if 'history' not in locals():
+            history = {}
+        history["event_counts"] = counts
+        with open(history_file, "w") as f:
+            json.dump(history, f, indent=2)
+    except Exception as e:
+        print(f"⚠️ Failed to update anomaly history: {e}")
     
     # ── 2. Threat SCP changes (delta anomaly) ──
     # Look at recent SCP changes in threats.json

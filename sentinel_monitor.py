@@ -35,7 +35,13 @@ def main():
     if "last_updated" not in statuses:
         print("⚠️ No last_updated field in cascade_status.json. Skipping inactivity check.")
     else:
-        last_updated = datetime.fromisoformat(statuses["last_updated"].replace("Z", "+00:00"))
+    # Ensure both datetimes are timezone-aware
+    last_updated = datetime.fromisoformat(statuses["last_updated"].replace("Z", "+00:00"))
+    if last_updated.tzinfo is None:
+        last_updated = last_updated.replace(tzinfo=timezone.utc)
+    now = datetime.now(timezone.utc)
+    days_since_update = (now - last_updated).days
+
         now = datetime.now(timezone.utc)
         days_since_update = (now - last_updated).days
         if days_since_update > MAX_INACTIVITY_DAYS:
