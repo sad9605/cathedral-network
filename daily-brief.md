@@ -1,7 +1,7 @@
-# 🏛️ Cathedral Daily Brief – 28 June 2026
+# 🏛️ Cathedral Daily Brief – 29 June 2026
 
 **GSCI:** 0.500  
-**Last updated:** 2026-06-28T06:35:43.937816+00:00
+**Last updated:** 2026-06-29T05:03:48.352396+00:00
 
 ## 💀 The Bottom Line
 The most urgent threat right now is Civil War in Sudan. This is a critical situation requiring immediate attention.

@@ -1,1 +1,215 @@
-[]
+[
+  {
+    "id": "C19",
+    "name": "Zaporizhzhia NPP",
+    "domains": [
+      "Geopolitical",
+      "Energy"
+    ],
+    "status": "Green",
+    "scp": 0.0,
+    "base_probability": 0.006550502399999999,
+    "das": 42.24,
+    "notes": "Single backup line remains.",
+    "priority_score": -5.0,
+    "das_band": "Anomalous",
+    "description": "Zaporizhzhia Nuclear Power Plant \u2013 ongoing shelling and military activity around Europe's largest nuclear plant, risking a radiation leak or catastrophic meltdown, with regional fallout.",
+    "ml_likelihood_ratio": 7.855326794315538,
+    "likelihood_ratios": [
+      3.0565980382946614,
+      1.249999999998181,
+      6.141495095736653,
+      1.2499999999998863
+    ],
+    "last_updated": "2026-06-29T16:30:02.507650",
+    "confidence": 0.77,
+    "archivedDate": "2026-06-30T02:09:30.826807+00:00",
+    "archiveReason": "Status changed to Green"
+  },
+  {
+    "id": "C60",
+    "name": "Narva Border Crisis",
+    "domains": [
+      "Geopolitical"
+    ],
+    "status": "Green",
+    "scp": 0.0,
+    "base_probability": 0.0025194239999999997,
+    "das": 35.99,
+    "notes": "Estonia\u2011Russia tensions.",
+    "priority_score": -5.0,
+    "das_band": "Anomalous",
+    "description": "Narva Border Crisis \u2013 a threat affecting Geopolitical. Monitor closely for escalation.",
+    "ml_likelihood_ratio": 16.10686908081988,
+    "likelihood_ratios": [
+      5.532060724245964,
+      1.249999999998181,
+      12.330151810614911,
+      1.2499999999998863
+    ],
+    "last_updated": "2026-06-29T16:30:02.507807",
+    "confidence": 0.95,
+    "archivedDate": "2026-06-30T02:09:30.826842+00:00",
+    "archiveReason": "Status changed to Green"
+  },
+  {
+    "id": "G19",
+    "name": "China\u2011Iran petroyuan",
+    "domains": [
+      "Energy",
+      "Financial"
+    ],
+    "status": "Green",
+    "scp": 0.0,
+    "base_probability": 0.004031078399999999,
+    "das": 34.92,
+    "notes": "De\u2011dollarisation.",
+    "priority_score": -5.0,
+    "das_band": "Anomalous",
+    "description": "China\u2011Iran petroyuan \u2013 a threat affecting Energy, Financial. Monitor closely for escalation.",
+    "ml_likelihood_ratio": 12.80739030381506,
+    "likelihood_ratios": [
+      4.5422170911445185,
+      1.249999999998181,
+      9.855542727861295,
+      1.2499999999998863
+    ],
+    "last_updated": "2026-06-29T16:30:02.509033",
+    "confidence": 0.95,
+    "archivedDate": "2026-06-30T02:09:30.826862+00:00",
+    "archiveReason": "Status changed to Green"
+  },
+  {
+    "id": "G20",
+    "name": "Russia brokering role",
+    "domains": [
+      "Energy",
+      "Geopolitical"
+    ],
+    "status": "Green",
+    "scp": 0.0,
+    "base_probability": 0.0015116543999999998,
+    "das": 38.36,
+    "notes": "Limited.",
+    "priority_score": -5.0,
+    "das_band": "Anomalous",
+    "description": "Russia brokering role \u2013 a threat affecting Energy, Geopolitical. Monitor closely for escalation.",
+    "ml_likelihood_ratio": 19.893113630056185,
+    "likelihood_ratios": [
+      6.667934089016855,
+      1.249999999998181,
+      15.169835222542138,
+      1.2499999999998863
+    ],
+    "last_updated": "2026-06-29T16:30:02.509063",
+    "confidence": 0.95,
+    "archivedDate": "2026-06-30T02:09:30.826867+00:00",
+    "archiveReason": "Status changed to Green"
+  },
+  {
+    "id": "U10",
+    "name": "NOAA below\u2011avg forecast",
+    "domains": [
+      "Climate"
+    ],
+    "status": "Green",
+    "scp": 0.0,
+    "base_probability": 0.0015116543999999998,
+    "das": 40.15,
+    "notes": "Hurricane relief.",
+    "priority_score": -5.0,
+    "das_band": "Anomalous",
+    "description": "NOAA below\u2011avg forecast \u2013 a threat affecting Climate. Monitor closely for escalation.",
+    "ml_likelihood_ratio": 18.91592197618304,
+    "likelihood_ratios": [
+      6.374776592854912,
+      1.249999999998181,
+      14.436941482137279,
+      1.2499999999998863
+    ],
+    "last_updated": "2026-06-29T16:30:02.509498",
+    "confidence": 0.95,
+    "archivedDate": "2026-06-30T02:09:30.826876+00:00",
+    "archiveReason": "Status changed to Green"
+  },
+  {
+    "id": "F-INSUR-SPIRAL",
+    "name": "Climate\u2011driven insurance withdrawal spiral",
+    "domains": [
+      "Financial",
+      "Climate"
+    ],
+    "status": "Green",
+    "scp": 0.0,
+    "base_probability": 0.006046617599999999,
+    "das": 53.32,
+    "notes": "Uninsurable property.",
+    "priority_score": -5.0,
+    "das_band": "Anomalous",
+    "description": "Climate\u2011driven insurance withdrawal spiral \u2013 a threat affecting Financial, Climate. Monitor closely for escalation.",
+    "ml_likelihood_ratio": 4.833787193480461,
+    "likelihood_ratios": [
+      2.1501361580441385,
+      1.249999999998181,
+      3.875340395110346,
+      1.2499999999998863
+    ],
+    "last_updated": "2026-06-29T16:30:02.510427",
+    "confidence": 0.65,
+    "archivedDate": "2026-06-30T02:09:30.826891+00:00",
+    "archiveReason": "Status changed to Green"
+  },
+  {
+    "id": "G14",
+    "name": "Trump 'imminent deal' narrative",
+    "domains": [
+      "Information"
+    ],
+    "status": "Green",
+    "scp": 0.0,
+    "base_probability": 0.0025194239999999997,
+    "das": 57.15,
+    "notes": "DVI.",
+    "priority_score": -5.0,
+    "das_band": "Anomalous",
+    "description": "Trump 'imminent deal' narrative \u2013 a threat affecting Information. Monitor closely for escalation.",
+    "ml_likelihood_ratio": 5.8288468484804765,
+    "likelihood_ratios": [
+      2.448654054544143,
+      1.249999999998181,
+      4.621635136360357,
+      1.2499999999998863
+    ],
+    "last_updated": "2026-06-29T16:30:02.512409",
+    "confidence": 0.69,
+    "archivedDate": "2026-06-30T02:09:30.826915+00:00",
+    "archiveReason": "Status changed to Green"
+  },
+  {
+    "id": "C145I",
+    "name": "Iran\u2011Oman transit fee precedent",
+    "domains": [
+      "Institutional",
+      "Financial"
+    ],
+    "status": "Green",
+    "scp": 0.0,
+    "base_probability": 0.007860602879999998,
+    "das": 37.01,
+    "notes": "Legal erosion.",
+    "priority_score": -5.0,
+    "das_band": "Anomalous",
+    "description": "Iran\u2011Oman transit fee precedent \u2013 a threat affecting Institutional, Financial. Monitor closely for escalation.",
+    "ml_likelihood_ratio": 8.306908738398839,
+    "likelihood_ratios": [
+      3.1920726215196518,
+      1.249999999998181,
+      6.480181553799129,
+      1.2499999999998863
+    ],
+    "last_updated": "2026-06-29T16:30:02.513083",
+    "confidence": 0.79,
+    "archivedDate": "2026-06-30T02:09:30.826925+00:00",
+    "archiveReason": "Status changed to Green"
+  }
+]

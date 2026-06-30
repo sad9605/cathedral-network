@@ -1553,11 +1553,13 @@
     "confidence": 75,
     "confirmation_criteria": "Monitor: Nasdaq falls another 10% within 30 trading days",
     "falsification_criteria": "Opposite of: Monitor: Nasdaq falls another 10% within 30 trading days",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -1853,11 +1855,13 @@
     "confidence": 65,
     "confirmation_criteria": "Monitor: Bab el-Mandab Strait disrupted within 30 days (from 8 June)",
     "falsification_criteria": "Opposite of: Monitor: Bab el-Mandab Strait disrupted within 30 days (from 8 June)",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2104,11 +2108,13 @@
     "confidence": 60,
     "confirmation_criteria": "Monitor: US media layoffs accelerate; another major outlet cuts within 30 days",
     "falsification_criteria": "Opposite of: Monitor: US media layoffs accelerate; another major outlet cuts within 30 days",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2140,7 +2146,9 @@
     "verified": false,
     "hit": null,
     "verification_note": "Confidence is 25% \u2013 below 60% threshold.",
-    "validation_issues": [],
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2151,11 +2159,13 @@
     "confidence": 65,
     "confirmation_criteria": "Monitor: Houthi attack on commercial tanker causes casualty/spill within 30 days",
     "falsification_criteria": "Opposite of: Monitor: Houthi attack on commercial tanker causes casualty/spill within 30 days",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2219,7 +2229,9 @@
     "verified": false,
     "hit": null,
     "verification_note": "Confidence is 45% \u2013 below 60% threshold.",
-    "validation_issues": [],
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2281,11 +2293,13 @@
     "confidence": 70,
     "confirmation_criteria": "Monitor: Waterborne illness outbreak in Sirik within 30 days (US strike on water reservoirs)",
     "falsification_criteria": "Opposite of: Monitor: Waterborne illness outbreak in Sirik within 30 days (US strike on water reservoirs)",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2330,11 +2344,13 @@
     "confidence": 95,
     "confirmation_criteria": "Monitor: Iran-Israel/US War / Hormuz",
     "falsification_criteria": "Opposite of: Monitor: Iran-Israel/US War / Hormuz",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2345,11 +2361,13 @@
     "confidence": 80,
     "confirmation_criteria": "Monitor: Direct US-Iran Conflict",
     "falsification_criteria": "Opposite of: Monitor: Direct US-Iran Conflict",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2360,11 +2378,13 @@
     "confidence": 90,
     "confirmation_criteria": "Monitor: Iran 'Resistance Security Belt'",
     "falsification_criteria": "Opposite of: Monitor: Iran 'Resistance Security Belt'",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2375,11 +2395,13 @@
     "confidence": 88,
     "confirmation_criteria": "Monitor: Bab el-Mandeb Blockade",
     "falsification_criteria": "Opposite of: Monitor: Bab el-Mandeb Blockade",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2390,11 +2412,13 @@
     "confidence": 70,
     "confirmation_criteria": "Monitor: Great Power Conflict / US-Iran Entanglement",
     "falsification_criteria": "Opposite of: Monitor: Great Power Conflict / US-Iran Entanglement",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2405,11 +2429,13 @@
     "confidence": 65,
     "confirmation_criteria": "Monitor: Armenia-Azerbaijan",
     "falsification_criteria": "Opposite of: Monitor: Armenia-Azerbaijan",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2420,11 +2446,13 @@
     "confidence": 60,
     "confirmation_criteria": "Monitor: Baltic Grey-Zone",
     "falsification_criteria": "Opposite of: Monitor: Baltic Grey-Zone",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2435,11 +2463,13 @@
     "confidence": 68,
     "confirmation_criteria": "Monitor: Taiwan Strait Incident Risk",
     "falsification_criteria": "Opposite of: Monitor: Taiwan Strait Incident Risk",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2450,11 +2480,13 @@
     "confidence": 60,
     "confirmation_criteria": "Monitor: South China Sea Militarisation",
     "falsification_criteria": "Opposite of: Monitor: South China Sea Militarisation",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2465,11 +2497,13 @@
     "confidence": 70,
     "confirmation_criteria": "Monitor: AI Deepfake Ops",
     "falsification_criteria": "Opposite of: Monitor: AI Deepfake Ops",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2480,11 +2514,13 @@
     "confidence": 65,
     "confirmation_criteria": "Monitor: Zaporizhzhia NPP",
     "falsification_criteria": "Opposite of: Monitor: Zaporizhzhia NPP",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2495,11 +2531,13 @@
     "confidence": 68,
     "confirmation_criteria": "Monitor: NATO Article 4 (Romania)",
     "falsification_criteria": "Opposite of: Monitor: NATO Article 4 (Romania)",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2514,7 +2552,9 @@
     "verified": false,
     "hit": null,
     "verification_note": "Confidence is 35% \u2013 below 60% threshold.",
-    "validation_issues": [],
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2529,7 +2569,9 @@
     "verified": false,
     "hit": null,
     "verification_note": "Confidence is 40% \u2013 below 60% threshold.",
-    "validation_issues": [],
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2544,7 +2586,9 @@
     "verified": false,
     "hit": null,
     "verification_note": "Confidence is 30% \u2013 below 60% threshold.",
-    "validation_issues": [],
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2559,7 +2603,9 @@
     "verified": false,
     "hit": null,
     "verification_note": "Confidence is 35% \u2013 below 60% threshold.",
-    "validation_issues": [],
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2574,7 +2620,9 @@
     "verified": false,
     "hit": null,
     "verification_note": "Confidence is 45% \u2013 below 60% threshold.",
-    "validation_issues": [],
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2589,7 +2637,9 @@
     "verified": false,
     "hit": null,
     "verification_note": "Confidence is 40% \u2013 below 60% threshold.",
-    "validation_issues": [],
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2600,11 +2650,13 @@
     "confidence": 60,
     "confirmation_criteria": "Monitor: Information Warfare",
     "falsification_criteria": "Opposite of: Monitor: Information Warfare",
-    "verification_status": "Pending",
+    "verification_status": "Expired",
     "verified": false,
     "hit": null,
-    "verification_note": null,
-    "validation_issues": [],
+    "verification_note": "Deadline 2026-06-30 passed without confirmation.",
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -2619,7 +2671,9 @@
     "verified": false,
     "hit": null,
     "verification_note": "Confidence is 30% \u2013 below 60% threshold.",
-    "validation_issues": [],
+    "validation_issues": [
+      "Deadline 2026-06-30 has passed without resolution"
+    ],
     "original_source": "pending"
   }
 ]

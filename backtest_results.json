@@ -1,0 +1,530 @@
+{
+  "timestamp": "2026-06-30T02:54:53.053405+00:00",
+  "total_rules": 87,
+  "valid_rules": 72,
+  "invalid_rules": 15,
+  "results": [
+    {
+      "rule": "C01->C11",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C01->C132",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C01->G30",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C01->C03",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C-USIRAN->C01",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "C-USIRAN->C132",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "C-USIRAN->C-WATER",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "C-BELT->C01",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "C-BELT->C-RED-BLOCK",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "C-RED-BLOCK->C8",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "C11->C03",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C11->C106",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C11->C133",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C11->C78",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C03->C139",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C03->U06",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C106->C03",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C106->U07",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "A-UREA->C03",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "A-UREA->C106",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "A-STRAT-RES->A-UREA",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "B02->C77",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "B02->C139",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "B-AMR-KLEB->B02",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "B-DARK-PROTEIN->B02",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "G-ARCTIC->C132",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "G-SPACE->C132",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "G-WEST-BANK->C01",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "G-SUD-BLUE->C03",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C-ESCAPE->C-MALWARE",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "C-ESCAPE->C-ZERODAY",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "C-ZERODAY->C-MALWARE",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "C-AILANG->C-ESCAPE",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "T-LAWS->C132",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "F-AI-CYBER-SYS->C78",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "F-AI-CYBER-SYS->C133",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "F-CBDC->I08",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "F-INSUR-SPIRAL->C78",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "C-WATER-BANK->C03",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C-WATER-BANK->C139",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C-WATER-BANK->G-SUD-BLUE",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "E11->C03",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "E11->C106",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "E11->C80",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "SC-RARE->C121",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "SC-RARE->C132",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "SC-NUCLEAR->C62",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "SC-NUCLEAR->C132",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "SC-COUNTER->C-MALWARE",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "SC-ZINC->C11",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C-SOIL-DEG->C03",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C-AG-STORAGE->C03",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C-SUBSIDENCE->C-WATER-BANK",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C-CRYO->C-WATER-BANK",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "E-AI-GRID->C11",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "E-HYPER-SCALE->E-AI-GRID",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "E-SOLAR-CYBER->C-MALWARE",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "T-BIO-INF->B02",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "T-SYN-DNA->B-DARK-PROTEIN",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "T-AGENT->C-ESCAPE",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "T-MISINFO->I01",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "D-AI-LIAB->D-TRUST",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "D-DESKILL->D-TRUST",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "D-GDPR->D-TRUST",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "I10->D-TRUST",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C84->I01",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "U01->D-TRUST",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "U02->C84",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "U03->C84",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C139->D-TRUST",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C5->C139",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C5->U13",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "U13->C139",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "S-ANTI-TECH->C-ESCAPE",
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
+    },
+    {
+      "rule": "S-NVE->U06",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "S-CLASS->U06",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "S-LONELY->S-ANTI-TECH",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "S-FED-8000->U06",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "S-FED-8000->D-TRUST",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "D-TRUST->I01",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "D-TRUST->I10",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "D-TRUST->U06",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "E-SMR->E11",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C43->C03",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C44->C77",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C143->C11",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    },
+    {
+      "rule": "C121->C39",
+      "valid": true,
+      "issue": null,
+      "severity": "low"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "timestamp": "2026-06-30T15:17:55.836436+00:00",
+  "gsci_forecast": {
+    "current": 54.3,
+    "forecast": [
+      0.99,
+      0.9896095816925321,
+      0.9777596656957951,
+      0.99,
+      0.9871205966062848,
+      0.99,
+      0.9802821406868711
+    ],
+    "horizon_days": 7
+  },
+  "threat_forecasts": {
+    "C03": {
+      "name": "Horn of Africa Famine",
+      "current_scp": 0.99,
+      "forecast_7day": [
+        0.99,
+        0.99,
+        0.9872008947754471,
+        0.99,
+        0.99,
+        0.99,
+        0.99
+      ]
+    },
+    "I01": {
+      "name": "AI Deepfake Election",
+      "current_scp": 0.99,
+      "forecast_7day": [
+        0.9818529274571316,
+        0.9847279382769889,
+        0.99,
+        0.99,
+        0.9803069521519349,
+        0.968186457372562,
+        0.981484550160759
+      ]
+    },
+    "U06": {
+      "name": "Far\u2011right militia coordination",
+      "current_scp": 0.99,
+      "forecast_7day": [
+        0.99,
+        0.99,
+        0.99,
+        0.9810069812017238,
+        0.9735219455054782,
+        0.9671288600443276,
+        0.9503011920232811
+      ]
+    },
+    "D-TRUST": {
+      "name": "Compound erosion of trust in all institutions",
+      "current_scp": 0.99,
+      "forecast_7day": [
+        0.99,
+        0.99,
+        0.9826497072236371,
+        0.99,
+        0.9712080984853203,
+        0.9735943695061983,
+        0.9884615529761953
+      ]
+    },
+    "C139": {
+      "name": "Mass Displacement",
+      "current_scp": 0.99,
+      "forecast_7day": [
+        0.99,
+        0.99,
+        0.9799918606794309,
+        0.9820621877610934,
+        0.9880598239556468,
+        0.99,
+        0.980676881400541
+      ]
+    }
+  },
+  "alerts": [
+    "\u26a0\ufe0f GSCI expected to exceed 60% within 7 days.",
+    "\u26a0\ufe0f Horn of Africa Famine SCP expected to exceed 70% within 7 days.",
+    "\u26a0\ufe0f AI Deepfake Election SCP expected to exceed 70% within 7 days.",
+    "\u26a0\ufe0f Far\u2011right militia coordination SCP expected to exceed 70% within 7 days.",
+    "\u26a0\ufe0f Compound erosion of trust in all institutions SCP expected to exceed 70% within 7 days.",
+    "\u26a0\ufe0f Mass Displacement SCP expected to exceed 70% within 7 days."
+  ]
+}

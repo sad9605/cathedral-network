@@ -1,0 +1,31 @@
+{
+  "source": "AW12 Health Warden",
+  "fetched_at": "2026-06-30T02:55:42.852876+00:00",
+  "outbreaks": [
+    {
+      "name": "H5N1 Bird Flu",
+      "status": "Active",
+      "region": "North America"
+    },
+    {
+      "name": "Marburg Virus",
+      "status": "Active",
+      "region": "East Africa"
+    },
+    {
+      "name": "Dengue Fever",
+      "status": "Active",
+      "region": "South America"
+    },
+    {
+      "name": "Measles",
+      "status": "Active",
+      "region": "India"
+    },
+    {
+      "name": "Cholera",
+      "status": "Active",
+      "region": "Yemen"
+    }
+  ]
+}
