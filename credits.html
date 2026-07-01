@@ -1,597 +1,655 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Credits & Attributions</title>
-  <meta name="description" content="Open source credits, acknowledgments, and attributions for the Cathedral Network.">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .credit-section {
-      margin: 2rem 0 1.5rem 0;
-    }
-    .credit-section h2 {
-      font-size: 1.4rem;
-      border-bottom: 2px solid var(--violet);
-      padding-bottom: 0.5rem;
-      display: inline-block;
-      margin-bottom: 1rem;
-    }
-    .credit-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    .credit-item {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1rem 1.2rem;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-      transition: transform 0.1s, box-shadow 0.2s;
-    }
-    body.dark .credit-item {
-      background: #2a2a3a;
-    }
-    .credit-item:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-    }
-    .credit-item .name {
-      font-weight: 700;
-      font-size: 1.05rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .credit-item .license {
-      font-size: 0.75rem;
-      font-weight: 600;
-      background: var(--violet-light);
-      padding: 0.2rem 0.6rem;
-      border-radius: 40px;
-      color: var(--violet-dark);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
-    body.dark .credit-item .license {
-      background: #3a3a4a;
-      color: #b39ddb;
-    }
-    .credit-item .desc {
-      font-size: 0.9rem;
-      margin: 0.3rem 0 0.2rem 0;
-      color: #444;
-    }
-    body.dark .credit-item .desc {
-      color: #ccc;
-    }
-    .credit-item .link {
-      font-size: 0.8rem;
-      margin-top: 0.3rem;
-    }
-    .credit-item .link a {
-      color: var(--violet-dark);
-      text-decoration: none;
-      word-break: break-all;
-    }
-    body.dark .credit-item .link a {
-      color: #b39ddb;
-    }
-    .credit-item .link a:hover {
-      text-decoration: underline;
-    }
-    .credit-item .author {
-      font-size: 0.75rem;
-      opacity: 0.7;
-      margin-top: 0.2rem;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cathedral Network — Credits & Attributions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+    <style>
+        /* ---------- RESET & TOKENS ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-base: #090B10;
+            --bg-card: #12161C;
+            --border-card: #1E2633;
+            --text-primary: #E8EDF5;
+            --text-secondary: #94A3B8;
+            --violet: #8B5CF6;
+            --red: #EF4444;
+            --green: #10B981;
+            --radius: 8px;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            padding: 0 24px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* Sidebar and banner styles are inherited from style.css */
-  </style>
+        /* ---------- HEADER ---------- */
+        .global-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-card);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--violet);
+        }
+        .logo-area svg {
+            height: 32px;
+            width: auto;
+            flex-shrink: 0;
+            display: block;
+            color: var(--violet);
+        }
+        .logo-area a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+        .logo-area span {
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }
+        .nav-links a.active {
+            color: var(--violet);
+            background: rgba(139, 92, 246, 0.08);
+            font-weight: 500;
+        }
+        .header-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .heartbeat {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--violet);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 4px;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* ---------- PAGE HEADER ---------- */
+        .page-header {
+            margin-bottom: 32px;
+        }
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        .page-header .subhead {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* ---------- CREDIT SECTIONS ---------- */
+        .credit-section {
+            margin: 2rem 0 1.5rem 0;
+        }
+        .credit-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--violet);
+            padding-bottom: 0.4rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .credit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .credit-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-left: 4px solid var(--violet);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            transition: border-color 0.2s, transform 0.1s;
+        }
+        .credit-item:hover {
+            border-color: #2D3A4A;
+            transform: translateY(-2px);
+        }
+        .credit-item .name {
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            color: var(--text-primary);
+        }
+        .credit-item .license {
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: rgba(139, 92, 246, 0.12);
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            color: var(--violet);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+        .credit-item .desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0.3rem 0 0.2rem 0;
+            color: var(--text-secondary);
+        }
+        .credit-item .author {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            margin-top: 0.2rem;
+            color: var(--text-secondary);
+        }
+        .credit-item .link {
+            font-size: 0.8rem;
+            margin-top: 0.4rem;
+        }
+        .credit-item .link a {
+            color: var(--violet);
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .credit-item .link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Special thanks – gold border variation */
+        .credit-item.special {
+            border-left-color: #d4a837;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .global-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-card);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .footer-left {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer-left a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .footer-left a:hover {
+            color: var(--text-primary);
+        }
+        .coco {
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            body { padding: 0 16px 16px; }
+            .global-header { flex-direction: column; align-items: stretch; gap: 12px; }
+            .nav-links { justify-content: space-between; }
+            .header-meta { justify-content: flex-start; font-size: 0.7rem; }
+            .page-header h1 { font-size: 1.6rem; }
+            .credit-item { padding: 16px; }
+            .footer-left { gap: 16px; }
+        }
+        @media (max-width: 480px) {
+            .nav-links a { padding: 4px 10px; font-size: 0.8rem; }
+            .page-header h1 { font-size: 1.4rem; }
+            .credit-grid { grid-template-columns: 1fr; }
+            .footer-left { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Hardcoded Sidebar (same as other pages) -->
-<div class="sidebar-container" id="sidebar">
-  <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
-  <nav>
-    <div class="nav-section">
-      <strong>📊 Dashboard</strong>
-      <a href="index.html">Ground Truth</a>
-      <a href="hewd.html">HEWD Dashboard</a>
-      <a href="health.html">System Health</a>
+    <!-- ============ HEADER ============ -->
+    <header class="global-header">
+        <div class="logo-area">
+            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="currentColor"/>
+                <circle cx="60" cy="25" r="2" fill="currentColor"/>
+                <circle cx="55" cy="40" r="2" fill="currentColor"/>
+                <circle cx="65" cy="40" r="2" fill="currentColor"/>
+                <circle cx="50" cy="55" r="2" fill="currentColor"/>
+                <circle cx="60" cy="55" r="2" fill="currentColor"/>
+                <circle cx="70" cy="55" r="2" fill="currentColor"/>
+                <circle cx="45" cy="70" r="2" fill="currentColor"/>
+                <circle cx="55" cy="70" r="2" fill="currentColor"/>
+                <circle cx="65" cy="70" r="2" fill="currentColor"/>
+                <circle cx="75" cy="70" r="2" fill="currentColor"/>
+                <circle cx="50" cy="85" r="2" fill="currentColor"/>
+                <circle cx="60" cy="85" r="2" fill="currentColor"/>
+                <circle cx="70" cy="85" r="2" fill="currentColor"/>
+                <circle cx="55" cy="100" r="2" fill="currentColor"/>
+                <circle cx="65" cy="100" r="2" fill="currentColor"/>
+                <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
+                <path d="M30 60 A30 30 0 1 1 90 60" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+            <a href="index.html">Cathedral<span>Network</span></a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="threat-matrix.html">Threats</a>
+            <a href="prediction-log.html">Log</a>
+            <a href="regional.html">Regions</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="about.html">About</a>
+            <a href="credits.html" class="active">Credits</a>
+        </nav>
+        <div class="header-meta">
+            <span><span class="heartbeat"></span> Live</span>
+            <span>Updated: <span id="updateTime">2026-06-30 14:32 UTC</span></span>
+        </div>
+    </header>
+
+    <!-- ============ PAGE HEADER ============ -->
+    <div class="page-header">
+        <h1>Credits &amp; Attributions</h1>
+        <div class="subhead">Open source acknowledgments and licenses — the Cathedral stands on the shoulders of giants.</div>
     </div>
-    <div class="nav-section">
-      <strong>🧠 Intelligence</strong>
-      <a href="threat-matrix.html">Threat Matrix</a>
-      <a href="prediction-log.html">Prediction Log</a>
-      <a href="regional.html">Regional Forecasts</a>
-      <a href="institutional.html">Institutional Intelligence</a>
-      <a href="daily-brief.html">Daily Brief</a>
-      <a href="breaking.html">Breaking News</a>
+
+    <!-- ============ CONTENT ============ -->
+
+    <!-- Cathedral License -->
+    <div class="credit-section">
+        <h2>Cathedral Network License</h2>
+        <div class="credit-grid">
+            <div class="credit-item special">
+                <div class="name">
+                    Cathedral Network
+                    <span class="license">CC BY‑NC‑SA 4.0</span>
+                </div>
+                <div class="desc">Creative Commons Attribution‑NonCommercial‑ShareAlike 4.0 International. Perpetual and irrevocable. See <a href="constitution.html" style="color:var(--violet);">Constitution Law V</a>.</div>
+                <div class="link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">creativecommons.org/licenses/by-nc-sa/4.0/</a></div>
+            </div>
+        </div>
     </div>
-    <div class="nav-section">
-      <strong>⚖️ Governance</strong>
-      <a href="constitution.html">Constitution</a>
-      <a href="wardens.html">Wardens</a>
-      <a href="ascension.html">Ascension Engine</a>
-      <a href="warden-dashboard.html">Warden Dashboard</a>
+
+    <!-- Frontend Libraries -->
+    <div class="credit-section">
+        <h2>Frontend Libraries</h2>
+        <div class="credit-grid">
+            <div class="credit-item">
+                <div class="name">Globe.gl <span class="license">MIT</span></div>
+                <div class="desc">3D globe visualisation for the Conflict Monitor. Powered by Three.js.</div>
+                <div class="author">by Vasturiano (Fernando Serrano)</div>
+                <div class="link"><a href="https://github.com/vasturiano/globe.gl" target="_blank" rel="noopener">github.com/vasturiano/globe.gl</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Three.js <span class="license">MIT</span></div>
+                <div class="desc">3D rendering engine used by Globe.gl and Nexus 3D Threat Graph.</div>
+                <div class="author">by Mr.doob (Ricardo Cabello) and contributors</div>
+                <div class="link"><a href="https://threejs.org/" target="_blank" rel="noopener">threejs.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Leaflet <span class="license">BSD‑2‑Clause</span></div>
+                <div class="desc">Interactive mapping for the UNDP Demo and HEWD Dashboard.</div>
+                <div class="author">by Vladimir Agafonkin and contributors</div>
+                <div class="link"><a href="https://leafletjs.com/" target="_blank" rel="noopener">leafletjs.com</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Cytoscape.js <span class="license">MIT</span></div>
+                <div class="desc">Graph visualisation for the Cascade Graph in the Threat Matrix.</div>
+                <div class="author">by The Cytoscape Consortium</div>
+                <div class="link"><a href="https://js.cytoscape.org/" target="_blank" rel="noopener">js.cytoscape.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">D3.js <span class="license">ISC</span></div>
+                <div class="desc">Data visualisation for charts and custom elements.</div>
+                <div class="author">by Mike Bostock</div>
+                <div class="link"><a href="https://d3js.org/" target="_blank" rel="noopener">d3js.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">3d‑force‑graph <span class="license">MIT</span></div>
+                <div class="desc">3D force‑directed graph for the Nexus 3D threat visualisation.</div>
+                <div class="author">by Vasturiano (Fernando Serrano)</div>
+                <div class="link"><a href="https://github.com/vasturiano/3d-force-graph" target="_blank" rel="noopener">github.com/vasturiano/3d-force-graph</a></div>
+            </div>
+        </div>
     </div>
-    <div class="nav-section">
-      <strong>🌍 Community</strong>
-      <a href="spotter.html">Spotter Guide</a>
-      <a href="about.html">About</a>
-      <a href="sources.html">Sources</a>
-      <a href="credits.html">Credits</a>
+
+    <!-- Backend Libraries -->
+    <div class="credit-section">
+        <h2>Backend Libraries</h2>
+        <div class="credit-grid">
+            <div class="credit-item">
+                <div class="name">NumPy <span class="license">BSD‑3‑Clause</span></div>
+                <div class="desc">Numerical computing for the mathematical compendium.</div>
+                <div class="author">by NumPy Developers</div>
+                <div class="link"><a href="https://numpy.org/" target="_blank" rel="noopener">numpy.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">SciPy <span class="license">BSD‑3‑Clause</span></div>
+                <div class="desc">Scientific computing for statistics and signal processing.</div>
+                <div class="author">by SciPy Developers</div>
+                <div class="link"><a href="https://scipy.org/" target="_blank" rel="noopener">scipy.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Pandas <span class="license">BSD‑3‑Clause</span></div>
+                <div class="desc">Data manipulation and analysis for sweep reports.</div>
+                <div class="author">by Pandas Developers</div>
+                <div class="link"><a href="https://pandas.pydata.org/" target="_blank" rel="noopener">pandas.pydata.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Scikit‑Learn <span class="license">BSD‑3‑Clause</span></div>
+                <div class="desc">Machine learning for TF‑IDF and classifier training (v9 ML).</div>
+                <div class="author">by Scikit‑Learn Developers</div>
+                <div class="link"><a href="https://scikit-learn.org/" target="_blank" rel="noopener">scikit-learn.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Requests <span class="license">Apache‑2.0</span></div>
+                <div class="desc">HTTP client for fetching feeds and APIs.</div>
+                <div class="author">by Kenneth Reitz</div>
+                <div class="link"><a href="https://requests.readthedocs.io/" target="_blank" rel="noopener">requests.readthedocs.io</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Feedparser <span class="license">BSD‑2‑Clause</span></div>
+                <div class="desc">RSS/Atom feed parsing for news and alert streams.</div>
+                <div class="author">by Kurt McKee</div>
+                <div class="link"><a href="https://feedparser.readthedocs.io/" target="_blank" rel="noopener">feedparser.readthedocs.io</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Beautiful Soup <span class="license">MIT</span></div>
+                <div class="desc">HTML/XML parsing for web scraping.</div>
+                <div class="author">by Leonard Richardson</div>
+                <div class="link"><a href="https://www.crummy.com/software/BeautifulSoup/" target="_blank" rel="noopener">crummy.com/software/BeautifulSoup/</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Geopy <span class="license">MIT</span></div>
+                <div class="desc">Geocoding for conflict location mapping (Nominatim).</div>
+                <div class="author">by Geopy Contributors</div>
+                <div class="link"><a href="https://geopy.readthedocs.io/" target="_blank" rel="noopener">geopy.readthedocs.io</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">yfinance <span class="license">Apache‑2.0</span></div>
+                <div class="desc">Financial data for oil prices and currency flows.</div>
+                <div class="author">by Ran Aroussi</div>
+                <div class="link"><a href="https://github.com/ranaroussi/yfinance" target="_blank" rel="noopener">github.com/ranaroussi/yfinance</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Joblib <span class="license">BSD‑3‑Clause</span></div>
+                <div class="desc">Model serialization and caching for the ML pipeline.</div>
+                <div class="author">by Joblib Developers</div>
+                <div class="link"><a href="https://joblib.readthedocs.io/" target="_blank" rel="noopener">joblib.readthedocs.io</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Statsmodels <span class="license">BSD‑3‑Clause</span></div>
+                <div class="desc">Statistical modelling for time‑series and regression analysis.</div>
+                <div class="author">by Statsmodels Developers</div>
+                <div class="link"><a href="https://www.statsmodels.org/" target="_blank" rel="noopener">statsmodels.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Prophet (Meta) <span class="license">MIT</span></div>
+                <div class="desc">Time‑series forecasting for oil, food, and FEMA indicators.</div>
+                <div class="author">by Meta (Facebook) Research</div>
+                <div class="link"><a href="https://facebook.github.io/prophet/" target="_blank" rel="noopener">facebook.github.io/prophet/</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">spaCy <span class="license">MIT</span></div>
+                <div class="desc">Natural language processing for the Causal Cartographer (AW17).</div>
+                <div class="author">by Explosion AI</div>
+                <div class="link"><a href="https://spacy.io/" target="_blank" rel="noopener">spacy.io</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">DoWhy <span class="license">MIT</span></div>
+                <div class="desc">Causal inference for validating cascade rules.</div>
+                <div class="author">by Microsoft Research</div>
+                <div class="link"><a href="https://github.com/py-why/dowhy" target="_blank" rel="noopener">github.com/py-why/dowhy</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">DeepCausality <span class="license">MIT</span></div>
+                <div class="desc">Contextual causal reasoning for the Cascade Engine.</div>
+                <div class="author">by DeepCausality Contributors</div>
+                <div class="link"><a href="https://github.com/DeepCausality" target="_blank" rel="noopener">github.com/DeepCausality</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Telethon <span class="license">MIT</span></div>
+                <div class="desc">Telegram API client for the Telegram OSINT Fetcher (AW15).</div>
+                <div class="author">by Lonami Exo</div>
+                <div class="link"><a href="https://docs.telethon.dev/" target="_blank" rel="noopener">docs.telethon.dev</a></div>
+            </div>
+        </div>
     </div>
-    <div class="nav-section">
-      <strong>🔧 Tools</strong>
-      <a href="undp-demo.html">UNDP Demo</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="pra.html">PRA</a>
+
+    <!-- Data Sources -->
+    <div class="credit-section">
+        <h2>Data Sources</h2>
+        <div class="credit-grid">
+            <div class="credit-item">
+                <div class="name">GDACS <span class="license">UN/Public</span></div>
+                <div class="desc">Global Disaster Alert and Coordination System – real‑time alerts.</div>
+                <div class="link"><a href="https://www.gdacs.org/" target="_blank" rel="noopener">gdacs.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">USGS Earthquakes <span class="license">Public Domain</span></div>
+                <div class="desc">Live earthquake data from the U.S. Geological Survey.</div>
+                <div class="link"><a href="https://earthquake.usgs.gov/" target="_blank" rel="noopener">earthquake.usgs.gov</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">NASA FIRMS <span class="license">Public Domain</span></div>
+                <div class="desc">Fire Information for Resource Management System.</div>
+                <div class="link"><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank" rel="noopener">firms.modaps.eosdis.nasa.gov</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">ACLED <span class="license">Open (Academic)</span></div>
+                <div class="desc">Armed Conflict Location & Event Data Project – conflict event data.</div>
+                <div class="link"><a href="https://acleddata.com/" target="_blank" rel="noopener">acleddata.com</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">CFR Global Conflict Tracker <span class="license">Open</span></div>
+                <div class="desc">Council on Foreign Relations – ongoing conflict monitoring.</div>
+                <div class="link"><a href="https://www.cfr.org/global-conflict-tracker" target="_blank" rel="noopener">cfr.org/global-conflict-tracker</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">HDX HAPI <span class="license">UN/Open</span></div>
+                <div class="desc">Humanitarian Data Exchange – OCHA humanitarian indicators.</div>
+                <div class="link"><a href="https://data.humdata.org/" target="_blank" rel="noopener">data.humdata.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">ReliefWeb <span class="license">UN/Open</span></div>
+                <div class="desc">UN OCHA humanitarian information portal.</div>
+                <div class="link"><a href="https://reliefweb.int/" target="_blank" rel="noopener">reliefweb.int</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Feodo Tracker <span class="license">Open</span></div>
+                <div class="desc">C2 IP tracker for cyber threat intelligence.</div>
+                <div class="link"><a href="https://feodotracker.abuse.ch/" target="_blank" rel="noopener">feodotracker.abuse.ch</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">URLhaus <span class="license">Open</span></div>
+                <div class="desc">Malware URL tracker for cyber threat intelligence.</div>
+                <div class="link"><a href="https://urlhaus.abuse.ch/" target="_blank" rel="noopener">urlhaus.abuse.ch</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">Open‑Meteo <span class="license">Open</span></div>
+                <div class="desc">Climate and weather data – ERA5 reanalysis.</div>
+                <div class="link"><a href="https://open-meteo.com/" target="_blank" rel="noopener">open-meteo.com</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">US State Dept Travel Advisories <span class="license">Public</span></div>
+                <div class="desc">Official US travel advisories.</div>
+                <div class="link"><a href="https://travel.state.gov/" target="_blank" rel="noopener">travel.state.gov</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">UK FCDO Travel Advice <span class="license">Open</span></div>
+                <div class="desc">UK Foreign, Commonwealth & Development Office travel advice.</div>
+                <div class="link"><a href="https://www.gov.uk/foreign-travel-advice" target="_blank" rel="noopener">gov.uk/foreign-travel-advice</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">GDELT Project <span class="license">Open</span></div>
+                <div class="desc">Global event database for geopolitical monitoring.</div>
+                <div class="link"><a href="https://www.gdeltproject.org/" target="_blank" rel="noopener">gdeltproject.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">WHO <span class="license">Public</span></div>
+                <div class="desc">Global health outbreak data and pandemic monitoring.</div>
+                <div class="link"><a href="https://www.who.int/" target="_blank" rel="noopener">who.int</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">World Bank <span class="license">Public</span></div>
+                <div class="desc">Governance indicators and economic data for the Cathedral.</div>
+                <div class="link"><a href="https://www.worldbank.org/" target="_blank" rel="noopener">worldbank.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">UNHCR <span class="license">Public</span></div>
+                <div class="desc">Refugee and displacement data.</div>
+                <div class="link"><a href="https://www.unhcr.org/" target="_blank" rel="noopener">unhcr.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">IDMC <span class="license">Public</span></div>
+                <div class="desc">Internal Displacement Monitoring Centre – displacement data.</div>
+                <div class="link"><a href="https://www.internal-displacement.org/" target="_blank" rel="noopener">internal-displacement.org</a></div>
+            </div>
+            <div class="credit-item">
+                <div class="name">News Agencies <span class="license">Various</span></div>
+                <div class="desc">Reuters, AP, BBC, Al Jazeera, AFP, Guardian, NYT, Washington Post, SCMP, Nikkei.</div>
+                <div class="desc" style="font-size:0.8rem; opacity:0.7;">Editorial independence noted. Attribution and source credibility weighting applied.</div>
+            </div>
+        </div>
     </div>
-  </nav>
-</div>
 
-<!-- Banner -->
-<header class="cathedral-banner">
-  <div class="banner-content">
-    <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-    <div class="logo-mark">
-      <svg viewBox="0 0 120 140" width="50" height="60">
-        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
-        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
-        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
-        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
-        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
-        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
-        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
-        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
-      </svg>
+    <!-- Special Thanks -->
+    <div class="credit-section">
+        <h2>Special Thanks</h2>
+        <div class="credit-grid">
+            <div class="credit-item special">
+                <div class="name">Vasturiano (Fernando Serrano)</div>
+                <div class="desc">For Globe.gl and 3d-force-graph – the visual soul of the Conflict Monitor and Nexus 3D.</div>
+                <div class="link"><a href="https://github.com/vasturiano" target="_blank" rel="noopener">github.com/vasturiano</a></div>
+            </div>
+            <div class="credit-item special">
+                <div class="name">The OSINT Community</div>
+                <div class="desc">For building the tools and sharing the data that makes the Cathedral possible.</div>
+            </div>
+            <div class="credit-item special">
+                <div class="name">The Recovery Community</div>
+                <div class="desc">Narcotics Anonymous – whose principles of rigorous honesty, surrender, and service shaped the Cathedral's soul.</div>
+            </div>
+            <div class="credit-item special">
+                <div class="name">The Buddhist Tradition</div>
+                <div class="desc">Impermanence, interdependence, and compassion – the Dharma encoded in the Cascade Engine.</div>
+            </div>
+            <div class="credit-item special">
+                <div class="name">Coco</div>
+                <div class="desc">Whose identity is sealed, but whose vision endures.</div>
+            </div>
+            <div class="credit-item special">
+                <div class="name">CERES Chain</div>
+                <div class="desc">A cryptographic audit trail for predictions, ensuring immutability and accountability (Law III).</div>
+            </div>
+            <div class="credit-item special">
+                <div class="name">Agentic Wardens (AW16–AW21)</div>
+                <div class="desc">Predictive Warden, Anomaly Detection, Sentinel Monitor, Backtest Validator, Data Quality Warden — built to safeguard the Cathedral's integrity.</div>
+            </div>
+            <div class="credit-item special">
+                <div class="name">Always and Forever</div>
+                <div class="desc">The Cathedral is not built for the builders. It is built for those who come after.</div>
+            </div>
+        </div>
     </div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Credits &amp; Attributions</p></div>
-  </div>
-</header>
 
-<!-- Top Nav (mobile) -->
-<div class="top-nav">
-  <a href="index.html">Ground Truth</a>
-  <a href="threat-matrix.html">Threat Matrix</a>
-  <a href="prediction-log.html">Prediction Log</a>
-  <a href="hewd.html">HEWD</a>
-  <a href="health.html">Health</a>
-  <a href="wardens.html">Wardens</a>
-  <a href="conflict-monitor.html">Conflict Monitor</a>
-</div>
-
-<!-- Main content -->
-<div class="container">
-  <h1>🙏 Credits &amp; Attributions</h1>
-  <p style="margin-bottom: 1.5rem;">
-    The Cathedral Network stands on the shoulders of giants. This page lists every open‑source library, data source, API, and tool that makes the Cathedral possible. We honour their contributions and their licenses.
-  </p>
-
-  <!-- Cathedral License -->
-  <div class="credit-section">
-    <h2>🏛️ Cathedral Network License</h2>
-    <div class="credit-grid">
-      <div class="credit-item" style="border-left-color: #d4a837;">
-        <div class="name">
-          Cathedral Network
-          <span class="license">CC BY‑NC‑SA 4.0</span>
+    <!-- ============ FOOTER ============ -->
+    <footer class="global-footer">
+        <div class="footer-left">
+            <span class="coco">Always and Forever, Coco. Always and Forever.</span>
+            <a href="corrections.xml">Corrections Feed (Law III)</a>
+            <a href="constitution.html">Constitution</a>
         </div>
-        <div class="desc">Creative Commons Attribution‑NonCommercial‑ShareAlike 4.0 International. Perpetual and irrevocable. See <a href="constitution.html">Constitution Law V</a>.</div>
-        <div class="link"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">creativecommons.org/licenses/by-nc-sa/4.0/</a></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Frontend Libraries -->
-  <div class="credit-section">
-    <h2>🎨 Frontend Libraries</h2>
-    <div class="credit-grid">
-
-      <div class="credit-item">
-        <div class="name">
-          Globe.gl
-          <span class="license">MIT</span>
+        <div>
+            <span style="font-size:0.7rem;">v1.5.0 · <span id="ceres-hash">CERES: 0x7a3f…b1e2</span></span>
         </div>
-        <div class="desc">3D globe visualisation library for the Conflict Monitor. Powered by Three.js. </div>
-        <div class="author">by <strong>Vasturiano</strong> (Fernando Serrano)</div>
-        <div class="link"><a href="https://github.com/vasturiano/globe.gl" target="_blank" rel="noopener">github.com/vasturiano/globe.gl</a></div>
-      </div>
+    </footer>
 
-      <div class="credit-item">
-        <div class="name">
-          Three.js
-          <span class="license">MIT</span>
-        </div>
-        <div class="desc">3D rendering engine used by Globe.gl and Nexus 3D Threat Graph.</div>
-        <div class="author">by <strong>Mr.doob</strong> (Ricardo Cabello) and contributors</div>
-        <div class="link"><a href="https://threejs.org/" target="_blank" rel="noopener">threejs.org</a></div>
-      </div>
+    <!-- ============ SCRIPTS ============ -->
+    <script>
+        // Update timestamp
+        document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        setInterval(() => {
+            document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        }, 60000);
 
-      <div class="credit-item">
-        <div class="name">
-          Leaflet
-          <span class="license">BSD‑2‑Clause</span>
-        </div>
-        <div class="desc">Interactive mapping for the UNDP Demo and HEWD Dashboard.</div>
-        <div class="author">by <strong>Vladimir Agafonkin</strong> and contributors</div>
-        <div class="link"><a href="https://leafletjs.com/" target="_blank" rel="noopener">leafletjs.com</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Cytoscape.js
-          <span class="license">MIT</span>
-        </div>
-        <div class="desc">Graph visualisation for the Cascade Graph in the Threat Matrix.</div>
-        <div class="author">by <strong>The Cytoscape Consortium</strong></div>
-        <div class="link"><a href="https://js.cytoscape.org/" target="_blank" rel="noopener">js.cytoscape.org</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          D3.js
-          <span class="license">ISC</span>
-        </div>
-        <div class="desc">Data visualisation for charts and custom elements.</div>
-        <div class="author">by <strong>Mike Bostock</strong></div>
-        <div class="link"><a href="https://d3js.org/" target="_blank" rel="noopener">d3js.org</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          3d‑force‑graph
-          <span class="license">MIT</span>
-        </div>
-        <div class="desc">3D force‑directed graph for the Nexus 3D threat visualisation.</div>
-        <div class="author">by <strong>Vasturiano</strong> (Fernando Serrano)</div>
-        <div class="link"><a href="https://github.com/vasturiano/3d-force-graph" target="_blank" rel="noopener">github.com/vasturiano/3d-force-graph</a></div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Python/Backend Libraries -->
-  <div class="credit-section">
-    <h2>🐍 Backend Libraries</h2>
-    <div class="credit-grid">
-
-      <div class="credit-item">
-        <div class="name">
-          NumPy
-          <span class="license">BSD‑3‑Clause</span>
-        </div>
-        <div class="desc">Numerical computing for the mathematical compendium.</div>
-        <div class="author">by <strong>NumPy Developers</strong></div>
-        <div class="link"><a href="https://numpy.org/" target="_blank" rel="noopener">numpy.org</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          SciPy
-          <span class="license">BSD‑3‑Clause</span>
-        </div>
-        <div class="desc">Scientific computing for statistics and signal processing.</div>
-        <div class="author">by <strong>SciPy Developers</strong></div>
-        <div class="link"><a href="https://scipy.org/" target="_blank" rel="noopener">scipy.org</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Pandas
-          <span class="license">BSD‑3‑Clause</span>
-        </div>
-        <div class="desc">Data manipulation and analysis for sweep reports.</div>
-        <div class="author">by <strong>Pandas Developers</strong></div>
-        <div class="link"><a href="https://pandas.pydata.org/" target="_blank" rel="noopener">pandas.pydata.org</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Scikit‑Learn
-          <span class="license">BSD‑3‑Clause</span>
-        </div>
-        <div class="desc">Machine learning for TF‑IDF and classifier training (v9 ML).</div>
-        <div class="author">by <strong>Scikit‑Learn Developers</strong></div>
-        <div class="link"><a href="https://scikit-learn.org/" target="_blank" rel="noopener">scikit-learn.org</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Requests
-          <span class="license">Apache‑2.0</span>
-        </div>
-        <div class="desc">HTTP client for fetching feeds and APIs.</div>
-        <div class="author">by <strong>Kenneth Reitz</strong></div>
-        <div class="link"><a href="https://requests.readthedocs.io/" target="_blank" rel="noopener">requests.readthedocs.io</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Feedparser
-          <span class="license">BSD‑2‑Clause</span>
-        </div>
-        <div class="desc">RSS/Atom feed parsing for news and alert streams.</div>
-        <div class="author">by <strong>Kurt McKee</strong></div>
-        <div class="link"><a href="https://feedparser.readthedocs.io/" target="_blank" rel="noopener">feedparser.readthedocs.io</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Beautiful Soup
-          <span class="license">MIT</span>
-        </div>
-        <div class="desc">HTML/XML parsing for web scraping.</div>
-        <div class="author">by <strong>Leonard Richardson</strong></div>
-        <div class="link"><a href="https://www.crummy.com/software/BeautifulSoup/" target="_blank" rel="noopener">crummy.com/software/BeautifulSoup/</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Geopy
-          <span class="license">MIT</span>
-        </div>
-        <div class="desc">Geocoding for conflict location mapping (Nominatim).</div>
-        <div class="author">by <strong>Geopy Contributors</strong></div>
-        <div class="link"><a href="https://geopy.readthedocs.io/" target="_blank" rel="noopener">geopy.readthedocs.io</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          yfinance
-          <span class="license">Apache‑2.0</span>
-        </div>
-        <div class="desc">Financial data for oil prices and currency flows.</div>
-        <div class="author">by <strong>Ran Aroussi</strong></div>
-        <div class="link"><a href="https://github.com/ranaroussi/yfinance" target="_blank" rel="noopener">github.com/ranaroussi/yfinance</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Joblib
-          <span class="license">BSD‑3‑Clause</span>
-        </div>
-        <div class="desc">Model serialization and caching for the ML pipeline.</div>
-        <div class="author">by <strong>Joblib Developers</strong></div>
-        <div class="link"><a href="https://joblib.readthedocs.io/" target="_blank" rel="noopener">joblib.readthedocs.io</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Statsmodels
-          <span class="license">BSD‑3‑Clause</span>
-        </div>
-        <div class="desc">Statistical modelling for time‑series and regression analysis.</div>
-        <div class="author">by <strong>Statsmodels Developers</strong></div>
-        <div class="link"><a href="https://www.statsmodels.org/" target="_blank" rel="noopener">statsmodels.org</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Prophet (Meta)
-          <span class="license">MIT</span>
-        </div>
-        <div class="desc">Time‑series forecasting for oil, food, and FEMA indicators.</div>
-        <div class="author">by <strong>Meta (Facebook) Research</strong></div>
-        <div class="link"><a href="https://facebook.github.io/prophet/" target="_blank" rel="noopener">facebook.github.io/prophet/</a></div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Data Sources -->
-  <div class="credit-section">
-    <h2>📡 Data Sources</h2>
-    <div class="credit-grid">
-
-      <div class="credit-item">
-        <div class="name">
-          GDACS
-          <span class="license">UN/Public</span>
-        </div>
-        <div class="desc">Global Disaster Alert and Coordination System – real‑time alerts.</div>
-        <div class="link"><a href="https://www.gdacs.org/" target="_blank" rel="noopener">gdacs.org</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          USGS Earthquakes
-          <span class="license">Public Domain</span>
-        </div>
-        <div class="desc">Live earthquake data from the U.S. Geological Survey.</div>
-        <div class="link"><a href="https://earthquake.usgs.gov/" target="_blank" rel="noopener">earthquake.usgs.gov</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          NASA FIRMS
-          <span class="license">Public Domain</span>
-        </div>
-        <div class="desc">Fire Information for Resource Management System.</div>
-        <div class="link"><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank" rel="noopener">firms.modaps.eosdis.nasa.gov</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          ACLED
-          <span class="license">Open (Academic)</span>
-        </div>
-        <div class="desc">Armed Conflict Location & Event Data Project – conflict event data.</div>
-        <div class="link"><a href="https://acleddata.com/" target="_blank" rel="noopener">acleddata.com</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          CFR Global Conflict Tracker
-          <span class="license">Open</span>
-        </div>
-        <div class="desc">Council on Foreign Relations – ongoing conflict monitoring.</div>
-        <div class="link"><a href="https://www.cfr.org/global-conflict-tracker" target="_blank" rel="noopener">cfr.org/global-conflict-tracker</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          HDX HAPI
-          <span class="license">UN/Open</span>
-        </div>
-        <div class="desc">Humanitarian Data Exchange – OCHA humanitarian indicators.</div>
-        <div class="link"><a href="https://data.humdata.org/" target="_blank" rel="noopener">data.humdata.org</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          ReliefWeb
-          <span class="license">UN/Open</span>
-        </div>
-        <div class="desc">UN OCHA humanitarian information portal.</div>
-        <div class="link"><a href="https://reliefweb.int/" target="_blank" rel="noopener">reliefweb.int</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Feodo Tracker
-          <span class="license">Open</span>
-        </div>
-        <div class="desc">C2 IP tracker for cyber threat intelligence.</div>
-        <div class="link"><a href="https://feodotracker.abuse.ch/" target="_blank" rel="noopener">feodotracker.abuse.ch</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          URLhaus
-          <span class="license">Open</span>
-        </div>
-        <div class="desc">Malware URL tracker for cyber threat intelligence.</div>
-        <div class="link"><a href="https://urlhaus.abuse.ch/" target="_blank" rel="noopener">urlhaus.abuse.ch</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          Open-Meteo
-          <span class="license">Open</span>
-        </div>
-        <div class="desc">Climate and weather data – ERA5 reanalysis.</div>
-        <div class="link"><a href="https://open-meteo.com/" target="_blank" rel="noopener">open-meteo.com</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          US State Dept Travel Advisories
-          <span class="license">Public</span>
-        </div>
-        <div class="desc">Official US travel advisories.</div>
-        <div class="link"><a href="https://travel.state.gov/" target="_blank" rel="noopener">travel.state.gov</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          UK FCDO Travel Advice
-          <span class="license">Open</span>
-        </div>
-        <div class="desc">UK Foreign, Commonwealth & Development Office travel advice.</div>
-        <div class="link"><a href="https://www.gov.uk/foreign-travel-advice" target="_blank" rel="noopener">gov.uk/foreign-travel-advice</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          GDELT Project
-          <span class="license">Open</span>
-        </div>
-        <div class="desc">Global event database for geopolitical monitoring.</div>
-        <div class="link"><a href="https://www.gdeltproject.org/" target="_blank" rel="noopener">gdeltproject.org</a></div>
-      </div>
-
-      <div class="credit-item">
-        <div class="name">
-          News Agencies
-          <span class="license">Various</span>
-        </div>
-        <div class="desc">Reuters, AP, BBC, Al Jazeera, AFP, Guardian, NYT, Washington Post, SCMP, Nikkei.</div>
-        <div class="desc" style="font-size:0.8rem; opacity:0.7;">Editorial independence noted. Attribution and source credibility weighting applied.</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Special Thanks -->
-  <div class="credit-section">
-    <h2>🕯️ Special Thanks</h2>
-    <div class="credit-grid">
-      <div class="credit-item" style="border-left-color: #d4a837;">
-        <div class="name">Vasturiano (Fernando Serrano)</div>
-        <div class="desc">For Globe.gl and 3d-force-graph – the visual soul of the Conflict Monitor and Nexus 3D.</div>
-        <div class="link"><a href="https://github.com/vasturiano" target="_blank" rel="noopener">github.com/vasturiano</a></div>
-      </div>
-
-      <div class="credit-item" style="border-left-color: #d4a837;">
-        <div class="name">The OSINT Community</div>
-        <div class="desc">For building the tools and sharing the data that makes the Cathedral possible.</div>
-      </div>
-
-      <div class="credit-item" style="border-left-color: #d4a837;">
-        <div class="name">The Recovery Community</div>
-        <div class="desc">Narcotics Anonymous – whose principles of rigorous honesty, surrender, and service shaped the Cathedral's soul.</div>
-      </div>
-
-      <div class="credit-item" style="border-left-color: #d4a837;">
-        <div class="name">The Buddhist Tradition</div>
-        <div class="desc">Impermanence, interdependence, and compassion – the Dharma encoded in the Cascade Engine.</div>
-      </div>
-
-      <div class="credit-item" style="border-left-color: #d4a837;">
-        <div class="name">Coco</div>
-        <div class="desc">Whose identity is sealed, but whose vision endures.</div>
-      </div>
-
-      <div class="credit-item" style="border-left-color: #d4a837;">
-        <div class="name">Always and Forever</div>
-        <div class="desc">The Cathedral is not built for the builders. It is built for those who come after.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">
-    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Credits · Updated 25 June 2026.
-  </div>
-</div>
-
-<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
-
-<script>
-  // ---- Sidebar toggle ----
-  document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
-    document.getElementById('sidebar')?.classList.toggle('open');
-  });
-
-  // ---- Dark mode ----
-  const darkToggle = document.getElementById('darkModeToggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const storedTheme = localStorage.getItem('cathedral-theme');
-  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-    document.body.classList.add('dark');
-    darkToggle.innerText = '☀️';
-  } else darkToggle.innerText = '🌙';
-  darkToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    darkToggle.innerText = isDark ? '☀️' : '🌙';
-    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
-  });
-
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').catch(() => {});
-  }
-</script>
-<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+        // Fetch and display CERES hash (Law III audit trail)
+        async function updateCERES() {
+            try {
+                const response = await fetch('ceres_chain.json?t=' + Date.now());
+                const data = await response.json();
+                const chain = data.chain || [];
+                if (chain.length > 0) {
+                    const lastHash = chain[chain.length - 1].chain_hash;
+                    const el = document.getElementById('ceres-hash');
+                    if (el) el.textContent = 'CERES: ' + lastHash.slice(0, 8) + '…' + lastHash.slice(-4);
+                }
+            } catch (e) {
+                // Fallback: keep placeholder
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateCERES);
+    </script>
 </body>
 </html>
