@@ -356,11 +356,16 @@
             const container = document.getElementById('sources-container');
             try {
                 const response = await fetch('sources.json?t=' + Date.now());
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
                 const data = await response.json();
-                const categories = data.data_sources || [];
+
+                // Your JSON uses top-level "sources" — not "data_sources"
+                const categories = data.sources || [];
 
                 if (!categories.length) {
-                    container.innerHTML = '<p style="color: var(--text-secondary);">No sources found.</p>';
+                    container.innerHTML = '<p style="color: var(--text-secondary);">No source categories found in sources.json.</p>';
                     return;
                 }
 
@@ -400,7 +405,7 @@
 
                 container.innerHTML = html;
             } catch (error) {
-                container.innerHTML = '<p style="color: var(--text-secondary);">Unable to load sources. Please try again later.</p>';
+                container.innerHTML = `<p style="color: var(--text-secondary);">Unable to load sources. Please try again later. Error: ${error.message}</p>`;
                 console.warn('Failed to load sources.json:', error);
             }
         }
