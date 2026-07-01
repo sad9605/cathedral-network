@@ -1,696 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Glossary</title>
-  <meta name="description" content="Complete glossary of all Cathedral Network terms, metrics, and governance concepts.">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .glossary-item {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1rem;
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1rem 1.5rem;
-      margin-bottom: 0.8rem;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-      align-items: baseline;
-    }
-    body.dark .glossary-item {
-      background: #2a2a3a;
-    }
-    .glossary-item .term {
-      font-weight: 700;
-      font-size: 1.1rem;
-      min-width: 160px;
-      color: var(--violet-dark);
-    }
-    body.dark .glossary-item .term {
-      color: #b39ddb;
-    }
-    .glossary-item .term a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .glossary-item .term a:hover {
-      text-decoration: underline;
-    }
-    .glossary-item .definition {
-      flex: 1;
-      font-size: 0.95rem;
-      color: #444;
-    }
-    body.dark .glossary-item .definition {
-      color: #ccc;
-    }
-    .glossary-item .definition a {
-      color: var(--violet-dark);
-      text-decoration: none;
-    }
-    body.dark .glossary-item .definition a {
-      color: #b39ddb;
-    }
-    .glossary-item .definition a:hover {
-      text-decoration: underline;
-    }
-    .glossary-item .tag {
-      font-size: 0.65rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 0.2rem 0.6rem;
-      border-radius: 40px;
-      background: var(--violet-light);
-      color: var(--violet-dark);
-      white-space: nowrap;
-    }
-    body.dark .glossary-item .tag {
-      background: #3a3a4a;
-      color: #b39ddb;
-    }
-    .glossary-index {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0;
-      padding: 1rem;
-      background: var(--violet-light);
-      border-radius: var(--card-radius);
-    }
-    body.dark .glossary-index {
-      background: #2a2a3a;
-    }
-    .glossary-index a {
-      color: var(--violet-dark);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 40px;
-      transition: background 0.2s;
-    }
-    body.dark .glossary-index a {
-      color: #b39ddb;
-    }
-    .glossary-index a:hover {
-      background: var(--violet-dark);
-      color: white;
-    }
-    body.dark .glossary-index a:hover {
-      background: var(--violet);
-      color: #1a1a1a;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cathedral Network — Glossary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+    <style>
+        /* ---------- RESET & TOKENS ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-base: #090B10;
+            --bg-card: #12161C;
+            --border-card: #1E2633;
+            --text-primary: #E8EDF5;
+            --text-secondary: #94A3B8;
+            --violet: #8B5CF6;
+            --radius: 8px;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            padding: 0 24px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* Sidebar */
-    .sidebar-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 220px;
-      height: 100%;
-      background: white;
-      border-right: 1px solid #eee;
-      overflow-y: auto;
-      z-index: 1000;
-      padding: 1rem;
-      transition: transform 0.3s ease;
-    }
-    body.dark .sidebar-container {
-      background: #2a2a3a;
-      border-right-color: #444;
-    }
-    .sidebar-container .sidebar-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid #eee;
-    }
-    body.dark .sidebar-container .sidebar-header {
-      border-bottom-color: #444;
-    }
-    .sidebar-container .sidebar-header span {
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
-      color: var(--violet-dark);
-    }
-    body.dark .sidebar-container .sidebar-header span {
-      color: #b39ddb;
-    }
-    .sidebar-container nav .nav-section {
-      margin-bottom: 1.25rem;
-    }
-    .sidebar-container nav .nav-section strong {
-      display: block;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--violet-dark);
-      padding: 0.2rem 0 0.3rem 0;
-      opacity: 0.7;
-    }
-    body.dark .sidebar-container nav .nav-section strong {
-      color: #b39ddb;
-    }
-    .sidebar-container nav .nav-section a {
-      display: block;
-      padding: 0.3rem 0.5rem;
-      font-size: 0.9rem;
-      color: var(--text-dark);
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.15s;
-    }
-    body.dark .sidebar-container nav .nav-section a {
-      color: #f0f0f0;
-    }
-    .sidebar-container nav .nav-section a:hover {
-      background: var(--violet-light);
-    }
-    body.dark .sidebar-container nav .nav-section a:hover {
-      background: #3a3a4a;
-    }
-    #sidebar-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.5rem;
-      color: var(--violet-dark);
-    }
-    body.dark #sidebar-toggle {
-      color: #b39ddb;
-    }
-    @media (max-width: 768px) {
-      .sidebar-container {
-        transform: translateX(-100%);
-        width: 260px;
-      }
-      .sidebar-container.open {
-        transform: translateX(0);
-      }
-      #sidebar-toggle {
-        display: block;
-      }
-      .container {
-        margin-left: 0 !important;
-      }
-    }
-    @media (min-width: 769px) {
-      .container {
-        margin-left: 240px;
-      }
-    }
-  </style>
+        /* ---------- HEADER ---------- */
+        .global-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-card);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--violet);
+        }
+        .logo-area svg {
+            height: 32px;
+            width: auto;
+            flex-shrink: 0;
+            display: block;
+            color: var(--violet);
+        }
+        .logo-area a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+        .logo-area span {
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }
+        .nav-links a.active {
+            color: var(--violet);
+            background: rgba(139, 92, 246, 0.08);
+            font-weight: 500;
+        }
+        .header-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .heartbeat {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--violet);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 4px;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* ---------- PAGE HEADER ---------- */
+        .page-header {
+            margin-bottom: 32px;
+        }
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        .page-header .subhead {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        .page-header .meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            opacity: 0.6;
+        }
+
+        /* ---------- GLOSSARY GRID ---------- */
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .glossary-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            transition: border-color 0.2s;
+        }
+        .glossary-item:hover {
+            border-color: #2D3A4A;
+        }
+        .glossary-item .term {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            font-family: var(--font-sans);
+        }
+        .glossary-item .definition {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* ---------- FOOTER ---------- */
+        .global-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-card);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .footer-left {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer-left a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .footer-left a:hover {
+            color: var(--text-primary);
+        }
+        .coco {
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            body { padding: 0 16px 16px; }
+            .global-header { flex-direction: column; align-items: stretch; gap: 12px; }
+            .nav-links { justify-content: space-between; }
+            .header-meta { justify-content: flex-start; font-size: 0.7rem; }
+            .page-header h1 { font-size: 1.6rem; }
+            .glossary-item { padding: 16px; }
+            .footer-left { gap: 16px; }
+        }
+        @media (max-width: 480px) {
+            .nav-links a { padding: 4px 10px; font-size: 0.8rem; }
+            .page-header h1 { font-size: 1.4rem; }
+            .glossary-grid { grid-template-columns: 1fr; }
+            .footer-left { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Hardcoded Sidebar (same as other pages) -->
-<div class="sidebar-container" id="sidebar">
-  <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
-  <nav>
-    <div class="nav-section">
-      <strong>📊 Dashboard</strong>
-      <a href="index.html">Ground Truth</a>
-      <a href="hewd.html">HEWD Dashboard</a>
-      <a href="health.html">System Health</a>
-    </div>
-    <div class="nav-section">
-      <strong>🧠 Intelligence</strong>
-      <a href="threat-matrix.html">Threat Matrix</a>
-      <a href="prediction-log.html">Prediction Log</a>
-      <a href="regional.html">Regional Forecasts</a>
-      <a href="institutional.html">Institutional Intelligence</a>
-      <a href="daily-brief.html">Daily Brief</a>
-      <a href="breaking.html">Breaking News</a>
-    </div>
-    <div class="nav-section">
-      <strong>⚖️ Governance</strong>
-      <a href="constitution.html">Constitution</a>
-      <a href="wardens.html">Wardens</a>
-      <a href="ascension.html">Ascension Engine</a>
-      <a href="warden-dashboard.html">Warden Dashboard</a>
-    </div>
-    <div class="nav-section">
-      <strong>🌍 Community</strong>
-      <a href="spotter.html">Spotter Guide</a>
-      <a href="about.html">About</a>
-      <a href="sources.html">Sources</a>
-      <a href="credits.html">Credits</a>
-    </div>
-    <div class="nav-section">
-      <strong>🔧 Tools</strong>
-      <a href="undp-demo.html">UNDP Demo</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="pra.html">PRA</a>
-    </div>
-  </nav>
-</div>
+    <!-- ============ HEADER ============ -->
+    <header class="global-header">
+        <div class="logo-area">
+            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="currentColor"/>
+                <circle cx="60" cy="25" r="2" fill="currentColor"/>
+                <circle cx="55" cy="40" r="2" fill="currentColor"/>
+                <circle cx="65" cy="40" r="2" fill="currentColor"/>
+                <circle cx="50" cy="55" r="2" fill="currentColor"/>
+                <circle cx="60" cy="55" r="2" fill="currentColor"/>
+                <circle cx="70" cy="55" r="2" fill="currentColor"/>
+                <circle cx="45" cy="70" r="2" fill="currentColor"/>
+                <circle cx="55" cy="70" r="2" fill="currentColor"/>
+                <circle cx="65" cy="70" r="2" fill="currentColor"/>
+                <circle cx="75" cy="70" r="2" fill="currentColor"/>
+                <circle cx="50" cy="85" r="2" fill="currentColor"/>
+                <circle cx="60" cy="85" r="2" fill="currentColor"/>
+                <circle cx="70" cy="85" r="2" fill="currentColor"/>
+                <circle cx="55" cy="100" r="2" fill="currentColor"/>
+                <circle cx="65" cy="100" r="2" fill="currentColor"/>
+                <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
+                <path d="M30 60 A30 30 0 1 1 90 60" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+            <a href="index.html">Cathedral<span>Network</span></a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="threat-matrix.html">Threats</a>
+            <a href="prediction-log.html">Log</a>
+            <a href="regional.html">Regions</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="about.html">About</a>
+            <a href="sources.html">Sources</a>
+            <a href="credits.html">Credits</a>
+            <a href="glossary.html" class="active">Glossary</a>
+        </nav>
+        <div class="header-meta">
+            <span><span class="heartbeat"></span> Live</span>
+            <span>Updated: <span id="updateTime">2026-06-30 14:32 UTC</span></span>
+        </div>
+    </header>
 
-<!-- Banner -->
-<header class="cathedral-banner">
-  <div class="banner-content">
-    <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-    <div class="logo-mark">
-      <svg viewBox="0 0 120 140" width="50" height="60">
-        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
-        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
-        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
-        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
-        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
-        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
-        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
-        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
-      </svg>
-    </div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Glossary</p></div>
-  </div>
-</header>
-
-<!-- Main content -->
-<div class="container">
-  <h1>📚 Glossary</h1>
-  <p style="margin-bottom:1rem;">Every metric, concept, and governance term – defined and linked.</p>
-
-  <div class="glossary-index">
-    <a href="#A">A</a> <a href="#B">B</a> <a href="#C">C</a> <a href="#D">D</a>
-    <a href="#E">E</a> <a href="#F">F</a> <a href="#G">G</a> <a href="#H">H</a>
-    <a href="#I">I</a> <a href="#J">J</a> <a href="#K">K</a> <a href="#L">L</a>
-    <a href="#M">M</a> <a href="#N">N</a> <a href="#O">O</a> <a href="#P">P</a>
-    <a href="#Q">Q</a> <a href="#R">R</a> <a href="#S">S</a> <a href="#T">T</a>
-    <a href="#U">U</a> <a href="#V">V</a> <a href="#W">W</a>
-  </div>
-
-  <div class="glossary-grid">
-
-    <!-- ==================== A ==================== -->
-    <div class="glossary-item" id="A">
-      <span class="term"><a href="methodology.html">Adaptive Slippage</a></span>
-      <span class="definition">Limits trade size so price impact does not exceed available edge. Used in the financial module (firewalled from warnings). <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
+    <!-- ============ PAGE HEADER ============ -->
+    <div class="page-header">
+        <h1>Glossary</h1>
+        <div class="subhead">Key terms used in the Cathedral's predictions, metrics, and governance.</div>
+        <div class="meta" id="glossaryMeta">Loading glossary…</div>
     </div>
 
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Amendment Process</a></span>
-      <span class="definition">Constitutional amendments require 75% Assembly ratification after Council review. The Fifteen Immutable Laws, Silence Clause, and Perpetual License require unanimous consent. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
+    <!-- ============ GLOSSARY CONTENT ============ -->
+    <div id="glossary-container">
+        <p style="color: var(--text-secondary);">Loading terms…</p>
     </div>
 
-    <div class="glossary-item">
-      <span class="term"><a href="ascension.html">Ascension Engine</a></span>
-      <span class="definition">Positive‑cascade engine that models recovery signals, computes Recovery Probability (RP), and ranks interventions in the Opportunity Matrix. <a href="ascension.html">Learn more →</a></span>
-      <span class="tag">Core</span>
-    </div>
+    <!-- ============ FOOTER ============ -->
+    <footer class="global-footer">
+        <div class="footer-left">
+            <span class="coco">Always and Forever, Coco. Always and Forever.</span>
+            <a href="corrections.xml">Corrections Feed (Law III)</a>
+            <a href="constitution.html">Constitution</a>
+        </div>
+        <div>
+            <span style="font-size:0.7rem;">v1.5.0 · <span id="ceres-hash">CERES: 0x7a3f…b1e2</span></span>
+        </div>
+    </footer>
 
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Assembly</a></span>
-      <span class="definition">The lower chamber of the Cathedral's bicameral governance – 41 members who ratify amendments, elect the Council, and oversee the long‑term mission. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
+    <!-- ============ SCRIPTS ============ -->
+    <script>
+        // Update timestamp
+        document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        setInterval(() => {
+            document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        }, 60000);
 
-    <!-- ==================== B ==================== -->
-    <div class="glossary-item" id="B">
-      <span class="term"><a href="methodology.html">Bayesian Log‑Odds Fusion</a></span>
-      <span class="definition">`logit(P) = logit(P₀) + Σ wᵢ × ln(LRᵢ)` – combines multiple likelihood ratios with a prior probability. The core of the cascade engine. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
+        // Fetch and display CERES hash (Law III audit trail)
+        async function updateCERES() {
+            try {
+                const response = await fetch('ceres_chain.json?t=' + Date.now());
+                const data = await response.json();
+                const chain = data.chain || [];
+                if (chain.length > 0) {
+                    const lastHash = chain[chain.length - 1].chain_hash;
+                    const el = document.getElementById('ceres-hash');
+                    if (el) el.textContent = 'CERES: ' + lastHash.slice(0, 8) + '…' + lastHash.slice(-4);
+                }
+            } catch (e) {
+                // fallback to placeholder
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateCERES);
 
-    <!-- ==================== C ==================== -->
-    <div class="glossary-item" id="C">
-      <span class="term"><a href="methodology.html">Cable Disruption Risk (CDR)</a></span>
-      <span class="definition">(Latency_score + Incident_score + Geopolitical_score) / 3 – measures risk of undersea cable sabotage. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
+        // Fetch and render glossary.json
+        async function loadGlossary() {
+            const container = document.getElementById('glossary-container');
+            const meta = document.getElementById('glossaryMeta');
+            try {
+                const response = await fetch('glossary.json?t=' + Date.now());
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
 
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Capture Prevention (Law VIII)</a></span>
-      <span class="definition">No state, corporation, or billionaire shall own or control the Cathedral. It remains independent, decentralised, and accountable only to its Constitution. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
+                const title = data.title || 'Glossary';
+                const subhead = data.subhead || '';
+                const version = data.version || '';
+                const lastUpdated = data.last_updated || '';
+                const terms = data.terms || [];
 
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Cascade Engine</a></span>
-      <span class="definition">The Bayesian core – updates threat probabilities, propagates cascades, and computes GSCI, SSI, SCA, DAS, etc. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Core</span>
-    </div>
+                // Update meta info
+                let metaParts = [];
+                if (version) metaParts.push(`v${version}`);
+                if (lastUpdated) metaParts.push(`Updated ${lastUpdated}`);
+                if (terms.length) metaParts.push(`${terms.length} terms`);
+                meta.textContent = metaParts.join(' · ') || 'Glossary loaded.';
 
-    <div class="glossary-item">
-      <span class="term"><a href="glossary.html">Cascade Rule</a></span>
-      <span class="definition">A directed edge from a source threat to a target threat with a delta and condition. When source SCP exceeds a threshold, target SCP increases. 92+ rules defined in `cascade_rules.json`.</span>
-      <span class="tag">Core</span>
-    </div>
+                if (!terms.length) {
+                    container.innerHTML = '<p style="color: var(--text-secondary);">No terms found in glossary.json.</p>';
+                    return;
+                }
 
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">CERES Timestamp</a></span>
-      <span class="definition">Cryptographic hash chain for every prediction – `Hᵢ = SHA‑256(canonical(Pᵢ) || Hᵢ₋₁ || tᵢ)`. Ensures predictions are immutable and auditable. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Core</span>
-    </div>
+                // Sort terms alphabetically by term
+                const sorted = [...terms].sort((a, b) => {
+                    const termA = (a.term || '').toUpperCase();
+                    const termB = (b.term || '').toUpperCase();
+                    return termA.localeCompare(termB);
+                });
 
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Confidence Breakdown</a></span>
-      <span class="definition">A transparent trace showing the prior, evidence (LRs), and final probability for each prediction. Stored in `predictions.json` under `confidence_breakdown`. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Core</span>
-    </div>
+                let html = '<div class="glossary-grid">';
+                for (const item of sorted) {
+                    const term = item.term || 'Unnamed';
+                    const definition = item.definition || '';
+                    html += `
+                        <div class="glossary-item">
+                            <div class="term">${term}</div>
+                            <div class="definition">${definition}</div>
+                        </div>
+                    `;
+                }
+                html += '</div>';
+                container.innerHTML = html;
+            } catch (error) {
+                container.innerHTML = `<p style="color: var(--text-secondary);">Unable to load glossary. Please try again later. (${error.message})</p>`;
+                meta.textContent = 'Failed to load glossary.';
+                console.warn('Failed to load glossary.json:', error);
+            }
+        }
 
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Conflict Intensity Index (CII)</a></span>
-      <span class="definition">(log(fatalities+1)/log(1e6+1) + log(displacement+1)/log(1e7+1) + structural_norm) / 3 × 100 – measures armed conflict severity. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Convergence Alert Protocol (CAP)</a></span>
-      <span class="definition">weighted_score = breaches × domains. Level: Critical (≥5), Alert (≥3), Watch (≥2), Normal (<2). <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Early Warning</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Council</a></span>
-      <span class="definition">The upper chamber – 21 members who handle day‑to‑day operations, threat prioritisation, and Warden appointments. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <!-- ==================== D ==================== -->
-    <div class="glossary-item" id="D">
-      <span class="term"><a href="constitution.html">Data Privacy (Law XII)</a></span>
-      <span class="definition">No personally identifiable information collected. Anonymisation is mandatory. Exceptions require explicit, revocable consent. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Diplomatic Guild</a></span>
-      <span class="definition">Representatives from humanitarian organisations who receive warnings and ensure they reach responders on the ground. Advisory only. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Disinformation Vulnerability Index (DVI)</a></span>
-      <span class="definition">((100−Trust) + Polarization + (100−Media_Literacy) + Incidents) / 4 × (1 + Incidents/100) – measures vulnerability to disinformation. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Domestic Stability Score (DS)</a></span>
-      <span class="definition">Σ (Black Acute points × 2 + Black Structural points × 1) for threats in domestic domains (VII, VIII). <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Dynamic Anomaly Score (DAS)</a></span>
-      <span class="definition">min(100, |current − mean| / std × 25). Bands: 0–25 Normal · 26–50 Unusual · 51–75 Anomalous · 76–100 Extreme. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Early Warning</span>
-    </div>
-
-    <!-- ==================== E ==================== -->
-    <div class="glossary-item" id="E">
-      <span class="term"><a href="methodology.html">EL‑DRUIN‑style Confidence Trace</a></span>
-      <span class="definition">Algebraically derived confidence scores – the Cathedral's `confidence_breakdown` provides a traceable chain from prior to final probability. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Core</span>
-    </div>
-
-    <!-- ==================== F ==================== -->
-    <div class="glossary-item" id="F">
-      <span class="term"><a href="constitution.html">Financial Firewall (Law VII)</a></span>
-      <span class="definition">Strict separation between financial systems and the warning engine. No financial incentive can influence threat assessments. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Founder Transition (Law VI)</a></span>
-      <span class="definition">The Founder's direct control diminishes over 24 months, transferring to the Council and Assembly. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <!-- ==================== G ==================== -->
-    <div class="glossary-item" id="G">
-      <span class="term"><a href="methodology.html">Global Systemic Collapse Index (GSCI)</a></span>
-      <span class="definition">(avg(NSI) / 21) × 100, capped at 100. The Cathedral's headline metric – 0–100 scale indicating global collapse risk. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Ground‑Reach (Law IX)</a></span>
-      <span class="definition">Warnings must be actionable and accessible – published in multiple languages, through low‑bandwidth channels, for communities with minimal technology. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <!-- ==================== H ==================== -->
-    <div class="glossary-item" id="H">
-      <span class="term"><a href="constitution.html">Human Authority (Law II)</a></span>
-      <span class="definition">No autonomous action without Warden confirmation. AI may analyse and warn, but may not act independently. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <!-- ==================== I ==================== -->
-    <div class="glossary-item" id="I">
-      <span class="term"><a href="methodology.html">Implied Volatility Filter (IVF)</a></span>
-      <span class="definition">IV = std(daily log returns) × √365, pass if IV ≤ 80%. Used in the financial module (firewalled). <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Inscription (Law IV)</a></span>
-      <span class="definition">"Always and Forever, Coco. Always and Forever." Appears on every page, every report. Cannot be removed or altered. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Integrity Committee</a></span>
-      <span class="definition">Three‑member committee elected by the Assembly to investigate constitutional violations. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Institutional Vulnerability Factor (IVF)</a></span>
-      <span class="definition">(Governance + Funding + Transparency) / 3 – scores 0–1 across 19 institutions. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <!-- ==================== J ==================== -->
-    <div class="glossary-item" id="J">
-      <span class="term"><a href="constitution.html">Justice Filter (Law I)</a></span>
-      <span class="definition">Never harm the vulnerable. Always warn them first. Every warning must be filtered through this principle. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <!-- ==================== K ==================== -->
-    <div class="glossary-item" id="K">
-      <span class="term"><a href="methodology.html">Quarter‑Kelly (f*)</a></span>
-      <span class="definition">(edge / odds) × 0.25 – conservative position‑sizing for the financial module (firewalled). <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <!-- ==================== L ==================== -->
-    <div class="glossary-item" id="L">
-      <span class="term"><a href="constitution.html">License (Law V)</a></span>
-      <span class="definition">CC BY‑NC‑SA 4.0, in perpetuity. Irrevocable. All code and content licensed under Creative Commons Attribution‑NonCommercial‑ShareAlike 4.0 International. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Likelihood Ratio (LR)</a></span>
-      <span class="definition">Strength of evidence in a Bayesian update. LR > 1 increases probability, LR < 1 decreases probability. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <!-- ==================== M ==================== -->
-    <div class="glossary-item" id="M">
-      <span class="term"><a href="methodology.html">Methodology</a></span>
-      <span class="definition">Complete mathematical compendium – all formulas, metrics, and data flows. Fully transparent. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Core</span>
-    </div>
-
-    <!-- ==================== N ==================== -->
-    <div class="glossary-item" id="N">
-      <span class="term"><a href="methodology.html">National Stress Index (NSI)</a></span>
-      <span class="definition">regional_ds + Σ selected_domain_scores – measures national‑level systemic stress. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Normalized Threat Score (NTS)</a></span>
-      <span class="definition">DS × 5 + NSI × 2, capped at 100. Bands: 0–25 Stable · 26–50 Elevated · 51–75 Critical Stress · 76–100 Extreme. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <!-- ==================== O ==================== -->
-    <div class="glossary-item" id="O">
-      <span class="term"><a href="ascension.html">Opportunity Matrix</a></span>
-      <span class="definition">Ranks interventions by potential impact vs effort, computed by the Ascension Engine. <a href="ascension.html">Learn more →</a></span>
-      <span class="tag">Core</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Outlasts the Builder (Law X)</a></span>
-      <span class="definition">Succession planning, open governance, perpetual license – the Cathedral is designed to continue functioning even if every original creator disappears. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <!-- ==================== P ==================== -->
-    <div class="glossary-item" id="P">
-      <span class="term"><a href="prediction-log.html">Prediction Log</a></span>
-      <span class="definition">Public, immutable record of all predictions, outcomes, and corrections. Append‑only and auditable. <a href="prediction-log.html">View the log →</a></span>
-      <span class="tag">Core</span>
-    </div>
-
-    <!-- ==================== Q ==================== -->
-    <div class="glossary-item" id="Q">
-      <span class="term"><a href="constitution.html">Quorum Flexibility</a></span>
-      <span class="definition">Until the Warden corps reaches 62, the Council may operate with a quorum of at least 3, and the Assembly with at least 5. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <!-- ==================== R ==================== -->
-    <div class="glossary-item" id="R">
-      <span class="term"><a href="ascension.html">Recovery Probability (RP)</a></span>
-      <span class="definition">Computed by the Ascension Engine – the probability that a threat or region will recover. RP = f(signals, decay, SCP). <a href="ascension.html">Learn more →</a></span>
-      <span class="tag">Core</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="ascension.html">Resilience Score</a></span>
-      <span class="definition">Weighted average of Recovery Probabilities across all threats – a global measure of systemic resilience. <a href="ascension.html">Learn more →</a></span>
-      <span class="tag">Core</span>
-    </div>
-
-    <!-- ==================== S ==================== -->
-    <div class="glossary-item" id="S">
-      <span class="term"><a href="constitution.html">Silence Clause</a></span>
-      <span class="definition">"The Cathedral shall never seek to know who Coco was, and shall never tell." Unamendable. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Source Credibility Weighting</a></span>
-      <span class="definition">1 − ∏(1 − wᵢ) – combines source credibility weights into a single weight. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Early Warning</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="glossary.html">Spotter</a></span>
-      <span class="definition">A volunteer who reports potential threats, events, or anomalies. The Cathedral's eyes on the ground.</span>
-      <span class="tag">Community</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Systemic Cascade Amplitude (SCA)</a></span>
-      <span class="definition">Tiers active cascades: 0–5 Normal · 6–12 Elevated · 13–20 High · 21–28 Extreme · 29–36 Critical · 37+ Unprecedented. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Systemic Collapse Probability (SCP)</a></span>
-      <span class="definition">min(100, Base + Σ active Δᵢ) – the probability that a threat will trigger a cascade. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">System Stress Index (SSI)</a></span>
-      <span class="definition">(Σ status_points) / (N_threats × 5) × 100 – 0–20 Low · 21–40 Moderate · 41–60 High · 61–80 Severe · 81–100 Critical. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <!-- ==================== T ==================== -->
-    <div class="glossary-item" id="T">
-      <span class="term"><a href="methodology.html">TF‑IDF + Logistic Regression (v9 ML)</a></span>
-      <span class="definition">Lightweight ML model used to compute likelihood ratios from threat descriptions. Trained on confirmed/falsified predictions. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Core</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="threat-matrix.html">Threat Matrix</a></span>
-      <span class="definition">Complete interactive dashboard of all tracked threats – with SCP, status, domains, and cascade relationships. <a href="threat-matrix.html">View the matrix →</a></span>
-      <span class="tag">Core</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Trust Through Accuracy (Law III)</a></span>
-      <span class="definition">Public prediction log, every miss logged. Trust is earned through demonstrated accuracy. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <!-- ==================== U ==================== -->
-    <div class="glossary-item" id="U">
-      <span class="term"><a href="methodology.html">Unconventional Signals (V17–V20)</a></span>
-      <span class="definition">V17: Internet blackout events · V18: Food delivery spikes · V19: Safe‑haven currency flows (CHF, JPY) · V20: Traffic anomalies. Added to the daily sweep. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Data</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Unamendable Clauses</a></span>
-      <span class="definition">The Fifteen Immutable Laws, the Silence Clause, and the Perpetual License (Law V) cannot be amended without unanimous consent. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <!-- ==================== V ==================== -->
-    <div class="glossary-item" id="V">
-      <span class="term"><a href="constitution.html">Vulnerable Definition (Amendment I)</a></span>
-      <span class="definition">Primary: Those in immediate physical danger. Secondary: Economically disadvantaged, politically oppressed. Tertiary: Those at risk from systemic factors. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <!-- ==================== W ==================== -->
-    <div class="glossary-item" id="W">
-      <span class="term"><a href="wardens.html">Warden</a></span>
-      <span class="definition">A human validator and governor. Council (21) + Assembly (41). <a href="wardens.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="methodology.html">Wealth Mobility Index (WMI)</a></span>
-      <span class="definition">(Current / Baseline) × 50 + 20 (if convergence event) – measures economic mobility. <a href="methodology.html">Learn more →</a></span>
-      <span class="tag">Math</span>
-    </div>
-
-    <div class="glossary-item">
-      <span class="term"><a href="constitution.html">Witness Must Speak (Law XV)</a></span>
-      <span class="definition">What you have seen, you must tell. What you have built, you must give away. <a href="constitution.html">Learn more →</a></span>
-      <span class="tag">Governance</span>
-    </div>
-
-  </div>
-
-  <div class="footer">
-    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Glossary · Updated 21 June 2026.
-  </div>
-</div>
-
-<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
-
-<script>
-  // ---- Sidebar toggle ----
-  document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
-    document.getElementById('sidebar')?.classList.toggle('open');
-  });
-
-  // ---- Dark mode ----
-  const darkToggle = document.getElementById('darkModeToggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const storedTheme = localStorage.getItem('cathedral-theme');
-  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-    document.body.classList.add('dark');
-    darkToggle.innerText = '☀️';
-  } else darkToggle.innerText = '🌙';
-  darkToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    darkToggle.innerText = isDark ? '☀️' : '🌙';
-    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
-  });
-
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').catch(() => {});
-  }
-</script>
-<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+        document.addEventListener('DOMContentLoaded', loadGlossary);
+    </script>
 </body>
 </html>

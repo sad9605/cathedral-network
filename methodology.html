@@ -1,661 +1,761 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Methodology</title>
-  <meta name="description" content="Complete mathematical compendium of the Cathedral Network – all formulas, metrics, and data flows.">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .formula-box {
-      background: var(--violet-light);
-      border-radius: var(--card-radius);
-      padding: 1rem 1.5rem;
-      margin: 0.5rem 0 1rem 0;
-      font-family: 'Courier New', monospace;
-      font-size: 0.95rem;
-      border-left: 4px solid var(--violet-dark);
-      overflow-x: auto;
-    }
-    body.dark .formula-box {
-      background: #2a2a3a;
-      border-left-color: #b39ddb;
-    }
-    .metric-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      margin: 1rem 0;
-      box-shadow: var(--shadow-sm);
-      border-left: 6px solid var(--violet-dark);
-    }
-    body.dark .metric-card {
-      background: #2a2a3a;
-    }
-    .metric-card .name {
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    .metric-card .description {
-      margin: 0.3rem 0;
-    }
-    .metric-card .source {
-      font-size: 0.85rem;
-      color: #666;
-    }
-    body.dark .metric-card .source {
-      color: #aaa;
-    }
-    .table-wrap {
-      overflow-x: auto;
-      margin: 1rem 0;
-    }
-    .band-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      border-radius: var(--card-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-    }
-    body.dark .band-table {
-      background: #2a2a3a;
-    }
-    .band-table th, .band-table td {
-      padding: 0.6rem 0.8rem;
-      border: 1px solid #ddd;
-      text-align: left;
-    }
-    body.dark .band-table th, body.dark .band-table td {
-      border-color: #444;
-    }
-    .band-table th {
-      background: var(--violet-light);
-      font-weight: 600;
-    }
-    body.dark .band-table th {
-      background: #3a3a4a;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cathedral Network — Methodology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+    <style>
+        /* ---------- RESET & TOKENS ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-base: #090B10;
+            --bg-card: #12161C;
+            --border-card: #1E2633;
+            --text-primary: #E8EDF5;
+            --text-secondary: #94A3B8;
+            --violet: #8B5CF6;
+            --radius: 8px;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            padding: 0 24px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .sidebar-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 220px;
-      height: 100%;
-      background: white;
-      border-right: 1px solid #eee;
-      overflow-y: auto;
-      z-index: 1000;
-      padding: 1rem;
-      transition: transform 0.3s ease;
-    }
-    body.dark .sidebar-container {
-      background: #2a2a3a;
-      border-right-color: #444;
-    }
-    .sidebar-container .sidebar-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid #eee;
-    }
-    body.dark .sidebar-container .sidebar-header {
-      border-bottom-color: #444;
-    }
-    .sidebar-container .sidebar-header span {
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
-      color: var(--violet-dark);
-    }
-    body.dark .sidebar-container .sidebar-header span {
-      color: #b39ddb;
-    }
-    .sidebar-container nav .nav-section {
-      margin-bottom: 1.25rem;
-    }
-    .sidebar-container nav .nav-section strong {
-      display: block;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--violet-dark);
-      padding: 0.2rem 0 0.3rem 0;
-      opacity: 0.7;
-    }
-    body.dark .sidebar-container nav .nav-section strong {
-      color: #b39ddb;
-    }
-    .sidebar-container nav .nav-section a {
-      display: block;
-      padding: 0.3rem 0.5rem;
-      font-size: 0.9rem;
-      color: var(--text-dark);
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.15s;
-    }
-    body.dark .sidebar-container nav .nav-section a {
-      color: #f0f0f0;
-    }
-    .sidebar-container nav .nav-section a:hover {
-      background: var(--violet-light);
-    }
-    body.dark .sidebar-container nav .nav-section a:hover {
-      background: #3a3a4a;
-    }
-    #sidebar-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.5rem;
-      color: var(--violet-dark);
-    }
-    body.dark #sidebar-toggle {
-      color: #b39ddb;
-    }
-    @media (max-width: 768px) {
-      .sidebar-container {
-        transform: translateX(-100%);
-        width: 260px;
-      }
-      .sidebar-container.open {
-        transform: translateX(0);
-      }
-      #sidebar-toggle {
-        display: block;
-      }
-      .container {
-        margin-left: 0 !important;
-      }
-    }
-    @media (min-width: 769px) {
-      .container {
-        margin-left: 240px;
-      }
-    }
+        /* ---------- HEADER ---------- */
+        .global-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-card);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--violet);
+        }
+        .logo-area svg {
+            height: 32px;
+            width: auto;
+            flex-shrink: 0;
+            display: block;
+            color: var(--violet);
+        }
+        .logo-area a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+        .logo-area span {
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }
+        .nav-links a.active {
+            color: var(--violet);
+            background: rgba(139, 92, 246, 0.08);
+            font-weight: 500;
+        }
+        .header-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .heartbeat {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--violet);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 4px;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+            100% { opacity: 1; transform: scale(1); }
+        }
 
-    .footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-style: italic;
-      color: #888;
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
-    }
-    .dark-mode-toggle {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      background: var(--violet-dark);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: var(--shadow-sm);
-    }
-    @media (max-width: 600px) {
-      .banner-content { flex-direction: column; text-align: center; }
-      .container { padding: 1rem; }
-      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
-    }
-  </style>
+        /* ---------- PAGE HEADER ---------- */
+        .page-header {
+            margin-bottom: 32px;
+        }
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        .page-header .subhead {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        .page-header .meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            opacity: 0.6;
+        }
+
+        /* ---------- METHODOLOGY SECTIONS ---------- */
+        .methodology-section {
+            margin: 2rem 0 1.5rem 0;
+        }
+        .methodology-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .methodology-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            transition: border-color 0.2s;
+        }
+        .methodology-item:hover {
+            border-color: #2D3A4A;
+        }
+        .methodology-item .name {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .methodology-item .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--violet);
+            background: rgba(139, 92, 246, 0.06);
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin: 6px 0 8px 0;
+            display: inline-block;
+            word-break: break-all;
+            line-height: 1.5;
+        }
+        .methodology-item .description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        .methodology-item .description + .description {
+            margin-top: 6px;
+        }
+        .methodology-item .source {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            opacity: 0.6;
+            border-top: 1px solid var(--border-card);
+            padding-top: 8px;
+        }
+        .methodology-item .source code {
+            color: var(--violet);
+            background: rgba(139, 92, 246, 0.06);
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+        }
+
+        /* Full-width items (for long content) */
+        .methodology-item.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* ---------- TABLE (for SCA Tiers) ---------- */
+        .tier-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0 4px 0;
+            font-size: 0.85rem;
+        }
+        .tier-table th {
+            text-align: left;
+            padding: 6px 8px 6px 0;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-bottom: 1px solid var(--border-card);
+        }
+        .tier-table td {
+            padding: 6px 8px 6px 0;
+            border-bottom: 1px solid rgba(30, 38, 51, 0.4);
+            color: var(--text-secondary);
+        }
+        .tier-table tr:last-child td {
+            border-bottom: none;
+        }
+        .tier-table .highlight {
+            color: var(--text-primary);
+        }
+
+        /* ---------- DATA FLOW LIST ---------- */
+        .flow-list {
+            list-style: none;
+            padding: 0;
+            margin: 4px 0 0 0;
+        }
+        .flow-list li {
+            padding: 4px 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(30, 38, 51, 0.2);
+        }
+        .flow-list li:last-child {
+            border-bottom: none;
+        }
+        .flow-list li strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .global-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-card);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .footer-left {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer-left a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .footer-left a:hover {
+            color: var(--text-primary);
+        }
+        .coco {
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            body { padding: 0 16px 16px; }
+            .global-header { flex-direction: column; align-items: stretch; gap: 12px; }
+            .nav-links { justify-content: space-between; }
+            .header-meta { justify-content: flex-start; font-size: 0.7rem; }
+            .page-header h1 { font-size: 1.6rem; }
+            .methodology-item { padding: 16px; }
+            .footer-left { gap: 16px; }
+        }
+        @media (max-width: 480px) {
+            .nav-links a { padding: 4px 10px; font-size: 0.8rem; }
+            .page-header h1 { font-size: 1.4rem; }
+            .methodology-grid { grid-template-columns: 1fr; }
+            .footer-left { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .tier-table { font-size: 0.75rem; }
+            .tier-table th, .tier-table td { padding: 4px 4px 4px 0; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Hardcoded Sidebar (same as other pages) -->
-<div class="sidebar-container" id="sidebar">
-  <div class="sidebar-header"><span>🏛️ CATHEDRAL</span></div>
-  <nav>
-    <div class="nav-section">
-      <strong>📊 Dashboard</strong>
-      <a href="index.html">Ground Truth</a>
-      <a href="hewd.html">HEWD Dashboard</a>
-      <a href="health.html">System Health</a>
-    </div>
-    <div class="nav-section">
-      <strong>🧠 Intelligence</strong>
-      <a href="threat-matrix.html">Threat Matrix</a>
-      <a href="prediction-log.html">Prediction Log</a>
-      <a href="regional.html">Regional Forecasts</a>
-      <a href="institutional.html">Institutional Intelligence</a>
-      <a href="daily-brief.html">Daily Brief</a>
-      <a href="breaking.html">Breaking News</a>
-    </div>
-    <div class="nav-section">
-      <strong>⚖️ Governance</strong>
-      <a href="constitution.html">Constitution</a>
-      <a href="wardens.html">Wardens</a>
-      <a href="ascension.html">Ascension Engine</a>
-      <a href="warden-dashboard.html">Warden Dashboard</a>
-    </div>
-    <div class="nav-section">
-      <strong>🌍 Community</strong>
-      <a href="spotter.html">Spotter Guide</a>
-      <a href="about.html">About</a>
-      <a href="sources.html">Sources</a>
-      <a href="credits.html">Credits</a>
-    </div>
-    <div class="nav-section">
-      <strong>🔧 Tools</strong>
-      <a href="undp-demo.html">UNDP Demo</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="pra.html">PRA</a>
-    </div>
-  </nav>
-</div>
+    <!-- ============ HEADER ============ -->
+    <header class="global-header">
+        <div class="logo-area">
+            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="currentColor"/>
+                <circle cx="60" cy="25" r="2" fill="currentColor"/>
+                <circle cx="55" cy="40" r="2" fill="currentColor"/>
+                <circle cx="65" cy="40" r="2" fill="currentColor"/>
+                <circle cx="50" cy="55" r="2" fill="currentColor"/>
+                <circle cx="60" cy="55" r="2" fill="currentColor"/>
+                <circle cx="70" cy="55" r="2" fill="currentColor"/>
+                <circle cx="45" cy="70" r="2" fill="currentColor"/>
+                <circle cx="55" cy="70" r="2" fill="currentColor"/>
+                <circle cx="65" cy="70" r="2" fill="currentColor"/>
+                <circle cx="75" cy="70" r="2" fill="currentColor"/>
+                <circle cx="50" cy="85" r="2" fill="currentColor"/>
+                <circle cx="60" cy="85" r="2" fill="currentColor"/>
+                <circle cx="70" cy="85" r="2" fill="currentColor"/>
+                <circle cx="55" cy="100" r="2" fill="currentColor"/>
+                <circle cx="65" cy="100" r="2" fill="currentColor"/>
+                <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
+                <path d="M30 60 A30 30 0 1 1 90 60" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+            <a href="index.html">Cathedral<span>Network</span></a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="threat-matrix.html">Threats</a>
+            <a href="prediction-log.html">Log</a>
+            <a href="regional.html">Regions</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="about.html">About</a>
+            <a href="sources.html">Sources</a>
+            <a href="credits.html">Credits</a>
+            <a href="glossary.html">Glossary</a>
+            <a href="methodology.html" class="active">Methodology</a>
+        </nav>
+        <div class="header-meta">
+            <span><span class="heartbeat"></span> Live</span>
+            <span>Updated: <span id="updateTime">2026-06-30 14:32 UTC</span></span>
+        </div>
+    </header>
 
-<!-- Banner -->
-<header class="cathedral-banner">
-  <div class="banner-content">
-    <button id="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-    <div class="logo-mark">
-      <svg viewBox="0 0 120 140" width="50" height="60">
-        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
-        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
-        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
-        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
-        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
-        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
-        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
-        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
-      </svg>
+    <!-- ============ PAGE HEADER ============ -->
+    <div class="page-header">
+        <h1>Mathematical Compendium</h1>
+        <div class="subhead">All formulas, metrics, and data flows — fully transparent.</div>
+        <div class="meta">v1.5.0 · Updated 21 June 2026</div>
     </div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Mathematical Compendium</p></div>
-  </div>
-</header>
 
-<!-- Main content -->
-<div class="container">
+    <!-- ============ CONTENT ============ -->
 
-  <h1>📐 Cathedral Methodology</h1>
-  <p><em>All formulas, metrics, and data flows – fully transparent.</em></p>
+    <!-- INTRO -->
+    <div class="methodology-section">
+        <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem; font-size: 0.95rem;">
+            The Cathedral Network uses a suite of mathematical models to monitor systemic threats, forecast cascades, and provide actionable warnings. This page explains every metric: how it is calculated, where the data comes from, and what it means.
+        </p>
+    </div>
 
-  <p>
-    The Cathedral Network uses a suite of mathematical models to monitor systemic threats, forecast cascades, and provide actionable warnings.
-    This page explains every metric: how it is calculated, where the data comes from, and what it means.
-  </p>
+    <!-- CORE METRICS -->
+    <div class="methodology-section">
+        <h2>Core Metrics</h2>
+        <div class="methodology-grid">
 
-  <!-- ==================== CORE METRICS ==================== -->
-  <h2>📊 Core Metrics</h2>
+            <div class="methodology-item">
+                <div class="name">System Stress Index (SSI)</div>
+                <div class="description">Measures overall system stress across all tracked threats.</div>
+                <div class="formula">SSI = (Σ status_points) / (N_threats × 5) × 100</div>
+                <div class="description">Status points: Black Acute=5, Black Structural=4, Red=3, Orange=2, Yellow=1, Green=0.</div>
+                <div class="description"><strong>Interpretation:</strong> 0–20: Low stress · 21–40: Moderate · 41–60: High · 61–80: Severe · 81–100: Critical.</div>
+                <div class="source">Source: <code>compute_ssi(threats)</code> in <code>cathedral_math.py</code></div>
+            </div>
 
-  <div class="metric-card">
-    <div class="name">System Stress Index (SSI)</div>
-    <div class="description">
-      Measures overall system stress across all tracked threats.
-    </div>
-    <div class="formula-box">
-      SSI = (Σ status_points) / (N_threats × 5) × 100
-    </div>
-    <div class="description">
-      <strong>Status points:</strong> Black Acute=5, Black Structural=4, Red=3, Orange=2, Yellow=1, Green=0.<br>
-      <strong>Interpretation:</strong> 0–20: Low stress · 21–40: Moderate · 41–60: High · 61–80: Severe · 81–100: Critical.
-    </div>
-    <div class="source">📌 Source: <code>compute_ssi(threats)</code> in <code>cathedral_math.py</code></div>
-  </div>
+            <div class="methodology-item">
+                <div class="name">Domestic Stability Score (DS)</div>
+                <div class="description">Aggregates domestic (internal) threats, weighted by severity.</div>
+                <div class="formula">DS = Σ (Black Acute points × 2 + Black Structural points × 1) for threats in domestic domains (VII, VIII)</div>
+                <div class="source">Source: <code>compute_ds(threats, domains=['VII','VIII'])</code></div>
+            </div>
 
-  <div class="metric-card">
-    <div class="name">Domestic Stability Score (DS)</div>
-    <div class="description">
-      Aggregates domestic (internal) threats, weighted by severity.
-    </div>
-    <div class="formula-box">
-      DS = Σ (Black Acute points × 2 + Black Structural points × 1) for threats in domestic domains (VII, VIII)
-    </div>
-    <div class="source">📌 Source: <code>compute_ds(threats, domains=['VII','VIII'])</code></div>
-  </div>
+            <div class="methodology-item">
+                <div class="name">National Stress Index (NSI)</div>
+                <div class="description">Combines regional stress and selected domain scores.</div>
+                <div class="formula">NSI = regional_ds + Σ selected_domain_scores</div>
+                <div class="source">Source: <code>compute_nsi(regional_ds, selected_domain_scores)</code></div>
+            </div>
 
-  <div class="metric-card">
-    <div class="name">National Stress Index (NSI)</div>
-    <div class="description">
-      Combines regional stress and selected domain scores.
-    </div>
-    <div class="formula-box">
-      NSI = regional_ds + Σ selected_domain_scores
-    </div>
-    <div class="source">📌 Source: <code>compute_nsi(regional_ds, selected_domain_scores)</code></div>
-  </div>
+            <div class="methodology-item">
+                <div class="name">Global Systemic Collapse Index (GSCI)</div>
+                <div class="description">The Cathedral's headline metric — a 0–100 scale indicating global collapse risk.</div>
+                <div class="formula">GSCI = (avg(NSI) / 21) × 100, capped at 100</div>
+                <div class="description"><strong>Interpretation:</strong> 21 is the National Emergency threshold. Values above 50 indicate elevated systemic risk; above 75 are critical.</div>
+                <div class="source">Source: <code>compute_gsci(threats)</code></div>
+            </div>
 
-  <div class="metric-card">
-    <div class="name">Global Systemic Collapse Index (GSCI)</div>
-    <div class="description">
-      The Cathedral’s headline metric – a 0–100 scale indicating global collapse risk.
-    </div>
-    <div class="formula-box">
-      GSCI = (avg(NSI) / 21) × 100, capped at 100
-    </div>
-    <div class="description">
-      21 is the National Emergency threshold. Values above 50 indicate elevated systemic risk; above 75 are critical.
-    </div>
-    <div class="source">📌 Source: <code>compute_gsci(threats)</code></div>
-  </div>
+            <div class="methodology-item full-width">
+                <div class="name">Systemic Cascade Amplitude (SCA) Tiers</div>
+                <div class="description">Tiers the number of active cascades (cascade chains in progress).</div>
+                <table class="tier-table">
+                    <thead>
+                        <tr><th>Active Cascades</th><th>Tier</th><th>Label</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0–5</td><td>0</td><td><span class="highlight">Normal</span></td></tr>
+                        <tr><td>6–12</td><td>1</td><td><span class="highlight">Elevated</span></td></tr>
+                        <tr><td>13–20</td><td>2</td><td><span class="highlight">High</span></td></tr>
+                        <tr><td>21–28</td><td>3</td><td><span class="highlight">Extreme</span></td></tr>
+                        <tr><td>29–36</td><td>4</td><td><span class="highlight">Critical</span></td></tr>
+                        <tr><td>37+</td><td>5</td><td><span class="highlight">Unprecedented</span></td></tr>
+                    </tbody>
+                </table>
+                <div class="source">Source: <code>compute_sca_tier(active_cascades)</code></div>
+            </div>
 
-  <div class="metric-card">
-    <div class="name">Systemic Cascade Amplitude (SCA) Tiers</div>
-    <div class="description">
-      Tiers the number of active cascades (cascade chains in progress).
+        </div>
     </div>
-    <div class="table-wrap">
-      <table class="band-table">
-        <thead><tr><th>Active Cascades</th><th>Tier</th><th>Label</th></tr></thead>
-        <tbody>
-          <tr><td>0–5</td><td>0</td><td>Normal</td></tr>
-          <tr><td>6–12</td><td>1</td><td>Elevated</td></tr>
-          <tr><td>13–20</td><td>2</td><td>High</td></tr>
-          <tr><td>21–28</td><td>3</td><td>Extreme</td></tr>
-          <tr><td>29–36</td><td>4</td><td>Critical</td></tr>
-          <tr><td>37+</td><td>5</td><td>Unprecedented</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="source">📌 Source: <code>compute_sca_tier(active_cascades)</code></div>
-  </div>
 
-  <!-- ==================== PROBABILITY & CASCADE ENGINE ==================== -->
-  <h2>🔄 Probability & Cascade Engine</h2>
+    <!-- PROBABILITY & CASCADE ENGINE -->
+    <div class="methodology-section">
+        <h2>Probability &amp; Cascade Engine</h2>
+        <div class="methodology-grid">
 
-  <div class="metric-card">
-    <div class="name">Bayesian Log‑Odds Fusion</div>
-    <div class="description">
-      Combines multiple likelihood ratios (evidence) with a prior probability using log‑odds.
-    </div>
-    <div class="formula-box">
-      logit(P) = logit(P₀) + Σ wᵢ × ln(LRᵢ)<br>
-      P = 1 / (1 + exp(−logit(P)))
-    </div>
-    <div class="description">
-      <strong>Prior P₀</strong> is the base probability (e.g., 12% from macro‑priors).<br>
-      <strong>LRᵢ</strong> are likelihood ratios from different evidence streams (OSINT, economic indicators, etc.).<br>
-      <strong>wᵢ</strong> are optional weights to prevent double‑counting.
-    </div>
-    <div class="source">📌 Source: <code>bayesian_log_odds(prior, likelihood_ratios, weights)</code></div>
-  </div>
+            <div class="methodology-item full-width">
+                <div class="name">Bayesian Log‑Odds Fusion</div>
+                <div class="description">Combines multiple likelihood ratios (evidence) with a prior probability using log‑odds.</div>
+                <div class="formula">logit(P) = logit(P₀) + Σ wᵢ × ln(LRᵢ)</div>
+                <div class="formula">P = 1 / (1 + exp(−logit(P)))</div>
+                <div class="description">
+                    <strong>Prior P₀</strong> is the base probability (e.g., 12% from macro‑priors).<br />
+                    <strong>LRᵢ</strong> are likelihood ratios from different evidence streams (OSINT, economic indicators, etc.).<br />
+                    <strong>wᵢ</strong> are optional weights to prevent double‑counting.
+                </div>
+                <div class="source">Source: <code>bayesian_log_odds(prior, likelihood_ratios, weights)</code></div>
+            </div>
 
-  <div class="metric-card">
-    <div class="name">Systemic Collapse Probability (SCP)</div>
-    <div class="description">
-      Linear SCP model – the base probability updated by active deltas.
-    </div>
-    <div class="formula-box">
-      SCP = min(100, Base + Σ active Δᵢ)<br>
-      Base = 12% (macro‑priors)
-    </div>
-    <div class="description">
-      Each active cascade adds a delta (Δ) that represents its estimated contribution to collapse risk.
-    </div>
-    <div class="source">📌 Source: <code>compute_scp_linear(base, active_deltas)</code></div>
-  </div>
+            <div class="methodology-item full-width">
+                <div class="name">Systemic Collapse Probability (SCP)</div>
+                <div class="description">Linear SCP model — the base probability updated by active deltas.</div>
+                <div class="formula">SCP = min(100, Base + Σ active Δᵢ)</div>
+                <div class="description"><strong>Base</strong> = 12% (macro‑priors). Each active cascade adds a delta (Δ) that represents its estimated contribution to collapse risk.</div>
+                <div class="source">Source: <code>compute_scp_linear(base, active_deltas)</code></div>
+            </div>
 
-  <!-- ==================== EARLY WARNING ==================== -->
-  <h2>⚠️ Early Warning & Anomaly Detection</h2>
-
-  <div class="metric-card">
-    <div class="name">Dynamic Anomaly Score (DAS)</div>
-    <div class="description">
-      Measures how far a current value deviates from its historical baseline.
+        </div>
     </div>
-    <div class="formula-box">
-      DAS = min(100, |current − mean| / std × 25)
+
+    <!-- EARLY WARNING & ANOMALY DETECTION -->
+    <div class="methodology-section">
+        <h2>Early Warning &amp; Anomaly Detection</h2>
+        <div class="methodology-grid">
+
+            <div class="methodology-item">
+                <div class="name">Dynamic Anomaly Score (DAS)</div>
+                <div class="description">Measures how far a current value deviates from its historical baseline.</div>
+                <div class="formula">DAS = min(100, |current − mean| / std × 25)</div>
+                <div class="description"><strong>Bands:</strong> 0–25: Normal · 26–50: Unusual · 51–75: Anomalous · 76–100: Extreme.</div>
+                <div class="source">Source: <code>temporal_baseline_anomaly(current, mean, std)</code></div>
+            </div>
+
+            <div class="methodology-item">
+                <div class="name">Convergence Alert Protocol (CAP)</div>
+                <div class="description">Alerts when multiple domain breaches converge.</div>
+                <div class="formula">weighted_score = breaches × domains</div>
+                <div class="description"><strong>Levels:</strong> Critical (≥5), Alert (≥3), Watch (≥2), Normal (&lt;2).</div>
+                <div class="source">Source: <code>convergence_alert_protocol(breaches, domains)</code></div>
+            </div>
+
+            <div class="methodology-item full-width">
+                <div class="name">Source Credibility Weighting</div>
+                <div class="description">Combines source reliability scores to produce an overall weight.</div>
+                <div class="formula">S_weighted = 1 − ∏(1 − wᵢ)</div>
+                <div class="description">Each source has a credibility weight between 0 and 1. The combined weight approaches 1 as more credible sources agree.</div>
+                <div class="source">Source: <code>source_credibility_weighting(weights)</code></div>
+            </div>
+
+        </div>
     </div>
-    <div class="description">
-      <strong>Bands:</strong> 0–25: Normal · 26–50: Unusual · 51–75: Anomalous · 76–100: Extreme.
+
+    <!-- OTHER INDICES -->
+    <div class="methodology-section">
+        <h2>Other Indices</h2>
+        <div class="methodology-grid">
+
+            <div class="methodology-item">
+                <div class="name">Normalized Threat Score (NTS)</div>
+                <div class="formula">NTS = DS × 5 + NSI × 2, capped at 100</div>
+                <div class="description"><strong>Bands:</strong> 0–25 Stable · 26–50 Elevated · 51–75 Critical Stress · 76–100 Extreme.</div>
+            </div>
+
+            <div class="methodology-item">
+                <div class="name">Conflict Intensity Index (CII)</div>
+                <div class="formula">CII = (log(fatalities+1)/log(1e6+1) + log(displacement+1)/log(1e7+1) + structural_norm) / 3 × 100</div>
+            </div>
+
+            <div class="methodology-item">
+                <div class="name">Disinformation Vulnerability Index (DVI)</div>
+                <div class="formula">DVI = ((100−Trust) + Polarization + (100−Media_Literacy) + Incidents) / 4 × (1 + Incidents/100)</div>
+            </div>
+
+            <div class="methodology-item">
+                <div class="name">Wealth Mobility Index (WMI)</div>
+                <div class="formula">WMI = (Current / Baseline) × 50 + 20 (if convergence event)</div>
+            </div>
+
+            <div class="methodology-item">
+                <div class="name">Cable Disruption Risk (CDR)</div>
+                <div class="formula">CDR = (Latency_score + Incident_score + Geopolitical_score) / 3</div>
+            </div>
+
+            <div class="methodology-item">
+                <div class="name">Institutional Vulnerability Factor (IVF)</div>
+                <div class="formula">IVF = (Governance + Funding + Transparency) / 3</div>
+                <div class="description">Scores 0–1 across 19 institutions.</div>
+            </div>
+
+        </div>
     </div>
-    <div class="source">📌 Source: <code>temporal_baseline_anomaly(current, mean, std)</code></div>
-  </div>
 
-  <div class="metric-card">
-    <div class="name">Convergence Alert Protocol (CAP)</div>
-    <div class="description">
-      Alerts when multiple domain breaches converge.
+    <!-- FINANCIAL MODULE MATH -->
+    <div class="methodology-section">
+        <h2>Financial Module Math <span style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 400;">(Separate per Law VII)</span></h2>
+        <div class="methodology-grid">
+
+            <div class="methodology-item">
+                <div class="name">Quarter‑Kelly</div>
+                <div class="formula">f* = (edge / odds) × 0.25</div>
+            </div>
+
+            <div class="methodology-item">
+                <div class="name">Implied Volatility Filter</div>
+                <div class="formula">IV = std(daily log returns) × √365, pass if IV ≤ 80%</div>
+            </div>
+
+            <div class="methodology-item">
+                <div class="name">Adaptive Slippage</div>
+                <div class="formula">max_trade = market_depth × edge</div>
+            </div>
+
+        </div>
     </div>
-    <div class="formula-box">
-      weighted_score = breaches × domains<br>
-      Level: Critical (≥5), Alert (≥3), Watch (≥2), Normal (<2)
+
+    <!-- ASCENSION ENGINE -->
+    <div class="methodology-section">
+        <h2>Ascension Engine — Positive Cascades</h2>
+        <div class="methodology-grid">
+
+            <div class="methodology-item">
+                <div class="name">Recovery Probability (RP)</div>
+                <div class="description">The probability that a threat or region will recover, based on positive signals (ceasefires, aid deliveries, vaccine campaigns, diplomatic agreements).</div>
+                <div class="formula">RP = base_recovery + (1 − SCP) × avg(positive_signal_impact × decay_factor)</div>
+                <div class="description">Positive signals are loaded from <code>positive_signals.json</code>. The engine runs daily and outputs <code>ascension_report.json</code>.</div>
+                <div class="source">Source: <code>ascension_engine.py</code></div>
+            </div>
+
+            <div class="methodology-item">
+                <div class="name">Opportunity Matrix</div>
+                <div class="description">Ranks interventions by potential impact vs effort.</div>
+                <div class="formula">Impact = (1 − RP) × SCP × domain_weight</div>
+                <div class="formula">Effort = heuristic (inverse of SCP)</div>
+                <div class="formula">Score = impact / effort</div>
+                <div class="source">Source: <code>ascension_engine.py</code></div>
+            </div>
+
+            <div class="methodology-item">
+                <div class="name">Resilience Score</div>
+                <div class="description">Weighted average of Recovery Probabilities across all threats, weighted by domain importance.</div>
+                <div class="formula">Resilience Score = (Σ RP × domain_weight) / Σ domain_weight × 100</div>
+                <div class="source">Source: <code>ascension_engine.py</code></div>
+            </div>
+
+        </div>
     </div>
-    <div class="source">📌 Source: <code>convergence_alert_protocol(breaches, domains)</code></div>
-  </div>
 
-  <div class="metric-card">
-    <div class="name">Source Credibility Weighting</div>
-    <div class="description">
-      Combines source reliability scores to produce an overall weight.
+    <!-- v9 ML -->
+    <div class="methodology-section">
+        <h2>v9 Machine Learning — TF‑IDF + Logistic Regression</h2>
+        <div class="methodology-grid">
+
+            <div class="methodology-item full-width">
+                <div class="name">ML Likelihood Ratios</div>
+                <div class="description">A lightweight, CPU‑friendly ML model that computes likelihood ratios from threat descriptions. Trained on confirmed/falsified predictions.</div>
+                <div class="description">
+                    <strong>Input:</strong> Threat descriptions (text).<br />
+                    <strong>Features:</strong> TF‑IDF vectors (1000 max features, 1‑2 ngrams).<br />
+                    <strong>Classifier:</strong> Logistic Regression with Platt calibration.<br />
+                    <strong>Output:</strong> Likelihood ratio (LR) for each threat, fed into the Bayesian cascade engine.
+                </div>
+                <div class="source">Source: <code>cathedral_ml.py</code>, trained on historical predictions.</div>
+            </div>
+
+        </div>
     </div>
-    <div class="formula-box">
-      S_weighted = 1 − ∏(1 − wᵢ)
+
+    <!-- CERES -->
+    <div class="methodology-section">
+        <h2>CERES Timestamping — Cryptographic Integrity</h2>
+        <div class="methodology-grid">
+
+            <div class="methodology-item full-width">
+                <div class="name">CERES Hash Chain</div>
+                <div class="description">Every prediction is cryptographically timestamped to ensure immutability and auditability (Law III).</div>
+                <div class="formula">Hᵢ = SHA‑256(canonical(Pᵢ) || Hᵢ₋₁ || tᵢ)</div>
+                <div class="description">Each prediction stores its <code>ceres_hash</code> in <code>predictions.json</code>. The hash chain is publicly verifiable.</div>
+                <div class="source">Source: <code>cathedral_math.py</code> (<code>hash_prediction</code>)</div>
+            </div>
+
+        </div>
     </div>
-    <div class="description">
-      Each source has a credibility weight between 0 and 1. The combined weight approaches 1 as more credible sources agree.
+
+    <!-- CONFIDENCE BREAKDOWN -->
+    <div class="methodology-section">
+        <h2>Confidence Breakdown — Transparent Reasoning</h2>
+        <div class="methodology-grid">
+
+            <div class="methodology-item full-width">
+                <div class="name">Confidence Breakdown</div>
+                <div class="description">Every prediction includes a <code>confidence_breakdown</code> field showing:</div>
+                <div class="description">
+                    <strong>Prior</strong> — base probability from historical frequency.<br />
+                    <strong>Evidence sources</strong> — OSINT events, cascade activations, TSF forecasts, Warden verification.<br />
+                    <strong>Likelihood ratios</strong> — each piece of evidence with its LR and weight.<br />
+                    <strong>Final probability</strong> — the posterior probability after Bayesian update.
+                </div>
+                <div class="description">This provides a fully auditable reasoning trace for every prediction.</div>
+                <div class="source">Source: <code>generate_predictions.py</code> and <code>prediction_intelligence.json</code></div>
+            </div>
+
+        </div>
     </div>
-    <div class="source">📌 Source: <code>source_credibility_weighting(weights)</code></div>
-  </div>
 
-  <!-- ==================== OTHER INDICES ==================== -->
-  <h2>🔢 Other Indices</h2>
+    <!-- UNCONVENTIONAL SIGNALS -->
+    <div class="methodology-section">
+        <h2>Unconventional Signals (V17–V20)</h2>
+        <div class="methodology-grid">
 
-  <div class="metric-card">
-    <div class="name">Normalized Threat Score (NTS)</div>
-    <div class="formula-box">NTS = DS × 5 + NSI × 2, capped at 100</div>
-    <div class="description">Bands: 0–25 Stable · 26–50 Elevated · 51–75 Critical Stress · 76–100 Extreme.</div>
-  </div>
+            <div class="methodology-item full-width">
+                <div class="name">Priority Variables V17–V20</div>
+                <div class="description">Four new priority variables added to the daily sweep:</div>
+                <div class="description">
+                    <strong>V17:</strong> Internet blackout events (from Cloudflare Radar / RIPE Atlas).<br />
+                    <strong>V18:</strong> Food delivery spikes (aggregated trends).<br />
+                    <strong>V19:</strong> Safe‑haven currency flows (CHF, JPY from yfinance).<br />
+                    <strong>V20:</strong> Traffic anomalies (TomTom / Google Maps trends).
+                </div>
+                <div class="description">These signals feed into the cascade engine as additional evidence, improving early warning lead times.</div>
+                <div class="source">Source: <code>daily-sweep.py</code></div>
+            </div>
 
-  <div class="metric-card">
-    <div class="name">Conflict Intensity Index (CII)</div>
-    <div class="formula-box">
-      CII = (log(fatalities+1)/log(1e6+1) + log(displacement+1)/log(1e7+1) + structural_norm) / 3 × 100
+        </div>
     </div>
-  </div>
 
-  <div class="metric-card">
-    <div class="name">Disinformation Vulnerability Index (DVI)</div>
-    <div class="formula-box">
-      DVI = ((100−Trust) + Polarization + (100−Media_Literacy) + Incidents) / 4 × (1 + Incidents/100)
+    <!-- DATA FLOW -->
+    <div class="methodology-section">
+        <h2>Data Flow</h2>
+        <div class="methodology-grid">
+
+            <div class="methodology-item full-width">
+                <div class="name">End‑to‑End Pipeline</div>
+                <ul class="flow-list">
+                    <li><strong>1. Daily Sweep</strong> — OSINT feeds, social media, APIs → <code>sweep_report.json</code></li>
+                    <li><strong>2. Forecasting</strong> — Prophet models for oil, food, FEMA → <code>tsf_forecasts.json</code></li>
+                    <li><strong>3. Cascade Engine</strong> — Bayesian updates, SCP, GSCI, etc. → <code>threats.json</code>, <code>cascade_log.json</code></li>
+                    <li><strong>4. Indices</strong> — regional and aggregated scores → updates <code>threats.json</code></li>
+                    <li><strong>5. Early Warning</strong> — CAP, DAS, source credibility → <code>early_warning_report.json</code></li>
+                    <li><strong>6. Ascension Engine</strong> — positive signals → <code>ascension_report.json</code></li>
+                    <li><strong>7. Prediction Verification</strong> — checks pending predictions → updates <code>predictions.json</code></li>
+                    <li><strong>8. Prediction Log Generator</strong> — filters, adds date_made, confidence breakdown, CERES → final <code>predictions.json</code></li>
+                    <li><strong>9. Frontend</strong> — static pages consume JSONs to display live data.</li>
+                </ul>
+            </div>
+
+        </div>
     </div>
-  </div>
 
-  <div class="metric-card">
-    <div class="name">Wealth Mobility Index (WMI)</div>
-    <div class="formula-box">
-      WMI = (Current / Baseline) × 50 + 20 (if convergence event)
+    <!-- WHERE TO FIND THE CODE -->
+    <div class="methodology-section">
+        <h2>Where to Find the Code</h2>
+        <div class="methodology-grid">
+
+            <div class="methodology-item full-width">
+                <ul class="flow-list">
+                    <li><strong><code>cathedral_math.py</code></strong> — all core formulas.</li>
+                    <li><strong><code>cascade_engine.py</code></strong> — Bayesian updates, cascade propagation.</li>
+                    <li><strong><code>daily-sweep.py</code></strong> — data ingestion.</li>
+                    <li><strong><code>generate_predictions.py</code></strong> — prediction log automation.</li>
+                    <li><strong><code>verify_predictions.py</code></strong> — daily verification.</li>
+                    <li><strong><code>cathedral_ml.py</code></strong> — v9 ML model.</li>
+                    <li><strong><code>ascension_engine.py</code></strong> — positive cascades.</li>
+                </ul>
+                <div class="description" style="margin-top: 8px;">All code is open source and available in the <a href="https://github.com/sad9605/cathedral-network" target="_blank" style="color: var(--violet); text-decoration: none;">GitHub repository</a>.</div>
+            </div>
+
+        </div>
     </div>
-  </div>
 
-  <div class="metric-card">
-    <div class="name">Cable Disruption Risk (CDR)</div>
-    <div class="formula-box">
-      CDR = (Latency_score + Incident_score + Geopolitical_score) / 3
+    <!-- TRUST THROUGH TRANSPARENCY -->
+    <div class="methodology-section">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius); padding: 24px; text-align: center;">
+            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7;">
+                Every number on this site is derived from publicly available data and open-source formulas. The Cathedral publishes all predictions, corrections, and source attributions — no secrets, no black boxes.
+            </p>
+        </div>
     </div>
-  </div>
 
-  <div class="metric-card">
-    <div class="name">Institutional Vulnerability Factor (IVF)</div>
-    <div class="formula-box">
-      IVF = (Governance + Funding + Transparency) / 3
-    </div>
-    <div class="description">Scores 0–1 across 19 institutions.</div>
-  </div>
+    <!-- ============ FOOTER ============ -->
+    <footer class="global-footer">
+        <div class="footer-left">
+            <span class="coco">Always and Forever, Coco. Always and Forever.</span>
+            <a href="corrections.xml">Corrections Feed (Law III)</a>
+            <a href="constitution.html">Constitution</a>
+        </div>
+        <div>
+            <span style="font-size:0.7rem;">v1.5.0 · <span id="ceres-hash">CERES: 0x7a3f…b1e2</span></span>
+        </div>
+    </footer>
 
-  <!-- ==================== FINANCIAL MODULE ==================== -->
-  <h2>📈 Financial Module Math (Separate)</h2>
-  <p>These are used in the financial modules (kept separate per Law VII):</p>
-  <ul>
-    <li><strong>Quarter‑Kelly:</strong> f* = (edge / odds) × 0.25</li>
-    <li><strong>Implied Volatility Filter:</strong> IV = std(daily log returns) × √365, pass if IV ≤ 80%</li>
-    <li><strong>Adaptive Slippage:</strong> max_trade = market_depth × edge</li>
-  </ul>
+    <!-- ============ SCRIPTS ============ -->
+    <script>
+        // Update timestamp
+        document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        setInterval(() => {
+            document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        }, 60000);
 
-  <!-- ==================== NEW SECTIONS ==================== -->
-  <h2>🌱 Ascension Engine – Positive Cascades</h2>
-  <div class="metric-card">
-    <div class="name">Recovery Probability (RP)</div>
-    <div class="description">
-      The probability that a threat or region will recover, based on positive signals (ceasefires, aid deliveries, vaccine campaigns, diplomatic agreements).
-    </div>
-    <div class="formula-box">
-      RP = base_recovery + (1 − SCP) × avg(positive_signal_impact × decay_factor)
-    </div>
-    <div class="description">
-      Positive signals are loaded from <code>positive_signals.json</code>. The engine runs daily and outputs <code>ascension_report.json</code>.
-    </div>
-    <div class="source">📌 Source: <code>ascension_engine.py</code></div>
-  </div>
-
-  <div class="metric-card">
-    <div class="name">Opportunity Matrix</div>
-    <div class="description">
-      Ranks interventions by potential impact vs effort. Impact = (1 − RP) × SCP × domain_weight; Effort = heuristic (inverse of SCP). Score = impact / effort.
-    </div>
-    <div class="source">📌 Source: <code>ascension_engine.py</code></div>
-  </div>
-
-  <div class="metric-card">
-    <div class="name">Resilience Score</div>
-    <div class="description">
-      Weighted average of Recovery Probabilities across all threats, weighted by domain importance.
-    </div>
-    <div class="formula-box">
-      Resilience Score = (Σ RP × domain_weight) / Σ domain_weight × 100
-    </div>
-    <div class="source">📌 Source: <code>ascension_engine.py</code></div>
-  </div>
-
-  <h2>🧠 v9 Machine Learning – TF‑IDF + Logistic Regression</h2>
-  <div class="metric-card">
-    <div class="name">ML Likelihood Ratios</div>
-    <div class="description">
-      A lightweight, CPU‑friendly ML model that computes likelihood ratios from threat descriptions. Trained on confirmed/falsified predictions.
-    </div>
-    <ul>
-      <li><strong>Input:</strong> Threat descriptions (text).</li>
-      <li><strong>Features:</strong> TF‑IDF vectors (1000 max features, 1‑2 ngrams).</li>
-      <li><strong>Classifier:</strong> Logistic Regression with Platt calibration.</li>
-      <li><strong>Output:</strong> Likelihood ratio (LR) for each threat, fed into the Bayesian cascade engine.</li>
-    </ul>
-    <div class="source">📌 Source: <code>cathedral_ml.py</code>, trained on historical predictions.</div>
-  </div>
-
-  <h2>🔐 CERES Timestamping – Cryptographic Integrity</h2>
-  <div class="metric-card">
-    <div class="name">CERES Hash Chain</div>
-    <div class="description">
-      Every prediction is cryptographically timestamped to ensure immutability and auditability (Law III).
-    </div>
-    <div class="formula-box">
-      Hᵢ = SHA‑256(canonical(Pᵢ) || Hᵢ₋₁ || tᵢ)
-    </div>
-    <div class="description">
-      Each prediction stores its <code>ceres_hash</code> in <code>predictions.json</code>. The hash chain is publicly verifiable.
-    </div>
-    <div class="source">📌 Source: <code>cathedral_math.py</code> (<code>hash_prediction</code>)</div>
-  </div>
-
-  <h2>📊 Confidence Breakdown – Transparent Reasoning</h2>
-  <div class="metric-card">
-    <div class="name">Confidence Breakdown</div>
-    <div class="description">
-      Every prediction includes a <code>confidence_breakdown</code> field showing:
-      <ul>
-        <li><strong>Prior</strong> – base probability from historical frequency.</li>
-        <li><strong>Evidence sources</strong> – OSINT events, cascade activations, TSF forecasts, Warden verification.</li>
-        <li><strong>Likelihood ratios</strong> – each piece of evidence with its LR and weight.</li>
-        <li><strong>Final probability</strong> – the posterior probability after Bayesian update.</li>
-      </ul>
-      This provides a fully auditable reasoning trace for every prediction.
-    </div>
-    <div class="source">📌 Source: <code>generate_predictions.py</code> and <code>prediction_intelligence.json</code>.</div>
-  </div>
-
-  <h2>📡 Unconventional Signals (V17–V20)</h2>
-  <div class="metric-card">
-    <div class="name">Priority Variables V17–V20</div>
-    <div class="description">
-      Four new priority variables added to the daily sweep:
-      <ul>
-        <li><strong>V17:</strong> Internet blackout events (from Cloudflare Radar / RIPE Atlas).</li>
-        <li><strong>V18:</strong> Food delivery spikes (aggregated trends).</li>
-        <li><strong>V19:</strong> Safe‑haven currency flows (CHF, JPY from yfinance).</li>
-        <li><strong>V20:</strong> Traffic anomalies (TomTom / Google Maps trends).</li>
-      </ul>
-      These signals feed into the cascade engine as additional evidence, improving early warning lead times.
-    </div>
-    <div class="source">📌 Source: <code>daily-sweep.py</code>.</div>
-  </div>
-
-  <!-- ==================== DATA FLOW ==================== -->
-  <h2>🧩 Data Flow</h2>
-  <ol>
-    <li><strong>Daily Sweep</strong> – OSINT feeds, social media, APIs → <code>sweep_report.json</code></li>
-    <li><strong>Forecasting</strong> – Prophet models for oil, food, FEMA → <code>tsf_forecasts.json</code></li>
-    <li><strong>Cascade Engine</strong> – Bayesian updates, SCP, GSCI, etc. → <code>threats.json</code>, <code>cascade_log.json</code></li>
-    <li><strong>Indices</strong> – regional and aggregated scores → updates <code>threats.json</code></li>
-    <li><strong>Early Warning</strong> – CAP, DAS, source credibility → <code>early_warning_report.json</code></li>
-    <li><strong>Ascension Engine</strong> – positive signals → <code>ascension_report.json</code></li>
-    <li><strong>Prediction Verification</strong> – checks pending predictions → updates <code>predictions.json</code></li>
-    <li><strong>Prediction Log Generator</strong> – filters, adds date_made, confidence breakdown, CERES → final <code>predictions.json</code></li>
-    <li><strong>Frontend</strong> – static pages consume JSONs to display live data.</li>
-  </ol>
-
-  <h2>📚 Where to Find the Code</h2>
-  <ul>
-    <li><code>cathedral_math.py</code> – all core formulas.</li>
-    <li><code>cascade_engine.py</code> – Bayesian updates, cascade propagation.</li>
-    <li><code>daily-sweep.py</code> – data ingestion.</li>
-    <li><code>generate_predictions.py</code> – prediction log automation.</li>
-    <li><code>verify_predictions.py</code> – daily verification.</li>
-    <li><code>cathedral_ml.py</code> – v9 ML model.</li>
-    <li><code>ascension_engine.py</code> – positive cascades.</li>
-  </ul>
-  <p>All code is open source and available in the <a href="https://github.com/sad9605/cathedral-network">GitHub repository</a>.</p>
-
-  <h2>🔒 Trust Through Transparency</h2>
-  <p>
-    Every number on this site is derived from publicly available data and open-source formulas.
-    The Cathedral publishes all predictions, corrections, and source attributions – no secrets, no black boxes.
-  </p>
-
-  <div class="footer">
-    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Methodology · Updated 21 June 2026.
-  </div>
-</div>
-
-<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
-
-<script>
-  // ---- Sidebar toggle ----
-  document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
-    document.getElementById('sidebar')?.classList.toggle('open');
-  });
-
-  // ---- Dark mode ----
-  const darkToggle = document.getElementById('darkModeToggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const storedTheme = localStorage.getItem('cathedral-theme');
-  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-    document.body.classList.add('dark');
-    darkToggle.innerText = '☀️';
-  } else darkToggle.innerText = '🌙';
-  darkToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    darkToggle.innerText = isDark ? '☀️' : '🌙';
-    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
-  });
-
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').catch(() => {});
-  }
-</script>
-<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+        // Fetch and display CERES hash (Law III audit trail)
+        async function updateCERES() {
+            try {
+                const response = await fetch('ceres_chain.json?t=' + Date.now());
+                const data = await response.json();
+                const chain = data.chain || [];
+                if (chain.length > 0) {
+                    const lastHash = chain[chain.length - 1].chain_hash;
+                    const el = document.getElementById('ceres-hash');
+                    if (el) el.textContent = 'CERES: ' + lastHash.slice(0, 8) + '…' + lastHash.slice(-4);
+                }
+            } catch (e) {
+                // fallback to placeholder
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateCERES);
+    </script>
 </body>
 </html>
