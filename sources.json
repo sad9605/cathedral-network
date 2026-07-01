@@ -1,714 +1,225 @@
 {
-  "data_sources": [
+  "last_updated": "2026-06-30T16:00:00Z",
+  "sources": [
     {
-      "category": "Official Disasters & Climate",
-      "disclaimer": "Sources listed in this category are official government or international agency feeds. Data is provided as-is and may be subject to the respective provider's terms.",
-      "sources": [
-        {
-          "name": "GDACS",
-          "type": "API/RSS",
-          "description": "Global Disaster Alert and Coordination System \u2013 real\u2011time alerts for earthquakes, floods, tropical cyclones, and other natural disasters. Provided by the UN OCHA and European Commission.",
-          "link": "https://www.gdacs.org/"
-        },
-        {
-          "name": "USGS Earthquakes",
-          "type": "API/RSS",
-          "description": "Live earthquake data from the U.S. Geological Survey. Provides location, magnitude, and depth for all significant seismic events worldwide.",
-          "link": "https://earthquake.usgs.gov/"
-        },
-        {
-          "name": "NASA FIRMS",
-          "type": "API/RSS",
-          "description": "Fire Information for Resource Management System \u2013 real\u2011time global fire data from MODIS and VIIRS satellites. Public domain.",
-          "link": "https://firms.modaps.eosdis.nasa.gov/"
-        },
-        {
-          "name": "ReliefWeb",
-          "type": "API/RSS",
-          "description": "UN OCHA's humanitarian information portal \u2013 provides situation reports, maps, and infographics on global crises. Authoritative source for humanitarian operations.",
-          "link": "https://reliefweb.int/"
-        },
-        {
-          "name": "HDX HAPI",
-          "type": "API",
-          "description": "Humanitarian Data Exchange \u2013 Humanitarian API. Provides harmonised data on food security, conflict, displacement, and health from OCHA and partner organisations.",
-          "link": "https://data.humdata.org/"
-        },
-        {
-          "name": "NOAA Storm Events",
-          "type": "RSS",
-          "description": "National Oceanic and Atmospheric Administration \u2013 storm and extreme weather events database.",
-          "link": "https://www.ncdc.noaa.gov/stormevents/"
-        },
-        {
-          "name": "Open-Meteo",
-          "type": "API",
-          "description": "Open\u2011source weather API providing historical, current, and forecast climate data including ERA5 reanalysis for climate anomaly detection.",
-          "link": "https://open-meteo.com/"
-        },
-        {
-          "name": "FloodList",
-          "type": "RSS",
-          "description": "Global flood monitoring and news aggregation from floodlist.com.",
-          "link": "https://floodlist.com/"
-        }
-      ]
+      "id": "gdacs",
+      "name": "GDACS",
+      "url": "https://www.gdacs.org/",
+      "description": "Global Disaster Alert and Coordination System – real‑time alerts for natural disasters.",
+      "status": "degraded",
+      "last_check": "2026-06-30T15:50:00Z",
+      "health": "yellow",
+      "notes": "API endpoint returning 404; using cached data."
     },
     {
-      "category": "Geopolitical & Conflict",
-      "disclaimer": "Conflict data sources are based on open\u2011source reporting and may have varying degrees of bias. The Cathedral applies source credibility weighting (see Methodology) to mitigate this.",
-      "sources": [
-        {
-          "name": "ACLED",
-          "type": "API",
-          "description": "Armed Conflict Location & Event Data Project \u2013 real\u2011time and historical conflict event data (Africa, Asia, Europe, Latin America, Middle East).",
-          "link": "https://acleddata.com/"
-        },
-        {
-          "name": "CFR Global Conflict Tracker",
-          "type": "Web/Scraper",
-          "description": "Council on Foreign Relations \u2013 interactive guide to ongoing armed conflicts worldwide, updated daily. Scraped by the CFR Agent.",
-          "link": "https://www.cfr.org/global-conflict-tracker"
-        },
-        {
-          "name": "UCDP",
-          "type": "API",
-          "description": "Uppsala Conflict Data Program \u2013 conflict data for research and analysis, including one\u2011sided violence and battle\u2011related deaths.",
-          "link": "https://ucdp.uu.se/"
-        },
-        {
-          "name": "GDELT",
-          "type": "API",
-          "description": "Global Database of Events, Language, and Tone \u2013 monitors broadcast, print, and web news from nearly every country worldwide.",
-          "link": "https://www.gdeltproject.org/"
-        },
-        {
-          "name": "CrisisWatch",
-          "type": "RSS",
-          "description": "International Crisis Group \u2013 monthly early warning bulletin tracking conflict escalation and de\u2011escalation globally.",
-          "link": "https://www.crisisgroup.org/crisiswatch"
-        },
-        {
-          "name": "Bellingcat",
-          "type": "RSS",
-          "description": "Investigative journalism and open\u2011source research \u2013 used for verifications and geolocation of incidents. Editorial independence noted.",
-          "link": "https://www.bellingcat.com/"
-        },
-        {
-          "name": "WarTranslated",
-          "type": "RSS",
-          "description": "Open\u2011source intelligence translations of Russian/Ukrainian military communications, used for conflict intelligence.",
-          "link": "https://wartranslated.com/"
-        }
-      ]
+      "id": "reliefweb",
+      "name": "ReliefWeb",
+      "url": "https://reliefweb.int/",
+      "description": "UN OCHA humanitarian information portal.",
+      "status": "offline",
+      "last_check": "2026-06-30T15:50:00Z",
+      "health": "red",
+      "notes": "API returning 410 Gone; likely deprecated."
     },
     {
-      "category": "Economic & Financial",
-      "disclaimer": "Financial data is sourced from public and commercial APIs. The Cathedral does not provide financial advice; all data is for early\u2011warning research only.",
-      "sources": [
-        {
-          "name": "World Bank API",
-          "type": "API",
-          "description": "Global economic indicators, debt, and development data.",
-          "link": "https://data.worldbank.org/"
-        },
-        {
-          "name": "IMF Data",
-          "type": "API/RSS",
-          "description": "International Monetary Fund \u2013 economic forecasts, global growth, and financial stability indicators.",
-          "link": "https://www.imf.org/en/Data"
-        },
-        {
-          "name": "FRED (St. Louis Fed)",
-          "type": "API",
-          "description": "Economic data, including inflation, employment, GDP, and financial markets.",
-          "link": "https://fred.stlouisfed.org/"
-        },
-        {
-          "name": "OECD Data",
-          "type": "RSS",
-          "description": "Organisation for Economic Co\u2011operation and Development \u2013 economic, social, and environmental data.",
-          "link": "https://www.oecd.org/"
-        },
-        {
-          "name": "Trading Economics",
-          "type": "API",
-          "description": "Economic indicators, exchange rates, and commodity prices.",
-          "link": "https://tradingeconomics.com/"
-        },
-        {
-          "name": "yfinance",
-          "type": "Open\u2011Source Library",
-          "description": "Python library for fetching historical stock, ETF, and commodity data from Yahoo Finance. Used for oil price tracking and financial stress indicators.",
-          "link": "https://github.com/ranaroussi/yfinance"
-        },
-        {
-          "name": "FAO GIEWS",
-          "type": "API/RSS",
-          "description": "Food and Agriculture Organization \u2013 Global Information and Early Warning System on food prices and crop prospects.",
-          "link": "https://www.fao.org/giews/"
-        },
-        {
-          "name": "IPC Global",
-          "type": "API/Web",
-          "description": "Integrated Food Security Phase Classification \u2013 acute food insecurity data for famine early warning.",
-          "link": "https://www.ipcinfo.org/"
-        }
-      ]
+      "id": "nasa_eonet",
+      "name": "NASA EONET",
+      "url": "https://eonet.gsfc.nasa.gov/",
+      "description": "NASA Earth Observatory Natural Event Tracker.",
+      "status": "offline",
+      "last_check": "2026-06-30T15:50:00Z",
+      "health": "red",
+      "notes": "Service Unavailable (503)."
     },
     {
-      "category": "News & Wire Services",
-      "disclaimer": "These sources are wire services and global news agencies. The Cathedral includes them for broad coverage but does not endorse their editorial stance. Attribution and source credibility weighting are applied.",
-      "sources": [
-        {
-          "name": "Reuters",
-          "type": "RSS",
-          "description": "Global news wire service. Used for general news, geopolitical events, and economic indicators.",
-          "link": "https://www.reuters.com/"
-        },
-        {
-          "name": "Associated Press (AP)",
-          "type": "RSS",
-          "description": "Independent global news agency. Used for fact\u2011based reporting on conflicts, disasters, and politics.",
-          "link": "https://www.ap.org/"
-        },
-        {
-          "name": "Agence France\u2011Presse (AFP)",
-          "type": "RSS",
-          "description": "French global news agency. Provides coverage of international events, including war zones and humanitarian crises.",
-          "link": "https://www.afp.com/"
-        },
-        {
-          "name": "Al Jazeera",
-          "type": "RSS",
-          "description": "Qatari\u2011based news network. Includes extensive coverage of Middle East, Africa, and Asia. Editorial line is noted but weighted accordingly.",
-          "link": "https://www.aljazeera.com/"
-        },
-        {
-          "name": "BBC News",
-          "type": "RSS",
-          "description": "British public service broadcaster. Used for global news, including climate, conflict, and science.",
-          "link": "https://www.bbc.com/news"
-        },
-        {
-          "name": "The Guardian",
-          "type": "RSS",
-          "description": "British daily newspaper. Known for investigative journalism, climate coverage, and global reporting.",
-          "link": "https://www.theguardian.com/international"
-        },
-        {
-          "name": "The New York Times",
-          "type": "RSS",
-          "description": "American newspaper. Used for in\u2011depth reporting on politics, technology, and international relations.",
-          "link": "https://www.nytimes.com/"
-        },
-        {
-          "name": "The Washington Post",
-          "type": "RSS",
-          "description": "American newspaper. Provides coverage of US politics, intelligence, and foreign affairs.",
-          "link": "https://www.washingtonpost.com/"
-        },
-        {
-          "name": "South China Morning Post",
-          "type": "RSS",
-          "description": "Hong\u2011Kong based newspaper. Used for Asian geopolitical and economic news.",
-          "link": "https://www.scmp.com/"
-        },
-        {
-          "name": "Nikkei Asia",
-          "type": "RSS",
-          "description": "Japanese financial newspaper. Provides Asian business and political news.",
-          "link": "https://asia.nikkei.com/"
-        }
-      ]
+      "id": "idmc",
+      "name": "IDMC",
+      "url": "https://www.internal-displacement.org/",
+      "description": "Internal Displacement Monitoring Centre – displacement data.",
+      "status": "degraded",
+      "last_check": "2026-06-30T15:50:00Z",
+      "health": "yellow",
+      "notes": "403 Forbidden via HDX HAPI; fallback to cached data."
     },
     {
-      "category": "Social Media & Crowdsourcing",
-      "disclaimer": "Social media sources are inherently noisy and subject to disinformation. The Cathedral applies rigorous verification and credibility scoring.",
-      "sources": [
-        {
-          "name": "Twitter/X",
-          "type": "API/RSS",
-          "description": "Real\u2011time social media feed for breaking news, official announcements, and citizen reports. Filtered by verified accounts and keywords.",
-          "link": "https://twitter.com/"
-        },
-        {
-          "name": "Reddit",
-          "type": "API/RSS",
-          "description": "Crowdsourced discussion and reporting, especially from r/OSINT, r/geopolitics, and disaster\u2011specific subreddits.",
-          "link": "https://www.reddit.com/"
-        },
-        {
-          "name": "Telegram",
-          "type": "API",
-          "description": "Encrypted messaging app used by state and non\u2011state actors for announcements and intelligence sharing. Selected public channels monitored.",
-          "link": "https://telegram.org/"
-        },
-        {
-          "name": "Mastodon",
-          "type": "API",
-          "description": "Decentralised social network. Used for alternative news and OSINT communities.",
-          "link": "https://joinmastodon.org/"
-        }
-      ]
+      "id": "acled",
+      "name": "ACLED",
+      "url": "https://acleddata.com/",
+      "description": "Armed Conflict Location & Event Data Project.",
+      "status": "pending",
+      "last_check": "2026-06-30T15:50:00Z",
+      "health": "yellow",
+      "notes": "Awaiting API key/email confirmation."
     },
     {
-      "category": "Cyber Threat Intelligence",
-      "disclaimer": "Cyber threat sources are derived from open\u2011source and free security feeds. The Cathedral uses them for early warning of cyber attacks, ransomware, and infrastructure targeting.",
-      "sources": [
-        {
-          "name": "Feodo Tracker",
-          "type": "API/TXT",
-          "description": "Abuse.ch C2 IP tracker \u2013 command\u2011and\u2011control server IPs used by malware families.",
-          "link": "https://feodotracker.abuse.ch/"
-        },
-        {
-          "name": "URLhaus",
-          "type": "API/CSV",
-          "description": "Malware URL repository \u2013 tracks malicious URLs, phishing sites, and malware distribution.",
-          "link": "https://urlhaus.abuse.ch/"
-        },
-        {
-          "name": "AbuseIPDB",
-          "type": "API",
-          "description": "Global threat intelligence database for IP addresses involved in malicious activity.",
-          "link": "https://www.abuseipdb.com/"
-        },
-        {
-          "name": "CVE Database",
-          "type": "API",
-          "description": "Common Vulnerabilities and Exposures \u2013 official repository of publicly disclosed cybersecurity vulnerabilities.",
-          "link": "https://cve.circl.lu/"
-        },
-        {
-          "name": "Shadowserver",
-          "type": "RSS",
-          "description": "Internet threat monitoring \u2013 reports on botnets, DDoS attacks, and vulnerable systems.",
-          "link": "https://www.shadowserver.org/"
-        },
-        {
-          "name": "Spamhaus",
-          "type": "RSS",
-          "description": "Real\u2011time threat intelligence on spam, phishing, and malware distribution networks.",
-          "link": "https://www.spamhaus.org/"
-        }
-      ]
+      "id": "cfr",
+      "name": "CFR Global Conflict Tracker",
+      "url": "https://www.cfr.org/global-conflict-tracker",
+      "description": "Council on Foreign Relations – ongoing conflict monitoring.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:00:00Z",
+      "health": "green",
+      "notes": "Data updated daily."
     },
     {
-      "category": "Government & Travel Advisories",
-      "disclaimer": "Official government travel advisories and security alerts are used for context and risk assessment. They represent expert opinion, not raw data.",
-      "sources": [
-        {
-          "name": "US State Dept Travel Advisories",
-          "type": "RSS",
-          "description": "US Department of State \u2013 official travel advisories, alerts, and country-specific security information.",
-          "link": "https://travel.state.gov/"
-        },
-        {
-          "name": "UK FCDO Travel Advice",
-          "type": "RSS",
-          "description": "UK Foreign, Commonwealth & Development Office \u2013 travel advice and security updates for British nationals.",
-          "link": "https://www.gov.uk/foreign-travel-advice"
-        }
-      ]
+      "id": "gdelt",
+      "name": "GDELT Project",
+      "url": "https://www.gdeltproject.org/",
+      "description": "Global event database for geopolitical monitoring.",
+      "status": "degraded",
+      "last_check": "2026-06-30T15:50:00Z",
+      "health": "yellow",
+      "notes": "429 Too Many Requests; using fallback mock data."
     },
     {
-      "category": "Satellite & Earth Observation",
-      "disclaimer": "Satellite data is sourced from open and commercial providers. The Cathedral does not store or share raw imagery; only derived threat indicators.",
-      "sources": [
-        {
-          "name": "Sentinel\u20112 (ESA)",
-          "type": "API",
-          "description": "European Space Agency \u2013 multispectral satellite imagery for agriculture, forests, and disaster monitoring.",
-          "link": "https://scihub.copernicus.eu/"
-        },
-        {
-          "name": "Landsat (NASA/USGS)",
-          "type": "API",
-          "description": "USGS/NASA \u2013 longest\u2011running satellite observation program. Used for land cover change and environmental monitoring.",
-          "link": "https://www.usgs.gov/landsat-missions"
-        },
-        {
-          "name": "OpenSky Network",
-          "type": "API",
-          "description": "Open\u2011source flight tracking and air traffic data for aviation and conflict monitoring.",
-          "link": "https://opensky-network.org/"
-        },
-        {
-          "name": "GPS Jamming Data (gpsjam.org)",
-          "type": "API/CSV",
-          "description": "GPS interference and jamming data \u2013 tracks areas with high GPS signal degradation. Used for electronic warfare monitoring.",
-          "link": "https://www.gpsjam.org/"
-        }
-      ]
+      "id": "usgs",
+      "name": "USGS Earthquakes",
+      "url": "https://earthquake.usgs.gov/",
+      "description": "Live earthquake data.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:30:00Z",
+      "health": "green",
+      "notes": "Realtime feed active."
     },
     {
-      "category": "Open\u2011Source Tools & Libraries",
-      "disclaimer": "These open\u2011source libraries are used in the Cathedral's backend and frontend. Each is credited per its license; full attributions are in the Credits page.",
-      "sources": [
-        {
-          "name": "Python 3",
-          "type": "Programming Language",
-          "description": "Core language for the Cathedral's backend.",
-          "link": "https://www.python.org/"
-        },
-        {
-          "name": "NumPy",
-          "type": "Open\u2011Source Library",
-          "description": "Numerical computing for the mathematical compendium.",
-          "link": "https://numpy.org/"
-        },
-        {
-          "name": "SciPy",
-          "type": "Open\u2011Source Library",
-          "description": "Scientific computing for statistics and signal processing.",
-          "link": "https://scipy.org/"
-        },
-        {
-          "name": "Pandas",
-          "type": "Open\u2011Source Library",
-          "description": "Data manipulation and analysis for sweep reports.",
-          "link": "https://pandas.pydata.org/"
-        },
-        {
-          "name": "Statsmodels",
-          "type": "Open\u2011Source Library",
-          "description": "Statistical modelling for time\u2011series and regression analysis.",
-          "link": "https://www.statsmodels.org/"
-        },
-        {
-          "name": "Scikit\u2011Learn",
-          "type": "Open\u2011Source Library",
-          "description": "Machine learning for TF\u2011IDF and classifier training (v9 ML).",
-          "link": "https://scikit-learn.org/"
-        },
-        {
-          "name": "Requests",
-          "type": "Open\u2011Source Library",
-          "description": "HTTP client for fetching feeds and APIs.",
-          "link": "https://requests.readthedocs.io/"
-        },
-        {
-          "name": "Feedparser",
-          "type": "Open\u2011Source Library",
-          "description": "RSS/Atom feed parsing for news and alert streams.",
-          "link": "https://feedparser.readthedocs.io/"
-        },
-        {
-          "name": "Beautiful Soup",
-          "type": "Open\u2011Source Library",
-          "description": "HTML/XML parsing for web scraping.",
-          "link": "https://www.crummy.com/software/BeautifulSoup/"
-        },
-        {
-          "name": "Geopy",
-          "type": "Open\u2011Source Library",
-          "description": "Geocoding for conflict location mapping (Nominatim).",
-          "link": "https://geopy.readthedocs.io/"
-        },
-        {
-          "name": "Joblib",
-          "type": "Open\u2011Source Library",
-          "description": "Model serialization and caching for the ML pipeline.",
-          "link": "https://joblib.readthedocs.io/"
-        },
-        {
-          "name": "Prophet (Meta)",
-          "type": "Open\u2011Source Library",
-          "description": "Time\u2011series forecasting for oil, food, and FEMA indicators.",
-          "link": "https://facebook.github.io/prophet/"
-        },
-        {
-          "name": "Three.js",
-          "type": "Frontend Library",
-          "description": "3D rendering engine for the Nexus 3D and Conflict Monitor.",
-          "link": "https://threejs.org/"
-        },
-        {
-          "name": "Globe.gl",
-          "type": "Frontend Library",
-          "description": "3D globe visualisation for the Conflict Monitor. Powered by Three.js.",
-          "link": "https://github.com/vasturiano/globe.gl"
-        },
-        {
-          "name": "3d\u2011force\u2011graph",
-          "type": "Frontend Library",
-          "description": "3D force\u2011directed graph for the Nexus 3D threat visualisation.",
-          "link": "https://github.com/vasturiano/3d-force-graph"
-        },
-        {
-          "name": "Leaflet",
-          "type": "Frontend Library",
-          "description": "Interactive mapping for the UNDP demo and HEWD dashboard.",
-          "link": "https://leafletjs.com/"
-        },
-        {
-          "name": "Cytoscape.js",
-          "type": "Frontend Library",
-          "description": "Graph visualisation for the Threat Matrix cascade graph.",
-          "link": "https://js.cytoscape.org/"
-        },
-        {
-          "name": "D3.js",
-          "type": "Frontend Library",
-          "description": "Data visualisation for charts and custom HTML elements.",
-          "link": "https://d3js.org/"
-        }
-      ]
+      "id": "firms",
+      "name": "NASA FIRMS",
+      "url": "https://firms.modaps.eosdis.nasa.gov/",
+      "description": "Fire Information for Resource Management System.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:30:00Z",
+      "health": "green",
+      "notes": "Active."
     },
     {
-      "category": "Custom Cathedral Modules",
-      "disclaimer": "These are proprietary (but open\u2011source) modules developed specifically for the Cathedral Network. They are documented in the code and methodology.",
-      "sources": [
-        {
-          "name": "cathedral_system.py",
-          "type": "Custom Module",
-          "description": "Master orchestrator \u2013 runs the full 19\u2011step daily pipeline.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "daily-sweep.py",
-          "type": "Custom Module",
-          "description": "OSINT ingestion pipeline \u2013 fetches all feeds from feeds.json, normalises, and outputs sweep_report.json.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "cascade_engine.py",
-          "type": "Custom Module",
-          "description": "Bayesian cascade engine with v9 ML integration \u2013 updates threats.json and cascade_log.json.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "cathedral_math.py",
-          "type": "Custom Module",
-          "description": "Mathematical Compendium \u2013 all 32 formulas (SSI, GSCI, SCP, DAS, etc.) implemented.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "cathedral_ml.py",
-          "type": "Custom Module",
-          "description": "TF\u2011IDF + Logistic Regression ML model for threat likelihood ratios (v9).",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "ascension_engine.py",
-          "type": "Custom Module",
-          "description": "Positive cascades \u2013 Recovery Probability, Opportunity Matrix, Resilience Score.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "generate_predictions.py",
-          "type": "Custom Module",
-          "description": "Prediction log generator \u2013 creates predictions.json with date_made, CERES, and confidence breakdown.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "verify_predictions.py",
-          "type": "Custom Module",
-          "description": "Daily verification \u2013 moves pending predictions to confirmed/falsified based on threat status.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "indices.py",
-          "type": "Custom Module",
-          "description": "Regional indices computation \u2013 aggregates threats by region for regional GSCI/SSI.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "early_warning.py",
-          "type": "Custom Module",
-          "description": "CAP, DAS, and source credibility weighting.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "acled_fetcher.py",
-          "type": "Custom Module",
-          "description": "Fetches conflict events from ACLED API and merges into conflict_data.json.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "cfr_agent.py",
-          "type": "Custom Module",
-          "description": "Agentic Warden for CFR Conflict Tracker \u2013 scrapes and updates conflict_data.json and threats.json.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "cyber_fetcher.py",
-          "type": "Custom Module",
-          "description": "Fetches cyber threat intelligence from Feodo Tracker, URLhaus, and AbuseIPDB.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "climate_anomaly_fetcher.py",
-          "type": "Custom Module",
-          "description": "Fetches climate anomalies from Open-Meteo ERA5 reanalysis.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "travel_advisories_fetcher.py",
-          "type": "Custom Module",
-          "description": "Fetches government travel advisories from US State Dept and UK FCDO.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "gpsjam_fetcher.py",
-          "type": "Custom Module",
-          "description": "Fetches GPS interference data from gpsjam.org (CSV).",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "telegram_fetcher.py",
-          "type": "Custom Module",
-          "description": "Fetches OSINT intelligence from Telegram channels (requires Telethon).",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "generate_health.py",
-          "type": "Custom Module",
-          "description": "Generates health.json for the system monitoring dashboard.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "generate_hewd.py",
-          "type": "Custom Module",
-          "description": "Selects top humanitarian threats from threats.json for the HEWD Dashboard.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "generate_daily_brief.py",
-          "type": "Custom Module",
-          "description": "Produces daily_brief.html and daily_brief.md from sweep and threat data.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "generate_cascade_graph.py",
-          "type": "Custom Module",
-          "description": "Builds cascade_graph.json for Cytoscape visualisation.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "record_scp_history.py",
-          "type": "Custom Module",
-          "description": "Appends daily SCP snapshots to scp_history.json.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "compute_trends.py",
-          "type": "Custom Module",
-          "description": "Computes 7\u2011day SCP deltas and outputs trend.json.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "engine_sanity_check.py",
-          "type": "Custom Module",
-          "description": "Validates engine outputs: SCP distribution, statuses, predictions, logs.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "generate_corrections_xml.py",
-          "type": "Custom Module",
-          "description": "Generates corrections.xml RSS feed for Law III compliance.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        },
-        {
-          "name": "git_commit_push.py",
-          "type": "Custom Module",
-          "description": "Auto\u2011commits and pushes all changes to GitHub after each sweep.",
-          "link": "https://github.com/sad9605/cathedral-network"
-        }
-      ]
+      "id": "who",
+      "name": "WHO",
+      "url": "https://www.who.int/",
+      "description": "World Health Organization – outbreak and health data.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:00:00Z",
+      "health": "green",
+      "notes": "Data integrated via AW12 Health Warden."
+    },
+    {
+      "id": "world_bank",
+      "name": "World Bank",
+      "url": "https://www.worldbank.org/",
+      "description": "Governance and economic indicators.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:00:00Z",
+      "health": "green",
+      "notes": "Used by GRA module."
+    },
+    {
+      "id": "unhcr",
+      "name": "UNHCR",
+      "url": "https://www.unhcr.org/",
+      "description": "Refugee and displacement data.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:00:00Z",
+      "health": "green",
+      "notes": "Integrated into HEWD."
+    },
+    {
+      "id": "open_meteo",
+      "name": "Open-Meteo",
+      "url": "https://open-meteo.com/",
+      "description": "Climate and weather data (ERA5 reanalysis).",
+      "status": "operational",
+      "last_check": "2026-06-30T15:00:00Z",
+      "health": "green",
+      "notes": "Used by CHM and AW11."
+    },
+    {
+      "id": "feodo_tracker",
+      "name": "Feodo Tracker",
+      "url": "https://feodotracker.abuse.ch/",
+      "description": "C2 IP tracker for cyber threat intelligence.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:00:00Z",
+      "health": "green",
+      "notes": "Active."
+    },
+    {
+      "id": "urlhaus",
+      "name": "URLhaus",
+      "url": "https://urlhaus.abuse.ch/",
+      "description": "Malware URL tracker.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:00:00Z",
+      "health": "green",
+      "notes": "Active."
+    },
+    {
+      "id": "us_state_dept",
+      "name": "US State Dept Travel Advisories",
+      "url": "https://travel.state.gov/",
+      "description": "Official US travel advisories.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:00:00Z",
+      "health": "green",
+      "notes": "Active."
+    },
+    {
+      "id": "uk_fcdo",
+      "name": "UK FCDO Travel Advice",
+      "url": "https://www.gov.uk/foreign-travel-advice",
+      "description": "UK Foreign, Commonwealth & Development Office travel advice.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:00:00Z",
+      "health": "green",
+      "notes": "Active."
+    },
+    {
+      "id": "telegram_osint",
+      "name": "Telegram OSINT",
+      "url": "https://telegram.org/",
+      "description": "Public Telegram channels for OSINT.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:30:00Z",
+      "health": "green",
+      "notes": "Fetched via Telethon (AW15)."
+    },
+    {
+      "id": "gpsjam",
+      "name": "GPSJAM",
+      "url": "https://gpsjam.org/",
+      "description": "GPS interference data.",
+      "status": "offline",
+      "last_check": "2026-06-30T15:50:00Z",
+      "health": "red",
+      "notes": "Endpoint 404; using synthetic fallback."
+    },
+    {
+      "id": "gpsjam_fallback",
+      "name": "GPSJAM Synthetic Fallback",
+      "url": "",
+      "description": "Generated synthetic jamming zones when GPSJAM is unavailable.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:50:00Z",
+      "health": "green",
+      "notes": "Active fallback."
+    },
+    {
+      "id": "gdelt_fallback",
+      "name": "GDELT Mock Fallback",
+      "url": "",
+      "description": "Mock event data when GDELT API is rate‑limited or down.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:50:00Z",
+      "health": "green",
+      "notes": "Active fallback."
+    },
+    {
+      "id": "news_agencies",
+      "name": "News Agencies",
+      "url": "",
+      "description": "Reuters, AP, BBC, Al Jazeera, AFP, Guardian, NYT, Washington Post, SCMP, Nikkei.",
+      "status": "operational",
+      "last_check": "2026-06-30T15:00:00Z",
+      "health": "green",
+      "notes": "Used for sweeps and headline generation."
     }
-  ],
-  "last_updated": "2026-06-25T20:56:50.207892",
-  "disclaimer": "This list is generated automatically and may not be exhaustive. The Cathedral Network does not endorse any external organisation; all sources are included for transparency and analytical purposes. Attribution and source credibility weighting are applied per Law III.",
-  "software": [
-    {
-      "name": "Agentic Warden",
-      "type": "Custom Module"
-    },
-    {
-      "name": "GovAgent",
-      "type": "Custom Module"
-    },
-    {
-      "name": "Steganographic Layer",
-      "type": "Custom Module"
-    },
-    {
-      "name": "Provenance Engine",
-      "type": "Custom Module"
-    },
-    {
-      "name": "Formal Verification",
-      "type": "Custom Module"
-    },
-    {
-      "name": "Unconventional Orchestrator",
-      "type": "Custom Module"
-    },
-    {
-      "name": "Community Sensors",
-      "type": "Custom Module"
-    },
-    {
-      "name": "Cascade Discovery",
-      "type": "Custom Module"
-    },
-    {
-      "name": "pgmpy",
-      "type": "Python Library",
-      "status": "installed"
-    },
-    {
-      "name": "prophet",
-      "type": "Python Library",
-      "status": "installed"
-    },
-    {
-      "name": "scipy",
-      "type": "Python Library",
-      "status": "installed"
-    },
-    {
-      "name": "numpy",
-      "type": "Python Library",
-      "status": "installed"
-    },
-    {
-      "name": "pandas",
-      "type": "Python Library",
-      "status": "installed"
-    },
-    {
-      "name": "statsmodels",
-      "type": "Python Library",
-      "status": "installed"
-    },
-    {
-      "name": "yfinance",
-      "type": "Python Library",
-      "status": "installed"
-    },
-    {
-      "name": "feedparser",
-      "type": "Python Library",
-      "status": "installed"
-    },
-    {
-      "name": "beautifulsoup4",
-      "type": "Python Library",
-      "status": "installed"
-    },
-    {
-      "name": "requests",
-      "type": "Python Library",
-      "status": "installed"
-    }
-  ],
-  "stats": {
-    "threats": 233,
-    "cascade_rules": 0,
-    "data_sources": 10,
-    "software_libraries": 18
-  }
+  ]
 }
