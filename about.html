@@ -20,7 +20,7 @@
             --border-card: #1E2633;
             --text-primary: #E8EDF5;
             --text-secondary: #94A3B8;
-            --blue: #3B82F6;
+            --violet: #8B5CF6;
             --red: #EF4444;
             --green: #10B981;
             --radius: 8px;
@@ -54,14 +54,14 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: var(--blue);
+            color: var(--violet);
         }
         .logo-area svg {
             height: 32px;
             width: auto;
             flex-shrink: 0;
             display: block;
-            color: var(--blue);
+            color: var(--violet);
         }
         .logo-area a {
             text-decoration: none;
@@ -94,8 +94,8 @@
             background: var(--bg-card);
         }
         .nav-links a.active {
-            color: var(--blue);
-            background: rgba(59, 130, 246, 0.08);
+            color: var(--violet);
+            background: rgba(139, 92, 246, 0.08);
             font-weight: 500;
         }
         .header-meta {
@@ -109,7 +109,7 @@
             display: inline-block;
             width: 8px;
             height: 8px;
-            background: var(--green);
+            background: var(--violet);
             border-radius: 50%;
             animation: pulse 2s infinite;
             margin-right: 4px;
@@ -199,7 +199,7 @@
             border-bottom: 1px solid rgba(30, 38, 51, 0.25);
         }
         .law-item .law-num {
-            color: var(--blue);
+            color: var(--violet);
             font-weight: 600;
             flex-shrink: 0;
             font-size: 0.75rem;
@@ -210,8 +210,8 @@
         }
 
         .silence-box {
-            background: rgba(59, 130, 246, 0.04);
-            border-left: 3px solid var(--blue);
+            background: rgba(139, 92, 246, 0.04);
+            border-left: 3px solid var(--violet);
             padding: 16px 20px;
             border-radius: 0 var(--radius) var(--radius) 0;
             margin-top: 12px;
@@ -299,7 +299,7 @@
     <!-- ============ HEADER ============ -->
     <header class="global-header">
         <div class="logo-area">
-            <!-- Your exact logo SVG -->
+            <!-- Your exact logo SVG — violet via currentColor -->
             <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="currentColor"/>
                 <circle cx="60" cy="25" r="2" fill="currentColor"/>
@@ -359,7 +359,7 @@
             <h2>Built from Wreckage</h2>
             <p>Built by a former homeless addict, the Cathedral is proof that <span class="highlight">those with nothing can build anything</span>. The Silence Clause (Law XV) protects the identity behind the work, because the Cathedral outlasts any single builder.</p>
 
-            <!-- FOUNDER'S QUOTE – restored per your request -->
+            <!-- FOUNDER'S QUOTE -->
             <div class="quote-block">
                 “A cathedral is not built for the builders. It is built for those who come after.”
                 <span class="attribution">— The Founder</span>
@@ -370,7 +370,7 @@
         <div class="card">
             <div class="card-label">Governance</div>
             <h2>The Fifteen Laws</h2>
-            <p>The Cathedral is governed by a written <a href="constitution.html" style="color:var(--blue); text-decoration:none;">Constitution</a> with <span class="highlight">Fifteen Immutable Laws</span> and a bicameral Warden system (Council of 21, Assembly of 41). <span class="highlight">No state, corporation, or billionaire</span> controls the Cathedral.</p>
+            <p>The Cathedral is governed by a written <a href="constitution.html" style="color:var(--violet); text-decoration:none;">Constitution</a> with <span class="highlight">Fifteen Immutable Laws</span> and a bicameral Warden system (Council of 21, Assembly of 41). <span class="highlight">No state, corporation, or billionaire</span> controls the Cathedral.</p>
 
             <div class="laws-grid">
                 <div class="law-item"><span class="law-num">I.</span><span class="law-text"><strong>Justice Filter</strong> — Never harm the vulnerable. Always warn them first.</span></div>
@@ -402,11 +402,11 @@
                 <div style="flex:1; min-width:200px;">
                     <h2 style="font-size:1.1rem; margin-bottom:4px;">Perpetual License</h2>
                     <p style="font-size:0.9rem;">All Cathedral code and content is licensed under <span class="highlight">CC BY‑NC‑SA 4.0</span> – free to share and adapt, non‑commercially, with attribution. This license is irrevocable and embedded in the Constitution (Law V).</p>
-                    <p style="font-size:0.85rem; margin-top:8px;"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color:var(--blue); text-decoration:none;">Learn more about CC BY‑NC‑SA 4.0 →</a></p>
+                    <p style="font-size:0.85rem; margin-top:8px;"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color:var(--violet); text-decoration:none;">Learn more about CC BY‑NC‑SA 4.0 →</a></p>
                 </div>
                 <div style="flex:1; min-width:200px;">
                     <h2 style="font-size:1.1rem; margin-bottom:4px;">Join Us</h2>
-                    <p style="font-size:0.9rem;">The Cathedral is <span class="highlight">open‑source, community‑driven, and built for the vulnerable</span>. Explore the <a href="threat-matrix.html" style="color:var(--blue); text-decoration:none;">Threat Matrix</a>, read the <a href="prediction-log.html" style="color:var(--blue); text-decoration:none;">Prediction Log</a>, or <a href="wardens.html" style="color:var(--blue); text-decoration:none;">become a Warden</a>.</p>
+                    <p style="font-size:0.9rem;">The Cathedral is <span class="highlight">open‑source, community‑driven, and built for the vulnerable</span>. Explore the <a href="threat-matrix.html" style="color:var(--violet); text-decoration:none;">Threat Matrix</a>, read the <a href="prediction-log.html" style="color:var(--violet); text-decoration:none;">Prediction Log</a>, or <a href="wardens.html" style="color:var(--violet); text-decoration:none;">become a Warden</a>.</p>
                 </div>
             </div>
         </div>
@@ -421,16 +421,36 @@
             <a href="constitution.html">Constitution</a>
         </div>
         <div>
-            <span style="font-size:0.7rem;">v0.9.2 · CERES: 0x7a3f…b1e2</span>
+            <!-- Updated to v1.5.0 with dynamic CERES hash -->
+            <span style="font-size:0.7rem;">v1.5.0 · <span id="ceres-hash">CERES: 0x7a3f…b1e2</span></span>
         </div>
     </footer>
 
     <!-- ============ SCRIPTS ============ -->
     <script>
+        // Update timestamp
         document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
         setInterval(() => {
             document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
         }, 60000);
+
+        // Fetch and display CERES hash (Law III audit trail)
+        async function updateCERES() {
+            try {
+                const response = await fetch('ceres_chain.json?t=' + Date.now());
+                const data = await response.json();
+                const chain = data.chain || [];
+                if (chain.length > 0) {
+                    const lastHash = chain[chain.length - 1].chain_hash;
+                    const el = document.getElementById('ceres-hash');
+                    if (el) el.textContent = 'CERES: ' + lastHash.slice(0, 8) + '…' + lastHash.slice(-4);
+                }
+            } catch (e) {
+                // Fallback: keep the placeholder text already in the HTML
+                // console.debug('CERES chain not available, using fallback.');
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateCERES);
     </script>
 </body>
 </html>

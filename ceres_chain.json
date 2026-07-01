@@ -1,0 +1,1436 @@
+{
+  "chain": [
+    {
+      "index": 1,
+      "prediction_id": "v3-G1",
+      "prediction_hash": "2c45cdf202bdb4b60537c2c518bae0a701f8d3282d54088a81d59d53e224e57c",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "timestamp": "2026-06-27T22:15:20.966289+00:00",
+      "statement": "Iran closes Strait of Hormuz after US-Israeli strikes",
+      "chain_hash": "1168f9512556209e79ff39b8761de05b9a2c290fd018fdef772b66609229de63"
+    },
+    {
+      "index": 2,
+      "prediction_id": "v3-G2",
+      "prediction_hash": "9a11a3380cd72b34e48e38ba24eab77ee0b2451ed88d90a8e628bd9fdc825938",
+      "previous_hash": "1168f9512556209e79ff39b8761de05b9a2c290fd018fdef772b66609229de63",
+      "timestamp": "2026-06-27T22:15:20.967292+00:00",
+      "statement": "US imposes naval blockade of Iranian ports",
+      "chain_hash": "e31333910f3faef340ec8547828c99add86eacf0efaca0b46c4d23df63f228da"
+    },
+    {
+      "index": 3,
+      "prediction_id": "v3-G3",
+      "prediction_hash": "69b6bd82ea4dc15ccf8105d1a47ec42b9dd5e76db74f42e6026d17d4c0a4e2ec",
+      "previous_hash": "e31333910f3faef340ec8547828c99add86eacf0efaca0b46c4d23df63f228da",
+      "timestamp": "2026-06-27T22:15:20.967479+00:00",
+      "statement": "Ukraine ceasefire is 'frozen conflict,' not peace",
+      "chain_hash": "5bab4cde0f8b00a678f2757477948121ad871b1960c2a8932f91dc8086dbfa89"
+    },
+    {
+      "index": 4,
+      "prediction_id": "v3-G4",
+      "prediction_hash": "4f81c1d6694fd6d01b36a6370b0645dd66484bac46bd9f418950474015fd8895",
+      "previous_hash": "5bab4cde0f8b00a678f2757477948121ad871b1960c2a8932f91dc8086dbfa89",
+      "timestamp": "2026-06-27T22:15:20.969509+00:00",
+      "statement": "'Tanker war' resumes after lull",
+      "chain_hash": "0b25a0d5e677e0b710cd2189f84c9f48526cfd1d8e776d0adbe7da18ed9a9578"
+    },
+    {
+      "index": 5,
+      "prediction_id": "v3-G5",
+      "prediction_hash": "d005f961c3e8ad7128114a104a42b306de5fcdb0550d0b7d84d23d3a778f07a7",
+      "previous_hash": "0b25a0d5e677e0b710cd2189f84c9f48526cfd1d8e776d0adbe7da18ed9a9578",
+      "timestamp": "2026-06-27T22:15:20.969821+00:00",
+      "statement": "Iran threatens US military bases",
+      "chain_hash": "673014f8bed888135a046c1c09f558015cb63248d9c06a401483ea671121a815"
+    },
+    {
+      "index": 6,
+      "prediction_id": "v3-G6",
+      "prediction_hash": "d68c267c382d2306a220d6c0743144886b050582f825e38e37603d4071189a30",
+      "previous_hash": "673014f8bed888135a046c1c09f558015cb63248d9c06a401483ea671121a815",
+      "timestamp": "2026-06-27T22:15:20.970087+00:00",
+      "statement": "Hezbollah-Israel ceasefire collapses",
+      "chain_hash": "19b1d797c9395af5fd9430c0968e1b22fef73c35a8f517eac4f763de5c56c44e"
+    },
+    {
+      "index": 7,
+      "prediction_id": "v3-G7",
+      "prediction_hash": "5b9e0b3b235e58179b3371aba9efe8477576310c20e36a5b2b56cd6938457cd5",
+      "previous_hash": "19b1d797c9395af5fd9430c0968e1b22fef73c35a8f517eac4f763de5c56c44e",
+      "timestamp": "2026-06-27T22:15:20.970343+00:00",
+      "statement": "Houthis escalate Red Sea attacks",
+      "chain_hash": "97c701c1453b83e394b226d0d439214513e25aa6b929c0a58d23f5e024c4fe71"
+    },
+    {
+      "index": 8,
+      "prediction_id": "v3-E1",
+      "prediction_hash": "9295a3b6e2f031241a2c6003e17b21624dfd84fcef1ef7ee2da8cc573dcff5fb",
+      "previous_hash": "97c701c1453b83e394b226d0d439214513e25aa6b929c0a58d23f5e024c4fe71",
+      "timestamp": "2026-06-27T22:15:20.970590+00:00",
+      "statement": "Physical oil decouples from paper futures",
+      "chain_hash": "d066c4f439f9c380fcd4c89ae3f2a67e719094b091d9585e84c5f9285501602d"
+    },
+    {
+      "index": 9,
+      "prediction_id": "v3-E2",
+      "prediction_hash": "90eec1a94adf070ef97637939411c9420aa75ef9229cf7f1533810238009a40c",
+      "previous_hash": "d066c4f439f9c380fcd4c89ae3f2a67e719094b091d9585e84c5f9285501602d",
+      "timestamp": "2026-06-27T22:15:20.970824+00:00",
+      "statement": "Physical-paper spread reaches record",
+      "chain_hash": "56c336689c9e88273c5e1a88f8275f3dbb7be89216ad0ab15765e8e1b8c45734"
+    },
+    {
+      "index": 10,
+      "prediction_id": "v3-E3",
+      "prediction_hash": "c7c95eda62bf19b5cc79a2eefe2e357368d06709e3fff0bd8acfaf1c2564a181",
+      "previous_hash": "56c336689c9e88273c5e1a88f8275f3dbb7be89216ad0ab15765e8e1b8c45734",
+      "timestamp": "2026-06-27T22:15:20.970908+00:00",
+      "statement": "Suspicious trading before Iran announcements",
+      "chain_hash": "3889716e3822b14ddb356a5c46a19dc249af24ccb4cd600ec494eb3e207eec77"
+    },
+    {
+      "index": 11,
+      "prediction_id": "v3-E4",
+      "prediction_hash": "f8ecf7437fe1f608847575555c71d0180aeb3ba480dc2d81ec0dbedb03c28edd",
+      "previous_hash": "3889716e3822b14ddb356a5c46a19dc249af24ccb4cd600ec494eb3e207eec77",
+      "timestamp": "2026-06-27T22:15:20.971124+00:00",
+      "statement": "'Peace premium' in futures a mirage",
+      "chain_hash": "95371639ea4e52e7fabc3e53db2382975fac002b82f52ad709b7b45d2df4ba01"
+    },
+    {
+      "index": 12,
+      "prediction_id": "v3-E5",
+      "prediction_hash": "c3967b172994a1dfd9d8ddd6e2bf96893d830c8a048954c7baf1254af3d39b7b",
+      "previous_hash": "95371639ea4e52e7fabc3e53db2382975fac002b82f52ad709b7b45d2df4ba01",
+      "timestamp": "2026-06-27T22:15:20.971219+00:00",
+      "statement": "Gasoline hits $4.50/gal before summer",
+      "chain_hash": "3d90f9abbf315c3f48223b1993057dd59cc0e46b6c00009eed7ff2fa8a9ba6e3"
+    },
+    {
+      "index": 13,
+      "prediction_id": "v3-E6",
+      "prediction_hash": "f459763069cf69b38b3ca606562ff4ee32860799937fa769fd0c94a37826ed04",
+      "previous_hash": "3d90f9abbf315c3f48223b1993057dd59cc0e46b6c00009eed7ff2fa8a9ba6e3",
+      "timestamp": "2026-06-27T22:15:20.971717+00:00",
+      "statement": "Diesel becomes binding constraint",
+      "chain_hash": "6763084817ef0f4fd74f65cdec1e743f4ba2fb18d02cffd7581dae60013d0e8e"
+    },
+    {
+      "index": 14,
+      "prediction_id": "v3-E7",
+      "prediction_hash": "59800958cac34a4d0dac5fb4f684ff8ea488b6dc8a555affe4367e57719d1443",
+      "previous_hash": "6763084817ef0f4fd74f65cdec1e743f4ba2fb18d02cffd7581dae60013d0e8e",
+      "timestamp": "2026-06-27T22:15:20.971851+00:00",
+      "statement": "US refining system cracks",
+      "chain_hash": "38f01bbefdfdad7a2c268edcc425dbd43ef6f9257da2bd4b9998b7157cf653ed"
+    },
+    {
+      "index": 15,
+      "prediction_id": "v3-E8",
+      "prediction_hash": "193fc2ff4265b750cccaae6e0fa7b99890413cccce8dba6643925d53f2e41219",
+      "previous_hash": "38f01bbefdfdad7a2c268edcc425dbd43ef6f9257da2bd4b9998b7157cf653ed",
+      "timestamp": "2026-06-27T22:15:20.972148+00:00",
+      "statement": "Tank bottoms hit Europe by May",
+      "chain_hash": "1b3519b63d23168219bd9de654b5b394ab8f98cd5d763411aef71d2f50143fdc"
+    },
+    {
+      "index": 16,
+      "prediction_id": "v3-S1",
+      "prediction_hash": "705024a349900de3af4a695e138d88177cb2e962f718224fca5211518e37f642",
+      "previous_hash": "1b3519b63d23168219bd9de654b5b394ab8f98cd5d763411aef71d2f50143fdc",
+      "timestamp": "2026-06-27T22:15:20.972238+00:00",
+      "statement": "Sulfuric acid crisis chokes metals",
+      "chain_hash": "4fe180e55fc5eaf188c0e1f09dd8c7130851779966d4a6c3d4f0c7e643967377"
+    },
+    {
+      "index": 17,
+      "prediction_id": "v3-S2",
+      "prediction_hash": "328b213c8eac2301e33862b47caa92ab12b9cc8dc0aa9740024e1a1dfb08dc8a",
+      "previous_hash": "4fe180e55fc5eaf188c0e1f09dd8c7130851779966d4a6c3d4f0c7e643967377",
+      "timestamp": "2026-06-27T22:15:20.972585+00:00",
+      "statement": "PE extraction triggers pharmacy deserts",
+      "chain_hash": "7af2f42de1fddae60f7bd610a51a8f114c1a6533cd4174f70805f98d59d4a0e4"
+    },
+    {
+      "index": 18,
+      "prediction_id": "v3-S3",
+      "prediction_hash": "5f6a8515ab4d40bd9498f52c47e0ee2ca3c24788e9c5d9cea9d40d410ee5c0b7",
+      "previous_hash": "7af2f42de1fddae60f7bd610a51a8f114c1a6533cd4174f70805f98d59d4a0e4",
+      "timestamp": "2026-06-27T22:15:20.972683+00:00",
+      "statement": "Subway closures are PE extraction",
+      "chain_hash": "dc693ec7741df4a4e60c65ce16a2c5c6566751b9a8e31b6b32afa4cc9452f51f"
+    },
+    {
+      "index": 19,
+      "prediction_id": "v3-S4",
+      "prediction_hash": "11d527f62e7dca9bfc93a532c04b857c558530d1eb9f58cd4d1ab2f4b7124dc8",
+      "previous_hash": "dc693ec7741df4a4e60c65ce16a2c5c6566751b9a8e31b6b32afa4cc9452f51f",
+      "timestamp": "2026-06-27T22:15:20.972893+00:00",
+      "statement": "Retail apocalypse accelerates",
+      "chain_hash": "1c688b11f84c2baf1812cd4ed1db873ffef7a486b1d282c0fdd3c99ee2f597d6"
+    },
+    {
+      "index": 20,
+      "prediction_id": "v3-H1",
+      "prediction_hash": "5647a36b85878385e7790f0a38d0460b5e62f4aa420e7f481a338d7f7811070e",
+      "previous_hash": "1c688b11f84c2baf1812cd4ed1db873ffef7a486b1d282c0fdd3c99ee2f597d6",
+      "timestamp": "2026-06-27T22:15:20.973130+00:00",
+      "statement": "Hantavirus cruise ship outbreak",
+      "chain_hash": "886fbe76cef15d27acab50a8dc089e1f40467e40a23f99641bcb21eafba575fd"
+    },
+    {
+      "index": 21,
+      "prediction_id": "v3-H2",
+      "prediction_hash": "6771ac5a4c096f1bd3e70a1d4b48a37669a97a3e18195e0160f6a42a78a4b015",
+      "previous_hash": "886fbe76cef15d27acab50a8dc089e1f40467e40a23f99641bcb21eafba575fd",
+      "timestamp": "2026-06-27T22:15:20.973236+00:00",
+      "statement": "Conspiracy theories emerge immediately",
+      "chain_hash": "02b9d234208c57da92869e3df8e6a8266d1a84f3cb00ea51c2903eb4b7fe1748"
+    },
+    {
+      "index": 22,
+      "prediction_id": "v3-D1",
+      "prediction_hash": "73928564f844344832f404b76244496743ed74b26cadbe652cfa8f9f199be251",
+      "previous_hash": "02b9d234208c57da92869e3df8e6a8266d1a84f3cb00ea51c2903eb4b7fe1748",
+      "timestamp": "2026-06-27T22:15:20.973523+00:00",
+      "statement": "Trump refuses to accept election loss",
+      "chain_hash": "f4cf9be8d67d07b9910513d0431db17d7a4bb77c4a8aa45a3594567776fe00ea"
+    },
+    {
+      "index": 23,
+      "prediction_id": "v3-D2",
+      "prediction_hash": "ba96134193644cdac8d452986fd342ec8aa4584901f359545e4ac830ef7f8b85",
+      "previous_hash": "f4cf9be8d67d07b9910513d0431db17d7a4bb77c4a8aa45a3594567776fe00ea",
+      "timestamp": "2026-06-27T22:15:20.973666+00:00",
+      "statement": "WH won't guarantee agents away from polls",
+      "chain_hash": "461a2ecc8d4371ff44f7e91813046faf7d5829335688e3d70a75e86c36ae80f0"
+    },
+    {
+      "index": 24,
+      "prediction_id": "v3-D3",
+      "prediction_hash": "5716cec51cf6b8badfada581b59d4a2ee22f5d0d7d75edfb1c76838b1d451f13",
+      "previous_hash": "461a2ecc8d4371ff44f7e91813046faf7d5829335688e3d70a75e86c36ae80f0",
+      "timestamp": "2026-06-27T22:15:20.973760+00:00",
+      "statement": "AI deepfakes in 2026 midterms",
+      "chain_hash": "89f08ad596a1a757244b6897645000c6a164daf128aca60adb099d40d57e3e97"
+    },
+    {
+      "index": 25,
+      "prediction_id": "v3-M1",
+      "prediction_hash": "01081690e6e6c39fa0be36bd622005647e1c75bab0e186b512cdca48cec05a90",
+      "previous_hash": "89f08ad596a1a757244b6897645000c6a164daf128aca60adb099d40d57e3e97",
+      "timestamp": "2026-06-27T22:15:20.974059+00:00",
+      "statement": "Missing scientists \u2192 FBI investigation",
+      "chain_hash": "c76f67eae53e67fa0ae87203918e9c08d0db49326577c8d19276027934cb065f"
+    },
+    {
+      "index": 26,
+      "prediction_id": "v3-M2",
+      "prediction_hash": "3f3369fb2ac979b8501604fc7dd871fbf1682e1e0703d666c2a7b2e5eaf7b790",
+      "previous_hash": "c76f67eae53e67fa0ae87203918e9c08d0db49326577c8d19276027934cb065f",
+      "timestamp": "2026-06-27T22:15:20.974257+00:00",
+      "statement": "Cases linked to nuclear/space programs",
+      "chain_hash": "915b50e31e592bd6756e4faff62a6591e5069e4cdaca616aae6b651706b5e51f"
+    },
+    {
+      "index": 27,
+      "prediction_id": "v3-M3",
+      "prediction_hash": "fc1df404d7eaeedb7906ae395b90be7de84a6d81c829ac3d703a0cf00a94f3f9",
+      "previous_hash": "915b50e31e592bd6756e4faff62a6591e5069e4cdaca616aae6b651706b5e51f",
+      "timestamp": "2026-06-27T22:15:20.974721+00:00",
+      "statement": "Missing AFRL general linked to UFO reverse-engineering",
+      "chain_hash": "413577ca60518d5f0c58b6f615cbce3736dc9a20d7d0753e04ecbb5d2665582d"
+    },
+    {
+      "index": 28,
+      "prediction_id": "v3-C1",
+      "prediction_hash": "e47d2ed47dae89bfff31e7055cbfbe289ee546787cc6a0918414be274dd059e5",
+      "previous_hash": "413577ca60518d5f0c58b6f615cbce3736dc9a20d7d0753e04ecbb5d2665582d",
+      "timestamp": "2026-06-27T22:15:20.974977+00:00",
+      "statement": "May 1 emergency Colorado River water releases",
+      "chain_hash": "9e236417f11acc1fb8ee9fbfb0b911c8d8d34f79c9726aac1af70c6a727c6d26"
+    },
+    {
+      "index": 29,
+      "prediction_id": "v3-C2",
+      "prediction_hash": "74d19b94bb107324a7ad9a3b41c4a06a2cb9736f0b4f4e31e951e17e68ab56a8",
+      "previous_hash": "9e236417f11acc1fb8ee9fbfb0b911c8d8d34f79c9726aac1af70c6a727c6d26",
+      "timestamp": "2026-06-27T22:15:20.975043+00:00",
+      "statement": "Lake Powell approaches dead pool",
+      "chain_hash": "1caa7525f30fb012aa6866aa013e54440851715d6212ed508ebd1a778fe56570"
+    },
+    {
+      "index": 30,
+      "prediction_id": "v3-C3",
+      "prediction_hash": "cd2f60f8b443f2cabed73d7512712c481945de6a731bfb9f654144d8d6ba19aa",
+      "previous_hash": "1caa7525f30fb012aa6866aa013e54440851715d6212ed508ebd1a778fe56570",
+      "timestamp": "2026-06-27T22:15:20.975146+00:00",
+      "statement": "March 2026 heatwave unprecedented",
+      "chain_hash": "479a5fd8049ac878672d8b1ec963b858a1f77c39e730967af31ccbef442a5286"
+    },
+    {
+      "index": 31,
+      "prediction_id": "P001",
+      "prediction_hash": "77198fbf9fb5e9efa65eb10e742ed7eabcb2adc8c0e6e52e2ae540e2dcda5275",
+      "previous_hash": "479a5fd8049ac878672d8b1ec963b858a1f77c39e730967af31ccbef442a5286",
+      "timestamp": "2026-06-27T22:15:20.975233+00:00",
+      "statement": "Iran restricts Gulf airspace within 90d",
+      "chain_hash": "9b4853d919644fe0cc0499110f76e136259009c7ee4aadb2fb2bb3ba3821f940"
+    },
+    {
+      "index": 32,
+      "prediction_id": "P002",
+      "prediction_hash": "e86bfc27e314c05b88fbc35b9ea996800f89b0153bce0bd239aab351d15639d7",
+      "previous_hash": "9b4853d919644fe0cc0499110f76e136259009c7ee4aadb2fb2bb3ba3821f940",
+      "timestamp": "2026-06-27T22:15:20.975599+00:00",
+      "statement": "Delhi wet-bulb >32\u00b0C for >48h in May",
+      "chain_hash": "fb8e9da09852e86618024d6f8345e71b489522e2b57301f28fda51b52f24f7bd"
+    },
+    {
+      "index": 33,
+      "prediction_id": "P003",
+      "prediction_hash": "e7e53e6ffade67490b2d7de0c34ad763464602dbe0e0aa64c716a1e07b34f0af",
+      "previous_hash": "fb8e9da09852e86618024d6f8345e71b489522e2b57301f28fda51b52f24f7bd",
+      "timestamp": "2026-06-27T22:15:20.975744+00:00",
+      "statement": "Japan 10Y JGB >2.5% before Jun 30",
+      "chain_hash": "46ae252942c98c03dcdd46fbdaf86e92b018c0636d02583f7e1b001b3f84d3f3"
+    },
+    {
+      "index": 34,
+      "prediction_id": "P004",
+      "prediction_hash": "bbf8a55406aca99b47aadde5fee5f3ec3dfc1676aa81d1c1c9eb2b881d540ff5",
+      "previous_hash": "46ae252942c98c03dcdd46fbdaf86e92b018c0636d02583f7e1b001b3f84d3f3",
+      "timestamp": "2026-06-27T22:15:20.975964+00:00",
+      "statement": "Russia GPS jamming in Baltic affects civil aviation",
+      "chain_hash": "49c86fea81bf4568373f461e4ee55b66be767511d95ce6399cea9a0bbbb69725"
+    },
+    {
+      "index": 35,
+      "prediction_id": "P005",
+      "prediction_hash": "6cd4a08f508a1226f17771d82648c0b76262b3511f1789272241d3435967b3d3",
+      "previous_hash": "49c86fea81bf4568373f461e4ee55b66be767511d95ce6399cea9a0bbbb69725",
+      "timestamp": "2026-06-27T22:15:20.976040+00:00",
+      "statement": "Horn food prices >25% YoY",
+      "chain_hash": "1ea6e20554b42ff1641de9ec6e50a1c8a762ff3024ab489b059c57ae71877cac"
+    },
+    {
+      "index": 36,
+      "prediction_id": "P006",
+      "prediction_hash": "d5a4bb42144a118cc4402b0902728ee7e3fe7b1dbc28619659dc62545c5bdc62",
+      "previous_hash": "1ea6e20554b42ff1641de9ec6e50a1c8a762ff3024ab489b059c57ae71877cac",
+      "timestamp": "2026-06-27T22:15:20.976318+00:00",
+      "statement": "DRAM contract prices surge >50% QoQ in Q2 2026",
+      "chain_hash": "378d7f3f4408c41c81975fb57e124bc56226f3b54f0bdb4053e06c85ace0b763"
+    },
+    {
+      "index": 37,
+      "prediction_id": "P007",
+      "prediction_hash": "11b61605a2988983f800067ac084c449c701e0fc584feb93a1ac1d18ab29a95c",
+      "previous_hash": "378d7f3f4408c41c81975fb57e124bc56226f3b54f0bdb4053e06c85ace0b763",
+      "timestamp": "2026-06-27T22:15:20.976401+00:00",
+      "statement": "H5N1 mammalian adaptation, silent transmission in US",
+      "chain_hash": "64a06be82d571bac41456b7485fa72982c503e091c070c8408ca8dfb1215803a"
+    },
+    {
+      "index": 38,
+      "prediction_id": "P008",
+      "prediction_hash": "4909cabb917797ae4040ffc83ef467026b1401e96296c5260c541491fc0df7d0",
+      "previous_hash": "64a06be82d571bac41456b7485fa72982c503e091c070c8408ca8dfb1215803a",
+      "timestamp": "2026-06-27T22:15:20.976590+00:00",
+      "statement": "WHO funding crisis \u2192 >15% workforce reduction",
+      "chain_hash": "8c359e576758b2fc4b1f1a277afd954f183733b89693331ce71020d55cf5d9a6"
+    },
+    {
+      "index": 39,
+      "prediction_id": "P009",
+      "prediction_hash": "42adf9795e1e70108b64fc92d1a4351322c57a31acc099be6d3faf1a845b99e8",
+      "previous_hash": "8c359e576758b2fc4b1f1a277afd954f183733b89693331ce71020d55cf5d9a6",
+      "timestamp": "2026-06-27T22:15:20.976692+00:00",
+      "statement": "Armenia-Azerbaijan \u22653 border incidents in 7-day window",
+      "chain_hash": "38eaea57865424cf5ddf64907c6a823d8d833626edd2a419697bb762ae9149fd"
+    },
+    {
+      "index": 40,
+      "prediction_id": "P021",
+      "prediction_hash": "40f5f430caa19f35756abe138a6c03074dbf03faccec07303d0b4f370c7cdd66",
+      "previous_hash": "38eaea57865424cf5ddf64907c6a823d8d833626edd2a419697bb762ae9149fd",
+      "timestamp": "2026-06-27T22:15:20.976881+00:00",
+      "statement": "Sudan SRCS legal status revoked within 6m",
+      "chain_hash": "5f58707732a3b713f2469301b22cc80223101fa4cbbd1d94e6f3b60344edaa67"
+    },
+    {
+      "index": 41,
+      "prediction_id": "P033",
+      "prediction_hash": "aa8e4f96e4be20e765a6dd4fce14a14abacf3a496dd41b787ecf63da400d0a80",
+      "previous_hash": "5f58707732a3b713f2469301b22cc80223101fa4cbbd1d94e6f3b60344edaa67",
+      "timestamp": "2026-06-27T22:15:20.976964+00:00",
+      "statement": "TSMC 3nm/5nm fully booked through 2027",
+      "chain_hash": "d857e1b52028192acc9571cf4f546f259f8dd1401fd487d3983399f9b6e507b1"
+    },
+    {
+      "index": 42,
+      "prediction_id": "P041",
+      "prediction_hash": "eb5a056953c2e2be82df3079d0bb446e4e1ae981b35324d07943163124fdfeeb",
+      "previous_hash": "d857e1b52028192acc9571cf4f546f259f8dd1401fd487d3983399f9b6e507b1",
+      "timestamp": "2026-06-27T22:15:20.977036+00:00",
+      "statement": "NATO member reports drone incursions within 90d",
+      "chain_hash": "01c84a1bf8d3285e15ae07f2a00027d92add5743ddd8d4da9d5b7e2b318fe393"
+    },
+    {
+      "index": 43,
+      "prediction_id": "P055",
+      "prediction_hash": "552567dc5d8bb3e3c6f41f3cfa57b9086a4178b608a93d23b89edf2872d25137",
+      "previous_hash": "01c84a1bf8d3285e15ae07f2a00027d92add5743ddd8d4da9d5b7e2b318fe393",
+      "timestamp": "2026-06-27T22:15:20.977309+00:00",
+      "statement": "FEMA DRF drops below $2B before hurricane season",
+      "chain_hash": "b40d401911937f4bf29ef3fdff40d14ca77ef08211ec7645da56a8f977cbee08"
+    },
+    {
+      "index": 44,
+      "prediction_id": "P089",
+      "prediction_hash": "cd7b50070e9335c2d24635b413a8e80f2819ff689b8747a9c4bfa1e73a8cec10",
+      "previous_hash": "b40d401911937f4bf29ef3fdff40d14ca77ef08211ec7645da56a8f977cbee08",
+      "timestamp": "2026-06-27T22:15:20.977510+00:00",
+      "statement": "ICRC president publicly declares IHL broken within 7d",
+      "chain_hash": "db7c23787575e793244793b0538de8056fdddd8b4b697680db2eacfe71d800c6"
+    },
+    {
+      "index": 45,
+      "prediction_id": "WW-014",
+      "prediction_hash": "e7ea800beaf286590dadef846dd95d740d8bfa2d313fdb59f1663a75432346a8",
+      "previous_hash": "db7c23787575e793244793b0538de8056fdddd8b4b697680db2eacfe71d800c6",
+      "timestamp": "2026-06-27T22:15:20.977586+00:00",
+      "statement": "Python automation in place",
+      "chain_hash": "8d1db2a663ec91b453c54c7cf6ce0466cd0c9be255b2b8589be870eed2ed1250"
+    },
+    {
+      "index": 46,
+      "prediction_id": "WW-016",
+      "prediction_hash": "2f024cf0605e1308004f30686edbac3a4ff30d971396ae33983933f40a53b9db",
+      "previous_hash": "8d1db2a663ec91b453c54c7cf6ce0466cd0c9be255b2b8589be870eed2ed1250",
+      "timestamp": "2026-06-27T22:15:20.977845+00:00",
+      "statement": "Kaleb runs first solo daily cycle",
+      "chain_hash": "55a7dee01109990e9d6c37d841af2d7fdc9542789784338e3b697f9860f2b6fa"
+    },
+    {
+      "index": 47,
+      "prediction_id": "V3-HORN",
+      "prediction_hash": "09299e69a6ac813c22a00d30a98423c8a84cab1bdd561931b78b26ceeee06cc7",
+      "previous_hash": "55a7dee01109990e9d6c37d841af2d7fdc9542789784338e3b697f9860f2b6fa",
+      "timestamp": "2026-06-27T22:15:20.978033+00:00",
+      "statement": "Horn IPC Phase 5 population \u2265210,000",
+      "chain_hash": "96381ed89953f07cece5d44d449288acf20f4698840a29dd28be4bb8ae0cf29b"
+    },
+    {
+      "index": 48,
+      "prediction_id": "WW-033",
+      "prediction_hash": "70286dc136504c165827c0b96eccc23be98809deffefe53929e2c2d4ea831255",
+      "previous_hash": "96381ed89953f07cece5d44d449288acf20f4698840a29dd28be4bb8ae0cf29b",
+      "timestamp": "2026-06-27T22:15:20.978215+00:00",
+      "statement": "Another US refinery outage before Memorial Day",
+      "chain_hash": "561514c205f812a027bd869d0c6e7d229816e607a6eaf73a361c96207d417a06"
+    },
+    {
+      "index": 49,
+      "prediction_id": "WW-088",
+      "prediction_hash": "91183e08ad34f951677cc24e27faf674351ef3627485c45544f7c77a93b73d53",
+      "previous_hash": "561514c205f812a027bd869d0c6e7d229816e607a6eaf73a361c96207d417a06",
+      "timestamp": "2026-06-27T22:15:20.978317+00:00",
+      "statement": "GERD second-phase filling begins on schedule (Jun 2026)",
+      "chain_hash": "64ca8ae73fd4a606a5c33d58d0bc733bbe2f3efd9e6fd06f4d60e29cc0010884"
+    },
+    {
+      "index": 50,
+      "prediction_id": "P010",
+      "prediction_hash": "521bde9a15239362a54eeb5315ba42c7903189d1d4c7f2acac28f2bc92ea1573",
+      "previous_hash": "64ca8ae73fd4a606a5c33d58d0bc733bbe2f3efd9e6fd06f4d60e29cc0010884",
+      "timestamp": "2026-06-27T22:15:20.978497+00:00",
+      "statement": "Iran enrichment >60% before Jul 1",
+      "chain_hash": "ee120a84cff6ff115855bb48cc5862521ee27b62e7a28cc0a26092aaaf3699a3"
+    },
+    {
+      "index": 51,
+      "prediction_id": "P37",
+      "prediction_hash": "dc41a2906136b88307dcc5db0746868bcf27d7698f9a04f4e6b78b8a69e491a5",
+      "previous_hash": "ee120a84cff6ff115855bb48cc5862521ee27b62e7a28cc0a26092aaaf3699a3",
+      "timestamp": "2026-06-27T22:15:20.978595+00:00",
+      "statement": "Putin rejects Zelenskyy talks, launches strikes on Ukraine energy infrastructure",
+      "chain_hash": "2f952fee6903c7c79a4abbc8190c80e5ffa9f8225634bd43cf320bbc2a5340e6"
+    },
+    {
+      "index": 52,
+      "prediction_id": "P011",
+      "prediction_hash": "d377beb81e42f5d8b0ad32b09780b9eca83632df3aa47539bae828e71a927f49",
+      "previous_hash": "2f952fee6903c7c79a4abbc8190c80e5ffa9f8225634bd43cf320bbc2a5340e6",
+      "timestamp": "2026-06-27T22:15:20.978663+00:00",
+      "statement": "Iran enriches uranium to 60%",
+      "chain_hash": "3845835d515b38c95837f4748f9a95bb141c7fd9c265eb32c86d8509249e11fe"
+    },
+    {
+      "index": 53,
+      "prediction_id": "P012",
+      "prediction_hash": "e4c50c722989a110f34c82064ced35eedd0407ae27e7dfc99db71039e0e78ea4",
+      "previous_hash": "3845835d515b38c95837f4748f9a95bb141c7fd9c265eb32c86d8509249e11fe",
+      "timestamp": "2026-06-27T22:15:20.978753+00:00",
+      "statement": "US imposes new sanctions on Iran",
+      "chain_hash": "2ebd915f4231efc9dabd310acf02c3db9e6c004648a19afd1724c9f3dbd96d70"
+    },
+    {
+      "index": 54,
+      "prediction_id": "P013",
+      "prediction_hash": "420f3ad646296e3d0dc1de409ddebc0fc8327c6da77988678042edaf7e7ec74c",
+      "previous_hash": "2ebd915f4231efc9dabd310acf02c3db9e6c004648a19afd1724c9f3dbd96d70",
+      "timestamp": "2026-06-27T22:15:20.978818+00:00",
+      "statement": "Iran tests ballistic missile",
+      "chain_hash": "27408eee8e119105d6f507a48b2cbb4ca21cb1a1baa46540f61de0bc7a9cd89d"
+    },
+    {
+      "index": 55,
+      "prediction_id": "P014",
+      "prediction_hash": "9c4a24f81cbd68e6c998986394df39dedefcdb09e37e3ea0e9afab0eded6ec0f",
+      "previous_hash": "27408eee8e119105d6f507a48b2cbb4ca21cb1a1baa46540f61de0bc7a9cd89d",
+      "timestamp": "2026-06-27T22:15:20.979191+00:00",
+      "statement": "Israel strikes Iranian nuclear facility",
+      "chain_hash": "5368d199654bbf7f8001c0f2990e71e80bdccd853cb9658116e838a7db085e6d"
+    },
+    {
+      "index": 56,
+      "prediction_id": "P015",
+      "prediction_hash": "aca1d2bd8532fa646a15c412466abe0bd398c0f65b5a55136177edc19d7e4fbc",
+      "previous_hash": "5368d199654bbf7f8001c0f2990e71e80bdccd853cb9658116e838a7db085e6d",
+      "timestamp": "2026-06-27T22:15:20.979263+00:00",
+      "statement": "Hezbollah fires rockets into Israel",
+      "chain_hash": "b401a9a0e2d7e3489cda0819f7b71d5ec26295078429020fcb89a31e73e5171f"
+    },
+    {
+      "index": 57,
+      "prediction_id": "P016",
+      "prediction_hash": "5700df9854a5c277d0d7c66241714ab1a355ff299980ba0673b71a9b353231e3",
+      "previous_hash": "b401a9a0e2d7e3489cda0819f7b71d5ec26295078429020fcb89a31e73e5171f",
+      "timestamp": "2026-06-27T22:15:20.979463+00:00",
+      "statement": "IDF begins ground operation in Lebanon",
+      "chain_hash": "45d4084a87b63886cb02cf8d833e5fe5e62403ff580252066f3bf1da3ee987b7"
+    },
+    {
+      "index": 58,
+      "prediction_id": "P017",
+      "prediction_hash": "948e2209e1517e1b9c3d3b1a22e4470a10efd7b5f25cdefb85eaf29fbfbbc020",
+      "previous_hash": "45d4084a87b63886cb02cf8d833e5fe5e62403ff580252066f3bf1da3ee987b7",
+      "timestamp": "2026-06-27T22:15:20.979637+00:00",
+      "statement": "Houthis attack Saudi oil facility",
+      "chain_hash": "ef84bacfbf625e611484dd23ac26fd4e7678da395dd0eb9ec8fe68f8495a0576"
+    },
+    {
+      "index": 59,
+      "prediction_id": "P018",
+      "prediction_hash": "6b0b4cc084f06ccd543ba9114b1cabb51c7843646b7876b155115bcdcde2555e",
+      "previous_hash": "ef84bacfbf625e611484dd23ac26fd4e7678da395dd0eb9ec8fe68f8495a0576",
+      "timestamp": "2026-06-27T22:15:20.979706+00:00",
+      "statement": "US deploys carrier strike group to Gulf",
+      "chain_hash": "c68342eaad93a70360d72121774472c643b3f003ecebea416a6d96498b749daf"
+    },
+    {
+      "index": 60,
+      "prediction_id": "P019",
+      "prediction_hash": "1ec1298ac62deb4f2543e05de9badf7f27101ab6bba7e8ff8f0de7d942ad4c7d",
+      "previous_hash": "c68342eaad93a70360d72121774472c643b3f003ecebea416a6d96498b749daf",
+      "timestamp": "2026-06-27T22:15:20.979865+00:00",
+      "statement": "Iran announces nuclear breakthrough",
+      "chain_hash": "3bd5cb49b4f456393d9aa5e0cbb27360700e5112089544051d8310537f094b52"
+    },
+    {
+      "index": 61,
+      "prediction_id": "P020",
+      "prediction_hash": "de57b6bb034e603a464d5b38ed5dd8c27f03fff9e6c7c0825aa3fbc37afa1144",
+      "previous_hash": "3bd5cb49b4f456393d9aa5e0cbb27360700e5112089544051d8310537f094b52",
+      "timestamp": "2026-06-27T22:15:20.979955+00:00",
+      "statement": "Russia vetoes UN Iran resolution",
+      "chain_hash": "94dc2ed4baac569ac05684b3762f5cad6ecf389c3787f0211f3a0e34889ebe40"
+    },
+    {
+      "index": 62,
+      "prediction_id": "P022",
+      "prediction_hash": "9c02346841c8f8968fe0ff8157a41fc9e9fad25a7d1408accecd55c8f5207882",
+      "previous_hash": "94dc2ed4baac569ac05684b3762f5cad6ecf389c3787f0211f3a0e34889ebe40",
+      "timestamp": "2026-06-27T22:15:20.980135+00:00",
+      "statement": "Sudan civil war intensifies",
+      "chain_hash": "f78ae4054edd928a2e2109bdc502625ee082de1dac462189019f758c2dc3bfbb"
+    },
+    {
+      "index": 63,
+      "prediction_id": "P023",
+      "prediction_hash": "798fe14c4251a210d8db971ca2aa1810c527877495b7b73d1387a5db87a057f4",
+      "previous_hash": "f78ae4054edd928a2e2109bdc502625ee082de1dac462189019f758c2dc3bfbb",
+      "timestamp": "2026-06-27T22:15:20.980225+00:00",
+      "statement": "Ethiopia-Tigray conflict resumes",
+      "chain_hash": "f9eccd9facde4fdcdc18dc70af7a80aa2f634eb98c14d3f48983e84b11861e45"
+    },
+    {
+      "index": 64,
+      "prediction_id": "P024",
+      "prediction_hash": "4e4b2e28ecabb3e3a606958fe258eb8447e72a1d7e4135b2c01080c3aeab4f73",
+      "previous_hash": "f9eccd9facde4fdcdc18dc70af7a80aa2f634eb98c14d3f48983e84b11861e45",
+      "timestamp": "2026-06-27T22:15:20.980894+00:00",
+      "statement": "Somalia famine declared",
+      "chain_hash": "856f1c4a61730570255442edd0078109e4f49eaff651c83d02025128cf081a63"
+    },
+    {
+      "index": 65,
+      "prediction_id": "P025",
+      "prediction_hash": "5c0ebc0592ff6495a5223d15257eb8963f3d0ee93ac7dd3a2b29ec41811694ca",
+      "previous_hash": "856f1c4a61730570255442edd0078109e4f49eaff651c83d02025128cf081a63",
+      "timestamp": "2026-06-27T22:15:20.980981+00:00",
+      "statement": "Kenya drought emergency",
+      "chain_hash": "e16cbba262a37b6dc711a589b69b92934ece1f533b70db015335afe1a5fc1d4c"
+    },
+    {
+      "index": 66,
+      "prediction_id": "P026",
+      "prediction_hash": "244ac2481dce0ac6a4885c6b0b74611217d67167b1e9c66134650e4f19635650",
+      "previous_hash": "e16cbba262a37b6dc711a589b69b92934ece1f533b70db015335afe1a5fc1d4c",
+      "timestamp": "2026-06-27T22:15:20.981043+00:00",
+      "statement": "Uganda Ebola cases surge",
+      "chain_hash": "60e936089b3943a5c59ac4171f61524707f292ab189e6d7d9e6c6fc107822d85"
+    },
+    {
+      "index": 67,
+      "prediction_id": "P027",
+      "prediction_hash": "16e59a55eed6384ca696949e45ff1abd3c2ec52a30c765f1b3b1ffecb82d2187",
+      "previous_hash": "60e936089b3943a5c59ac4171f61524707f292ab189e6d7d9e6c6fc107822d85",
+      "timestamp": "2026-06-27T22:15:20.981218+00:00",
+      "statement": "DRC Mpox outbreak",
+      "chain_hash": "5baae21966ed975ffb64b8f3c02e238b7e2eb962e5bcee1c744bf491c69c36e2"
+    },
+    {
+      "index": 68,
+      "prediction_id": "P028",
+      "prediction_hash": "af23237da12ce7bd5df2473d68ad5764a4c8af676aa6ec0da065ffd8faefce19",
+      "previous_hash": "5baae21966ed975ffb64b8f3c02e238b7e2eb962e5bcee1c744bf491c69c36e2",
+      "timestamp": "2026-06-27T22:15:20.981279+00:00",
+      "statement": "Cholera outbreak in Yemen",
+      "chain_hash": "d78a272bf324795bfbab968b1475b37680e3932d8ea9b09d0fc8b235a3c7e30c"
+    },
+    {
+      "index": 69,
+      "prediction_id": "P029",
+      "prediction_hash": "524108a7ff83e3b67464246a973c838a05be085c40c5e4a7ecf3a75ff98b8716",
+      "previous_hash": "d78a272bf324795bfbab968b1475b37680e3932d8ea9b09d0fc8b235a3c7e30c",
+      "timestamp": "2026-06-27T22:15:20.981339+00:00",
+      "statement": "H5N1 bird flu in US cattle",
+      "chain_hash": "4b4d538e5d8fbe5e7ca770d775eb35f47f20b94b5a00cb3179d09c99f96b7d51"
+    },
+    {
+      "index": 70,
+      "prediction_id": "P030",
+      "prediction_hash": "4b50a9186e3dc3c4585f8c91bb72af1cc5d561041d9ea6646ae87bfcff38edeb",
+      "previous_hash": "4b4d538e5d8fbe5e7ca770d775eb35f47f20b94b5a00cb3179d09c99f96b7d51",
+      "timestamp": "2026-06-27T22:15:20.981398+00:00",
+      "statement": "Marburg virus in Tanzania",
+      "chain_hash": "b0043d3ba44c1350d81bed69902791062c6deef0cb8aac8956fb61a03401fb81"
+    },
+    {
+      "index": 71,
+      "prediction_id": "P031",
+      "prediction_hash": "f319032b3ea76172b61618ff0d1361a7cc7511168a5421784fbfcbee05012d18",
+      "previous_hash": "b0043d3ba44c1350d81bed69902791062c6deef0cb8aac8956fb61a03401fb81",
+      "timestamp": "2026-06-27T22:15:20.981458+00:00",
+      "statement": "Dengue surge in South America",
+      "chain_hash": "6a1da1ada18ea5d95294d6bfe690e7f2ec8a9af637a3ffc6c84f9262415f3208"
+    },
+    {
+      "index": 72,
+      "prediction_id": "P032",
+      "prediction_hash": "ff885cdfc3d77ad663d8acec438b07826dc296d162bf1bdaf3c46c5591ef8bea",
+      "previous_hash": "6a1da1ada18ea5d95294d6bfe690e7f2ec8a9af637a3ffc6c84f9262415f3208",
+      "timestamp": "2026-06-27T22:15:20.981551+00:00",
+      "statement": "Measles outbreak in India",
+      "chain_hash": "5fa64bbe71e91ccb1da8cc583bc0a71a1433ec8f8ddbd3ea4337fbb3ad301687"
+    },
+    {
+      "index": 73,
+      "prediction_id": "P034",
+      "prediction_hash": "b4d2b127d006e90d09b15a092980631cda648165756c4c6b5785bf8880602d1b",
+      "previous_hash": "5fa64bbe71e91ccb1da8cc583bc0a71a1433ec8f8ddbd3ea4337fbb3ad301687",
+      "timestamp": "2026-06-27T22:15:20.981636+00:00",
+      "statement": "AI deepfakes target 2026 midterms",
+      "chain_hash": "b5b4a4c5dc8f003c9c34d174ad4c8396d7544a284f985ee454f6982c2648cd60"
+    },
+    {
+      "index": 74,
+      "prediction_id": "P035",
+      "prediction_hash": "9f1e86582ae49b87418d0d4af994d8e8fb82d7809e1fd9ae9859e8a8f26da7a1",
+      "previous_hash": "b5b4a4c5dc8f003c9c34d174ad4c8396d7544a284f985ee454f6982c2648cd60",
+      "timestamp": "2026-06-27T22:15:20.981696+00:00",
+      "statement": "Major data breach at US agency",
+      "chain_hash": "4ac3252958884aacf11e2f943f69f2d79dbde4e09c29f8ce669a54a6b545acce"
+    },
+    {
+      "index": 75,
+      "prediction_id": "P036",
+      "prediction_hash": "795359ee7da53d9bc3cfa70b1cf198d79aa72b47b4372a76c1c49e634e10777a",
+      "previous_hash": "4ac3252958884aacf11e2f943f69f2d79dbde4e09c29f8ce669a54a6b545acce",
+      "timestamp": "2026-06-27T22:15:20.981755+00:00",
+      "statement": "Ransomware attack on hospital system",
+      "chain_hash": "1978e7e24f544d8d469c18b123180f51b6bc00b1a81f987862ad352e5ab3d0b5"
+    },
+    {
+      "index": 76,
+      "prediction_id": "WW-031",
+      "prediction_hash": "7f5ec1a10c9c4ed1630ee772f935c48c3bceca7e53087ad0edb8838c01a4731b",
+      "previous_hash": "1978e7e24f544d8d469c18b123180f51b6bc00b1a81f987862ad352e5ab3d0b5",
+      "timestamp": "2026-06-27T22:15:20.981829+00:00",
+      "statement": "Brent crude breaches $170 before May 31 (72% prob)",
+      "chain_hash": "4e810d8ceeabdfffd65bcc3a20dd48c40c984e1fc71383081e2f319d57062e90"
+    },
+    {
+      "index": 77,
+      "prediction_id": "V1",
+      "prediction_hash": "6dbffd71087007a901b8ab0eef8946fd2a2e972be6dbf316367922ce8c582b2a",
+      "previous_hash": "4e810d8ceeabdfffd65bcc3a20dd48c40c984e1fc71383081e2f319d57062e90",
+      "timestamp": "2026-06-27T22:15:20.981928+00:00",
+      "statement": "Hormuz insurance differential \u226510% or rebounds >10% within 48h (80% prob)",
+      "chain_hash": "4a4e93e87d1b865784c749688aa7d849d7b5ac2652a76f3433892f763842c099"
+    },
+    {
+      "index": 78,
+      "prediction_id": "V1-HORMUZ",
+      "prediction_hash": "23f614f6110ee26a17555d90c1ea84ac100df04d0a1c75507adc346c80cc782d",
+      "previous_hash": "4a4e93e87d1b865784c749688aa7d849d7b5ac2652a76f3433892f763842c099",
+      "timestamp": "2026-06-27T22:15:20.982004+00:00",
+      "statement": "Hormuz insurance differential \u226510% (re-evaluated)",
+      "chain_hash": "c7b9a3b19d8abab8dfc487608394dac80b047c48fab596ca953a2fb4418e330e"
+    },
+    {
+      "index": 79,
+      "prediction_id": "P39",
+      "prediction_hash": "0806b64c9b8091ade2f867e4263fdef0b48bde8767497219fdec830dcd14316a",
+      "previous_hash": "c7b9a3b19d8abab8dfc487608394dac80b047c48fab596ca953a2fb4418e330e",
+      "timestamp": "2026-06-27T22:15:20.982074+00:00",
+      "statement": "US-Iran nuclear deal within 14 days (70% \u2192 5%)",
+      "chain_hash": "b9f7b6c04fc217689349688b493dbf56f677614e6bf035f7c1abe393534e3343"
+    },
+    {
+      "index": 80,
+      "prediction_id": "P-EBOLA-1500",
+      "prediction_hash": "bed426618b687dc913effcbc54aa9b464d2de1f6b4c4c7aed441f4acc6868dc0",
+      "previous_hash": "b9f7b6c04fc217689349688b493dbf56f677614e6bf035f7c1abe393534e3343",
+      "timestamp": "2026-06-27T22:15:20.982159+00:00",
+      "statement": "Ebola >1,500 cases",
+      "chain_hash": "f5055f83d5be49ae680688336578f33e5e8e5a3b8932a71dc200d9b569fe5ce2"
+    },
+    {
+      "index": 81,
+      "prediction_id": "P-KYIV-STRIKE",
+      "prediction_hash": "e1ce81eeee5a9f1eeb75833bfe5fae36824bd6a3ccac2d0ccf678649fd3baec2",
+      "previous_hash": "f5055f83d5be49ae680688336578f33e5e8e5a3b8932a71dc200d9b569fe5ce2",
+      "timestamp": "2026-06-27T22:15:20.982372+00:00",
+      "statement": "Russian mass-casualty strike on Kyiv",
+      "chain_hash": "058eb83b6332143818cb9a5200c4a3c36524f31dce04a25b74760086348a2c7d"
+    },
+    {
+      "index": 82,
+      "prediction_id": "P-OIL-150",
+      "prediction_hash": "3df29a26613dc96a7419e64c5b54bf73f1e21417cfa8d6aebf57c1bd8cd67c5e",
+      "previous_hash": "058eb83b6332143818cb9a5200c4a3c36524f31dce04a25b74760086348a2c7d",
+      "timestamp": "2026-06-27T22:15:20.982447+00:00",
+      "statement": "Brent >$150/bbl",
+      "chain_hash": "afd8bbf19b41e4c29dd4a42ba843b5c14f03c495c1873354a47ba786ecd72b6f"
+    },
+    {
+      "index": 83,
+      "prediction_id": "P-FAO-140",
+      "prediction_hash": "222548febe9f1718ac556d10636c48eda7c47b0167f2dde0dfc46c6b6906ee22",
+      "previous_hash": "afd8bbf19b41e4c29dd4a42ba843b5c14f03c495c1873354a47ba786ecd72b6f",
+      "timestamp": "2026-06-27T22:15:20.983029+00:00",
+      "statement": "FAO Food Price Index \u2265140",
+      "chain_hash": "e8cca5f28d341c059ac917c721293912426a6341831a254c5e3a153782b20f5a"
+    },
+    {
+      "index": 84,
+      "prediction_id": "P-ZNPP-LOSS",
+      "prediction_hash": "265ac25ed98bb18485c8ffc785d9da341cee9a5a812d01c56fa36410103bff3c",
+      "previous_hash": "e8cca5f28d341c059ac917c721293912426a6341831a254c5e3a153782b20f5a",
+      "timestamp": "2026-06-27T22:15:20.983168+00:00",
+      "statement": "ZNPP complete external power loss",
+      "chain_hash": "a5fb862a7133aabe4a24e6d55e03a8324b3fd540d346fe88f41832855067b9b2"
+    },
+    {
+      "index": 85,
+      "prediction_id": "P34",
+      "prediction_hash": "f117425caa79a28b837ce95f0bc8e7977405024d47ed254dbd0612530e2d64b6",
+      "previous_hash": "a5fb862a7133aabe4a24e6d55e03a8324b3fd540d346fe88f41832855067b9b2",
+      "timestamp": "2026-06-27T22:15:20.983228+00:00",
+      "statement": "AI deepfake delays US county election certification within 14 days",
+      "chain_hash": "96a68166b8a1485f2bab39650d889d2da6d332ac6f5293bab5117a087b2067d3"
+    },
+    {
+      "index": 86,
+      "prediction_id": "P35",
+      "prediction_hash": "16ff6aacb24d14df8a2c27ab7426c507ef540c8c42ffa67ecc5244b18863ab21",
+      "previous_hash": "96a68166b8a1485f2bab39650d889d2da6d332ac6f5293bab5117a087b2067d3",
+      "timestamp": "2026-06-27T22:15:20.983284+00:00",
+      "statement": "Fertiliser price index >230 by 18 June, triggering export bans",
+      "chain_hash": "f2e0c9c66d47e988c61c3468c8f0f980e10df761c1590bf19a9ce447fa6b504c"
+    },
+    {
+      "index": 87,
+      "prediction_id": "P38",
+      "prediction_hash": "b5bb6d5a7a85e998c7a41c4b65066bc7ca595e7bfc7eeaf5796c3f721b89c8b3",
+      "previous_hash": "f2e0c9c66d47e988c61c3468c8f0f980e10df761c1590bf19a9ce447fa6b504c",
+      "timestamp": "2026-06-27T22:15:20.983339+00:00",
+      "statement": "Federal court issues injunction against DOD faith code reduction within 6 months",
+      "chain_hash": "fc837a20570a69322d1805fcdce553c61bfb894c1806390ca4fc764ed62dc12f"
+    },
+    {
+      "index": 88,
+      "prediction_id": "P42",
+      "prediction_hash": "e64f7fce7a5aa9b3732091634377a285d49c95ed8485d3b93c50ed77cba71918",
+      "previous_hash": "fc837a20570a69322d1805fcdce553c61bfb894c1806390ca4fc764ed62dc12f",
+      "timestamp": "2026-06-27T22:15:20.983402+00:00",
+      "statement": "ERISA class-action lawsuit over forced SpaceX 401(k) purchase within 60 days of ",
+      "chain_hash": "2d958ada269b5ce6d6fe9b97420f09c467eb196dc78ec5ed13ec0ab6380f51d1"
+    },
+    {
+      "index": 89,
+      "prediction_id": "P45",
+      "prediction_hash": "55b40ef88f1f964da5a5909e94083517d7724f5f26710b0ec8787466da39f5fe",
+      "previous_hash": "2d958ada269b5ce6d6fe9b97420f09c467eb196dc78ec5ed13ec0ab6380f51d1",
+      "timestamp": "2026-06-27T22:15:20.983458+00:00",
+      "statement": "Major US daily newspaper (>100k circulation) will close within 6 months",
+      "chain_hash": "c9eb6db39f5b4b7177df750f0a705f42e458d65686a8cbc65b4abe9b11ef41b5"
+    },
+    {
+      "index": 90,
+      "prediction_id": "P47",
+      "prediction_hash": "a731478ce96782c3bac1efb85c0929f617d587932b5ea9738c894398341344ff",
+      "previous_hash": "c9eb6db39f5b4b7177df750f0a705f42e458d65686a8cbc65b4abe9b11ef41b5",
+      "timestamp": "2026-06-27T22:15:20.983511+00:00",
+      "statement": "Public trust in journalists falls below 50% by end of 2026",
+      "chain_hash": "efb8c6d2e482dae88bab7bea55671ad9c57513898975825ea162e022be2077f1"
+    },
+    {
+      "index": 91,
+      "prediction_id": "P49",
+      "prediction_hash": "11c1d6a356b372e9906360689f5d80a4f85b905b0de48ffe87bd1aa5f06f2ee4",
+      "previous_hash": "efb8c6d2e482dae88bab7bea55671ad9c57513898975825ea162e022be2077f1",
+      "timestamp": "2026-06-27T22:15:20.983563+00:00",
+      "statement": "AI-fueled stock market correction \u226520-30% from 2026 peak",
+      "chain_hash": "5fd12efe83fad37c15f269ca9d0986daacd3776c46dd1b20d9ed49ede4c83218"
+    },
+    {
+      "index": 92,
+      "prediction_id": "P52",
+      "prediction_hash": "a3e49ce6b750aba0e19cfb1cbdd2af14b5ee623cb9b98b93a79977868dd30344",
+      "previous_hash": "5fd12efe83fad37c15f269ca9d0986daacd3776c46dd1b20d9ed49ede4c83218",
+      "timestamp": "2026-06-27T22:15:20.983616+00:00",
+      "statement": "Dell annualized EPS stays above $15 (avoids 50% drop)",
+      "chain_hash": "47d6206d31dd88098550a452be75d2f92c919d5b03144dd8e5ff85863807be22"
+    },
+    {
+      "index": 93,
+      "prediction_id": "P56",
+      "prediction_hash": "105f4af44e12ca88d5aa313281d234a118d89b2a728b8b178fa7bbf652ce3d29",
+      "previous_hash": "47d6206d31dd88098550a452be75d2f92c919d5b03144dd8e5ff85863807be22",
+      "timestamp": "2026-06-27T22:15:20.983699+00:00",
+      "statement": "Nasdaq falls another 10% within 30 trading days",
+      "chain_hash": "e8a282beccfbc2b951e2b59df17fd8efe438a902ad9e0c71c39681b463c48884"
+    },
+    {
+      "index": 94,
+      "prediction_id": "P57",
+      "prediction_hash": "b571054b764534337e75793e26fa1d55867a66f44a80e52bea33d24825846dae",
+      "previous_hash": "e8a282beccfbc2b951e2b59df17fd8efe438a902ad9e0c71c39681b463c48884",
+      "timestamp": "2026-06-27T22:15:20.983776+00:00",
+      "statement": "Tech correction 20-25% but no global financial crisis (GSCI \u226475)",
+      "chain_hash": "7b075d37585b06fd18b57045c9541a2ca2efcf79b0bfea56d8dace72361f79af"
+    },
+    {
+      "index": 95,
+      "prediction_id": "P58",
+      "prediction_hash": "319f72cc60879118062cf8d0657cc4a429129a101d3f6bc5c8bbcc0962bf34cb",
+      "previous_hash": "7b075d37585b06fd18b57045c9541a2ca2efcf79b0bfea56d8dace72361f79af",
+      "timestamp": "2026-06-27T22:15:20.983831+00:00",
+      "statement": "Palantir signs major contract with Argentine federal government within 12 months",
+      "chain_hash": "a2e44f5ff5269cec2068025448ef4eca86b0e70358e393742b309e9c0a8e9060"
+    },
+    {
+      "index": 96,
+      "prediction_id": "P59",
+      "prediction_hash": "7409fc47ebece995c600301674ecb8344fba441b3eefb9ebc2847d3b2d404ad1",
+      "previous_hash": "a2e44f5ff5269cec2068025448ef4eca86b0e70358e393742b309e9c0a8e9060",
+      "timestamp": "2026-06-27T22:15:20.985788+00:00",
+      "statement": "At least three additional US tech billionaires establish residency in Argentina ",
+      "chain_hash": "fa18ff7afd242dccc8d6b6df6e4458b57ec94756454cafffad018756eaf94d9d"
+    },
+    {
+      "index": 97,
+      "prediction_id": "P60",
+      "prediction_hash": "9d625214efc6be20ac1674b1d9c0cd6c97d0b222c352ed9dcc90e8e7f4b8e951",
+      "previous_hash": "fa18ff7afd242dccc8d6b6df6e4458b57ec94756454cafffad018756eaf94d9d",
+      "timestamp": "2026-06-27T22:15:20.986021+00:00",
+      "statement": "Antitrust investigation into Oracle-Palantir-OpenAI-Tesla nexus within 18 months",
+      "chain_hash": "e1ac3b73227e7ec9dfc2c70e3a3ad59513e67dcca974441bb64f5304b55fdc98"
+    },
+    {
+      "index": 98,
+      "prediction_id": "P61",
+      "prediction_hash": "e85a644e635414b840c19774335036c8e1f375c313b2316ff5affcf6db79a9bf",
+      "previous_hash": "e1ac3b73227e7ec9dfc2c70e3a3ad59513e67dcca974441bb64f5304b55fdc98",
+      "timestamp": "2026-06-27T22:15:20.986081+00:00",
+      "statement": "US city or county officially explores 'Network State' status within 24 months",
+      "chain_hash": "cfbaf625b40fafd820d50e9fb34e4d9d44cc2d585cae972de28c69caf50cf78d"
+    },
+    {
+      "index": 99,
+      "prediction_id": "P62",
+      "prediction_hash": "680293d2b2ef7bd5b47fa295ec2ad38bb574d13b082346e0b4d7d1f8390321db",
+      "previous_hash": "cfbaf625b40fafd820d50e9fb34e4d9d44cc2d585cae972de28c69caf50cf78d",
+      "timestamp": "2026-06-27T22:15:20.986160+00:00",
+      "statement": "US military suffers operational failure due to over-reliance on single AI contra",
+      "chain_hash": "fd9fdf2b9a760f85618518ec70fc83c3c249a96559278166aa8f5c4010d1ad9c"
+    },
+    {
+      "index": 100,
+      "prediction_id": "P63",
+      "prediction_hash": "f1e7e8374b3ec0ed61c676f1640ec2021a82c9dcc823a77fab0e956f999750db",
+      "previous_hash": "fd9fdf2b9a760f85618518ec70fc83c3c249a96559278166aa8f5c4010d1ad9c",
+      "timestamp": "2026-06-27T22:15:20.986216+00:00",
+      "statement": "EU regulator fines Meta >\u20ac1 billion for DSA violations within 18 months",
+      "chain_hash": "1c9a3737d3b670c57e5b7e35d1e4ed86aee0a56ecf1237f8cfc8eab5a7602e28"
+    },
+    {
+      "index": 101,
+      "prediction_id": "P64",
+      "prediction_hash": "dfdc082aa56a1cd37392bf338ce799a5e5edd37a7074d61c7db5e1b86f90d45b",
+      "previous_hash": "1c9a3737d3b670c57e5b7e35d1e4ed86aee0a56ecf1237f8cfc8eab5a7602e28",
+      "timestamp": "2026-06-27T22:15:20.986269+00:00",
+      "statement": "Alphabet forced to divest ad exchange business within 24 months",
+      "chain_hash": "0a92ef03ef8793d80274ec70cfa6e0db50fdbbd0a82cf130b652a9f9c1777ba1"
+    },
+    {
+      "index": 102,
+      "prediction_id": "P65",
+      "prediction_hash": "d3320123675bc3b467bb9968fd2038b25e8f75f791ce1ba4d4d465f55aed0591",
+      "previous_hash": "0a92ef03ef8793d80274ec70cfa6e0db50fdbbd0a82cf130b652a9f9c1777ba1",
+      "timestamp": "2026-06-27T22:15:20.986623+00:00",
+      "statement": "Congressional investigation into TikTok divestment deal for 'undue influence' wi",
+      "chain_hash": "4972df8e2a55fec1a412343212f80f11ace0d9fc56bfa7654aa8af32121f1484"
+    },
+    {
+      "index": 103,
+      "prediction_id": "P66",
+      "prediction_hash": "df33b698b3b1083c5901a9f8ae1b5539fb1d6f462ebf04308b0d3ffb00b136ff",
+      "previous_hash": "4972df8e2a55fec1a412343212f80f11ace0d9fc56bfa7654aa8af32121f1484",
+      "timestamp": "2026-06-27T22:15:20.986720+00:00",
+      "statement": "US government surveillance contract with new TikTok entity exposed within 36 mon",
+      "chain_hash": "90c7e8ccb4360776e76ef7690407fa95aa6558c41cdfd7273f4518b5f92d52af"
+    },
+    {
+      "index": 104,
+      "prediction_id": "P67",
+      "prediction_hash": "30129a617f75ab508a37262d42d27522c70906c5ab4a73dd5b7e65efbc9d30e8",
+      "previous_hash": "90c7e8ccb4360776e76ef7690407fa95aa6558c41cdfd7273f4518b5f92d52af",
+      "timestamp": "2026-06-27T22:15:20.986987+00:00",
+      "statement": "Major AI coding assistant security incident due to Miasma-style poisoning within",
+      "chain_hash": "beadff62bca0d434c51dec5d62978eda7ed41a8d7a7ce6e42e1c7944048996e5"
+    },
+    {
+      "index": 105,
+      "prediction_id": "P68",
+      "prediction_hash": "827f416a2438d7808fe02d2cb2237d2dd4985dcf7fb3a4d3e1721dc5e74de49f",
+      "previous_hash": "beadff62bca0d434c51dec5d62978eda7ed41a8d7a7ce6e42e1c7944048996e5",
+      "timestamp": "2026-06-27T22:15:20.987044+00:00",
+      "statement": "Miasma framework adapted to target another package registry (PyPI, RubyGems, Mav",
+      "chain_hash": "f234f40cbff8c617a134ab71182e06b68177a01a1d8d03d781de3eeea3674205"
+    },
+    {
+      "index": 106,
+      "prediction_id": "P74",
+      "prediction_hash": "a7ef739529a5719658f41195b1625d2fbb54fdc8e360d1e92664c1acb446b715",
+      "previous_hash": "f234f40cbff8c617a134ab71182e06b68177a01a1d8d03d781de3eeea3674205",
+      "timestamp": "2026-06-27T22:15:20.987112+00:00",
+      "statement": "Oil exceeds $130/bbl within 7 days (from 7 June)",
+      "chain_hash": "fcbe7bc614bd47dec7724ea7ac0d473a0d9df60ae96ff93d8bd2346aef43a6a4"
+    },
+    {
+      "index": 107,
+      "prediction_id": "P75",
+      "prediction_hash": "34fd8da901c5ed91f73bcd5d8fab8192eb0615f7d87d89a965ee31f56b14ba53",
+      "previous_hash": "fcbe7bc614bd47dec7724ea7ac0d473a0d9df60ae96ff93d8bd2346aef43a6a4",
+      "timestamp": "2026-06-27T22:15:20.987486+00:00",
+      "statement": "Israel strikes Iranian nuclear/military sites within 14 days (from 7 June)",
+      "chain_hash": "2e8f5bd37bb99057699ce3f75190f39a8b760b5c20355ddd7156909a8d8e5b4c"
+    },
+    {
+      "index": 108,
+      "prediction_id": "P76",
+      "prediction_hash": "8d4d5ab99036bdb7495d5aca81f2399c8f674bf9a09e6eb0c9b73792c7625a98",
+      "previous_hash": "2e8f5bd37bb99057699ce3f75190f39a8b760b5c20355ddd7156909a8d8e5b4c",
+      "timestamp": "2026-06-27T22:15:20.987542+00:00",
+      "statement": "Iran's 'seven days of continuous strikes' occurs",
+      "chain_hash": "75df54754d692c00c5d60455ea51e3c5845d085be442f057fb5672e4b35ea1bb"
+    },
+    {
+      "index": 109,
+      "prediction_id": "P77",
+      "prediction_hash": "76bb470066702cb7f50a7c8f977f5c497b94deea3c3e46704119be2d50d1b562",
+      "previous_hash": "75df54754d692c00c5d60455ea51e3c5845d085be442f057fb5672e4b35ea1bb",
+      "timestamp": "2026-06-27T22:15:20.987600+00:00",
+      "statement": "US SPR falls below 340M barrels by July 31",
+      "chain_hash": "db1344b188e74e65d03c55d13fbeaabd6e59b61a38a1818f4154e83c66a7f256"
+    },
+    {
+      "index": 110,
+      "prediction_id": "P78",
+      "prediction_hash": "57eeacb9b8057b36b5a47f20f35bb8735fa8e2b3c8c4a83c7f5d59e78c8f412c",
+      "previous_hash": "db1344b188e74e65d03c55d13fbeaabd6e59b61a38a1818f4154e83c66a7f256",
+      "timestamp": "2026-06-27T22:15:20.987652+00:00",
+      "statement": "Brent >$120/bbl within 7 days (8 June)",
+      "chain_hash": "581345086fef1e83127929a6623d35b3bfe21023682092b483c18a3d89f67c89"
+    },
+    {
+      "index": 111,
+      "prediction_id": "P79",
+      "prediction_hash": "f55bb59580eb597d61de633a5085b7d4a3cc5ec2680b75a2e50684cdacfb123e",
+      "previous_hash": "581345086fef1e83127929a6623d35b3bfe21023682092b483c18a3d89f67c89",
+      "timestamp": "2026-06-27T22:15:20.987704+00:00",
+      "statement": "Bab el-Mandab Strait disrupted within 30 days (from 8 June)",
+      "chain_hash": "87311cbfd905139cab50402545129e7e88b6e5b86c73a7b58dc71b727817f8ca"
+    },
+    {
+      "index": 112,
+      "prediction_id": "P80",
+      "prediction_hash": "039a75fbf95a3bebf1f60bc98efe27ca9f15c6e79bc8b234aece52fb23320adc",
+      "previous_hash": "87311cbfd905139cab50402545129e7e88b6e5b86c73a7b58dc71b727817f8ca",
+      "timestamp": "2026-06-27T22:15:20.987755+00:00",
+      "statement": "Saudi Arabia requests additional US air defense within 7 days (from 8 June)",
+      "chain_hash": "7c6893ba6c95536d295f9a36590653cfcb76361dd7bacf6e9dc1f2e908d3a2ab"
+    },
+    {
+      "index": 113,
+      "prediction_id": "P81",
+      "prediction_hash": "6f3999476282e311c58dbea8d467ae6ebce6b839b2a93800db0138d7021b823b",
+      "previous_hash": "7c6893ba6c95536d295f9a36590653cfcb76361dd7bacf6e9dc1f2e908d3a2ab",
+      "timestamp": "2026-06-27T22:15:20.987840+00:00",
+      "statement": "Oil >$200/bbl within 14 days (Hormuz closed)",
+      "chain_hash": "2c064acc83a44463fe1d742c490c9b7901bc49b2c51179853d67a8476b655a7b"
+    },
+    {
+      "index": 114,
+      "prediction_id": "P82",
+      "prediction_hash": "bd9905a5b71617b02eb0b8207828ac532ce661c34eb6d4fad1c5568b9d34d764",
+      "previous_hash": "2c064acc83a44463fe1d742c490c9b7901bc49b2c51179853d67a8476b655a7b",
+      "timestamp": "2026-06-27T22:15:20.987892+00:00",
+      "statement": "US-Iran direct military exchange within 14 days",
+      "chain_hash": "e3a280b16d329bb8057777ce52afa80340e8cd07d6921b1d42aa0161930cc6f6"
+    },
+    {
+      "index": 115,
+      "prediction_id": "P83",
+      "prediction_hash": "2d61675d8323f8d1268e8558f12440a877308c66db3b4abdb872144251fed33e",
+      "previous_hash": "e3a280b16d329bb8057777ce52afa80340e8cd07d6921b1d42aa0161930cc6f6",
+      "timestamp": "2026-06-27T22:15:20.987972+00:00",
+      "statement": "Israel ground incursion into Lebanon within 14 days",
+      "chain_hash": "4d2615bbd1513832d0e0fa11eddb9e2cfafaa0a931c0aa1538e8bd7be86ed81e"
+    },
+    {
+      "index": 116,
+      "prediction_id": "P84",
+      "prediction_hash": "eabcdacb3e2bd9d0c08b3d99b2d5d938a71b238f51b8221ab39656eb2493e1ca",
+      "previous_hash": "4d2615bbd1513832d0e0fa11eddb9e2cfafaa0a931c0aa1538e8bd7be86ed81e",
+      "timestamp": "2026-06-27T22:15:20.988034+00:00",
+      "statement": "Global recession declared within 60 days",
+      "chain_hash": "bd6cdd4aab87b44fe1dae7ce2899e7e0aec923089e287f8b47fffedd37dd8d4d"
+    },
+    {
+      "index": 117,
+      "prediction_id": "P85",
+      "prediction_hash": "07f3e303a0c476fa11be5b26ac9607903466211a88b60b9f84a194f2a2f12895",
+      "previous_hash": "bd6cdd4aab87b44fe1dae7ce2899e7e0aec923089e287f8b47fffedd37dd8d4d",
+      "timestamp": "2026-06-27T22:15:20.988449+00:00",
+      "statement": "At least 3 additional countries declare famine (IPC5) within 90 days",
+      "chain_hash": "2270b5308506c178f24977713faa32e391d61c738d6884167230341ccd97d166"
+    },
+    {
+      "index": 118,
+      "prediction_id": "P86",
+      "prediction_hash": "c14b5dd8d920a6666b38178f7120110c3c067ae03292f8d4a1123ba18dadd769",
+      "previous_hash": "2270b5308506c178f24977713faa32e391d61c738d6884167230341ccd97d166",
+      "timestamp": "2026-06-27T22:15:20.988518+00:00",
+      "statement": "US combat deaths >100 in Iran-related conflict within 90 days",
+      "chain_hash": "65319e494ce6e6ff2e47cb20495ba08b3c35e01d1ca95129b22ac88f5cc8c77e"
+    },
+    {
+      "index": 119,
+      "prediction_id": "P87",
+      "prediction_hash": "6a42700cb901b2e1a6042be07908f4da30374ef24aa66c1d32438157e5ae59db",
+      "previous_hash": "65319e494ce6e6ff2e47cb20495ba08b3c35e01d1ca95129b22ac88f5cc8c77e",
+      "timestamp": "2026-06-27T22:15:20.988599+00:00",
+      "statement": "Global GDP contraction \u22652% in 2026",
+      "chain_hash": "6139fc3c659e45b429f03f96c610f9edee4069abed078dcb074a267ec32a7e0e"
+    },
+    {
+      "index": 120,
+      "prediction_id": "P88",
+      "prediction_hash": "ad9e20f71e8e865ec9632cb9e4928dae5d6c3782b7dde8ec95960bc6fa9a635d",
+      "previous_hash": "6139fc3c659e45b429f03f96c610f9edee4069abed078dcb074a267ec32a7e0e",
+      "timestamp": "2026-06-27T22:15:20.988745+00:00",
+      "statement": "At least 10 sovereign debt defaults by Dec 2027",
+      "chain_hash": "92405f3713f38cd2fa446c3fc7c93392dcf17475b6d4a51068e2db22243c69b6"
+    },
+    {
+      "index": 121,
+      "prediction_id": "P89",
+      "prediction_hash": "43c5bc7cd22ec3c23f257ef324da39d520273c3ca121360bd2291731149b9b6a",
+      "previous_hash": "92405f3713f38cd2fa446c3fc7c93392dcf17475b6d4a51068e2db22243c69b6",
+      "timestamp": "2026-06-27T22:15:20.988869+00:00",
+      "statement": "US unemployment >8% by March 2027",
+      "chain_hash": "a483f9680ffc092addbdabc5b5aea8d2920683dc1123c893b3a8428e5c85b230"
+    },
+    {
+      "index": 122,
+      "prediction_id": "P90",
+      "prediction_hash": "80baaf16220a3420f1835f293662bfa26deac97b617a3150140542ee64468cab",
+      "previous_hash": "a483f9680ffc092addbdabc5b5aea8d2920683dc1123c893b3a8428e5c85b230",
+      "timestamp": "2026-06-27T22:15:20.988930+00:00",
+      "statement": "FAO index >250 by Dec 2026",
+      "chain_hash": "d264dec285b15045713eb939ce9afd618498d2426b923cee6637a49e03c2627d"
+    },
+    {
+      "index": 123,
+      "prediction_id": "P91",
+      "prediction_hash": "8dd9771c530cf2878580a64965cedddba0754acc1b9e319ef2145af368fc5a13",
+      "previous_hash": "d264dec285b15045713eb939ce9afd618498d2426b923cee6637a49e03c2627d",
+      "timestamp": "2026-06-27T22:15:20.989008+00:00",
+      "statement": "No full Middle East ceasefire by Dec 2027",
+      "chain_hash": "87792b9f4c06f23ad7e4cd7554ccd73ce217361ddbb74e3aeea0a37f6c4e6844"
+    },
+    {
+      "index": 124,
+      "prediction_id": "P92",
+      "prediction_hash": "504a48eab86402d4d11e1ae1aff86630ea83694a06384a67eaea39dae9579da9",
+      "previous_hash": "87792b9f4c06f23ad7e4cd7554ccd73ce217361ddbb74e3aeea0a37f6c4e6844",
+      "timestamp": "2026-06-27T22:15:20.989060+00:00",
+      "statement": "Global inflation >5% through 2028",
+      "chain_hash": "68c440e0d94d6d67413509ffada5d500f1b2c7f8336a4f5dafafc48ba295689f"
+    },
+    {
+      "index": 125,
+      "prediction_id": "P93",
+      "prediction_hash": "da49e9b58643e744e2688bbf0da617b396037691fb6a69e58235dc88ffc21389",
+      "previous_hash": "68c440e0d94d6d67413509ffada5d500f1b2c7f8336a4f5dafafc48ba295689f",
+      "timestamp": "2026-06-27T22:15:20.989123+00:00",
+      "statement": "Philippines earthquake death toll exceeds 50 within 7 days",
+      "chain_hash": "8c17af44f2006d97de0764b03a7c4f1cf691ceb9831e10d9545ba68980659649"
+    },
+    {
+      "index": 126,
+      "prediction_id": "P95",
+      "prediction_hash": "3de31521e833bbd0a48af07e553cd4088815cbd35ec9ef4f80f9ade375846ef7",
+      "previous_hash": "8c17af44f2006d97de0764b03a7c4f1cf691ceb9831e10d9545ba68980659649",
+      "timestamp": "2026-06-27T22:15:20.989440+00:00",
+      "statement": "US media layoffs accelerate; another major outlet cuts within 30 days",
+      "chain_hash": "c77e1dff3fd4b3a2c05d0f55dbf4043f0b6d6bb7debff203282bc9462921e04c"
+    },
+    {
+      "index": 127,
+      "prediction_id": "P96",
+      "prediction_hash": "c01229126a85e80464fb1aca2e39ecbcaaacc2f436a992dbf96699a9fe95b192",
+      "previous_hash": "c77e1dff3fd4b3a2c05d0f55dbf4043f0b6d6bb7debff203282bc9462921e04c",
+      "timestamp": "2026-06-27T22:15:20.989505+00:00",
+      "statement": "Israeli port of Eilat will close permanently within 3 months",
+      "chain_hash": "e338931a1c9eda26e2f08987333497d4d7896d88a917349690253414de5d5e0b"
+    },
+    {
+      "index": 128,
+      "prediction_id": "P97",
+      "prediction_hash": "717174d01084e1f79b4ca02526d805f8122e6643ea7ede61279e88b7c17cc3e7",
+      "previous_hash": "e338931a1c9eda26e2f08987333497d4d7896d88a917349690253414de5d5e0b",
+      "timestamp": "2026-06-27T22:15:20.989557+00:00",
+      "statement": "Oil >$140/bbl within 30 days",
+      "chain_hash": "7a534c88332c230017daa0434b850f581a27345e9e08e16b85278a65dc7f97cb"
+    },
+    {
+      "index": 129,
+      "prediction_id": "P98",
+      "prediction_hash": "f0e8d8dfd413480b82c9c4e7cf5e1a69254c2d781e9dfa370f8231351e1ffecb",
+      "previous_hash": "7a534c88332c230017daa0434b850f581a27345e9e08e16b85278a65dc7f97cb",
+      "timestamp": "2026-06-27T22:15:20.989608+00:00",
+      "statement": "Houthi attack on commercial tanker causes casualty/spill within 30 days",
+      "chain_hash": "aabbdc170e5ed9e4b400831c1711ad0d872c28336a1c7f2c69695487cb92f6a2"
+    },
+    {
+      "index": 130,
+      "prediction_id": "P99",
+      "prediction_hash": "135fd2a9905b308338f4b319a96c93e3702ce92e7f4025403c2b800b9852b018",
+      "previous_hash": "aabbdc170e5ed9e4b400831c1711ad0d872c28336a1c7f2c69695487cb92f6a2",
+      "timestamp": "2026-06-27T22:15:20.989698+00:00",
+      "statement": "Russia oil exports fall \u226510% in June due to drone attacks",
+      "chain_hash": "07ef5073ad5643685784763dfc1ed943f882e8668ca647eb3631d07afb372c46"
+    },
+    {
+      "index": 131,
+      "prediction_id": "P100",
+      "prediction_hash": "7095f717b2add41f4a1a003925aaab758e453449693d61fa045c6bdfe4b5ef7e",
+      "previous_hash": "07ef5073ad5643685784763dfc1ed943f882e8668ca647eb3631d07afb372c46",
+      "timestamp": "2026-06-27T22:15:20.989761+00:00",
+      "statement": "WHO declares Ebola Grade 3 emergency within 14 days",
+      "chain_hash": "084084c205f1d5949653fcdf58cf2c779a90b145221259a774dde15bf5ba951f"
+    },
+    {
+      "index": 132,
+      "prediction_id": "P101",
+      "prediction_hash": "c41ac8660f99d4677cc6e261f31ca29f3fac9e7b7d51147c371c6472c8eab6c9",
+      "previous_hash": "084084c205f1d5949653fcdf58cf2c779a90b145221259a774dde15bf5ba951f",
+      "timestamp": "2026-06-27T22:15:20.989819+00:00",
+      "statement": "Coordinated attack on both Hormuz and Bab el-Mandeb within 60 days",
+      "chain_hash": "604295ef7e41aeb2c9b17fb9bc4056a4d080f6d695096a11219593ad24b018c2"
+    },
+    {
+      "index": 133,
+      "prediction_id": "P102",
+      "prediction_hash": "834842476c6300bd99afc77c447dde337fa156b049686aadc15e4ae23b33a767",
+      "previous_hash": "604295ef7e41aeb2c9b17fb9bc4056a4d080f6d695096a11219593ad24b018c2",
+      "timestamp": "2026-06-27T22:15:20.989894+00:00",
+      "statement": "Oil >$120/bbl within 30 days after 'security belt' implementation",
+      "chain_hash": "a87ac61d55c103d7d1ab0751f2c95d90f51a3c03afba9bd9bb82e9f39350c886"
+    },
+    {
+      "index": 134,
+      "prediction_id": "P103",
+      "prediction_hash": "1c24827bcf94e70595b253912ba74a2bd3dabfaac771a7cc54ce0338b72cd794",
+      "previous_hash": "a87ac61d55c103d7d1ab0751f2c95d90f51a3c03afba9bd9bb82e9f39350c886",
+      "timestamp": "2026-06-27T22:15:20.990216+00:00",
+      "statement": "Major AI model publicly breaks containment within 12 months",
+      "chain_hash": "51049f9be28464e9707356b7d35324d71d5001ead19833ca5a007aecded8fa32"
+    },
+    {
+      "index": 135,
+      "prediction_id": "P104",
+      "prediction_hash": "929f4b5535fe7fdd8b9a27b3c73667c9ee88e2ea2c38c4e1063fcdd37dff7257",
+      "previous_hash": "51049f9be28464e9707356b7d35324d71d5001ead19833ca5a007aecded8fa32",
+      "timestamp": "2026-06-27T22:15:20.990272+00:00",
+      "statement": "AI-generated zero-day causes major data breach within 18 months",
+      "chain_hash": "fb7387b73dca8d13bb33f74f27650a46d6ebdbb3d5d03271e40388d454572a81"
+    },
+    {
+      "index": 136,
+      "prediction_id": "P105",
+      "prediction_hash": "fa3f9cda03734f7a0289e61f99d4473049f100fca7b66c00a8a7e51abc9b5980",
+      "previous_hash": "fb7387b73dca8d13bb33f74f27650a46d6ebdbb3d5d03271e40388d454572a81",
+      "timestamp": "2026-06-27T22:15:20.990432+00:00",
+      "statement": "US state passes data centre water/energy reporting law within 24 months",
+      "chain_hash": "f80d3e52e8ab26d89898d81df37c3a196a688575e92cf25bed56bf1ede02f66a"
+    },
+    {
+      "index": 137,
+      "prediction_id": "P109",
+      "prediction_hash": "b0e50c51c5ec80fb84b17cb3dff1c0cff942e40ba9840d2a8ace68e2c17ae669",
+      "previous_hash": "f80d3e52e8ab26d89898d81df37c3a196a688575e92cf25bed56bf1ede02f66a",
+      "timestamp": "2026-06-27T22:15:20.990488+00:00",
+      "statement": "Waterborne illness outbreak in Sirik within 30 days (US strike on water reservoi",
+      "chain_hash": "bb7d29ef564606e838ed41d6c27fef63aee7506f6a1d63dac253f01d36f9b250"
+    },
+    {
+      "index": 138,
+      "prediction_id": "P110",
+      "prediction_hash": "e3e14d440cf83341fc2000638b3b6454579b54ae2a648403434290512ca4abfa",
+      "previous_hash": "bb7d29ef564606e838ed41d6c27fef63aee7506f6a1d63dac253f01d36f9b250",
+      "timestamp": "2026-06-27T22:15:20.990546+00:00",
+      "statement": "ICC preliminary investigation into US targeting of water infrastructure within 9",
+      "chain_hash": "7d91733892ca24d1f342f4a155b9efa032bc40de8e432026f84e7fe8171a931b"
+    },
+    {
+      "index": 139,
+      "prediction_id": "P111",
+      "prediction_hash": "fa0489fdbc9680ec9cba33323b446cef292f40a030ad9d64b4e8a27dd893192b",
+      "previous_hash": "7d91733892ca24d1f342f4a155b9efa032bc40de8e432026f84e7fe8171a931b",
+      "timestamp": "2026-06-27T22:15:20.992879+00:00",
+      "statement": "US retaliation within 72 hours following IRGC attack on Fifth Fleet",
+      "chain_hash": "37773f81fdb8659b297963400702083b98f45e48f17ef21932f9e195f70a7a16"
+    },
+    {
+      "index": 140,
+      "prediction_id": "C01",
+      "prediction_hash": "b6b6e5eb2a074cddefb0ec2e7a36b55837f4e27726eb5c9a3a185c9a8ead4017",
+      "previous_hash": "37773f81fdb8659b297963400702083b98f45e48f17ef21932f9e195f70a7a16",
+      "timestamp": "2026-06-27T22:15:20.992981+00:00",
+      "statement": "Iran-Israel/US War / Hormuz",
+      "chain_hash": "f0fd4fa5e2a2e802597781664cae00e053951aac6f3da59b563ae62e5d26765f"
+    },
+    {
+      "index": 141,
+      "prediction_id": "C-USIRAN",
+      "prediction_hash": "c5ef1a23c254cbc56e47a29320108abdca19b302a75e2e80a175ef8d193ace8f",
+      "previous_hash": "f0fd4fa5e2a2e802597781664cae00e053951aac6f3da59b563ae62e5d26765f",
+      "timestamp": "2026-06-27T22:15:20.993165+00:00",
+      "statement": "Direct US-Iran Conflict",
+      "chain_hash": "a237fda3a77faa20b2505e6c704115487f262708f9360f4c9812a222785d33d0"
+    },
+    {
+      "index": 142,
+      "prediction_id": "C-BELT",
+      "prediction_hash": "0d72946743618b96e311dd28e5a837ac14fd8bf770952a1ca5c28bb6359c5d25",
+      "previous_hash": "a237fda3a77faa20b2505e6c704115487f262708f9360f4c9812a222785d33d0",
+      "timestamp": "2026-06-27T22:15:20.993224+00:00",
+      "statement": "Iran 'Resistance Security Belt'",
+      "chain_hash": "67779b6c32f6058bd1228cff9e766708033d99159ae71ff46ee3190442ee4c21"
+    },
+    {
+      "index": 143,
+      "prediction_id": "C-RED-BLOCK",
+      "prediction_hash": "899462680dd369eac07c3779b44636bdb270dcf21fd9919ab8c967a2c9e2e9b2",
+      "previous_hash": "67779b6c32f6058bd1228cff9e766708033d99159ae71ff46ee3190442ee4c21",
+      "timestamp": "2026-06-27T22:15:20.993440+00:00",
+      "statement": "Bab el-Mandeb Blockade",
+      "chain_hash": "518426699844aa750c87a2ed776324b2849b854816411c80268e4b928cf15db4"
+    },
+    {
+      "index": 144,
+      "prediction_id": "C132",
+      "prediction_hash": "bb58a2ca05af9d8017e84cd330251e98e3bb6a860ecbf5c7a0166439d613b572",
+      "previous_hash": "518426699844aa750c87a2ed776324b2849b854816411c80268e4b928cf15db4",
+      "timestamp": "2026-06-27T22:15:20.995289+00:00",
+      "statement": "Great Power Conflict / US-Iran Entanglement",
+      "chain_hash": "3bb2dfe35014456a94957b380f91b3ec5042243324cdfb0151044f1699b2bb2f"
+    },
+    {
+      "index": 145,
+      "prediction_id": "C129",
+      "prediction_hash": "8b5293c7d275ce8477f2ab9daeb490686d2ebc89693eb4b1a5ec10230d64a67d",
+      "previous_hash": "3bb2dfe35014456a94957b380f91b3ec5042243324cdfb0151044f1699b2bb2f",
+      "timestamp": "2026-06-27T22:15:20.995383+00:00",
+      "statement": "Armenia-Azerbaijan",
+      "chain_hash": "02a6847117b7e5346fa074e4985efa75484834047fab6d21f4267e8965548ec6"
+    },
+    {
+      "index": 146,
+      "prediction_id": "C54",
+      "prediction_hash": "aed32f55e5e4b1efe37b91785423e90aa4b7fe36d14b5579627ecce59ef6e6e8",
+      "previous_hash": "02a6847117b7e5346fa074e4985efa75484834047fab6d21f4267e8965548ec6",
+      "timestamp": "2026-06-27T22:15:20.995437+00:00",
+      "statement": "Baltic Grey-Zone",
+      "chain_hash": "614bc3264e166894bb3964b90225ef75e45555ae1f1b39b1210ac2aa755eaf04"
+    },
+    {
+      "index": 147,
+      "prediction_id": "C88",
+      "prediction_hash": "eec1a2a58b37656de679929b96b0dbc1e0f8fc5396d8c571509e7d3ea92224b3",
+      "previous_hash": "614bc3264e166894bb3964b90225ef75e45555ae1f1b39b1210ac2aa755eaf04",
+      "timestamp": "2026-06-27T22:15:20.995604+00:00",
+      "statement": "Taiwan Strait Incident Risk",
+      "chain_hash": "8055e4607fe8976fce5f5024a63c12bcffac3567de6c8f7426210fad4926df31"
+    },
+    {
+      "index": 148,
+      "prediction_id": "C90",
+      "prediction_hash": "8f2365c3236b2d395ad8143fccf198e92604fe3c6bb6648155c087ff9ab51ba8",
+      "previous_hash": "8055e4607fe8976fce5f5024a63c12bcffac3567de6c8f7426210fad4926df31",
+      "timestamp": "2026-06-27T22:15:20.995656+00:00",
+      "statement": "South China Sea Militarisation",
+      "chain_hash": "3bd8e2fd889f744f7c0fd2d6bc5f1e582797ee416e2abb6ee7c83185484c1dee"
+    },
+    {
+      "index": 149,
+      "prediction_id": "C48",
+      "prediction_hash": "2eb888185fdfce19429c4b3f8eee4403c9f7df1e859af7cbc7a5edf23804fac0",
+      "previous_hash": "3bd8e2fd889f744f7c0fd2d6bc5f1e582797ee416e2abb6ee7c83185484c1dee",
+      "timestamp": "2026-06-27T22:15:20.995708+00:00",
+      "statement": "AI Deepfake Ops",
+      "chain_hash": "fe108e85f6dc09d022ca0d7be92f2d285b3c3107428218b8f39abd2a809f3f32"
+    },
+    {
+      "index": 150,
+      "prediction_id": "C19",
+      "prediction_hash": "96023cf5cd9afe9ba99801193fe11c3fd88d40b525dff2858ce6d20df5d674a1",
+      "previous_hash": "fe108e85f6dc09d022ca0d7be92f2d285b3c3107428218b8f39abd2a809f3f32",
+      "timestamp": "2026-06-27T22:15:20.995875+00:00",
+      "statement": "Zaporizhzhia NPP",
+      "chain_hash": "f6494f5818da86e47206d06ddfe6f5a8f33e99e27567ac0b7d50388871789976"
+    },
+    {
+      "index": 151,
+      "prediction_id": "C25",
+      "prediction_hash": "f91fd7d079d1a8380a97ca9bdbee91f017ddbf62abad43ff236d563f90ebc10b",
+      "previous_hash": "f6494f5818da86e47206d06ddfe6f5a8f33e99e27567ac0b7d50388871789976",
+      "timestamp": "2026-06-27T22:15:20.995938+00:00",
+      "statement": "NATO Article 4 (Romania)",
+      "chain_hash": "190d0080999fa5a9922a73d1b525c3182a24acb033b8c2a9e4452d05170c4353"
+    },
+    {
+      "index": 152,
+      "prediction_id": "C3",
+      "prediction_hash": "3f8594ca14a782a89419d70408ada10616cd7bad02c4cfcc5e27dd8906dbede4",
+      "previous_hash": "190d0080999fa5a9922a73d1b525c3182a24acb033b8c2a9e4452d05170c4353",
+      "timestamp": "2026-06-27T22:15:20.995989+00:00",
+      "statement": "Ukraine-Russia spillover",
+      "chain_hash": "4546373593bed95ff2abf85ac638de09f13ed1c93d87afc85fbf6ef5418a3a66"
+    },
+    {
+      "index": 153,
+      "prediction_id": "C11",
+      "prediction_hash": "5fa5f65f67c1aed08eeaa7f05defac6d66d7df86161ae1d7d99d545e145c9b4c",
+      "previous_hash": "4546373593bed95ff2abf85ac638de09f13ed1c93d87afc85fbf6ef5418a3a66",
+      "timestamp": "2026-06-27T22:15:20.996073+00:00",
+      "statement": "Iraq Instability",
+      "chain_hash": "b2b97fc161e07c47da8b7d85d5e678dad05068bd4669d967520d26f6b6028c8c"
+    },
+    {
+      "index": 154,
+      "prediction_id": "C58",
+      "prediction_hash": "4a931164777fab890477bac5c8043f2ef3e07f940adf351305615e52cf7bb672",
+      "previous_hash": "b2b97fc161e07c47da8b7d85d5e678dad05068bd4669d967520d26f6b6028c8c",
+      "timestamp": "2026-06-27T22:15:20.996139+00:00",
+      "statement": "Underwater Infrastructure Sabotage",
+      "chain_hash": "a889aed17119d66bf95e784a0d33ba31a97d456371ea5363183c40cc46157b49"
+    },
+    {
+      "index": 155,
+      "prediction_id": "C64",
+      "prediction_hash": "a2368bcb55f009a00cbf1263855a285d5fc06fd4d6a0b64f73c6fc5234c95d31",
+      "previous_hash": "a889aed17119d66bf95e784a0d33ba31a97d456371ea5363183c40cc46157b49",
+      "timestamp": "2026-06-27T22:15:20.998508+00:00",
+      "statement": "Mediterranean Migration",
+      "chain_hash": "91e027622743528a1f222030cc1cdea570d9604319e857f8656561f66685da0b"
+    },
+    {
+      "index": 156,
+      "prediction_id": "C85",
+      "prediction_hash": "7ff44c815dcd09732be9a3c9226005d65ca34f5cb1c3e47da4fa9af743f73d99",
+      "previous_hash": "91e027622743528a1f222030cc1cdea570d9604319e857f8656561f66685da0b",
+      "timestamp": "2026-06-27T22:15:20.998666+00:00",
+      "statement": "Cartel Violence Mexico",
+      "chain_hash": "dc74599634873e223b59b1ee5a965afe53691128f961b7f7f118253a5beca0c0"
+    },
+    {
+      "index": 157,
+      "prediction_id": "C122",
+      "prediction_hash": "ad31f48ca76b010ef46628a16e572253e83279f52eb1e9925d6ba3bd57994dbf",
+      "previous_hash": "dc74599634873e223b59b1ee5a965afe53691128f961b7f7f118253a5beca0c0",
+      "timestamp": "2026-06-27T22:15:20.998733+00:00",
+      "statement": "North Korea Ballistic",
+      "chain_hash": "74339d460a4d68c0eb64885d1e9f4322653a8d6774f5d92acc61e0b80110193c"
+    },
+    {
+      "index": 158,
+      "prediction_id": "C2",
+      "prediction_hash": "d99c61899a04bc837c6e3e1a060bfb6e921efe136083e573b27a5594633a2d1a",
+      "previous_hash": "74339d460a4d68c0eb64885d1e9f4322653a8d6774f5d92acc61e0b80110193c",
+      "timestamp": "2026-06-27T22:15:20.998999+00:00",
+      "statement": "Information Warfare",
+      "chain_hash": "d49190feaab7dea59067bed4f1a166fd9fc60dd895b6e1828c950f2e60961253"
+    },
+    {
+      "index": 159,
+      "prediction_id": "C4",
+      "prediction_hash": "444e0999f018643af5511cf01bf8522c3536152513101403500ac8e496733540",
+      "previous_hash": "d49190feaab7dea59067bed4f1a166fd9fc60dd895b6e1828c950f2e60961253",
+      "timestamp": "2026-06-27T22:15:20.999056+00:00",
+      "statement": "Moldova Transnistria escalation",
+      "chain_hash": "ef1f0c75129ef13fe2bfc659192eff3e434023ea13f109ded1ec08869b24fc6a"
+    }
+  ],
+  "last_hash": "ef1f0c75129ef13fe2bfc659192eff3e434023ea13f109ded1ec08869b24fc6a"
+}
