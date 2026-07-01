@@ -54,7 +54,7 @@
     .metric-card.ds .value { color: var(--orange); }
     .metric-card.health .value { font-size: 1.2rem; }
 
-    /* ── Status indicator ── */
+    /* ── Status dot ── */
     .status-dot {
       display: inline-block;
       width: 10px;
@@ -115,7 +115,7 @@
     .alert-item.warning { border-left-color: var(--yellow); }
     .alert-item.warning .severity { color: var(--yellow); }
 
-    /* ── Cascade summary ── */
+    /* ── Cascade breakdown ── */
     .cascade-breakdown {
       display: flex;
       flex-wrap: wrap;
@@ -270,6 +270,7 @@
 
 <!-- ===== MAIN CONTENT ===== -->
 <main class="container">
+
   <!-- Page Header (matching about.html style) -->
   <div class="page-header">
     <h1>Ground Truth</h1>
@@ -484,14 +485,13 @@
   async function refreshData() {
     updateTimestamp();
 
-    const [threats, preds, cascades, indices, forecasts, anomalies, sentinels, cascadeStatus, healthData] = await Promise.all([
+    const [threats, preds, cascades, indices, forecasts, anomalies, cascadeStatus, healthData] = await Promise.all([
       safeFetch('threats.json'),
       safeFetch('predictions.json'),
       safeFetch('cascade_log.json'),
       safeFetch('indices.json'),
       safeFetch('forecasts.json'),
       safeFetch('anomaly_alerts.json'),
-      safeFetch('sentinel_alerts.json'),
       safeFetch('cascade_status.json'),
       safeFetch('health.json'),
     ]);
@@ -547,8 +547,8 @@
     // ── System Health ──
     const healthStatus = health.status || 'healthy';
     const statusDot = healthStatus === 'healthy' ? 'green' : healthStatus === 'degraded' ? 'yellow' : 'red';
-    const statusLabel = healthStatus === 'healthy' ? 'Healthy' : healthStatus === 'degraded' ? 'Degraded' : 'Critical';
-    el.healthValue.innerHTML = '<span class="status-dot ' + statusDot + '"></span> ' + statusLabel;
+    const statusLabelText = healthStatus === 'healthy' ? 'Healthy' : healthStatus === 'degraded' ? 'Degraded' : 'Critical';
+    el.healthValue.innerHTML = '<span class="status-dot ' + statusDot + '"></span> ' + statusLabelText;
     el.healthSub.textContent = health.message || 'All services operational';
 
     // ── Cascade breakdown ──
@@ -671,4 +671,4 @@
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
-</html>	
+</html>
