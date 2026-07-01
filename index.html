@@ -1,3 +1,4 @@
+k
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +21,6 @@
       border: 1px solid var(--border-color);
       border-radius: 8px;
       padding: 0.8rem 1rem;
-      transition: border-color 0.2s;
-    }
-    .metric-card:hover {
-      border-color: var(--violet);
     }
     .metric-card .label {
       font-size: 0.7rem;
@@ -43,10 +40,6 @@
       color: var(--text-muted);
       margin-top: 0.1rem;
     }
-    .metric-card .trend-up { color: var(--red); }
-    .metric-card .trend-down { color: var(--green); }
-    .metric-card .trend-flat { color: var(--text-muted); }
-
     .metric-card.gsci .value { color: var(--violet); }
     .metric-card.threats .value { color: var(--red); }
     .metric-card.predictions .value { color: var(--green); }
@@ -130,9 +123,6 @@
       font-size: 0.9rem;
       color: var(--text-secondary);
     }
-    .cascade-breakdown .item strong {
-      color: var(--text-primary);
-    }
     .cascade-breakdown .item .count {
       font-weight: 700;
       font-size: 1.1rem;
@@ -150,6 +140,21 @@
       padding: 1rem 1.2rem;
       color: var(--text-muted);
       font-size: 0.9rem;
+    }
+
+    /* ── Live pulse ── */
+    .live-pulse {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      margin-right: 4px;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
 
     /* ── Responsive ── */
@@ -275,7 +280,7 @@
   <div class="page-header">
     <h1>Ground Truth</h1>
     <p class="page-subtitle">Live intelligence from the Cathedral's engine. Every metric updates automatically.</p>
-    <p class="page-meta">Live Updated: <span id="live-timestamp">2026-07-01 00:00 UTC</span> · <span class="live-pulse">●</span> System Online</p>
+    <p class="page-meta"><span class="live-pulse"></span> Live Updated: <span id="live-timestamp">2026-07-01 00:00 UTC</span></p>
   </div>
 
   <!-- ===== METRIC CARDS ===== -->
@@ -612,7 +617,6 @@
     }
 
     // ── Imminent cascade (WTI) ──
-    // Look for armed cascades with WTI and find the smallest WTI
     let imminent = null;
     if (cascadeStat.cascades) {
       const armedCascades = cascadeStat.cascades.filter(c => c.status === 'armed' && c.wti_days !== undefined);
@@ -671,4 +675,3 @@
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
-</html>
