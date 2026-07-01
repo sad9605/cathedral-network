@@ -1,96 +1,96 @@
 {
   "source": "AW13 Social Sentiment Warden",
-  "fetched_at": "2026-06-30T16:03:59.605843+00:00",
+  "fetched_at": "2026-07-01T19:59:58.945709+00:00",
   "sentiments": [
     {
       "id": "SOC-001",
       "topic": "demonstration",
-      "region": "Egypt",
-      "sentiment_score": 0.49,
-      "volume": 35816,
+      "region": "USA",
+      "sentiment_score": -0.6,
+      "volume": 47616,
       "trend": "rising",
-      "date": "2026-06-30T16:03:59.605472+00:00"
+      "date": "2026-07-01T19:59:58.945582+00:00"
     },
     {
       "id": "SOC-002",
-      "topic": "protests",
-      "region": "France",
-      "sentiment_score": 0.59,
-      "volume": 6136,
-      "trend": "falling",
-      "date": "2026-06-30T16:03:59.605530+00:00"
+      "topic": "strike",
+      "region": "USA",
+      "sentiment_score": 0.18,
+      "volume": 49867,
+      "trend": "stable",
+      "date": "2026-07-01T19:59:58.945634+00:00"
     },
     {
       "id": "SOC-003",
-      "topic": "strike",
-      "region": "UK",
-      "sentiment_score": -0.58,
-      "volume": 3436,
+      "topic": "rally",
+      "region": "Germany",
+      "sentiment_score": -1.0,
+      "volume": 48613,
       "trend": "stable",
-      "date": "2026-06-30T16:03:59.605576+00:00"
+      "date": "2026-07-01T19:59:58.945647+00:00"
     },
     {
       "id": "SOC-004",
-      "topic": "rally",
-      "region": "Germany",
-      "sentiment_score": -0.47,
-      "volume": 15111,
-      "trend": "rising",
-      "date": "2026-06-30T16:03:59.605591+00:00"
+      "topic": "unrest",
+      "region": "India",
+      "sentiment_score": 0.46,
+      "volume": 34955,
+      "trend": "falling",
+      "date": "2026-07-01T19:59:58.945656+00:00"
     },
     {
       "id": "SOC-005",
-      "topic": "unrest",
+      "topic": "rally",
       "region": "India",
-      "sentiment_score": 0.0,
-      "volume": 25905,
-      "trend": "stable",
-      "date": "2026-06-30T16:03:59.605601+00:00"
+      "sentiment_score": 0.19,
+      "volume": 6223,
+      "trend": "rising",
+      "date": "2026-07-01T19:59:58.945666+00:00"
     },
     {
       "id": "SOC-006",
-      "topic": "protests",
-      "region": "Egypt",
-      "sentiment_score": -0.7,
-      "volume": 6801,
-      "trend": "rising",
-      "date": "2026-06-30T16:03:59.605611+00:00"
+      "topic": "strike",
+      "region": "Germany",
+      "sentiment_score": -0.1,
+      "volume": 16065,
+      "trend": "falling",
+      "date": "2026-07-01T19:59:58.945674+00:00"
     },
     {
       "id": "SOC-007",
-      "topic": "rally",
-      "region": "Nigeria",
-      "sentiment_score": -0.08,
-      "volume": 37508,
-      "trend": "rising",
-      "date": "2026-06-30T16:03:59.605796+00:00"
+      "topic": "unrest",
+      "region": "France",
+      "sentiment_score": -0.69,
+      "volume": 47380,
+      "trend": "stable",
+      "date": "2026-07-01T19:59:58.945682+00:00"
     },
     {
       "id": "SOC-008",
-      "topic": "rally",
-      "region": "USA",
-      "sentiment_score": 0.63,
-      "volume": 40040,
-      "trend": "rising",
-      "date": "2026-06-30T16:03:59.605820+00:00"
+      "topic": "unrest",
+      "region": "Nigeria",
+      "sentiment_score": 0.03,
+      "volume": 11106,
+      "trend": "stable",
+      "date": "2026-07-01T19:59:58.945690+00:00"
     },
     {
       "id": "SOC-009",
-      "topic": "demonstration",
-      "region": "Brazil",
-      "sentiment_score": 0.82,
-      "volume": 38564,
-      "trend": "falling",
-      "date": "2026-06-30T16:03:59.605829+00:00"
+      "topic": "rally",
+      "region": "Germany",
+      "sentiment_score": 0.68,
+      "volume": 33294,
+      "trend": "stable",
+      "date": "2026-07-01T19:59:58.945697+00:00"
     },
     {
       "id": "SOC-010",
       "topic": "demonstration",
-      "region": "Nigeria",
-      "sentiment_score": 0.03,
-      "volume": 14667,
-      "trend": "rising",
-      "date": "2026-06-30T16:03:59.605838+00:00"
+      "region": "USA",
+      "sentiment_score": 0.57,
+      "volume": 34327,
+      "trend": "stable",
+      "date": "2026-07-01T19:59:58.945705+00:00"
     }
   ]
 }

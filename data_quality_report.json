@@ -1,50 +1,50 @@
 {
-  "timestamp": "2026-06-30T16:03:24.699816+00:00",
+  "timestamp": "2026-07-01T19:59:17.437111+00:00",
   "reports": {
     "threats.json": {
       "status": "ok",
-      "age": 0.00013292305555555556,
+      "age": 0.00017561194444444444,
       "valid": true,
       "issues": []
     },
     "sweep_report.json": {
       "status": "invalid",
-      "age": 0.5803943913888889,
+      "age": 2.2482291019444447,
       "valid": false,
       "issues": [
         "Missing keys: ['id', 'name']"
       ]
     },
     "telegram_data.json": {
-      "status": "invalid",
-      "age": 0.30919718416666664,
+      "status": "stale",
+      "age": 27.845125665,
       "valid": false,
       "issues": [
-        "Missing keys: ['id', 'name']"
+        "Age 27.8h > 24h"
       ]
     },
     "gpsjam_data.json": {
       "status": "invalid",
-      "age": 0.3103397625,
+      "age": 2.2473465302777775,
       "valid": false,
       "issues": [
         "Missing keys: ['id', 'name']"
       ]
     },
     "hewd_data.json": {
-      "status": "invalid",
-      "age": 0.30948642972222223,
+      "status": "stale",
+      "age": 27.845302433055558,
       "valid": false,
       "issues": [
-        "Missing keys: ['id', 'name']"
+        "Age 27.8h > 24h"
       ]
     },
     "indices.json": {
-      "status": "invalid",
-      "age": 18.021943536944445,
+      "status": "stale",
+      "age": 45.95325946388889,
       "valid": false,
       "issues": [
-        "Missing keys: ['id', 'name']"
+        "Age 46.0h > 24h"
       ]
     }
   },
@@ -53,10 +53,10 @@
     "ok": 1,
     "issues": [
       "sweep_report.json invalid: Missing keys: ['id', 'name']",
-      "telegram_data.json invalid: Missing keys: ['id', 'name']",
+      "telegram_data.json stale (27.8h)",
       "gpsjam_data.json invalid: Missing keys: ['id', 'name']",
-      "hewd_data.json invalid: Missing keys: ['id', 'name']",
-      "indices.json invalid: Missing keys: ['id', 'name']"
+      "hewd_data.json stale (27.8h)",
+      "indices.json stale (46.0h)"
     ]
   }
 }

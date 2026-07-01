@@ -1,6 +1,33 @@
 {
-  "timestamp": "2026-06-30T10:33:19.243039",
+  "timestamp": "2026-07-01T12:46:59.468597",
   "items": [
+    {
+      "title": "Green earthquake (Magnitude 6M, Depth:43.568km) in Japan 01/07/2026 12:08 UTC, 1.6 million in MMI IV.",
+      "description": "On 7/1/2026 12:08:29 PM, an earthquake occurred in Japan potentially affecting 1.6 million in MMI IV. The earthquake had Magnitude 6M, Depth:43.568km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1549565",
+      "date": "Wed, 01 Jul 2026 12:25:52 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Green earthquake (Magnitude 5.6M, Depth:536.709km) in Fiji 01/07/2026 10:42 UTC, 10 thousand in MMI II.",
+      "description": "On 7/1/2026 10:42:43 AM, an earthquake occurred in Fiji potentially affecting 10 thousand in MMI II. The earthquake had Magnitude 5.6M, Depth:536.709km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1549555",
+      "date": "Wed, 01 Jul 2026 11:03:32 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Green earthquake (Magnitude 6M, Depth:10km) in Mexico 30/06/2026 19:45 UTC, 9 thousand in MMI V.",
+      "description": "On 6/30/2026 7:45:40 PM, an earthquake occurred in Mexico potentially affecting 9 thousand in MMI V. The earthquake had Magnitude 6M, Depth:10km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1549440",
+      "date": "Tue, 30 Jun 2026 20:03:52 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
     {
       "title": "Green earthquake (Magnitude 5.5M, Depth:10km) in United States 29/06/2026 11:35 UTC, Few people affected in MMI III.",
       "description": "On 6/29/2026 11:35:33 AM, an earthquake occurred in United States potentially affecting Few people affected in MMI III. The earthquake had Magnitude 5.5M, Depth:10km.",
@@ -11,10 +38,37 @@
       "impact": "Critical"
     },
     {
+      "title": "Green flood alert in Italy",
+      "description": "On 29/06/2026, a flood started in Italy, lasting until 30/06/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103980",
+      "date": "Wed, 01 Jul 2026 05:58:09 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Medium"
+    },
+    {
+      "title": "Green flood alert in Mexico",
+      "description": "On 28/06/2026, a flood started in Mexico, lasting until 29/06/2026 (last update). The flood caused 0 deaths and 50 displaced .",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103981",
+      "date": "Wed, 01 Jul 2026 06:08:17 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Medium"
+    },
+    {
       "title": "Green flood alert in T\u00fcrkiye",
       "description": "On 28/06/2026, a flood started in T\u00fcrkiye, lasting until 30/06/2026 (last update). The flood caused 0 deaths and 0 displaced .",
       "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103920",
       "date": "Tue, 02 Jun 2026 05:45:56 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Medium"
+    },
+    {
+      "title": "Green flood alert in Venezuela",
+      "description": "On 28/06/2026, a flood started in Venezuela, lasting until 30/06/2026 (last update). The flood caused 0 deaths and 300 displaced .",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103982",
+      "date": "Wed, 01 Jul 2026 06:08:51 GMT",
       "source": "GDACS",
       "category": "Negative",
       "impact": "Medium"
@@ -38,85 +92,76 @@
       "impact": "Critical"
     },
     {
-      "title": "Green earthquake (Magnitude 5.9M, Depth:525.542km) in Indonesia 27/06/2026 10:37 UTC, 350 thousand in MMI II.",
-      "description": "On 6/27/2026 10:37:02 AM, an earthquake occurred in Indonesia potentially affecting 350 thousand in MMI II. The earthquake had Magnitude 5.9M, Depth:525.542km.",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1548825",
-      "date": "Sat, 27 Jun 2026 10:51:53 GMT",
-      "source": "GDACS",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Green flood alert in Islamic Republic of Iran",
-      "description": "On 27/06/2026, a flood started in Islamic Republic of Iran, lasting until 29/06/2026 (last update). The flood caused 0 deaths and 35 displaced .",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103976",
-      "date": "Tue, 30 Jun 2026 05:57:43 GMT",
-      "source": "GDACS",
-      "category": "Negative",
-      "impact": "Medium"
-    },
-    {
-      "title": "Green flood alert in Netherlands",
-      "description": "On 27/06/2026, a flood started in Netherlands, lasting until 29/06/2026 (last update). The flood caused 0 deaths and 0 displaced .",
-      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103978",
-      "date": "Tue, 30 Jun 2026 06:08:20 GMT",
-      "source": "GDACS",
-      "category": "Negative",
-      "impact": "Medium"
-    },
-    {
-      "title": "Angry Venezuelans accuse government of negligence over earthquake response",
-      "description": "People in areas devastated by twin earthquakes say they need more support from the government.",
-      "link": "https://www.bbc.co.uk/news/articles/c5yzd18dxzxo?at_medium=RSS&at_campaign=rss",
-      "date": "Tue, 30 Jun 2026 03:53:48 GMT",
+      "title": "'Time for him to pay' - Carroll calls on Trump to pay $5m after president's appeal fails",
+      "description": "The writer's lawyers say Trump wants to delay paying the damages awarded by a jury that found the president liable for sexually abusing and defaming her.",
+      "link": "https://www.bbc.co.uk/news/articles/cn4r8n3ek80o?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 01 Jul 2026 15:48:02 GMT",
       "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "Manhunt after bomb injures Ukrainian oligarch in Monaco",
-      "description": "The blast was caused by an explosive device which appeared to contain bolts and pellets, the head of Monaco's government said.",
-      "link": "https://www.bbc.co.uk/news/articles/cpv37wx03v7o?at_medium=RSS&at_campaign=rss",
-      "date": "Tue, 30 Jun 2026 13:22:15 GMT",
+      "title": "Controversial bishops ordained as Pope warns of 'schism' in Catholic Church",
+      "description": "Thousands of worshippers attended a ceremony in the Swiss Alps as part of the breakaway Society of Saint Pius X.",
+      "link": "https://www.bbc.co.uk/news/articles/c74y7k8wyz8o?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 01 Jul 2026 16:10:38 GMT",
+      "source": "BBC News",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Three-year-old rescued and taken to hospital six days after Venezuela quake",
+      "description": "Video footage shows rescuers cheering as the child is pulled from rubble in La Guaira state.",
+      "link": "https://www.bbc.co.uk/news/articles/c1jykwk8n18o?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 01 Jul 2026 06:03:08 GMT",
       "source": "BBC News",
       "category": "Positive",
-      "impact": "High"
-    },
-    {
-      "title": "Flooding hits Ghana's capital killing 13 people - with another storm forecast",
-      "description": "People have been urged to relocate to high ground or stay indoors as more rain is expected to come.",
-      "link": "https://www.bbc.co.uk/news/articles/cn4r8zlv8edo?at_medium=RSS&at_campaign=rss",
-      "date": "Tue, 30 Jun 2026 11:20:44 GMT",
-      "source": "BBC News",
-      "category": "Negative",
       "impact": "Medium"
     },
     {
-      "title": "Lilo & Stitch star Daveigh Chase's cause of death was Aids",
-      "description": "The actress, who also crawled out of a TV in horror film The Ring, passed away in LA this month, aged 35.",
-      "link": "https://www.bbc.co.uk/news/articles/cx2xyx1qjnyo?at_medium=RSS&at_campaign=rss",
-      "date": "Mon, 29 Jun 2026 21:21:15 GMT",
-      "source": "BBC News",
-      "category": "Positive",
-      "impact": "High"
-    },
-    {
-      "title": "Teyana Taylor's tears and Lauryn Hill tribute steal show at BET Awards",
-      "description": "Taylor had an emotional reaction to being presented with the Icon of the Year award by Janet Jackson.",
-      "link": "https://www.bbc.co.uk/news/articles/cpd3y6lv819o?at_medium=RSS&at_campaign=rss",
-      "date": "Mon, 29 Jun 2026 12:00:06 GMT",
-      "source": "BBC News",
+      "title": "Warmest June on record for England, second-warmest for UK, says Met Office",
+      "description": "A punishing heatwave affected many parts of the country during the last week of the month.",
+      "link": "https://www.aljazeera.com/news/2026/7/1/warmest-june-on-record-for-england-second-warmest-for-uk-says-met-office?traffic_source=rss",
+      "date": "Wed, 01 Jul 2026 16:48:45 +0000",
+      "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "What privacy settings has WhatsApp changed?",
-      "description": "The app said it will be rolling out usernames gradually, in a move meant to improve privacy.",
-      "link": "https://www.aljazeera.com/news/2026/6/30/what-privacy-settings-has-whatsapp-changed?traffic_source=rss",
-      "date": "Tue, 30 Jun 2026 13:29:38 +0000",
+      "title": "Secretive Gaza meetings in Cyprus as plan to isolate Hamas gathers pace",
+      "description": "Board of Peace talks on Gaza&#039;s post-war future face funding crises and warnings of a colonial occupation.",
+      "link": "https://www.aljazeera.com/news/2026/7/1/secretive-gaza-meetings-in-cyprus-as-plan-to-isolate-hamas-gathers-pace?traffic_source=rss",
+      "date": "Wed, 01 Jul 2026 16:08:20 +0000",
+      "source": "Al Jazeera",
+      "category": "Neutral",
+      "impact": "Critical"
+    },
+    {
+      "title": "Trump takes first flight on new Qatar-gifted Air Force One",
+      "description": "US President Donald Trump took his maiden voyage aboard the new Air Force One on Wednesday.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/7/1/trump-takes-first-flight-on-new-qatar-gifted-air-force-one?traffic_source=rss",
+      "date": "Wed, 01 Jul 2026 16:04:57 +0000",
       "source": "Al Jazeera",
       "category": "Positive",
       "impact": "High"
+    },
+    {
+      "title": "Is Ukraine\u2019s campaign of targeting Russian refineries working?",
+      "description": "Fuel shortages in the country are unlikely to force Putin into concessions for peace.",
+      "link": "https://www.aljazeera.com/opinions/2026/7/1/is-ukraines-campaign-of-targeting-russian-refineries-working?traffic_source=rss",
+      "date": "Wed, 01 Jul 2026 15:29:46 +0000",
+      "source": "Al Jazeera",
+      "category": "Positive",
+      "impact": "Medium"
+    },
+    {
+      "title": "How war on Iran changed the global energy sector forever",
+      "description": "Conflict will accelerate shift to renewables and search for alternatives to Strait of Hormuz, energy analysts say.",
+      "link": "https://www.aljazeera.com/economy/2026/7/1/how-war-on-iran-changed-the-global-energy-sector-forever?traffic_source=rss",
+      "date": "Wed, 01 Jul 2026 14:45:04 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Critical"
     }
   ]
 }
