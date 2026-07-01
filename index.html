@@ -8,7 +8,7 @@
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ── Dashboard Grid ── */
+    /* ── Dashboard Grid (matching about.html section style) ── */
     .dashboard-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -20,6 +20,10 @@
       border: 1px solid var(--border-color);
       border-radius: 8px;
       padding: 0.8rem 1rem;
+      transition: border-color 0.2s;
+    }
+    .metric-card:hover {
+      border-color: var(--violet);
     }
     .metric-card .label {
       font-size: 0.7rem;
@@ -170,7 +174,7 @@
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ===== HEADER (copied from about.html) ===== -->
 <header class="cathedral-header">
   <div class="header-container">
     <div class="header-brand">
@@ -395,7 +399,7 @@
 
 </main>
 
-<!-- ===== FOOTER ===== -->
+<!-- ===== FOOTER (copied from about.html) ===== -->
 <footer class="cathedral-footer">
   <div class="footer-content">
     <div class="footer-left">
@@ -674,3 +678,4 @@
 </script>
 <script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
+</html>
