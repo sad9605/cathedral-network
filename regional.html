@@ -17,6 +17,7 @@
         :root {
             --bg-base: #090B10;
             --bg-card: #12161C;
+            --bg-expanded: #0D1117;
             --border-card: #1E2633;
             --text-primary: #E8EDF5;
             --text-secondary: #94A3B8;
@@ -183,6 +184,7 @@
             border-radius: var(--radius);
             padding: 18px 20px;
             transition: border-color 0.2s;
+            cursor: pointer;
         }
         .region-card:hover {
             border-color: #2D3A4A;
@@ -252,6 +254,76 @@
             opacity: 0.5;
             border-top: 1px solid var(--border-card);
             padding-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .region-card .expand-hint {
+            font-size: 0.7rem;
+            color: var(--violet);
+            opacity: 0.6;
+        }
+
+        /* ---------- EXPANDED REPORT ---------- */
+        .region-card.expanded {
+            border-color: var(--violet);
+            border-bottom: none;
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+        .region-card.expanded .expand-hint {
+            opacity: 0.4;
+        }
+        .region-card.expanded .expand-hint::after {
+            content: ' ▲';
+        }
+        .region-card:not(.expanded) .expand-hint::after {
+            content: ' ▼';
+        }
+
+        .region-report {
+            background: var(--bg-expanded);
+            border: 1px solid var(--violet);
+            border-top: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+            padding: 20px 24px;
+            margin-top: -1px;
+            margin-bottom: 16px;
+            display: none;
+        }
+        .region-report.open {
+            display: block;
+        }
+        .region-report .report-content {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .region-report .report-content h1,
+        .region-report .report-content h2,
+        .region-report .report-content h3 {
+            color: var(--text-primary);
+            margin: 16px 0 8px 0;
+        }
+        .region-report .report-content h1:first-child,
+        .region-report .report-content h2:first-child,
+        .region-report .report-content h3:first-child {
+            margin-top: 0;
+        }
+        .region-report .report-content p {
+            margin: 8px 0;
+        }
+        .region-report .report-content ul,
+        .region-report .report-content ol {
+            margin: 8px 0 8px 20px;
+        }
+        .region-report .report-content li {
+            margin: 4px 0;
+        }
+        .region-report .report-content .highlight {
+            color: var(--text-primary);
+        }
+        .region-report .report-content .violet {
+            color: var(--violet);
         }
 
         /* ---------- FOOTER ---------- */
@@ -292,6 +364,7 @@
             .header-meta { justify-content: flex-start; font-size: 0.7rem; }
             .page-header h1 { font-size: 1.6rem; }
             .region-card { padding: 16px; }
+            .region-report { padding: 16px; }
             .stats-row { grid-template-columns: 1fr 1fr; }
             .footer-left { gap: 16px; }
         }
@@ -301,6 +374,7 @@
             .region-grid { grid-template-columns: 1fr; }
             .stats-row { grid-template-columns: 1fr; }
             .footer-left { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .region-card .metrics { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -431,7 +505,6 @@
                 // --- Stats ---
                 document.getElementById('regionCount').textContent = regions.length;
 
-                // Calculate average GSCI (using nts as proxy for GSCI)
                 let totalNTS = 0;
                 let criticalCount = 0;
                 let conflictCount = 0;
@@ -459,6 +532,9 @@
                     const threatCount = r.threat_count || 0;
                     const ds = r.ds || 0;
                     const nsi = r.nsi || 0;
+                    const reportAvailable = r.report_available || false;
+                    const reportPath = r.report_path || '';
+                    const regionId = region.replace(/\s+/g, '-').toLowerCase();
 
                     // Determine badge class
                     let badgeClass = 'badge-stable';
@@ -474,8 +550,11 @@
                     else if (nts > 50) ntsClass = 'medium';
                     else ntsClass = 'low';
 
+                    // Report availability hint
+                    const reportHint = reportAvailable ? 'Click for report' : 'No report available';
+
                     html += `
-                        <div class="region-card">
+                        <div class="region-card" id="card-${regionId}" data-region="${region}" data-report="${reportPath}" data-available="${reportAvailable}">
                             <div class="region-name">
                                 ${region}
                                 <span class="badge ${badgeClass}">${band}</span>
@@ -490,12 +569,63 @@
                                 <div class="metric"><span>CDR</span><span class="m-value">${cdr.toFixed(1)}</span></div>
                                 <div class="metric"><span>Threats</span><span class="m-value">${threatCount}</span></div>
                             </div>
-                            <div class="last-updated">${r.last_updated ? 'Updated ' + new Date(r.last_updated).toLocaleString() : ''}</div>
+                            <div class="last-updated">
+                                <span>${r.last_updated ? 'Updated ' + new Date(r.last_updated).toLocaleString() : ''}</span>
+                                <span class="expand-hint">${reportHint}</span>
+                            </div>
+                        </div>
+                        <div class="region-report" id="report-${regionId}">
+                            <div class="report-content">Loading report…</div>
                         </div>
                     `;
                 }
                 html += '</div>';
                 container.innerHTML = html;
+
+                // --- Add click handlers to cards ---
+                const cards = container.querySelectorAll('.region-card');
+                for (const card of cards) {
+                    card.addEventListener('click', async function() {
+                        const region = this.dataset.region;
+                        const regionId = region.replace(/\s+/g, '-').toLowerCase();
+                        const reportDiv = document.getElementById(`report-${regionId}`);
+                        const isAvailable = this.dataset.available === 'true';
+                        const reportPath = this.dataset.report;
+
+                        // Toggle expanded class
+                        this.classList.toggle('expanded');
+
+                        if (this.classList.contains('expanded')) {
+                            // Open the report
+                            reportDiv.classList.add('open');
+
+                            // If report is available and not yet loaded, fetch it
+                            if (isAvailable && reportPath) {
+                                const contentDiv = reportDiv.querySelector('.report-content');
+                                // Check if already loaded (not the loading message)
+                                if (contentDiv.textContent.trim() === 'Loading report…') {
+                                    try {
+                                        const reportResponse = await fetch(reportPath + '?t=' + Date.now());
+                                        if (reportResponse.ok) {
+                                            const reportHtml = await reportResponse.text();
+                                            contentDiv.innerHTML = reportHtml;
+                                        } else {
+                                            contentDiv.innerHTML = `<p style="color: var(--red);">Unable to load report. HTTP ${reportResponse.status}</p>`;
+                                        }
+                                    } catch (e) {
+                                        contentDiv.innerHTML = `<p style="color: var(--red);">Unable to load report. ${e.message}</p>`;
+                                    }
+                                }
+                            } else {
+                                const contentDiv = reportDiv.querySelector('.report-content');
+                                contentDiv.innerHTML = '<p style="color: var(--text-secondary);">No detailed report available for this region.</p>';
+                            }
+                        } else {
+                            // Close the report
+                            reportDiv.classList.remove('open');
+                        }
+                    });
+                }
             } catch (error) {
                 container.innerHTML = `<p style="color: var(--text-secondary);">Unable to load regional data. Please try again later. (${error.message})</p>`;
                 meta.textContent = 'Failed to load.';
