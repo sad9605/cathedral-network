@@ -158,14 +158,12 @@
         .credit-item {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
-            border-left: 4px solid var(--violet);
             border-radius: var(--radius);
             padding: 18px 20px;
-            transition: border-color 0.2s, transform 0.1s;
+            transition: border-color 0.2s;
         }
         .credit-item:hover {
             border-color: #2D3A4A;
-            transform: translateY(-2px);
         }
         .credit-item .name {
             font-weight: 600;
@@ -213,10 +211,7 @@
             text-decoration: underline;
         }
 
-        /* Special thanks – gold border variation */
-        .credit-item.special {
-            border-left-color: #d4a837;
-        }
+        /* No special border classes – all cards look identical */
 
         /* ---------- FOOTER ---------- */
         .global-footer {
@@ -320,7 +315,7 @@
     <div class="credit-section">
         <h2>Cathedral Network License</h2>
         <div class="credit-grid">
-            <div class="credit-item special">
+            <div class="credit-item">
                 <div class="name">
                     Cathedral Network
                     <span class="license">CC BY‑NC‑SA 4.0</span>
@@ -477,139 +472,23 @@
         </div>
     </div>
 
-    <!-- Data Sources -->
-    <div class="credit-section">
-        <h2>Data Sources</h2>
-        <div class="credit-grid">
-            <div class="credit-item">
-                <div class="name">GDACS <span class="license">UN/Public</span></div>
-                <div class="desc">Global Disaster Alert and Coordination System – real‑time alerts.</div>
-                <div class="link"><a href="https://www.gdacs.org/" target="_blank" rel="noopener">gdacs.org</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">USGS Earthquakes <span class="license">Public Domain</span></div>
-                <div class="desc">Live earthquake data from the U.S. Geological Survey.</div>
-                <div class="link"><a href="https://earthquake.usgs.gov/" target="_blank" rel="noopener">earthquake.usgs.gov</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">NASA FIRMS <span class="license">Public Domain</span></div>
-                <div class="desc">Fire Information for Resource Management System.</div>
-                <div class="link"><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank" rel="noopener">firms.modaps.eosdis.nasa.gov</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">ACLED <span class="license">Open (Academic)</span></div>
-                <div class="desc">Armed Conflict Location & Event Data Project – conflict event data.</div>
-                <div class="link"><a href="https://acleddata.com/" target="_blank" rel="noopener">acleddata.com</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">CFR Global Conflict Tracker <span class="license">Open</span></div>
-                <div class="desc">Council on Foreign Relations – ongoing conflict monitoring.</div>
-                <div class="link"><a href="https://www.cfr.org/global-conflict-tracker" target="_blank" rel="noopener">cfr.org/global-conflict-tracker</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">HDX HAPI <span class="license">UN/Open</span></div>
-                <div class="desc">Humanitarian Data Exchange – OCHA humanitarian indicators.</div>
-                <div class="link"><a href="https://data.humdata.org/" target="_blank" rel="noopener">data.humdata.org</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">ReliefWeb <span class="license">UN/Open</span></div>
-                <div class="desc">UN OCHA humanitarian information portal.</div>
-                <div class="link"><a href="https://reliefweb.int/" target="_blank" rel="noopener">reliefweb.int</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">Feodo Tracker <span class="license">Open</span></div>
-                <div class="desc">C2 IP tracker for cyber threat intelligence.</div>
-                <div class="link"><a href="https://feodotracker.abuse.ch/" target="_blank" rel="noopener">feodotracker.abuse.ch</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">URLhaus <span class="license">Open</span></div>
-                <div class="desc">Malware URL tracker for cyber threat intelligence.</div>
-                <div class="link"><a href="https://urlhaus.abuse.ch/" target="_blank" rel="noopener">urlhaus.abuse.ch</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">Open‑Meteo <span class="license">Open</span></div>
-                <div class="desc">Climate and weather data – ERA5 reanalysis.</div>
-                <div class="link"><a href="https://open-meteo.com/" target="_blank" rel="noopener">open-meteo.com</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">US State Dept Travel Advisories <span class="license">Public</span></div>
-                <div class="desc">Official US travel advisories.</div>
-                <div class="link"><a href="https://travel.state.gov/" target="_blank" rel="noopener">travel.state.gov</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">UK FCDO Travel Advice <span class="license">Open</span></div>
-                <div class="desc">UK Foreign, Commonwealth & Development Office travel advice.</div>
-                <div class="link"><a href="https://www.gov.uk/foreign-travel-advice" target="_blank" rel="noopener">gov.uk/foreign-travel-advice</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">GDELT Project <span class="license">Open</span></div>
-                <div class="desc">Global event database for geopolitical monitoring.</div>
-                <div class="link"><a href="https://www.gdeltproject.org/" target="_blank" rel="noopener">gdeltproject.org</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">WHO <span class="license">Public</span></div>
-                <div class="desc">Global health outbreak data and pandemic monitoring.</div>
-                <div class="link"><a href="https://www.who.int/" target="_blank" rel="noopener">who.int</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">World Bank <span class="license">Public</span></div>
-                <div class="desc">Governance indicators and economic data for the Cathedral.</div>
-                <div class="link"><a href="https://www.worldbank.org/" target="_blank" rel="noopener">worldbank.org</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">UNHCR <span class="license">Public</span></div>
-                <div class="desc">Refugee and displacement data.</div>
-                <div class="link"><a href="https://www.unhcr.org/" target="_blank" rel="noopener">unhcr.org</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">IDMC <span class="license">Public</span></div>
-                <div class="desc">Internal Displacement Monitoring Centre – displacement data.</div>
-                <div class="link"><a href="https://www.internal-displacement.org/" target="_blank" rel="noopener">internal-displacement.org</a></div>
-            </div>
-            <div class="credit-item">
-                <div class="name">News Agencies <span class="license">Various</span></div>
-                <div class="desc">Reuters, AP, BBC, Al Jazeera, AFP, Guardian, NYT, Washington Post, SCMP, Nikkei.</div>
-                <div class="desc" style="font-size:0.8rem; opacity:0.7;">Editorial independence noted. Attribution and source credibility weighting applied.</div>
-            </div>
-        </div>
-    </div>
+    <!-- ============ DATA SOURCES REMOVED ============ -->
 
-    <!-- Special Thanks -->
+    <!-- Special Thanks – only three entries -->
     <div class="credit-section">
         <h2>Special Thanks</h2>
         <div class="credit-grid">
-            <div class="credit-item special">
-                <div class="name">Vasturiano (Fernando Serrano)</div>
-                <div class="desc">For Globe.gl and 3d-force-graph – the visual soul of the Conflict Monitor and Nexus 3D.</div>
-                <div class="link"><a href="https://github.com/vasturiano" target="_blank" rel="noopener">github.com/vasturiano</a></div>
-            </div>
-            <div class="credit-item special">
+            <div class="credit-item">
                 <div class="name">The OSINT Community</div>
                 <div class="desc">For building the tools and sharing the data that makes the Cathedral possible.</div>
             </div>
-            <div class="credit-item special">
+            <div class="credit-item">
                 <div class="name">The Recovery Community</div>
                 <div class="desc">Narcotics Anonymous – whose principles of rigorous honesty, surrender, and service shaped the Cathedral's soul.</div>
             </div>
-            <div class="credit-item special">
+            <div class="credit-item">
                 <div class="name">The Buddhist Tradition</div>
                 <div class="desc">Impermanence, interdependence, and compassion – the Dharma encoded in the Cascade Engine.</div>
-            </div>
-            <div class="credit-item special">
-                <div class="name">Coco</div>
-                <div class="desc">Whose identity is sealed, but whose vision endures.</div>
-            </div>
-            <div class="credit-item special">
-                <div class="name">CERES Chain</div>
-                <div class="desc">A cryptographic audit trail for predictions, ensuring immutability and accountability (Law III).</div>
-            </div>
-            <div class="credit-item special">
-                <div class="name">Agentic Wardens (AW16–AW21)</div>
-                <div class="desc">Predictive Warden, Anomaly Detection, Sentinel Monitor, Backtest Validator, Data Quality Warden — built to safeguard the Cathedral's integrity.</div>
-            </div>
-            <div class="credit-item special">
-                <div class="name">Always and Forever</div>
-                <div class="desc">The Cathedral is not built for the builders. It is built for those who come after.</div>
             </div>
         </div>
     </div>
@@ -628,13 +507,11 @@
 
     <!-- ============ SCRIPTS ============ -->
     <script>
-        // Update timestamp
         document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
         setInterval(() => {
             document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
         }, 60000);
 
-        // Fetch and display CERES hash (Law III audit trail)
         async function updateCERES() {
             try {
                 const response = await fetch('ceres_chain.json?t=' + Date.now());
@@ -646,7 +523,7 @@
                     if (el) el.textContent = 'CERES: ' + lastHash.slice(0, 8) + '…' + lastHash.slice(-4);
                 }
             } catch (e) {
-                // Fallback: keep placeholder
+                // fallback to placeholder
             }
         }
         document.addEventListener('DOMContentLoaded', updateCERES);
