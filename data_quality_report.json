@@ -1,50 +1,50 @@
 {
-  "timestamp": "2026-07-01T19:59:17.437111+00:00",
+  "timestamp": "2026-07-07T22:42:23.082777+00:00",
   "reports": {
     "threats.json": {
       "status": "ok",
-      "age": 0.00017561194444444444,
+      "age": 0.00017926999999999998,
       "valid": true,
       "issues": []
     },
     "sweep_report.json": {
-      "status": "invalid",
-      "age": 2.2482291019444447,
+      "status": "stale",
+      "age": 148.96651089611112,
       "valid": false,
       "issues": [
-        "Missing keys: ['id', 'name']"
+        "Age 149.0h > 24h"
       ]
     },
     "telegram_data.json": {
       "status": "stale",
-      "age": 27.845125665,
+      "age": 146.71059928083332,
       "valid": false,
       "issues": [
-        "Age 27.8h > 24h"
+        "Age 146.7h > 24h"
       ]
     },
     "gpsjam_data.json": {
-      "status": "invalid",
-      "age": 2.2473465302777775,
+      "status": "stale",
+      "age": 146.71283188750002,
       "valid": false,
       "issues": [
-        "Missing keys: ['id', 'name']"
+        "Age 146.7h > 24h"
       ]
     },
     "hewd_data.json": {
       "status": "stale",
-      "age": 27.845302433055558,
+      "age": 146.71084718166665,
       "valid": false,
       "issues": [
-        "Age 27.8h > 24h"
+        "Age 146.7h > 24h"
       ]
     },
     "indices.json": {
       "status": "stale",
-      "age": 45.95325946388889,
+      "age": 192.67149437083333,
       "valid": false,
       "issues": [
-        "Age 46.0h > 24h"
+        "Age 192.7h > 24h"
       ]
     }
   },
@@ -52,11 +52,11 @@
     "total": 6,
     "ok": 1,
     "issues": [
-      "sweep_report.json invalid: Missing keys: ['id', 'name']",
-      "telegram_data.json stale (27.8h)",
-      "gpsjam_data.json invalid: Missing keys: ['id', 'name']",
-      "hewd_data.json stale (27.8h)",
-      "indices.json stale (46.0h)"
+      "sweep_report.json stale (149.0h)",
+      "telegram_data.json stale (146.7h)",
+      "gpsjam_data.json stale (146.7h)",
+      "hewd_data.json stale (146.7h)",
+      "indices.json stale (192.7h)"
     ]
   }
 }

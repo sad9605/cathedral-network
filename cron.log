@@ -5311,3 +5311,47 @@ Traceback (most recent call last):
     threats = threats_data.get('threats', [])
               ^^^^^^^^^^^^^^^^
 AttributeError: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/sad9605/cathedral-core/generate_health.py", line 70, in <module>
+    main()
+    ~~~~^^
+  File "/home/sad9605/cathedral-core/generate_health.py", line 47, in main
+    threats = threats_data.get('threats', [])
+              ^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/sad9605/cathedral-core/generate_health.py", line 70, in <module>
+    main()
+    ~~~~^^
+  File "/home/sad9605/cathedral-core/generate_health.py", line 47, in main
+    threats = threats_data.get('threats', [])
+              ^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+[CFR Agent] Starting CFR conflict scrape...
+[CFR Agent] Fetching CFR Global Conflict Tracker...
+[CFR Agent] No conflict cards found with primary selectors.
+[CFR Agent] Using enhanced fallback extraction...
+[CFR Agent]   Extracted (fallback): Conflicts:
+[CFR Agent]   Extracted (fallback): Criminal Violence in Haiti
+[CFR Agent]   Extracted (fallback): Civil War in Sudan
+[CFR Agent]   Extracted (fallback): Conflict in Ethiopia
+[CFR Agent]   Extracted (fallback): Iran’s War With Israel and the United States
+[CFR Agent]   Extracted (fallback): Conflict in Yemen and the Red Sea
+[CFR Agent]   Extracted (fallback): Conflict Between India and Pakistan
+[CFR Agent]   Extracted (fallback): Conflict With Al-Shabaab in Somalia
+[CFR Agent]   Extracted (fallback): Israeli-Palestinian Conflict
+[CFR Agent]   Extracted (fallback): Criminal Violence in Mexico
+[CFR Agent]   Extracted (fallback): Conflict Between Turkey and Armed Kurdish Groups
+[CFR Agent]   Extracted (fallback): War in Ukraine
+[CFR Agent]   Extracted (fallback): North Korea Crisis
+[CFR Agent]   Extracted (fallback): Civil War in Myanmar
+[CFR Agent]   Extracted (fallback): Territorial Disputes in the South China Sea
+[CFR Agent]   Extracted (fallback): Conflict in the Democratic Republic of Congo
+[CFR Agent]   Extracted (fallback): Conflict in the Central African Republic
+[CFR Agent]   Extracted (fallback): Conflict With Hezbollah in Lebanon
+[CFR Agent]   Extracted (fallback): Conflict in Syria
+[CFR Agent]   Extracted (fallback): Tensions Between Armenia and Azerbaijan
+[CFR Agent] Fallback extracted 20 conflicts
+[CFR Agent] No new conflicts to add
+[CFR Agent] CFR Agent completed successfully
+[CFR Agent] Total conflicts in CFR: 20

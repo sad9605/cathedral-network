@@ -1,7 +1,7 @@
-# 🏛️ Cathedral Daily Brief – 01 July 2026
+# 🏛️ Cathedral Daily Brief – 07 July 2026
 
 **GSCI:** 54.300  
-**Last updated:** 2026-07-01T19:59:46.111158+00:00
+**Last updated:** 2026-07-07T22:43:07.703040+00:00
 
 ## 💀 The Bottom Line
 The most urgent threat right now is Horn of Africa Famine. This is a critical situation requiring immediate attention.
