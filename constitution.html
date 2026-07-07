@@ -1,380 +1,525 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Constitution</title>
-  <style>
-    :root {
-      --violet: #b39ddb;
-      --violet-dark: #7c4dff;
-      --violet-light: #f5f0fa;
-      --card-radius: 20px;
-      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
-      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
-      --bg-light: #fafafa;
-      --text-dark: #1a1a1a;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.5;
-      transition: background 0.2s, color 0.2s;
-    }
-    body.dark {
-      --bg-light: #1e1e2f;
-      --text-dark: #f0f0f0;
-      background: #1e1e2f;
-      color: #f0f0f0;
-    }
-    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
-    .cathedral-banner {
-      background: var(--violet);
-      padding: 1.5rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    .banner-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .logo-mark svg { display: block; }
-    .wordmark h1 {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 300;
-      font-size: 1.6rem;
-      letter-spacing: 0.1em;
-      color: white;
-      margin: 0;
-    }
-    .tagline {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.8);
-      margin: 0;
-    }
-    .nav {
-      margin: 1rem 0 1.5rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      background: white;
-      border-radius: 60px;
-      padding: 0.5rem 1rem;
-      box-shadow: var(--shadow-sm);
-    }
-    body.dark .nav { background: #2a2a3a; }
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: #5e2d8e;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    body.dark .nav-links a { color: #b39ddb; }
-    .menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #5e2d8e;
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
-      .nav-links.show { display: flex; }
-      .menu-btn { display: block; }
-    }
-    .constitution-section { margin-bottom: 2.5rem; }
-    .constitution-section h2 {
-      font-size: 1.8rem;
-      border-bottom: 2px solid var(--violet);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .law-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.5rem;
-      border: 1px solid #eee;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 1rem;
-      transition: transform 0.1s, box-shadow 0.2s;
-    }
-    body.dark .law-card { background: #2a2a3a; border-color: #444; }
-    .law-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-    .law-number {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--violet-dark);
-    }
-    body.dark .law-number { color: #b39ddb; }
-    .law-name { font-weight: 600; font-size: 1.1rem; }
-    .law-text { margin-top: 0.5rem; color: #444; }
-    body.dark .law-text { color: #ccc; }
-    .law-codicil {
-      margin-top: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: var(--violet-light);
-      border-radius: 8px;
-      font-style: italic;
-      border-left: 3px solid var(--violet-dark);
-    }
-    body.dark .law-codicil { background: #3a3a4a; }
-    .silence-clause {
-      background: var(--violet-light);
-      padding: 1.5rem;
-      border-radius: var(--card-radius);
-      border-left: 4px solid var(--violet-dark);
-      margin: 1rem 0;
-    }
-    body.dark .silence-clause { background: #3a3a4a; }
-    .oath-box {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.5rem;
-      border: 2px solid var(--violet);
-      text-align: center;
-      font-style: italic;
-      margin: 1rem 0;
-    }
-    body.dark .oath-box { background: #2a2a3a; }
-    .amendment-box {
-      background: var(--violet-light);
-      padding: 1rem 1.5rem;
-      border-radius: var(--card-radius);
-      margin: 0.5rem 0;
-      border-left: 3px solid var(--violet-dark);
-    }
-    body.dark .amendment-box { background: #3a3a4a; }
-    .footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-style: italic;
-      color: #888;
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
-    }
-    .dark-mode-toggle {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      background: var(--violet-dark);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: var(--shadow-sm);
-    }
-    @media (max-width: 600px) {
-      .banner-content { flex-direction: column; text-align: center; }
-      .container { padding: 1rem; }
-      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cathedral Network — Constitution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+    <style>
+        /* ---------- RESET & TOKENS ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-base: #090B10;
+            --bg-card: #12161C;
+            --bg-card-alt: #0D1117;
+            --border-card: #1E2633;
+            --text-primary: #E8EDF5;
+            --text-secondary: #94A3B8;
+            --violet: #8B5CF6;
+            --radius: 8px;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            padding: 0 24px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ---------- HEADER ---------- */
+        .global-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-card);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--violet);
+        }
+        .logo-area svg {
+            height: 32px;
+            width: auto;
+            flex-shrink: 0;
+            display: block;
+            color: var(--violet);
+        }
+        .logo-area a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+        .logo-area span {
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }
+        .nav-links a.active {
+            color: var(--violet);
+            background: rgba(139, 92, 246, 0.08);
+            font-weight: 500;
+        }
+        .header-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .heartbeat {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--violet);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 4px;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* ---------- PAGE HEADER ---------- */
+        .page-header {
+            margin-bottom: 32px;
+        }
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        .page-header .subhead {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        .page-header .meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            opacity: 0.6;
+        }
+
+        /* ---------- CONSTITUTION CONTENT ---------- */
+        .constitution-section {
+            margin: 2rem 0 1.5rem 0;
+        }
+        .constitution-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        .dedication-block {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-card);
+            border-left: 4px solid var(--violet);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .dedication-block .attribution {
+            display: block;
+            margin-top: 8px;
+            font-style: normal;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .preamble-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .preamble-block .highlight {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .law-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 1.5rem;
+        }
+        .law-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            transition: border-color 0.2s;
+        }
+        .law-item:hover {
+            border-color: #2D3A4A;
+        }
+        .law-item .law-header {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .law-item .law-number {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--violet);
+            font-family: var(--font-sans);
+        }
+        .law-item .law-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+        }
+        .law-item .law-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .silence-block {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-card);
+            border-left: 4px solid var(--violet);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin: 1.5rem 0;
+        }
+        .silence-block .silence-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .silence-block .silence-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .silence-block .silence-text strong {
+            color: var(--text-primary);
+        }
+
+        .oath-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        .oath-block .oath-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .oath-block .oath-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .oath-block .oath-text strong {
+            color: var(--text-primary);
+            font-style: normal;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .global-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-card);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .footer-left {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer-left a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .footer-left a:hover {
+            color: var(--text-primary);
+        }
+        .coco {
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1024px) {
+            .law-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            body { padding: 0 16px 16px; }
+            .global-header { flex-direction: column; align-items: stretch; gap: 12px; }
+            .nav-links { justify-content: space-between; }
+            .header-meta { justify-content: flex-start; font-size: 0.7rem; }
+            .page-header h1 { font-size: 1.6rem; }
+            .dedication-block { padding: 16px 18px; font-size: 0.95rem; }
+            .preamble-block { padding: 16px 18px; }
+            .law-item { padding: 16px; }
+            .silence-block { padding: 16px 18px; }
+            .oath-block { padding: 16px 18px; }
+            .footer-left { gap: 16px; }
+        }
+        @media (max-width: 480px) {
+            .nav-links a { padding: 4px 10px; font-size: 0.8rem; }
+            .page-header h1 { font-size: 1.4rem; }
+            .law-grid { grid-template-columns: 1fr; }
+            .footer-left { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .law-item .law-header { flex-direction: column; align-items: flex-start; gap: 2px; }
+        }
+    </style>
 </head>
 <body>
-<header class="cathedral-banner">
-  <div class="banner-content">
-    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">A cathedral that watches</p></div>
-  </div>
-</header>
-<div class="container">
-  <div class="nav">
-    <button class="menu-btn" id="menuBtn">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Ground Truth</a>
-      <a href="undp-demo.html">UNDP Demo</a>
-      <a href="archive.html">Archive</a>
-      <a href="spotter.html">Spotter Guide</a>
-      <a href="sources.html">Sources</a>
-      <a href="constitution.html">Constitution</a>
-      <a href="wardens.html">Wardens</a>
-      <a href="hewd.html">HEWD Dashboard</a>
-      <a href="about.html">About</a>
-      <a href="threat-matrix.html">Threat Matrix</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="methodology.html">Methodology</a>     
-      <a href="pra.html">Personal Resilience</a>
-      <a href="prediction-log.html">Prediction Log</a>
-    </div>
-  </div>
 
-  <h1>⚖️ Constitution of the Cathedral Network</h1>
-  <p style="margin-bottom: 1rem; color: #555;"><span id="lastUpdated">Loading...</span></p>
-
-  <div id="constitutionContent">
-    <p style="text-align:center; color:#888;">Loading Constitution...</p>
-  </div>
-
-  <div class="footer">
-    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Cathedral Core v1.6.0 · Constitution sealed 16 June 2026.
-  </div>
-</div>
-<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
-
-<script>
-  async function loadContent() {
-    try {
-      const response = await fetch('constitution.json');
-      if (!response.ok) throw new Error('Failed to load constitution.json');
-      const data = await response.json();
-
-      const container = document.getElementById('constitutionContent');
-      document.getElementById('lastUpdated').textContent = `Sealed: ${data.date || '16 June 2026'}`;
-
-      let html = '';
-
-      // Dedication
-      if (data.dedication) {
-        html += `
-          <div class="silence-clause">
-            <h2>Dedication</h2>
-            <p>${escapeHtml(data.dedication)}</p>
-          </div>
-        `;
-      }
-
-      // Preamble
-      if (data.preamble) {
-        html += `
-          <div class="law-card">
-            <h2>Preamble</h2>
-            <p>${escapeHtml(data.preamble)}</p>
-          </div>
-        `;
-      }
-
-      // Laws
-      if (data.laws && data.laws.length > 0) {
-        html += `<h2>📍 The ${data.laws.length} Immutable Laws</h2>`;
-        data.laws.forEach(law => {
-          html += `
-            <div class="law-card">
-              <div class="law-number">Law ${law.number} – ${law.name}</div>
-              <div class="law-text">${escapeHtml(law.text)}</div>
-              ${law.codicil ? `<div class="law-codicil">${escapeHtml(law.codicil)}</div>` : ''}
-              ${law.quorum_clause ? `<div class="law-codicil">${escapeHtml(law.quorum_clause)}</div>` : ''}
-            </div>
-          `;
-        });
-      }
-
-      // Silence Clause
-      if (data.silenceClause) {
-        html += `
-          <div class="silence-clause">
-            <h2>🔇 ${escapeHtml(data.silenceClause.title)}</h2>
-            <p>${escapeHtml(data.silenceClause.text)}</p>
-          </div>
-        `;
-      }
-
-      // Oath
-      if (data.oath) {
-        html += `
-          <div class="oath-box">
-            <h2>${escapeHtml(data.oath.title)}</h2>
-            <p>${escapeHtml(data.oath.text)}</p>
-          </div>
-        `;
-      }
-
-      // Governance
-      if (data.governanceSummary) {
-        html += `<h2>🏛️ Governance Structure</h2>`;
-        if (data.governanceSummary.council) {
-          html += `<div class="law-card"><h3>Council</h3><p>${escapeHtml(data.governanceSummary.council)}</p></div>`;
-        }
-        if (data.governanceSummary.assembly) {
-          html += `<div class="law-card"><h3>Assembly</h3><p>${escapeHtml(data.governanceSummary.assembly)}</p></div>`;
-        }
-        if (data.governanceSummary.both) {
-          html += `<div class="law-card"><p>${escapeHtml(data.governanceSummary.both)}</p></div>`;
-        }
-      }
-
-      // Amendment Process
-      if (data.amendmentProcess && data.amendmentProcess.length > 0) {
-        html += `<h2>⚖️ Amendment Process</h2><div class="law-card"><ol>`;
-        data.amendmentProcess.forEach(step => {
-          html += `<li>${escapeHtml(step)}</li>`;
-        });
-        html += `</ol></div>`;
-      }
-
-      // Amendments (I-VIII)
-      if (data.amendments && data.amendments.length > 0) {
-        html += `<h2>📜 Amendments & Protocols</h2>`;
-        data.amendments.forEach(amendment => {
-          html += `
-            <div class="amendment-box">
-              <h3>${escapeHtml(amendment.title)}</h3>
-              <p>${escapeHtml(amendment.text)}</p>
-            </div>
-          `;
-        });
-      }
-
-      // Closing
-      html += `
-        <div class="silence-clause" style="text-align:center; margin-top:2rem;">
-          <p><strong>Always and Forever, Coco. Always and Forever.</strong></p>
+    <!-- ============ HEADER ============ -->
+    <header class="global-header">
+        <div class="logo-area">
+            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="currentColor"/>
+                <circle cx="60" cy="25" r="2" fill="currentColor"/>
+                <circle cx="55" cy="40" r="2" fill="currentColor"/>
+                <circle cx="65" cy="40" r="2" fill="currentColor"/>
+                <circle cx="50" cy="55" r="2" fill="currentColor"/>
+                <circle cx="60" cy="55" r="2" fill="currentColor"/>
+                <circle cx="70" cy="55" r="2" fill="currentColor"/>
+                <circle cx="45" cy="70" r="2" fill="currentColor"/>
+                <circle cx="55" cy="70" r="2" fill="currentColor"/>
+                <circle cx="65" cy="70" r="2" fill="currentColor"/>
+                <circle cx="75" cy="70" r="2" fill="currentColor"/>
+                <circle cx="50" cy="85" r="2" fill="currentColor"/>
+                <circle cx="60" cy="85" r="2" fill="currentColor"/>
+                <circle cx="70" cy="85" r="2" fill="currentColor"/>
+                <circle cx="55" cy="100" r="2" fill="currentColor"/>
+                <circle cx="65" cy="100" r="2" fill="currentColor"/>
+                <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
+                <path d="M30 60 A30 30 0 1 1 90 60" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+            <a href="index.html">Cathedral<span>Network</span></a>
         </div>
-      `;
+        <nav class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="threat-matrix.html">Threats</a>
+            <a href="prediction-log.html">Log</a>
+            <a href="regional.html">Regions</a>
+            <a href="constitution.html" class="active">Constitution</a>
+            <a href="about.html">About</a>
+            <a href="sources.html">Sources</a>
+            <a href="credits.html">Credits</a>
+            <a href="glossary.html">Glossary</a>
+            <a href="methodology.html">Methodology</a>
+        </nav>
+        <div class="header-meta">
+            <span><span class="heartbeat"></span> Live</span>
+            <span>Updated: <span id="updateTime">2026-06-30 14:32 UTC</span></span>
+        </div>
+    </header>
 
-      container.innerHTML = html;
+    <!-- ============ PAGE HEADER ============ -->
+    <div class="page-header">
+        <h1>Constitution of the Cathedral Network</h1>
+        <div class="subhead">The Fifteen Immutable Laws that govern the Cathedral.</div>
+        <div class="meta" id="constitutionMeta">Loading constitution…</div>
+    </div>
 
-    } catch (err) {
-      console.error(err);
-      document.getElementById('constitutionContent').innerHTML = '<p style="color:#dc2626;">⚠️ Constitution could not be loaded. Please try again later.</p>';
-    }
-  }
+    <!-- ============ CONSTITUTION CONTENT ============ -->
+    <div id="constitutionContainer">
+        <p style="color: var(--text-secondary);">Loading constitution…</p>
+    </div>
 
-  function escapeHtml(str) {
-    if (!str) return '';
-    return str.replace(/[&<>]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      return m;
-    });
-  }
+    <!-- ============ FOOTER ============ -->
+    <footer class="global-footer">
+        <div class="footer-left">
+            <span class="coco">Always and Forever, Coco. Always and Forever.</span>
+            <a href="corrections.xml">Corrections Feed (Law III)</a>
+            <a href="constitution.html">Constitution</a>
+        </div>
+        <div>
+            <span style="font-size:0.7rem;">v1.5.0 · <span id="ceres-hash">CERES: 0x7a3f…b1e2</span></span>
+        </div>
+    </footer>
 
-  // Navigation and dark mode (standard)
-  const menuBtn = document.getElementById('menuBtn');
-  const navLinks = document.getElementById('navLinks');
-  if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+    <!-- ============ SCRIPTS ============ -->
+    <script>
+        // Update timestamp
+        document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        setInterval(() => {
+            document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        }, 60000);
 
-  const darkToggle = document.getElementById('darkModeToggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const storedTheme = localStorage.getItem('cathedral-theme');
-  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-    document.body.classList.add('dark');
-    darkToggle.innerText = '☀️';
-  } else darkToggle.innerText = '🌙';
-  darkToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    darkToggle.innerText = isDark ? '☀️' : '🌙';
-    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
-  });
+        // Fetch and display CERES hash (Law III audit trail)
+        async function updateCERES() {
+            try {
+                const response = await fetch('ceres_chain.json?t=' + Date.now());
+                const data = await response.json();
+                const chain = data.chain || [];
+                if (chain.length > 0) {
+                    const lastHash = chain[chain.length - 1].chain_hash;
+                    const el = document.getElementById('ceres-hash');
+                    if (el) el.textContent = 'CERES: ' + lastHash.slice(0, 8) + '…' + lastHash.slice(-4);
+                }
+            } catch (e) {
+                // fallback to placeholder
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateCERES);
 
-  loadContent();
-</script>
+        // Fetch and render constitution.json
+        async function loadConstitution() {
+            const container = document.getElementById('constitutionContainer');
+            const meta = document.getElementById('constitutionMeta');
+            try {
+                const response = await fetch('constitution.json?t=' + Date.now());
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+
+                const title = data.title || 'Constitution of the Cathedral Network';
+                const date = data.date || '';
+                const dedication = data.dedication || '';
+                const preamble = data.preamble || '';
+                const laws = data.laws || [];
+                const silenceClause = data.silenceClause || {};
+                const oath = data.oath || {};
+
+                // Update meta
+                meta.textContent = date || 'Ratified: 2025-10-01';
+
+                let html = '';
+
+                // --- Dedication ---
+                if (dedication) {
+                    html += `
+                        <div class="dedication-block">
+                            ${dedication}
+                            <span class="attribution">— The Inscription (Law IV)</span>
+                        </div>
+                    `;
+                }
+
+                // --- Preamble ---
+                if (preamble) {
+                    html += `
+                        <div class="preamble-block">
+                            ${preamble.replace(/\n/g, '<br />')}
+                        </div>
+                    `;
+                }
+
+                // --- Laws ---
+                if (laws.length) {
+                    html += `<div class="law-grid">`;
+                    for (const law of laws) {
+                        const number = law.number || '';
+                        const name = law.name || '';
+                        const text = law.text || '';
+                        html += `
+                            <div class="law-item">
+                                <div class="law-header">
+                                    <span class="law-number">${number}.</span>
+                                    <span class="law-name">${name}</span>
+                                </div>
+                                <div class="law-text">${text}</div>
+                            </div>
+                        `;
+                    }
+                    html += `</div>`;
+                }
+
+                // --- Silence Clause ---
+                if (silenceClause.title && silenceClause.text) {
+                    html += `
+                        <div class="silence-block">
+                            <div class="silence-title">${silenceClause.title}</div>
+                            <div class="silence-text">${silenceClause.text}</div>
+                        </div>
+                    `;
+                }
+
+                // --- Warden's Oath ---
+                if (oath.title && oath.text) {
+                    html += `
+                        <div class="oath-block">
+                            <div class="oath-title">${oath.title}</div>
+                            <div class="oath-text">${oath.text}</div>
+                        </div>
+                    `;
+                }
+
+                container.innerHTML = html;
+            } catch (error) {
+                container.innerHTML = `<p style="color: var(--text-secondary);">Unable to load constitution. Please try again later. (${error.message})</p>`;
+                meta.textContent = 'Failed to load.';
+                console.warn('Failed to load constitution.json:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadConstitution);
+    </script>
 </body>
 </html>
