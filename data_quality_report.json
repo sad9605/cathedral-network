@@ -1,50 +1,50 @@
 {
-  "timestamp": "2026-07-07T22:42:23.082777+00:00",
+  "timestamp": "2026-07-07T23:47:31.849848+00:00",
   "reports": {
     "threats.json": {
       "status": "ok",
-      "age": 0.00017926999999999998,
+      "age": 0.00012835027777777778,
       "valid": true,
       "issues": []
     },
     "sweep_report.json": {
-      "status": "stale",
-      "age": 148.96651089611112,
+      "status": "invalid",
+      "age": 0.4546388358333333,
       "valid": false,
       "issues": [
-        "Age 149.0h > 24h"
+        "Missing keys: ['id', 'name']"
       ]
     },
     "telegram_data.json": {
-      "status": "stale",
-      "age": 146.71059928083332,
+      "status": "invalid",
+      "age": 1.073712876388889,
       "valid": false,
       "issues": [
-        "Age 146.7h > 24h"
+        "Missing keys: ['id', 'name']"
       ]
     },
     "gpsjam_data.json": {
-      "status": "stale",
-      "age": 146.71283188750002,
+      "status": "invalid",
+      "age": 0.4382866097222222,
       "valid": false,
       "issues": [
-        "Age 146.7h > 24h"
+        "Missing keys: ['id', 'name']"
       ]
     },
     "hewd_data.json": {
-      "status": "stale",
-      "age": 146.71084718166665,
+      "status": "invalid",
+      "age": 1.0740010247222223,
       "valid": false,
       "issues": [
-        "Age 146.7h > 24h"
+        "Missing keys: ['id', 'name']"
       ]
     },
     "indices.json": {
       "status": "stale",
-      "age": 192.67149437083333,
+      "age": 193.75726299888888,
       "valid": false,
       "issues": [
-        "Age 192.7h > 24h"
+        "Age 193.8h > 24h"
       ]
     }
   },
@@ -52,11 +52,11 @@
     "total": 6,
     "ok": 1,
     "issues": [
-      "sweep_report.json stale (149.0h)",
-      "telegram_data.json stale (146.7h)",
-      "gpsjam_data.json stale (146.7h)",
-      "hewd_data.json stale (146.7h)",
-      "indices.json stale (192.7h)"
+      "sweep_report.json invalid: Missing keys: ['id', 'name']",
+      "telegram_data.json invalid: Missing keys: ['id', 'name']",
+      "gpsjam_data.json invalid: Missing keys: ['id', 'name']",
+      "hewd_data.json invalid: Missing keys: ['id', 'name']",
+      "indices.json stale (193.8h)"
     ]
   }
 }

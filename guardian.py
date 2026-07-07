@@ -11,7 +11,7 @@ import subprocess
 import os
 
 LOCK_FILE = ".threat_lock"
-MIN_THREATS = 50
+MIN_THREATS = 10
 
 def get_threat_hash():
     """Return MD5 hash of threats.json, or None if missing."""

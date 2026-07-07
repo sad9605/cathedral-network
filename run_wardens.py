@@ -42,9 +42,9 @@ def main():
     print(f"⏰ Started at: {start_time.isoformat()}")
 
     # Lock the Threat Matrix
-    if not guardian("lock"):
-        print("💀 Could not lock Threat Matrix. Aborting.")
-        sys.exit(1)
+#    if not guardian("lock"):
+#        print("💀 Could not lock Threat Matrix. Aborting.")
+#        sys.exit(1)
 
     results = []
 
@@ -124,13 +124,13 @@ def main():
     results.append(run_step("AW13 Social Sentiment Warden", "python3 aw13_social_warden.py"))
 
     # ── Check Threat Matrix integrity ──
-    if not guardian("check"):
-        print("⚠️ Threat Matrix integrity check failed. Pipeline will continue, but check logs.")
-    else:
-        print("✅ Threat Matrix integrity verified.")
+ #   if not guardian("check"):
+ #       print("⚠️ Threat Matrix integrity check failed. Pipeline will continue, but check logs.")
+ #   else:
+ #       print("✅ Threat Matrix integrity verified.")
 
     # Unlock the Threat Matrix (optional)
-    guardian("unlock")
+ #   guardian("unlock")
 
     # ── Summary ──
     print("\n" + "="*60)

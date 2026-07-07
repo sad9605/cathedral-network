@@ -325,6 +325,18 @@
       "validation_score": 0.2
     },
     {
+      "id": "C38",
+      "source": "F-INSUR-SPIRAL",
+      "target": "C78",
+      "delta": 0.1,
+      "condition": "always",
+      "threshold": 0.0,
+      "status": "active",
+      "description": "Insurance withdrawal spiral deepens debt crisis",
+      "validated": false,
+      "validation_score": 0.2
+    },
+    {
       "id": "C39",
       "source": "C-WATER-BANK",
       "target": "C03",

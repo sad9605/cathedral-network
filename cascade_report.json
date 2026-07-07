@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-07T22:42:22.322832+00:00",
-  "ivf": 0.0444,
+  "timestamp": "2026-07-07T23:47:31.196374+00:00",
+  "ivf": 0.0429,
   "scp_values": {
     "C01": 0.2,
     "C\u2011USIRAN": 0.0,
@@ -12,10 +12,12 @@
     "C88": 0.0,
     "C90": 0.0,
     "C48": 0.0,
+    "C19": 0.0,
     "C25": 0.0,
     "C3": 0.0,
     "C11": 0.99,
     "C58": 0.0,
+    "C60": 0.0,
     "C64": 0.0,
     "C85": 0.0,
     "C122": 0.0,
@@ -58,6 +60,8 @@
     "G16": 0.0,
     "G17": 0.0,
     "G18": 0.0,
+    "G19": 0.0,
+    "G20": 0.0,
     "G24": 0.0,
     "E-AI-GRID": 0.3,
     "E-SMR": 0.0,
@@ -74,6 +78,7 @@
     "C41": 0.0,
     "C46": 0.0,
     "E11": 0.1,
+    "U10": 0.0,
     "U11": 0.0,
     "U12": 0.0,
     "CC1": 0.0,
@@ -86,7 +91,7 @@
     "C-CRYO": 0.0,
     "C-SOIL-DEG": 0.0,
     "C-AG-STORAGE": 0.0,
-    "C78": 0.6000000000000001,
+    "C78": 0.7999999999999999,
     "C133": 0.5,
     "I08": 0.3,
     "I09": 0.0,
@@ -109,6 +114,7 @@
     "F-AI-LIQ": 0.0,
     "F-REPO-2026": 0.0,
     "F-CBDC": 0.0,
+    "F-INSUR-SPIRAL": 0.0,
     "C121": 0.4,
     "C124": 0.0,
     "C36": 0.0,
@@ -183,6 +189,7 @@
     "I01I": 0.0,
     "C2I": 0.0,
     "C84I": 0.0,
+    "G14": 0.0,
     "I11I": 0.0,
     "I12I": 0.0,
     "C19I": 0.0,
@@ -206,6 +213,7 @@
     "I02": 0.0,
     "I03": 0.0,
     "I17": 0.0,
+    "C145I": 0.0,
     "I10": 0.3,
     "CFR-CONFLICTS": 0.0,
     "CFR-CIVILWARINSUDAN": 0.0,
@@ -234,495 +242,502 @@
       "target": "C11",
       "delta": 0.25,
       "new_scp": 0.8999999999999999,
-      "timestamp": "2026-07-07T22:42:22.322315+00:00"
+      "timestamp": "2026-07-07T23:47:31.195746+00:00"
     },
     {
       "source": "C01",
       "target": "C132",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322365+00:00"
+      "timestamp": "2026-07-07T23:47:31.195848+00:00"
     },
     {
       "source": "C11",
       "target": "C03",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322375+00:00"
+      "timestamp": "2026-07-07T23:47:31.195860+00:00"
     },
     {
       "source": "C11",
       "target": "C106",
       "delta": 0.2,
       "new_scp": 0.6499999999999999,
-      "timestamp": "2026-07-07T22:42:22.322380+00:00"
+      "timestamp": "2026-07-07T23:47:31.195865+00:00"
     },
     {
       "source": "C11",
       "target": "C133",
       "delta": 0.1,
       "new_scp": 0.35,
-      "timestamp": "2026-07-07T22:42:22.322384+00:00"
+      "timestamp": "2026-07-07T23:47:31.195870+00:00"
     },
     {
       "source": "C11",
       "target": "C78",
       "delta": 0.1,
-      "new_scp": 0.4,
-      "timestamp": "2026-07-07T22:42:22.322388+00:00"
+      "new_scp": 0.5,
+      "timestamp": "2026-07-07T23:47:31.195874+00:00"
     },
     {
       "source": "C03",
       "target": "C139",
       "delta": 0.15,
       "new_scp": 0.8,
-      "timestamp": "2026-07-07T22:42:22.322392+00:00"
+      "timestamp": "2026-07-07T23:47:31.195878+00:00"
     },
     {
       "source": "C03",
       "target": "U06",
       "delta": 0.1,
       "new_scp": 0.7,
-      "timestamp": "2026-07-07T22:42:22.322395+00:00"
+      "timestamp": "2026-07-07T23:47:31.195881+00:00"
     },
     {
       "source": "C106",
       "target": "C03",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322399+00:00"
+      "timestamp": "2026-07-07T23:47:31.195885+00:00"
     },
     {
       "source": "C106",
       "target": "U07",
       "delta": 0.1,
       "new_scp": 0.2,
-      "timestamp": "2026-07-07T22:42:22.322403+00:00"
+      "timestamp": "2026-07-07T23:47:31.195889+00:00"
     },
     {
       "source": "A-UREA",
       "target": "C03",
       "delta": 0.2,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322416+00:00"
+      "timestamp": "2026-07-07T23:47:31.195893+00:00"
     },
     {
       "source": "A-UREA",
       "target": "C106",
       "delta": 0.15,
       "new_scp": 0.7999999999999999,
-      "timestamp": "2026-07-07T22:42:22.322421+00:00"
+      "timestamp": "2026-07-07T23:47:31.195897+00:00"
     },
     {
       "source": "A-STRAT-RES",
       "target": "A-UREA",
       "delta": 0.25,
       "new_scp": 0.5,
-      "timestamp": "2026-07-07T22:42:22.322425+00:00"
+      "timestamp": "2026-07-07T23:47:31.195900+00:00"
     },
     {
       "source": "B02",
       "target": "C77",
       "delta": 0.1,
       "new_scp": 0.35,
-      "timestamp": "2026-07-07T22:42:22.322445+00:00"
+      "timestamp": "2026-07-07T23:47:31.195904+00:00"
     },
     {
       "source": "B02",
       "target": "C139",
       "delta": 0.1,
       "new_scp": 0.9,
-      "timestamp": "2026-07-07T22:42:22.322456+00:00"
+      "timestamp": "2026-07-07T23:47:31.195921+00:00"
     },
     {
       "source": "B-AMR-KLEB",
       "target": "B02",
       "delta": 0.15,
       "new_scp": 0.55,
-      "timestamp": "2026-07-07T22:42:22.322462+00:00"
+      "timestamp": "2026-07-07T23:47:31.195928+00:00"
     },
     {
       "source": "B-DARK-PROTEIN",
       "target": "B02",
       "delta": 0.1,
       "new_scp": 0.65,
-      "timestamp": "2026-07-07T22:42:22.322465+00:00"
+      "timestamp": "2026-07-07T23:47:31.195932+00:00"
     },
     {
       "source": "G-ARCTIC",
       "target": "C132",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322469+00:00"
+      "timestamp": "2026-07-07T23:47:31.195936+00:00"
     },
     {
       "source": "G-SPACE",
       "target": "C132",
       "delta": 0.2,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322472+00:00"
+      "timestamp": "2026-07-07T23:47:31.195952+00:00"
     },
     {
       "source": "G-WEST-BANK",
       "target": "C01",
       "delta": 0.1,
       "new_scp": 0.2,
-      "timestamp": "2026-07-07T22:42:22.322476+00:00"
+      "timestamp": "2026-07-07T23:47:31.195957+00:00"
     },
     {
       "source": "G-SUD-BLUE",
       "target": "C03",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322479+00:00"
+      "timestamp": "2026-07-07T23:47:31.195961+00:00"
     },
     {
       "source": "T-LAWS",
       "target": "C132",
       "delta": 0.2,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322483+00:00"
+      "timestamp": "2026-07-07T23:47:31.195965+00:00"
     },
     {
       "source": "F-AI-CYBER-SYS",
       "target": "C78",
       "delta": 0.2,
-      "new_scp": 0.6000000000000001,
-      "timestamp": "2026-07-07T22:42:22.322486+00:00"
+      "new_scp": 0.7,
+      "timestamp": "2026-07-07T23:47:31.195969+00:00"
     },
     {
       "source": "F-AI-CYBER-SYS",
       "target": "C133",
       "delta": 0.15,
       "new_scp": 0.5,
-      "timestamp": "2026-07-07T22:42:22.322499+00:00"
+      "timestamp": "2026-07-07T23:47:31.195972+00:00"
     },
     {
       "source": "F-CBDC",
       "target": "I08",
       "delta": 0.15,
       "new_scp": 0.3,
-      "timestamp": "2026-07-07T22:42:22.322503+00:00"
+      "timestamp": "2026-07-07T23:47:31.195976+00:00"
+    },
+    {
+      "source": "F-INSUR-SPIRAL",
+      "target": "C78",
+      "delta": 0.1,
+      "new_scp": 0.7999999999999999,
+      "timestamp": "2026-07-07T23:47:31.195979+00:00"
     },
     {
       "source": "C-WATER-BANK",
       "target": "C03",
       "delta": 0.2,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322507+00:00"
+      "timestamp": "2026-07-07T23:47:31.195983+00:00"
     },
     {
       "source": "C-WATER-BANK",
       "target": "C139",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322511+00:00"
+      "timestamp": "2026-07-07T23:47:31.195987+00:00"
     },
     {
       "source": "C-WATER-BANK",
       "target": "G-SUD-BLUE",
       "delta": 0.15,
       "new_scp": 0.3,
-      "timestamp": "2026-07-07T22:42:22.322514+00:00"
+      "timestamp": "2026-07-07T23:47:31.195990+00:00"
     },
     {
       "source": "E11",
       "target": "C03",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322518+00:00"
+      "timestamp": "2026-07-07T23:47:31.195994+00:00"
     },
     {
       "source": "E11",
       "target": "C106",
       "delta": 0.1,
       "new_scp": 0.8999999999999999,
-      "timestamp": "2026-07-07T22:42:22.322521+00:00"
+      "timestamp": "2026-07-07T23:47:31.195998+00:00"
     },
     {
       "source": "E11",
       "target": "C80",
       "delta": 0.15,
       "new_scp": 0.3,
-      "timestamp": "2026-07-07T22:42:22.322524+00:00"
+      "timestamp": "2026-07-07T23:47:31.196001+00:00"
     },
     {
       "source": "SC-RARE",
       "target": "C121",
       "delta": 0.2,
       "new_scp": 0.4,
-      "timestamp": "2026-07-07T22:42:22.322527+00:00"
+      "timestamp": "2026-07-07T23:47:31.196004+00:00"
     },
     {
       "source": "SC-RARE",
       "target": "C132",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322530+00:00"
+      "timestamp": "2026-07-07T23:47:31.196008+00:00"
     },
     {
       "source": "SC-NUCLEAR",
       "target": "C62",
       "delta": 0.15,
       "new_scp": 0.3,
-      "timestamp": "2026-07-07T22:42:22.322534+00:00"
+      "timestamp": "2026-07-07T23:47:31.196012+00:00"
     },
     {
       "source": "SC-NUCLEAR",
       "target": "C132",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322537+00:00"
+      "timestamp": "2026-07-07T23:47:31.196024+00:00"
     },
     {
       "source": "SC-ZINC",
       "target": "C11",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322541+00:00"
+      "timestamp": "2026-07-07T23:47:31.196028+00:00"
     },
     {
       "source": "C-SOIL-DEG",
       "target": "C03",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322544+00:00"
+      "timestamp": "2026-07-07T23:47:31.196032+00:00"
     },
     {
       "source": "C-AG-STORAGE",
       "target": "C03",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322547+00:00"
+      "timestamp": "2026-07-07T23:47:31.196035+00:00"
     },
     {
       "source": "C-SUBSIDENCE",
       "target": "C-WATER-BANK",
       "delta": 0.1,
       "new_scp": 0.35,
-      "timestamp": "2026-07-07T22:42:22.322551+00:00"
+      "timestamp": "2026-07-07T23:47:31.196038+00:00"
     },
     {
       "source": "C-CRYO",
       "target": "C-WATER-BANK",
       "delta": 0.15,
       "new_scp": 0.5,
-      "timestamp": "2026-07-07T22:42:22.322554+00:00"
+      "timestamp": "2026-07-07T23:47:31.196042+00:00"
     },
     {
       "source": "E-AI-GRID",
       "target": "C11",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322558+00:00"
+      "timestamp": "2026-07-07T23:47:31.196046+00:00"
     },
     {
       "source": "E-HYPER-SCALE",
       "target": "E-AI-GRID",
       "delta": 0.15,
       "new_scp": 0.3,
-      "timestamp": "2026-07-07T22:42:22.322561+00:00"
+      "timestamp": "2026-07-07T23:47:31.196049+00:00"
     },
     {
       "source": "T-BIO-INF",
       "target": "B02",
       "delta": 0.15,
       "new_scp": 0.8,
-      "timestamp": "2026-07-07T22:42:22.322565+00:00"
+      "timestamp": "2026-07-07T23:47:31.196053+00:00"
     },
     {
       "source": "T-SYN-DNA",
       "target": "B-DARK-PROTEIN",
       "delta": 0.2,
       "new_scp": 0.4,
-      "timestamp": "2026-07-07T22:42:22.322568+00:00"
+      "timestamp": "2026-07-07T23:47:31.196057+00:00"
     },
     {
       "source": "T-MISINFO",
       "target": "I01",
       "delta": 0.15,
       "new_scp": 0.65,
-      "timestamp": "2026-07-07T22:42:22.322572+00:00"
+      "timestamp": "2026-07-07T23:47:31.196061+00:00"
     },
     {
       "source": "D-AI-LIAB",
       "target": "D-TRUST",
       "delta": 0.1,
       "new_scp": 0.9,
-      "timestamp": "2026-07-07T22:42:22.322575+00:00"
+      "timestamp": "2026-07-07T23:47:31.196064+00:00"
     },
     {
       "source": "D-DESKILL",
       "target": "D-TRUST",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322595+00:00"
+      "timestamp": "2026-07-07T23:47:31.196076+00:00"
     },
     {
       "source": "D-GDPR",
       "target": "D-TRUST",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322601+00:00"
+      "timestamp": "2026-07-07T23:47:31.196082+00:00"
     },
     {
       "source": "I10",
       "target": "D-TRUST",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322605+00:00"
+      "timestamp": "2026-07-07T23:47:31.196093+00:00"
     },
     {
       "source": "C84",
       "target": "I01",
       "delta": 0.2,
       "new_scp": 0.8500000000000001,
-      "timestamp": "2026-07-07T22:42:22.322608+00:00"
+      "timestamp": "2026-07-07T23:47:31.196099+00:00"
     },
     {
       "source": "U01",
       "target": "D-TRUST",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322611+00:00"
+      "timestamp": "2026-07-07T23:47:31.196103+00:00"
     },
     {
       "source": "U02",
       "target": "C84",
       "delta": 0.15,
       "new_scp": 0.44999999999999996,
-      "timestamp": "2026-07-07T22:42:22.322614+00:00"
+      "timestamp": "2026-07-07T23:47:31.196106+00:00"
     },
     {
       "source": "U03",
       "target": "C84",
       "delta": 0.15,
       "new_scp": 0.6,
-      "timestamp": "2026-07-07T22:42:22.322617+00:00"
+      "timestamp": "2026-07-07T23:47:31.196120+00:00"
     },
     {
       "source": "C139",
       "target": "D-TRUST",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322621+00:00"
+      "timestamp": "2026-07-07T23:47:31.196124+00:00"
     },
     {
       "source": "C5",
       "target": "C139",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322624+00:00"
+      "timestamp": "2026-07-07T23:47:31.196128+00:00"
     },
     {
       "source": "C5",
       "target": "U13",
       "delta": 0.1,
       "new_scp": 0.2,
-      "timestamp": "2026-07-07T22:42:22.322627+00:00"
+      "timestamp": "2026-07-07T23:47:31.196132+00:00"
     },
     {
       "source": "U13",
       "target": "C139",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322630+00:00"
+      "timestamp": "2026-07-07T23:47:31.196135+00:00"
     },
     {
       "source": "S-NVE",
       "target": "U06",
       "delta": 0.15,
       "new_scp": 0.85,
-      "timestamp": "2026-07-07T22:42:22.322634+00:00"
+      "timestamp": "2026-07-07T23:47:31.196140+00:00"
     },
     {
       "source": "S-CLASS",
       "target": "U06",
       "delta": 0.1,
       "new_scp": 0.95,
-      "timestamp": "2026-07-07T22:42:22.322652+00:00"
+      "timestamp": "2026-07-07T23:47:31.196144+00:00"
     },
     {
       "source": "S-LONELY",
       "target": "S-ANTI-TECH",
       "delta": 0.1,
       "new_scp": 0.2,
-      "timestamp": "2026-07-07T22:42:22.322659+00:00"
+      "timestamp": "2026-07-07T23:47:31.196148+00:00"
     },
     {
       "source": "S-FED-8000",
       "target": "U06",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322662+00:00"
+      "timestamp": "2026-07-07T23:47:31.196152+00:00"
     },
     {
       "source": "S-FED-8000",
       "target": "D-TRUST",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322674+00:00"
+      "timestamp": "2026-07-07T23:47:31.196155+00:00"
     },
     {
       "source": "D-TRUST",
       "target": "I01",
       "delta": 0.15,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322679+00:00"
+      "timestamp": "2026-07-07T23:47:31.196159+00:00"
     },
     {
       "source": "D-TRUST",
       "target": "I10",
       "delta": 0.15,
       "new_scp": 0.3,
-      "timestamp": "2026-07-07T22:42:22.322682+00:00"
+      "timestamp": "2026-07-07T23:47:31.196163+00:00"
     },
     {
       "source": "D-TRUST",
       "target": "U06",
       "delta": 0.1,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322686+00:00"
+      "timestamp": "2026-07-07T23:47:31.196167+00:00"
     },
     {
       "source": "E-SMR",
       "target": "E11",
       "delta": 0.05,
       "new_scp": 0.1,
-      "timestamp": "2026-07-07T22:42:22.322689+00:00"
+      "timestamp": "2026-07-07T23:47:31.196171+00:00"
     },
     {
       "source": "C43",
       "target": "C03",
       "delta": 0.2,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322693+00:00"
+      "timestamp": "2026-07-07T23:47:31.196175+00:00"
     },
     {
       "source": "C44",
       "target": "C77",
       "delta": 0.15,
       "new_scp": 0.5,
-      "timestamp": "2026-07-07T22:42:22.322696+00:00"
+      "timestamp": "2026-07-07T23:47:31.196179+00:00"
     },
     {
       "source": "C143",
       "target": "C11",
       "delta": 0.2,
       "new_scp": 0.99,
-      "timestamp": "2026-07-07T22:42:22.322699+00:00"
+      "timestamp": "2026-07-07T23:47:31.196183+00:00"
     },
     {
       "source": "C121",
       "target": "C39",
       "delta": 0.25,
       "new_scp": 0.5,
-      "timestamp": "2026-07-07T22:42:22.322702+00:00"
+      "timestamp": "2026-07-07T23:47:31.196186+00:00"
     }
   ],
   "summary": {
-    "total_updates": 70,
-    "avg_scp": 0.0708,
+    "total_updates": 71,
+    "avg_scp": 0.0692,
     "max_scp": 0.99,
     "threats_affected": 30
   }

@@ -1,5 +1,456 @@
 {
   "source": "AW11 Climate Warden",
-  "fetched_at": "2026-07-07T22:43:25.447185+00:00",
-  "events": []
+  "fetched_at": "2026-07-07T23:48:23.664219+00:00",
+  "events": [
+    {
+      "id": "EONET_21003",
+      "name": "Wildfire Maze, Madison, Idaho",
+      "type": "Wildfire",
+      "lat": 43.828883,
+      "lng": -111.956783,
+      "date": "2026-07-07T23:48:23.660476+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21021",
+      "name": "Wildfire RA 6 ADA CO CLAREMONT, Ada, Idaho",
+      "type": "Wildfire",
+      "lat": 43.6347,
+      "lng": -116.175933,
+      "date": "2026-07-07T23:48:23.660572+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21007",
+      "name": "Wildfire Dutch Flat, Humboldt, Nevada",
+      "type": "Wildfire",
+      "lat": 41.078633,
+      "lng": -117.614017,
+      "date": "2026-07-07T23:48:23.660628+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21010",
+      "name": "Wildfire NAVARRE COULEE, Chelan, Washington",
+      "type": "Wildfire",
+      "lat": 47.773244,
+      "lng": -120.185178,
+      "date": "2026-07-07T23:48:23.660701+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21005",
+      "name": "Wildfire North Cayuse, Umatilla, Oregon",
+      "type": "Wildfire",
+      "lat": 45.683083,
+      "lng": -118.480617,
+      "date": "2026-07-07T23:48:23.660724+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21000",
+      "name": "Wildfire CHELAN HILLS, Douglas, Washington",
+      "type": "Wildfire",
+      "lat": 47.799583,
+      "lng": -119.97655,
+      "date": "2026-07-07T23:48:23.660740+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20980",
+      "name": "Tropical Storm Maysak",
+      "type": "Storm",
+      "lat": 17.3,
+      "lng": 110.1,
+      "date": "2026-07-07T23:48:23.660758+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20878",
+      "name": "Tropical Storm Douglas",
+      "type": "Storm",
+      "lat": 15.5,
+      "lng": -126.9,
+      "date": "2026-07-07T23:48:23.660774+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20877",
+      "name": "Super Typhoon Bavi",
+      "type": "Storm",
+      "lat": 9.7,
+      "lng": 162.4,
+      "date": "2026-07-07T23:48:23.660790+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20999",
+      "name": "Wildfire Siruk, Yukon-Koyukuk, Alaska",
+      "type": "Wildfire",
+      "lat": 66.690333,
+      "lng": -153.440667,
+      "date": "2026-07-07T23:48:23.660805+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21043",
+      "name": "Wildfire Black Bird Ranch (14), DeSoto, Florida",
+      "type": "Wildfire",
+      "lat": 27.1283333,
+      "lng": -81.6786111,
+      "date": "2026-07-07T23:48:23.660819+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21067",
+      "name": "Wildfire ATLANTIC (06), Broward, Florida",
+      "type": "Wildfire",
+      "lat": 26.2161111,
+      "lng": -80.3108333,
+      "date": "2026-07-07T23:48:23.660833+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21046",
+      "name": "Wildfire Sheep Head, Huerfano, Colorado",
+      "type": "Wildfire",
+      "lat": 37.699535,
+      "lng": -105.136974,
+      "date": "2026-07-07T23:48:23.660847+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21084",
+      "name": "Wildfire HELLS BAY (48), Orange, Florida",
+      "type": "Wildfire",
+      "lat": 28.3491667,
+      "lng": -81.0536111,
+      "date": "2026-07-07T23:48:23.660860+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21037",
+      "name": "Wildfire LAMBDIN, Walla Walla, Washington",
+      "type": "Wildfire",
+      "lat": 46.051583,
+      "lng": -118.872567,
+      "date": "2026-07-07T23:48:23.660901+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21019",
+      "name": "Wildfire Aspen Acres, Custer, Colorado",
+      "type": "Wildfire",
+      "lat": 38.019315,
+      "lng": -105.071268,
+      "date": "2026-07-07T23:48:23.660926+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21085",
+      "name": "Prescribed Fire RX Brewster 5525, Brewster, Texas",
+      "type": "Wildfire",
+      "lat": 30.35554,
+      "lng": -103.00642,
+      "date": "2026-07-07T23:48:23.660939+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21035",
+      "name": "Wildfire Willow, Lake, Colorado",
+      "type": "Wildfire",
+      "lat": 39.23358,
+      "lng": -106.44032,
+      "date": "2026-07-07T23:48:23.660953+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21051",
+      "name": "Wildfire CARLTON EAST, Sarasota, Florida",
+      "type": "Wildfire",
+      "lat": 27.15,
+      "lng": -82.3005556,
+      "date": "2026-07-07T23:48:23.660966+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21015",
+      "name": "Wildfire Gold Mountain, Ouray, Colorado",
+      "type": "Wildfire",
+      "lat": 38.051567,
+      "lng": -107.682124,
+      "date": "2026-07-07T23:48:23.660981+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21001",
+      "name": "Wildfire Ferris, Montezuma, Colorado",
+      "type": "Wildfire",
+      "lat": 37.629229,
+      "lng": -108.67098,
+      "date": "2026-07-07T23:48:23.660994+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21017",
+      "name": "Wildfire Doe Canyon, Dolores, Colorado",
+      "type": "Wildfire",
+      "lat": 37.711183,
+      "lng": -108.688017,
+      "date": "2026-07-07T23:48:23.661008+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21061",
+      "name": "Wildfire Jones, Grand, Utah",
+      "type": "Wildfire",
+      "lat": 39.071217,
+      "lng": -109.073833,
+      "date": "2026-07-07T23:48:23.661051+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21027",
+      "name": "Wildfire Snyder, Grand, Utah",
+      "type": "Wildfire",
+      "lat": 39.007876,
+      "lng": -109.058533,
+      "date": "2026-07-07T23:48:23.661073+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21045",
+      "name": "Wildfire Cecil, Yukon-Koyukuk, Alaska",
+      "type": "Wildfire",
+      "lat": 64.73125,
+      "lng": -155.154033,
+      "date": "2026-07-07T23:48:23.661086+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21030",
+      "name": "Wildfire Wild Goose, Millard, Utah",
+      "type": "Wildfire",
+      "lat": 39.106205,
+      "lng": -112.172072,
+      "date": "2026-07-07T23:48:23.661100+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21033",
+      "name": "Wildfire Babylon, San Juan, Utah",
+      "type": "Wildfire",
+      "lat": 37.734333,
+      "lng": -109.808667,
+      "date": "2026-07-07T23:48:23.661114+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21029",
+      "name": "Wildfire Beehive, Rio Arriba, New Mexico",
+      "type": "Wildfire",
+      "lat": 36.737348,
+      "lng": -106.1649,
+      "date": "2026-07-07T23:48:23.661128+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21063",
+      "name": "Wildfire PETERSON, Klickitat, Washington",
+      "type": "Wildfire",
+      "lat": 45.945754,
+      "lng": -119.940022,
+      "date": "2026-07-07T23:48:23.661141+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21032",
+      "name": "Wildfire Dry Canyon, Lincoln, Nevada",
+      "type": "Wildfire",
+      "lat": 38.00545,
+      "lng": -114.1387,
+      "date": "2026-07-07T23:48:23.661155+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21026",
+      "name": "Wildfire Cherry, Juab, Utah",
+      "type": "Wildfire",
+      "lat": 39.852883,
+      "lng": -112.3595,
+      "date": "2026-07-07T23:48:23.661168+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21064",
+      "name": "Wildfire Michigan, Yukon-Koyukuk, Alaska",
+      "type": "Wildfire",
+      "lat": 67.320833,
+      "lng": -151.22,
+      "date": "2026-07-07T23:48:23.661181+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21060",
+      "name": "Wildfire Allen, Yukon-Koyukuk, Alaska",
+      "type": "Wildfire",
+      "lat": 67.529167,
+      "lng": -151.853617,
+      "date": "2026-07-07T23:48:23.661194+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21075",
+      "name": "Wildfire EHREN CUTOFF (51), Pasco, Florida",
+      "type": "Wildfire",
+      "lat": 28.3311111,
+      "lng": -82.4180556,
+      "date": "2026-07-07T23:48:23.661208+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21069",
+      "name": "Wildfire Doorstep, Yukon-Koyukuk, Alaska",
+      "type": "Wildfire",
+      "lat": 66.783333,
+      "lng": -150.391833,
+      "date": "2026-07-07T23:48:23.661221+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21036",
+      "name": "Wildfire Parsnip Peak, Lincoln, Nevada",
+      "type": "Wildfire",
+      "lat": 38.083333,
+      "lng": -114.293,
+      "date": "2026-07-07T23:48:23.661234+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21056",
+      "name": "Wildfire Kilusiktok, Nome, Alaska",
+      "type": "Wildfire",
+      "lat": 65.332833,
+      "lng": -159.667333,
+      "date": "2026-07-07T23:48:23.661247+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_6051",
+      "name": "Iceberg C39",
+      "type": "Sea and Lake Ice",
+      "lat": -65.68,
+      "lng": 99.61,
+      "date": "2026-07-07T23:48:23.661264+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_20822",
+      "name": "Iceberg D33D",
+      "type": "Sea and Lake Ice",
+      "lat": -64.35,
+      "lng": -55.51,
+      "date": "2026-07-07T23:48:23.661281+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21068",
+      "name": "Wildfire Mud, Yukon-Koyukuk, Alaska",
+      "type": "Wildfire",
+      "lat": 64.16785,
+      "lng": -157.622817,
+      "date": "2026-07-07T23:48:23.661295+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21101",
+      "name": "Wildfire AREA 2, Palm Beach, Florida",
+      "type": "Wildfire",
+      "lat": 26.4113889,
+      "lng": -80.4602778,
+      "date": "2026-07-07T23:48:23.661308+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21104",
+      "name": "Wildfire Lox Mutual Aid 06/24, Broward, Florida",
+      "type": "Wildfire",
+      "lat": 26.310827,
+      "lng": -80.51182,
+      "date": "2026-07-07T23:48:23.661379+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21093",
+      "name": "Wildfire Platt Trap  (22), Glades, Florida",
+      "type": "Wildfire",
+      "lat": 26.9361111,
+      "lng": -81.1741667,
+      "date": "2026-07-07T23:48:23.661401+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21009",
+      "name": "Wildfire McCauley Springs, Sandoval, New Mexico",
+      "type": "Wildfire",
+      "lat": 35.827218,
+      "lng": -106.626,
+      "date": "2026-07-07T23:48:23.661415+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21086",
+      "name": "Wildfire Orange Hammock (58), Sarasota, Florida",
+      "type": "Wildfire",
+      "lat": 27.0902778,
+      "lng": -82.085,
+      "date": "2026-07-07T23:48:23.661428+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21016",
+      "name": "Wildfire Kinky Creek, Teton, Wyoming",
+      "type": "Wildfire",
+      "lat": 43.428487,
+      "lng": -110.221765,
+      "date": "2026-07-07T23:48:23.661441+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21023",
+      "name": "Wildfire CANYON VENADO, Torrance, New Mexico",
+      "type": "Wildfire",
+      "lat": 34.998876,
+      "lng": -105.585484,
+      "date": "2026-07-07T23:48:23.661454+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21025",
+      "name": "Wildfire Cottonwood, Beaver, Utah",
+      "type": "Wildfire",
+      "lat": 38.26975,
+      "lng": -112.550767,
+      "date": "2026-07-07T23:48:23.661497+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21028",
+      "name": "Wildfire Sacaton, Catron, New Mexico",
+      "type": "Wildfire",
+      "lat": 33.274833,
+      "lng": -108.6735,
+      "date": "2026-07-07T23:48:23.661518+00:00",
+      "source": "NASA EONET"
+    },
+    {
+      "id": "EONET_21092",
+      "name": "Wildfire Buffalo, Southeast Fairbanks, Alaska",
+      "type": "Wildfire",
+      "lat": 63.9195,
+      "lng": -146.008333,
+      "date": "2026-07-07T23:48:23.661531+00:00",
+      "source": "NASA EONET"
+    }
+  ]
 }
