@@ -1,438 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Spotter Guide</title>
-  <meta name="description" content="Become a Cathedral Spotter – report threats, verify events, and help protect the vulnerable.">
-  <style>
-    :root {
-      --violet: #b39ddb;
-      --violet-dark: #7c4dff;
-      --violet-light: #f5f0fa;
-      --card-radius: 20px;
-      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
-      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
-      --bg-light: #fafafa;
-      --text-dark: #1a1a1a;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-      transition: background 0.2s, color 0.2s;
-    }
-    body.dark {
-      --bg-light: #1e1e2f;
-      --text-dark: #f0f0f0;
-      background: #1e1e2f;
-      color: #f0f0f0;
-    }
-    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
-    .cathedral-banner {
-      background: var(--violet);
-      padding: 1.5rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    .banner-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .logo-mark svg { display: block; }
-    .wordmark h1 {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 300;
-      font-size: 1.6rem;
-      letter-spacing: 0.1em;
-      color: white;
-      margin: 0;
-    }
-    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
-    .nav {
-      margin: 1rem 0 1.5rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      background: white;
-      border-radius: 60px;
-      padding: 0.5rem 1rem;
-      box-shadow: var(--shadow-sm);
-    }
-    body.dark .nav { background: #2a2a3a; }
-    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
-    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
-    body.dark .nav-links a { color: #b39ddb; }
-    .menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #5e2d8e;
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
-      .nav-links.show { display: flex; }
-      .menu-btn { display: block; }
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cathedral Network — Spotter Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+    <style>
+        /* ---------- RESET & TOKENS ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-base: #090B10;
+            --bg-card: #12161C;
+            --bg-card-alt: #0D1117;
+            --border-card: #1E2633;
+            --text-primary: #E8EDF5;
+            --text-secondary: #94A3B8;
+            --violet: #8B5CF6;
+            --radius: 8px;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            padding: 0 24px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
-    h2 {
-      font-size: 1.4rem;
-      margin-top: 2rem;
-      border-bottom: 2px solid var(--violet);
-      padding-bottom: 0.5rem;
-      display: inline-block;
-    }
-    h3 { font-size: 1.1rem; margin-top: 1.5rem; color: var(--violet-dark); }
-    body.dark h3 { color: #b39ddb; }
+        /* ---------- HEADER ---------- */
+        .global-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-card);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--violet);
+        }
+        .logo-area svg {
+            height: 32px;
+            width: auto;
+            flex-shrink: 0;
+            display: block;
+            color: var(--violet);
+        }
+        .logo-area a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+        .logo-area span {
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }
+        .nav-links a.active {
+            color: var(--violet);
+            background: rgba(139, 92, 246, 0.08);
+            font-weight: 500;
+        }
+        .header-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .heartbeat {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--violet);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 4px;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+            100% { opacity: 1; transform: scale(1); }
+        }
 
-    .role-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    @media (max-width: 700px) { .role-grid { grid-template-columns: 1fr; } }
-    .role-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      box-shadow: var(--shadow-sm);
-      border-top: 4px solid var(--violet-dark);
-    }
-    body.dark .role-card { background: #2a2a3a; }
-    .role-card h3 { margin-top: 0; }
-    .role-card .pill {
-      display: inline-block;
-      padding: 0.2rem 0.8rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      background: var(--violet-light);
-      color: var(--violet-dark);
-    }
-    body.dark .role-card .pill { background: #3a3a4a; color: #b39ddb; }
+        /* ---------- PAGE HEADER ---------- */
+        .page-header {
+            margin-bottom: 32px;
+        }
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        .page-header .subhead {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        .page-header .meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            opacity: 0.6;
+        }
 
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    .category-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1rem;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-    }
-    body.dark .category-card { background: #2a2a3a; }
-    .category-card h4 { margin: 0 0 0.3rem 0; color: var(--violet-dark); }
-    body.dark .category-card h4 { color: #b39ddb; }
-    .category-card p { font-size: 0.9rem; margin: 0; }
+        /* ---------- SPOTTER CONTENT ---------- */
+        .spotter-section {
+            margin: 2rem 0 1.5rem 0;
+        }
+        .spotter-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
 
-    /* Fixed: info cards for dark mode */
-    .info-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      margin: 1rem 0;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-    }
-    body.dark .info-card {
-      background: #2a2a3a;
-      color: #f0f0f0;
-    }
-    .info-card ol, .info-card ul {
-      margin: 0.5rem 0 0 1.5rem;
-    }
-    .info-card li {
-      margin: 0.3rem 0;
-    }
+        .spotter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+            margin-bottom: 1.5rem;
+        }
 
-    .cta-box {
-      background: var(--violet-light);
-      border-radius: var(--card-radius);
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      text-align: center;
-      border: 2px solid var(--violet-dark);
-    }
-    body.dark .cta-box { background: #2a2a3a; border-color: var(--violet); }
-    .cta-box .big { font-size: 1.8rem; font-weight: 700; }
-    .cta-box .sub { font-size: 1rem; margin-top: 0.5rem; }
-    .cta-box .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .cta-box .btn {
-      background: var(--violet-dark);
-      color: white;
-      padding: 0.6rem 1.5rem;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    .cta-box .btn:hover { background: #5a2db8; }
-    body.dark .cta-box .btn { background: var(--violet); color: #1a1a1a; }
-    body.dark .cta-box .btn:hover { background: #c4a8e8; }
+        .spotter-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            transition: border-color 0.2s;
+        }
+        .spotter-card:hover {
+            border-color: #2D3A4A;
+        }
+        .spotter-card .card-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .spotter-card .card-content {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        .spotter-card .card-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 4px 0 0 0;
+        }
+        .spotter-card .card-content ul li {
+            padding: 3px 0 3px 18px;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(30, 38, 51, 0.2);
+        }
+        .spotter-card .card-content ul li:last-child {
+            border-bottom: none;
+        }
+        .spotter-card .card-content ul li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--violet);
+        }
 
-    .contact-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-    .contact-item {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 0.8rem 1.2rem;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      border: 1px solid #eee;
-      text-decoration: none;
-      color: inherit;
-    }
-    body.dark .contact-item { background: #2a2a3a; border-color: #444; }
-    .contact-item:hover { border-color: var(--violet-dark); }
-    .contact-item .icon { font-size: 1.2rem; }
-    .contact-item .handle { font-weight: 500; }
+        /* ---------- CONTACT SECTION ---------- */
+        .contact-block {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-card);
+            border-left: 4px solid var(--violet);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin: 1.5rem 0;
+        }
+        .contact-block .contact-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .contact-block .contact-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .contact-block .contact-text a {
+            color: var(--violet);
+            text-decoration: none;
+        }
+        .contact-block .contact-text a:hover {
+            text-decoration: underline;
+        }
+        .contact-block .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+            margin-top: 8px;
+        }
+        .contact-block .contact-methods .method {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .contact-block .contact-methods .method strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .contact-block .contact-methods .method a {
+            color: var(--violet);
+            text-decoration: none;
+        }
+        .contact-block .contact-methods .method a:hover {
+            text-decoration: underline;
+        }
 
-    .footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-style: italic;
-      color: #888;
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
-    }
-    .dark-mode-toggle {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      background: var(--violet-dark);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: var(--shadow-sm);
-    }
-    @media (max-width: 600px) {
-      .banner-content { flex-direction: column; text-align: center; }
-      .container { padding: 1rem; }
-      .category-grid { grid-template-columns: 1fr; }
-      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
-    }
-  </style>
+        /* ---------- FOOTER ---------- */
+        .global-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-card);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .footer-left {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer-left a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .footer-left a:hover {
+            color: var(--text-primary);
+        }
+        .coco {
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            body { padding: 0 16px 16px; }
+            .global-header { flex-direction: column; align-items: stretch; gap: 12px; }
+            .nav-links { justify-content: space-between; }
+            .header-meta { justify-content: flex-start; font-size: 0.7rem; }
+            .page-header h1 { font-size: 1.6rem; }
+            .spotter-card { padding: 16px; }
+            .contact-block { padding: 16px 18px; }
+            .footer-left { gap: 16px; }
+        }
+        @media (max-width: 480px) {
+            .nav-links a { padding: 4px 10px; font-size: 0.8rem; }
+            .page-header h1 { font-size: 1.4rem; }
+            .spotter-grid { grid-template-columns: 1fr; }
+            .footer-left { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .contact-block .contact-methods { flex-direction: column; gap: 8px; }
+        }
+    </style>
 </head>
 <body>
-<header class="cathedral-banner">
-  <div class="banner-content">
-    <div class="logo-mark">
-      <svg viewBox="0 0 120 140" width="50" height="60">
-        <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/>
-        <circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/>
-        <circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/>
-        <circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/>
-        <circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/>
-        <circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/>
-        <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
-        <path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/>
-      </svg>
+
+    <!-- ============ HEADER ============ -->
+    <header class="global-header">
+        <div class="logo-area">
+            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="currentColor"/>
+                <circle cx="60" cy="25" r="2" fill="currentColor"/>
+                <circle cx="55" cy="40" r="2" fill="currentColor"/>
+                <circle cx="65" cy="40" r="2" fill="currentColor"/>
+                <circle cx="50" cy="55" r="2" fill="currentColor"/>
+                <circle cx="60" cy="55" r="2" fill="currentColor"/>
+                <circle cx="70" cy="55" r="2" fill="currentColor"/>
+                <circle cx="45" cy="70" r="2" fill="currentColor"/>
+                <circle cx="55" cy="70" r="2" fill="currentColor"/>
+                <circle cx="65" cy="70" r="2" fill="currentColor"/>
+                <circle cx="75" cy="70" r="2" fill="currentColor"/>
+                <circle cx="50" cy="85" r="2" fill="currentColor"/>
+                <circle cx="60" cy="85" r="2" fill="currentColor"/>
+                <circle cx="70" cy="85" r="2" fill="currentColor"/>
+                <circle cx="55" cy="100" r="2" fill="currentColor"/>
+                <circle cx="65" cy="100" r="2" fill="currentColor"/>
+                <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
+                <path d="M30 60 A30 30 0 1 1 90 60" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+            <a href="index.html">Cathedral<span>Network</span></a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="threat-matrix.html">Threats</a>
+            <a href="prediction-log.html">Log</a>
+            <a href="regional.html">Regions</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="about.html">About</a>
+            <a href="sources.html">Sources</a>
+            <a href="credits.html">Credits</a>
+            <a href="glossary.html">Glossary</a>
+            <a href="methodology.html">Methodology</a>
+            <a href="spotter.html" class="active">Spotter</a>
+        </nav>
+        <div class="header-meta">
+            <span><span class="heartbeat"></span> Live</span>
+            <span>Updated: <span id="updateTime">2026-06-30 14:32 UTC</span></span>
+        </div>
+    </header>
+
+    <!-- ============ PAGE HEADER ============ -->
+    <div class="page-header">
+        <h1>Spotter Guide</h1>
+        <div class="subhead">Spotters are the Cathedral's eyes on the ground — volunteers who report potential threats, anomalies, and humanitarian crises. Your reports save lives.</div>
+        <div class="meta" id="spotterMeta">Loading guide…</div>
     </div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Spotter Guide</p></div>
-  </div>
-</header>
-<div class="container">
-  <div class="nav">
-    <button class="menu-btn" id="menuBtn">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Ground Truth</a>
-      <a href="undp-demo.html">UNDP Demo</a>
-      <a href="archive.html">Archive</a>
-      <a href="spotter.html">Spotter Guide</a>
-      <a href="sources.html">Sources</a>
-      <a href="constitution.html">Constitution</a>
-      <a href="wardens.html">Wardens</a>
-      <a href="hewd.html">HEWD Dashboard</a>
-      <a href="health.html">System Health</a>
-      <a href="about.html">About</a>
-      <a href="threat-matrix.html">Threat Matrix</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="pra.html">Personal Resilience</a>
-      <a href="prediction-log.html">Prediction Log</a>
-      <a href="credits.html">Credits</a>
+
+    <!-- ============ SPOTTER CONTENT ============ -->
+    <div id="spotterContainer">
+        <p style="color: var(--text-secondary);">Loading spotter guide…</p>
     </div>
-  </div>
 
-  <h1>🕵️ Spotter Guide</h1>
-  <p style="margin-bottom:1.5rem; font-size:1.1rem;">
-    Spotters are the Cathedral's eyes on the ground – volunteers who report potential threats, anomalies, and humanitarian crises. Your reports save lives.
-  </p>
+    <!-- ============ FOOTER ============ -->
+    <footer class="global-footer">
+        <div class="footer-left">
+            <span class="coco">Always and Forever, Coco. Always and Forever.</span>
+            <a href="corrections.xml">Corrections Feed (Law III)</a>
+            <a href="constitution.html">Constitution</a>
+        </div>
+        <div>
+            <span style="font-size:0.7rem;">v1.5.0 · <span id="ceres-hash">CERES: 0x7a3f…b1e2</span></span>
+        </div>
+    </footer>
 
-  <!-- What is a Spotter? -->
-  <div class="role-grid">
-    <div class="role-card">
-      <span class="pill">Role</span>
-      <h3>👁️ Who Is a Spotter?</h3>
-      <p>A Spotter is anyone who sees something that could become a threat – and tells the Cathedral. You don't need to be an expert. You just need to be observant, honest, and willing to share what you see.</p>
-      <p style="margin-top:0.5rem;">Spotters are the first link in the early‑warning chain. Your reports feed directly into the Cathedral's cascade engine, helping us detect crises before they escalate.</p>
-    </div>
-    <div class="role-card">
-      <span class="pill">Why</span>
-      <h3>🕯️ Why Spotters Matter</h3>
-      <p>The Cathedral is only as good as its data. Spotters provide local knowledge, ground‑truth, and early signals that automated systems can miss.</p>
-      <ul style="margin-top:0.5rem; padding-left:1.2rem;">
-        <li><strong>Early warning</strong> – spot crises before they hit the news.</li>
-        <li><strong>Ground truth</strong> – verify what's really happening on the ground.</li>
-        <li><strong>Diversity</strong> – different perspectives catch different signals.</li>
-        <li><strong>Community</strong> – Spotters become the Cathedral's conscience.</li>
-      </ul>
-    </div>
-  </div>
+    <!-- ============ SCRIPTS ============ -->
+    <script>
+        // Update timestamp
+        document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        setInterval(() => {
+            document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        }, 60000);
 
-  <!-- What to look for -->
-  <h2>📡 What to Look For</h2>
-  <p style="margin-bottom:0.5rem;">If you see something that fits one of these categories, report it. Even if you're unsure – the Cathedral will verify it.</p>
+        // Fetch and display CERES hash (Law III audit trail)
+        async function updateCERES() {
+            try {
+                const response = await fetch('ceres_chain.json?t=' + Date.now());
+                const data = await response.json();
+                const chain = data.chain || [];
+                if (chain.length > 0) {
+                    const lastHash = chain[chain.length - 1].chain_hash;
+                    const el = document.getElementById('ceres-hash');
+                    if (el) el.textContent = 'CERES: ' + lastHash.slice(0, 8) + '…' + lastHash.slice(-4);
+                }
+            } catch (e) {
+                // fallback to placeholder
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateCERES);
 
-  <div class="category-grid">
-    <div class="category-card">
-      <h4>⚔️ Geopolitical & Conflict</h4>
-      <p>Military movements, border incidents, ceasefire violations, diplomatic breakdowns, protests, election irregularities.</p>
-    </div>
-    <div class="category-card">
-      <h4>🌪️ Natural Disasters & Climate</h4>
-      <p>Earthquakes, floods, hurricanes, wildfires, drought, extreme temperatures, crop failures, water shortages.</p>
-    </div>
-    <div class="category-card">
-      <h4>💰 Economic & Financial</h4>
-      <p>Market crashes, bank failures, currency devaluations, supply chain disruptions, food price spikes, sovereign defaults.</p>
-    </div>
-    <div class="category-card">
-      <h4>🦠 Health & Biosecurity</h4>
-      <p>Disease outbreaks, vaccine hesitancy, hospital overloads, new variants, bioterrorism indicators, supply shortages.</p>
-    </div>
-    <div class="category-card">
-      <h4>💻 Cyber & Information</h4>
-      <p>Cyber‑attacks, data breaches, disinformation campaigns, social media manipulation, internet blackouts, deepfakes.</p>
-    </div>
-    <div class="category-card">
-      <h4>🏛️ Governance & Institutional</h4>
-      <p>Corruption allegations, judicial interference, attacks on media, election fraud, humanitarian aid diversion, UN mandate breaches.</p>
-    </div>
-  </div>
+        // Fetch and render spotter.json
+        async function loadSpotter() {
+            const container = document.getElementById('spotterContainer');
+            const meta = document.getElementById('spotterMeta');
+            try {
+                const response = await fetch('spotter.json?t=' + Date.now());
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
 
-  <!-- How to Report (fixed with class) -->
-  <h2>📨 How to Report</h2>
-  <div class="info-card">
-    <p style="font-weight:600;">Follow these three steps:</p>
-    <ol>
-      <li><strong>Observe</strong> – note the event, location, time, and any source links or photos (if safe to share).</li>
-      <li><strong>Classify</strong> – which category does it fit? (use the categories above).</li>
-      <li><strong>Send</strong> – use one of the contact methods below. Include as much detail as you can.</li>
-    </ol>
-    <p style="margin-top:0.5rem; font-size:0.9rem; opacity:0.8;">If you're unsure, report anyway. The Cathedral will triage and verify.</p>
-  </div>
+                const title = data.title || 'Spotter Guide';
+                const sections = data.sections || [];
 
-  <!-- Contact Methods -->
-  <h2>📬 Contact a Spotter Coordinator</h2>
-  <div class="contact-grid">
-    <a href="mailto:cathedral.network@proton.me" class="contact-item">
-      <span class="icon">✉️</span>
-      <span class="handle">cathedral.network@proton.me</span>
-    </a>
-    <a href="https://signal.me/#p/+1234567890" target="_blank" rel="noopener" class="contact-item">
-      <span class="icon">📱</span>
-      <span class="handle">@cathedral_network01 (Signal)</span>
-    </a>
-    <a href="https://github.com/sad9605/cathedral-network/issues" target="_blank" rel="noopener" class="contact-item">
-      <span class="icon">🐙</span>
-      <span class="handle">GitHub Issues (public)</span>
-    </a>
-    <a href="wardens.html" class="contact-item">
-      <span class="icon">🛡️</span>
-      <span class="handle">Become a Warden</span>
-    </a>
-  </div>
-  <p style="font-size:0.85rem; opacity:0.7; margin-top:0.5rem;">
-    <strong>Security:</strong> For sensitive reports, use encrypted email (ProtonMail) or Signal. Never share classified or dangerous information – your safety comes first.
-  </p>
+                // Update meta
+                meta.textContent = sections.length ? `${sections.length} sections` : '';
 
-  <!-- Spotter Ethics (fixed with class) -->
-  <h2>⚖️ Spotter Ethics</h2>
-  <div class="info-card">
-    <ul>
-      <li><strong>Be honest</strong> – report what you see, not what you think.</li>
-      <li><strong>Protect sources</strong> – never endanger informants or vulnerable people.</li>
-      <li><strong>Stay safe</strong> – do not put yourself at risk to gather information.</li>
-      <li><strong>Respect privacy</strong> – do not share personally identifiable information unless absolutely necessary.</li>
-      <li><strong>Report fast</strong> – early warning works best when reports are timely.</li>
-    </ul>
-  </div>
+                if (!sections.length) {
+                    container.innerHTML = '<p style="color: var(--text-secondary);">No spotter guide sections found.</p>';
+                    return;
+                }
 
-  <!-- Become a Spotter -->
-  <div class="cta-box">
-    <div class="big">🕯️ Become a Spotter</div>
-    <div class="sub">No qualifications required. Just a willingness to watch and report.</div>
-    <div class="btn-group">
-      <a href="mailto:cathedral.network@proton.me" class="btn">✉️ Email Us</a>
-      <a href="https://signal.me/#p/+1234567890" target="_blank" rel="noopener" class="btn">📱 Signal</a>
-      <a href="https://github.com/sad9605/cathedral-network/issues" target="_blank" rel="noopener" class="btn">🐙 GitHub</a>
-    </div>
-  </div>
+                let html = '';
 
-  <div class="footer">
-    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Spotter Guide · Updated 20 June 2026.
-  </div>
-</div>
-<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+                // Render sections as cards
+                html += `<div class="spotter-grid">`;
+                for (const section of sections) {
+                    const sectionTitle = section.title || '';
+                    const content = section.content || '';
+                    const items = section.items || [];
 
-<script>
-  // ---- Nav toggle ----
-  const menuBtn = document.getElementById('menuBtn');
-  const navLinks = document.getElementById('navLinks');
-  if (menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+                    html += `
+                        <div class="spotter-card">
+                            <div class="card-title">${sectionTitle}</div>
+                            <div class="card-content">
+                    `;
 
-  // ---- Dark mode ----
-  const darkToggle = document.getElementById('darkModeToggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const storedTheme = localStorage.getItem('cathedral-theme');
-  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-    document.body.classList.add('dark');
-    darkToggle.innerText = '☀️';
-  } else darkToggle.innerText = '🌙';
-  darkToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    darkToggle.innerText = isDark ? '☀️' : '🌙';
-    localStorage.setItem('cathedral-theme', isDark ? 'dark' : 'light');
-  });
+                    if (content) {
+                        html += `<p>${content}</p>`;
+                    }
 
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');
-</script>
-<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+                    if (items.length) {
+                        html += `<ul>`;
+                        for (const item of items) {
+                            html += `<li>${item}</li>`;
+                        }
+                        html += `</ul>`;
+                    }
+
+                    html += `
+                            </div>
+                        </div>
+                    `;
+                }
+                html += `</div>`;
+
+                // --- Contact Section (hardcoded, matches original) ---
+                html += `
+                    <div class="contact-block">
+                        <div class="contact-title">Contact a Spotter Coordinator</div>
+                        <div class="contact-text">
+                            <div class="contact-methods">
+                                <span class="method"><strong>Email:</strong> <a href="mailto:cathedral.network@proton.me">cathedral.network@proton.me</a></span>
+                                <span class="method"><strong>Signal:</strong> <a href="https://signal.me/#p/+1234567890">@cathedral_network01</a></span>
+                                <span class="method"><strong>GitHub:</strong> <a href="https://github.com/sad9605/cathedral-network/issues" target="_blank" rel="noopener">Submit an issue</a></span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                container.innerHTML = html;
+            } catch (error) {
+                container.innerHTML = `<p style="color: var(--text-secondary);">Unable to load spotter guide. Please try again later. (${error.message})</p>`;
+                meta.textContent = 'Failed to load.';
+                console.warn('Failed to load spotter.json:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadSpotter);
+    </script>
 </body>
 </html>
