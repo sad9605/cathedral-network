@@ -228,6 +228,41 @@
             color: var(--text-secondary);
         }
 
+        /* ---------- AMENDMENTS ---------- */
+        .amendment-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+        .amendment-item:hover {
+            border-color: #2D3A4A;
+        }
+        .amendment-item .amendment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .amendment-item .amendment-number {
+            font-weight: 600;
+            color: var(--violet);
+        }
+        .amendment-item .amendment-date {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .amendment-item .amendment-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* ---------- SILENCE & OATH ---------- */
         .silence-block {
             background: var(--bg-card-alt);
             border: 1px solid var(--border-card);
@@ -323,6 +358,7 @@
             .dedication-block { padding: 16px 18px; font-size: 0.95rem; }
             .preamble-block { padding: 16px 18px; }
             .law-item { padding: 16px; }
+            .amendment-item { padding: 14px 16px; }
             .silence-block { padding: 16px 18px; }
             .oath-block { padding: 16px 18px; }
             .footer-left { gap: 16px; }
@@ -333,6 +369,7 @@
             .law-grid { grid-template-columns: 1fr; }
             .footer-left { flex-direction: column; align-items: flex-start; gap: 8px; }
             .law-item .law-header { flex-direction: column; align-items: flex-start; gap: 2px; }
+            .amendment-item .amendment-header { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -444,6 +481,7 @@
                 const dedication = data.dedication || '';
                 const preamble = data.preamble || '';
                 const laws = data.laws || [];
+                const amendments = data.amendments || [];
                 const silenceClause = data.silenceClause || {};
                 const oath = data.oath || {};
 
@@ -485,6 +523,26 @@
                                     <span class="law-name">${name}</span>
                                 </div>
                                 <div class="law-text">${text}</div>
+                            </div>
+                        `;
+                    }
+                    html += `</div>`;
+                }
+
+                // --- Amendments ---
+                if (amendments.length) {
+                    html += `<div class="constitution-section"><h2>Amendments</h2>`;
+                    for (const am of amendments) {
+                        const number = am.number || '';
+                        const date = am.date || '';
+                        const text = am.text || '';
+                        html += `
+                            <div class="amendment-item">
+                                <div class="amendment-header">
+                                    <span class="amendment-number">Amendment ${number}</span>
+                                    <span class="amendment-date">${date}</span>
+                                </div>
+                                <div class="amendment-text">${text}</div>
                             </div>
                         `;
                     }
