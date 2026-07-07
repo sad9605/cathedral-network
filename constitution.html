@@ -249,8 +249,9 @@
             margin-bottom: 4px;
         }
         .amendment-item .amendment-number {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--violet);
+            font-size: 1.05rem;
         }
         .amendment-item .amendment-date {
             font-size: 0.8rem;
@@ -411,6 +412,7 @@
             <a href="credits.html">Credits</a>
             <a href="glossary.html">Glossary</a>
             <a href="methodology.html">Methodology</a>
+            <a href="spotter.html">Spotter</a>
         </nav>
         <div class="header-meta">
             <span><span class="heartbeat"></span> Live</span>
@@ -481,7 +483,17 @@
                 const dedication = data.dedication || '';
                 const preamble = data.preamble || '';
                 const laws = data.laws || [];
-                const amendments = data.amendments || [];
+
+                // --- Robust amendments extraction ---
+                let amendments = [];
+                if (data.amendments && Array.isArray(data.amendments)) {
+                    amendments = data.amendments;
+                } else if (data.amendment && Array.isArray(data.amendment)) {
+                    amendments = data.amendment;
+                } else if (data.amendments_list && Array.isArray(data.amendments_list)) {
+                    amendments = data.amendments_list;
+                }
+
                 const silenceClause = data.silenceClause || {};
                 const oath = data.oath || {};
 
@@ -532,17 +544,24 @@
                 // --- Amendments ---
                 if (amendments.length) {
                     html += `<div class="constitution-section"><h2>Amendments</h2>`;
-                    for (const am of amendments) {
-                        const number = am.number || '';
+                    for (let i = 0; i < amendments.length; i++) {
+                        const am = amendments[i];
+                        // Try to get number from various fields
+                        let number = am.number || am.id || am.amendment_number || '';
+                        // If still empty, generate a Roman numeral from the index
+                        if (!number) {
+                            const romanNumerals = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV'];
+                            number = romanNumerals[i] || (i+1).toString();
+                        }
                         const date = am.date || '';
-                        const text = am.text || '';
+                        const text = am.text || am.description || '';
                         html += `
                             <div class="amendment-item">
                                 <div class="amendment-header">
                                     <span class="amendment-number">Amendment ${number}</span>
-                                    <span class="amendment-date">${date}</span>
+                                    ${date ? `<span class="amendment-date">${date}</span>` : ''}
                                 </div>
-                                <div class="amendment-text">${text}</div>
+                                ${text ? `<div class="amendment-text">${text}</div>` : ''}
                             </div>
                         `;
                     }
