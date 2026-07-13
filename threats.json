@@ -2591,11 +2591,11 @@
       "Financial"
     ],
     "status": "Orange",
-    "scp": 0.9331,
+    "scp": 0.6998,
     "base_probability": 0.008398079999999999,
     "das": 2.77,
     "notes": "Global debt 94% GDP.",
-    "priority_score": 101.31,
+    "priority_score": 77.98,
     "delta_contribution": 6.300000000000001,
     "das_band": "Anomalous",
     "description": "Sovereign Debt Crisis \u2013 a threat affecting Financial. Monitor closely for escalation.",
@@ -2608,7 +2608,7 @@
     ],
     "last_updated": "2026-06-25T20:56:43.698542",
     "confidence": 0.95,
-    "scp_contextual": 0.88,
+    "scp_contextual": 0.66,
     "contextual_multipliers": {
       "region_weight": 1.0,
       "ivf_weight": 1.0,

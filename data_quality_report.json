@@ -1,50 +1,50 @@
 {
-  "timestamp": "2026-07-07T23:47:31.849848+00:00",
+  "timestamp": "2026-07-13T06:37:18.999462+00:00",
   "reports": {
     "threats.json": {
       "status": "ok",
-      "age": 0.00012835027777777778,
+      "age": 0.00017004805555555555,
       "valid": true,
       "issues": []
     },
     "sweep_report.json": {
-      "status": "invalid",
-      "age": 0.4546388358333333,
+      "status": "stale",
+      "age": 99.75793683138889,
       "valid": false,
       "issues": [
-        "Missing keys: ['id', 'name']"
+        "Age 99.8h > 24h"
       ]
     },
     "telegram_data.json": {
-      "status": "invalid",
-      "age": 1.073712876388889,
+      "status": "stale",
+      "age": 126.81740425555556,
       "valid": false,
       "issues": [
-        "Missing keys: ['id', 'name']"
+        "Age 126.8h > 24h"
       ]
     },
     "gpsjam_data.json": {
-      "status": "invalid",
-      "age": 0.4382866097222222,
+      "status": "stale",
+      "age": 99.75633863611111,
       "valid": false,
       "issues": [
-        "Missing keys: ['id', 'name']"
+        "Age 99.8h > 24h"
       ]
     },
     "hewd_data.json": {
-      "status": "invalid",
-      "age": 1.0740010247222223,
+      "status": "stale",
+      "age": 126.81760175666666,
       "valid": false,
       "issues": [
-        "Missing keys: ['id', 'name']"
+        "Age 126.8h > 24h"
       ]
     },
     "indices.json": {
       "status": "stale",
-      "age": 193.75726299888888,
+      "age": 320.58702678305553,
       "valid": false,
       "issues": [
-        "Age 193.8h > 24h"
+        "Age 320.6h > 24h"
       ]
     }
   },
@@ -52,11 +52,11 @@
     "total": 6,
     "ok": 1,
     "issues": [
-      "sweep_report.json invalid: Missing keys: ['id', 'name']",
-      "telegram_data.json invalid: Missing keys: ['id', 'name']",
-      "gpsjam_data.json invalid: Missing keys: ['id', 'name']",
-      "hewd_data.json invalid: Missing keys: ['id', 'name']",
-      "indices.json stale (193.8h)"
+      "sweep_report.json stale (99.8h)",
+      "telegram_data.json stale (126.8h)",
+      "gpsjam_data.json stale (99.8h)",
+      "hewd_data.json stale (126.8h)",
+      "indices.json stale (320.6h)"
     ]
   }
 }

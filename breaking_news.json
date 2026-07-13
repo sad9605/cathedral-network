@@ -1,6 +1,24 @@
 {
-  "timestamp": "2026-07-07T18:31:07.881701",
+  "timestamp": "2026-07-08T22:01:26.020796",
   "items": [
+    {
+      "title": "Green earthquake (Magnitude 5.5M, Depth:10km) in Balleny Islands Region 08/07/2026 19:07 UTC, [unknown].",
+      "description": "On 7/8/2026 7:07:10 PM, an earthquake occurred in Balleny Islands Region potentially affecting [unknown]. The earthquake had Magnitude 5.5M, Depth:10km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1550840",
+      "date": "Wed, 08 Jul 2026 19:29:02 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "Green earthquake (Magnitude 5.8M, Depth:10km) in Vanuatu 08/07/2026 09:50 UTC, 10 thousand in MMI IV.",
+      "description": "On 7/8/2026 9:50:23 AM, an earthquake occurred in Vanuatu potentially affecting 10 thousand in MMI IV. The earthquake had Magnitude 5.8M, Depth:10km.",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1550772",
+      "date": "Wed, 08 Jul 2026 10:10:52 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Critical"
+    },
     {
       "title": "Green earthquake (Magnitude 5.8M, Depth:10km) in Chile 07/07/2026 01:26 UTC, Few people affected in MMI>=II.",
       "description": "On 7/7/2026 1:26:45 AM, an earthquake occurred in Chile potentially affecting Few people affected in MMI>=II. The earthquake had Magnitude 5.8M, Depth:10km.",
@@ -29,6 +47,15 @@
       "impact": "Critical"
     },
     {
+      "title": "Green flood alert in Finland",
+      "description": "On 05/07/2026, a flood started in Finland, lasting until 06/07/2026 (last update). The flood caused 0 deaths and 0 displaced .",
+      "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104008",
+      "date": "Wed, 08 Jul 2026 06:58:50 GMT",
+      "source": "GDACS",
+      "category": "Negative",
+      "impact": "Medium"
+    },
+    {
       "title": "Green flood alert in New Zealand",
       "description": "On 05/07/2026, a flood started in New Zealand, lasting until 07/07/2026 (last update). The flood caused 0 deaths and 38 displaced .",
       "link": "https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1104006",
@@ -38,76 +65,112 @@
       "impact": "Medium"
     },
     {
-      "title": "US launches strikes on Iran after tankers hit in Strait of Hormuz",
-      "description": "The US says the strikes are intended to impose \"heavy costs\", while Iran warns it will \"take decisive measures\" in response.",
-      "link": "https://www.bbc.co.uk/news/articles/cwykq59jwpvo?at_medium=RSS&at_campaign=rss",
-      "date": "Tue, 07 Jul 2026 22:48:45 GMT",
+      "title": "Teenager arrested after two girls, 13, seriously injured in German school attack",
+      "description": "Police said a major operation was under way in the area of Welfen-Gymnasium secondary school in Schongau, Bavaria.",
+      "link": "https://www.bbc.co.uk/news/articles/c0qyvkgndzpo?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 08 Jul 2026 15:09:08 GMT",
       "source": "BBC News",
-      "category": "Negative",
+      "category": "Neutral",
       "impact": "Critical"
     },
     {
-      "title": "Bomb explosions injure 18 in Damascus during Macron's visit",
-      "description": "As reports of the blasts came in, state television said the Syrian president had welcomed Macron at the presidential palace.",
-      "link": "https://www.bbc.co.uk/news/articles/c2eylx1jj9ko?at_medium=RSS&at_campaign=rss",
-      "date": "Tue, 07 Jul 2026 18:03:56 GMT",
-      "source": "BBC News",
-      "category": "Positive",
-      "impact": "High"
-    },
-    {
-      "title": "Wildfire in southern France forces evacuation of 10,000 people",
-      "description": "Tour de France organisers ban spectators from stage three as a wildfire hits the Pyr\u00e9n\u00e9es-Orientales region.",
-      "link": "https://www.bbc.co.uk/news/articles/crlwweye9glo?at_medium=RSS&at_campaign=rss",
-      "date": "Mon, 06 Jul 2026 13:08:23 GMT",
+      "title": "Eight killed after landslide hits girls' school in Bangladesh",
+      "description": "Rescuers pull bodies from the mud after heavy monsoon rains batter the south-eastern coast.",
+      "link": "https://www.bbc.co.uk/news/articles/cx2wkzww20ro?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 08 Jul 2026 14:02:54 GMT",
       "source": "BBC News",
       "category": "Neutral",
       "impact": "Medium"
     },
     {
-      "title": "Egypt were \u2018cheated\u2019 in World Cup loss to Argentina, coach Hassan says",
-      "description": "&#039;Perhaps they wanted to keep the world champions in the competition,&#039; Hassan said after his team was knocked out.",
-      "link": "https://www.aljazeera.com/sports/2026/7/7/egypt-were-cheated-in-world-cup-loss-to-argentina-coach-hassan-says?traffic_source=rss",
-      "date": "Tue, 07 Jul 2026 22:04:54 +0000",
-      "source": "Al Jazeera",
+      "title": "Trains and emergency calls affected after major outage at Australia's largest telecoms company",
+      "description": "Servers at data centres in Sydney and Melbourne were to blame but the exact cause remains unknown.",
+      "link": "https://www.bbc.co.uk/news/articles/cgevw0d95pdo?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 08 Jul 2026 07:53:37 GMT",
+      "source": "BBC News",
+      "category": "Negative",
+      "impact": "Medium"
+    },
+    {
+      "title": "Cubans protest after third nationwide power cut this year",
+      "description": "While Cuban officials said that power had been mostly restored, those still left in the dark vented their anger.",
+      "link": "https://www.bbc.co.uk/news/articles/cm20g0d3ry4o?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 08 Jul 2026 10:56:55 GMT",
+      "source": "BBC News",
       "category": "Positive",
       "impact": "High"
     },
     {
-      "title": "Venezuela buries earthquake victims as death toll reaches 3,535",
-      "description": "Mass burials have begun at La Esperanza Cemetery in Venezuela&#039;s La Guaira",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/7/7/venezuela-buries-earthquake-victims-as-death-toll-reaches-3535?traffic_source=rss",
-      "date": "Tue, 07 Jul 2026 20:30:06 +0000",
-      "source": "Al Jazeera",
+      "title": "Utah boarding school where Paris Hilton alleged abuse as a teen loses its licence",
+      "description": "Hilton said the facility \"failed the children\", as regulators cited neglect and use of unnecessary restraints.",
+      "link": "https://www.bbc.co.uk/news/articles/cjdg4r3k3emo?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 08 Jul 2026 01:51:09 GMT",
+      "source": "BBC News",
+      "category": "Positive",
+      "impact": "High"
+    },
+    {
+      "title": "Top Democrats press Maine Senate candidate to drop out of race over sexual assault allegation",
+      "description": "Graham Platner denied the allegation, calling it \"categorically false\" but said he was \"taking the time to reflect on the best path forward\".",
+      "link": "https://www.bbc.co.uk/news/articles/cm2004nx8v9o?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 08 Jul 2026 01:05:26 GMT",
+      "source": "BBC News",
+      "category": "Neutral",
+      "impact": "Critical"
+    },
+    {
+      "title": "Bowen: For all his bluster, Trump has no better option than talks with Iran",
+      "description": "The negotiating process is fragile and recent US strikes show how hard it will be to reach agreement, writes BBC's International Editor Jeremy Bowen.",
+      "link": "https://www.bbc.co.uk/news/articles/cy8we3j14ndo?at_medium=RSS&at_campaign=rss",
+      "date": "Wed, 08 Jul 2026 15:30:00 GMT",
+      "source": "BBC News",
+      "category": "Positive",
+      "impact": "Medium"
+    },
+    {
+      "title": "Fears of a massacre in this city on the front line of Sudan's war",
+      "description": "El-Obeid has been under \"siege-like conditions\" for 18 months says the UN human rights chief.",
+      "link": "https://www.bbc.co.uk/news/articles/c20yyjdzw7po?at_medium=RSS&at_campaign=rss",
+      "date": "Tue, 07 Jul 2026 23:32:04 GMT",
+      "source": "BBC News",
       "category": "Negative",
       "impact": "Critical"
     },
     {
-      "title": "Canadian province sues OpenAI over alleged ChatGPT-linked shooting warnings",
-      "description": "Lawsuit claims OpenAI ignored calls to alert authorities about violent ChatGPT prompts tied to mass shooting suspect.",
-      "link": "https://www.aljazeera.com/news/2026/7/7/canadian-province-sues-openai-over-alleged-chatgpt-linked-shooting-warnings?traffic_source=rss",
-      "date": "Tue, 07 Jul 2026 20:14:53 +0000",
-      "source": "Al Jazeera",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Trump lashes out at NATO as first day of summit wraps in Turkiye",
-      "description": "Leaders have gathered in Ankara for a two-day summit slated to cover defence spending and the Russia-Ukraine war.",
-      "link": "https://www.aljazeera.com/news/2026/7/7/trump-lashes-out-at-nato-as-first-day-of-summit-wraps-in-turkiye?traffic_source=rss",
-      "date": "Tue, 07 Jul 2026 20:08:40 +0000",
-      "source": "Al Jazeera",
-      "category": "Negative",
-      "impact": "Critical"
-    },
-    {
-      "title": "Trump criticises NATO allies over Iran conflict support",
-      "description": "US President Donald Trump criticised NATO allies for refusing to back the United States during its conflict with Iran.",
-      "link": "https://www.aljazeera.com/video/newsfeed/2026/7/7/trump-criticises-nato-allies-over-iran-conflict-support?traffic_source=rss",
-      "date": "Tue, 07 Jul 2026 19:16:05 +0000",
+      "title": "Eight killed as landslide hits Rohingya school in Bangladesh",
+      "description": "At least seven children and a teacher were killed after a landslide hit a girls\u2019 school at a refugee camp in Bangladesh.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/7/9/eight-killed-as-landslide-hits-rohingya-school-in-bangladesh?traffic_source=rss",
+      "date": "Thu, 09 Jul 2026 00:51:32 +0000",
       "source": "Al Jazeera",
       "category": "Negative",
       "impact": "Medium"
+    },
+    {
+      "title": "South Sudan, 15 years on: Still fighting for peace",
+      "description": "A stalled peace process, deepening humanitarian needs and economic challenges test the world&#039;s youngest nation.",
+      "link": "https://www.aljazeera.com/news/2026/7/9/south-sudan-15-years-on-still-fighting-for-peace?traffic_source=rss",
+      "date": "Thu, 09 Jul 2026 00:33:38 +0000",
+      "source": "Al Jazeera",
+      "category": "Positive",
+      "impact": "Medium"
+    },
+    {
+      "title": "Iran war live: Sirens in Bahrain, Kuwait after deadly US attacks on Iran",
+      "description": "US attacks kill at least one person in the city of Iranshahr and cause widespread power outages in Chabahar.",
+      "link": "https://www.aljazeera.com/news/liveblog/2026/7/9/iran-war-live-one-killed-as-us-bombs-bushehr-chabahar-bandar-abbas-jask?traffic_source=rss",
+      "date": "Thu, 09 Jul 2026 00:00:06 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Critical"
+    },
+    {
+      "title": "US expands military strikes on Iran after Trump says he\u2019ll \u2018hit them hard\u2019",
+      "description": "US forces have expanded their military strikes on Iran, after blaming Tehran for breaking the MoU to end the war.",
+      "link": "https://www.aljazeera.com/video/newsfeed/2026/7/8/aje-onl-nf_us-expands-military-strike-on-iran-080726?traffic_source=rss",
+      "date": "Wed, 08 Jul 2026 22:52:48 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Critical"
     }
   ]
 }

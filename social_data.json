@@ -1,96 +1,96 @@
 {
   "source": "AW13 Social Sentiment Warden",
-  "fetched_at": "2026-07-07T23:48:37.481363+00:00",
+  "fetched_at": "2026-07-13T06:38:33.380677+00:00",
   "sentiments": [
     {
       "id": "SOC-001",
-      "topic": "rally",
-      "region": "France",
-      "sentiment_score": 0.85,
-      "volume": 32111,
+      "topic": "unrest",
+      "region": "Nigeria",
+      "sentiment_score": -0.39,
+      "volume": 36029,
       "trend": "rising",
-      "date": "2026-07-07T23:48:37.481191+00:00"
+      "date": "2026-07-13T06:38:33.380539+00:00"
     },
     {
       "id": "SOC-002",
       "topic": "rally",
-      "region": "Germany",
-      "sentiment_score": -0.37,
-      "volume": 38075,
-      "trend": "stable",
-      "date": "2026-07-07T23:48:37.481262+00:00"
+      "region": "UK",
+      "sentiment_score": 0.57,
+      "volume": 37689,
+      "trend": "rising",
+      "date": "2026-07-13T06:38:33.380597+00:00"
     },
     {
       "id": "SOC-003",
       "topic": "demonstration",
-      "region": "Nigeria",
-      "sentiment_score": -0.89,
-      "volume": 7042,
-      "trend": "stable",
-      "date": "2026-07-07T23:48:37.481279+00:00"
+      "region": "USA",
+      "sentiment_score": 0.23,
+      "volume": 4670,
+      "trend": "rising",
+      "date": "2026-07-13T06:38:33.380610+00:00"
     },
     {
       "id": "SOC-004",
-      "topic": "strike",
-      "region": "India",
-      "sentiment_score": 0.51,
-      "volume": 49746,
-      "trend": "rising",
-      "date": "2026-07-07T23:48:37.481289+00:00"
+      "topic": "unrest",
+      "region": "Germany",
+      "sentiment_score": 0.83,
+      "volume": 6917,
+      "trend": "falling",
+      "date": "2026-07-13T06:38:33.380620+00:00"
     },
     {
       "id": "SOC-005",
       "topic": "unrest",
-      "region": "India",
-      "sentiment_score": 0.56,
-      "volume": 19284,
-      "trend": "rising",
-      "date": "2026-07-07T23:48:37.481299+00:00"
+      "region": "Egypt",
+      "sentiment_score": -0.44,
+      "volume": 29112,
+      "trend": "falling",
+      "date": "2026-07-13T06:38:33.380630+00:00"
     },
     {
       "id": "SOC-006",
-      "topic": "protests",
-      "region": "USA",
-      "sentiment_score": 0.7,
-      "volume": 17823,
-      "trend": "rising",
-      "date": "2026-07-07T23:48:37.481308+00:00"
+      "topic": "unrest",
+      "region": "Germany",
+      "sentiment_score": -0.98,
+      "volume": 13796,
+      "trend": "stable",
+      "date": "2026-07-13T06:38:33.380639+00:00"
     },
     {
       "id": "SOC-007",
       "topic": "demonstration",
       "region": "France",
-      "sentiment_score": -0.58,
-      "volume": 24605,
-      "trend": "falling",
-      "date": "2026-07-07T23:48:37.481317+00:00"
+      "sentiment_score": -0.41,
+      "volume": 24008,
+      "trend": "rising",
+      "date": "2026-07-13T06:38:33.380648+00:00"
     },
     {
       "id": "SOC-008",
-      "topic": "strike",
-      "region": "France",
-      "sentiment_score": -0.6,
-      "volume": 533,
-      "trend": "falling",
-      "date": "2026-07-07T23:48:37.481325+00:00"
+      "topic": "unrest",
+      "region": "Brazil",
+      "sentiment_score": -0.17,
+      "volume": 1294,
+      "trend": "rising",
+      "date": "2026-07-13T06:38:33.380656+00:00"
     },
     {
       "id": "SOC-009",
       "topic": "protests",
-      "region": "Nigeria",
-      "sentiment_score": -0.84,
-      "volume": 41338,
-      "trend": "falling",
-      "date": "2026-07-07T23:48:37.481350+00:00"
+      "region": "USA",
+      "sentiment_score": 0.03,
+      "volume": 3677,
+      "trend": "stable",
+      "date": "2026-07-13T06:38:33.380664+00:00"
     },
     {
       "id": "SOC-010",
-      "topic": "rally",
-      "region": "Brazil",
-      "sentiment_score": 0.5,
-      "volume": 9943,
-      "trend": "rising",
-      "date": "2026-07-07T23:48:37.481359+00:00"
+      "topic": "strike",
+      "region": "UK",
+      "sentiment_score": 0.26,
+      "volume": 41704,
+      "trend": "falling",
+      "date": "2026-07-13T06:38:33.380672+00:00"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-07-07T23:47:31.705728+00:00",
+  "timestamp": "2026-07-13T06:37:18.886856+00:00",
   "total_rules": 87,
-  "valid_rules": 73,
-  "invalid_rules": 14,
+  "valid_rules": 72,
+  "invalid_rules": 15,
   "results": [
     {
       "rule": "C01->C11",
@@ -228,9 +228,9 @@
     },
     {
       "rule": "F-INSUR-SPIRAL->C78",
-      "valid": true,
-      "issue": null,
-      "severity": "low"
+      "valid": false,
+      "issue": "Source or target threat not found",
+      "severity": "high"
     },
     {
       "rule": "C-WATER-BANK->C03",

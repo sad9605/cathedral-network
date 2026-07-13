@@ -1,7 +1,7 @@
-# 🏛️ Cathedral Daily Brief – 07 July 2026
+# 🏛️ Cathedral Daily Brief – 13 July 2026
 
 **GSCI:** 54.300  
-**Last updated:** 2026-07-07T23:48:17.448950+00:00
+**Last updated:** 2026-07-13T06:38:13.274444+00:00
 
 ## 💀 The Bottom Line
 The most urgent threat right now is Horn of Africa Famine. This is a critical situation requiring immediate attention.
@@ -37,11 +37,11 @@ The global security landscape is currently dominated by the crisis in Horn of Af
 - Mass Displacement – a threat affecting Social. Monitor closely for escalation.
 
 ## What Changed Overnight (H05)
-- Sovereign Debt Crisis: ▲ +0.2000 (was 0.6000)
 - Iran‑Israel/US War / Hormuz: — +0.0000 (was 0.2000)
 - Direct US‑Iran Conflict: — +0.0000 (was 0.0000)
 - Iran 'Resistance Security Belt': — +0.0000 (was 0.0000)
 - Bab el‑Mandeb Blockade: — +0.0000 (was 0.0000)
+- Great Power Conflict / US‑Iran Entanglement: — +0.0000 (was 0.9900)
 
 ## Prediction Accountability (H06)
 - Confirmed: 75
