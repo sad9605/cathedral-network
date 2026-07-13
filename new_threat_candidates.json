@@ -12,7 +12,7 @@
     "detectedDate": "2026-06-26T04:06:14.205012",
     "triage_score": 70,
     "triage_status": "Would-Promote (DRY)",
-    "last_triage": "2026-07-13T06:38:12.473783+00:00"
+    "last_triage": "2026-07-13T23:43:23.358498+00:00"
   },
   {
     "id": "CAN-FALLBACK-02",
@@ -27,7 +27,7 @@
     "detectedDate": "2026-06-26T04:06:14.205141",
     "triage_score": 60,
     "triage_status": "Watch",
-    "last_triage": "2026-07-13T06:38:12.474074+00:00"
+    "last_triage": "2026-07-13T23:43:23.358659+00:00"
   },
   {
     "id": "CAN-FALLBACK-03",
@@ -42,7 +42,7 @@
     "detectedDate": "2026-06-26T04:06:14.205257",
     "triage_score": 70,
     "triage_status": "Would-Promote (DRY)",
-    "last_triage": "2026-07-13T06:38:12.474136+00:00"
+    "last_triage": "2026-07-13T23:43:23.358717+00:00"
   },
   {
     "id": "CAN-20260627-01",
@@ -58,7 +58,7 @@
     "detectedDate": "2026-06-27T21:27:55.906069+00:00",
     "triage_score": 60,
     "triage_status": "Watch",
-    "last_triage": "2026-07-13T06:38:12.474216+00:00"
+    "last_triage": "2026-07-13T23:43:23.358781+00:00"
   },
   {
     "id": "CAN-20260627-02",
@@ -74,6 +74,6 @@
     "detectedDate": "2026-06-27T21:27:55.906069+00:00",
     "triage_score": 60,
     "triage_status": "Watch",
-    "last_triage": "2026-07-13T06:38:12.474272+00:00"
+    "last_triage": "2026-07-13T23:43:23.363922+00:00"
   }
 ]

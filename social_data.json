@@ -1,96 +1,96 @@
 {
   "source": "AW13 Social Sentiment Warden",
-  "fetched_at": "2026-07-13T06:38:33.380677+00:00",
+  "fetched_at": "2026-07-13T23:44:11.679606+00:00",
   "sentiments": [
     {
       "id": "SOC-001",
       "topic": "unrest",
-      "region": "Nigeria",
-      "sentiment_score": -0.39,
-      "volume": 36029,
-      "trend": "rising",
-      "date": "2026-07-13T06:38:33.380539+00:00"
+      "region": "USA",
+      "sentiment_score": 0.81,
+      "volume": 26983,
+      "trend": "stable",
+      "date": "2026-07-13T23:44:11.679447+00:00"
     },
     {
       "id": "SOC-002",
-      "topic": "rally",
+      "topic": "strike",
       "region": "UK",
-      "sentiment_score": 0.57,
-      "volume": 37689,
-      "trend": "rising",
-      "date": "2026-07-13T06:38:33.380597+00:00"
+      "sentiment_score": 0.64,
+      "volume": 15033,
+      "trend": "falling",
+      "date": "2026-07-13T23:44:11.679506+00:00"
     },
     {
       "id": "SOC-003",
       "topic": "demonstration",
-      "region": "USA",
-      "sentiment_score": 0.23,
-      "volume": 4670,
+      "region": "France",
+      "sentiment_score": 0.07,
+      "volume": 5300,
       "trend": "rising",
-      "date": "2026-07-13T06:38:33.380610+00:00"
+      "date": "2026-07-13T23:44:11.679519+00:00"
     },
     {
       "id": "SOC-004",
       "topic": "unrest",
-      "region": "Germany",
-      "sentiment_score": 0.83,
-      "volume": 6917,
-      "trend": "falling",
-      "date": "2026-07-13T06:38:33.380620+00:00"
+      "region": "Brazil",
+      "sentiment_score": -0.34,
+      "volume": 13223,
+      "trend": "rising",
+      "date": "2026-07-13T23:44:11.679543+00:00"
     },
     {
       "id": "SOC-005",
-      "topic": "unrest",
-      "region": "Egypt",
-      "sentiment_score": -0.44,
-      "volume": 29112,
+      "topic": "strike",
+      "region": "Nigeria",
+      "sentiment_score": 0.89,
+      "volume": 48024,
       "trend": "falling",
-      "date": "2026-07-13T06:38:33.380630+00:00"
+      "date": "2026-07-13T23:44:11.679555+00:00"
     },
     {
       "id": "SOC-006",
-      "topic": "unrest",
-      "region": "Germany",
-      "sentiment_score": -0.98,
-      "volume": 13796,
+      "topic": "strike",
+      "region": "Egypt",
+      "sentiment_score": -0.77,
+      "volume": 15483,
       "trend": "stable",
-      "date": "2026-07-13T06:38:33.380639+00:00"
+      "date": "2026-07-13T23:44:11.679565+00:00"
     },
     {
       "id": "SOC-007",
       "topic": "demonstration",
       "region": "France",
-      "sentiment_score": -0.41,
-      "volume": 24008,
+      "sentiment_score": 0.81,
+      "volume": 24591,
       "trend": "rising",
-      "date": "2026-07-13T06:38:33.380648+00:00"
+      "date": "2026-07-13T23:44:11.679574+00:00"
     },
     {
       "id": "SOC-008",
-      "topic": "unrest",
+      "topic": "protests",
       "region": "Brazil",
-      "sentiment_score": -0.17,
-      "volume": 1294,
-      "trend": "rising",
-      "date": "2026-07-13T06:38:33.380656+00:00"
+      "sentiment_score": -0.49,
+      "volume": 45177,
+      "trend": "stable",
+      "date": "2026-07-13T23:44:11.679583+00:00"
     },
     {
       "id": "SOC-009",
-      "topic": "protests",
-      "region": "USA",
-      "sentiment_score": 0.03,
-      "volume": 3677,
-      "trend": "stable",
-      "date": "2026-07-13T06:38:33.380664+00:00"
+      "topic": "unrest",
+      "region": "Brazil",
+      "sentiment_score": -0.87,
+      "volume": 20637,
+      "trend": "rising",
+      "date": "2026-07-13T23:44:11.679592+00:00"
     },
     {
       "id": "SOC-010",
-      "topic": "strike",
-      "region": "UK",
-      "sentiment_score": 0.26,
-      "volume": 41704,
-      "trend": "falling",
-      "date": "2026-07-13T06:38:33.380672+00:00"
+      "topic": "protests",
+      "region": "France",
+      "sentiment_score": -0.68,
+      "volume": 5663,
+      "trend": "rising",
+      "date": "2026-07-13T23:44:11.679601+00:00"
     }
   ]
 }
