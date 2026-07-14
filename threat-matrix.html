@@ -1,1167 +1,1218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Cathedral Network — Threat Matrix</title>
-  <meta name="description" content="Interactive threat matrix with SCP slider, cascade graph, heatmap, and predictive intelligence.">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet-heat@0.2.0/dist/leaflet-heat.js"></script>
-  <script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.73.0/dist/3d-force-graph.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cathedral Network — Threat Matrix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+    <style>
+        /* ---------- RESET & TOKENS ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-base: #090B10;
+            --bg-card: #12161C;
+            --bg-card-alt: #0D1117;
+            --border-card: #1E2633;
+            --text-primary: #E8EDF5;
+            --text-secondary: #94A3B8;
+            --violet: #8B5CF6;
+            --red: #EF4444;
+            --amber: #F59E0B;
+            --green: #10B981;
+            --radius: 8px;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            padding: 0 24px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-  <style>
-    :root {
-      --violet: #b39ddb;
-      --violet-dark: #7c4dff;
-      --violet-light: #f5f0fa;
-      --card-radius: 20px;
-      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
-      --shadow-hover: 0 12px 24px rgba(0,0,0,0.1);
-      --bg-light: #fafafa;
-      --text-dark: #1a1a1a;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-      transition: background 0.2s, color 0.2s;
-    }
-    body.dark {
-      --bg-light: #1e1e2f;
-      --text-dark: #f0f0f0;
-      background: #1e1e2f;
-      color: #f0f0f0;
-    }
-    .container { max-width: 1400px; margin: 2rem auto; padding: 0 1.5rem; }
-    .cathedral-banner {
-      background: var(--violet);
-      padding: 1.5rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    .banner-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .logo-mark svg { display: block; }
-    .wordmark h1 {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 300;
-      font-size: 1.6rem;
-      letter-spacing: 0.1em;
-      color: white;
-      margin: 0;
-    }
-    .tagline { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin: 0; }
-    .nav {
-      margin: 1rem 0 1.5rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      background: white;
-      border-radius: 60px;
-      padding: 0.5rem 1rem;
-      box-shadow: var(--shadow-sm);
-    }
-    body.dark .nav { background: #2a2a3a; }
-    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
-    .nav-links a { color: #5e2d8e; text-decoration: none; font-weight: 500; }
-    body.dark .nav-links a { color: #b39ddb; }
-    .menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #5e2d8e;
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.8rem; margin-top: 1rem; text-align: center; }
-      .nav-links.show { display: flex; }
-      .menu-btn { display: block; }
-    }
+        /* ---------- HEADER ---------- */
+        .global-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-card);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--violet);
+        }
+        .logo-area svg {
+            height: 32px;
+            width: auto;
+            flex-shrink: 0;
+            display: block;
+            color: var(--violet);
+        }
+        .logo-area a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+        .logo-area span {
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }
+        .nav-links a.active {
+            color: var(--violet);
+            background: rgba(139, 92, 246, 0.08);
+            font-weight: 500;
+        }
+        .header-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .heartbeat {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--violet);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 4px;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+            100% { opacity: 1; transform: scale(1); }
+        }
 
-    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
-    .date { color: #666; margin-bottom: 1rem; font-size: 0.9rem; }
-    body.dark .date { color: #aaa; }
+        /* ---------- PAGE HEADER ---------- */
+        .page-header {
+            margin-bottom: 24px;
+        }
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        .page-header .subhead {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        .page-header .meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            opacity: 0.6;
+        }
 
-    /* Stats grid – like index/wardens */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    .stat-card {
-      background: white;
-      border-radius: var(--card-radius);
-      padding: 1rem;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      border-left: 4px solid var(--violet-dark);
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.1s, box-shadow 0.2s;
-    }
-    body.dark .stat-card { background: #2a2a3a; }
-    .stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-    .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--violet-dark); }
-    body.dark .stat-card .number { color: #b39ddb; }
-    .stat-card .label { font-size: 0.7rem; text-transform: uppercase; color: #666; letter-spacing: 0.5px; }
-    body.dark .stat-card .label { color: #aaa; }
+        /* ---------- STATS ROW ---------- */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 12px 16px;
+        }
+        .stat-card .label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .stat-card .value {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 2px;
+        }
+        .stat-card .value.critical {
+            color: var(--red);
+        }
+        .stat-card .value.elevated {
+            color: var(--amber);
+        }
+        .stat-card .value.stable {
+            color: var(--green);
+        }
+        .stat-card .value.recovery {
+            color: var(--green);
+        }
 
-    /* Toolbar */
-    .toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      align-items: center;
-      margin: 1rem 0;
-    }
-    .toolbar-btn {
-      background: var(--violet-light);
-      border: none;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #5e2d8e;
-      transition: background 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    body.dark .toolbar-btn { background: #3a3a4a; color: #b39ddb; }
-    .toolbar-btn:hover { background: var(--violet-dark); color: white; }
-    body.dark .toolbar-btn:hover { background: var(--violet); color: #1a1a1a; }
-    .toolbar-btn.active { background: var(--violet-dark); color: white; }
-    body.dark .toolbar-btn.active { background: var(--violet); color: #1a1a1a; }
+        /* ---------- 3D GRAPH ---------- */
+        .graph-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 24px;
+            position: relative;
+            min-height: 500px;
+        }
+        .graph-container #graph-container {
+            width: 100%;
+            height: 500px;
+            border-radius: calc(var(--radius) - 4px);
+            background: var(--bg-card-alt);
+            overflow: hidden;
+        }
+        .graph-container .graph-label {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-secondary);
+            opacity: 0.5;
+            z-index: 10;
+            pointer-events: none;
+            background: rgba(9, 11, 16, 0.7);
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+        .graph-container .graph-controls {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        .graph-container .graph-controls button {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 6px 12px;
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .graph-container .graph-controls button:hover {
+            border-color: var(--violet);
+            color: var(--text-primary);
+        }
 
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin: 0.5rem 0;
-    }
-    .filter-btn {
-      background: var(--violet-light);
-      border: none;
-      padding: 0.3rem 0.8rem;
-      border-radius: 40px;
-      cursor: pointer;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #5e2d8e;
-      transition: background 0.2s;
-    }
-    body.dark .filter-btn { background: #3a3a4a; color: #b39ddb; }
-    .filter-btn:hover { background: var(--violet-dark); color: white; }
-    body.dark .filter-btn:hover { background: var(--violet); color: #1a1a1a; }
-    .filter-btn.active { background: var(--violet-dark); color: white; }
-    body.dark .filter-btn.active { background: var(--violet); color: #1a1a1a; }
+        /* ---------- CONTROLS ---------- */
+        .controls-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .controls-row .search-box {
+            flex: 1;
+            min-width: 200px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 8px 14px;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .controls-row .search-box:focus {
+            border-color: var(--violet);
+        }
+        .controls-row .search-box::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+        .controls-row select {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 8px 14px;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+            min-width: 140px;
+        }
+        .controls-row select:focus {
+            border-color: var(--violet);
+        }
+        .controls-row select option {
+            background: var(--bg-base);
+        }
+        .controls-row .btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 8px 16px;
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .controls-row .btn:hover {
+            border-color: var(--violet);
+            color: var(--text-primary);
+        }
+        .controls-row .btn-primary {
+            background: var(--violet);
+            border-color: var(--violet);
+            color: #fff;
+        }
+        .controls-row .btn-primary:hover {
+            opacity: 0.8;
+        }
 
-    .search-box {
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      border: 1px solid #ccc;
-      flex: 1;
-      min-width: 180px;
-      max-width: 300px;
-      font-size: 0.85rem;
-    }
-    body.dark .search-box { background: #2a2a3a; border-color: #555; color: white; }
+        /* ---------- TABLE ---------- */
+        .table-wrap {
+            overflow-x: auto;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            background: var(--bg-card);
+        }
+        .threat-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            min-width: 800px;
+        }
+        .threat-table th {
+            text-align: left;
+            padding: 10px 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-bottom: 1px solid var(--border-card);
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            background: var(--bg-card);
+            z-index: 2;
+        }
+        .threat-table th:hover {
+            color: var(--text-primary);
+        }
+        .threat-table th .sort-indicator {
+            display: inline-block;
+            margin-left: 4px;
+            opacity: 0.4;
+        }
+        .threat-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(30, 38, 51, 0.4);
+            color: var(--text-secondary);
+            vertical-align: middle;
+        }
+        .threat-table tr:last-child td {
+            border-bottom: none;
+        }
+        .threat-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .threat-table tr.clickable {
+            cursor: pointer;
+        }
 
-    .slider-container {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 0.5rem 0;
-      padding: 0.5rem 1rem;
-      background: white;
-      border-radius: 40px;
-      border: 1px solid #eee;
-    }
-    body.dark .slider-container { background: #2a2a3a; border-color: #444; }
-    .slider-container input[type="range"] { flex: 1; }
-    .slider-label { font-size: 0.8rem; color: #666; }
-    body.dark .slider-label { color: #aaa; }
+        /* Status badges */
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+        }
+        .badge-critical {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--red);
+        }
+        .badge-elevated {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--amber);
+        }
+        .badge-stable {
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--green);
+        }
+        .badge-recovery {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--green);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .badge-info {
+            background: rgba(139, 92, 246, 0.12);
+            color: var(--violet);
+        }
 
-    /* Table */
-    .table-wrap {
-      overflow-x: auto;
-      margin: 1rem 0;
-    }
-    .threat-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      border-radius: var(--card-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      font-size: 0.85rem;
-    }
-    body.dark .threat-table { background: #2a2a3a; }
-    .threat-table th, .threat-table td {
-      padding: 0.5rem 0.6rem;
-      border: 1px solid #ddd;
-      text-align: left;
-      vertical-align: middle;
-    }
-    body.dark .threat-table th, body.dark .threat-table td { border-color: #444; }
-    .threat-table th {
-      background: var(--violet-light);
-      font-weight: 600;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      cursor: pointer;
-    }
-    body.dark .threat-table th { background: #3a3a4a; }
-    .threat-table tr { cursor: pointer; transition: background 0.15s; }
-    .threat-table tr:hover { background: var(--violet-light); }
-    body.dark .threat-table tr:hover { background: #3a3a4a; }
-    .status-icon { font-size: 1.2rem; text-align: center; }
-    .scp-bar {
-      display: inline-block;
-      height: 6px;
-      border-radius: 4px;
-      background: #e0e0e0;
-      width: 60px;
-      vertical-align: middle;
-      margin-right: 4px;
-    }
-    body.dark .scp-bar { background: #444; }
-    .scp-fill { height: 100%; border-radius: 4px; }
-    .scp-high { background: #dc2626; }
-    .scp-mid { background: #f97316; }
-    .scp-low { background: #22c55e; }
+        /* Confidence bar */
+        .conf-bar {
+            display: inline-block;
+            height: 4px;
+            width: 50px;
+            background: var(--border-card);
+            border-radius: 4px;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+        .conf-bar-fill {
+            display: block;
+            height: 100%;
+            border-radius: 4px;
+            background: var(--violet);
+        }
 
-    .row-predictive { border-left: 4px solid #dc2626; animation: pulse-border 2s infinite; }
-    @keyframes pulse-border {
-      0%, 100% { border-left-color: #dc2626; }
-      50% { border-left-color: #f97316; }
-    }
-    .trend-up { color: #22c55e; }
-    .trend-down { color: #dc2626; }
-    .trend-stable { color: #f97316; }
+        /* Domain tags */
+        .domain-tag {
+            display: inline-block;
+            padding: 1px 8px;
+            border-radius: 12px;
+            font-size: 0.6rem;
+            background: rgba(139, 92, 246, 0.08);
+            color: var(--text-secondary);
+            margin: 1px 2px;
+            white-space: nowrap;
+        }
 
-    .lang-select {
-      padding: 0.3rem 0.8rem;
-      border-radius: 40px;
-      border: 1px solid #ccc;
-      background: white;
-      font-size: 0.8rem;
-    }
-    body.dark .lang-select { background: #2a2a3a; border-color: #555; color: white; }
+        /* SCP value colors */
+        .scp-high {
+            color: var(--red);
+            font-weight: 600;
+        }
+        .scp-medium {
+            color: var(--amber);
+            font-weight: 600;
+        }
+        .scp-low {
+            color: var(--green);
+            font-weight: 600;
+        }
 
-    /* Recovery signals */
-    .recovery-card {
-      background: #fef9e7;
-      border-radius: var(--card-radius);
-      padding: 1.2rem;
-      margin: 1.5rem 0;
-      border-left: 4px solid #d4a837;
-    }
-    body.dark .recovery-card { background: #2a2a1a; border-left-color: #d4a837; }
-    .recovery-card h3 { color: #d4a837; margin: 0 0 0.5rem 0; }
-    .recovery-signal {
-      background: rgba(212,168,55,0.15);
-      border-radius: 8px;
-      padding: 0.4rem 0.8rem;
-      margin: 0.25rem 0;
-    }
+        /* ---------- EXPANDED DETAILS ---------- */
+        .detail-row {
+            display: none;
+            background: var(--bg-card-alt);
+        }
+        .detail-row.open {
+            display: table-row;
+        }
+        .detail-row td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-card);
+        }
+        .detail-content {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .detail-content .detail-label {
+            font-weight: 500;
+            color: var(--text-primary);
+            min-width: 100px;
+            display: inline-block;
+        }
+        .detail-content .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 24px;
+            margin-top: 4px;
+        }
+        .detail-content .detail-grid .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 2px 0;
+            border-bottom: 1px solid rgba(30, 38, 51, 0.15);
+            font-size: 0.8rem;
+        }
+        .detail-content .detail-grid .item .key {
+            color: var(--text-secondary);
+        }
+        .detail-content .detail-grid .item .val {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .detail-content .detail-grid .item .val.recovery-high {
+            color: var(--green);
+        }
+        .detail-content .detail-grid .item .val.recovery-medium {
+            color: var(--amber);
+        }
+        .detail-content .detail-grid .item .val.recovery-low {
+            color: var(--red);
+        }
+        .detail-content .cascade-list {
+            list-style: none;
+            padding: 0;
+            margin: 4px 0 0 0;
+        }
+        .detail-content .cascade-list li {
+            padding: 2px 0;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(30, 38, 51, 0.1);
+        }
+        .detail-content .cascade-list li:last-child {
+            border-bottom: none;
+        }
+        .detail-content .cascade-list li .target {
+            color: var(--violet);
+            font-weight: 500;
+        }
+        .detail-content .positive-signal {
+            padding: 4px 0;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(30, 38, 51, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .detail-content .positive-signal:last-child {
+            border-bottom: none;
+        }
+        .detail-content .positive-signal .signal-name {
+            color: var(--text-primary);
+        }
+        .detail-content .positive-signal .signal-impact {
+            color: var(--green);
+            font-weight: 500;
+        }
+        .detail-content .opportunity-item {
+            padding: 4px 0;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(30, 38, 51, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .detail-content .opportunity-item:last-child {
+            border-bottom: none;
+        }
+        .detail-content .opportunity-item .opp-name {
+            color: var(--text-primary);
+        }
+        .detail-content .opportunity-item .opp-score {
+            color: var(--violet);
+            font-weight: 500;
+        }
 
-    /* Modal */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: blur(4px);
-    }
-    .modal-overlay.active { display: flex; }
-    .modal {
-      background: white;
-      border-radius: var(--card-radius);
-      max-width: 900px;
-      width: 95%;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 2rem;
-      box-shadow: var(--shadow-hover);
-      position: relative;
-      animation: modal-in 0.25s ease;
-    }
-    body.dark .modal { background: #2a2a3a; }
-    @keyframes modal-in {
-      from { transform: scale(0.95) translateY(-20px); opacity: 0; }
-      to { transform: scale(1) translateY(0); opacity: 1; }
-    }
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1.2rem;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #888;
-    }
-    body.dark .modal-close { color: #aaa; }
-    .modal-close:hover { color: var(--text-dark); }
-    .modal h2 { margin-bottom: 0.5rem; }
-    .modal .meta { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0 1rem 0; font-size: 0.9rem; color: #666; }
-    body.dark .modal .meta { color: #aaa; }
-    .modal .meta span { background: var(--violet-light); padding: 0.2rem 0.8rem; border-radius: 40px; }
-    body.dark .modal .meta span { background: #3a3a4a; }
-    .modal .detail-row { display: flex; padding: 0.4rem 0; border-bottom: 1px solid #eee; }
-    body.dark .modal .detail-row { border-bottom-color: #444; }
-    .modal .detail-row .label { font-weight: 600; width: 120px; flex-shrink: 0; }
-    .modal .detail-row .value { flex: 1; }
+        /* ---------- FOOTER ---------- */
+        .global-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-card);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .footer-left {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer-left a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .footer-left a:hover {
+            color: var(--text-primary);
+        }
+        .coco {
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
 
-    #cascadeGraphContainer {
-      width: 100%;
-      height: 400px;
-      margin-top: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      display: none;
-    }
-    body.dark #cascadeGraphContainer { border-color: #444; }
-
-    /* Overlays */
-    #heatmap-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 1500;
-      background: rgba(0,0,0,0.7);
-    }
-    #heatmap-overlay.active { display: block; }
-    #heatmap-map { width: 100%; height: 100%; }
-
-    #nexus-container {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 1500;
-      background: #111;
-    }
-    #nexus-container.active { display: block; }
-    #nexus-canvas {
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-    #nexus-canvas .graph-legend {
-      position: absolute;
-      bottom: 2rem;
-      left: 2rem;
-      background: rgba(0,0,0,0.7);
-      color: white;
-      padding: 0.8rem 1.2rem;
-      border-radius: var(--card-radius);
-      font-size: 0.8rem;
-      z-index: 10;
-      pointer-events: none;
-      border: 1px solid #444;
-    }
-    #nexus-canvas .graph-legend .legend-item { display: flex; align-items: center; gap: 0.5rem; margin: 0.2rem 0; }
-    #nexus-canvas .graph-legend .color-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-    #nexus-container .nexus-controls {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      z-index: 10;
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-style: italic;
-      color: #888;
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
-    }
-    .dark-mode-toggle {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      background: var(--violet-dark);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: var(--shadow-sm);
-    }
-    @media (max-width: 768px) {
-      .threat-table { font-size: 0.7rem; }
-      .threat-table th, .threat-table td { padding: 0.3rem; }
-      .modal { padding: 1.2rem; }
-      .modal .detail-row .label { width: 80px; }
-      .slider-container { flex-wrap: wrap; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 600px) {
-      .banner-content { flex-direction: column; text-align: center; }
-      .container { padding: 1rem; }
-      .stats-grid { grid-template-columns: 1fr; }
-      .dark-mode-toggle { bottom: 0.5rem; right: 0.5rem; width: 40px; height: 40px; }
-    }
-
-    /* Violet pulse animation */
-    .violet-pulse {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      background: #7c4dff;
-      border-radius: 50%;
-      animation: pulse-violet 1.5s ease-in-out infinite;
-      flex-shrink: 0;
-    }
-
-    @keyframes pulse-violet {
-      0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0.4); }
-      50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 0 8px rgba(124, 77, 255, 0); }
-      100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(124, 77, 255, 0); }
-    }
-
-  </style>
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            body { padding: 0 16px 16px; }
+            .global-header { flex-direction: column; align-items: stretch; gap: 12px; }
+            .nav-links { justify-content: space-between; }
+            .header-meta { justify-content: flex-start; font-size: 0.7rem; }
+            .page-header h1 { font-size: 1.6rem; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
+            .controls-row { flex-direction: column; align-items: stretch; }
+            .controls-row .search-box { min-width: unset; }
+            .threat-table { font-size: 0.7rem; min-width: 600px; }
+            .threat-table th, .threat-table td { padding: 6px 8px; }
+            .detail-content .detail-grid { grid-template-columns: 1fr; }
+            .footer-left { gap: 16px; }
+            .graph-container { min-height: 300px; padding: 8px; }
+            .graph-container #graph-container { height: 300px; }
+            .graph-container .graph-label { top: 12px; left: 12px; font-size: 0.6rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-links a { padding: 4px 10px; font-size: 0.8rem; }
+            .page-header h1 { font-size: 1.4rem; }
+            .stats-row { grid-template-columns: 1fr; }
+            .threat-table { font-size: 0.65rem; min-width: 500px; }
+            .threat-table th, .threat-table td { padding: 4px 6px; }
+            .footer-left { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .graph-container { min-height: 250px; }
+            .graph-container #graph-container { height: 250px; }
+        }
+    </style>
 </head>
 <body>
-<header class="cathedral-banner">
-  <div class="banner-content">
-    <div class="logo-mark"><svg viewBox="0 0 120 140" width="50" height="60"><path d="M60 130 L55 20 L60 5 L65 20 Z" fill="white"/><circle cx="60" cy="25" r="2" fill="white"/><circle cx="55" cy="40" r="2" fill="white"/><circle cx="65" cy="40" r="2" fill="white"/><circle cx="50" cy="55" r="2" fill="white"/><circle cx="60" cy="55" r="2" fill="white"/><circle cx="70" cy="55" r="2" fill="white"/><circle cx="45" cy="70" r="2" fill="white"/><circle cx="55" cy="70" r="2" fill="white"/><circle cx="65" cy="70" r="2" fill="white"/><circle cx="75" cy="70" r="2" fill="white"/><circle cx="50" cy="85" r="2" fill="white"/><circle cx="60" cy="85" r="2" fill="white"/><circle cx="70" cy="85" r="2" fill="white"/><circle cx="55" cy="100" r="2" fill="white"/><circle cx="65" cy="100" r="2" fill="white"/><path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/><path d="M30 60 A30 30 0 1 1 90 60" stroke="white" stroke-width="2" fill="none"/></svg></div>
-    <div class="wordmark"><h1>CATHEDRAL NETWORK</h1><p class="tagline">Full Threat Matrix</p></div>
-  </div>
-</header>
-<div class="container">
-  <div class="nav">
-    <button class="menu-btn" id="menuBtn">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Ground Truth</a>
-      <a href="undp-demo.html">UNDP Demo</a>
-      <a href="archive.html">Archive</a>
-      <a href="spotter.html">Spotter Guide</a>
-      <a href="sources.html">Sources</a>
-      <a href="constitution.html">Constitution</a>
-      <a href="wardens.html">Wardens</a>
-      <a href="hewd.html">HEWD Dashboard</a>
-      <a href="health.html">System Health</a>
-      <a href="about.html">About</a>
-      <a href="threat-matrix.html">Threat Matrix</a>
-      <a href="glossary.html">Glossary</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="pra.html">Personal Resilience</a>
-      <a href="prediction-log.html">Prediction Log</a>
-      <a href="credits.html">Credits</a>
+
+    <!-- ============ HEADER ============ -->
+    <header class="global-header">
+        <div class="logo-area">
+            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="currentColor"/>
+                <circle cx="60" cy="25" r="2" fill="currentColor"/>
+                <circle cx="55" cy="40" r="2" fill="currentColor"/>
+                <circle cx="65" cy="40" r="2" fill="currentColor"/>
+                <circle cx="50" cy="55" r="2" fill="currentColor"/>
+                <circle cx="60" cy="55" r="2" fill="currentColor"/>
+                <circle cx="70" cy="55" r="2" fill="currentColor"/>
+                <circle cx="45" cy="70" r="2" fill="currentColor"/>
+                <circle cx="55" cy="70" r="2" fill="currentColor"/>
+                <circle cx="65" cy="70" r="2" fill="currentColor"/>
+                <circle cx="75" cy="70" r="2" fill="currentColor"/>
+                <circle cx="50" cy="85" r="2" fill="currentColor"/>
+                <circle cx="60" cy="85" r="2" fill="currentColor"/>
+                <circle cx="70" cy="85" r="2" fill="currentColor"/>
+                <circle cx="55" cy="100" r="2" fill="currentColor"/>
+                <circle cx="65" cy="100" r="2" fill="currentColor"/>
+                <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
+                <path d="M30 60 A30 30 0 1 1 90 60" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+            <a href="index.html">Cathedral<span>Network</span></a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="threat-matrix.html" class="active">Threats</a>
+            <a href="prediction-log.html">Log</a>
+            <a href="regional.html">Regions</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="about.html">About</a>
+            <a href="sources.html">Sources</a>
+            <a href="credits.html">Credits</a>
+            <a href="glossary.html">Glossary</a>
+            <a href="methodology.html">Methodology</a>
+            <a href="spotter.html">Spotter</a>
+        </nav>
+        <div class="header-meta">
+            <span><span class="heartbeat"></span> Live</span>
+            <span>Updated: <span id="updateTime">2026-06-30 14:32 UTC</span></span>
+        </div>
+    </header>
+
+    <!-- ============ PAGE HEADER ============ -->
+    <div class="page-header">
+        <h1>Threat Matrix</h1>
+        <div class="subhead">Full threat intelligence — SCP, confidence, cascade effects, recovery signals, and forensic tracking.</div>
+        <div class="meta" id="matrixMeta">Loading threat data…</div>
     </div>
-  </div>
 
-  <h1>🗺️ Full Threat Matrix</h1>
-  <div class="date" id="lastUpdated">Loading threat data…</div>
- 
-   <!-- Violet Warning Alert -->
-   <div id="violet-alert" style="display:none; background: #7c4dff20; border-left: 4px solid #7c4dff; padding: 0.8rem 1rem; border-radius: 12px; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
-     <span class="violet-pulse"></span>
-     <div>
-       <strong style="color: #7c4dff;">⚠️ Critical System Warning</strong>
-       <span id="alert-reason" style="font-size:0.85rem; opacity:0.8;">SCA Tier 5 – Unprecedented</span>
-     </div>
-   </div>
-
-  <!-- Stats -->
-  <div class="stats-grid">
-    <div class="stat-card"><div class="number" id="scaValue">--</div><div class="label">SCA Tier</div></div>
-    <div class="stat-card"><div class="number" id="ivfValue">--</div><div class="label">IVF</div></div>
-    <div class="stat-card"><div class="number" id="scpCount">--</div><div class="label">Bayesian SCP</div></div>
-    <div class="stat-card"><div class="number" id="ruleCount">--</div><div class="label">Cascade rules</div></div>
-    <div class="stat-card"><div class="number" id="threatCount">--</div><div class="label">Threats tracked</div></div>
-  </div>
-
-  <!-- Toolbar -->
-  <div class="toolbar">
-    <button class="toolbar-btn" id="refreshBtn">⟳ Refresh</button>
-    <button class="toolbar-btn" id="exportBtn">⬇ Export CSV</button>
-    <button class="toolbar-btn" id="watchlistToggle" data-view="all">👁 Watchlist</button>
-    <button class="toolbar-btn" id="predictiveToggle" data-mode="off">🔮 Predictive</button>
-    <button class="toolbar-btn" id="heatmapToggle">🗺 Heatmap</button>
-    <button class="toolbar-btn" id="nexusToggle">🌐 NEXUS 3D</button>
-    <span style="font-size:0.8rem; opacity:0.7; margin-left:auto;">SCP trend: <span id="trendLabel">--</span></span>
-    <select class="lang-select" id="langSelect">
-      <option value="en">English</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="de">Deutsch</option>
-      <option value="zh">中文</option>
-      <option value="ar">العربية</option>
-      <option value="ru">Русский</option>
-      <option value="hi">हिन्दी</option>
-      <option value="pt">Português</option>
-      <option value="sw">Kiswahili</option>
-    </select>
-  </div>
-
-  <!-- Domain filters -->
-  <div class="filter-bar" id="domain-filter">
-    <button class="filter-btn active" data-domain="all">All Domains</button>
-    <button class="filter-btn" data-domain="Geopolitical">Geopolitical</button>
-    <button class="filter-btn" data-domain="Energy">Energy</button>
-    <button class="filter-btn" data-domain="Climate">Climate</button>
-    <button class="filter-btn" data-domain="Financial">Financial</button>
-    <button class="filter-btn" data-domain="Supply Chains">Supply Chains</button>
-    <button class="filter-btn" data-domain="Food">Food</button>
-    <button class="filter-btn" data-domain="Domestic">Domestic</button>
-    <button class="filter-btn" data-domain="Social">Social</button>
-    <button class="filter-btn" data-domain="Technology">Technology</button>
-    <button class="filter-btn" data-domain="Information">Information</button>
-    <button class="filter-btn" data-domain="Biosecurity">Biosecurity</button>
-    <button class="filter-btn" data-domain="Institutional">Institutional</button>
-  </div>
-
-  <input type="text" id="threat-search" class="search-box" placeholder="Search by ID, name, or domain…">
-
-  <!-- SCP slider -->
-  <div class="slider-container">
-    <span class="slider-label">SCP History (days back):</span>
-    <input type="range" id="scpSlider" min="0" max="30" value="0">
-    <span class="slider-label" id="scpSliderValue">0 days (current)</span>
-  </div>
-
-  <!-- Table -->
-  <div class="table-wrap">
-    <table class="threat-table" id="threat-table">
-      <thead>
-        <tr>
-          <th data-sort="rank">#</th>
-          <th data-sort="id">ID</th>
-          <th style="width:40px;">⚡</th>
-          <th data-sort="name">Threat Name</th>
-          <th data-sort="domains">Domains</th>
-          <th data-sort="status">Status</th>
-          <th data-sort="scp">SCP</th>
-          <th data-sort="confidence">Confidence</th>
-          <th data-sort="trend">Trend</th>
-          <th data-sort="notes">Notes</th>
-        </tr>
-      </thead>
-      <tbody id="threat-body">
-        <tr><td colspan="10" style="text-align:center; padding:2rem; opacity:0.6;">Loading threats…</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Recovery signals -->
-  <div class="recovery-card">
-    <h3>🕯️ Recovery Signals (Ascension Engine)</h3>
-    <div id="recoverySignals">
-      <div class="recovery-signal">🌱 Positive cascade detected: Community resilience in Horn of Africa (IPC Phase 4 → 3) – Confidence 67%</div>
-      <div class="recovery-signal">🌱 Diplomatic breakthrough: US-Iran backchannel talks resumed – Confidence 54%</div>
-      <div class="recovery-signal">🌱 Food price stabilization: FAO index dropped 3% in last 7 days – Confidence 72%</div>
+    <!-- ============ STATS ROW ============ -->
+    <div class="stats-row" id="statsRow">
+        <div class="stat-card"><div class="label">Threats Tracked</div><div class="value" id="threatCount">—</div></div>
+        <div class="stat-card"><div class="label">SCA Tier</div><div class="value" id="scaTier">—</div></div>
+        <div class="stat-card"><div class="label">Avg Confidence</div><div class="value" id="avgConfidence">—</div></div>
+        <div class="stat-card"><div class="label">Critical</div><div class="value" id="criticalCount">—</div></div>
+        <div class="stat-card"><div class="label">Cascade Rules</div><div class="value" id="cascadeCount">—</div></div>
+        <div class="stat-card"><div class="label">Recovery Signals</div><div class="value recovery" id="recoveryCount">—</div></div>
     </div>
-  </div>
 
-  <div class="footer">
-    <strong>Always and Forever, Coco. Always and Forever.</strong><br>
-    Threat Matrix · Advanced · Updated daily.
-  </div>
-</div>
+    <!-- ============ 3D GRAPH ============ -->
+    <div class="graph-container">
+        <span class="graph-label">Threat Cascade Graph</span>
+        <div id="graph-container"></div>
+        <div class="graph-controls">
+            <button id="graphResetBtn">Reset View</button>
+            <button id="graphToggleBtn">Toggle Labels</button>
+        </div>
+    </div>
 
-<!-- Heatmap Overlay -->
-<div id="heatmap-overlay">
-  <button class="toolbar-btn" style="position:absolute; top:1rem; right:1rem; z-index:1001;" id="heatmapClose">✕ Close</button>
-  <div id="heatmap-map"></div>
-</div>
+    <!-- ============ CONTROLS ============ -->
+    <div class="controls-row">
+        <input type="text" class="search-box" id="searchInput" placeholder="Search threats…" />
+        <select id="domainFilter">
+            <option value="">All Domains</option>
+            <option value="Geopolitical">Geopolitical</option>
+            <option value="Energy">Energy</option>
+            <option value="Climate">Climate</option>
+            <option value="Financial">Financial</option>
+            <option value="Supply Chains">Supply Chains</option>
+            <option value="Food">Food</option>
+            <option value="Domestic">Domestic</option>
+            <option value="Social">Social</option>
+            <option value="Technology">Technology</option>
+            <option value="Information">Information</option>
+            <option value="Biosecurity">Biosecurity</option>
+            <option value="Institutional">Institutional</option>
+        </select>
+        <select id="statusFilter">
+            <option value="">All Statuses</option>
+            <option value="Black Acute">Black Acute</option>
+            <option value="Black Structural">Black Structural</option>
+            <option value="Red">Red</option>
+            <option value="Orange">Orange</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Green">Green</option>
+        </select>
+        <button class="btn" id="resetBtn">Reset Filters</button>
+        <button class="btn btn-primary" id="exportBtn">Export CSV</button>
+    </div>
 
-<!-- Nexus 3D Container -->
-<div id="nexus-container">
-  <div class="nexus-controls">
-    <button class="toolbar-btn" id="nexusReset">⟲ Reset View</button>
-    <button class="toolbar-btn" id="nexusClose">✕ Close</button>
-  </div>
-  <div id="nexus-canvas"></div>
-</div>
+    <!-- ============ TABLE ============ -->
+    <div class="table-wrap">
+        <table class="threat-table" id="threatTable">
+            <thead>
+                <tr>
+                    <th data-sort="id">ID <span class="sort-indicator">↕</span></th>
+                    <th data-sort="name">Threat <span class="sort-indicator">↕</span></th>
+                    <th data-sort="domains">Domains <span class="sort-indicator">↕</span></th>
+                    <th data-sort="status">Status <span class="sort-indicator">↕</span></th>
+                    <th data-sort="scp">SCP <span class="sort-indicator">↕</span></th>
+                    <th data-sort="confidence">Confidence <span class="sort-indicator">↕</span></th>
+                    <th data-sort="das">DAS <span class="sort-indicator">↕</span></th>
+                    <th data-sort="recovery_probability">RP <span class="sort-indicator">↕</span></th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr><td colspan="8" style="text-align:center; padding:40px; color:var(--text-secondary);">Loading threats…</td></tr>
+            </tbody>
+        </table>
+    </div>
 
-<!-- Threat Modal -->
-<div class="modal-overlay" id="threatModal">
-  <div class="modal">
-    <button class="modal-close" id="modalClose">&times;</button>
-    <h2 id="modalTitle">Threat Details</h2>
-    <div class="meta" id="modalMeta"></div>
-    <div id="modalBody"></div>
-    <div id="cascadeGraphContainer"></div>
-  </div>
-</div>
+    <!-- ============ FOOTER ============ -->
+    <footer class="global-footer">
+        <div class="footer-left">
+            <span class="coco">Always and Forever, Coco. Always and Forever.</span>
+            <a href="corrections.xml">Corrections Feed (Law III)</a>
+            <a href="constitution.html">Constitution</a>
+        </div>
+        <div>
+            <span style="font-size:0.7rem;">v1.5.0 · <span id="ceres-hash">CERES: 0x7a3f…b1e2</span></span>
+        </div>
+    </footer>
 
-<button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+    <!-- ============ SCRIPTS ============ -->
+    <!-- Three.js and 3D Force Graph libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
 
-<script>
-  // ============================================================
-  // 1. DATA & STATE
-  // ============================================================
-  let allThreats = [];
-  let currentDomain = "all";
-  let currentSearch = "";
-  let watchlistMode = false;
-  let predictiveMode = false;
-  let watchlistIds = new Set();
-  let trendData = {};
-  let coordsData = {};
-  let graphData = null;
-  let sortColumn = 'priority';
-  let sortAsc = false;
+    <script>
+        // ---------- TIMESTAMP ----------
+        document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        setInterval(() => {
+            document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        }, 60000);
 
-  // Translations (simplified)
-  const translations = {
-    en: { title: "Threat Matrix", search: "Search by ID, name, or domain...", confirmed: "Confirmed", falsified: "Falsified", pending: "Pending", watchlist: "Watchlist", hitRate: "Hit rate", refresh: "Refresh", exportCSV: "Export CSV", predictive: "Predictive", heatmap: "Heatmap", nexus: "NEXUS 3D", trend: "SCP trend" },
-    es: { title: "Matriz de Amenazas", search: "Buscar por ID, nombre o dominio...", confirmed: "Confirmado", falsified: "Falsificado", pending: "Pendiente", watchlist: "Lista de seguimiento", hitRate: "Tasa de aciertos", refresh: "Actualizar", exportCSV: "Exportar CSV", predictive: "Predictivo", heatmap: "Mapa de calor", nexus: "NEXUS 3D", trend: "Tendencia SCP" }
-  };
-
-  // ============================================================
-  // 2. UTILITY FUNCTIONS
-  // ============================================================
-  function getStatusIcon(status) {
-      const s = status || 'Yellow';
-      if (s === 'Black Acute') return '⚫';
-      if (s === 'Black Structural') return '🟣';
-      if (s === 'Red') return '🔴';
-      if (s === 'Orange') return '🟠';
-      if (s === 'Yellow') return '🟡';
-      if (s === 'Green') return '🟢';
-      return '🟣';
-   }
-
-  function getSCPClass(scp) {
-    if (scp >= 0.7) return 'scp-high';
-    if (scp >= 0.4) return 'scp-mid';
-    return 'scp-low';
-  }
-
-  function isEscalating(threat) {
-    const scp = threat.scp || 0;
-    const priority = threat.priority_score || 0;
-    const status = threat.status || '';
-    return (scp > 0.6 && priority > 60) || status.includes('Black') || status === 'Red';
-  }
-
-  function getTrend(threat) {
-    const tid = threat.id || '';
-    const entry = trendData[tid] || {};
-    const trend = entry.trend || 'stable';
-    if (trend === 'up') return '▲';
-    if (trend === 'down') return '▼';
-    return '–';
-  }
-
-  function escapeHtml(str) {
-    if (!str) return '';
-    return str.replace(/[&<>]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      return m;
-    });
-  }
-
-  // ============================================================
-  // 3. LOAD DATA
-  // ============================================================
-  async function loadWatchlist() {
-    try {
-      const resp = await fetch('predictions.json');
-      if (!resp.ok) return;
-      const data = await resp.json();
-      if (data.watchlist) {
-        data.watchlist.forEach(p => watchlistIds.add(p.id));
-      }
-    } catch(e) { console.warn('Could not load watchlist', e); }
-  }
-
-  async function loadThreatMatrix() {
-    try {
-      await loadWatchlist();
-
-      const [threatResp, trendResp, coordsResp, graphResp] = await Promise.all([
-        fetch('threats.json'),
-        fetch('trend.json').catch(() => ({ ok: false })),
-        fetch('threat_coords.json').catch(() => ({ ok: false })),
-        fetch('cascade_graph.json').catch(() => ({ ok: false }))
-      ]);
-
-      if (!threatResp.ok) throw new Error('Failed to fetch threats');
-
-      const data = await threatResp.json();
-      allThreats = data.threats || [];
-      const updated = data.last_updated || 'unknown';
-      document.getElementById('lastUpdated').innerHTML = `Updated: ${updated} · ${allThreats.length} threats · 92+ cascade rules`;
-
-      if (trendResp.ok) trendData = await trendResp.json();
-      else trendData = {};
-
-      if (coordsResp.ok) coordsData = await coordsResp.json();
-      else coordsData = {};
-
-      if (graphResp.ok) graphData = await graphResp.json();
-      else graphData = null;
-
-      renderThreats();
-      renderMetrics();
-    } catch(e) {
-      console.error('Error loading threats:', e);
-      document.getElementById('threat-body').innerHTML = '<tr><td colspan="10" style="text-align:center; padding:2rem; color:#dc2626;">Error loading threat data. Please try again later.</td></tr>';
-    }
-  }
-
-  // ============================================================
-  // 4. RENDER
-  // ============================================================
-  function renderMetrics() {
-    const total = allThreats.length;
-    document.getElementById('threatCount').innerText = total;
-    document.getElementById('ruleCount').innerText = '92+';
-    document.getElementById('scaValue').innerText = 'Tier 5';
-    document.getElementById('ivfValue').innerText = '0.81';
-    document.getElementById('scpCount').innerText = '100%';
-    const escalating = allThreats.filter(t => isEscalating(t)).length;
-    document.getElementById('trendLabel').innerText = `${escalating} escalating`;
-  }
-
-  function sortThreats(threats, column, asc) {
-    return threats.sort((a, b) => {
-      let valA = a[column] || 0;
-      let valB = b[column] || 0;
-      if (typeof valA === 'string') valA = valA.toLowerCase();
-      if (typeof valB === 'string') valB = valB.toLowerCase();
-      if (valA < valB) return asc ? -1 : 1;
-      if (valA > valB) return asc ? 1 : -1;
-      return 0;
-    });
-  }
-
-  function renderThreats() {
-    let filtered = allThreats.filter(t => {
-      if (currentDomain !== "all" && !t.domains.includes(currentDomain)) return false;
-      if (currentSearch && !t.name.toLowerCase().includes(currentSearch.toLowerCase()) && !t.id.toLowerCase().includes(currentSearch.toLowerCase())) return false;
-      if (watchlistMode && !watchlistIds.has(t.id)) return false;
-      return true;
-    });
-
-    if (sortColumn === 'rank') {
-      filtered.sort((a, b) => (b.priority_score || 0) - (a.priority_score || 0));
-    } else {
-      sortThreats(filtered, sortColumn, sortAsc);
-    }
-
-    const sliderVal = parseInt(document.getElementById('scpSlider').value);
-    const factor = 1 - (sliderVal / 30) * 0.5;
-
-    const tbody = document.getElementById("threat-body");
-    if (filtered.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="10" style="text-align:center; padding:2rem; opacity:0.6;">No threats match your filters.</td></tr>';
-      return;
-    }
-
-    tbody.innerHTML = filtered.map((t, index) => {
-      const rank = index + 1;
-      const scp = (t.scp || 0.5) * factor;
-      const scpPct = Math.round(scp * 100);
-      const isEsc = predictiveMode && isEscalating(t);
-      const rowClass = isEsc ? 'row-predictive' : '';
-      const desc = t.description || t.name || 'No description';
-      const trend = getTrend(t);
-      const trendClass = trend === '▲' ? 'trend-up' : (trend === '▼' ? 'trend-down' : 'trend-stable');
-      const conf = t.confidence || 0.5;
-      const confStars = conf >= 0.8 ? '★★★★★' : conf >= 0.6 ? '★★★☆☆' : '★☆☆☆☆';
-      return `
-        <tr class="${rowClass}" data-id="${t.id || ''}" onclick="openModal('${t.id || ''}')">
-          <td>${rank}</td>
-          <td>${escapeHtml(t.id || '')}</td>
-          <td class="status-icon">${getStatusIcon(t.status)}</td>
-          <td><strong>${escapeHtml(t.name || '')}</strong></td>
-          <td>${Array.isArray(t.domains) ? escapeHtml(t.domains.join(", ")) : ''}</td>
-          <td>${escapeHtml(t.status || 'Yellow')}</td>
-          <td>
-            <span class="scp-bar"><span class="scp-fill ${getSCPClass(scp)}" style="width:${scpPct}%;"></span></span>
-            ${scpPct}%
-          </td>
-          <td>${confStars} (${Math.round(conf*100)}%)</td>
-          <td><span class="${trendClass}">${trend}</span></td>
-          <td>${desc.length > 60 ? escapeHtml(desc.slice(0, 60)) + '…' : escapeHtml(desc)}</td>
-        </tr>
-      `;
-    }).join("");
-  }
-
-  // ============================================================
-  // 5. MODAL
-  // ============================================================
-  function openModal(id) {
-    const threat = allThreats.find(t => t.id === id);
-    if (!threat) return;
-    document.getElementById('modalTitle').textContent = threat.id + ' – ' + (threat.name || 'Unknown');
-    document.getElementById('modalMeta').innerHTML = `
-      <span>${threat.status || 'Yellow'}</span>
-      <span>SCP: ${Math.round((threat.scp || 0.5) * 100)}%</span>
-      <span>Priority: ${Math.round(threat.priority_score || 0)}</span>
-      <span>${Array.isArray(threat.domains) ? threat.domains.join(', ') : ''}</span>
-    `;
-    document.getElementById('modalBody').innerHTML = `
-      <div class="detail-row"><span class="label">Description</span><span class="value">${threat.description || threat.name || 'No description'}</span></div>
-      <div class="detail-row"><span class="label">SCP (Bayesian)</span><span class="value">${(threat.scp || 0.5).toFixed(3)}</span></div>
-      <div class="detail-row"><span class="label">Priority Score</span><span class="value">${Math.round(threat.priority_score || 0)}</span></div>
-      <div class="detail-row"><span class="label">Status</span><span class="value">${threat.status || 'Yellow'}</span></div>
-      <div class="detail-row"><span class="label">Domains</span><span class="value">${Array.isArray(threat.domains) ? threat.domains.join(', ') : 'None'}</span></div>
-      <div class="detail-row"><span class="label">Cascade Targets</span><span class="value">${threat.cascade_targets ? threat.cascade_targets.join(', ') : 'None'}</span></div>
-      <div class="detail-row"><span class="label">Confidence</span><span class="value">${(threat.confidence || 0.5).toFixed(2)}</span></div>
-      <div style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-        <button class="toolbar-btn" id="cascadeGraphBtn">🔗 Cascade Graph</button>
-        <button class="toolbar-btn" id="whatifBtn">🧠 What‑if Simulation</button>
-      </div>
-    `;
-    document.getElementById('threatModal').classList.add('active');
-
-    document.getElementById('cascadeGraphBtn').onclick = function() {
-      const container = document.getElementById('cascadeGraphContainer');
-      container.style.display = 'block';
-      initCascadeGraph(threat.id);
-    };
-    document.getElementById('whatifBtn').onclick = function() {
-      alert(`Simulating cascade propagation for ${threat.id}...\n\nAffected threats: C11, C48, C129 (dummy)`);
-    };
-  }
-
-  function closeModal() {
-    document.getElementById('threatModal').classList.remove('active');
-    document.getElementById('cascadeGraphContainer').style.display = 'none';
-  }
-
-  document.getElementById('modalClose').addEventListener('click', closeModal);
-  document.getElementById('threatModal').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) closeModal();
-  });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-  // ============================================================
-  // 6. CASCADE GRAPH
-  // ============================================================
-  let cy = null;
-
-  function initCascadeGraph(threatId) {
-    const container = document.getElementById('cascadeGraphContainer');
-    if (cy) { cy.destroy(); cy = null; }
-
-    if (graphData && graphData.nodes && graphData.edges) {
-      const elements = graphData.nodes.concat(graphData.edges);
-      cy = cytoscape({
-        container: container,
-        elements: elements,
-        style: [
-          { selector: 'node', style: { 'background-color': '#7c4dff', 'label': 'data(label)', 'color': '#fff', 'font-size': '12px', 'text-valign': 'center', 'text-halign': 'center', 'width': '40px', 'height': '40px' } },
-          { selector: 'edge', style: { 'width': 3, 'line-color': '#ccc', 'target-arrow-color': '#ccc', 'target-arrow-shape': 'triangle' } },
-          { selector: 'node:selected', style: { 'background-color': '#dc2626' } }
-        ],
-        layout: { name: 'cose' }
-      });
-      const targetNode = cy.getElementById(threatId);
-      if (targetNode.length > 0) targetNode.select();
-    } else {
-      const nodes = [
-        { data: { id: threatId, label: threatId } },
-        { data: { id: 'C11', label: 'C11' } },
-        { data: { id: 'C48', label: 'C48' } },
-        { data: { id: 'C129', label: 'C129' } },
-        { data: { id: 'C88', label: 'C88' } }
-      ];
-      const edges = [
-        { data: { source: threatId, target: 'C11' } },
-        { data: { source: threatId, target: 'C48' } },
-        { data: { source: 'C11', target: 'C129' } },
-        { data: { source: 'C48', target: 'C88' } }
-      ];
-      cy = cytoscape({
-        container: container,
-        elements: nodes.concat(edges),
-        style: [
-          { selector: 'node', style: { 'background-color': '#7c4dff', 'label': 'data(label)', 'color': '#fff', 'font-size': '12px', 'text-valign': 'center', 'text-halign': 'center', 'width': '40px', 'height': '40px' } },
-          { selector: 'edge', style: { 'width': 3, 'line-color': '#ccc', 'target-arrow-color': '#ccc', 'target-arrow-shape': 'triangle' } },
-          { selector: 'node:selected', style: { 'background-color': '#dc2626' } }
-        ],
-        layout: { name: 'cose' }
-      });
-      cy.getElementById(threatId).select();
-    }
-  }
-
-  // ============================================================
-  // 7. HEATMAP
-  // ============================================================
-  let heatmapLayer = null;
-  let heatmapMap = null;
-
-  function initHeatmap() {
-    const overlay = document.getElementById('heatmap-overlay');
-    overlay.classList.add('active');
-    if (!heatmapMap) {
-      heatmapMap = L.map('heatmap-map', { zoomControl: false }).setView([20, 0], 2);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(heatmapMap);
-
-      const points = [];
-      for (const [tid, coord] of Object.entries(coordsData)) {
-        if (coord.lat && coord.lng) {
-          const threat = allThreats.find(t => t.id === tid);
-          const intensity = threat ? threat.scp || 0.5 : 0.5;
-          points.push([coord.lat, coord.lng, intensity]);
+        // ---------- CERES ----------
+        async function updateCERES() {
+            try {
+                const response = await fetch('ceres_chain.json?t=' + Date.now());
+                const data = await response.json();
+                const chain = data.chain || [];
+                if (chain.length > 0) {
+                    const lastHash = chain[chain.length - 1].chain_hash;
+                    const el = document.getElementById('ceres-hash');
+                    if (el) el.textContent = 'CERES: ' + lastHash.slice(0, 8) + '…' + lastHash.slice(-4);
+                }
+            } catch (e) { /* fallback */ }
         }
-      }
-      if (points.length === 0) {
-        for (let i = 0; i < 50; i++) {
-          const lat = (Math.random() - 0.5) * 100;
-          const lng = (Math.random() - 0.5) * 200;
-          const intensity = Math.random() * 0.5 + 0.5;
-          points.push([lat, lng, intensity]);
+        document.addEventListener('DOMContentLoaded', updateCERES);
+
+        // ---------- STATE ----------
+        let threats = [];
+        let filteredThreats = [];
+        let currentSort = { key: 'scp', direction: 'desc' };
+
+        // ---------- DOM REFS ----------
+        const tbody = document.getElementById('tableBody');
+        const meta = document.getElementById('matrixMeta');
+        const searchInput = document.getElementById('searchInput');
+        const domainFilter = document.getElementById('domainFilter');
+        const statusFilter = document.getElementById('statusFilter');
+        const resetBtn = document.getElementById('resetBtn');
+        const exportBtn = document.getElementById('exportBtn');
+
+        // ---------- LOAD DATA ----------
+        async function loadData() {
+            try {
+                const threatsRes = await fetch('threats.json?t=' + Date.now());
+                if (!threatsRes.ok) throw new Error('Failed to load threats.json');
+                threats = await threatsRes.json();
+
+                // Compute cascade count
+                const cascadeCount = threats.reduce((sum, t) => sum + (t.cascade_effects ? t.cascade_effects.length : 0), 0);
+                document.getElementById('cascadeCount').textContent = cascadeCount;
+
+                // Compute SCA Tier
+                const activeCascades = threats.filter(t => t.cascade_effects && t.cascade_effects.length > 0).length;
+                const scaTier = getSCATier(activeCascades);
+                document.getElementById('scaTier').textContent = scaTier.label;
+                const scaEl = document.getElementById('scaTier');
+                if (scaTier.level >= 4) scaEl.className = 'value critical';
+                else if (scaTier.level >= 2) scaEl.className = 'value elevated';
+                else scaEl.className = 'value stable';
+
+                // Recovery signals count
+                const recoveryCount = threats.filter(t => t.recovery_signals && t.recovery_signals.length > 0).length;
+                document.getElementById('recoveryCount').textContent = recoveryCount;
+
+                // Update stats
+                document.getElementById('threatCount').textContent = threats.length;
+                const avgConf = threats.reduce((sum, t) => sum + (t.confidence || 0), 0) / threats.length;
+                document.getElementById('avgConfidence').textContent = (avgConf * 100).toFixed(1) + '%';
+                const critical = threats.filter(t => t.status === 'Black Acute' || t.status === 'Red').length;
+                document.getElementById('criticalCount').textContent = critical;
+
+                meta.textContent = threats.length + ' threats tracked';
+
+                // Build graph
+                buildGraph();
+
+                // Initial render
+                applyFilters();
+
+            } catch (error) {
+                tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:40px; color:var(--red);">Unable to load threat data. ${error.message}</td></tr>`;
+                meta.textContent = 'Failed to load.';
+                console.warn('Failed to load threat data:', error);
+            }
         }
-      }
-      heatmapLayer = L.heatLayer(points, { radius: 25, blur: 15, maxZoom: 17 });
-      heatmapMap.addLayer(heatmapLayer);
-    }
-    setTimeout(() => heatmapMap.invalidateSize(), 100);
-  }
 
-  document.getElementById('heatmapToggle').addEventListener('click', initHeatmap);
-  document.getElementById('heatmapClose').addEventListener('click', () => {
-    document.getElementById('heatmap-overlay').classList.remove('active');
-  });
+        // ---------- SCA TIER ----------
+        function getSCATier(activeCascades) {
+            if (activeCascades >= 37) return { level: 5, label: 'Unprecedented' };
+            if (activeCascades >= 29) return { level: 4, label: 'Critical' };
+            if (activeCascades >= 21) return { level: 3, label: 'Extreme' };
+            if (activeCascades >= 13) return { level: 2, label: 'High' };
+            if (activeCascades >= 6) return { level: 1, label: 'Elevated' };
+            return { level: 0, label: 'Normal' };
+        }
 
-  // ============================================================
-  // 8. NEXUS 3D
-  // ============================================================
-  let forceGraph = null;
+        // ---------- BUILD GRAPH ----------
+        function buildGraph() {
+            const container = document.getElementById('graph-container');
+            if (!container) return;
 
-  function initNexus() {
-    const container = document.getElementById('nexus-container');
-    container.classList.add('active');
-    const canvasDiv = document.getElementById('nexus-canvas');
+            // Build nodes and links from threats with cascade_effects
+            const nodes = [];
+            const links = [];
+            const nodeIds = new Set();
 
-    if (forceGraph) {
-      return;
-    }
+            for (const t of threats) {
+                if (!t.cascade_effects || t.cascade_effects.length === 0) continue;
+                // Add source node
+                if (!nodeIds.has(t.id)) {
+                    nodes.push({
+                        id: t.id,
+                        name: t.name,
+                        scp: t.scp || 0,
+                        status: t.status || 'Unknown',
+                        recovery_probability: t.recovery_probability || 0
+                    });
+                    nodeIds.add(t.id);
+                }
+                // Add target nodes and links
+                for (const effect of t.cascade_effects) {
+                    const targetId = effect.target_id || effect.target;
+                    if (!targetId) continue;
+                    if (!nodeIds.has(targetId)) {
+                        const targetThreat = threats.find(th => th.id === targetId);
+                        nodes.push({
+                            id: targetId,
+                            name: targetThreat ? targetThreat.name : targetId,
+                            scp: targetThreat ? targetThreat.scp || 0 : 0,
+                            status: targetThreat ? targetThreat.status || 'Unknown' : 'Unknown',
+                            recovery_probability: targetThreat ? targetThreat.recovery_probability || 0 : 0
+                        });
+                        nodeIds.add(targetId);
+                    }
+                    links.push({
+                        source: t.id,
+                        target: targetId,
+                        scp_boost: effect.scp_boost || 0,
+                        impact: effect.impact || ''
+                    });
+                }
+            }
 
-    let nodes = [];
-    let links = [];
+            // If no cascade links, add a placeholder message
+            if (nodes.length === 0) {
+                container.innerHTML = `
+                    <div style="display:flex; align-items:center; justify-content:center; height:100%; color:var(--text-secondary); font-size:0.9rem;">
+                        No cascade relationships available. Add cascade_effects to threats.json to visualize.
+                    </div>
+                `;
+                return;
+            }
 
-    if (graphData && graphData.nodes && graphData.edges) {
-      nodes = graphData.nodes.map(n => ({ id: n.data.id, label: n.data.label, scp: n.data.scp, status: n.data.status }));
-      links = graphData.edges.map(e => ({ source: e.data.source, target: e.data.target, weight: e.data.weight || 1 }));
-    } else {
-      const dummyIds = ['C01','C11','C48','C129','C88','C132','C25','C19','C54','C90','C2','C3','C4','C58','C64','C85','C122'];
-      nodes = dummyIds.map(id => ({ id, label: id, scp: 0.5 + Math.random()*0.4, status: ['Red','Orange','Yellow','Green'][Math.floor(Math.random()*4)] }));
-      links = [];
-      for (let i = 0; i < nodes.length-1; i++) {
-        links.push({ source: nodes[i].id, target: nodes[i+1].id, weight: 1 });
-      }
-    }
+            // Create the graph
+            const Graph = ForceGraph3D();
+            const graphInstance = Graph(container)
+                .graphData({ nodes, links })
+                .nodeLabel(node => `${node.name}\nSCP: ${(node.scp * 100).toFixed(1)}%\nStatus: ${node.status}\nRP: ${(node.recovery_probability * 100).toFixed(1)}%`)
+                .nodeColor(node => {
+                    if (node.status === 'Black Acute' || node.status === 'Red') return '#EF4444';
+                    if (node.status === 'Orange') return '#F59E0B';
+                    if (node.status === 'Yellow') return '#FCD34D';
+                    if (node.status === 'Green') return '#10B981';
+                    return '#8B5CF6';
+                })
+                .nodeAutoColorBy('status')
+                .linkColor(link => {
+                    const boost = link.scp_boost || 0;
+                    if (boost > 0.2) return '#EF4444';
+                    if (boost > 0.1) return '#F59E0B';
+                    return '#94A3B8';
+                })
+                .linkWidth(link => 1 + (link.scp_boost || 0) * 3)
+                .linkLabel(link => `Boost: ${((link.scp_boost || 0) * 100).toFixed(1)}% — ${link.impact || ''}`)
+                .linkOpacity(0.6)
+                .linkDirectionalParticles(link => (link.scp_boost || 0) > 0.1 ? 2 : 0)
+                .linkDirectionalParticleWidth(1.5)
+                .linkDirectionalParticleSpeed(0.005)
+                .backgroundColor('#0D1117')
+                .width(container.clientWidth || 800)
+                .height(container.clientHeight || 500);
 
-    const statusColors = {
-      'Black Acute': '#1a1a1a',
-      'Black Structural': '#2c2c2c',
-      'Red': '#dc2626',
-      'Orange': '#f97316',
-      'Yellow': '#eab308',
-      'Green': '#22c55e'
-    };
-    const defaultColor = '#7c4dff';
+            // Controls
+            document.getElementById('graphResetBtn')?.addEventListener('click', () => {
+                graphInstance.zoomToFit(400);
+            });
 
-    forceGraph = ForceGraph3D()(canvasDiv)
-      .graphData({ nodes, links })
-      .nodeId('id')
-      .nodeLabel('label')
-      .nodeColor(node => statusColors[node.status] || defaultColor)
-      .nodeVal(node => (node.scp || 0.5) * 8 + 2)
-      .linkWidth(link => (link.weight || 1) * 2)
-      .linkColor(() => 'rgba(200,200,200,0.6)')
-      .onNodeClick(node => { openModal(node.id); })
-      .cooldownTime(2000)
-      .damping(0.9)
-      .backgroundColor('#111111')
-      .showNavInfo(false)
-      .enableDrag(true)
-      .enableZoom(true)
-      .enablePan(true)
-      .autoRotate(true)
-      .autoRotateSpeed(0.5);
+            let showLabels = true;
+            document.getElementById('graphToggleBtn')?.addEventListener('click', () => {
+                showLabels = !showLabels;
+                graphInstance.nodeLabel(showLabels ? node => `${node.name}\nSCP: ${(node.scp * 100).toFixed(1)}%` : null);
+            });
+        }
 
-    const legendDiv = document.createElement('div');
-    legendDiv.className = 'graph-legend';
-    legendDiv.innerHTML = `
-      <div style="font-weight:bold; margin-bottom:0.3rem;">Legend</div>
-      <div class="legend-item"><span class="color-dot" style="background:#dc2626;"></span> Red (Critical)</div>
-      <div class="legend-item"><span class="color-dot" style="background:#f97316;"></span> Orange (High)</div>
-      <div class="legend-item"><span class="color-dot" style="background:#eab308;"></span> Yellow (Elevated)</div>
-      <div class="legend-item"><span class="color-dot" style="background:#22c55e;"></span> Green (Stable)</div>
-      <div class="legend-item"><span class="color-dot" style="background:#1a1a1a;"></span> Black (Systemic)</div>
-      <div style="font-size:0.7rem; margin-top:0.3rem; opacity:0.6;">Size = SCP</div>
-    `;
-    canvasDiv.appendChild(legendDiv);
-  }
+        // ---------- FILTER & SORT ----------
+        function applyFilters() {
+            const search = searchInput.value.toLowerCase().trim();
+            const domain = domainFilter.value;
+            const status = statusFilter.value;
 
-  document.getElementById('nexusToggle').addEventListener('click', initNexus);
-  document.getElementById('nexusClose').addEventListener('click', () => {
-    document.getElementById('nexus-container').classList.remove('active');
-  });
-  document.getElementById('nexusReset').addEventListener('click', () => {
-    if (forceGraph) {
-      forceGraph.cameraPosition({ x: 0, y: 0, z: 200 });
-      forceGraph.autoRotate(true);
-    }
-  });
+            filteredThreats = threats.filter(t => {
+                // Search
+                if (search) {
+                    const match = t.name.toLowerCase().includes(search) ||
+                                  t.id.toLowerCase().includes(search) ||
+                                  (t.description && t.description.toLowerCase().includes(search)) ||
+                                  (t.notes && t.notes.toLowerCase().includes(search));
+                    if (!match) return false;
+                }
+                // Domain
+                if (domain && t.domains) {
+                    if (!t.domains.some(d => d === domain)) return false;
+                }
+                // Status
+                if (status && t.status !== status) return false;
+                return true;
+            });
 
-  // ============================================================
-  // 9. SCP SLIDER
-  // ============================================================
-  document.getElementById('scpSlider').addEventListener('input', function() {
-    const val = this.value;
-    document.getElementById('scpSliderValue').textContent = val + ' days back';
-    renderThreats();
-  });
+            // Sort
+            const key = currentSort.key;
+            const dir = currentSort.direction === 'asc' ? 1 : -1;
+            filteredThreats.sort((a, b) => {
+                let valA = a[key] ?? '';
+                let valB = b[key] ?? '';
+                if (typeof valA === 'string') valA = valA.toLowerCase();
+                if (typeof valB === 'string') valB = valB.toLowerCase();
+                if (valA < valB) return -1 * dir;
+                if (valA > valB) return 1 * dir;
+                return 0;
+            });
 
-  // ============================================================
-  // 10. FILTERS, SEARCH, WATCHLIST, PREDICTIVE, REFRESH, EXPORT, SORT
-  // ============================================================
-  document.querySelectorAll("[data-domain]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll("[data-domain]").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      currentDomain = btn.dataset.domain;
-      renderThreats();
-    });
-  });
+            renderTable();
+        }
 
-  document.getElementById("threat-search").addEventListener("input", (e) => {
-    currentSearch = e.target.value;
-    renderThreats();
-  });
+        // ---------- RENDER TABLE ----------
+        function renderTable() {
+            if (!filteredThreats.length) {
+                tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:40px; color:var(--text-secondary);">No threats match the current filters.</td></tr>`;
+                return;
+            }
 
-  document.getElementById('watchlistToggle').addEventListener('click', function() {
-    watchlistMode = !watchlistMode;
-    this.textContent = watchlistMode ? '👁 Watchlist (on)' : '👁 Watchlist';
-    this.classList.toggle('active', watchlistMode);
-    renderThreats();
-  });
+            let html = '';
+            for (const t of filteredThreats) {
+                const statusClass = getStatusClass(t.status);
+                const scpClass = t.scp > 0.5 ? 'scp-high' : (t.scp > 0.25 ? 'scp-medium' : 'scp-low');
+                const confidence = t.confidence || 0;
+                const domains = t.domains || [];
+                const rp = t.recovery_probability || 0;
+                const rpClass = rp > 0.5 ? 'recovery-high' : (rp > 0.25 ? 'recovery-medium' : 'recovery-low');
 
-  document.getElementById('predictiveToggle').addEventListener('click', function() {
-    predictiveMode = !predictiveMode;
-    this.textContent = predictiveMode ? '🔮 Predictive (on)' : '🔮 Predictive';
-    this.classList.toggle('active', predictiveMode);
-    renderThreats();
-  });
+                html += `
+                    <tr class="clickable" data-id="${t.id}">
+                        <td style="font-weight:500; color:var(--text-primary);">${t.id}</td>
+                        <td style="font-weight:500; color:var(--text-primary);">${t.name}</td>
+                        <td>${domains.map(d => `<span class="domain-tag">${d}</span>`).join(' ')}</td>
+                        <td><span class="badge ${statusClass}">${t.status || 'Unknown'}</span></td>
+                        <td><span class="${scpClass}">${(t.scp * 100).toFixed(1)}%</span></td>
+                        <td>
+                            <span class="conf-bar"><span class="conf-bar-fill" style="width:${confidence * 100}%"></span></span>
+                            <span class="conf-text">${(confidence * 100).toFixed(0)}%</span>
+                        </td>
+                        <td>${t.das ? t.das.toFixed(1) : '—'}</td>
+                        <td><span class="${rpClass}">${(rp * 100).toFixed(1)}%</span></td>
+                    </tr>
+                    <tr class="detail-row" id="detail-${t.id}">
+                        <td colspan="8">
+                            <div class="detail-content">
+                                ${renderDetail(t)}
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }
+            tbody.innerHTML = html;
 
-  document.getElementById('refreshBtn').addEventListener('click', () => {
-    document.getElementById('threat-body').innerHTML = '<tr><td colspan="10" style="text-align:center; padding:2rem; opacity:0.6;">Refreshing…</td></tr>';
-    loadThreatMatrix();
-  });
+            // Click to expand
+            document.querySelectorAll('.clickable').forEach(row => {
+                row.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const detail = document.getElementById('detail-' + id);
+                    if (detail) {
+                        detail.classList.toggle('open');
+                    }
+                });
+            });
+        }
 
-  document.getElementById('exportBtn').addEventListener('click', exportCSV);
+        // ---------- RENDER DETAIL ----------
+        function renderDetail(t) {
+            const cascades = t.cascade_effects || [];
+            const recs = t.recommendations || [];
+            const human = t.human_cost || {};
+            const economic = t.economic_cost || {};
+            const recoverySignals = t.recovery_signals || [];
+            const opportunityMatrix = t.opportunity_matrix || [];
 
-  function exportCSV() {
-    let filtered = allThreats.filter(t => {
-      if (currentDomain !== "all" && !t.domains.includes(currentDomain)) return false;
-      if (currentSearch && !t.name.toLowerCase().includes(currentSearch.toLowerCase()) && !t.id.toLowerCase().includes(currentSearch.toLowerCase())) return false;
-      if (watchlistMode && !watchlistIds.has(t.id)) return false;
-      return true;
-    });
-    const headers = ['Rank','ID','Name','Domains','Status','SCP','Confidence','Trend','Description'];
-    filtered.sort((a, b) => (b.priority_score || 0) - (a.priority_score || 0));
-    const rows = filtered.map((t, i) => [
-      i+1, t.id || '', t.name || '', (t.domains || []).join(';'), t.status || '',
-      (t.scp || 0.5).toFixed(3), (t.confidence || 0.5).toFixed(2), getTrend(t),
-      (t.description || '').replace(/,/g,';')
-    ]);
-    let csv = headers.join(',') + '\n' + rows.map(r => r.join(',')).join('\n');
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `threat-matrix-${new Date().toISOString().slice(0,10)}.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
-  }
+            let html = `<div class="detail-grid">`;
+            html += `<div class="item"><span class="key">Description</span><span class="val">${t.description || '—'}</span></div>`;
+            html += `<div class="item"><span class="key">Base Probability</span><span class="val">${(t.base_probability || 0).toFixed(4)}</span></div>`;
+            html += `<div class="item"><span class="key">ML Likelihood Ratio</span><span class="val">${(t.ml_likelihood_ratio || 0).toFixed(2)}</span></div>`;
+            html += `<div class="item"><span class="key">Priority Score</span><span class="val">${(t.priority_score || 0).toFixed(1)}</span></div>`;
+            html += `<div class="item"><span class="key">DAS Band</span><span class="val">${t.das_band || '—'}</span></div>`;
+            html += `<div class="item"><span class="key">Recovery Probability</span><span class="val ${t.recovery_probability > 0.5 ? 'recovery-high' : (t.recovery_probability > 0.25 ? 'recovery-medium' : 'recovery-low')}">${(t.recovery_probability || 0) * 100}%</span></div>`;
+            html += `<div class="item"><span class="key">Last Updated</span><span class="val">${t.last_updated ? new Date(t.last_updated).toLocaleString() : '—'}</span></div>`;
+            html += `</div>`;
 
-  document.querySelectorAll('.threat-table th[data-sort]').forEach(th => {
-    th.addEventListener('click', function() {
-      const column = this.dataset.sort;
-      if (sortColumn === column) {
-        sortAsc = !sortAsc;
-      } else {
-        sortColumn = column;
-        sortAsc = (column === 'rank' || column === 'id' || column === 'name') ? true : false;
-      }
-      renderThreats();
-    });
-  });
+            // --- ASCENSION ENGINE: Recovery Signals ---
+            if (recoverySignals.length) {
+                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Recovery Signals (Ascension Engine)</strong>`;
+                for (const signal of recoverySignals) {
+                    const name = signal.name || 'Unnamed signal';
+                    const impact = signal.impact || 0;
+                    const description = signal.description || '';
+                    html += `
+                        <div class="positive-signal">
+                            <span class="signal-name">${name}</span>
+                            <span class="signal-impact">Impact: ${(impact * 100).toFixed(1)}%</span>
+                        </div>
+                        ${description ? `<div style="font-size:0.75rem; color:var(--text-secondary); padding-left:8px; margin-bottom:4px;">${description}</div>` : ''}
+                    `;
+                }
+                html += `</div>`;
+            }
 
-  // ============================================================
-  // 11. LANGUAGE SELECTOR
-  // ============================================================
-  document.getElementById('langSelect').addEventListener('change', function() {
-    const lang = this.value;
-    const t = translations[lang] || translations.en;
-    document.querySelector('h1').textContent = t.title || 'Threat Matrix';
-    document.getElementById('threat-search').placeholder = t.search || 'Search...';
-    alert('Language switched to ' + lang + ' (partial translation)');
-  });
+            // --- ASCENSION ENGINE: Opportunity Matrix ---
+            if (opportunityMatrix.length) {
+                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Opportunity Matrix</strong>`;
+                for (const opp of opportunityMatrix) {
+                    const name = opp.name || 'Unnamed opportunity';
+                    const score = opp.score || 0;
+                    const description = opp.description || '';
+                    html += `
+                        <div class="opportunity-item">
+                            <span class="opp-name">${name}</span>
+                            <span class="opp-score">Score: ${score.toFixed(2)}</span>
+                        </div>
+                        ${description ? `<div style="font-size:0.75rem; color:var(--text-secondary); padding-left:8px; margin-bottom:4px;">${description}</div>` : ''}
+                    `;
+                }
+                html += `</div>`;
+            }
 
-  // ============================================================
-  // 12. NAV & DARK MODE
-  // ============================================================
-  const menuBtn = document.getElementById("menuBtn");
-  const navLinks = document.getElementById("navLinks");
-  if (menuBtn) menuBtn.addEventListener("click", () => navLinks.classList.toggle("show"));
+            // Cascade effects
+            if (cascades.length) {
+                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Cascade Effects</strong>`;
+                html += `<ul class="cascade-list">`;
+                for (const c of cascades) {
+                    const target = c.target || c.target_id || 'Unknown';
+                    const impact = c.impact || '';
+                    const boost = c.scp_boost || 0;
+                    html += `<li><span class="target">${target}</span> — ${impact} (boost: ${(boost * 100).toFixed(1)}%)</li>`;
+                }
+                html += `</ul></div>`;
+            }
 
-  const darkToggle = document.getElementById("darkModeToggle");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const storedTheme = localStorage.getItem("cathedral-theme");
-  if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
-    document.body.classList.add("dark");
-    darkToggle.innerText = "☀️";
-  } else darkToggle.innerText = "🌙";
-  darkToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    const isDark = document.body.classList.contains("dark");
-    darkToggle.innerText = isDark ? "☀️" : "🌙";
-    localStorage.setItem("cathedral-theme", isDark ? "dark" : "light");
-  });
+            // Human cost
+            if (human.casualties || human.displaced || human.affected) {
+                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Human Cost</strong>`;
+                html += `<div class="detail-grid">`;
+                if (human.casualties) html += `<div class="item"><span class="key">Casualties</span><span class="val">${human.casualties}</span></div>`;
+                if (human.displaced) html += `<div class="item"><span class="key">Displaced</span><span class="val">${human.displaced}</span></div>`;
+                if (human.affected) html += `<div class="item"><span class="key">Affected</span><span class="val">${human.affected}</span></div>`;
+                html += `</div></div>`;
+            }
 
-  if ("serviceWorker" in navigator) navigator.serviceWorker.register("service-worker.js");
+            // Economic cost
+            if (economic.oil_impact || economic.global_gdp || economic.estimated_loss) {
+                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Economic Impact</strong>`;
+                html += `<div class="detail-grid">`;
+                if (economic.oil_impact) html += `<div class="item"><span class="key">Oil Impact</span><span class="val">${economic.oil_impact}</span></div>`;
+                if (economic.global_gdp) html += `<div class="item"><span class="key">Global GDP</span><span class="val">${economic.global_gdp}</span></div>`;
+                if (economic.estimated_loss) html += `<div class="item"><span class="key">Est. Loss</span><span class="val">${economic.estimated_loss}</span></div>`;
+                html += `</div></div>`;
+            }
 
-  // ============================================================
-  // 13. START
-  // ============================================================
-  loadThreatMatrix();
-</script>
-<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+            // Recommendations
+            if (recs.length) {
+                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Recommendations</strong>`;
+                html += `<ul class="cascade-list">`;
+                for (const r of recs) {
+                    html += `<li>${r}</li>`;
+                }
+                html += `</ul></div>`;
+            }
+
+            // Forecast
+            if (t.forecast) {
+                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Forecast</strong>`;
+                html += `<div style="color:var(--text-secondary); font-size:0.85rem; margin-top:4px;">${t.forecast}</div></div>`;
+            }
+
+            return html;
+        }
+
+        // ---------- HELPERS ----------
+        function getStatusClass(status) {
+            if (!status) return 'badge-info';
+            const s = status.toLowerCase();
+            if (s === 'black acute' || s === 'red') return 'badge-critical';
+            if (s === 'orange') return 'badge-elevated';
+            if (s === 'yellow') return 'badge-elevated';
+            if (s === 'green') return 'badge-stable';
+            return 'badge-info';
+        }
+
+        // ---------- EVENT LISTENERS ----------
+        searchInput.addEventListener('input', applyFilters);
+        domainFilter.addEventListener('change', applyFilters);
+        statusFilter.addEventListener('change', applyFilters);
+
+        resetBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            domainFilter.value = '';
+            statusFilter.value = '';
+            currentSort = { key: 'scp', direction: 'desc' };
+            applyFilters();
+        });
+
+        // Sort on header click
+        document.querySelectorAll('#threatTable th').forEach(th => {
+            th.addEventListener('click', function() {
+                const key = this.dataset.sort;
+                if (!key) return;
+                if (currentSort.key === key) {
+                    currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+                } else {
+                    currentSort.key = key;
+                    currentSort.direction = 'desc';
+                }
+                applyFilters();
+            });
+        });
+
+        // ---------- EXPORT CSV ----------
+        exportBtn.addEventListener('click', function() {
+            const headers = ['ID', 'Name', 'Domains', 'Status', 'SCP', 'Confidence', 'DAS', 'Recovery Probability'];
+            const rows = filteredThreats.map(t => [
+                t.id,
+                `"${t.name}"`,
+                `"${(t.domains || []).join('; ')}"`,
+                t.status || '',
+                (t.scp || 0).toFixed(4),
+                (t.confidence || 0).toFixed(4),
+                (t.das || 0).toFixed(2),
+                (t.recovery_probability || 0).toFixed(4)
+            ]);
+            const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'threat_matrix_export.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // ---------- HANDLE GRAPH RESIZE ----------
+        window.addEventListener('resize', () => {
+            const container = document.getElementById('graph-container');
+            if (container) {
+                // The graph auto-adjusts via ForceGraph3D
+            }
+        });
+
+        // ---------- INIT ----------
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
 </body>
 </html>
