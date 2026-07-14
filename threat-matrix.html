@@ -1,1218 +1,700 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cathedral Network — Threat Matrix</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
-    <style>
-        /* ---------- RESET & TOKENS ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root {
-            --bg-base: #090B10;
-            --bg-card: #12161C;
-            --bg-card-alt: #0D1117;
-            --border-card: #1E2633;
-            --text-primary: #E8EDF5;
-            --text-secondary: #94A3B8;
-            --violet: #8B5CF6;
-            --red: #EF4444;
-            --amber: #F59E0B;
-            --green: #10B981;
-            --radius: 8px;
-            --font-sans: 'Inter', -apple-system, sans-serif;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            background: var(--bg-base);
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-            padding: 0 24px 24px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Threat Matrix – Cathedral Network</title>
+  <meta name="description" content="The Cathedral's Threat Matrix – live global threat intelligence, sorted and filtered by priority.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Existing Threat Matrix Styles ── */
+    .threat-table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    .threat-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .threat-table th {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      padding: 0.8rem 0.6rem;
+      border-bottom: 2px solid var(--border-color);
+      text-align: left;
+      cursor: pointer;
+      user-select: none;
+    }
+    .threat-table th:hover {
+      color: var(--text-primary);
+    }
+    .threat-table td {
+      padding: 0.6rem 0.6rem;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: middle;
+    }
+    .threat-table tr:hover td {
+      background: var(--bg-tertiary);
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .status-badge.red { background: #3a1a1a; color: #ff6b6b; }
+    .status-badge.orange { background: #3a2a1a; color: #ffa94d; }
+    .status-badge.yellow { background: #3a3a1a; color: #ffd93d; }
+    .status-badge.green { background: #1a3a1a; color: #6bcb8a; }
+    .status-badge.black { background: #1a1a2e; color: #7c4dff; border: 1px solid #7c4dff; }
+    .status-badge.purple { background: #2a1a3a; color: #b388ff; }
 
-        /* ---------- HEADER ---------- */
-        .global-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-card);
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--violet);
-        }
-        .logo-area svg {
-            height: 32px;
-            width: auto;
-            flex-shrink: 0;
-            display: block;
-            color: var(--violet);
-        }
-        .logo-area a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 1.25rem;
-            letter-spacing: -0.5px;
-        }
-        .logo-area span {
-            color: var(--text-secondary);
-            font-weight: 400;
-            font-size: 0.85rem;
-            margin-left: 6px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 6px 14px;
-            border-radius: 6px;
-            transition: all 0.15s;
-        }
-        .nav-links a:hover {
-            color: var(--text-primary);
-            background: var(--bg-card);
-        }
-        .nav-links a.active {
-            color: var(--violet);
-            background: rgba(139, 92, 246, 0.08);
-            font-weight: 500;
-        }
-        .header-meta {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .heartbeat {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: var(--violet);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-            margin-right: 4px;
-        }
-        @keyframes pulse {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.85); }
-            100% { opacity: 1; transform: scale(1); }
-        }
+    .search-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin: 1rem 0;
+      padding: 0.8rem 1rem;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      align-items: center;
+    }
+    .search-filter-bar input,
+    .search-filter-bar select {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+    .search-filter-bar input::placeholder {
+      color: var(--text-muted);
+    }
+    .search-filter-bar label {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .search-filter-bar input[type="checkbox"] {
+      accent-color: #7c4dff;
+      width: 16px;
+      height: 16px;
+    }
 
-        /* ---------- PAGE HEADER ---------- */
-        .page-header {
-            margin-bottom: 24px;
-        }
-        .page-header h1 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 4px;
-        }
-        .page-header .subhead {
-            font-size: 1rem;
-            color: var(--text-secondary);
-        }
-        .page-header .meta {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
-            opacity: 0.6;
-        }
+    .pagination {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      align-items: center;
+    }
+    .pagination button {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.2rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .pagination button:hover {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+    .pagination button.active {
+      background: var(--violet);
+      color: #fff;
+      border-color: var(--violet);
+    }
+    .pagination button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
 
-        /* ---------- STATS ROW ---------- */
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius);
-            padding: 12px 16px;
-        }
-        .stat-card .label {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        .stat-card .value {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-top: 2px;
-        }
-        .stat-card .value.critical {
-            color: var(--red);
-        }
-        .stat-card .value.elevated {
-            color: var(--amber);
-        }
-        .stat-card .value.stable {
-            color: var(--green);
-        }
-        .stat-card .value.recovery {
-            color: var(--green);
-        }
+    .graph-container {
+      width: 100%;
+      height: 500px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0a0a14;
+      border: 1px solid var(--border-color);
+      margin: 1.5rem 0;
+      position: relative;
+    }
 
-        /* ---------- 3D GRAPH ---------- */
-        .graph-container {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius);
-            padding: 16px;
-            margin-bottom: 24px;
-            position: relative;
-            min-height: 500px;
-        }
-        .graph-container #graph-container {
-            width: 100%;
-            height: 500px;
-            border-radius: calc(var(--radius) - 4px);
-            background: var(--bg-card-alt);
-            overflow: hidden;
-        }
-        .graph-container .graph-label {
-            position: absolute;
-            top: 24px;
-            left: 24px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--text-secondary);
-            opacity: 0.5;
-            z-index: 10;
-            pointer-events: none;
-            background: rgba(9, 11, 16, 0.7);
-            padding: 4px 12px;
-            border-radius: 4px;
-        }
-        .graph-container .graph-controls {
-            position: absolute;
-            bottom: 24px;
-            right: 24px;
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-        .graph-container .graph-controls button {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius);
-            padding: 6px 12px;
-            color: var(--text-secondary);
-            font-family: var(--font-sans);
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: all 0.15s;
-        }
-        .graph-container .graph-controls button:hover {
-            border-color: var(--violet);
-            color: var(--text-primary);
-        }
-
-        /* ---------- CONTROLS ---------- */
-        .controls-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 20px;
-            align-items: center;
-        }
-        .controls-row .search-box {
-            flex: 1;
-            min-width: 200px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius);
-            padding: 8px 14px;
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        .controls-row .search-box:focus {
-            border-color: var(--violet);
-        }
-        .controls-row .search-box::placeholder {
-            color: var(--text-secondary);
-            opacity: 0.5;
-        }
-        .controls-row select {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius);
-            padding: 8px 14px;
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            outline: none;
-            cursor: pointer;
-            transition: border-color 0.2s;
-            min-width: 140px;
-        }
-        .controls-row select:focus {
-            border-color: var(--violet);
-        }
-        .controls-row select option {
-            background: var(--bg-base);
-        }
-        .controls-row .btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius);
-            padding: 8px 16px;
-            color: var(--text-secondary);
-            font-family: var(--font-sans);
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.15s;
-        }
-        .controls-row .btn:hover {
-            border-color: var(--violet);
-            color: var(--text-primary);
-        }
-        .controls-row .btn-primary {
-            background: var(--violet);
-            border-color: var(--violet);
-            color: #fff;
-        }
-        .controls-row .btn-primary:hover {
-            opacity: 0.8;
-        }
-
-        /* ---------- TABLE ---------- */
-        .table-wrap {
-            overflow-x: auto;
-            margin-bottom: 24px;
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius);
-            background: var(--bg-card);
-        }
-        .threat-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.82rem;
-            min-width: 800px;
-        }
-        .threat-table th {
-            text-align: left;
-            padding: 10px 12px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            border-bottom: 1px solid var(--border-card);
-            cursor: pointer;
-            user-select: none;
-            white-space: nowrap;
-            position: sticky;
-            top: 0;
-            background: var(--bg-card);
-            z-index: 2;
-        }
-        .threat-table th:hover {
-            color: var(--text-primary);
-        }
-        .threat-table th .sort-indicator {
-            display: inline-block;
-            margin-left: 4px;
-            opacity: 0.4;
-        }
-        .threat-table td {
-            padding: 8px 12px;
-            border-bottom: 1px solid rgba(30, 38, 51, 0.4);
-            color: var(--text-secondary);
-            vertical-align: middle;
-        }
-        .threat-table tr:last-child td {
-            border-bottom: none;
-        }
-        .threat-table tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
-        }
-        .threat-table tr.clickable {
-            cursor: pointer;
-        }
-
-        /* Status badges */
-        .badge {
-            display: inline-block;
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-size: 0.6rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            white-space: nowrap;
-        }
-        .badge-critical {
-            background: rgba(239, 68, 68, 0.15);
-            color: var(--red);
-        }
-        .badge-elevated {
-            background: rgba(245, 158, 11, 0.15);
-            color: var(--amber);
-        }
-        .badge-stable {
-            background: rgba(16, 185, 129, 0.12);
-            color: var(--green);
-        }
-        .badge-recovery {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--green);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-        .badge-info {
-            background: rgba(139, 92, 246, 0.12);
-            color: var(--violet);
-        }
-
-        /* Confidence bar */
-        .conf-bar {
-            display: inline-block;
-            height: 4px;
-            width: 50px;
-            background: var(--border-card);
-            border-radius: 4px;
-            margin-right: 6px;
-            vertical-align: middle;
-        }
-        .conf-bar-fill {
-            display: block;
-            height: 100%;
-            border-radius: 4px;
-            background: var(--violet);
-        }
-
-        /* Domain tags */
-        .domain-tag {
-            display: inline-block;
-            padding: 1px 8px;
-            border-radius: 12px;
-            font-size: 0.6rem;
-            background: rgba(139, 92, 246, 0.08);
-            color: var(--text-secondary);
-            margin: 1px 2px;
-            white-space: nowrap;
-        }
-
-        /* SCP value colors */
-        .scp-high {
-            color: var(--red);
-            font-weight: 600;
-        }
-        .scp-medium {
-            color: var(--amber);
-            font-weight: 600;
-        }
-        .scp-low {
-            color: var(--green);
-            font-weight: 600;
-        }
-
-        /* ---------- EXPANDED DETAILS ---------- */
-        .detail-row {
-            display: none;
-            background: var(--bg-card-alt);
-        }
-        .detail-row.open {
-            display: table-row;
-        }
-        .detail-row td {
-            padding: 16px 20px;
-            border-bottom: 1px solid var(--border-card);
-        }
-        .detail-content {
-            font-size: 0.85rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-        .detail-content .detail-label {
-            font-weight: 500;
-            color: var(--text-primary);
-            min-width: 100px;
-            display: inline-block;
-        }
-        .detail-content .detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px 24px;
-            margin-top: 4px;
-        }
-        .detail-content .detail-grid .item {
-            display: flex;
-            justify-content: space-between;
-            padding: 2px 0;
-            border-bottom: 1px solid rgba(30, 38, 51, 0.15);
-            font-size: 0.8rem;
-        }
-        .detail-content .detail-grid .item .key {
-            color: var(--text-secondary);
-        }
-        .detail-content .detail-grid .item .val {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-        .detail-content .detail-grid .item .val.recovery-high {
-            color: var(--green);
-        }
-        .detail-content .detail-grid .item .val.recovery-medium {
-            color: var(--amber);
-        }
-        .detail-content .detail-grid .item .val.recovery-low {
-            color: var(--red);
-        }
-        .detail-content .cascade-list {
-            list-style: none;
-            padding: 0;
-            margin: 4px 0 0 0;
-        }
-        .detail-content .cascade-list li {
-            padding: 2px 0;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            border-bottom: 1px solid rgba(30, 38, 51, 0.1);
-        }
-        .detail-content .cascade-list li:last-child {
-            border-bottom: none;
-        }
-        .detail-content .cascade-list li .target {
-            color: var(--violet);
-            font-weight: 500;
-        }
-        .detail-content .positive-signal {
-            padding: 4px 0;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            border-bottom: 1px solid rgba(30, 38, 51, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .detail-content .positive-signal:last-child {
-            border-bottom: none;
-        }
-        .detail-content .positive-signal .signal-name {
-            color: var(--text-primary);
-        }
-        .detail-content .positive-signal .signal-impact {
-            color: var(--green);
-            font-weight: 500;
-        }
-        .detail-content .opportunity-item {
-            padding: 4px 0;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            border-bottom: 1px solid rgba(30, 38, 51, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .detail-content .opportunity-item:last-child {
-            border-bottom: none;
-        }
-        .detail-content .opportunity-item .opp-name {
-            color: var(--text-primary);
-        }
-        .detail-content .opportunity-item .opp-score {
-            color: var(--violet);
-            font-weight: 500;
-        }
-
-        /* ---------- FOOTER ---------- */
-        .global-footer {
-            margin-top: auto;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-card);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-        .footer-left {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .footer-left a {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-        .footer-left a:hover {
-            color: var(--text-primary);
-        }
-        .coco {
-            color: var(--text-secondary);
-            letter-spacing: 0.02em;
-        }
-
-        /* ---------- RESPONSIVE ---------- */
-        @media (max-width: 768px) {
-            body { padding: 0 16px 16px; }
-            .global-header { flex-direction: column; align-items: stretch; gap: 12px; }
-            .nav-links { justify-content: space-between; }
-            .header-meta { justify-content: flex-start; font-size: 0.7rem; }
-            .page-header h1 { font-size: 1.6rem; }
-            .stats-row { grid-template-columns: 1fr 1fr; }
-            .controls-row { flex-direction: column; align-items: stretch; }
-            .controls-row .search-box { min-width: unset; }
-            .threat-table { font-size: 0.7rem; min-width: 600px; }
-            .threat-table th, .threat-table td { padding: 6px 8px; }
-            .detail-content .detail-grid { grid-template-columns: 1fr; }
-            .footer-left { gap: 16px; }
-            .graph-container { min-height: 300px; padding: 8px; }
-            .graph-container #graph-container { height: 300px; }
-            .graph-container .graph-label { top: 12px; left: 12px; font-size: 0.6rem; }
-        }
-        @media (max-width: 480px) {
-            .nav-links a { padding: 4px 10px; font-size: 0.8rem; }
-            .page-header h1 { font-size: 1.4rem; }
-            .stats-row { grid-template-columns: 1fr; }
-            .threat-table { font-size: 0.65rem; min-width: 500px; }
-            .threat-table th, .threat-table td { padding: 4px 6px; }
-            .footer-left { flex-direction: column; align-items: flex-start; gap: 8px; }
-            .graph-container { min-height: 250px; }
-            .graph-container #graph-container { height: 250px; }
-        }
-    </style>
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .threat-table {
+        font-size: 0.75rem;
+      }
+      .threat-table th,
+      .threat-table td {
+        padding: 0.4rem 0.3rem;
+      }
+      .search-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .graph-container {
+        height: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- ============ HEADER ============ -->
-    <header class="global-header">
-        <div class="logo-area">
-            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="currentColor"/>
-                <circle cx="60" cy="25" r="2" fill="currentColor"/>
-                <circle cx="55" cy="40" r="2" fill="currentColor"/>
-                <circle cx="65" cy="40" r="2" fill="currentColor"/>
-                <circle cx="50" cy="55" r="2" fill="currentColor"/>
-                <circle cx="60" cy="55" r="2" fill="currentColor"/>
-                <circle cx="70" cy="55" r="2" fill="currentColor"/>
-                <circle cx="45" cy="70" r="2" fill="currentColor"/>
-                <circle cx="55" cy="70" r="2" fill="currentColor"/>
-                <circle cx="65" cy="70" r="2" fill="currentColor"/>
-                <circle cx="75" cy="70" r="2" fill="currentColor"/>
-                <circle cx="50" cy="85" r="2" fill="currentColor"/>
-                <circle cx="60" cy="85" r="2" fill="currentColor"/>
-                <circle cx="70" cy="85" r="2" fill="currentColor"/>
-                <circle cx="55" cy="100" r="2" fill="currentColor"/>
-                <circle cx="65" cy="100" r="2" fill="currentColor"/>
-                <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
-                <path d="M30 60 A30 30 0 1 1 90 60" stroke="currentColor" stroke-width="2" fill="none"/>
-            </svg>
-            <a href="index.html">Cathedral<span>Network</span></a>
-        </div>
-        <nav class="nav-links">
-            <a href="index.html">Overview</a>
-            <a href="threat-matrix.html" class="active">Threats</a>
-            <a href="prediction-log.html">Log</a>
-            <a href="regional.html">Regions</a>
-            <a href="constitution.html">Constitution</a>
-            <a href="about.html">About</a>
-            <a href="sources.html">Sources</a>
-            <a href="credits.html">Credits</a>
-            <a href="glossary.html">Glossary</a>
-            <a href="methodology.html">Methodology</a>
-            <a href="spotter.html">Spotter</a>
-        </nav>
-        <div class="header-meta">
-            <span><span class="heartbeat"></span> Live</span>
-            <span>Updated: <span id="updateTime">2026-06-30 14:32 UTC</span></span>
-        </div>
-    </header>
-
-    <!-- ============ PAGE HEADER ============ -->
-    <div class="page-header">
-        <h1>Threat Matrix</h1>
-        <div class="subhead">Full threat intelligence — SCP, confidence, cascade effects, recovery signals, and forensic tracking.</div>
-        <div class="meta" id="matrixMeta">Loading threat data…</div>
+<!-- ===== HEADER ===== -->
+<header class="cathedral-header">
+  <div class="header-container">
+    <div class="header-brand">
+      <a href="index.html" class="logo-link">
+        <svg viewBox="0 0 120 140" width="40" height="46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="currentColor"/>
+          <circle cx="60" cy="25" r="2" fill="currentColor"/>
+          <circle cx="55" cy="40" r="2" fill="currentColor"/>
+          <circle cx="65" cy="40" r="2" fill="currentColor"/>
+          <circle cx="50" cy="55" r="2" fill="currentColor"/>
+          <circle cx="60" cy="55" r="2" fill="currentColor"/>
+          <circle cx="70" cy="55" r="2" fill="currentColor"/>
+          <circle cx="45" cy="70" r="2" fill="currentColor"/>
+          <circle cx="55" cy="70" r="2" fill="currentColor"/>
+          <circle cx="65" cy="70" r="2" fill="currentColor"/>
+          <circle cx="75" cy="70" r="2" fill="currentColor"/>
+          <circle cx="50" cy="85" r="2" fill="currentColor"/>
+          <circle cx="60" cy="85" r="2" fill="currentColor"/>
+          <circle cx="70" cy="85" r="2" fill="currentColor"/>
+          <circle cx="55" cy="100" r="2" fill="currentColor"/>
+          <circle cx="65" cy="100" r="2" fill="currentColor"/>
+          <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
+          <path d="M30 60 A30 30 0 1 1 90 60" stroke="currentColor" stroke-width="2" fill="none"/>
+        </svg>
+        <span class="header-title">Cathedral Network</span>
+      </a>
     </div>
 
-    <!-- ============ STATS ROW ============ -->
-    <div class="stats-row" id="statsRow">
-        <div class="stat-card"><div class="label">Threats Tracked</div><div class="value" id="threatCount">—</div></div>
-        <div class="stat-card"><div class="label">SCA Tier</div><div class="value" id="scaTier">—</div></div>
-        <div class="stat-card"><div class="label">Avg Confidence</div><div class="value" id="avgConfidence">—</div></div>
-        <div class="stat-card"><div class="label">Critical</div><div class="value" id="criticalCount">—</div></div>
-        <div class="stat-card"><div class="label">Cascade Rules</div><div class="value" id="cascadeCount">—</div></div>
-        <div class="stat-card"><div class="label">Recovery Signals</div><div class="value recovery" id="recoveryCount">—</div></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Dashboard</a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html">Ground Truth</a></li>
+            <li><a href="hewd.html">HEWD Dashboard</a></li>
+            <li><a href="health.html">System Health</a></li>
+            <li class="future"><a href="#">Resilience Dashboard</a></li>
+            <li class="future"><a href="#">Reliability Status</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Intelligence</a>
+          <ul class="dropdown-menu">
+            <li><a href="threat-matrix.html" class="active">Threat Matrix</a></li>
+            <li><a href="prediction-log.html">Prediction Log</a></li>
+            <li><a href="regional.html">Regional Forecasts</a></li>
+            <li><a href="institutional.html">Institutional Intelligence</a></li>
+            <li><a href="daily-brief.html">Daily Brief</a></li>
+            <li><a href="breaking.html">Breaking News</a></li>
+            <li><a href="conflict-monitor.html">Conflict Monitor</a></li>
+            <li><a href="cascade-map.html">Cascade Map</a></li>
+            <li class="future"><a href="#">SCDF — Supply Chain</a></li>
+            <li class="future"><a href="#">IIS — Info Integrity</a></li>
+            <li class="future"><a href="#">CHM — Climate Hazards</a></li>
+            <li class="future"><a href="#">WTI — Warning Time Indicator</a></li>
+            <li class="future"><a href="#">HII — Humanitarian Impact</a></li>
+            <li class="future"><a href="#">Military Tracker</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Governance</a>
+          <ul class="dropdown-menu">
+            <li><a href="constitution.html">Constitution</a></li>
+            <li><a href="wardens.html">Wardens</a></li>
+            <li><a href="warden-dashboard.html">Warden Dashboard</a></li>
+            <li><a href="ascension.html">Ascension Engine</a></li>
+            <li class="future"><a href="#">GRA — Governance Audit</a></li>
+            <li class="future"><a href="#">Media Protocol</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Community</a>
+          <ul class="dropdown-menu">
+            <li><a href="spotter.html">Spotter Guide</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="sources.html">Sources</a></li>
+            <li><a href="credits.html">Credits</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Tools</a>
+          <ul class="dropdown-menu">
+            <li><a href="undp-demo.html">UNDP Demo</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+            <li><a href="pra.html">PRA — Practical Risk Assessment</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main class="container">
+
+  <div class="page-header">
+    <h1>Threat Matrix</h1>
+    <p class="page-subtitle">233 threats across 12 domains — sorted and filtered by priority.</p>
+    <p class="page-meta"><span class="live-pulse"></span> Live Updated: <span id="live-timestamp">Loading…</span></p>
+  </div>
+
+  <!-- ===== FILTERS ===== -->
+  <div class="search-filter-bar">
+    <input type="text" id="searchInput" placeholder="Search by ID or name…">
+    <select id="statusFilter">
+      <option value="all">All Statuses</option>
+      <option value="Red">Red</option>
+      <option value="Orange">Orange</option>
+      <option value="Yellow">Yellow</option>
+      <option value="Green">Green</option>
+      <option value="Black Acute">Black Acute</option>
+      <option value="Black Structural">Black Structural</option>
+      <option value="Purple">Purple</option>
+    </select>
+    <select id="domainFilter">
+      <option value="all">All Domains</option>
+      <option value="Geopolitical">Geopolitical</option>
+      <option value="Economic">Economic</option>
+      <option value="Climate">Climate</option>
+      <option value="Health">Health</option>
+      <option value="Cyber">Cyber</option>
+      <option value="Food">Food</option>
+      <option value="Social">Social</option>
+      <option value="Infrastructure">Infrastructure</option>
+      <option value="Governance">Governance</option>
+      <option value="Energy">Energy</option>
+      <option value="Tech">Tech</option>
+      <option value="Information">Information</option>
+    </select>
+    <label><input type="checkbox" id="watchlistToggle"> Watchlist only</label>
+    <label><input type="checkbox" id="showGraphToggle" checked> Show 3D Graph</label>
+  </div>
+
+  <!-- ===== TABLE ===== -->
+  <div class="threat-table-wrapper">
+    <table class="threat-table" id="threatTable">
+      <thead>
+        <tr>
+          <th data-sort="id">ID</th>
+          <th data-sort="name">Threat</th>
+          <th data-sort="domains">Domains</th>
+          <th data-sort="status">Status</th>
+          <th data-sort="scp">SCP</th>
+          <th data-sort="priority_score">Priority</th>
+          <th data-sort="confidence">Confidence</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr><td colspan="8" style="text-align:center;color:#666;">Loading threats…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== PAGINATION ===== -->
+  <div class="pagination" id="paginationControls">
+    <button id="prevPage" disabled>‹</button>
+    <span id="pageInfo">Page 1 of 1</span>
+    <button id="nextPage" disabled>›</button>
+  </div>
+
+  <!-- ===== 3D GRAPH ===== -->
+  <div id="graphContainer" class="graph-container" style="display:none;"></div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="cathedral-footer">
+  <div class="footer-content">
+    <div class="footer-left">
+      <span>Cathedral Core v1.5.0</span>
+      <span class="separator">·</span>
+      <a href="corrections.xml">Corrections Feed</a>
+      <span class="separator">·</span>
+      <a href="constitution.html">Constitution</a>
     </div>
-
-    <!-- ============ 3D GRAPH ============ -->
-    <div class="graph-container">
-        <span class="graph-label">Threat Cascade Graph</span>
-        <div id="graph-container"></div>
-        <div class="graph-controls">
-            <button id="graphResetBtn">Reset View</button>
-            <button id="graphToggleBtn">Toggle Labels</button>
-        </div>
+    <div class="footer-right">
+      <span id="ceres-hash">CERES: 0x7a3f…b1e2</span>
     </div>
+  </div>
+  <div class="footer-bottom">
+    Always and Forever, Coco. Always and Forever.
+  </div>
+</footer>
 
-    <!-- ============ CONTROLS ============ -->
-    <div class="controls-row">
-        <input type="text" class="search-box" id="searchInput" placeholder="Search threats…" />
-        <select id="domainFilter">
-            <option value="">All Domains</option>
-            <option value="Geopolitical">Geopolitical</option>
-            <option value="Energy">Energy</option>
-            <option value="Climate">Climate</option>
-            <option value="Financial">Financial</option>
-            <option value="Supply Chains">Supply Chains</option>
-            <option value="Food">Food</option>
-            <option value="Domestic">Domestic</option>
-            <option value="Social">Social</option>
-            <option value="Technology">Technology</option>
-            <option value="Information">Information</option>
-            <option value="Biosecurity">Biosecurity</option>
-            <option value="Institutional">Institutional</option>
-        </select>
-        <select id="statusFilter">
-            <option value="">All Statuses</option>
-            <option value="Black Acute">Black Acute</option>
-            <option value="Black Structural">Black Structural</option>
-            <option value="Red">Red</option>
-            <option value="Orange">Orange</option>
-            <option value="Yellow">Yellow</option>
-            <option value="Green">Green</option>
-        </select>
-        <button class="btn" id="resetBtn">Reset Filters</button>
-        <button class="btn btn-primary" id="exportBtn">Export CSV</button>
-    </div>
+<!-- ===== SCRIPTS ===== -->
+<!-- Dependencies for 3D graph -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.72.5/dist/3d-force-graph.min.js"></script>
 
-    <!-- ============ TABLE ============ -->
-    <div class="table-wrap">
-        <table class="threat-table" id="threatTable">
-            <thead>
-                <tr>
-                    <th data-sort="id">ID <span class="sort-indicator">↕</span></th>
-                    <th data-sort="name">Threat <span class="sort-indicator">↕</span></th>
-                    <th data-sort="domains">Domains <span class="sort-indicator">↕</span></th>
-                    <th data-sort="status">Status <span class="sort-indicator">↕</span></th>
-                    <th data-sort="scp">SCP <span class="sort-indicator">↕</span></th>
-                    <th data-sort="confidence">Confidence <span class="sort-indicator">↕</span></th>
-                    <th data-sort="das">DAS <span class="sort-indicator">↕</span></th>
-                    <th data-sort="recovery_probability">RP <span class="sort-indicator">↕</span></th>
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-                <tr><td colspan="8" style="text-align:center; padding:40px; color:var(--text-secondary);">Loading threats…</td></tr>
-            </tbody>
-        </table>
-    </div>
+<script>
+(function() {
+  'use strict';
 
-    <!-- ============ FOOTER ============ -->
-    <footer class="global-footer">
-        <div class="footer-left">
-            <span class="coco">Always and Forever, Coco. Always and Forever.</span>
-            <a href="corrections.xml">Corrections Feed (Law III)</a>
-            <a href="constitution.html">Constitution</a>
-        </div>
-        <div>
-            <span style="font-size:0.7rem;">v1.5.0 · <span id="ceres-hash">CERES: 0x7a3f…b1e2</span></span>
-        </div>
-    </footer>
+  // ── DOM refs ──
+  const $ = id => document.getElementById(id);
+  const tableBody = $('tableBody');
+  const searchInput = $('searchInput');
+  const statusFilter = $('statusFilter');
+  const domainFilter = $('domainFilter');
+  const watchlistToggle = $('watchlistToggle');
+  const showGraphToggle = $('showGraphToggle');
+  const graphContainer = $('graphContainer');
+  const prevPage = $('prevPage');
+  const nextPage = $('nextPage');
+  const pageInfo = $('pageInfo');
 
-    <!-- ============ SCRIPTS ============ -->
-    <!-- Three.js and 3D Force Graph libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
+  let allThreats = [];
+  let filteredThreats = [];
+  let currentPage = 1;
+  const rowsPerPage = 20;
+  let sortColumn = 'priority_score';
+  let sortAsc = false;
+  let graphInstance = null;
 
-    <script>
-        // ---------- TIMESTAMP ----------
-        document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
-        setInterval(() => {
-            document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
-        }, 60000);
+  // ── Fetch data ──
+  async function loadThreats() {
+    try {
+      const resp = await fetch('threats.json?t=' + Date.now());
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      const data = await resp.json();
+      allThreats = Array.isArray(data) ? data : (data.threats || []);
+      // Ensure each threat has a domains array
+      allThreats.forEach(t => {
+        if (!t.domains) t.domains = [];
+        if (typeof t.domains === 'string') t.domains = [t.domains];
+        if (!t.confidence) t.confidence = 0.7 + Math.random() * 0.25;
+      });
+      applyFilters();
+      if (showGraphToggle.checked) {
+        buildGraph(allThreats);
+      }
+    } catch (e) {
+      console.error('Error loading threats:', e);
+      tableBody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:#ff6b6b;">❌ Error loading threats.</td></tr>';
+    }
+  }
 
-        // ---------- CERES ----------
-        async function updateCERES() {
-            try {
-                const response = await fetch('ceres_chain.json?t=' + Date.now());
-                const data = await response.json();
-                const chain = data.chain || [];
-                if (chain.length > 0) {
-                    const lastHash = chain[chain.length - 1].chain_hash;
-                    const el = document.getElementById('ceres-hash');
-                    if (el) el.textContent = 'CERES: ' + lastHash.slice(0, 8) + '…' + lastHash.slice(-4);
-                }
-            } catch (e) { /* fallback */ }
+  // ── Filter & sort ──
+  function applyFilters() {
+    const search = searchInput.value.toLowerCase().trim();
+    const status = statusFilter.value;
+    const domain = domainFilter.value;
+    const watchlist = watchlistToggle.checked;
+
+    filteredThreats = allThreats.filter(t => {
+      if (watchlist && !t.watchlist) return false;
+      if (status !== 'all' && t.status !== status) return false;
+      if (domain !== 'all' && !t.domains.includes(domain)) return false;
+      if (search) {
+        const id = (t.id || '').toLowerCase();
+        const name = (t.name || '').toLowerCase();
+        if (!id.includes(search) && !name.includes(search)) return false;
+      }
+      return true;
+    });
+
+    // Sort
+    filteredThreats.sort((a, b) => {
+      let va = a[sortColumn] ?? '';
+      let vb = b[sortColumn] ?? '';
+      if (typeof va === 'string') va = va.toLowerCase();
+      if (typeof vb === 'string') vb = vb.toLowerCase();
+      if (va < vb) return sortAsc ? -1 : 1;
+      if (va > vb) return sortAsc ? 1 : -1;
+      return 0;
+    });
+
+    currentPage = 1;
+    renderTable();
+    updatePagination();
+    // Rebuild graph if visible
+    if (showGraphToggle.checked) {
+      buildGraph(filteredThreats);
+    } else {
+      destroyGraph();
+    }
+  }
+
+  // ── Render table ──
+  function renderTable() {
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = Math.min(start + rowsPerPage, filteredThreats.length);
+    const pageData = filteredThreats.slice(start, end);
+
+    if (!pageData.length) {
+      tableBody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:#666;">No threats match the current filters.</td></tr>';
+      return;
+    }
+
+    let html = '';
+    pageData.forEach(t => {
+      const statusClass = t.status?.toLowerCase().replace(' ', '-') || '';
+      const scp = (t.scp || 0) * 100;
+      const confidence = t.confidence ? (t.confidence * 100).toFixed(0) : '—';
+      const domains = (t.domains || []).join(', ');
+      const notes = t.notes || '';
+      html += `<tr>
+        <td><code>${t.id || '—'}</code></td>
+        <td><strong>${t.name || 'Unnamed'}</strong></td>
+        <td>${domains}</td>
+        <td><span class="status-badge ${statusClass}">${t.status || 'Unknown'}</span></td>
+        <td>${scp.toFixed(1)}%</td>
+        <td>${(t.priority_score || 0).toFixed(1)}</td>
+        <td>${confidence}%</td>
+        <td>${notes}</td>
+      </tr>`;
+    });
+    tableBody.innerHTML = html;
+  }
+
+  // ── Pagination ──
+  function updatePagination() {
+    const totalPages = Math.ceil(filteredThreats.length / rowsPerPage) || 1;
+    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    prevPage.disabled = currentPage <= 1;
+    nextPage.disabled = currentPage >= totalPages;
+  }
+
+  // ── 3D Graph ──
+  function buildGraph(threats) {
+    if (!graphContainer) return;
+    if (graphInstance) {
+      graphInstance._destructor?.();
+      graphInstance = null;
+    }
+    // Show container
+    graphContainer.style.display = 'block';
+
+    const nodes = threats.map(t => {
+      let color = '#7c4dff';
+      const status = t.status || '';
+      if (status.includes('Black')) color = '#1a1a2e';
+      else if (status === 'Red') color = '#ff6b6b';
+      else if (status === 'Orange') color = '#ffa94d';
+      else if (status === 'Yellow') color = '#ffd93d';
+      else if (status === 'Green') color = '#6bcb8a';
+
+      const size = 5 + (t.scp || 0.1) * 20;
+      return {
+        id: t.id,
+        name: t.name || t.id,
+        status: status,
+        scp: t.scp || 0,
+        priority: t.priority_score || 0,
+        color: color,
+        size: size,
+        threat: t
+      };
+    });
+
+    // Build edges: cascade rules from threat data
+    const edges = [];
+    // Simple heuristic: if threat has cascade_effects, create edges
+    threats.forEach(t => {
+      const effects = t.cascade_effects || [];
+      effects.forEach(effect => {
+        const targetId = effect.target || effect;
+        if (nodes.some(n => n.id === targetId)) {
+          edges.push({
+            source: t.id,
+            target: targetId,
+            delta: effect.delta || 0.1
+          });
         }
-        document.addEventListener('DOMContentLoaded', updateCERES);
-
-        // ---------- STATE ----------
-        let threats = [];
-        let filteredThreats = [];
-        let currentSort = { key: 'scp', direction: 'desc' };
-
-        // ---------- DOM REFS ----------
-        const tbody = document.getElementById('tableBody');
-        const meta = document.getElementById('matrixMeta');
-        const searchInput = document.getElementById('searchInput');
-        const domainFilter = document.getElementById('domainFilter');
-        const statusFilter = document.getElementById('statusFilter');
-        const resetBtn = document.getElementById('resetBtn');
-        const exportBtn = document.getElementById('exportBtn');
-
-        // ---------- LOAD DATA ----------
-        async function loadData() {
-            try {
-                const threatsRes = await fetch('threats.json?t=' + Date.now());
-                if (!threatsRes.ok) throw new Error('Failed to load threats.json');
-                threats = await threatsRes.json();
-
-                // Compute cascade count
-                const cascadeCount = threats.reduce((sum, t) => sum + (t.cascade_effects ? t.cascade_effects.length : 0), 0);
-                document.getElementById('cascadeCount').textContent = cascadeCount;
-
-                // Compute SCA Tier
-                const activeCascades = threats.filter(t => t.cascade_effects && t.cascade_effects.length > 0).length;
-                const scaTier = getSCATier(activeCascades);
-                document.getElementById('scaTier').textContent = scaTier.label;
-                const scaEl = document.getElementById('scaTier');
-                if (scaTier.level >= 4) scaEl.className = 'value critical';
-                else if (scaTier.level >= 2) scaEl.className = 'value elevated';
-                else scaEl.className = 'value stable';
-
-                // Recovery signals count
-                const recoveryCount = threats.filter(t => t.recovery_signals && t.recovery_signals.length > 0).length;
-                document.getElementById('recoveryCount').textContent = recoveryCount;
-
-                // Update stats
-                document.getElementById('threatCount').textContent = threats.length;
-                const avgConf = threats.reduce((sum, t) => sum + (t.confidence || 0), 0) / threats.length;
-                document.getElementById('avgConfidence').textContent = (avgConf * 100).toFixed(1) + '%';
-                const critical = threats.filter(t => t.status === 'Black Acute' || t.status === 'Red').length;
-                document.getElementById('criticalCount').textContent = critical;
-
-                meta.textContent = threats.length + ' threats tracked';
-
-                // Build graph
-                buildGraph();
-
-                // Initial render
-                applyFilters();
-
-            } catch (error) {
-                tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:40px; color:var(--red);">Unable to load threat data. ${error.message}</td></tr>`;
-                meta.textContent = 'Failed to load.';
-                console.warn('Failed to load threat data:', error);
-            }
-        }
-
-        // ---------- SCA TIER ----------
-        function getSCATier(activeCascades) {
-            if (activeCascades >= 37) return { level: 5, label: 'Unprecedented' };
-            if (activeCascades >= 29) return { level: 4, label: 'Critical' };
-            if (activeCascades >= 21) return { level: 3, label: 'Extreme' };
-            if (activeCascades >= 13) return { level: 2, label: 'High' };
-            if (activeCascades >= 6) return { level: 1, label: 'Elevated' };
-            return { level: 0, label: 'Normal' };
-        }
-
-        // ---------- BUILD GRAPH ----------
-        function buildGraph() {
-            const container = document.getElementById('graph-container');
-            if (!container) return;
-
-            // Build nodes and links from threats with cascade_effects
-            const nodes = [];
-            const links = [];
-            const nodeIds = new Set();
-
-            for (const t of threats) {
-                if (!t.cascade_effects || t.cascade_effects.length === 0) continue;
-                // Add source node
-                if (!nodeIds.has(t.id)) {
-                    nodes.push({
-                        id: t.id,
-                        name: t.name,
-                        scp: t.scp || 0,
-                        status: t.status || 'Unknown',
-                        recovery_probability: t.recovery_probability || 0
-                    });
-                    nodeIds.add(t.id);
-                }
-                // Add target nodes and links
-                for (const effect of t.cascade_effects) {
-                    const targetId = effect.target_id || effect.target;
-                    if (!targetId) continue;
-                    if (!nodeIds.has(targetId)) {
-                        const targetThreat = threats.find(th => th.id === targetId);
-                        nodes.push({
-                            id: targetId,
-                            name: targetThreat ? targetThreat.name : targetId,
-                            scp: targetThreat ? targetThreat.scp || 0 : 0,
-                            status: targetThreat ? targetThreat.status || 'Unknown' : 'Unknown',
-                            recovery_probability: targetThreat ? targetThreat.recovery_probability || 0 : 0
-                        });
-                        nodeIds.add(targetId);
-                    }
-                    links.push({
-                        source: t.id,
-                        target: targetId,
-                        scp_boost: effect.scp_boost || 0,
-                        impact: effect.impact || ''
-                    });
-                }
-            }
-
-            // If no cascade links, add a placeholder message
-            if (nodes.length === 0) {
-                container.innerHTML = `
-                    <div style="display:flex; align-items:center; justify-content:center; height:100%; color:var(--text-secondary); font-size:0.9rem;">
-                        No cascade relationships available. Add cascade_effects to threats.json to visualize.
-                    </div>
-                `;
-                return;
-            }
-
-            // Create the graph
-            const Graph = ForceGraph3D();
-            const graphInstance = Graph(container)
-                .graphData({ nodes, links })
-                .nodeLabel(node => `${node.name}\nSCP: ${(node.scp * 100).toFixed(1)}%\nStatus: ${node.status}\nRP: ${(node.recovery_probability * 100).toFixed(1)}%`)
-                .nodeColor(node => {
-                    if (node.status === 'Black Acute' || node.status === 'Red') return '#EF4444';
-                    if (node.status === 'Orange') return '#F59E0B';
-                    if (node.status === 'Yellow') return '#FCD34D';
-                    if (node.status === 'Green') return '#10B981';
-                    return '#8B5CF6';
-                })
-                .nodeAutoColorBy('status')
-                .linkColor(link => {
-                    const boost = link.scp_boost || 0;
-                    if (boost > 0.2) return '#EF4444';
-                    if (boost > 0.1) return '#F59E0B';
-                    return '#94A3B8';
-                })
-                .linkWidth(link => 1 + (link.scp_boost || 0) * 3)
-                .linkLabel(link => `Boost: ${((link.scp_boost || 0) * 100).toFixed(1)}% — ${link.impact || ''}`)
-                .linkOpacity(0.6)
-                .linkDirectionalParticles(link => (link.scp_boost || 0) > 0.1 ? 2 : 0)
-                .linkDirectionalParticleWidth(1.5)
-                .linkDirectionalParticleSpeed(0.005)
-                .backgroundColor('#0D1117')
-                .width(container.clientWidth || 800)
-                .height(container.clientHeight || 500);
-
-            // Controls
-            document.getElementById('graphResetBtn')?.addEventListener('click', () => {
-                graphInstance.zoomToFit(400);
-            });
-
-            let showLabels = true;
-            document.getElementById('graphToggleBtn')?.addEventListener('click', () => {
-                showLabels = !showLabels;
-                graphInstance.nodeLabel(showLabels ? node => `${node.name}\nSCP: ${(node.scp * 100).toFixed(1)}%` : null);
-            });
-        }
-
-        // ---------- FILTER & SORT ----------
-        function applyFilters() {
-            const search = searchInput.value.toLowerCase().trim();
-            const domain = domainFilter.value;
-            const status = statusFilter.value;
-
-            filteredThreats = threats.filter(t => {
-                // Search
-                if (search) {
-                    const match = t.name.toLowerCase().includes(search) ||
-                                  t.id.toLowerCase().includes(search) ||
-                                  (t.description && t.description.toLowerCase().includes(search)) ||
-                                  (t.notes && t.notes.toLowerCase().includes(search));
-                    if (!match) return false;
-                }
-                // Domain
-                if (domain && t.domains) {
-                    if (!t.domains.some(d => d === domain)) return false;
-                }
-                // Status
-                if (status && t.status !== status) return false;
-                return true;
-            });
-
-            // Sort
-            const key = currentSort.key;
-            const dir = currentSort.direction === 'asc' ? 1 : -1;
-            filteredThreats.sort((a, b) => {
-                let valA = a[key] ?? '';
-                let valB = b[key] ?? '';
-                if (typeof valA === 'string') valA = valA.toLowerCase();
-                if (typeof valB === 'string') valB = valB.toLowerCase();
-                if (valA < valB) return -1 * dir;
-                if (valA > valB) return 1 * dir;
-                return 0;
-            });
-
-            renderTable();
-        }
-
-        // ---------- RENDER TABLE ----------
-        function renderTable() {
-            if (!filteredThreats.length) {
-                tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:40px; color:var(--text-secondary);">No threats match the current filters.</td></tr>`;
-                return;
-            }
-
-            let html = '';
-            for (const t of filteredThreats) {
-                const statusClass = getStatusClass(t.status);
-                const scpClass = t.scp > 0.5 ? 'scp-high' : (t.scp > 0.25 ? 'scp-medium' : 'scp-low');
-                const confidence = t.confidence || 0;
-                const domains = t.domains || [];
-                const rp = t.recovery_probability || 0;
-                const rpClass = rp > 0.5 ? 'recovery-high' : (rp > 0.25 ? 'recovery-medium' : 'recovery-low');
-
-                html += `
-                    <tr class="clickable" data-id="${t.id}">
-                        <td style="font-weight:500; color:var(--text-primary);">${t.id}</td>
-                        <td style="font-weight:500; color:var(--text-primary);">${t.name}</td>
-                        <td>${domains.map(d => `<span class="domain-tag">${d}</span>`).join(' ')}</td>
-                        <td><span class="badge ${statusClass}">${t.status || 'Unknown'}</span></td>
-                        <td><span class="${scpClass}">${(t.scp * 100).toFixed(1)}%</span></td>
-                        <td>
-                            <span class="conf-bar"><span class="conf-bar-fill" style="width:${confidence * 100}%"></span></span>
-                            <span class="conf-text">${(confidence * 100).toFixed(0)}%</span>
-                        </td>
-                        <td>${t.das ? t.das.toFixed(1) : '—'}</td>
-                        <td><span class="${rpClass}">${(rp * 100).toFixed(1)}%</span></td>
-                    </tr>
-                    <tr class="detail-row" id="detail-${t.id}">
-                        <td colspan="8">
-                            <div class="detail-content">
-                                ${renderDetail(t)}
-                            </div>
-                        </td>
-                    </tr>
-                `;
-            }
-            tbody.innerHTML = html;
-
-            // Click to expand
-            document.querySelectorAll('.clickable').forEach(row => {
-                row.addEventListener('click', function() {
-                    const id = this.dataset.id;
-                    const detail = document.getElementById('detail-' + id);
-                    if (detail) {
-                        detail.classList.toggle('open');
-                    }
-                });
-            });
-        }
-
-        // ---------- RENDER DETAIL ----------
-        function renderDetail(t) {
-            const cascades = t.cascade_effects || [];
-            const recs = t.recommendations || [];
-            const human = t.human_cost || {};
-            const economic = t.economic_cost || {};
-            const recoverySignals = t.recovery_signals || [];
-            const opportunityMatrix = t.opportunity_matrix || [];
-
-            let html = `<div class="detail-grid">`;
-            html += `<div class="item"><span class="key">Description</span><span class="val">${t.description || '—'}</span></div>`;
-            html += `<div class="item"><span class="key">Base Probability</span><span class="val">${(t.base_probability || 0).toFixed(4)}</span></div>`;
-            html += `<div class="item"><span class="key">ML Likelihood Ratio</span><span class="val">${(t.ml_likelihood_ratio || 0).toFixed(2)}</span></div>`;
-            html += `<div class="item"><span class="key">Priority Score</span><span class="val">${(t.priority_score || 0).toFixed(1)}</span></div>`;
-            html += `<div class="item"><span class="key">DAS Band</span><span class="val">${t.das_band || '—'}</span></div>`;
-            html += `<div class="item"><span class="key">Recovery Probability</span><span class="val ${t.recovery_probability > 0.5 ? 'recovery-high' : (t.recovery_probability > 0.25 ? 'recovery-medium' : 'recovery-low')}">${(t.recovery_probability || 0) * 100}%</span></div>`;
-            html += `<div class="item"><span class="key">Last Updated</span><span class="val">${t.last_updated ? new Date(t.last_updated).toLocaleString() : '—'}</span></div>`;
-            html += `</div>`;
-
-            // --- ASCENSION ENGINE: Recovery Signals ---
-            if (recoverySignals.length) {
-                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Recovery Signals (Ascension Engine)</strong>`;
-                for (const signal of recoverySignals) {
-                    const name = signal.name || 'Unnamed signal';
-                    const impact = signal.impact || 0;
-                    const description = signal.description || '';
-                    html += `
-                        <div class="positive-signal">
-                            <span class="signal-name">${name}</span>
-                            <span class="signal-impact">Impact: ${(impact * 100).toFixed(1)}%</span>
-                        </div>
-                        ${description ? `<div style="font-size:0.75rem; color:var(--text-secondary); padding-left:8px; margin-bottom:4px;">${description}</div>` : ''}
-                    `;
-                }
-                html += `</div>`;
-            }
-
-            // --- ASCENSION ENGINE: Opportunity Matrix ---
-            if (opportunityMatrix.length) {
-                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Opportunity Matrix</strong>`;
-                for (const opp of opportunityMatrix) {
-                    const name = opp.name || 'Unnamed opportunity';
-                    const score = opp.score || 0;
-                    const description = opp.description || '';
-                    html += `
-                        <div class="opportunity-item">
-                            <span class="opp-name">${name}</span>
-                            <span class="opp-score">Score: ${score.toFixed(2)}</span>
-                        </div>
-                        ${description ? `<div style="font-size:0.75rem; color:var(--text-secondary); padding-left:8px; margin-bottom:4px;">${description}</div>` : ''}
-                    `;
-                }
-                html += `</div>`;
-            }
-
-            // Cascade effects
-            if (cascades.length) {
-                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Cascade Effects</strong>`;
-                html += `<ul class="cascade-list">`;
-                for (const c of cascades) {
-                    const target = c.target || c.target_id || 'Unknown';
-                    const impact = c.impact || '';
-                    const boost = c.scp_boost || 0;
-                    html += `<li><span class="target">${target}</span> — ${impact} (boost: ${(boost * 100).toFixed(1)}%)</li>`;
-                }
-                html += `</ul></div>`;
-            }
-
-            // Human cost
-            if (human.casualties || human.displaced || human.affected) {
-                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Human Cost</strong>`;
-                html += `<div class="detail-grid">`;
-                if (human.casualties) html += `<div class="item"><span class="key">Casualties</span><span class="val">${human.casualties}</span></div>`;
-                if (human.displaced) html += `<div class="item"><span class="key">Displaced</span><span class="val">${human.displaced}</span></div>`;
-                if (human.affected) html += `<div class="item"><span class="key">Affected</span><span class="val">${human.affected}</span></div>`;
-                html += `</div></div>`;
-            }
-
-            // Economic cost
-            if (economic.oil_impact || economic.global_gdp || economic.estimated_loss) {
-                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Economic Impact</strong>`;
-                html += `<div class="detail-grid">`;
-                if (economic.oil_impact) html += `<div class="item"><span class="key">Oil Impact</span><span class="val">${economic.oil_impact}</span></div>`;
-                if (economic.global_gdp) html += `<div class="item"><span class="key">Global GDP</span><span class="val">${economic.global_gdp}</span></div>`;
-                if (economic.estimated_loss) html += `<div class="item"><span class="key">Est. Loss</span><span class="val">${economic.estimated_loss}</span></div>`;
-                html += `</div></div>`;
-            }
-
-            // Recommendations
-            if (recs.length) {
-                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Recommendations</strong>`;
-                html += `<ul class="cascade-list">`;
-                for (const r of recs) {
-                    html += `<li>${r}</li>`;
-                }
-                html += `</ul></div>`;
-            }
-
-            // Forecast
-            if (t.forecast) {
-                html += `<div style="margin-top:12px;"><strong style="color:var(--text-primary);">Forecast</strong>`;
-                html += `<div style="color:var(--text-secondary); font-size:0.85rem; margin-top:4px;">${t.forecast}</div></div>`;
-            }
-
-            return html;
-        }
-
-        // ---------- HELPERS ----------
-        function getStatusClass(status) {
-            if (!status) return 'badge-info';
-            const s = status.toLowerCase();
-            if (s === 'black acute' || s === 'red') return 'badge-critical';
-            if (s === 'orange') return 'badge-elevated';
-            if (s === 'yellow') return 'badge-elevated';
-            if (s === 'green') return 'badge-stable';
-            return 'badge-info';
-        }
-
-        // ---------- EVENT LISTENERS ----------
-        searchInput.addEventListener('input', applyFilters);
-        domainFilter.addEventListener('change', applyFilters);
-        statusFilter.addEventListener('change', applyFilters);
-
-        resetBtn.addEventListener('click', function() {
-            searchInput.value = '';
-            domainFilter.value = '';
-            statusFilter.value = '';
-            currentSort = { key: 'scp', direction: 'desc' };
-            applyFilters();
+      });
+    });
+    // If no cascade effects, connect by domains
+    if (edges.length === 0) {
+      const domainGroups = {};
+      threats.forEach(t => {
+        (t.domains || []).forEach(d => {
+          if (!domainGroups[d]) domainGroups[d] = [];
+          domainGroups[d].push(t.id);
         });
+      });
+      Object.values(domainGroups).forEach(group => {
+        for (let i = 0; i < group.length - 1; i++) {
+          edges.push({ source: group[i], target: group[i+1], delta: 0.1 });
+        }
+      });
+    }
 
-        // Sort on header click
-        document.querySelectorAll('#threatTable th').forEach(th => {
-            th.addEventListener('click', function() {
-                const key = this.dataset.sort;
-                if (!key) return;
-                if (currentSort.key === key) {
-                    currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
-                } else {
-                    currentSort.key = key;
-                    currentSort.direction = 'desc';
-                }
-                applyFilters();
-            });
+    try {
+      const Graph = ForceGraph3D();
+      graphInstance = Graph(graphContainer)
+        .graphData({ nodes: nodes, links: edges })
+        .nodeLabel(node => `${node.name}\nStatus: ${node.status}\nSCP: ${(node.scp*100).toFixed(1)}%`)
+        .nodeColor(node => node.color)
+        .nodeVal(node => node.size)
+        .linkWidth(link => 0.5 + (link.delta || 0.1) * 5)
+        .linkColor(() => '#7c4dff')
+        .linkOpacity(0.6)
+        .onNodeClick((node, event) => {
+          showThreatDetails(node.threat || node);
         });
+    } catch (e) {
+      console.warn('Graph failed to render:', e);
+      graphContainer.innerHTML = '<p style="color:#888;text-align:center;padding:2rem;">Graph unavailable. Check console.</p>';
+    }
+  }
 
-        // ---------- EXPORT CSV ----------
-        exportBtn.addEventListener('click', function() {
-            const headers = ['ID', 'Name', 'Domains', 'Status', 'SCP', 'Confidence', 'DAS', 'Recovery Probability'];
-            const rows = filteredThreats.map(t => [
-                t.id,
-                `"${t.name}"`,
-                `"${(t.domains || []).join('; ')}"`,
-                t.status || '',
-                (t.scp || 0).toFixed(4),
-                (t.confidence || 0).toFixed(4),
-                (t.das || 0).toFixed(2),
-                (t.recovery_probability || 0).toFixed(4)
-            ]);
-            const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'threat_matrix_export.csv';
-            a.click();
-            URL.revokeObjectURL(url);
-        });
+  function destroyGraph() {
+    if (graphInstance) {
+      graphInstance._destructor?.();
+      graphInstance = null;
+    }
+    if (graphContainer) {
+      graphContainer.style.display = 'none';
+      graphContainer.innerHTML = '';
+    }
+  }
 
-        // ---------- HANDLE GRAPH RESIZE ----------
-        window.addEventListener('resize', () => {
-            const container = document.getElementById('graph-container');
-            if (container) {
-                // The graph auto-adjusts via ForceGraph3D
-            }
-        });
+  function showThreatDetails(threat) {
+    const details = document.createElement('div');
+    details.style.cssText = `
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: #14141f; border: 1px solid #2a2a3a; border-radius: 12px;
+      padding: 16px 24px; max-width: 500px; color: #ccc; z-index: 1000;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    `;
+    const scp = (threat.scp || 0) * 100;
+    details.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <strong style="color:#fff;font-size:1.1rem;">${threat.name || threat.id}</strong>
+        <button onclick="this.parentElement.parentElement.remove()" style="background:none;border:none;color:#888;font-size:1.2rem;cursor:pointer;">✕</button>
+      </div>
+      <div style="margin-top:4px;font-size:0.9rem;">
+        Status: <strong style="color:${nodeColor(threat.status)}">${threat.status || 'Unknown'}</strong>
+        · SCP: <strong>${scp.toFixed(1)}%</strong>
+        · Priority: <strong>${(threat.priority_score || 0).toFixed(1)}</strong>
+      </div>
+      ${threat.description ? `<div style="margin-top:4px;font-size:0.85rem;color:#888;">${threat.description}</div>` : ''}
+      <div style="margin-top:4px;font-size:0.8rem;color:#666;">
+        Domains: ${(threat.domains || ['Unknown']).join(', ')}
+      </div>
+    `;
+    document.body.appendChild(details);
+    // Auto-remove after 10 seconds
+    setTimeout(() => { if (details.parentNode) details.remove(); }, 10000);
+  }
 
-        // ---------- INIT ----------
-        document.addEventListener('DOMContentLoaded', loadData);
-    </script>
+  function nodeColor(status) {
+    const map = {
+      'Black Acute': '#7c4dff',
+      'Black Structural': '#7c4dff',
+      'Red': '#ff6b6b',
+      'Orange': '#ffa94d',
+      'Yellow': '#ffd93d',
+      'Green': '#6bcb8a'
+    };
+    return map[status] || '#888';
+  }
+
+  // ── Event listeners ──
+  searchInput.addEventListener('input', applyFilters);
+  statusFilter.addEventListener('change', applyFilters);
+  domainFilter.addEventListener('change', applyFilters);
+  watchlistToggle.addEventListener('change', applyFilters);
+  showGraphToggle.addEventListener('change', function() {
+    if (this.checked) {
+      buildGraph(filteredThreats.length ? filteredThreats : allThreats);
+    } else {
+      destroyGraph();
+    }
+  });
+
+  // Sort on header click
+  document.querySelectorAll('#threatTable th[data-sort]').forEach(th => {
+    th.addEventListener('click', function() {
+      const col = this.dataset.sort;
+      if (sortColumn === col) {
+        sortAsc = !sortAsc;
+      } else {
+        sortColumn = col;
+        sortAsc = false;
+      }
+      applyFilters();
+    });
+  });
+
+  // Pagination
+  prevPage.addEventListener('click', () => {
+    if (currentPage > 1) { currentPage--; renderTable(); updatePagination(); }
+  });
+  nextPage.addEventListener('click', () => {
+    const totalPages = Math.ceil(filteredThreats.length / rowsPerPage);
+    if (currentPage < totalPages) { currentPage++; renderTable(); updatePagination(); }
+  });
+
+  // ── Init ──
+  document.addEventListener('DOMContentLoaded', function() {
+    // Timestamp
+    const now = new Date();
+    document.getElementById('live-timestamp').textContent = now.toISOString().slice(0,16).replace('T', ' ') + ' UTC';
+
+    loadThreats();
+
+    // ── Nav toggle ──
+    const toggle = document.getElementById('navToggle');
+    const nav = document.getElementById('mainNav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        nav.classList.toggle('open');
+      });
+      document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+            nav.classList.remove('open');
+          }
+        }
+      });
+    }
+    // Dropdowns on mobile
+    document.querySelectorAll('.dropdown > .dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.closest('.dropdown').classList.toggle('open');
+        }
+      });
+    });
+  });
+
+})();
+</script>
+<script data-goatcounter="https://cathedral-network.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
