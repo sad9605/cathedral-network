@@ -1,96 +1,96 @@
 {
   "source": "AW13 Social Sentiment Warden",
-  "fetched_at": "2026-07-13T23:44:11.679606+00:00",
+  "fetched_at": "2026-07-19T16:48:43.720941+00:00",
   "sentiments": [
     {
       "id": "SOC-001",
-      "topic": "unrest",
-      "region": "USA",
-      "sentiment_score": 0.81,
-      "volume": 26983,
+      "topic": "demonstration",
+      "region": "France",
+      "sentiment_score": 0.36,
+      "volume": 22751,
       "trend": "stable",
-      "date": "2026-07-13T23:44:11.679447+00:00"
+      "date": "2026-07-19T16:48:43.720782+00:00"
     },
     {
       "id": "SOC-002",
-      "topic": "strike",
-      "region": "UK",
-      "sentiment_score": 0.64,
-      "volume": 15033,
-      "trend": "falling",
-      "date": "2026-07-13T23:44:11.679506+00:00"
+      "topic": "protests",
+      "region": "Egypt",
+      "sentiment_score": 0.75,
+      "volume": 32077,
+      "trend": "rising",
+      "date": "2026-07-19T16:48:43.720847+00:00"
     },
     {
       "id": "SOC-003",
       "topic": "demonstration",
       "region": "France",
-      "sentiment_score": 0.07,
-      "volume": 5300,
+      "sentiment_score": 0.34,
+      "volume": 15392,
       "trend": "rising",
-      "date": "2026-07-13T23:44:11.679519+00:00"
+      "date": "2026-07-19T16:48:43.720860+00:00"
     },
     {
       "id": "SOC-004",
-      "topic": "unrest",
-      "region": "Brazil",
-      "sentiment_score": -0.34,
-      "volume": 13223,
-      "trend": "rising",
-      "date": "2026-07-13T23:44:11.679543+00:00"
+      "topic": "demonstration",
+      "region": "UK",
+      "sentiment_score": 0.21,
+      "volume": 40565,
+      "trend": "falling",
+      "date": "2026-07-19T16:48:43.720870+00:00"
     },
     {
       "id": "SOC-005",
-      "topic": "strike",
-      "region": "Nigeria",
-      "sentiment_score": 0.89,
-      "volume": 48024,
-      "trend": "falling",
-      "date": "2026-07-13T23:44:11.679555+00:00"
+      "topic": "protests",
+      "region": "USA",
+      "sentiment_score": 0.11,
+      "volume": 33702,
+      "trend": "rising",
+      "date": "2026-07-19T16:48:43.720879+00:00"
     },
     {
       "id": "SOC-006",
-      "topic": "strike",
-      "region": "Egypt",
-      "sentiment_score": -0.77,
-      "volume": 15483,
-      "trend": "stable",
-      "date": "2026-07-13T23:44:11.679565+00:00"
+      "topic": "unrest",
+      "region": "Nigeria",
+      "sentiment_score": 0.21,
+      "volume": 26360,
+      "trend": "falling",
+      "date": "2026-07-19T16:48:43.720888+00:00"
     },
     {
       "id": "SOC-007",
       "topic": "demonstration",
-      "region": "France",
-      "sentiment_score": 0.81,
-      "volume": 24591,
-      "trend": "rising",
-      "date": "2026-07-13T23:44:11.679574+00:00"
+      "region": "UK",
+      "sentiment_score": -0.61,
+      "volume": 24101,
+      "trend": "falling",
+      "date": "2026-07-19T16:48:43.720908+00:00"
     },
     {
       "id": "SOC-008",
-      "topic": "protests",
-      "region": "Brazil",
-      "sentiment_score": -0.49,
-      "volume": 45177,
-      "trend": "stable",
-      "date": "2026-07-13T23:44:11.679583+00:00"
+      "topic": "unrest",
+      "region": "Germany",
+      "sentiment_score": -0.78,
+      "volume": 3160,
+      "trend": "falling",
+      "date": "2026-07-19T16:48:43.720919+00:00"
     },
     {
       "id": "SOC-009",
-      "topic": "unrest",
-      "region": "Brazil",
-      "sentiment_score": -0.87,
-      "volume": 20637,
+      "topic": "demonstration",
+      "region": "France",
+      "sentiment_score": -0.01,
+      "volume": 2096,
       "trend": "rising",
-      "date": "2026-07-13T23:44:11.679592+00:00"
+      "date": "2026-07-19T16:48:43.720928+00:00"
     },
     {
       "id": "SOC-010",
-      "topic": "protests",
-      "region": "France",
-      "sentiment_score": -0.68,
-      "volume": 5663,
+      "topic": "rally",
+      "region": "UK",
+      "sentiment_score": -0.67,
+      "volume": 1843,
       "trend": "rising",
-      "date": "2026-07-13T23:44:11.679601+00:00"
+      "date": "2026-07-19T16:48:43.720936+00:00"
     }
   ]
 }

@@ -1363,7 +1363,9 @@
     "verified": false,
     "hit": null,
     "verification_note": "Confidence is 50% \u2013 below 60% threshold.",
-    "validation_issues": [],
+    "validation_issues": [
+      "Deadline 2026-07-15 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
@@ -1378,7 +1380,9 @@
     "verified": false,
     "hit": null,
     "verification_note": "Confidence is 45% \u2013 below 60% threshold.",
-    "validation_issues": [],
+    "validation_issues": [
+      "Deadline 2026-07-15 has passed without resolution"
+    ],
     "original_source": "pending"
   },
   {
