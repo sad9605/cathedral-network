@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-13T18:41:15.554483",
+  "timestamp": "2026-07-13T18:55:59.199820",
   "items": [
     {
       "title": "Green earthquake (Magnitude 6.3M, Depth:10km) in New Caledonia 13/07/2026 14:45 UTC, Few people affected in MMI V.",
@@ -56,15 +56,6 @@
       "impact": "Medium"
     },
     {
-      "title": "Trump reinstates Iran port blockade and vows 20% charge on cargo passing through Hormuz",
-      "description": "The US military later said it had started the third consecutive night of strikes on Iran.",
-      "link": "https://www.bbc.co.uk/news/articles/c8d2vn38dy1o?at_medium=RSS&at_campaign=rss",
-      "date": "Mon, 13 Jul 2026 22:47:52 GMT",
-      "source": "BBC News",
-      "category": "Positive",
-      "impact": "High"
-    },
-    {
       "title": "Wildfire raging south of Paris could have been set deliberately, says minister",
       "description": "The interior minister has said the fire near Paris could have been set deliberately and two people have been arrested.",
       "link": "https://www.bbc.co.uk/news/articles/clye4z168edo?at_medium=RSS&at_campaign=rss",
@@ -90,6 +81,15 @@
       "source": "BBC News",
       "category": "Negative",
       "impact": "Medium"
+    },
+    {
+      "title": "Three Palestinians killed, 15 wounded in Israeli attacks across Gaza",
+      "description": "Three Palestinians killed and 15 wounded in Israeli attacks across Gaza as ceasefire violations continue.",
+      "link": "https://www.aljazeera.com/news/2026/7/13/three-palestinians-killed-15-wounded-in-israeli-attacks-across-gaza?traffic_source=rss",
+      "date": "Mon, 13 Jul 2026 23:41:32 +0000",
+      "source": "Al Jazeera",
+      "category": "Negative",
+      "impact": "Critical"
     },
     {
       "title": "Lindsey Graham\u2019s legacy: Israel advocate, Trump ally, Iran war supporter",

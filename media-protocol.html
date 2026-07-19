@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{TITLE} — Cathedral Network</title>
+    <meta name="description" content="Cathedral Network Media Protocol — public communications standards." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+    <style>
+        /* ---------- RESET & TOKENS ---------- */
+        * {{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }}
+        :root {{
+            --bg-base: #090B10;
+            --bg-card: #12161C;
+            --bg-card-alt: #0D1117;
+            --border-card: #1E2633;
+            --text-primary: #E8EDF5;
+            --text-secondary: #94A3B8;
+            --violet: #8B5CF6;
+            --red: #EF4444;
+            --amber: #F59E0B;
+            --green: #10B981;
+            --radius: 8px;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }}
+        html {{
+            scroll-behavior: smooth;
+        }}
+        body {{
+            background: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            padding: 0 24px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }}
+
+        /* ---------- HEADER ---------- */
+        .global-header {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-card);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }}
+        .logo-area {{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--violet);
+        }}
+        .logo-area svg {{
+            height: 32px;
+            width: auto;
+            flex-shrink: 0;
+            display: block;
+            color: var(--violet);
+        }}
+        .logo-area a {{
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }}
+        .logo-area span {{
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }}
+        .nav-links {{
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }}
+        .nav-links a {{
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }}
+        .nav-links a:hover {{
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }}
+        .nav-links a.active {{
+            color: var(--violet);
+            background: rgba(139, 92, 246, 0.08);
+            font-weight: 500;
+        }}
+        .header-meta {{
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }}
+        .heartbeat {{
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--violet);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 4px;
+        }}
+        @keyframes pulse {{
+            0% {{ opacity: 1; transform: scale(1); }}
+            50% {{ opacity: 0.4; transform: scale(0.85); }}
+            100% {{ opacity: 1; transform: scale(1); }}
+        }}
+
+        /* ---------- PAGE HEADER ---------- */
+        .page-header {{
+            margin-bottom: 32px;
+        }}
+        .page-header h1 {{
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }}
+        .page-header .subhead {{
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }}
+        .page-header .meta {{
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            opacity: 0.6;
+        }}
+
+        /* ---------- CONTENT ---------- */
+        .content-section {{
+            margin: 1.5rem 0;
+        }}
+        .content-section h2 {{
+            font-size: 1.4rem;
+            font-weight: 600;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }}
+        .content-card {{
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }}
+        .content-card:hover {{
+            border-color: #2D3A4A;
+        }}
+        .content-card p {{
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }}
+        .content-card p + p {{
+            margin-top: 12px;
+        }}
+        .content-card .highlight {{
+            color: var(--text-primary);
+            font-weight: 500;
+        }}
+
+        /* ---------- FOOTER ---------- */
+        .global-footer {{
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-card);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }}
+        .footer-left {{
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }}
+        .footer-left a {{
+            color: var(--text-secondary);
+            text-decoration: none;
+        }}
+        .footer-left a:hover {{
+            color: var(--text-primary);
+        }}
+        .coco {{
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }}
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {{
+            body {{ padding: 0 16px 16px; }}
+            .global-header {{ flex-direction: column; align-items: stretch; gap: 12px; }}
+            .nav-links {{ justify-content: space-between; }}
+            .header-meta {{ justify-content: flex-start; font-size: 0.7rem; }}
+            .page-header h1 {{ font-size: 1.6rem; }}
+            .footer-left {{ gap: 16px; }}
+            .content-card {{ padding: 16px 18px; }}
+        }}
+        @media (max-width: 480px) {{
+            .nav-links a {{ padding: 4px 10px; font-size: 0.8rem; }}
+            .page-header h1 {{ font-size: 1.4rem; }}
+            .footer-left {{ flex-direction: column; align-items: flex-start; gap: 8px; }}
+        }}
+    </style>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="global-header">
+        <div class="logo-area">
+            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 130 L55 20 L60 5 L65 20 Z" fill="currentColor"/>
+                <circle cx="60" cy="25" r="2" fill="currentColor"/>
+                <circle cx="55" cy="40" r="2" fill="currentColor"/>
+                <circle cx="65" cy="40" r="2" fill="currentColor"/>
+                <circle cx="50" cy="55" r="2" fill="currentColor"/>
+                <circle cx="60" cy="55" r="2" fill="currentColor"/>
+                <circle cx="70" cy="55" r="2" fill="currentColor"/>
+                <circle cx="45" cy="70" r="2" fill="currentColor"/>
+                <circle cx="55" cy="70" r="2" fill="currentColor"/>
+                <circle cx="65" cy="70" r="2" fill="currentColor"/>
+                <circle cx="75" cy="70" r="2" fill="currentColor"/>
+                <circle cx="50" cy="85" r="2" fill="currentColor"/>
+                <circle cx="60" cy="85" r="2" fill="currentColor"/>
+                <circle cx="70" cy="85" r="2" fill="currentColor"/>
+                <circle cx="55" cy="100" r="2" fill="currentColor"/>
+                <circle cx="65" cy="100" r="2" fill="currentColor"/>
+                <path d="M60 25 L55 40 M60 25 L65 40 M55 40 L50 55 M65 40 L70 55" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.6"/>
+                <path d="M30 60 A30 30 0 1 1 90 60" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+            <a href="index.html">Cathedral<span>Network</span></a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="threat-matrix.html">Threats</a>
+            <a href="prediction-log.html">Log</a>
+            <a href="regional.html">Regions</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="about.html">About</a>
+            <a href="sources.html">Sources</a>
+            <a href="credits.html">Credits</a>
+            <a href="glossary.html">Glossary</a>
+            <a href="methodology.html">Methodology</a>
+            <a href="spotter.html">Spotter</a>
+        </nav>
+        <div class="header-meta">
+            <span><span class="heartbeat"></span> Live</span>
+            <span>Updated: <span id="updateTime">Loading…</span></span>
+        </div>
+    </header>
+
+    <!-- ============ PAGE CONTENT ============ -->
+    <div class="page-header">
+        <h1>Media Protocol</h1>
+        <div class="subhead">Public communications standards.</div>
+        <div class="meta" id="pageMeta">Media protocol.</div>
+    </div>
+
+    
+        <div class="content-section">
+            <div class="content-card">
+                <p><em>Media Protocol in development.</em></p>
+            </div>
+        </div>
+        
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="global-footer">
+        <div class="footer-left">
+            <span class="coco">Always and Forever, Coco. Always and Forever.</span>
+            <a href="corrections.xml">Corrections Feed (Law III)</a>
+            <a href="constitution.html">Constitution</a>
+        </div>
+        <div>
+            <span style="font-size:0.7rem;">v1.5.0 · <span id="ceres-hash">CERES: 0x7a3f…b1e2</span></span>
+        </div>
+    </footer>
+
+    <!-- ============ SCRIPTS ============ -->
+    <script>
+        document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        setInterval(() => {{
+            document.getElementById('updateTime').textContent = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+        }}, 60000);
+
+        async function updateCERES() {{
+            try {{
+                const response = await fetch('ceres_chain.json?t=' + Date.now());
+                const data = await response.json();
+                const chain = data.chain || [];
+                if (chain.length > 0) {{
+                    const lastHash = chain[chain.length - 1].chain_hash;
+                    const el = document.getElementById('ceres-hash');
+                    if (el) el.textContent = 'CERES: ' + lastHash.slice(0, 8) + '…' + lastHash.slice(-4);
+                }}
+            }} catch (e) {{ /* fallback to placeholder */ }}
+        }}
+        document.addEventListener('DOMContentLoaded', updateCERES);
+    </script>
+    
+</body>
+</html>

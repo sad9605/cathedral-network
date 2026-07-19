@@ -1,19 +1,19 @@
 {
   "brent": {
     "error": "Forecast failed",
-    "timestamp": "2026-07-13T18:41:33.280784"
+    "timestamp": "2026-07-13T18:56:09.751745"
   },
   "fao": {
     "point_forecast": 131.96,
     "probability_exceed": 0.0088,
     "likelihood_ratio": 1.0,
-    "timestamp": "2026-07-13T18:41:34.775512"
+    "timestamp": "2026-07-13T18:56:11.095367"
   },
   "fema": {
     "point_forecast": 125000000,
     "probability_exceed": 0.4,
     "likelihood_ratio": 2.2,
-    "timestamp": "2026-07-13T18:41:34.775982",
+    "timestamp": "2026-07-13T18:56:11.095670",
     "note": "Simulated \u2013 real FEMA data requires API key or scraping"
   }
 }
